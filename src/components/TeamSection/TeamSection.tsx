@@ -44,7 +44,7 @@ export default class TeamSection extends Component {
               responsive={responsive}
               ssr={false} // means to render carousel on server-side.
               infinite={true}
-              autoPlay={false}
+              autoPlay={true}
               autoPlaySpeed={4000}
               keyBoardControl={true}
               customTransition="all 0.7"
