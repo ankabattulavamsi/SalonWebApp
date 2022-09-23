@@ -44,7 +44,7 @@ export default class TeamSection extends Component {
               responsive={responsive}
               ssr={false} // means to render carousel on server-side.
               infinite={true}
-              autoPlay={true}
+              autoPlay={false}
               autoPlaySpeed={4000}
               keyBoardControl={true}
               customTransition="all 0.7"
@@ -55,39 +55,36 @@ export default class TeamSection extends Component {
             >
               {teamdata.map((team: TeamData) => {
                 return (
-                  <Box
+                  <Card
                     className="export-team"
                     sx={{
                       maxWidth: 345,
+
                       boxShadow: "1px 1px 20px #ccc",
                       borderRadius: "10px",
                       pb: 4,
                       mt: 20,
                       ml: "auto",
                       mr: "auto",
+                      overflow: "visible",
+                      alignSelf: "center",
                     }}
                     key={team.id}
                   >
-                    <CardMedia
-                      height={"385"}
-                      component={"img"}
-                      src={team.imgeUrl}
-                      sx={{
-                        display: "flex",
-                        objectFit: "contain",
-                        justifyContent: "center",
-                      }}
-                      alt={team.title}
-                    >
-                      {/* <img
-                        height="294"
+                    <>
+                      <CardMedia
+                        height={"385"}
+                        width={"385"}
+                        component={"img"}
                         src={team.imgeUrl}
-                        alt={team.title}
-                        style={{
-                          objectFit: "cover",
+                        sx={{
+                          display: "block",
+                          objectFit: "contain",
+                          justifyContent: "center",
                         }}
-                      /> */}
-                    </CardMedia>
+                        alt={team.title}
+                      ></CardMedia>
+                    </>
                     <CardContent
                       className="expert-team-content"
                       sx={{ bgcolor: "#FFF2E4", color: "black" }}
@@ -99,7 +96,7 @@ export default class TeamSection extends Component {
                         {team.position}
                       </Typography>
                     </CardContent>
-                  </Box>
+                  </Card>
                 );
               })}
             </Carousel>
