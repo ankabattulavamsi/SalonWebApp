@@ -9,7 +9,7 @@ class Offers extends Component {
       <div className="offers-main-container">
         <Container maxWidth="lg">
         <Grid container spacing={2}>
-            <Grid item lg={6} md={6} >
+            <Grid item lg={6} md={6} sm ={12}>
               <Card className="offers-single-offer-container">
                 <Grid item sm={8} className="offer-text-content">
                   <h1 className="offer-discount">30% off</h1>
@@ -20,7 +20,7 @@ class Offers extends Component {
                 </Grid>
               </Card>
             </Grid>
-            <Grid item lg={6} md={6}>
+            <Grid item lg={6} md={6} sm={12}>
               <Card className="second-offer-container">
                 <Grid item sm={8} className="offer-text-content">
                   <h1 className="offer-discount">30% off</h1>

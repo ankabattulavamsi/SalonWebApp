@@ -10,6 +10,9 @@
   border-radius: 20px !important;
   box-shadow: none;
   width: 100%;
+  background-repeat: no-repeat;
+  background-position: 100% ;
+  background-size: cover;
 }
 
 .offer-text-content {
@@ -22,10 +25,12 @@
   padding: 10px;
   width: 100px;
   font-size: 22px;
+  font-family: 'Praise';
+  text-align: center;
 }
 
 .offer-title {
-  font-family: "Fira sins";
+  font-family: "Fira sans";
   font-weight: 600;
   font-size: 26px;
   color: #272522;
@@ -47,4 +52,5 @@
   height: 280px;
   border-radius: 20px !important;
   width: 100%;
+  background-position: center center;
 }
