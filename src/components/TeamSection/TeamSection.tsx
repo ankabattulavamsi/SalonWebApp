@@ -73,9 +73,9 @@ export default class TeamSection extends Component {
                     }}
                     key={team.id}
                   >
-                    <Box sx={{ minHeight: 290 }}>
+                    <Box sx={{ minHeight: 310 }}>
                       <CardMedia
-                        height={"385"}
+                        height={"410"}
                         width={"385"}
                         component={"img"}
                         src={team.imgeUrl}
