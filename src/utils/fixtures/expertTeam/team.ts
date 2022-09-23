@@ -23,4 +23,16 @@ export const teamdata: TeamData[] = [
     position: "hiarcut  specialists",
     imgeUrl: require("../../../assets/images/expertTeamSection/member1.png"),
   },
+  {
+    id: 4,
+    title: "Jame Franco",
+    position: "hiarcut  specialists",
+    imgeUrl: require("../../../assets/images/expertTeamSection/member1.png"),
+  },
+  {
+    id: 5,
+    title: "Jame Franco",
+    position: "hiarcut  specialists",
+    imgeUrl: require("../../../assets/images/expertTeamSection/member1.png"),
+  },
 ];

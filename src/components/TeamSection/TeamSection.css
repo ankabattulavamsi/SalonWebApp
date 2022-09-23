@@ -1,0 +1,15 @@
+.export-team:hover img {
+  transition: linear 0.5s;
+  background: #ebb273 !important;
+}
+.export-team:hover .expert-team-content {
+  transition: linear 0.5s;
+
+  background-color: black !important;
+  color: #fff !important;
+}
+
+.export-team {
+  display: block;
+  min-height: fit-content;
+}
