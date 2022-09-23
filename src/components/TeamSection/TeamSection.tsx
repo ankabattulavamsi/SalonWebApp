@@ -59,19 +59,21 @@ export default class TeamSection extends Component {
                     className="export-team"
                     sx={{
                       maxWidth: 345,
-
+                      display: "block",
                       boxShadow: "1px 1px 20px #ccc",
                       borderRadius: "10px",
-                      pb: 4,
-                      mt: 20,
+
+                      mt: 25,
+                      mb: 5,
                       ml: "auto",
                       mr: "auto",
                       overflow: "visible",
                       alignSelf: "center",
+                      position: "relative",
                     }}
                     key={team.id}
                   >
-                    <>
+                    <Box sx={{ minHeight: 290 }}>
                       <CardMedia
                         height={"385"}
                         width={"385"}
@@ -79,15 +81,22 @@ export default class TeamSection extends Component {
                         src={team.imgeUrl}
                         sx={{
                           display: "block",
-                          objectFit: "contain",
+                          position: "absolute",
+                          top: "-100px",
+                          objectFit: "cover",
                           justifyContent: "center",
                         }}
                         alt={team.title}
                       ></CardMedia>
-                    </>
+                    </Box>
                     <CardContent
                       className="expert-team-content"
-                      sx={{ bgcolor: "#FFF2E4", color: "black" }}
+                      sx={{
+                        bgcolor: "#FFF2E4",
+                        color: "black",
+                        borderBottomLeftRadius: "10px",
+                        borderBottomRightRadius: "10px",
+                      }}
                     >
                       <Typography variant="h5" align="center">
                         {team.title}

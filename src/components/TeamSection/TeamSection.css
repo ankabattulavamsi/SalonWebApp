@@ -1,4 +1,4 @@
-.export-team:hover img {
+.export-team:hover {
   transition: linear 0.5s;
   background: #ebb273 !important;
 }
