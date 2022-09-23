@@ -1,0 +1,54 @@
+.about-us-section-container{
+    width: 100%;
+    height: auto;
+    background-color: #FDF6EF;
+    background-image: url('../../assets/images/AboutUsSection/Aboutus-background.png');
+    padding: 5%;
+    
+}
+
+.about-us-video-container {
+    width: 100%;
+}
+
+.about-us-text-container {
+    width: 100%;
+    font-family: 'Roboto';
+    margin: 0;
+}
+
+
+.about-us-heading {
+    color: #E7A356;
+    margin-bottom: 12px;
+    margin-top: 0;  
+    font-weight: 400;
+}
+
+.about-us-sub-heading {
+    color:#272522;
+    margin-bottom: 10px ;
+    margin-top: 0;
+    font-size: 40px;    
+    font-weight: 700;
+}
+
+.about-us-heading-icon {
+    background-color: #EBB273;
+    width: 40px;
+    height: 10px;
+    margin-bottom: 50px;
+}
+
+.about-us-description {
+   color: #88878F;
+   font-size: 20px;
+   margin-bottom: 3rem;
+}
+
+
+@media screen and (max-width: 900px) {
+    .about-us-heading  {
+        margin-top: 20px;
+    }
+}
