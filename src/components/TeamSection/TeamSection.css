@@ -5,6 +5,34 @@
 .export-team:hover .expert-team-content {
   transition: linear 0.5s;
 
-  background-color: black !important;
+  background-color: #272522 !important;
   color: #fff !important;
+}
+
+.react-multiple-carousel__arrow .react-multiple-carousel__.arrow--right {
+  background: #ebb273 !important;
+}
+.react-multiple-carousel__arrow::before {
+  background-color: #272522;
+  width: 44px;
+  height: 79px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex !important;
+  align-items: center;
+  align-self: center;
+  margin: auto;
+  justify-content: center;
+}
+.react-multiple-carousel__arrow {
+  background-color: transparent !important;
+  margin-top: 10%;
+}
+.react-multiple-carousel__arrow--right {
+  right: calc(0% + 1px) !important;
+}
+.react-multiple-carousel__arrow--left {
+  left: calc(0% + 1px) !important;
 }

@@ -1,13 +1,4 @@
-import {
-  Box,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  IconButton,
-  Typography,
-} from "@mui/material";
+import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import "./TeamSection.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
