@@ -16,7 +16,9 @@ export default class DownloadAdvertiementSection extends Component {
       <Box
         className="section-download"
         sx={{
-          background: `url(${bgImage}) no-repeat cover`,
+          background: `url(${bgImage}) no-repeat`,
+          backgroundSize: "cover",
+          width: "100%",
           overflow: { xs: "hidden", md: "visible" },
           height: { xs: "auto", md: "526px" },
           mb: 20,
