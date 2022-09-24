@@ -26,6 +26,9 @@
   margin: auto;
   justify-content: center;
 }
+.export-team {
+  margin-top: 35% !important;
+}
 .react-multiple-carousel__arrow {
   background-color: transparent !important;
   margin-top: 10%;

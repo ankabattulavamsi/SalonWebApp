@@ -25,7 +25,7 @@ const responsive = {
 export default class TeamSection extends Component {
   render() {
     return (
-      <Box>
+      <Box sx={{ mt: 5 }}>
         <Container>
           <>
             <Carousel
@@ -53,8 +53,7 @@ export default class TeamSection extends Component {
                       display: "block",
                       boxShadow: "1px 1px 20px #ccc",
                       borderRadius: "10px",
-
-                      mt: 25,
+                 
                       mb: 5,
                       ml: "auto",
                       mr: "auto",
