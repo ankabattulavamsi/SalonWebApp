@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import ButtonCust from "../common/DownloadButton/ButtonCust";
 import {
   appleImage,
+  bgImage,
   googleImage,
   mobileImage,
 } from "../../utils/fixtures/downloadApp/download";
@@ -12,8 +13,16 @@ import {
 export default class DownloadAdvertiementSection extends Component {
   render() {
     return (
-      <Box className="section-download">
-        <Container maxWidth="lg">
+      <Box
+        className="section-download"
+        sx={{
+          background: `url(${bgImage}) no-repeat`,
+          overflow: { xs: "hidden", md: "visible" },
+          height: { xs: "auto", md: "526px" },
+          mb: 20,
+        }}
+      >
+        <Container maxWidth="lg" sx={{ mt: 8 }}>
           <Grid container columnSpacing={2}>
             <Grid item md={6} sm={11}>
               <>
@@ -66,17 +75,20 @@ export default class DownloadAdvertiementSection extends Component {
               <>
                 <Box
                   sx={{
-                    mt: { xs: 10, md: 0 },
-                    mx: "auto",
-                    marginLeft: { xs: "-66px", md: 0 },
+                    mt: { xs: 10, sm: 20, md: 5, lg: 0 },
+
+                    marginLeft: "-66px",
                   }}
                 >
                   <img
                     src={mobileImage}
                     alt="mobile"
                     loading="lazy"
-                    width={"100%"}
-                    height="100%"
+                    width={"120%"}
+                    height="150%"
+                    style={{
+                      marginLeft: "-66px",
+                    }}
                   />
                 </Box>
               </>
