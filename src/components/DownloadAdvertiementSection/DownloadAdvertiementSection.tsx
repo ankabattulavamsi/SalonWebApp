@@ -41,6 +41,7 @@ export default class DownloadAdvertiementSection extends Component {
                     display: "flex",
                     justifyContent: "left",
                     gap: "4px",
+                    flexWrap: { xs: "wrap", sm: "nowrap" },
                     mt: 5,
                   }}
                 >
@@ -63,7 +64,13 @@ export default class DownloadAdvertiementSection extends Component {
             </Grid>
             <Grid item md={6} sm={11}>
               <>
-                <Box sx={{ mx: "auto" }}>
+                <Box
+                  sx={{
+                    mt: { xs: 10, md: 0 },
+                    mx: "auto",
+                    marginLeft: { xs: "-66px", md: 0 },
+                  }}
+                >
                   <img
                     src={mobileImage}
                     alt="mobile"

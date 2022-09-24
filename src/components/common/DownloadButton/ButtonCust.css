@@ -9,9 +9,9 @@
 
 .button-custom-style {
   display: flex;
-  width: 40%;
-  padding: 23px auto !important;
-  flex-wrap: wrap;
+  justify-content: space-evenly !important;
+ 
+  align-items: center;
 }
 
 .para-button {

@@ -23,6 +23,8 @@ export default class ButtonCust extends Component<ButtonProps, ButtonState> {
         sx={{
           color: color,
           bgcolor: bgColor,
+          width: { xs: "100%", sm: "40%" },
+          
           ":hover": {
             color: color,
             bgcolor: bgColor,
@@ -30,7 +32,7 @@ export default class ButtonCust extends Component<ButtonProps, ButtonState> {
         }}
       >
         {avatar && (
-          <Box sx={{ width: "22%" }}>
+          <Box sx={{ width: { xs: "15%", sm: "20%" } }}>
             <Avatar
               src={avatar}
               className="avatar-button"
@@ -38,7 +40,15 @@ export default class ButtonCust extends Component<ButtonProps, ButtonState> {
             />
           </Box>
         )}
-        <Box sx={{ display: "grid" }}>
+        <Box
+          sx={{
+            display: {
+              xs: "grid",
+              sm: "grid",
+              width: { xs: "80%", sm: "75%" },
+            },
+          }}
+        >
           <Typography
             variant="caption"
             className="para-button"
