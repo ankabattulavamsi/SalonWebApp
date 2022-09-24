@@ -1,6 +1,7 @@
 import React from "react";
 import Categories from "../../components/Categories/Categories";
 import DownloadAdvertiementSection from "../../components/DownloadAdvertiementSection/DownloadAdvertiementSection";
+import TestimonialSection from "../../components/TestimonialSection/TestimonialSection";
 import TeamSection from "./../../components/TeamSection/TeamSection";
 
 export default function HomePage() {
@@ -18,6 +19,9 @@ export default function HomePage() {
       </div>
       <div id="teamsection">
         <TeamSection />
+      </div>
+      <div id="testimonialsection">
+        <TestimonialSection />
       </div>
     </>
   );

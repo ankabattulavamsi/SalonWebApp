@@ -37,3 +37,11 @@
   padding-top: 30px;
   padding-bottom: 10px;
 }
+
+.image-download {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 110%;
+  height: 130%;
+}

@@ -17,16 +17,15 @@ export default class DownloadAdvertiementSection extends Component {
         className="section-download"
         sx={{
           background: `url(${bgImage}) no-repeat`,
-          backgroundSize: "cover",
+          backgroundSize: { xs: "cover", md: "cover" },
+          backgroundPosition: { xs: "19%  center", md: "center center" },
           width: "100%",
-          overflow: { xs: "hidden", md: "visible" },
-          height: { xs: "auto", md: "526px" },
-          mb: 20,
+          mb: 25,
         }}
       >
         <Container maxWidth="lg" sx={{ mt: 8 }}>
           <Grid container columnSpacing={2}>
-            <Grid item md={6} sm={11}>
+            <Grid item md={6} sm={12} xs={11}>
               <>
                 <Box>
                   <Typography
@@ -73,24 +72,20 @@ export default class DownloadAdvertiementSection extends Component {
                 </Box>
               </>
             </Grid>
-            <Grid item md={6} sm={11}>
+            <Grid item md={6} sm={12} xs={12}>
               <>
                 <Box
                   sx={{
                     mt: { xs: 10, sm: 20, md: 5, lg: 0 },
-
-                    marginLeft: "-66px",
+                    minHeight: { xs: "250px", sm: "300px", md: "400px" },
+                    position: "relative",
                   }}
                 >
                   <img
                     src={mobileImage}
                     alt="mobile"
                     loading="lazy"
-                    width={"120%"}
-                    height="150%"
-                    style={{
-                      marginLeft: "-66px",
-                    }}
+                    className="image-download"
                   />
                 </Box>
               </>
