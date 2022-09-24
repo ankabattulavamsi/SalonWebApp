@@ -77,8 +77,10 @@ export default class DownloadAdvertiementSection extends Component {
                 <Box
                   sx={{
                     mt: { xs: 10, sm: 20, md: 5, lg: 0 },
-                    minHeight: { xs: "250px", sm: "300px", md: "400px" },
+                    minHeight: { xs: "260px", sm: "300px", md: "400px" },
+                    width: { xs: "90%", sm: "408px", md: "478px" },
                     position: "relative",
+                    mx: "auto",
                   }}
                 >
                   <img
