@@ -1,5 +1,6 @@
 import React from "react";
 import Categories from "../../components/Categories/Categories";
+import DownloadAdvertiementSection from "../../components/DownloadAdvertiementSection/DownloadAdvertiementSection";
 import TeamSection from "./../../components/TeamSection/TeamSection";
 
 export default function HomePage() {
@@ -11,6 +12,9 @@ export default function HomePage() {
         style={{ height: "900px", backgroundColor: "yellow" }}
       >
         <Categories />
+      </div>
+      <div id="downloadsection">
+        <DownloadAdvertiementSection />
       </div>
       <div id="teamsection">
         <TeamSection />

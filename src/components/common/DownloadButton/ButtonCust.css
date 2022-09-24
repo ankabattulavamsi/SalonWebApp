@@ -1,0 +1,40 @@
+.button-custom-style {
+  border-radius: 10px;
+}
+
+/* .avatar-button {
+  height: 10;
+  width: 10;
+} */
+
+.button-custom-style {
+  display: flex;
+  width: 40%;
+  padding: 23px auto !important;
+  flex-wrap: wrap;
+}
+
+.para-button {
+  font-family: "Fira Sans";
+  font-style: normal;
+  font-weight: 600;
+
+  line-height: 48px;
+  /* identical to box height, or 343% */
+
+  text-transform: capitalize;
+
+  color: #ffffff;
+}
+.heding-button {
+  font-family: "Fira Sans";
+  font-style: normal;
+  font-weight: 700;
+
+  line-height: 48px;
+  /* identical to box height, or 218% */
+
+  text-transform: capitalize;
+
+  color: #ffffff;
+}

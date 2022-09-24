@@ -39,13 +39,13 @@ export default class TeamSection extends Component {
               letterSpacing: "-0.01rem",
               textTransform: "capitalize",
               color: "#272522",
-              fontFamily:"Fira sans"
+              fontFamily: "Fira sans",
             }}
           >
             Our Expert Team
           </Typography>
         </Box>
-        <Container>
+        <Container maxWidth="lg">
           <>
             <Carousel
               swipeable={false}
@@ -59,20 +59,20 @@ export default class TeamSection extends Component {
               keyBoardControl={true}
               customTransition="all 0.7"
               transitionDuration={700}
-              containerClass="carousel-container"
+              containerClass="container"
               deviceType={"mobile  | tablet"}
               dotListClass="custom-dot-list-style"
             >
-              {teamdata.map((team: TeamData) => {
+              {teamdata.map((team: TeamData, index: number) => {
                 return (
                   <Card
+                    key={index}
                     className="export-team"
                     sx={{
                       maxWidth: 345,
                       display: "block",
                       boxShadow: "1px 1px 20px #ccc",
                       borderRadius: "10px",
-
                       mb: 5,
                       ml: "auto",
                       mr: "auto",
@@ -80,7 +80,6 @@ export default class TeamSection extends Component {
                       alignSelf: "center",
                       position: "relative",
                     }}
-                    key={team.id}
                   >
                     <Box sx={{ minHeight: 310 }}>
                       <CardMedia

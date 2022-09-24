@@ -49,3 +49,7 @@
   text-align: center;
   margin: 10px auto;
 }
+.custom-dot-list-style button {
+  border: #ebb273 solid 2px !important;
+  padding: 2px;
+}
