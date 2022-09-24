@@ -39,3 +39,13 @@
 .react-multiple-carousel__arrow--left {
   left: calc(0% + 1px) !important;
 }
+
+.underline--our-expert-team::after {
+  content: "";
+  width: 29px;
+  height: 5px;
+  display: block;
+  background-color: #ebb273;
+  text-align: center;
+  margin: 10px auto;
+}

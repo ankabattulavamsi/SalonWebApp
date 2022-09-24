@@ -26,6 +26,25 @@ export default class TeamSection extends Component {
   render() {
     return (
       <Box sx={{ mt: 5 }}>
+        <Box>
+          <Typography
+            variant="h3"
+            className="underline--our-expert-team"
+            component={"h3"}
+            sx={{
+              fontSize: { xs: "20px", sm: "35px" },
+              fontWeight: "700",
+              textAlign: "center",
+              lineHeight: "48px",
+              letterSpacing: "-0.01rem",
+              textTransform: "capitalize",
+              color: "#272522",
+              fontFamily:"Fira sans"
+            }}
+          >
+            Our Expert Team
+          </Typography>
+        </Box>
         <Container>
           <>
             <Carousel
@@ -53,7 +72,7 @@ export default class TeamSection extends Component {
                       display: "block",
                       boxShadow: "1px 1px 20px #ccc",
                       borderRadius: "10px",
-                 
+
                       mb: 5,
                       ml: "auto",
                       mr: "auto",
@@ -66,7 +85,7 @@ export default class TeamSection extends Component {
                     <Box sx={{ minHeight: 310 }}>
                       <CardMedia
                         height={"410"}
-                        width={"385"}
+                        width={"90%"}
                         component={"img"}
                         src={team.imgeUrl}
                         sx={{
