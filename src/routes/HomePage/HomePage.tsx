@@ -1,7 +1,7 @@
 import React from "react";
-import AboutUs from "../../components/AboutUs/AboutUs";
+import AboutUs from "../../components/AboutUsSection/AboutUs";
 import Categories from "../../components/Categories/Categories";
-import Offers from "../../components/Offers/Offers";
+import Offers from "../../components/OffersSection/Offers";
 import TeamSection from "./../../components/TeamSection/TeamSection";
 
 export default function HomePage() {
@@ -20,7 +20,9 @@ export default function HomePage() {
       >
         <TeamSection />
       </div>
+
       <AboutUs />
+
       <Offers />
     </>
   );
