@@ -18,6 +18,7 @@ export default class DownloadAdvertiementSection extends Component {
         sx={{
           background: `url(${bgImage}) no-repeat`,
           backgroundSize: { xs: "cover", md: "cover" },
+          backgroundAttachment: "fixed",
           backgroundPosition: { xs: "19%  center", md: "center center" },
           width: "100%",
           mb: 25,

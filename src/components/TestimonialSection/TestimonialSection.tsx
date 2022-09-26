@@ -1,7 +1,12 @@
-import { Box, Grid } from "@mui/material";
+import { Avatar, Box, Grid, Typography } from "@mui/material";
 import React from "react";
-import { bgImage } from "../../utils/fixtures/testomonialSection/test";
-
+import {
+  bgColorImage,
+  bgImage,
+  TestmonialData,
+  testmonialData,
+} from "../../utils/fixtures/testomonialSection/test";
+import "./TestimonialSection.css";
 interface TestimonialSectionProps {}
 
 interface TestimonialSectionState {}
@@ -23,15 +28,50 @@ class TestimonialSection extends React.Component<
               <Box
                 sx={{
                   bgcolor: "#EBB273",
-                  background: `linear-gradient(180deg, #EBB273  , rgba(0,0,0,0.08), transparent),url(${bgImage}) no-repeat`,
+                  background: `url(${bgImage}) no-repeat`,
                   height: "40vh",
                   backgroundSize: "cover",
                   width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
-              ></Box>
+              >
+                <Typography
+                  variant="h3"
+                  component={"h3"}
+                  className="underline-testimonials"
+                  sx={{
+                    fontSize: "35px",
+                  }}
+                >
+                  Testimonials
+                </Typography>
+              </Box>
             </Grid>
             <Grid item xs={12}>
-              new box
+              <Box
+                sx={{
+                  bgcolor: "#EBB273",
+                  background: `url(${bgColorImage}) no-repeat`,
+                  height: "40vh",
+                  backgroundSize: "cover",
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                {testmonialData.map((testm: TestmonialData, index: number) => {
+                  return (
+                    <Box key={testm.id}>
+                      <Box>
+                        <Avatar src={testm.imageUrl} alt={testm.title} />
+                      </Box>
+                    </Box>
+                  );
+                })}
+              </Box>
             </Grid>
           </Grid>
         </Box>

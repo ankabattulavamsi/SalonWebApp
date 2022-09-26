@@ -32,4 +32,5 @@ export const testmonialData: TestmonialData[] = [
   },
 ];
 
-export const bgImage :string = require("../../../assets/images/TestomonialSection/bg.png")
+export const bgImage: string = require("../../../assets/images/TestomonialSection/bg.png");
+export const bgColorImage: string = require("../../../assets/images/TestomonialSection/bg_color.png");
