@@ -2,7 +2,8 @@ export interface TestmonialData {
   id: number;
   title: string;
   type: string;
-  imageUrl: any;
+  imageUrl: string;
+  comments: string;
 }
 
 export const testmonialData: TestmonialData[] = [
@@ -11,24 +12,52 @@ export const testmonialData: TestmonialData[] = [
     title: "Tony Shaw",
     type: "customer",
     imageUrl: require("../../../assets/images/TestomonialSection/testMemmebr1.png"),
+    comments: `
+    Lorem ipsum dolor sit amet consectetur
+     adipisicing elit. Laborum sunt aliquam cum.
+      Dignissimos id quod quas aut aperiam perferendis, 
+      a quaerat! Incidunt non culpa fugit voluptas esse. 
+      Exercitationem, vitae laboriosam.
+    `,
   },
   {
     id: 2,
     title: "jenny Shaw",
     type: "customer",
     imageUrl: require("../../../assets/images/TestomonialSection/testMember2.png"),
+    comments: `
+    Lorem ipsum dolor sit amet consectetur
+     adipisicing elit. Laborum sunt aliquam cum.
+      Dignissimos id quod quas aut aperiam perferendis, 
+      a quaerat! Incidunt non culpa fugit voluptas esse. 
+      Exercitationem, vitae laboriosam.
+    `,
   },
   {
     id: 3,
-    title: "jenny low",
+    title: "jenny shaw",
     type: "customer",
     imageUrl: require("../../../assets/images/TestomonialSection/testMemmebr1.png"),
+    comments: `
+Lorem ipsum dolor sit amet consectetur
+ adipisicing elit. Laborum sunt aliquam cum.
+  Dignissimos id quod quas aut aperiam perferendis, 
+  a quaerat! Incidunt non culpa fugit voluptas esse. 
+  Exercitationem, vitae laboriosam.
+`,
   },
   {
     id: 4,
-    title: "jenny low",
+    title: "tonnyt low",
     type: "customer",
     imageUrl: require("../../../assets/images/TestomonialSection/testMember2.png"),
+    comments: `
+    Lorem ipsum dolor sit amet consectetur
+     adipisicing elit. Laborum sunt aliquam cum.
+      Dignissimos id quod quas aut aperiam perferendis, 
+      a quaerat! Incidunt non culpa fugit voluptas esse. 
+      Exercitationem, vitae laboriosam.
+    `,
   },
 ];
 

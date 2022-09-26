@@ -1,5 +1,8 @@
-import { Avatar, Box, Grid, Typography } from "@mui/material";
+import { Avatar, Box, Card, Grid, Typography } from "@mui/material";
+import { Container } from "@mui/system";
 import React from "react";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import {
   bgColorImage,
   bgImage,
@@ -7,8 +10,7 @@ import {
   testmonialData,
 } from "../../utils/fixtures/testomonialSection/test";
 import "./TestimonialSection.css";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+
 interface TestimonialSectionProps {}
 
 interface TestimonialSectionState {}
@@ -16,8 +18,8 @@ interface TestimonialSectionState {}
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1113 },
-    items: 3,
-    slidesToSlide: 3, // optional, default to 1.
+    items: 2,
+    slidesToSlide: 1, // optional, default to 1.
   },
   tablet: {
     breakpoint: { max: 1113, min: 763 },
@@ -51,6 +53,8 @@ class TestimonialSection extends React.Component<
                   background: `url(${bgImage}) no-repeat`,
                   height: "40vh",
                   backgroundSize: "cover",
+                  backgroundPosition: "center center",
+                  overflow: "hidden",
                   width: "100%",
                   display: "flex",
                   justifyContent: "center",
@@ -67,49 +71,79 @@ class TestimonialSection extends React.Component<
                 >
                   Testimonials
                 </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12}>
-              <Box
-                sx={{
-                  bgcolor: "#EBB273",
-                  background: `url(${bgColorImage}) no-repeat`,
-                  height: "40vh",
-                  backgroundSize: "cover",
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Carousel
-                  swipeable={false}
-                  draggable={false}
-                  showDots
-                  responsive={responsive}
-                  ssr={false} // means to render carousel on server-side.
-                  infinite
-                  autoPlay
-                  autoPlaySpeed={4000}
-                  keyBoardControl={true}
-                  customTransition="all 0.7"
-                  transitionDuration={700}
-                  containerClass="container"
-                  deviceType={"mobile  | tablet"}
-                  dotListClass="custom-dot-list-style"
-                >
-                  {testmonialData.map(
-                    (testm: TestmonialData, index: number) => {
-                      return (
-                        <Box key={testm.id}>
-                          <Box>
-                            <Avatar src={testm.imageUrl} alt={testm.title} />
-                          </Box>
-                        </Box>
-                      );
-                    }
-                  )}
-                </Carousel>
+
+                <Box>
+                  <Container
+                    maxWidth="lg"
+                    sx={{ display: "grid", height: "100%" }}
+                  >
+                    <Carousel
+                      swipeable={false}
+                      draggable={false}
+                      showDots={true}
+                      responsive={responsive}
+                      ssr={false} // means to render carousel on server-side.
+                      infinite={true}
+                      autoPlay={false}
+                      autoPlaySpeed={1000}
+                      customTransition="all .5"
+                      transitionDuration={500}
+                      arrows={false}
+                    >
+                      {testmonialData.map(
+                        (testm: TestmonialData, index: number) => {
+                          return (
+                            <Box
+                              key={testm.id}
+                              sx={{
+                                display: "flex",
+                                justifyContent: "space-evenly",
+                              }}
+                            >
+                              <Box
+                                sx={{
+                                  position: "relative",
+                                }}
+                              >
+                                <Box
+                                  sx={{
+                                    position: "absolute",
+                                    top: "-500%",
+                                    width: "555px",
+                                    left: 0,
+                                    zIndex: 100,
+                                    overflow: "visible",
+                                  }}
+                                >
+                                  <Card
+                                    sx={{
+                                      maxWidth: "100%",
+                                      minHeight: "406px",
+                                    }}
+                                  >
+                                    <Typography>{testm.comments}</Typography>
+                                  </Card>{" "}
+                                </Box>
+                                <Avatar
+                                  src={testm.imageUrl}
+                                  alt={testm.title}
+                                  sx={{
+                                    width: "90px",
+                                    height: "90px",
+                                  }}
+                                />
+                              </Box>
+                              <Box>
+                                <Typography>{testm.title}</Typography>
+                                <Typography>{testm.type}</Typography>
+                              </Box>
+                            </Box>
+                          );
+                        }
+                      )}
+                    </Carousel>
+                  </Container>
+                </Box>
               </Box>
             </Grid>
           </Grid>
