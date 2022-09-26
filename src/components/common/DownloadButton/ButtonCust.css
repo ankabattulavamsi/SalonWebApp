@@ -1,5 +1,5 @@
 .button-custom-style {
-  border-radius: 10px;
+  border-radius: 10px !important;
 }
 
 /* .avatar-button {
@@ -10,7 +10,7 @@
 .button-custom-style {
   display: flex;
   justify-content: space-evenly !important;
- 
+
   align-items: center;
 }
 

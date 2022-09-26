@@ -71,7 +71,7 @@ export default class TeamSection extends Component {
                     sx={{
                       maxWidth: 345,
                       display: "block",
-                      boxShadow: "1px 1px 20px #ccc",
+                      boxShadow: "none",
                       borderRadius: "10px",
                       mb: 5,
                       ml: "auto",
