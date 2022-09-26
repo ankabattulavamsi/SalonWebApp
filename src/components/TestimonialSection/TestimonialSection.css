@@ -7,19 +7,14 @@
   text-align: center;
   margin: 10px auto;
 }
-
 .underline-testimonials {
   color: #ffffff;
   font-family: "Fira Sans";
   font-style: normal;
   font-weight: 700;
-
   line-height: 48px;
-  /* identical to box height, or 137% */
-
   text-align: center;
   letter-spacing: -0.01em;
   text-transform: capitalize;
-
   color: #ffffff;
 }
