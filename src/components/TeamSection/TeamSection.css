@@ -53,3 +53,17 @@
   border: #ebb273 solid 2px !important;
   padding: 2px;
 }
+
+@media only screen and (min-width: 0px) {
+  .react-multiple-carousel__arrow {
+    opacity: 0 !important;
+  }
+  .react-multi-carousel-list:hover .react-multiple-carousel__arrow {
+    opacity: 1 !important;
+  }
+}
+@media only screen and (min-width: 760px) {
+  .react-multiple-carousel__arrow {
+    opacity: 1 !important;
+  }
+}
