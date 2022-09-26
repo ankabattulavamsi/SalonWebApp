@@ -1,24 +1,7 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-}
-
-.main-div {
-  background: url("../../assets/images/Carousel/bg.jpg"),
-    linear-gradient(rgb(9, 9, 26), rgb(9, 9, 26));
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex !important;
-  justify-content: space-evenly;
-  overflow: visible !important;
-  width: 100%;
-  margin: auto;
-  height: 300px;
-  /* padding: auto; */
-  position: relative;
-  border-radius: 8px !important;
-  z-index: 0;
-  
-  
 }
 
 .slick-list {
@@ -37,52 +20,12 @@
   content: "";
 }
 
-.grid-item {
-  flex: 0 0 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-}
-
-.bottle {
-  position: absolute;
-  top: 2rem;
-  margin-bottom: -25%;
-  z-index: 1;
-}
-
-.see-all-btn {
-  box-sizing: border-box !important;
-  width: 190px;
-  height: 60px;
-  border: 2px solid #e7a356 !important;
-  border-radius: 5px;
-  text-decoration: underline !important;
-  font-family: Fira Sans !important;
-  font-style: normal;
-  font-weight: 700 !important;
-  font-size: 18px !important;
-  line-height: 22px;
-  text-transform: capitalize !important;
-  color: #ffffff !important;
-}
-
-.headings {
-  margin-left: -4rem !important;
-}
-
-.div {
-  overflow: visible !important;
-  z-index: -1;
-}
-
 .circle {
   height: 15rem;
   width: 15rem;
   margin-top: 3rem;
   display: flex;
+  color: #e7a356;
 }
 
 .Banner .slick-prev {
@@ -96,7 +39,7 @@
 }
 
 .Banner .slick-dots {
-  top: 270px;
+  top: 404px;
   color: rgba(255, 255, 255, 1);
   margin-left: -35px;
 }
@@ -119,97 +62,160 @@
   font-size: 10px;
 }
 
-.heading {
-  font-family: "Roboto" !important;
-  color: white !important;
-  margin-left: -20px !important;
-  margin-top: 35px !important;
-  text-decoration: underline !important;
+.main-div {
+  background: url("../../assets//images/Carousel/bg.jpg"),
+    linear-gradient(rgb(9, 9, 26), rgb(9, 9, 26));
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+  overflow: visible !important;
+  width: 100%;
+  margin: auto;
+  height: 400px;
+  margin-top: 35px;
+  position: relative;
+  border-radius: 18px;
+  z-index: 0;
 }
 
-.desc {
-  font-family: "Roboto" !important;
-  color: "white" !important;
-  text-decoration: underline !important;
-  font-size: 15px !important;
-  font-weight: 400 !important;
-  margin-top: 2px !important;
-  margin-left: 5rem !important;
-  text-transform: capitalize;
-  line-height: 26px !important;
-  color: rgb(188, 188, 188) !important;
-  width: 390px !important;
+.text {
+  width: 568px;
+  height: 196px;
+  display: flex;
+  position: relative;
+  top: 64px;
+  left: 92px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
 }
-
-#salonImg {
-  margin-left: -45px;
+.img {
+  /* background-color: blue; */
+  position: relative;
+  right: 151px;
+  top: 20px;
+  width: 532px;
+  height: 389px;
+  z-index: 100;
+}
+.bottleImg {
   width: 250px;
   height: 268px;
 }
+.text .heading {
+  font-family: "Fira Sans";
+  font-style: normal;
+  font-weight: 700;
+  text-align: left !important;
+  font-size: 40px !important;
+  line-height: 47px !important;
+  text-transform: capitalize;
+  color: #ffffff;
+  align-self: flex-start;
+}
+.text .desc {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 40px;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  color: #ffffff;
+  opacity: 0.6;
+  align-self: flex-start;
+  margin-top: 11px;
+}
+.text .btn {
+  position: absolute;
+  left: 0;
+  font-family: "Fira Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: capitalize;
+  color: #ffffff;
+  width: 190px;
+  height: 60px;
+  border: 2px solid #e7a356;
+  border-radius: 5px;
+  margin-top: 12px;
+}
 
 @media only screen and (max-width: 600px) {
-  .Banner {
-    margin-top: 50px !important;
-  }
   .main-div {
     padding: 20px;
-    border-radius: 18px;
+    border-radius: 8px;
     /* margin-top: 35px; */
     display: flex !important;
     width: 100% !important;
     height: 186px;
   }
-  .see-all-btn {
-    width: 132.08px;
-    height: 32.75px;
-    border: 2px solid #e7a356;
-    border-radius: 2px;
-    font-family: "Fira Sans";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 13px !important;
-    line-height: 16px;
-    letter-spacing: 0.01em;
-    margin-left: 25px !important;
+
+  /* .bottle {
+      position: absolute;
+      top: 2rem;
+      margin-bottom: -25%;
+      z-index: 1;
+    } */
+  .text {
+    position: relative;
+    top: 60px;
+    left: 20px;
+  }
+  .img {
+    /* background-color: blue; */
+    position: relative;
+    right: 15px;
+    top: 132px;
+    width: 350px !important;
+    height: 389px;
+    z-index: 100;
+  }
+  .text .heading {
+    font-family: "Fira Sans" !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 19px !important;
+    line-height: 22px !important;
+    text-transform: capitalize;
     color: #ffffff;
   }
-  .bottle {
-    position: absolute;
-    top: 2rem;
-    margin-bottom: -25%;
-    z-index: 1;
-  }
 
-  .heading {
-    margin-left: 33px !important;
-  }
-
-  .desc {
-    font-size: 17px !important;
-    line-height: 20px !important;
-    margin-left: 0px !important;
+  .text .desc {
     width: 220px !important;
+    font-family: "Roboto" !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+    line-height: 12px !important;
+    text-transform: lowercase;
+    color: #ffffff;
+    opacity: 0.7;
   }
 
-  .btn {
-    margin-left: 30px !important;
-    display: none !important;
+  .text .btn {
+    font-family: "Fira Sans" !important;
+    font-style: normal !important;
+   
+    font-size: 13px !important;
+    line-height: 16px !important;
+    letter-spacing: 0.01em !important;
+    text-transform:  capitalize !important;
+    color: #ffffff;
+    border: 2px solid #e7a356;
+    border-radius: 2px;
+    width: 130px;
+    height: 32.75px;
   }
 
-  #salonImg {
-    width: 115px;
+  #bottleImg {
+    width: 160px;
     height: 155px;
-    margin-left: 9%;
-    margin-top: -3px;
-  }
-
-  #description {
-    font-size: 15px !important;
-    width: 194px !important;
-    margin-left: 50px !important;
-    height: 50px !important;
-    margin-top: 8px !important;
-    line-height: 15px !important;
   }
 
   #pev {
@@ -230,92 +236,53 @@
     margin-right: -4%;
   }
 
-  .heading {
-    width: 213px;
-    height: 24px;
-    font-size: 22px !important;
-    line-height: 26px !important;
-    margin-left: 70px !important;
-    margin-top: 10px !important;
-  }
-
   .Banner .slick-dots {
-    top: 160px;
+    top: 170px;
+
     margin-left: -10px;
     color: rgba(255, 255, 255, 1);
   }
 }
 
-@media only screen and (min-width: 768px) {
-  .Banner {
-    margin-top: 50px !important;
-  }
-
+@media (min-width: 768px) and (max-width: 920px) {
   .main-div {
-    border-radius: 18px;
-    margin-top: 45px;
+    border-radius: 8px;
     width: 100%;
-    height: 300px;
+    height: 330px;
   }
 
-  .bottle {
-    position: absolute;
-    top: 2rem;
-    margin-bottom: -25%;
-    z-index: 1;
-  }
-  .see-all-btn {
-    width: 145px;
-    height: 37px;
-    border: 2px solid #e7a356;
-    border-radius: 2px;
-    font-family: "Fira Sans";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px !important;
-    line-height: 16px;
-    letter-spacing: 0.01em;
-    margin-left: 15px !important;
-    color: #ffffff;
+  .text .btn {
+    margin-top: 10px !important;
+    height: 60px !important;
+    text-decoration: underline;
   }
 
-  .btn {
-    margin-left: 94px !important;
+  #bottleImg {
+    width: 380px;
+    height: 340px;
   }
 
-  #salonImg {
-    margin-left: -35%;
-    width: 200px;
-    height: 270px;
+  .text {
+    position: relative;
+    top: 34px;
+    left: 52px;
+  }
+  .text .heading {
+    font-size: 22px !important;
+
+    line-height: 30px !important;
   }
 
-  .headings {
-    margin-left: -3rem !important;
-  }
-
-  .heading {
-    font-size: 42px !important;
-    line-height: 26px !important;
-    margin-left: -281% !important;
-    margin-top: 30px !important;
-    line-height: 80px !important;
-  }
-
-  .desc {
-    line-height: 31px !important;
-    margin-left: 130px !important;
-    width: 365px !important;
+  .text .desc {
+    width: 250px !important;
+    font-size: 19px !important;
+    line-height: 20px !important;
   }
 
   .Banner .slick-dots {
-    top: 300px;
+    top: 320px;
     margin-left: -20px;
     color: rgba(255, 255, 255, 1);
-  }
-}
-@media (min-width: 850px) and (max-width: 920px) {
-  .Banner {
-    margin-top: 0px !important;
   }
 }
 
@@ -325,53 +292,40 @@
   }
   .main-div {
     padding: 20px;
-    border-radius: 18px;
+    border-radius: 8px;
     width: 100%;
-    height: 375px;
-  }
-  .see-all-btn {
-    box-sizing: border-box !important;
-    width: 189.83px;
-    height: 60px;
-    border: 2px solid #e7a356 !important;
-    border-radius: 5px;
-    text-decoration: underline !important;
-    font-family: Fira Sans !important;
-    font-style: normal;
-    font-weight: 700 !important;
-    font-size: 18px !important;
-    line-height: 22px;
-    text-transform: capitalize !important;
-    color: #ffffff !important;
-    margin-left: -22px !important;
-   
-  }
-  #salonImg {
-    width: 520px;
-    height: 332px;
-    margin-left: -60%;
-    margin-top: 10px;
+    height: 400px;
   }
 
-  .heading {
-    margin-left: -15px !important;
-    margin-top: 38px !important;
+  #bottleImg {
+    width: 459px;
+    height: 368px;
+    /* margin-left: -40%; */
+    margin-top: 12px;
+  }
+
+  .text .btn {
+    width: 250px !important;
+    margin-top: 10px !important;
+    height: 70px !important;
+    text-decoration: underline;
+  }
+
+  .text .heading {
     font-size: 35px !important;
     line-height: 40px !important;
-    width: 320px;
-    height: 41px;
+    text-decoration: underline;
   }
 
-  .desc {
+  .text .desc {
+    width: 400px;
     font-size: 22px !important;
-    line-height: 40px !important;
-    margin-left: 75px !important;
-    width: 415px !important;
-    height: 125px;
+    line-height: 25px !important;
+    text-decoration: underline;
   }
 
   .Banner .slick-dots {
-    top: 350px;
+    top: 390px;
     margin-left: -20px;
     color: rgba(255, 255, 255, 1);
   }

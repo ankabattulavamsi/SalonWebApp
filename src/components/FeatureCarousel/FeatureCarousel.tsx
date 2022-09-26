@@ -1,19 +1,24 @@
+/** @format */
+
+// import { withStyles } from "@material-ui/core/styles";
 import React, { Component, Fragment } from "react";
 import Slider from "react-slick";
-import { Box, Button, Grid, Stack, Typography } from "@mui/material";
-import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 
+
+import { Box, Button, Grid, Stack, Typography } from "@mui/material";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import CarouselData from "../../utils/Data/FeatureCarosel";
 
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./FeatureCarousel.css";
 
-type Props = {};
-
-type State = {};
-
-class FeatureCarousel extends Component<Props, State> {
-  state = {};
+interface IProps {
+  login?: string;
+}
+class FeatureCarousel extends Component<IProps> {
+  state = {
+    redirect: false,
+  };
 
   render() {
     const settings = {
@@ -69,7 +74,6 @@ class FeatureCarousel extends Component<Props, State> {
             height: " 79px",
             alignItems: "center",
             borderRadius: " 30px 0px 0px 30px",
-            // transform: "matrix(-1, 0, 0, 1, 0, 0)",
           }}
           onClick={onClick}
         >
@@ -109,7 +113,7 @@ class FeatureCarousel extends Component<Props, State> {
                       <Box className="main-div">
                         <Grid container>
                           <Grid item xl={8} lg={8} md={8} sm={8} xs={8}>
-                            <Box className=" grid-item headings">
+                            <Box className="text">
                               <Typography
                                 variant="h2"
                                 style={{ color: "white" }}
@@ -121,8 +125,8 @@ class FeatureCarousel extends Component<Props, State> {
                                 sx={{
                                   fontFamily: "Inter",
                                   fontStyle: "normal",
-                                  fontWeight: "400",
-                                  fontSize: "25px !important",
+                                  fontWeight: "700",
+                                  fontSize: "39px !important",
                                   lineHeight: "61px",
                                   textTransform: "capitalize",
                                 }}
@@ -134,8 +138,6 @@ class FeatureCarousel extends Component<Props, State> {
 
                               <Stack
                                 sx={{
-                                  marginLeft: "-14%",
-                                  marginTop: "20px",
                                   display: {
                                     lg: "block",
                                     md: "block",
@@ -144,20 +146,17 @@ class FeatureCarousel extends Component<Props, State> {
                                   },
                                 }}
                               >
-                                <Button
-                                  variant="outlined"
-                                  className="see-all-btn"
-                                >
+                                <Button variant="outlined" className="btn">
                                   see all services
                                 </Button>
                               </Stack>
                             </Box>
                           </Grid>
                           <Grid item xl={4} lg={4} md={4} sm={4} xs={4}>
-                            <Box className="grid-item bottle">
+                            <Box className="img">
                               <img
-                                alt="salonImage"
-                                id="salonImg"
+                                alt="bottleImage"
+                                id="bottleImg"
                                 src={data.image}
                               />
                             </Box>
