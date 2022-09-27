@@ -36,8 +36,28 @@ class OurBlogs extends Component<blogProps> {
                                 />
                                 <CardContent>
                                     <Box>
-                                        <Box>
-
+                                        <Box 
+                                            sx={{
+                                                width:'20%',
+                                                position:'relative',
+                                                left:'40%',
+                                                top:'250%',
+                                                zIndex:1,
+                                                py:2,
+                                                px:2,
+                                                background:'#272522',
+                                                borderRadius:'5px',
+                                                // display:'flex',
+                                                // alignItems:'center',
+                                                // justifyContent:'center'
+                                            }}
+                                        >
+                                            <Typography sx={{textAlign:'center'}}>
+                                                25
+                                            </Typography>
+                                            <Typography sx={{textAlign:'center'}}>
+                                                June
+                                            </Typography>
                                         </Box>
                                         <Typography className={classes.blogCardTitle}>
                                             Men Haircut new style
