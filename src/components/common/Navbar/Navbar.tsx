@@ -3,13 +3,13 @@ import React, { Fragment } from 'react'
 export default function Navbar() {
   return (
     <Fragment>
-        <div style={{position:"fixed",width:"100%"}}>
-            <div style={{backgroundColor:"black" , color:"white", display:"flex",justifyContent:"space-around", height:"50px"}}>
-            <a  style={{color:"white"}} href="/">hOME</a>
-            <a  style={{ color:"white"}} href="#categories">Categories</a>
-            <a  style={{color:"white"}} href="#teamsection">TeamSection</a>
-            </div>
-            </div>
+      <div style={{position:"fixed",width:"100%"}}>
+        <div style={{backgroundColor:"black" , color:"white", display:"flex",justifyContent:"space-around", height:"50px"}}>
+          <a  style={{color:"white"}} href="/">hOME</a>
+          <a  style={{ color:"white"}} href="#categories">Categories</a>
+          <a  style={{color:"white"}} href="#teamsection">TeamSection</a>
+        </div>
+      </div>
     </Fragment>
   )
 }
