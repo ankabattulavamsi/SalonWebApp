@@ -18,7 +18,7 @@ class AboutUs extends Component {
               />
             </Grid>
             <Grid item md={6} xs={12} className="about-us-text-container">
-              <h2 className="about-us-heading">About Us</h2>
+              <h2 className="about-us-heading">ABOUT US</h2>
               <h1 className="about-us-sub-heading">Welcome To Saloon Shop</h1>
               <div className="about-us-heading-icon"></div>
               <p className="about-us-description">

@@ -11,8 +11,7 @@ export interface Offer {
       id: 1,
       discount: 20,
       title: "Long Hair Style",
-      description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-   Quod voluptate 
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit 
   `,
   
       imgUrl: require("../../../assets/images/OffersSection/LandingPageOffer1.png"),
@@ -22,8 +21,7 @@ export interface Offer {
       id: 2,
       discount: 10,
       title: "Beard",
-      description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-   Quod voluptate 
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit 
   `,
       imgUrl: require("../../../assets/images/OffersSection/LandingPageOffer2.png"),
   
