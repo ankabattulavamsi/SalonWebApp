@@ -1,5 +1,6 @@
 import { Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import { withStyles } from "@mui/styles";
 import "./DownloadAdvertiementSection.css";
 import React, { Component } from "react";
 import ButtonCust from "../common/DownloadButton/ButtonCust";
@@ -10,11 +11,17 @@ import {
   mobileImage,
 } from "../../utils/fixtures/downloadApp/download";
 
-export default class DownloadAdvertiementSection extends Component {
+interface DownloadProps {}
+interface DownloadState {}
+
+class DownloadAdvertiementSection extends Component<
+  DownloadProps,
+  DownloadState
+> {
   render() {
     return (
       <Box
-        className="section-download"
+        className={`section-download `}
         sx={{
           background: `url(${bgImage}) no-repeat`,
           backgroundSize: { xs: "cover", md: "cover" },
@@ -110,3 +117,4 @@ export default class DownloadAdvertiementSection extends Component {
     );
   }
 }
+export default DownloadAdvertiementSection;
