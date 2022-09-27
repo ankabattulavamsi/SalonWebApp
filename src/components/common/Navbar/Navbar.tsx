@@ -108,9 +108,3 @@ class Navbar extends Component<{}, navSate> {
 }
 export default Navbar;
 
-// make the navbar responsive as needed for all pages (lading page, customer & salooon)
-
-// You can divide the navbar into three sections namely inorder to use in all pages
-// 1.logo part,
-// 2.menu items (home,blogs, teams etc)
-// 3. profile & for icons
