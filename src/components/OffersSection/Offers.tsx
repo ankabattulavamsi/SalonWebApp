@@ -50,7 +50,7 @@ class Offers extends Component {
                       <Button
                         sx={{
                           mt: 2,
-                          fontSize: { xs: "70%", sm: "22px" },
+                          fontSize: { xs: "70%", sm: "17px", lg:'22px' },
                           backgroundColor: "#fff",
                           color: "#272522",
                           fontFamily: "Praise",
