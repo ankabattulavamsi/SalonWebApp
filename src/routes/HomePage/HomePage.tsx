@@ -20,10 +20,12 @@ export default function HomePage() {
       >
         <TeamSection />
       </div>
-
-      <AboutUs />
-
-      <Offers />
+      <div id="about">
+        <AboutUs />
+      </div>
+      <div id="offers">
+        <Offers />
+      </div>
     </>
   );
 }
