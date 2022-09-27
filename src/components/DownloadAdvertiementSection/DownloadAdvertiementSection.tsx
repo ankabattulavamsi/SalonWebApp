@@ -91,7 +91,7 @@ export default class DownloadAdvertiementSection extends Component {
                     width: { xs: "90%", sm: "408px", md: "478px" },
                     position: "relative",
                     mx: "auto",
-                    mr: { xs: "auto", md: 0 },
+                    mr: { xs: "auto", md: -10},
                   }}
                 >
                   <img
