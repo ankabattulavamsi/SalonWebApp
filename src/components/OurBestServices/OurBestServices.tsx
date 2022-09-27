@@ -12,12 +12,8 @@ class OurBestServices extends Component {
   render() {
     return (
       <div
-        style={{
-          paddingTop: "30px",
-          position: "relative",
-        }}
       >
-        <div style={{ marginTop: 3, marginBottom: 3 }}>
+        <div style={{ marginTop: 3, marginBottom: 15 }}>
           <div className="our-best-services-position">
             <Typography variant="h4" className="our-best-services-heading" 
             sx={{
@@ -32,9 +28,6 @@ class OurBestServices extends Component {
             }}>
               Our Best Services <br /> <span className="our-best-services-undeline">___</span>
             </Typography>
-            {/* <Typography variant="h3" className="our-best-services-undeline">
-              ___
-            </Typography> */}
           </div>
         </div>
         <Carousel

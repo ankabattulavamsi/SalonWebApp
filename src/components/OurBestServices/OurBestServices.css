@@ -26,8 +26,8 @@ figure {
 figcaption {
   background-color: rgba(35, 39, 39, 0.651);
   color: #f0f8ffe9;
-  margin-left: 35px;
-  margin-right: -39px;
+  margin-left: 36px;
+  margin-right: -23px;
   margin-top: -4px;
   border-radius: 15px;
   margin-bottom: 20px;
@@ -89,7 +89,7 @@ p {
 
 .our-best-services-undeline{
     color:#EBB273;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 .react-multi-carousel-dot {
