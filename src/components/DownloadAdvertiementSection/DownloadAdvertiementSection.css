@@ -28,6 +28,7 @@
   line-height: 30px;
   text-transform: lowercase;
   color: #7e7975;
+  padding: 20px;
 }
 
 .section-download {
@@ -44,3 +45,16 @@
   width: 100%;
   height: 140%;
 }
+
+/* @media only screen and (min-width: 0) {
+  .image-download {
+    width: 100%;
+    height: 140%;
+  }
+}
+@media only screen and (min-width: 760px) {
+  .image-download {
+    width: 120%;
+    height: 140%;
+  }
+} */

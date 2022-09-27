@@ -42,6 +42,53 @@
   border-right: 20px solid transparent;
   transform: translateX(11rem) translateY(-30px);
   border-top: 60px solid #ffffff;
+  position: absolute !important;
+  left: 0;
+}
+@media only screen and (min-width: 1200px) {
+  .card-test::after {
+    transform: translateX(11rem) translateY(-30px) !important;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .card-test::after {
+    transform: translateX(7rem) translateY(-30px) !important;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .card-test::after {
+    transform: translateX(15rem) translateY(-30px) !important;
+  }
+}
+@media only screen and (max-width: 598px) {
+  .card-test::after {
+    transform: translateX(12rem) translateY(-30px) !important;
+  }
+}
+@media only screen and (max-width: 426px) {
+  .card-test::after {
+    transform: translateX(8rem) translateY(-30px) !important;
+  }
+}
+@media only screen and (max-width: 362px) {
+  .card-test::after {
+    transform: translateX(5rem) translateY(-30px) !important;
+  }
+}
+@media only screen and (max-width: 260px) {
+  .card-test::after {
+    transform: translateX(60%) translateY(-30px) !important;
+  }
+}
+@media screen and (min-device-width: 588px) and (max-device-width: 622px) {
+  .card-test::after {
+    transform: translateX(11rem) translateY(-30px) !important;
+  }
+}
+@media screen and (min-device-width: 430px) and (max-device-width: 600px) {
+  .card-test::after {
+    transform: translateX(8rem) translateY(-30px) !important;
+  }
 }
 
 .card-test-box:hover .card-test .card-background {
@@ -62,4 +109,16 @@
   text-transform: capitalize;
 
   color: #7d7a76 !important;
+}
+
+.comments-testm {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400 !important;
+
+  line-height: 29px !important;
+  /* or 181% */
+
+  letter-spacing: 0.01em !important;
+  text-transform: lowercase !important;
 }

@@ -28,7 +28,7 @@ export default class DownloadAdvertiementSection extends Component {
           <Grid container columnSpacing={2}>
             <Grid item md={6} sm={12} xs={11}>
               <>
-                <Box>
+                <Box sx={{ pl: 2 }}>
                   <Typography
                     className="underline-download-app"
                     textAlign={"left"}
@@ -63,6 +63,7 @@ export default class DownloadAdvertiementSection extends Component {
                     gap: "4px",
                     flexWrap: { xs: "wrap", sm: "nowrap" },
                     mt: 5,
+                    padding: 2,
                   }}
                 >
                   <ButtonCust
@@ -91,7 +92,7 @@ export default class DownloadAdvertiementSection extends Component {
                     width: { xs: "90%", sm: "408px", md: "478px" },
                     position: "relative",
                     mx: "auto",
-                    mr: { xs: "auto", md: -10},
+                    mr: { xs: "auto", md: 0 },
                   }}
                 >
                   <img

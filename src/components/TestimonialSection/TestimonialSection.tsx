@@ -114,10 +114,10 @@ class TestimonialSection extends React.Component<
                                   }}
                                 >
                                   <Card
-                                  className="card-background"
+                                    className="card-background"
                                     sx={{
                                       maxWidth: "90%",
-                                      minHeight: "206px",
+                                      height: "206px",
                                       p: 4,
                                       m: 2,
                                       bgcolor: "#FFFFFF",
@@ -131,7 +131,18 @@ class TestimonialSection extends React.Component<
                                         " 0px 0px 50px rgba(0, 0, 0, 0.1)",
                                     }}
                                   >
-                                    <Typography>{testm.comments}</Typography>
+                                    <Typography
+                                      className="comments-testm"
+                                      sx={{
+                                        fontSize: {
+                                          xs: "14px",
+                                          sm: "16px",
+                                          md: "18px",
+                                        },
+                                      }}
+                                    >
+                                      {testm.comments}
+                                    </Typography>
                                   </Card>{" "}
                                 </Box>
                                 <Avatar
