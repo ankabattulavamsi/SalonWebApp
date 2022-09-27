@@ -21,11 +21,6 @@ function App() {
       {/* Login */}
 
         {/* Login */}
-
-    
-      
-
-
     </Routes>
     </div>
   );
