@@ -1,16 +1,12 @@
-import React from 'react'
-import Categories from '../../components/Categories/Categories'
-import TestimonialSection from '../../components/TestimonialSection/TestimonialSection';
+import React from "react";
+import Categories from "../../components/Categories/Categories";
+import TestimonialSection from "../../components/TestimonialSection/TestimonialSection";
 import DownloadAdvertiementSection from "../../components/DownloadAdvertiementSection/DownloadAdvertiementSection";
 import TeamSection from "./../../components/TeamSection/TeamSection";
 
 export default function HomePage() {
   return (
     <>
-    <div id="testimonialsection">
-        <TestimonialSection />
-      </div>
-    
       <div style={{ height: "900px", backgroundColor: "red" }}>HomePage</div>
       <div
         id="categories"
@@ -21,10 +17,12 @@ export default function HomePage() {
       <div id="downloadsection">
         <DownloadAdvertiementSection />
       </div>
-      <div id="teamsection">
+      <div id="team">
         <TeamSection />
       </div>
-      
+      <div id="testimonial">
+        <TestimonialSection />
+      </div>
     </>
   );
 }

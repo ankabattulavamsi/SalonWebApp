@@ -103,32 +103,24 @@ class TestimonialSection extends React.Component<
                                 ml: 0,
                               }}
                             >
-                              <Box>
+                              <Box className="card-test-box">
                                 <Box
                                   className="card-test"
                                   sx={{
                                     position: "absolute",
                                     top: "15px",
                                     left: "10px",
-
                                     zIndex: 100,
-                                    ":after": {
-                                      borderTop: `60px solid #D1D1D1`,
-                                    },
-                                    ":hover": {
-                                      ":after": {
-                                        borderTop: `60px solid #272522`,
-                                      },
-                                    },
                                   }}
                                 >
                                   <Card
+                                  className="card-background"
                                     sx={{
                                       maxWidth: "90%",
                                       minHeight: "206px",
                                       p: 4,
                                       m: 2,
-                                      bgcolor: "#D1D1D1",
+                                      bgcolor: "#FFFFFF",
                                       color: "#88878F",
                                       ":hover": {
                                         bgcolor: "#272522",

@@ -7,6 +7,7 @@
   text-align: center;
   margin: 10px auto;
 }
+
 .underline-testimonials {
   color: #ffffff;
   font-family: "Fira Sans";
@@ -28,7 +29,9 @@
   text-transform: capitalize !important;
   color: #272522 !important;
 }
-
+.card-test {
+  transition: linear 0.5s;
+}
 .card-test::after {
   content: "";
   display: block;
@@ -38,8 +41,15 @@
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   transform: translateX(11rem) translateY(-30px);
+  border-top: 60px solid #ffffff;
 }
 
+.card-test-box:hover .card-test .card-background {
+  background-color: #272522 !important;
+}
+.card-test-box:hover .card-test::after {
+  border-top: 60px solid #272522;
+}
 .test-item-para {
   font-family: "Roboto" !important;
   font-style: normal;
