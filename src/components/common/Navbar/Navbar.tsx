@@ -21,7 +21,7 @@ class Navbar extends Component<{}, navSate> {
   render() {
     return (
       <Fragment>
-        <Box className="navbar-body">
+        <Box className="navbar-body" >
           <Box className="logo">
             <img src={Logo} alt="logo" width="100%" height="75px" />
           </Box>

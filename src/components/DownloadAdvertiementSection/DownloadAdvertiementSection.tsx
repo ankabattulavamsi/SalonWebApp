@@ -44,7 +44,7 @@ export default class DownloadAdvertiementSection extends Component {
                 <Box sx={{ mt: 3 }}>
                   <Typography
                     className="para-css-download"
-                    textAlign={"left"}
+                    textAlign={{ xs: "justify", sm: "left" }}
                     sx={{
                       fontSize: { xs: "14px", sm: "16px", md: "18px" },
                     }}
@@ -91,7 +91,7 @@ export default class DownloadAdvertiementSection extends Component {
                     width: { xs: "90%", sm: "408px", md: "478px" },
                     position: "relative",
                     mx: "auto",
-                    ml:{}
+                    mr: { xs: "auto", md: 0 },
                   }}
                 >
                   <img
