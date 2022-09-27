@@ -54,8 +54,8 @@ class Navbar extends Component<{}, navSate> {
           
           {/* mobile drawer section */}
           <Box className="mobile-drawer">
-            <Box sx={{ background: "black", px: 5, py: 3 }}>
-              <PersonIcon sx={{ color: "#E7A356" }} />
+            <Box sx={{ background: "#272522", px: 4, py: 2.6 }}>
+              <PersonIcon sx={{ color: "#E7A356", fontSize:'30px' }} />
             </Box>
             <MenuIcon
               sx={{ ml: 4, fontSize: "30px" }}
@@ -108,9 +108,3 @@ class Navbar extends Component<{}, navSate> {
 }
 export default Navbar;
 
-// make the navbar responsive as needed for all pages (lading page, customer & salooon)
-
-// You can divide the navbar into three sections namely inorder to use in all pages
-// 1.logo part,
-// 2.menu items (home,blogs, teams etc)
-// 3. profile & for icons

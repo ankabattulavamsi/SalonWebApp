@@ -2,17 +2,15 @@ import React, { Component } from 'react'
 import { Box, Divider, Grid, List, ListItem, ListItemText, Typography } from '@mui/material';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import { withStyles } from '@mui/styles';
-
-import {services} from '../../../utils/data/footer/footer_data';
 import CallIcon from '@mui/icons-material/Call';
 import EmailIcon from '@mui/icons-material/Email';
+
+import {services} from '../../../utils/data/footer/footer_data';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import SalonLogo from '../../../assets/images/Footerimages/salon-logo.png';
-import Footerbg1 from '../../../assets/images/Footerimages/footerbg-1.png';
 import facebook from '../../../assets/images/Footerimages/facebook-icon.png';
 import youtube from '../../../assets/images/Footerimages/youtube-icon.png';
 import instagram from '../../../assets/images/Footerimages/instagram-icon.png';
-import Footerbg3 from '../../../assets/images/Footerimages/footerbg-3.png';
 
 import { Styles } from './Footer.Styles';
 import './Footer.css';

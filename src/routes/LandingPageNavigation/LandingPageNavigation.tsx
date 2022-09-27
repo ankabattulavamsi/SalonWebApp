@@ -4,7 +4,6 @@ import Footer from '../../components/common/Footer/Footer';
 import Navbar from '../../components/common/Navbar/Navbar';
 
 
-
 class  LandingPageNavigation extends Component {
   
     render(){
@@ -16,7 +15,6 @@ class  LandingPageNavigation extends Component {
             </Fragment>
        )
     }
-  
 }
 
 export default LandingPageNavigation;
