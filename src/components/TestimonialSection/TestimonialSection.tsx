@@ -128,7 +128,7 @@ class TestimonialSection extends React.Component<
                                       },
                                       borderRadius: "10px",
                                       boxShadow:
-                                        " 0px 0px 50px rgba(0, 0, 0, 0.1)",
+                                        "10px 4px 40px rgba(0, 0, 0, 0.1)",
                                     }}
                                   >
                                     <Typography
