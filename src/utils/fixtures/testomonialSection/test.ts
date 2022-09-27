@@ -4,6 +4,7 @@ export interface TestmonialData {
   type: string;
   imageUrl: string;
   comments: string;
+  bgColor: string;
 }
 
 export const testmonialData: TestmonialData[] = [
@@ -19,6 +20,7 @@ export const testmonialData: TestmonialData[] = [
       a quaerat! Incidunt non culpa fugit voluptas esse. 
       Exercitationem, vitae laboriosam.
     `,
+    bgColor: "#fff",
   },
   {
     id: 2,
@@ -32,6 +34,7 @@ export const testmonialData: TestmonialData[] = [
       a quaerat! Incidunt non culpa fugit voluptas esse. 
       Exercitationem, vitae laboriosam.
     `,
+    bgColor: "#272522",
   },
   {
     id: 3,
@@ -45,6 +48,7 @@ Lorem ipsum dolor sit amet consectetur
   a quaerat! Incidunt non culpa fugit voluptas esse. 
   Exercitationem, vitae laboriosam.
 `,
+    bgColor: "#fff",
   },
   {
     id: 4,
@@ -58,6 +62,7 @@ Lorem ipsum dolor sit amet consectetur
       a quaerat! Incidunt non culpa fugit voluptas esse. 
       Exercitationem, vitae laboriosam.
     `,
+    bgColor: "red",
   },
 ];
 

@@ -45,20 +45,18 @@ class TestimonialSection extends React.Component<
     return (
       <>
         <Box>
-          <Grid container>
-            <Grid item xs={12}>
+          <>
+            <>
               <Box
                 sx={{
                   bgcolor: "#EBB273",
                   background: `url(${bgImage}) no-repeat`,
-                  height: "40vh",
+                  height: "auto",
                   backgroundSize: "cover",
                   backgroundPosition: "center center",
                   overflow: "hidden",
                   width: "100%",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
+                  position: "relative",
                 }}
               >
                 <Typography
@@ -67,12 +65,13 @@ class TestimonialSection extends React.Component<
                   className="underline-testimonials"
                   sx={{
                     fontSize: "35px",
+                    mt: 20,
                   }}
                 >
                   Testimonials
                 </Typography>
 
-                <Box>
+                <Box sx={{}}>
                   <Container
                     maxWidth="lg"
                     sx={{ display: "grid", height: "100%" }}
@@ -97,28 +96,47 @@ class TestimonialSection extends React.Component<
                               key={testm.id}
                               sx={{
                                 display: "flex",
-                                justifyContent: "space-evenly",
+                                justifyContent: "center",
+                                mb: 10,
+                                gap: 2,
+                                mt: 45,
+                                ml: 0,
                               }}
                             >
-                              <Box
-                                sx={{
-                                  position: "relative",
-                                }}
-                              >
+                              <Box>
                                 <Box
+                                  className="card-test"
                                   sx={{
                                     position: "absolute",
-                                    top: "-500%",
-                                    width: "555px",
-                                    left: 0,
+                                    top: "15px",
+                                    left: "10px",
+
                                     zIndex: 100,
-                                    overflow: "visible",
+                                    ":after": {
+                                      borderTop: `60px solid #D1D1D1`,
+                                    },
+                                    ":hover": {
+                                      ":after": {
+                                        borderTop: `60px solid #272522`,
+                                      },
+                                    },
                                   }}
                                 >
                                   <Card
                                     sx={{
-                                      maxWidth: "100%",
-                                      minHeight: "406px",
+                                      maxWidth: "90%",
+                                      minHeight: "206px",
+                                      p: 4,
+                                      m: 2,
+                                      bgcolor: "#D1D1D1",
+                                      color: "#88878F",
+                                      ":hover": {
+                                        bgcolor: "#272522",
+                                        color: "#939290",
+                                      },
+                                      borderRadius: "10px",
+                                      boxShadow:
+                                        " 0px 0px 50px rgba(0, 0, 0, 0.1)",
                                     }}
                                   >
                                     <Typography>{testm.comments}</Typography>
@@ -134,8 +152,24 @@ class TestimonialSection extends React.Component<
                                 />
                               </Box>
                               <Box>
-                                <Typography>{testm.title}</Typography>
-                                <Typography>{testm.type}</Typography>
+                                <Typography
+                                  className="test-item-title"
+                                  textAlign={"left"}
+                                  sx={{
+                                    fontSize: { xs: "18px", md: "24px" },
+                                  }}
+                                >
+                                  {testm.title}
+                                </Typography>
+                                <Typography
+                                  textAlign={"left"}
+                                  sx={{
+                                    fontSize: { xs: "15px", md: "18px" },
+                                  }}
+                                  className="test-item-para"
+                                >
+                                  {testm.type}
+                                </Typography>
                               </Box>
                             </Box>
                           );
@@ -145,8 +179,8 @@ class TestimonialSection extends React.Component<
                   </Container>
                 </Box>
               </Box>
-            </Grid>
-          </Grid>
+            </>
+          </>
         </Box>
       </>
     );

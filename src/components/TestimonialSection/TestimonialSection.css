@@ -18,3 +18,38 @@
   text-transform: capitalize;
   color: #ffffff;
 }
+
+.test-item-title {
+  font-family: "Fira Sans";
+  font-style: normal;
+  font-weight: 700 !important;
+  line-height: 48px !important;
+  letter-spacing: 0.02em !important;
+  text-transform: capitalize !important;
+  color: #272522 !important;
+}
+
+.card-test::after {
+  content: "";
+  display: block;
+  box-shadow: "#ccc 1px 1px 20px";
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  transform: translateX(11rem) translateY(-30px);
+}
+
+.test-item-para {
+  font-family: "Roboto" !important;
+  font-style: normal;
+  font-weight: 500 !important;
+
+  line-height: 30px !important;
+  /* or 167% */
+
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+
+  color: #7d7a76 !important;
+}
