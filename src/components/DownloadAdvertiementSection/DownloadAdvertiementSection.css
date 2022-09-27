@@ -12,7 +12,7 @@
   font-family: "Fira Sans";
   font-style: normal;
   font-weight: 700;
-  font-size: 35px;
+
   line-height: 48px;
   /* identical to box height, or 137% */
 
@@ -25,7 +25,6 @@
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
   line-height: 30px;
   text-transform: lowercase;
   color: #7e7975;

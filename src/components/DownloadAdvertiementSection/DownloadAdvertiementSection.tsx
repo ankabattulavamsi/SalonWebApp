@@ -34,12 +34,21 @@ export default class DownloadAdvertiementSection extends Component {
                     textAlign={"left"}
                     variant="h3"
                     component={"h3"}
+                    sx={{
+                      fontSize: { xs: "20px", sm: "22px", md: "35px" },
+                    }}
                   >
                     Download Salon App
                   </Typography>
                 </Box>
                 <Box sx={{ mt: 3 }}>
-                  <Typography className="para-css-download" textAlign={"left"}>
+                  <Typography
+                    className="para-css-download"
+                    textAlign={"left"}
+                    sx={{
+                      fontSize: { xs: "14px", sm: "16px", md: "18px" },
+                    }}
+                  >
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Cupiditate aspernatur in aut deserunt et, accusamus dolorum
                     nostrum tempora nihil atque. Molestiae recusandae doloremque
