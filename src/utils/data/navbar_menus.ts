@@ -2,7 +2,7 @@ import { landingMenus } from "../models/navbar_interface";
 
 
 export const landingMenu:landingMenus[] = [
-    {id:1, path:'#', title:'Home'},
+    {id:1, path:'/', title:'Home'},
     {id:2, path:'#about', title:'About us'},
     {id:3, path:'#offers', title:'Offers'},
     {id:4, path:'#services', title:'Services'},
