@@ -27,6 +27,7 @@ class FeatureCarousel extends Component<IProps> {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
+      
     };
 
     const PreviousBtn = (props: any) => {
@@ -93,8 +94,8 @@ class FeatureCarousel extends Component<IProps> {
     return (
       <>
         <Grid container>
-          <Grid item lg={1} md={1} sm={1} xs={1}></Grid>
-          <Grid item lg={10} md={10} sm={10} xs={10}>
+          {/* <Grid item lg={1} md={1} sm={1} xs={1}></Grid> */}
+          <Grid item lg={12} md={12} sm={12} xs={12}>
             <Box
               className="Banner"
               sx={{
@@ -170,7 +171,7 @@ class FeatureCarousel extends Component<IProps> {
             </Box>
           </Grid>
 
-          <Grid item lg={1} md={1} sm={1} xs={1}></Grid>
+          {/* <Grid item lg={1} md={1} sm={1} xs={1}></Grid> */}
         </Grid>
       </>
     );

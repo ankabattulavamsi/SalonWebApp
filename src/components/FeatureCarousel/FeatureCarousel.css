@@ -30,12 +30,12 @@
 
 .Banner .slick-prev {
   left: -25px;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .Banner .slick-next {
   right: -25px;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .Banner .slick-dots {
@@ -79,6 +79,7 @@
   position: relative;
   border-radius: 18px;
   z-index: 0;
+  margin-top: 120px;
 }
 
 .text {
@@ -151,7 +152,7 @@
   text-decoration: underline;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 660px) {
   .main-div {
     padding: 20px;
     border-radius: 8px;
@@ -242,14 +243,14 @@
   }
 
   .Banner .slick-dots {
-    top: 170px;
+    top: 265px;
 
     margin-left: -10px;
     color: rgba(255, 255, 255, 1);
   }
 }
 
-@media (min-width: 768px) and (max-width: 920px) {
+@media (min-width: 680px) and (max-width: 920px) {
   .main-div {
     border-radius: 8px;
     width: 100%;
@@ -285,7 +286,7 @@
   }
 
   .Banner .slick-dots {
-    top: 320px;
+    top: 370px;
     margin-left: -20px;
     color: rgba(255, 255, 255, 1);
   }
@@ -331,7 +332,7 @@
   }
 
   .Banner .slick-dots {
-    top: 390px;
+    top: 450px;
     margin-left: -20px;
     color: rgba(255, 255, 255, 1);
   }

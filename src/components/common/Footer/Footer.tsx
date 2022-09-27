@@ -3,7 +3,7 @@ import { Box, Divider, Grid, List, ListItem, ListItemText, Typography } from '@m
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import { withStyles } from '@mui/styles';
 
-import {services} from '../../../utils/data/footer/footer_data';
+
 import CallIcon from '@mui/icons-material/Call';
 import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -16,6 +16,7 @@ import Footerbg3 from '../../../assets/images/Footerimages/footerbg-3.png';
 
 import { Styles } from './Footer.Styles';
 import './Footer.css';
+import { services } from '../../../utils/Data/footer/footer_data';
 
 interface footerProps{
   classes:any;
