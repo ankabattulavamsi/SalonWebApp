@@ -1,10 +1,9 @@
-import { Avatar, Box, Card, Grid, Typography } from "@mui/material";
+import { Avatar, Box, Card, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import {
-  bgColorImage,
   bgImage,
   TestmonialData,
   testmonialData,
@@ -128,7 +127,7 @@ class TestimonialSection extends React.Component<
                                       },
                                       borderRadius: "10px",
                                       boxShadow:
-                                        "10px 4px 40px rgba(0, 0, 0, 0.1)",
+                                        "5px 4px 20px rgba(0, 0, 0, 0.08)",
                                     }}
                                   >
                                     <Typography
