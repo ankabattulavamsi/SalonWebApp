@@ -42,7 +42,6 @@
   top: 404px;
   color: rgba(255, 255, 255, 1);
   margin-left: -35px;
-  
 }
 
 .Banner .slick-dots li.slick-active button:before {
@@ -51,18 +50,17 @@
 
 .Banner .slick-dots li.slick-active {
   background-color: #ffffff;
-  border: 2px solid #e7a356;
-  width: 10px !important;
-  height: 10px;
+  border: 4px solid #e7a356;
+  width: 15px !important;
+  height: 15px !important;
   border-radius: 10px;
   vertical-align: -webkit-baseline-middle;
   padding: 5px 5px !important;
 }
 
 .Banner .slick-dots li button:before {
-  color: rgba(255, 255, 255, 1) !important;
+  color: white !important;
   font-size: 10px;
-  
 }
 
 .main-div {
@@ -148,7 +146,7 @@
   border-radius: 5px;
   margin-top: 12px;
 }
-.text .btn:hover{
+.text .btn:hover {
   border: 2px solid #e7a356;
   text-decoration: underline;
 }
@@ -208,11 +206,11 @@
   .text .btn {
     font-family: "Fira Sans" !important;
     font-style: normal !important;
-   
+
     font-size: 13px !important;
     line-height: 16px !important;
     letter-spacing: 0.01em !important;
-    text-transform:  capitalize !important;
+    text-transform: capitalize !important;
     color: #ffffff;
     border: 2px solid #e7a356;
     border-radius: 2px;
@@ -319,7 +317,7 @@
   }
 
   .text .heading {
-    font-family: 'Fira Sans' !important;
+    font-family: "Fira Sans" !important;
     font-size: 35px !important;
     line-height: 40px !important;
     text-decoration: underline;
