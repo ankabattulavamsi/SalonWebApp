@@ -1,6 +1,6 @@
+import React, { Component } from "react";
 import { Grid } from "@mui/material";
 import { Container } from "@mui/system";
-import React, { Component } from "react";
 import ReactPlayer from "react-player";
 
 import "./AboutUs.css";

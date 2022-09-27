@@ -1,8 +1,10 @@
 import { Component } from "react";
 import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
-import "./offers.css";
+
 import { Offer, offerArray } from "../../utils/fixtures/offerSection/offer";
+
+import "./offers.css";
 
 class Offers extends Component {
   render() {

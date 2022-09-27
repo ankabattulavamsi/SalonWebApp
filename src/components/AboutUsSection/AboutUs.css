@@ -3,6 +3,7 @@
   height: auto;
   background-color: #fdf6ef;
   background-image: url("../../assets/images/AboutUsSection/Aboutus-background.png");
+  padding-top: 10%;
 }
 
 .about-us-video-container {
@@ -53,6 +54,9 @@
 @media screen and (max-width: 1000px) {
   .about-us-description {
     line-height: 20px;
+  }
+  .about-us-heading {
+    margin-top: 1rem;
   }
 }
 
