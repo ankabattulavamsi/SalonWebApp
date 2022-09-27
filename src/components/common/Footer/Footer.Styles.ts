@@ -13,7 +13,7 @@ export const Styles:any = {
     },
     footerHeading:{
         color:'#fff',
-        fontFamily: 'Fira Sans',
+        fontFamily: 'Fira Sans !important',
         fontStyle:'normal',
         fontWeight: 700,
         fontSize: '26px !important',
@@ -23,7 +23,7 @@ export const Styles:any = {
     },
     CopyRightstext:{
         textAlign:'center',
-        fontFamily: 'Fira Sans',
+        fontFamily: 'Fira Sans !important',
         fontStyle: 'normal',
         fontWeight: 700,
         fontSize: '22px !important',
@@ -51,7 +51,7 @@ export const Styles:any = {
         color: '#939290',
     },
     servicesList:{
-        fontFamily: 'Roboto',
+        fontFamily: 'Roboto !important',
         fontStyle:'normal',
         fontWeight: 500,
         fontSize: '18px !important',
