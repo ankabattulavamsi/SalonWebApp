@@ -6,11 +6,17 @@ import TeamSection from './../../components/TeamSection/TeamSection';
 export default function HomePage() {
   return (
     <>
+<<<<<<< HEAD
     <div style={{height:"900px",backgroundColor:"red"}}>HomePage</div>
     <div style={{marginBottom: '25px', marginTop: '15px'}}>
       <OurBestServices />
     </div>
     <div id="categories" style={{height:"900px",backgroundColor:"yellow"}}><Categories/></div>
+=======
+    <div style={{height:"900px",backgroundColor:"red"}}>HomePage
+    </div>
+    <div id="services" style={{height:"900px",backgroundColor:"yellow"}}><Categories/></div>
+>>>>>>> origin/develop
     <div id="teamsection" style={{height:"900px",backgroundColor:"blue"}}><TeamSection/></div>
     </>
   )
