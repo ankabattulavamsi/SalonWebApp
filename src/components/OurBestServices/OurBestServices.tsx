@@ -33,8 +33,8 @@ class OurBestServices extends Component {
     };
 
     return (
-      <Box maxWidth='xl' sx={{mx: 'auto'}}  className='our-best-services-carousel-buttons'>
-        <Box style={{ marginTop: 3, marginBottom: 15 }}>
+      <Box maxWidth='xl' sx={{mx: 'auto', mb: 10}}  className='our-best-services-carousel-buttons'>
+        <Box sx={{ mt:3, mb:3 }}>
             <Typography
               variant="h4"
               className="our-best-services-heading"
