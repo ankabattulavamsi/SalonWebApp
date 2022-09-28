@@ -19,15 +19,11 @@ function App() {
         {/*Guest Flow*/}
 
         {/* Login */}
-<<<<<<< HEAD
     </Routes>
-=======
 
         {/* Login */}
-      </Routes>
->>>>>>> origin/develop
     </div>
-  );
+  )
 }
 
 export default App;
