@@ -11,6 +11,7 @@ import EmailIcon from '@mui/icons-material/Email';
 
 
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+
 import SalonLogo from '../../../assets/images/Footerimages/salon-logo.png';
 import facebook from '../../../assets/images/Footerimages/facebook-icon.png';
 import youtube from '../../../assets/images/Footerimages/youtube-icon.png';
@@ -18,7 +19,7 @@ import instagram from '../../../assets/images/Footerimages/instagram-icon.png';
 
 import { Styles } from './Footer.Styles';
 import './Footer.css';
-import { services } from '../../../utils/data/footer/footer_data';
+import { services } from '../../../utils/Data/footer/footer_data';
 
 
 interface footerProps{
