@@ -7,6 +7,8 @@ export interface TestmonialData {
   bgColor: string;
 }
 
+
+
 export const testmonialData: TestmonialData[] = [
   {
     id: 1,
