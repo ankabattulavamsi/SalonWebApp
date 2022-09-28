@@ -4,7 +4,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Container } from "@mui/system";
 import React, { Component } from "react";
-import { TeamData, teamdata } from "../../utils/fixtures/expertTeam/team";
+import { TeamData, teamdata } from "../../utils/data/expertTeam/team";
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1113 },
