@@ -56,6 +56,7 @@ class TestimonialSection extends React.Component<
                   overflow: "hidden",
                   width: "100%",
                   position: "relative",
+                  pb: 5,
                 }}
               >
                 <Typography
