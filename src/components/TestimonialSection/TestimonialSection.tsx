@@ -4,7 +4,7 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { bgImage } from "../../utils/Data/downloadApp/download";
-import { TestmonialData, testmonialData } from "../../utils/Data/testomonialSection/test";
+import { TestmonialData, testmonialData } from "../../utils/data/testomonialSection/test";
 import "./TestimonialSection.css";
 
 interface TestimonialSectionProps { }
