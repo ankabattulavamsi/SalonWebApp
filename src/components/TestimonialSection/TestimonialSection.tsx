@@ -99,7 +99,7 @@ class TestimonialSection extends React.Component<
                                 justifyContent: "center",
                                 mb: 10,
                                 gap: 2,
-                                mt: 37,
+                                mt: 37 ,
                                 ml: 0,
                               }}
                             >
