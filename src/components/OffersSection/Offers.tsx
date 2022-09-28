@@ -73,7 +73,7 @@ class Offers extends Component {
                           component="div"
                           sx={{
                             mt: 2,
-                            fontSize: { xs: "19px", sm: "26px" },
+                            fontSize: { xs: "22px", sm: "26px" },
                             fontFamily: "Fira Sans",
                             fontWeight: 600,
                             color: "#272522",
