@@ -10,7 +10,7 @@ import Offers from "../../components/OffersSection/Offers";
 export default function HomePage() {
   return (
     <>
-      <div style={{ height: "900px" }}>
+      <div style={{  }}>
         <FeatureCarousel />
       </div>
       <div id="about">

@@ -32,7 +32,7 @@ class OurBestServices extends Component {
     };
 
     return (
-      <Box>
+      <Box maxWidth='xl' sx={{mx: 'auto'}}  className='our-best-services-carousel-buttons'>
         <Box style={{ marginTop: 3, marginBottom: 15 }}>
             <Typography
               variant="h4"
@@ -55,19 +55,18 @@ class OurBestServices extends Component {
         <Carousel
           additionalTransfrom={0}
           arrows
-          autoPlay
-          autoPlaySpeed={1000}
+          // autoPlay
+          autoPlaySpeed={2000}
           centerMode={false}
-          className=""
+          className="our-best-services-carousel-buttons"
           containerClass="container-with-dots"
           dotListClass=""
           draggable
           focusOnSelect={false}
-          infinite
+          // infinite
           itemClass=""
           keyBoardControl
           minimumTouchDrag={80}
-          // partialVisible
           pauseOnHover
           renderArrowsWhenDisabled={false}
           renderButtonGroupOutside={false}
@@ -80,13 +79,14 @@ class OurBestServices extends Component {
           showDots
           sliderClass=""
           slidesToSlide={1}
-          swipeable
+          swipeable 
         >
           {ourBestServicesData.map((item) => (
             <figure className="Our-best-Services-Carousel-main-container" style={{flex:' 1 1 auto',
               position: 'relative',
               width: '80%',
-              height: 'auto'}}>
+              height: 'auto', 
+              marginBottom: '65px'}}>
               <img
                 src={item.mainImage}
                 alt="item1"
