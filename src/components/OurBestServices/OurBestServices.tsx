@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React, { Component } from "react";
 
 import Carousel from "react-multi-carousel";
@@ -30,7 +30,6 @@ class OurBestServices extends Component {
         items: 1
       }
     };
-
 
     return (
       <Box>

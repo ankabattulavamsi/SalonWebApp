@@ -106,5 +106,6 @@ class Navbar extends Component<{}, navSate> {
     );
   }
 }
+
 export default Navbar;
 
