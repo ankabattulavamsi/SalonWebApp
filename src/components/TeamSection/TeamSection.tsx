@@ -46,7 +46,7 @@ export default class TeamSection extends Component {
           </Typography>
         </Box>
         <Container maxWidth="lg">
-          <>
+          <Box className="corosel-team-experts">
             <Carousel
               swipeable={false}
               draggable={false}
@@ -117,7 +117,7 @@ export default class TeamSection extends Component {
                 );
               })}
             </Carousel>
-          </>
+          </Box>
         </Container>
       </Box>
     );
