@@ -3,7 +3,7 @@ import { Container } from "@mui/system";
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { bgImage } from "../../utils/Data/downloadApp/download";
+import { bgImage } from "../../utils/data/downloadApp/download";
 import { TestmonialData, testmonialData } from "../../utils/data/testomonialSection/test";
 import "./TestimonialSection.css";
 

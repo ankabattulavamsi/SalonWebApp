@@ -4,8 +4,13 @@ import { withStyles } from "@mui/styles";
 import "./DownloadAdvertiementSection.css";
 import React, { Component } from "react";
 import ButtonCust from "../common/DownloadButton/ButtonCust";
-import { bgImage } from "../../utils/data/testomonialSection/test";
-import { appleImage, googleImage, mobileImage } from "../../utils/data/downloadApp/download";
+import {
+  appleImage,
+  bgImage,
+  googleImage,
+  mobileImage,
+} from "../../utils/data/downloadApp/download";
+
 
 
 interface DownloadProps {}
