@@ -31,11 +31,13 @@
 .Banner .slick-prev {
   left: -25px;
   margin-top: 50px;
+  /* z-index: 0 !important; */
 }
 
 .Banner .slick-next {
   right: -25px;
   margin-top: 50px;
+  /* z-index: 0 !important; */
 }
 
 .Banner .slick-dots {
@@ -321,14 +323,12 @@
     font-family: "Fira Sans" !important;
     font-size: 35px !important;
     line-height: 40px !important;
-    text-decoration: underline;
   }
 
   .text .desc {
     width: 400px;
     font-size: 22px !important;
     line-height: 25px !important;
-    text-decoration: underline;
   }
 
   .Banner .slick-dots {

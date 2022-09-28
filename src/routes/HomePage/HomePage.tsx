@@ -7,11 +7,18 @@ import TeamSection from "./../../components/TeamSection/TeamSection";
 export default function HomePage() {
   return (
     <>
-    <div style={{height:"900px",}}>
-      <FeatureCarousel/>
-    </div>
-    <div id="services" style={{height:"900px",backgroundColor:"yellow"}}><Categories/></div>
-    <div id="teamsection" style={{height:"900px",backgroundColor:"blue"}}><TeamSection/></div>
+      <div style={{ height: "900px" }}>
+        <FeatureCarousel />
+      </div>
+      <div id="services" style={{ height: "900px", backgroundColor: "yellow" }}>
+        <Categories />
+      </div>
+      <div
+        id="teamsection"
+        style={{ height: "900px", backgroundColor: "blue" }}
+      >
+        <TeamSection />
+      </div>
     </>
-  )
+  );
 }

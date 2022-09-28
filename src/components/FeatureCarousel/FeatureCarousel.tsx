@@ -4,7 +4,6 @@
 import React, { Component, Fragment } from "react";
 import Slider from "react-slick";
 
-
 import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
@@ -27,7 +26,6 @@ class FeatureCarousel extends Component<IProps> {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      
     };
 
     const PreviousBtn = (props: any) => {
@@ -38,7 +36,7 @@ class FeatureCarousel extends Component<IProps> {
           className={className}
           style={{
             marginLeft: "21px",
-            zIndex: "1",
+            zIndex: 1,
             alignItems: "center",
             width: " 44px",
             height: " 79px",
@@ -69,7 +67,7 @@ class FeatureCarousel extends Component<IProps> {
           style={{
             marginRight: "20px",
             marginLeft: "21px",
-            zIndex: "1",
+            zIndex: 0,
             backgroundColor: "#545454",
             width: " 44px",
             height: " 79px",
