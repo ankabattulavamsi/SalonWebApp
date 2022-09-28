@@ -7,7 +7,7 @@ import Logo from "../../../assets/images/Navbarimage/logo.jpg";
 
 
 import "./Navbar.css";
-import { landingMenu } from "../../../utils/data/navbar_menus";
+import { landingMenu } from "../../../utils/Data/navbar_menus";
 
 
 interface navSate {
