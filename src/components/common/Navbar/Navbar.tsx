@@ -4,10 +4,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import PersonIcon from "@mui/icons-material/Person";
 import CloseIcon from "@mui/icons-material/Close";
 
-import { landingMenu } from "../../../utils/data/navbar_menus";
 import Logo from "../../../assets/images/Navbarimage/logo.jpg";
 
 import "./Navbar.css";
+import { landingMenu } from "../../../utils/data/navbar_menus";
+
 
 interface navSate {
   activeLink: string;
@@ -106,5 +107,6 @@ class Navbar extends Component<{}, navSate> {
     );
   }
 }
+
 export default Navbar;
 
