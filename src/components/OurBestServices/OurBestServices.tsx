@@ -2,9 +2,10 @@ import { Box, Typography } from "@mui/material";
 import React, { Component } from "react";
 
 import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 
+import "react-multi-carousel/lib/styles.css";
 import ourBestServicesData from "../../utils/data/OurBestServicesData";
+
 
 import "./OurBestServices.css";
 
@@ -81,7 +82,7 @@ class OurBestServices extends Component {
           slidesToSlide={1}
           swipeable 
         >
-          {ourBestServicesData.map((item) => (
+          {ourBestServicesData.map((item:any) => (
             <figure className="Our-best-Services-Carousel-main-container" style={{flex:' 1 1 auto',
               position: 'relative',
               width: '80%',

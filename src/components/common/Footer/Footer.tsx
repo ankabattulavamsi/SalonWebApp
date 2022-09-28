@@ -11,6 +11,7 @@ import EmailIcon from '@mui/icons-material/Email';
 
 
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+
 import SalonLogo from '../../../assets/images/Footerimages/salon-logo.png';
 import facebook from '../../../assets/images/Footerimages/facebook-icon.png';
 import youtube from '../../../assets/images/Footerimages/youtube-icon.png';
