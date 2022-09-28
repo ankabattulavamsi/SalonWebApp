@@ -7,7 +7,7 @@
 import maleBarber from "../../../assets/images/Carousel/male-barber-web1.png";
 import femaleBarber from "../../../assets/images/Carousel/skin-care-face-web.png";
 
-const CarouselData = [
+export const CarouselData = [
   {
     heading: " Collection hair ",
     description:
@@ -33,4 +33,4 @@ const CarouselData = [
     image: femaleBarber,
   },
 ];
-export default CarouselData;
+
