@@ -9,7 +9,8 @@ import {
   bgImage,
   googleImage,
   mobileImage,
-} from "../../utils/data/downloadApp/download";
+} from "../../utils/Data/downloadApp/download";
+
 
 interface DownloadProps {}
 interface DownloadState {}

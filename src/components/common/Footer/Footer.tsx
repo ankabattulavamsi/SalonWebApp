@@ -23,7 +23,7 @@ import instagram from "../../../assets/images/Footerimages/instagram-icon.png";
 
 import { Styles } from "./Footer.Styles";
 import "./Footer.css";
-import { services } from "../../../utils/data/footer/footer_data";
+import { services } from "../../../utils/Data/footer/footer_data";
 
 interface footerProps {
   classes: any;
