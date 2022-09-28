@@ -43,7 +43,7 @@ class TestimonialSection extends React.Component<
   render() {
     return (
       <>
-        <Box sx={{ mt: 5 }}>
+        <Box>
           <>
             <>
               <Box
@@ -99,7 +99,7 @@ class TestimonialSection extends React.Component<
                                 justifyContent: "center",
                                 mb: 10,
                                 gap: 2,
-                                mt: 45,
+                                mt: 37,
                                 ml: 0,
                               }}
                             >
