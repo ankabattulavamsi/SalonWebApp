@@ -2,7 +2,7 @@ import { Component } from "react";
 import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
 
-import { Offer, offerArray } from "../../utils/data/offerSection/offer";
+import { Offer, offerArray } from "../../utils/Data/offerSection/offer";
 
 import "./offers.css";
 

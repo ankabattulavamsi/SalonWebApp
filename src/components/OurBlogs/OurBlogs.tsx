@@ -7,7 +7,7 @@ import {
 import { withStyles } from "@mui/styles";
 
 import { BlogStyles } from "./OurBlog.Style";
-import { blogsData } from "../../utils/data/blogs/blogs_data";
+import { blogsData } from "../../utils/Data/blogs/blogs_data";
 
 interface blogProps {
   classes: any;

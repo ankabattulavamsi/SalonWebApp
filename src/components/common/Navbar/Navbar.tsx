@@ -5,24 +5,9 @@ import PersonIcon from "@mui/icons-material/Person";
 import CloseIcon from "@mui/icons-material/Close";
 import Logo from "../../../assets/images/Navbarimage/logo.jpg";
 
-<<<<<<< HEAD
-export default function Navbar() {
-  return (
-    <Fragment>
-      <div style={{ position: "fixed", width: "100%" }}>
-        <div style={{ backgroundColor: "black", color: "white", display: "flex", justifyContent: "space-around", height: "50px" }}>
-          <a style={{ color: "white" }} href="/">hOME</a>
-          <a style={{ color: "white" }} href="#categories">Categories</a>
-          <a style={{ color: "white" }} href="#teamsection">TeamSection</a>
-          <a style={{ color: "white" }} href="#gallery">Gallery</a>
-        </div>
-      </div>
-    </Fragment>
-  )
-=======
 
 import "./Navbar.css";
-import { landingMenu } from "../../../utils/data/navbar_menus";
+import { landingMenu } from "../../../utils/Data/navbar_menus";
 
 
 interface navSate {
@@ -121,7 +106,6 @@ class Navbar extends Component<{}, navSate> {
       </Fragment>
     );
   }
->>>>>>> origin/develop
 }
 
 export default Navbar;
