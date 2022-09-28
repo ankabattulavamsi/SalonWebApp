@@ -8,7 +8,7 @@ export default function Navbar() {
           <a style={{ color: "white" }} href="/">hOME</a>
           <a style={{ color: "white" }} href="#categories">Categories</a>
           <a style={{ color: "white" }} href="#teamsection">TeamSection</a>
-          <a style={{ color: "white" }} href="#Gallery">Gallery</a>
+          <a style={{ color: "white" }} href="#gallery">Gallery</a>
         </div>
       </div>
     </Fragment>

@@ -1,14 +1,20 @@
 import React, { Component } from 'react'
+import { withStyles } from "@mui/styles";
+import { Styles } from "./GalleryStyles";
 
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, Box } from "@mui/material";
 import { GallaryImgs } from '../../utils/fixtures/GallaryData';
 
 export class Gallery extends Component {
     render() {
+        const { classes }: any = this.props;
         return (
-            <Grid >
-                <Typography sx={{ fontSize: "30px", textAlign: "center", color: "black", fontWeight: "600", fontFamily: 'Fira Sans' }}>Salon Gallery</Typography>
-                <Grid container sx={{ justifyContent: "center", textAlign: "center", }}>
+
+            <Grid>
+                <Box className={classes.Gallery_heading}>
+                    <Typography variant='h4'>Salon Gallery</Typography>
+                </Box>
+                <Grid container sx={{ justifyContent: "center", textAlign: "center", margin: "30px 0" }}>
                     {
                         GallaryImgs.map((item: any, i: any) => {
                             return (
@@ -26,4 +32,4 @@ export class Gallery extends Component {
     }
 }
 
-export default Gallery
+export default withStyles(Styles)(Gallery)
