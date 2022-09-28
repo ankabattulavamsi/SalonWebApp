@@ -14,13 +14,15 @@ function App() {
         {/*Guest Flow*/}
 
         {/* Login */}
+    </Routes>
+
+        {/* Login */}
 
 
         {/* Login */}
-      </Routes>
 
     </div>
-  );
+  )
 }
 
 export default App;
