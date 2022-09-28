@@ -1,14 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-
 import HomePage from "./routes/HomePage/HomePage";
 import LandingPageNavigation from "./routes/LandingPageNavigation/LandingPageNavigation";
-
 import "./App.css";
-
 function App() {
-  // Note
-
   return (
     <div>
       <Routes>
@@ -22,6 +17,10 @@ function App() {
     </Routes>
 
         {/* Login */}
+
+
+        {/* Login */}
+
     </div>
   )
 }

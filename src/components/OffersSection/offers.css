@@ -1,0 +1,7 @@
+
+.offer-class-for-color:nth-child(odd) {
+  background-color: #ebf9fe !important;
+}
+.offer-class-for-color:nth-child(even) {
+  background-color: #e3e3e3 !important;
+}
