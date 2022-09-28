@@ -7,7 +7,7 @@ import {
   bgImage,
   TestmonialData,
   testmonialData,
-} from "../../utils/Data/testomonialSection/test";
+} from "../../utils/data/testomonialSection/test";
 import "./TestimonialSection.css";
 
 interface TestimonialSectionProps {}

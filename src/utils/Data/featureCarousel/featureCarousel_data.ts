@@ -4,8 +4,8 @@
 // import SliderBg from "../../assets/images/slider-bg.png";
 // import SliderBg from "../../assets/images/bottleNewImage-removebg-preview (1).png";
 
-import maleBarber from "../../assets/images/Carousel/male-barber-web1.png";
-import femaleBarber from "../../assets/images/Carousel/skin-care-face-web.png";
+import maleBarber from "../../../assets/images/Carousel/male-barber-web1.png";
+import femaleBarber from "../../../assets/images/Carousel/skin-care-face-web.png";
 
 const CarouselData = [
   {
