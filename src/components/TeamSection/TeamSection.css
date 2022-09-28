@@ -50,8 +50,9 @@
   margin: 10px auto;
 }
 .custom-dot-list-style button {
-  border: #ebb273 solid 2px !important;
-  padding: 2px;
+  border: #ebb273 solid 3px !important;
+  padding: 5px;
+  opacity: 0.8;
 }
 
 @media only screen and (min-width: 0px) {

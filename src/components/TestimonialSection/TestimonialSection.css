@@ -122,3 +122,8 @@
   letter-spacing: 0.01em !important;
   text-transform: lowercase !important;
 }
+.react-multi-carousel-dot button {
+  border: #ebb273 solid 3px !important;
+  padding: 5px;
+  opacity: 0.8;
+}
