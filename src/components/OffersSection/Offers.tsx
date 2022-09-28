@@ -9,8 +9,13 @@ import "./offers.css";
 class Offers extends Component {
   render() {
     return (
-      <div style={{ paddingTop: 30, paddingBottom: 30 }}>
-        <Box sx={{ marginTop: 20, marginBottom: 30 }}>
+      <div style={{ paddingTop: 5, paddingBottom: 5 }}>
+        <Box
+          sx={{
+            marginTop: 10,
+            marginBottom: 20,
+          }}
+        >
           <Container maxWidth="lg">
             <Grid
               spacing={2}

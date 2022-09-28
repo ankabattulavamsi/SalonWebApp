@@ -9,7 +9,7 @@ export interface Offer {
   export const offerArray: Offer[] = [
     {
       id: 1,
-      discount: 20,
+      discount: 30,
       title: "Long Hair Style",
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit 
   `,
