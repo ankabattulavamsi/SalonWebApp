@@ -49,14 +49,15 @@ class OurBestServices extends Component {
                 fontFamily: "Fira sans",
               }}
             >
-              Our Best Services <br />{" "}
-              <span className="our-best-services-undeline">___</span>
+              Our Best Services
+               {/* <br />{" "}
+              <span className="our-best-services-undeline">___</span> */}
             </Typography>
         </Box>
         <Carousel
           additionalTransfrom={0}
           arrows
-          // autoPlay
+          autoPlay
           autoPlaySpeed={2000}
           centerMode={false}
           className="our-best-services-carousel-buttons"
@@ -64,7 +65,7 @@ class OurBestServices extends Component {
           dotListClass=""
           draggable
           focusOnSelect={false}
-          // infinite
+          infinite
           itemClass=""
           keyBoardControl
           minimumTouchDrag={80}
