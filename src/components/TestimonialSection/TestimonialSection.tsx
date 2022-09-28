@@ -7,7 +7,7 @@ import {
   bgImage,
   TestmonialData,
   testmonialData,
-} from "../../utils/fixtures/testomonialSection/test";
+} from "../../utils/data/testomonialSection/test";
 import "./TestimonialSection.css";
 
 interface TestimonialSectionProps {}
@@ -56,6 +56,7 @@ class TestimonialSection extends React.Component<
                   overflow: "hidden",
                   width: "100%",
                   position: "relative",
+                  pb: 10,
                 }}
               >
                 <Typography
@@ -98,7 +99,7 @@ class TestimonialSection extends React.Component<
                                 justifyContent: "center",
                                 mb: 10,
                                 gap: 2,
-                                mt: 45,
+                                mt: 37 ,
                                 ml: 0,
                               }}
                             >

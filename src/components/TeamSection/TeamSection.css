@@ -9,17 +9,16 @@
   color: #fff !important;
 }
 
-.react-multiple-carousel__arrow .react-multiple-carousel__.arrow--right {
+.corosel-team-experts
+  .react-multiple-carousel__arrow
+  .react-multiple-carousel__.arrow--right {
   background: #ebb273 !important;
 }
-.react-multiple-carousel__arrow::before {
+.corosel-team-experts .react-multiple-carousel__arrow::before {
   background-color: #272522;
   width: 44px;
   height: 79px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+
   display: flex !important;
   align-items: center;
   align-self: center;
@@ -29,17 +28,25 @@
 .export-team {
   margin-top: 35% !important;
 }
-.react-multiple-carousel__arrow {
+.corosel-team-experts .react-multiple-carousel__arrow {
   background-color: transparent !important;
   margin-top: 10%;
 }
-.react-multiple-carousel__arrow--right {
+.corosel-team-experts .react-multiple-carousel__arrow--right {
   right: calc(0% + 1px) !important;
 }
-.react-multiple-carousel__arrow--left {
+.corosel-team-experts .react-multiple-carousel__arrow--right::before {
+  border-top-left-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+}
+.corosel-team-experts .react-multiple-carousel__arrow--left {
   left: calc(0% + 1px) !important;
 }
 
+.corosel-team-experts .react-multiple-carousel__arrow--left::before {
+  border-top-right-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+}
 .underline--our-expert-team::after {
   content: "";
   width: 29px;
@@ -49,22 +56,24 @@
   text-align: center;
   margin: 10px auto;
 }
-.custom-dot-list-style button {
+.corosel-team-experts .custom-dot-list-style button {
   border: #ebb273 solid 3px !important;
   padding: 5px;
   opacity: 0.8;
 }
 
 @media only screen and (min-width: 0px) {
-  .react-multiple-carousel__arrow {
+  .corosel-team-experts .react-multiple-carousel__arrow {
     opacity: 0 !important;
   }
-  .react-multi-carousel-list:hover .react-multiple-carousel__arrow {
+  .corosel-team-experts
+    .react-multi-carousel-list:hover
+    .react-multiple-carousel__arrow {
     opacity: 1 !important;
   }
 }
 @media only screen and (min-width: 790px) {
-  .react-multiple-carousel__arrow {
+  .corosel-team-experts .react-multiple-carousel__arrow {
     opacity: 1 !important;
   }
 }
