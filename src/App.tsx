@@ -5,7 +5,6 @@ import HomePage from './routes/HomePage/HomePage';
 import LandingPageNavigation from './routes/LandingPageNavigation/LandingPageNavigation';
 
 import './App.css';
-import Gallery from './components/Gallery/Gallery';
 
 function App() {
   // Note
