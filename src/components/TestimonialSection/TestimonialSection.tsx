@@ -43,7 +43,7 @@ class TestimonialSection extends React.Component<
   render() {
     return (
       <>
-        <Box>
+        <Box sx={{ mt: 5 }}>
           <>
             <>
               <Box
@@ -56,7 +56,7 @@ class TestimonialSection extends React.Component<
                   overflow: "hidden",
                   width: "100%",
                   position: "relative",
-                  pb: 5,
+                  pb: 10,
                 }}
               >
                 <Typography

@@ -1,13 +1,13 @@
-export const style = {
+export const styles = {
     feature_info_section:{
         padding: "55px 0 46px",
-        ['@media screen and (max-width: 900px)']: {
+        '@media screen and (max-width: 900px)': {
             padding: '37px 0 46px',
         }
     },
     feature_content_section:{
         paddingRight: '30px',
-        ['@media screen and (max-width: 900px)']: {
+        '@media screen and (max-width: 900px)': {
             padding: '0',
         }
     },
@@ -15,11 +15,11 @@ export const style = {
         padding: "3px 0 0",
         display: "flex",
         justifyContent: "flex-end",
-        ['@media screen and (max-width: 900px)']: {
+        '@media screen and (max-width: 900px)': {
             paddingTop: '57px',
         },
         "& img":{
-            ['@media screen and (max-width: 900px)']: {
+            '@media screen and (max-width: 900px)': {
                 width: "100%",
             },
         }
@@ -44,7 +44,7 @@ export const style = {
                 top: "54px",
                 left: "0px"
             },
-            ['@media screen and (max-width: 576px)']: {
+            '@media screen and (max-width: 576px)': {
                 fontSize: '32px',
                 lineHeight: "48px",
             }
@@ -61,10 +61,10 @@ export const style = {
             verticalAlign: 'top',
             marginTop: "30px",
             maxWidth: "91%",
-            ['@media screen and (max-width: 900px)']: {
+            '@media screen and (max-width: 900px)': {
                 maxWidth: "100%",
             },
-            ['@media screen and (max-width: 576px)']: {
+            '@media screen and (max-width: 576px)': {
                 marginBottom: "25px",
                 fontSize: '16px',
                 lineHeight: "28px",
@@ -82,10 +82,10 @@ export const style = {
             verticalAlign: 'top',
             margin: "45px 0",
             maxWidth: "91%",
-            ['@media screen and (max-width: 900px)']: {
+            '@media screen and (max-width: 900px)': {
                 maxWidth: "100%",
             },
-            ['@media screen and (max-width: 576px)']: {
+            '@media screen and (max-width: 576px)': {
                 display: "none"
             }
         }
@@ -93,7 +93,7 @@ export const style = {
     },
     feature_iconBox_section:{
         display: "flex",
-        ['@media screen and (max-width: 576px)']: {
+        '@media screen and (max-width: 576px)': {
             paddingBottom: "20px"
         },
         "& img":{
