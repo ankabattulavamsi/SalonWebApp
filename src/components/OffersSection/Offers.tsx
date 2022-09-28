@@ -12,8 +12,8 @@ class Offers extends Component {
       <div style={{ paddingTop: 5, paddingBottom: 5 }}>
         <Box
           sx={{
-            marginTop: 10,
-            marginBottom: 20,
+            marginTop: 5,
+            marginBottom: 10,
           }}
         >
           <Container maxWidth="lg">
