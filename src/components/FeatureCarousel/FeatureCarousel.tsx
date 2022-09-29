@@ -1,6 +1,6 @@
 /** @format */
 
-// import { withStyles } from "@material-ui/core/styles";
+
 import React, { Component, Fragment } from "react";
 import Slider from "react-slick";
 
@@ -10,6 +10,7 @@ import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 
 import "./FeatureCarousel.css";
 import { CarouselData } from "../../utils/Data/featureCarousel/featureCarousel_data";
+
 
 interface IProps {
   login?: string;
@@ -92,8 +93,8 @@ class FeatureCarousel extends Component<IProps> {
     return (
       <>
         <Grid container>
-          {/* <Grid item lg={1} md={1} sm={1} xs={1}></Grid> */}
-          <Grid item lg={12} md={12} sm={12} xs={12}>
+          <Grid item lg={.5} md={.5} sm={.5} xs={.5}></Grid>
+          <Grid item lg={11} md={11} sm={11} xs={11}>
             <Box
               className="Banner"
               sx={{
@@ -169,7 +170,7 @@ class FeatureCarousel extends Component<IProps> {
             </Box>
           </Grid>
 
-          {/* <Grid item lg={1} md={1} sm={1} xs={1}></Grid> */}
+          <Grid item lg={.5} md={.5} sm={.5} xs={.5}></Grid>
         </Grid>
       </>
     );
