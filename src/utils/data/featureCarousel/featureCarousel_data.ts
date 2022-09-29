@@ -1,13 +1,11 @@
 /** @format */
 
-// import waterCan from "../../assets/images/Bottle-Can.png";
-// import SliderBg from "../../assets/images/slider-bg.png";
-// import SliderBg from "../../assets/images/bottleNewImage-removebg-preview (1).png";
 
-import maleBarber from "../../assets/images/Carousel/male-barber-web1.png";
-import femaleBarber from "../../assets/images/Carousel/skin-care-face-web.png";
 
-const CarouselData = [
+import maleBarber from "../../../assets/images/Carousel/male-barber-web1.png";
+import femaleBarber from "../../../assets/images/Carousel/skin-care-face-web.png";
+
+export const CarouselData = [
   {
     heading: " Collection hair ",
     description:
@@ -33,4 +31,4 @@ const CarouselData = [
     image: femaleBarber,
   },
 ];
-export default CarouselData;
+
