@@ -10,7 +10,8 @@ import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 
 
 import "./FeatureCarousel.css";
-// import { CarouselData } from "../../utils/data/featureCarousel/featureCarousel_data";
+import { CarouselData } from "../../utils/data/featureCarousel/featureCarousel_data";
+
 
 
 
@@ -110,7 +111,7 @@ class FeatureCarousel extends Component<IProps> {
                 prevArrow={<PreviousBtn />}
                 nextArrow={<NextBtn />}
               >
-                {/* {CarouselData.map((data, index) => {
+                {CarouselData.map((data, index) => {
                   return (
                     <Fragment key={index}>
                       <Box className="main-div">
@@ -168,7 +169,7 @@ class FeatureCarousel extends Component<IProps> {
                       </Box>
                     </Fragment>
                   );
-                })} */}
+                })}
               </Slider>
             </Box>
           </Grid>
