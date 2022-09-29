@@ -84,12 +84,13 @@ class OurBestServices extends Component {
           slidesToSlide={1}
           swipeable 
         >
-          {ourBestServicesData.map((item:any) => (
+          {ourBestServicesData.map((item:any, index: number) => (
             <figure className="Our-best-Services-Carousel-main-container" style={{flex:' 1 1 auto',
               position: 'relative',
               width: '80%',
               height: 'auto', 
-              marginBottom: '65px'}}>
+              marginBottom: '65px'}} 
+              key={index}>
               <img
                 src={item.mainImage}
                 alt="item1"
