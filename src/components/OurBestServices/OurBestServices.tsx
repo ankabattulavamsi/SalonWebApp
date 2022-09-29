@@ -31,26 +31,30 @@ class OurBestServices extends Component {
     };
 
     return (
-      <Box maxWidth='xl' sx={{mx: 'auto', mb: 10}}  className='our-best-services-carousel-buttons'>
-        <Box sx={{ mt:3, mb:3 }}>
-            <Typography
-              variant="h4"
-              className="our-best-services-heading"
-              sx={{
-                fontSize: { xs: "20px", sm: "35px", lg: "42px" },
-                fontWeight: "700",
-                textAlign: "center",
-                lineHeight: "28px",
-                letterSpacing: "-0.01rem",
-                textTransform: "capitalize",
-                color: "#272522",
-                fontFamily: "Fira sans",
-              }}
-            >
-              Our Best Services
-               {/* <br />{" "}
+      <Box
+        maxWidth="xl"
+        sx={{ mx: "auto", mb: 10 }}
+        className="our-best-services-carousel-buttons"
+      >
+        <Box sx={{ mt: 3, mb: 3 }}>
+          <Typography
+            variant="h4"
+            className="our-best-services-heading"
+            sx={{
+              fontSize: { xs: "20px", sm: "35px", lg: "42px" },
+              fontWeight: "700",
+              textAlign: "center",
+              lineHeight: "28px",
+              letterSpacing: "-0.01rem",
+              textTransform: "capitalize",
+              color: "#272522",
+              fontFamily: "Fira sans",
+            }}
+          >
+            Our Best Services
+            {/* <br />{" "}
               <span className="our-best-services-undeline">___</span> */}
-            </Typography>
+          </Typography>
         </Box>
         <Carousel
           additionalTransfrom={0}
@@ -79,14 +83,19 @@ class OurBestServices extends Component {
           showDots
           sliderClass=""
           slidesToSlide={1}
-          swipeable 
+          swipeable
         >
-          {ourBestServicesData.map((item:any) => (
-            <figure className="Our-best-Services-Carousel-main-container" style={{flex:' 1 1 auto',
-              position: 'relative',
-              width: '80%',
-              height: 'auto', 
-              marginBottom: '65px'}}>
+          {ourBestServicesData.map((item: any) => (
+            <figure
+              className="Our-best-Services-Carousel-main-container"
+              style={{
+                flex: " 1 1 auto",
+                position: "relative",
+                width: "80%",
+                height: "auto",
+                marginBottom: "65px",
+              }}
+            >
               <img
                 src={item.mainImage}
                 alt="item1"

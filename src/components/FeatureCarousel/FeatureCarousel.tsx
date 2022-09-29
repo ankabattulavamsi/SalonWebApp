@@ -8,10 +8,8 @@ import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 
-
 import "./FeatureCarousel.css";
-import CarouselData from "../../utils/Data/FeatureCarosel";
-
+import { CarouselData } from "../../utils/Data/featureCarousel/featureCarousel_data";
 
 interface IProps {
   login?: string;
