@@ -3,16 +3,13 @@ import { Container } from "@mui/system";
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import {
-  bgImage,
-  TestmonialData,
-  testmonialData,
-} from "../../utils/data/testomonialSection/test";
+import { bgImage } from "../../utils/data/downloadApp/download";
+import { TestmonialData, testmonialData } from "../../utils/data/testomonialSection/test";
 import "./TestimonialSection.css";
 
-interface TestimonialSectionProps {}
+interface TestimonialSectionProps { }
 
-interface TestimonialSectionState {}
+interface TestimonialSectionState { }
 
 const responsive = {
   desktop: {
@@ -99,7 +96,7 @@ class TestimonialSection extends React.Component<
                                 justifyContent: "center",
                                 mb: 10,
                                 gap: 2,
-                                mt: 37 ,
+                                mt: 37,
                                 ml: 0,
                               }}
                             >
