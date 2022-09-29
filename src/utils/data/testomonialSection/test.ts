@@ -68,5 +68,5 @@ Lorem ipsum dolor sit amet consectetur
   },
 ];
 
-export const bgImage: string = require("../../../assets/images/TestomonialSection/bg.png");
+export const bgImageTestimonial: string = require("../../../assets/images/TestomonialSection/bg.png");
 export const bgColorImage: string = require("../../../assets/images/TestomonialSection/bg_color.png");

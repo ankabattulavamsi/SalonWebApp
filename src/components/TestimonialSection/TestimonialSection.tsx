@@ -3,13 +3,16 @@ import { Container } from "@mui/system";
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { bgImage } from "../../utils/data/downloadApp/download";
-import { TestmonialData, testmonialData } from "../../utils/data/testomonialSection/test";
+import {
+  bgImageTestimonial,
+  TestmonialData,
+  testmonialData,
+} from "../../utils/data/testomonialSection/test";
 import "./TestimonialSection.css";
 
-interface TestimonialSectionProps { }
+interface TestimonialSectionProps {}
 
-interface TestimonialSectionState { }
+interface TestimonialSectionState {}
 
 const responsive = {
   desktop: {
@@ -46,7 +49,7 @@ class TestimonialSection extends React.Component<
               <Box
                 sx={{
                   bgcolor: "#EBB273",
-                  background: `url(${bgImage}) no-repeat`,
+                  background: `url(${bgImageTestimonial}) no-repeat`,
                   height: "auto",
                   backgroundSize: "cover",
                   backgroundPosition: "center center",
