@@ -259,7 +259,7 @@
   }
 
   .text .btn {
-    margin-top: 10px !important;
+    margin-top: 20px !important;
     height: 60px !important;
     text-decoration: underline;
   }
@@ -313,7 +313,7 @@
 
   .text .btn {
     width: 250px !important;
-    margin-top: 10px !important;
+    margin-top: 20px !important;
     height: 70px !important;
     text-decoration: underline;
   }
