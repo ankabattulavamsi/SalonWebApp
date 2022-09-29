@@ -104,7 +104,7 @@
   height: 389px;
   z-index: 100;
 }
-.bottleImg {
+.salonImg {
   width: 250px;
   height: 268px;
 }
@@ -220,7 +220,7 @@
     height: 32.75px;
   }
 
-  #bottleImg {
+  #salonImg {
     width: 160px;
     height: 155px;
   }
@@ -264,7 +264,7 @@
     text-decoration: underline;
   }
 
-  #bottleImg {
+  #salonImg {
     width: 380px;
     height: 340px;
   }
@@ -304,7 +304,7 @@
     height: 400px;
   }
 
-  #bottleImg {
+  #salonImg {
     width: 459px;
     height: 368px;
     /* margin-left: -40%; */

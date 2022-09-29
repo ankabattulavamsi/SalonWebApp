@@ -159,8 +159,8 @@ class FeatureCarousel extends Component<IProps> {
                           <Grid item xl={4} lg={4} md={4} sm={4} xs={4}>
                             <Box className="img">
                               <img
-                                alt="bottleImage"
-                                id="bottleImg"
+                                alt="SalonImg"
+                                id="salonImg"
                                 src={data.image}
                               />
                             </Box>
