@@ -5,10 +5,8 @@ import PersonIcon from "@mui/icons-material/Person";
 import CloseIcon from "@mui/icons-material/Close";
 import Logo from "../../../assets/images/Navbarimage/logo.jpg";
 
-
 import "./Navbar.css";
 import { landingMenu } from "../../../utils/data/navbar_menus";
-
 
 interface navSate {
   activeLink: string;
@@ -19,10 +17,17 @@ class Navbar extends Component<{}, navSate> {
     activeLink: "Home",
     mobileDrawer: false,
   };
+
+  handleClick = (title: string) => {
+    this.setState({
+      activeLink: title,
+      mobileDrawer: !this.state.mobileDrawer,
+    });
+  };
   render() {
     return (
       <Fragment>
-        <Box className="navbar-body" >
+        <Box className="navbar-body">
           <Box className="logo">
             <img src={Logo} alt="logo" width="100%" height="75px" />
           </Box>
@@ -45,18 +50,15 @@ class Navbar extends Component<{}, navSate> {
             })}
           </Box>
           <Box className="nav-login-section">
-            <Button
-              startIcon={<PersonIcon />}
-              className="login-btn"
-            >
+            <Button startIcon={<PersonIcon />} className="login-btn">
               Login
             </Button>
           </Box>
-          
+
           {/* mobile drawer section */}
           <Box className="mobile-drawer">
             <Box sx={{ background: "#272522", px: 4, py: 2.6 }}>
-              <PersonIcon sx={{ color: "#E7A356", fontSize:'30px' }} />
+              <PersonIcon sx={{ color: "#E7A356", fontSize: "30px" }} />
             </Box>
             <MenuIcon
               sx={{ ml: 4, fontSize: "30px" }}
@@ -85,7 +87,7 @@ class Navbar extends Component<{}, navSate> {
                   <ListItem
                     key={menu.id}
                     className="mobile-menus"
-                    onClick={() => this.setState({ activeLink: menu.title })}
+                    onClick={() => this.handleClick(menu.title)}
                   >
                     <a
                       href={menu.path}
@@ -109,4 +111,3 @@ class Navbar extends Component<{}, navSate> {
 }
 
 export default Navbar;
-
