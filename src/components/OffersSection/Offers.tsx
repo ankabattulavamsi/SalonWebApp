@@ -84,7 +84,7 @@ class Offers extends Component {
                         {offer.title}
                       </Typography>
                       <Typography
-                        variant="body2"
+                        variant="h5"
                         color="text.secondary"
                         sx={{
                           mt: 2,
@@ -118,8 +118,8 @@ class Offers extends Component {
                         height="100%"
                         image={offer.imgUrl}
                         alt="green iguana"
-                        sx={{ objectFit: { xs: "cover", sm: "contain" } }}
-                      />  
+                        sx={{ objectFit: { xs: "contain" } }}
+                      />
                     </Box>
                   </Card>
                 </Grid>
