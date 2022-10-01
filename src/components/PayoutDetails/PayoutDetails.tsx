@@ -75,7 +75,7 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
             </Box>
             {!this.state.buttonActive ? (
               <>
-                <Box sx={{ mt: 3 }}>
+                <Box sx={{ mt: 3 }} className="scrollbar--hide">
                   <Inputs
                     handleChange={this.props.handleChange}
                     label="Account Holder Name"

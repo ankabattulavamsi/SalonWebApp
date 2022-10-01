@@ -111,6 +111,7 @@ class Navbar extends Component<{}, navSate> {
   //button click to navigate or open the payout detalis page
   handleClickSave = () => {
     this.handleToggleDrawer("openPayout");
+    this.handleToggleDrawer();
   };
   render() {
     return (
