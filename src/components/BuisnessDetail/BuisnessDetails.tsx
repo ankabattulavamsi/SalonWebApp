@@ -24,7 +24,9 @@ interface BuisnessDetailsProps {
   state: navSate;
   handleClickSave: () => void;
 }
-interface BuisnessDetailsState {}
+interface BuisnessDetailsState {
+  error: string;
+}
 
 class BuisnessDetails extends Component<
   BuisnessDetailsProps,
@@ -32,7 +34,9 @@ class BuisnessDetails extends Component<
 > {
   constructor(props: BuisnessDetailsProps) {
     super(props);
-    this.state = {};
+    this.state = {
+      error: "",
+    };
   }
 
   handleValidateEmail = (e: any) => {
@@ -173,7 +177,7 @@ class BuisnessDetails extends Component<
               value={this.props.state.email}
               icon={emailImage}
               name={"email"}
-              error={this.props.state.error}
+              error={this.state.error}
             />
           </Box>
           <Box
@@ -189,7 +193,7 @@ class BuisnessDetails extends Component<
             <Buttons
               title="save & continue"
               disabled={
-                this.props.state.error !== "" ||
+                this.state.error !== "" ||
                 this.props.state.email === "" ||
                 this.props.state.GSTIN === "" ||
                 this.props.state.address === "" ||

@@ -17,15 +17,50 @@ interface PayoutDetailsProps {
 }
 interface PayoutDetailsState {
   buttonActive?: boolean;
+  error: string;
+  errorA: string;
+  errorB: string;
 }
 class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
   constructor(props: PayoutDetailsProps) {
     super(props);
     this.state = {
       buttonActive: false,
+      error: "",
+      errorA: "",
+      errorB: "",
     };
   }
 
+  handleValidateUpi = (e: any) => {
+    let pattern = /^[a-zA-Z0-9.\-_]{2,256}@[a-zA-Z]{2,64}$/;
+    const str = e.target.value;
+    if (!pattern.test(str)) {
+      this.setState({ error: "upi is not valid" });
+    } else {
+      this.setState({ error: "" });
+    }
+  };
+
+  handleValidateAccNumber = (e: any) => {
+    let pattern = /^\d{9,18}$/;
+    const str = e.target.value;
+    if (!pattern.test(str)) {
+      this.setState({ errorA: "accound number is not valid" });
+    } else {
+      this.setState({ errorA: "" });
+    }
+  };
+
+  handleConfirmAccNumber = (e: any) => {
+    if (this.props.state.accNumber !== e.target.value) {
+      this.setState({ errorB: "accound number is same" });
+    } else {
+      this.setState({
+        errorB: "",
+      });
+    }
+  };
   render() {
     const { classes } = this.props;
     return (
@@ -84,18 +119,26 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                     value={this.props.state.accHoldername}
                   />
                   <Inputs
-                    handleChange={this.props.handleChange}
+                    handleChange={(e) => {
+                      this.handleValidateAccNumber(e);
+                      this.props.handleChange(e);
+                    }}
                     label="Account Number"
                     placeholder="798765432104441"
                     name="accNumber"
                     value={this.props.state.accNumber}
+                    error={this.state.errorA}
                   />
                   <Inputs
-                    handleChange={this.props.handleChange}
+                    handleChange={(e: any) => {
+                      this.handleConfirmAccNumber(e);
+                      this.props.handleChange(e);
+                    }}
                     label="Confirm Account Number"
                     placeholder="798765432104441"
                     name="confirmaccNumber"
                     value={this.props.state.confirmaccNumber}
+                    error={this.state.errorB}
                   />
                   <Inputs
                     handleChange={this.props.handleChange}
@@ -105,9 +148,11 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                     value={this.props.state.ifscCode}
                   />
                   <Inputs
-                    handleChange={this.props.handleChange}
+                    handleChange={(e) => {
+                      this.props.handleChange(e);
+                    }}
                     label="Bank Name"
-                    placeholder="State banck of India"
+                    placeholder="State bank of India"
                     name="bankname"
                     value={this.props.state.bankname}
                   />
@@ -125,7 +170,15 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                 >
                   <Buttons
                     title="save & continue"
-                    disabled={false}
+                    disabled={
+                      this.state.errorA !== "" ||
+                      this.state.errorB !== "" ||
+                      this.state.error !== "" ||
+                      this.props.state.accHoldername === "" ||
+                      this.props.state.accNumber === "" ||
+                      this.props.state.bankname === "" ||
+                      this.props.state.confirmaccNumber === ""
+                    }
                     handleClick={() => {}}
                   />
                 </Box>
@@ -140,7 +193,11 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                     label="UPI"
                     placeholder="1234567890"
                     icon={yblImage}
-                    handleChange={this.props.handleChange}
+                    handleChange={(e) => {
+                      this.handleValidateUpi(e);
+                      this.props.handleChange(e);
+                    }}
+                    error={this.state.error}
                   />
                 </Box>
 
@@ -156,7 +213,10 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                 >
                   <Buttons
                     title="save & continue"
-                    disabled={false}
+                    disabled={
+                      this.props.state.upiAddress === "" ||
+                      this.state.error !== ""
+                    }
                     handleClick={() => {}}
                   />
                 </Box>

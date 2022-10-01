@@ -32,6 +32,7 @@ export default class Inputs extends Component<InputsProps, InputsState> {
       accept,
       error,
     } = this.props;
+    console.log({ error });
     return (
       <FormControl className="input--formcontrol">
         {label && (
@@ -56,7 +57,17 @@ export default class Inputs extends Component<InputsProps, InputsState> {
           {icon && <img src={icon} alt={id} className="input--icons" />}
         </Box>
 
-        {error && <FormHelperText>{error}</FormHelperText>}
+        {error && (
+          <FormHelperText
+            component={"p"}
+            color="error"
+            sx={{
+              color: "#B00020",
+            }}
+          >
+            {error}
+          </FormHelperText>
+        )}
       </FormControl>
     );
   }
