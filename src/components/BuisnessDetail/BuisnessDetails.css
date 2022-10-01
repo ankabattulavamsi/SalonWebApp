@@ -1,0 +1,10 @@
+.inputHide {
+  opacity: 0;
+  z-index: 10;
+  width: 100%;
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  padding: 6px 8px;
+  min-height: 64px;
+}

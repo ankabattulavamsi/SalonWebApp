@@ -1,0 +1,60 @@
+.input--formcontrol {
+  width: 90%;
+  height: auto;
+  margin: 10px auto !important;
+  padding: 2px !important;
+  position: relative;
+}
+
+.input--label {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 30px;
+  letter-spacing: 0.01em;
+  text-transform: capitalize;
+  color: #272522;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+.input--input {
+  background-color: #f0f0f0;
+  width: 100%;
+  border: none;
+  display: flex;
+}
+.input--input--1 {
+  padding-top: 15px;
+  width: 80%;
+
+  padding-bottom: 15px;
+  padding-left: 15px;
+  background-color: #f0f0f0;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 30px;
+  letter-spacing: 0.01em;
+
+  color: #a4a1a1;
+  border-radius: 5px;
+  border: none;
+  display: flex;
+}
+
+.input--input--1:focus {
+  border: none;
+  outline: none;
+}
+
+.input--icons {
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  width: 26px;
+  height: 26px;
+  background-color: #f0f0f0;
+  object-fit: contain;
+}
