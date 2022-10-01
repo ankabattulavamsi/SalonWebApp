@@ -4,15 +4,15 @@ import { Box } from "@mui/system";
 import React, { Component } from "react";
 import { yblImage } from "../../utils/data/businessdetailsandPayout/Busness.data";
 import withRouter from "../../hoc/withRouter";
-import { HomeState } from "../../routes/HomePage/HomePage";
 import { Buttons, PayoutButton, Inputs, Drawers } from "../common";
 import { payoutStyles } from "./PayoutDetails.Styles";
+import { navSate } from "../common/Navbar/Navbar";
 interface PayoutDetailsProps {
   open: boolean;
   toggleFunc: (type?: string) => void;
   navigate: any;
   classes: any;
-  state: HomeState;
+  state: navSate;
   handleChange: (e: any) => void;
 }
 interface PayoutDetailsState {

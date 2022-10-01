@@ -7,15 +7,48 @@ import Logo from "../../../assets/images/Navbarimage/logo.jpg";
 
 import "./Navbar.css";
 import { landingMenu } from "../../../utils/data/navbar_menus";
+import BuisnessDetails from "../../BuisnessDetail/BuisnessDetails";
+import PayoutDetails from "../../PayoutDetails/PayoutDetails";
 
-interface navSate {
+export interface navSate {
   activeLink: string;
   mobileDrawer: boolean;
+  openBusiness: boolean;
+  image: any;
+  bname: string;
+  owner: string;
+  address: string;
+  email: string;
+  GSTIN: string;
+  error: string;
+  openPayout: boolean;
+  upiAddress: string;
+  accNumber: string;
+  confirmaccNumber: string;
+  accHoldername: string;
+  ifscCode: string;
+  bankname: string;
 }
 class Navbar extends Component<{}, navSate> {
   state = {
     activeLink: "Home",
     mobileDrawer: false,
+
+    openBusiness: false,
+    openPayout: false,
+    image: "",
+    address: "",
+    bname: "",
+    email: "",
+    owner: "",
+    GSTIN: "",
+    error: "",
+    upiAddress: "",
+    accHoldername: "",
+    bankname: "",
+    confirmaccNumber: "",
+    ifscCode: "",
+    accNumber: "",
   };
 
   handleClick = (title: string) => {
@@ -23,6 +56,61 @@ class Navbar extends Component<{}, navSate> {
       activeLink: title,
       mobileDrawer: !this.state.mobileDrawer,
     });
+  };
+
+  handleChange = (e: any) => {
+    this.setState({ ...this.state, [e.target.name]: e.target.value });
+  };
+
+  // on change function to change the input value of the  profile image
+  handleImageChange = (e: any): any => {
+    this.setState({ image: URL.createObjectURL(e.target.files[0]) });
+  };
+  handleToggleDrawer = (type?: string) => {
+    switch (type) {
+      case "openPayout":
+        this.setState({
+          openPayout: !this.state.openPayout,
+          image: "",
+          address: "",
+          bname: "",
+          email: "",
+          owner: "",
+          GSTIN: "",
+          error: "",
+          upiAddress: "",
+          accHoldername: "",
+          bankname: "",
+          confirmaccNumber: "",
+          ifscCode: "",
+          accNumber: "",
+        });
+        break;
+
+      default:
+        this.setState({
+          openBusiness: !this.state.openBusiness,
+          image: "",
+          address: "",
+          bname: "",
+          email: "",
+          owner: "",
+          GSTIN: "",
+          error: "",
+          upiAddress: "",
+          accHoldername: "",
+          bankname: "",
+          confirmaccNumber: "",
+          ifscCode: "",
+          accNumber: "",
+        });
+        break;
+    }
+  };
+
+  //button click to navigate or open the payout detalis page
+  handleClickSave = () => {
+    this.handleToggleDrawer("openPayout");
   };
   render() {
     return (
@@ -50,7 +138,11 @@ class Navbar extends Component<{}, navSate> {
             })}
           </Box>
           <Box className="nav-login-section">
-            <Button startIcon={<PersonIcon />} className="login-btn">
+            <Button
+              startIcon={<PersonIcon />}
+              className="login-btn"
+              onClick={() => this.handleToggleDrawer()}
+            >
               Login
             </Button>
           </Box>
@@ -105,6 +197,24 @@ class Navbar extends Component<{}, navSate> {
             </List>
           </Box>
         </Drawer>
+
+        <>
+          <BuisnessDetails
+            handleToggleDrawer={this.handleToggleDrawer}
+            open={this.state.openBusiness}
+            handleChange={this.handleChange}
+            handleImageChange={this.handleImageChange}
+            state={this.state}
+            handleClickSave={this.handleClickSave}
+          />
+
+          <PayoutDetails
+            open={this.state.openPayout}
+            toggleFunc={this.handleToggleDrawer}
+            state={this.state}
+            handleChange={this.handleChange}
+          />
+        </>
       </Fragment>
     );
   }

@@ -12,15 +12,16 @@ import {
   storeImage,
   userImage,
 } from "../../utils/data/businessdetailsandPayout/Busness.data";
-import { HomeState } from "../../routes/HomePage/HomePage";
+
 import { Buttons, Drawers, Inputs } from "../common";
+import { navSate } from "../common/Navbar/Navbar";
 interface BuisnessDetailsProps {
   handleToggleDrawer: () => void;
   open: boolean;
   classes: any;
   handleChange: (e: any) => void;
   handleImageChange: (e: any) => void;
-  state: HomeState;
+  state: navSate;
   handleClickSave: () => void;
 }
 interface BuisnessDetailsState {}
