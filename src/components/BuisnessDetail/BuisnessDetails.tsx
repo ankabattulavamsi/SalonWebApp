@@ -15,6 +15,7 @@ import {
 
 import { Buttons, Drawers, Inputs } from "../common";
 import { navSate } from "../common/Navbar/Navbar";
+
 interface BuisnessDetailsProps {
   handleToggleDrawer: () => void;
   open: boolean;
@@ -148,6 +149,7 @@ class BuisnessDetails extends Component<
               icon={locationImage}
               name={"address"}
             />
+
             <Inputs
               label={"GSTIN No"}
               id={`${4}`}

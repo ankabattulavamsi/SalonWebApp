@@ -61,6 +61,7 @@ export default class Inputs extends Component<InputsProps, InputsState> {
               name={name}
               required={required}
               placeholder={placeholder}
+              
               className="input--input--1 "
               value={value}
               onChange={(e) => handleChange && handleChange(e)}
