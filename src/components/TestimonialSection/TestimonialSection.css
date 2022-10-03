@@ -6,6 +6,7 @@
   background-color: #272522;
   text-align: center;
   margin: 10px auto;
+  z-index: -1 !important;
 }
 
 .underline-testimonials {
@@ -52,7 +53,12 @@
 }
 @media only screen and (max-width: 1200px) {
   .card-test::after {
-    transform: translateX(7rem) translateY(-30px) !important;
+    transform: translateX(7rem) translateY(-20px) !important;
+  }
+}
+@media only screen and (max-width: 1146px) {
+  .card-test::after {
+    transform: translateX(10rem) translateY(-20px) !important;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -131,3 +137,4 @@
 .react-multiple-carousel__arrow {
   z-index: 100 !important;
 }
+

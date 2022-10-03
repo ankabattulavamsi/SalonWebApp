@@ -65,7 +65,7 @@ class TestimonialSection extends React.Component<
                   className="underline-testimonials"
                   sx={{
                     fontSize: "35px",
-                    mt: 20,
+                    mt: 15,
                   }}
                 >
                   Testimonials
