@@ -42,7 +42,7 @@ class BuisnessDetails extends Component<
   handleValidateEmail = (e: any) => {
     const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     const str = e.target.value;
-    console.log(str);
+  
     if (!pattern.test(str)) {
       this.setState({ error: "Email is not valid" });
     } else {
@@ -82,12 +82,8 @@ class BuisnessDetails extends Component<
                 }}
               >
                 <img
-                  style={{
-                    width: "130px",
-                    height: "130px",
-                    borderRadius: "50%",
-                    objectFit: "cover",
-                  }}
+                 
+                  className="img-profile"
                   src={
                     this.props.state.image
                       ? this.props.state.image

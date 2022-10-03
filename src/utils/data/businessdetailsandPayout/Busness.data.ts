@@ -8,6 +8,12 @@ export interface BuesnessInputFields {
   required: boolean;
   value?: any;
 }
+
+export interface optionsBanksname {
+  id: number;
+  title: string;
+  icon: any;
+}
 export const profileImage: string = require("../../../assets/images/BuesnessProfile/profile.png");
 export const storeImage: string = require("../../../assets/images/BuesnessProfile/store.png");
 export const userImage: string = require("../../../assets/images/BuesnessProfile/user.png");
@@ -15,6 +21,24 @@ export const locationImage: string = require("../../../assets/images/BuesnessPro
 export const noteImage: string = require("../../../assets/images/BuesnessProfile/note_add.png");
 export const emailImage: string = require("../../../assets/images/BuesnessProfile/email.png");
 export const yblImage: string = require("../../../assets/images/BuesnessProfile/@ybI.png");
+
+export const optionsBankName: optionsBanksname[] = [
+  {
+    id: 123456,
+    title: "State bank of India",
+    icon: require("../../../assets/images/BuesnessProfile/sbi-logo.png"),
+  },
+  {
+    id: 123457,
+    title: "HDFC",
+    icon: require("../../../assets/images/BuesnessProfile/hdfc-logo.png"),
+  },
+  {
+    id: 123458,
+    title: "axis",
+    icon: require("../../../assets/images/BuesnessProfile/axis-log.png"),
+  },
+];
 
 // export interface InputFields {
 //   bname: string;

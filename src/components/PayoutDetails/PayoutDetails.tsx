@@ -2,7 +2,10 @@ import { Typography } from "@mui/material";
 import { withStyles } from "@mui/styles";
 import { Box } from "@mui/system";
 import React, { Component } from "react";
-import { yblImage } from "../../utils/data/businessdetailsandPayout/Busness.data";
+import {
+  optionsBankName,
+  yblImage,
+} from "../../utils/data/businessdetailsandPayout/Busness.data";
 import withRouter from "../../hoc/withRouter";
 import { Buttons, PayoutButton, Inputs, Drawers } from "../common";
 import { payoutStyles } from "./PayoutDetails.Styles";
@@ -155,6 +158,8 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                     placeholder="State bank of India"
                     name="bankname"
                     value={this.props.state.bankname}
+                    isSelect={true}
+                    options={optionsBankName}
                   />
                 </Box>
 
