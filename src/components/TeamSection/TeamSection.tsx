@@ -4,7 +4,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Container } from "@mui/system";
 import React, { Component } from "react";
-import { TeamData, teamdata } from "../../utils/fixtures/expertTeam/team";
+import { TeamData, teamdata } from "../../utils/data/expertTeam/team";
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1113 },
@@ -25,7 +25,7 @@ const responsive = {
 export default class TeamSection extends Component {
   render() {
     return (
-      <Box sx={{ mt: 5, mb: 7 }}>
+      <Box sx={{ mt: { xs: 5, md: 15 }, mb: 7, pb: 7 }}>
         <Box>
           <Typography
             variant="h3"
@@ -46,7 +46,7 @@ export default class TeamSection extends Component {
           </Typography>
         </Box>
         <Container maxWidth="lg">
-          <>
+          <Box className="corosel-team-experts">
             <Carousel
               swipeable={false}
               draggable={false}
@@ -117,7 +117,7 @@ export default class TeamSection extends Component {
                 );
               })}
             </Carousel>
-          </>
+          </Box>
         </Container>
       </Box>
     );
