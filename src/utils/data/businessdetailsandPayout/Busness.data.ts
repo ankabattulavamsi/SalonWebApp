@@ -38,6 +38,11 @@ export const optionsBankName: optionsBanksname[] = [
     title: "axis",
     icon: require("../../../assets/images/BuesnessProfile/axis-log.png"),
   },
+  {
+    id: 123458,
+    title: "icic",
+    icon: require("../../../assets/images/BuesnessProfile/icic.png"),
+  },
 ];
 
 // export interface InputFields {
