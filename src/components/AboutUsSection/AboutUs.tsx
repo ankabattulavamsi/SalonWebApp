@@ -10,7 +10,10 @@ class AboutUs extends Component {
     return (
       <div className="about-us-section-container">
         <Container maxWidth="lg">
-          <Grid container sx={{ padding: "10% 0" }}>
+          <Grid
+            container
+            sx={{ padding: { xs: "5% 0", sm: "13% 0" }, mx: "auto" }}
+          >
             <Grid item md={6} xs={12} className="about-us-video-container">
               <ReactPlayer
                 url="https://www.youtube.com/watch?v=ysz5S6PUM-U"

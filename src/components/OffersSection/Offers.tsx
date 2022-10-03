@@ -11,10 +11,8 @@ class Offers extends Component {
     return (
       <Box
         sx={{
-          marginTop: 5,
-          marginBottom: 10,
-          paddingTop: 5,
-          paddingBottom: 5,
+          my: 17,
+          py: 20,
         }}
       >
         <Container maxWidth="lg">
@@ -33,8 +31,7 @@ class Offers extends Component {
                 <Grid item md={6} xs={12} key={offer.id}>
                   <Card
                     sx={{
-                      mt: 5,
-                      maxHeight: { xs: "100%", sm: "300px" },
+                      maxHeight: { xs: "100%", sm: "350px" },
                       display: "flex",
                       mx: "auto",
                       bgcolor: offer.bgColor,
