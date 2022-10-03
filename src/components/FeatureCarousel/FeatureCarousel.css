@@ -66,8 +66,8 @@
 }
 
 .main-div {
-  background: url("../../assets//images/Carousel/bg.jpg"),
-    linear-gradient(rgb(9, 9, 26), rgb(9, 9, 26));
+  background: url("../../assets/images/Carousel/background.png"),
+    linear-gradient(rgb(0, 0, 0), rgb(7, 7, 10));
   background-repeat: no-repeat;
   background-size: cover;
   display: flex !important;
@@ -78,7 +78,7 @@
   margin: auto;
   height: 400px;
   position: relative;
-  border-radius: 18px;
+  border-radius: 8px;
   z-index: 0;
   margin-top: 120px;
 }
@@ -96,7 +96,6 @@
   z-index: 100;
 }
 .img {
-  /* background-color: blue; */
   position: relative;
   right: 151px;
   top: 20px;
@@ -157,25 +156,16 @@
   .main-div {
     padding: 20px;
     border-radius: 8px;
-    /* margin-top: 35px; */
     display: flex !important;
     width: 100% !important;
     height: 186px;
   }
-
-  /* .bottle {
-      position: absolute;
-      top: 2rem;
-      margin-bottom: -25%;
-      z-index: 1;
-    } */
   .text {
     position: relative;
     top: 60px;
     left: 20px;
   }
   .img {
-    /* background-color: blue; */
     position: relative;
     right: 40px;
     top: 133px;
@@ -199,7 +189,7 @@
     font-style: normal !important;
     font-weight: 500 !important;
     font-size: 12px !important;
-    line-height: 12px !important;
+    line-height: 13px !important;
     text-transform: lowercase;
     color: #ffffff;
     opacity: 0.7;
@@ -208,7 +198,6 @@
   .text .btn {
     font-family: "Fira Sans" !important;
     font-style: normal !important;
-
     font-size: 13px !important;
     line-height: 16px !important;
     letter-spacing: 0.01em !important;
@@ -226,13 +215,11 @@
   }
 
   #pev {
-    background-color: transparent !important;
-    color: transparent !important;
-    font-size: 0px !important;
+    display: none;
   }
 
   #arrowBtn {
-    color: transparent !important;
+    display: none;
   }
 
   .circle {
@@ -244,7 +231,7 @@
   }
 
   .Banner .slick-dots {
-    top: 265px;
+    top: 270px;
 
     margin-left: -10px;
     color: rgba(255, 255, 255, 1);
@@ -271,23 +258,22 @@
 
   .text {
     position: relative;
-    top: 34px;
+    top: 40px;
     left: 52px;
   }
   .text .heading {
     font-size: 22px !important;
-
     line-height: 30px !important;
   }
 
   .text .desc {
     width: 250px !important;
     font-size: 19px !important;
-    line-height: 20px !important;
+    line-height: 24px !important;
   }
 
   .Banner .slick-dots {
-    top: 370px;
+    top: 390px;
     margin-left: -20px;
     color: rgba(255, 255, 255, 1);
   }
@@ -313,7 +299,7 @@
 
   .text .btn {
     width: 250px !important;
-    margin-top: 20px !important;
+    margin-top: 22px !important;
     height: 70px !important;
     text-decoration: underline;
   }
@@ -327,11 +313,11 @@
   .text .desc {
     width: 400px;
     font-size: 22px !important;
-    line-height: 25px !important;
+    line-height: 28px !important;
   }
 
   .Banner .slick-dots {
-    top: 450px;
+    top: 470px;
     margin-left: -20px;
     color: rgba(255, 255, 255, 1);
   }
