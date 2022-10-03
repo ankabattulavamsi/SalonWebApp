@@ -11,8 +11,7 @@ class Offers extends Component {
     return (
       <Box
         sx={{
-          my: 17,
-          py: 20,
+          py: { md: 30, xs: 15 },
         }}
       >
         <Container maxWidth="lg">
@@ -103,7 +102,7 @@ class Offers extends Component {
                           xs: "70%",
                           sm: "50%",
                           md: "50%",
-                          lg: "555px",
+                          lg: "100%",
                         },
                         marginTop: "auto",
                         height: "100%",
