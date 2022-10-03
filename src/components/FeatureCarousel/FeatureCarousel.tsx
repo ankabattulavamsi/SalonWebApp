@@ -13,14 +13,12 @@ import { CarouselData } from "../../utils/data/featureCarousel/featureCarousel_d
 
 
 
-
-
 interface IProps {
-  login?: string;
+  
 }
 class FeatureCarousel extends Component<IProps> {
   state = {
-    redirect: false,
+   
   };
 
   render() {
@@ -140,7 +138,6 @@ class FeatureCarousel extends Component<IProps> {
                               </Typography>
 
                               <Stack
-                                
                               >
                                 <Button variant="outlined" className="btn">
                                   see all services

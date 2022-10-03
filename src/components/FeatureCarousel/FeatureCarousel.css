@@ -12,7 +12,9 @@
 .slick-slider {
   overflow-y: visible;
   overflow-x: clip;
+  border-radius: 8px;
 }
+
 .slick-prev:before {
   content: "";
 }
@@ -74,7 +76,7 @@
   justify-content: space-around !important;
   align-items: center !important;
   overflow: visible !important;
-  width: 100%;
+  width: 100%;  
   margin: auto;
   height: 400px;
   position: relative;
