@@ -4,10 +4,10 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import {
-  bgImage,
+  bgImageTestimonial,
   TestmonialData,
   testmonialData,
-} from "../../utils/fixtures/testomonialSection/test";
+} from "../../utils/data/testomonialSection/test";
 import "./TestimonialSection.css";
 
 interface TestimonialSectionProps {}
@@ -49,13 +49,14 @@ class TestimonialSection extends React.Component<
               <Box
                 sx={{
                   bgcolor: "#EBB273",
-                  background: `url(${bgImage}) no-repeat`,
+                  background: `url(${bgImageTestimonial}) no-repeat`,
                   height: "auto",
                   backgroundSize: "cover",
                   backgroundPosition: "center center",
                   overflow: "hidden",
                   width: "100%",
                   position: "relative",
+                  pb: 10,
                 }}
               >
                 <Typography
@@ -98,7 +99,7 @@ class TestimonialSection extends React.Component<
                                 justifyContent: "center",
                                 mb: 10,
                                 gap: 2,
-                                mt: 45,
+                                mt: 37,
                                 ml: 0,
                               }}
                             >

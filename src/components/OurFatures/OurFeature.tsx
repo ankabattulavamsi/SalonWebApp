@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-// import { featureData } from "../../utils/data/Features/Features_data";
-// import { featureData } from "../../utils/Features/Features_data";
+import { featureData } from "../../utils/data/Features/Features_data";
 import featureImg from "../../assets/Features/featureImg.png";
 import { Container, Grid, Typography, Box } from "@mui/material";
 import { withStyles } from "@mui/styles";
-import { style } from "./OueFeatureStyle";
-import { featureData } from "../../utils/Features/Features_data";
+import { styles } from "./OueFeatureStyle";
 interface Iprops {
   classes: any;
 }
@@ -81,4 +79,4 @@ class OurFeature extends Component<Iprops, Istate> {
   }
 }
 
-export default withStyles(style)(OurFeature);
+export default withStyles(styles)(OurFeature);
