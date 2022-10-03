@@ -71,7 +71,7 @@
   }
   @media (max-width: 950px) {
     .salon-navbar-body {
-      grid-template-columns: 0rem 6fr 2fr 0.5fr 0rem;
+      grid-template-columns: 0rem 6fr 2fr 1fr 1rem;
     }
     .salon-nav-menulink {
       display: none;
