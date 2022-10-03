@@ -1,6 +1,5 @@
 import { Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import { withStyles } from "@mui/styles";
 import "./DownloadAdvertiementSection.css";
 import React, { Component } from "react";
 import ButtonCust from "../common/DownloadButton/ButtonCust";
@@ -10,8 +9,6 @@ import {
   googleImage,
   mobileImage,
 } from "../../utils/data/downloadApp/download";
-
-
 
 interface DownloadProps {}
 interface DownloadState {}
@@ -31,6 +28,7 @@ class DownloadAdvertiementSection extends Component<
           backgroundPosition: { xs: "19%  center", md: "center center" },
           width: "100%",
           mb: 25,
+          mt: { xs: 5, md: 15 },
         }}
       >
         <Container maxWidth="lg" sx={{ mt: 8 }}>

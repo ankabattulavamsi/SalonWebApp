@@ -6,18 +6,15 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ourBestServicesData from "../../utils/data/OurBestServicesData";
 
-
-
 import "./OurBestServices.css";
 
 class OurBestServices extends Component {
   render() {
-
     const responsiveForAllDevicesInServices = {
       superLargeDesktop: {
         // the naming can be any, depends on you.
         breakpoint: { max: 4000, min: 3000 },
-        items: 5
+        items: 5,
       },
       desktop: {
         breakpoint: { max: 3000, min: 1024 },
@@ -25,12 +22,12 @@ class OurBestServices extends Component {
       },
       tablet: {
         breakpoint: { max: 1024, min: 464 },
-        items: 2
+        items: 2,
       },
       mobile: {
         breakpoint: { max: 464, min: 0 },
-        items: 1
-      }
+        items: 1,
+      },
     };
 
     return (
@@ -68,7 +65,7 @@ class OurBestServices extends Component {
           shouldResetAutoplay
           showDots
           slidesToSlide={1}
-          swipeable 
+          swipeable
         >
           {ourBestServicesData.map((item:any, index: number) => (
             <figure className="Our-best-Services-Carousel-main-container" style={{
@@ -83,11 +80,22 @@ class OurBestServices extends Component {
                 className="our-best-services-carousel-images"
                 style={{}}
               />
-              <h2 className="our-best-services-main-sub-heading">{item.heading}</h2>
+              <h2 className="our-best-services-main-sub-heading">
+                {item.heading}
+              </h2>
               <figcaption>
-              <img src={item.icon} alt='icon-item' className="our-blogs-icon-image" 
-                style={{color: '#fff',}} />  <h3 className="our-best-services-main-heading">{item.heading}</h3>{" "}
-                <p className="our-best-service-carousel-image-description">{item.description}</p>
+                <img
+                  src={item.icon}
+                  alt="icon-item"
+                  className="our-blogs-icon-image"
+                  style={{ color: "#fff" }}
+                />{" "}
+                <h3 className="our-best-services-main-heading">
+                  {item.heading}
+                </h3>{" "}
+                <p className="our-best-service-carousel-image-description">
+                  {item.description}
+                </p>
               </figcaption>
             </figure>
           ))}
