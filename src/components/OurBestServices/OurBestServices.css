@@ -35,7 +35,6 @@ figcaption {
   margin-left: 15px;
   border-radius: 5px;
   object-fit: cover;
-  filter: brightness(60%);
 }
 
 .our-best-services-main-sub-heading {
@@ -47,6 +46,19 @@ figcaption {
   margin-left: auto;
   margin-right: auto;
   filter: brightness(100%);
+}
+
+.box-shadow-on-images {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 20.54%, #000000 97.72%);
+  /* z-index: 11111; */
+  margin-left: 1;
+  margin-right: -3;
+  position: 'absolute';
+  bottom: -42;
+  left: 0;
+  right: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .our-best-services-main-heading {
@@ -71,7 +83,7 @@ figcaption {
   font-weight: 500;
   font-size: 18px;
   line-height: 30px;
-  margin-top: 35px;
+  margin-top: 25px;
 }
 
 .our-best-services-heading::after {
@@ -84,25 +96,6 @@ figcaption {
   margin: 15px auto;
 }
 
-.our-best-services-heading:hover {
-  text-decoration: underline;
-}
-
-.our-best-services-position {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.our-best-services-undeline {
-  color: #ebb273;
-  margin-bottom: 5px;
-}
-
-.react-multi-carousel-dot {
-  padding-top: -60px;
-}
 
 .react-multiple-carousel__arrow--left {
   border-radius: 0px 20px 20px 0px !important;
@@ -132,19 +125,10 @@ figcaption {
   opacity: 1;
 }
 
-.react-multi-carousel-dot-list {
-  margin-top: 90% !important;
-}
 
 .our-blogs-icon-image {
   width: 55px !important;
   height: 60px !important;
-  margin-top: 42px;
-  margin-left: 0px;
-  margin-bottom: 0px;
+  margin-top: 2px;
   object-fit: contain;
-}
-
-figure:hover .our-blogs-icon-image {
-  transition: 1.8s;
 }
