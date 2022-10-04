@@ -32,15 +32,10 @@
   background-color: transparent !important;
   margin-top: 10%;
 }
-.corosel-team-experts .react-multiple-carousel__arrow--right {
-  right: calc(0% + 1px) !important;
-}
+
 .corosel-team-experts .react-multiple-carousel__arrow--right::before {
   border-top-left-radius: 20px !important;
   border-bottom-left-radius: 20px !important;
-}
-.corosel-team-experts .react-multiple-carousel__arrow--left {
-  left: calc(0% + 1px) !important;
 }
 
 .corosel-team-experts .react-multiple-carousel__arrow--left::before {
@@ -76,4 +71,15 @@
   .corosel-team-experts .react-multiple-carousel__arrow {
     opacity: 1 !important;
   }
+}
+
+.corosel-team-experts .react-multiple-carousel__arrow {
+  margin-top: -100px;
+}
+
+.corosel-team-experts .react-multiple-carousel__arrow--right {
+  right: calc(1.6% + 1px) !important;
+}
+.corosel-team-experts .react-multiple-carousel__arrow--left {
+  left: calc(1.6% + 1px) !important;
 }
