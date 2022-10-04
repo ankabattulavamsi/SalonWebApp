@@ -1,22 +1,28 @@
-import React from 'react';
-import OurFeature from '../../components/OurFatures/OurFeature';
-import TeamSection from './../../components/TeamSection/TeamSection';
+import React from "react";
+import OurFeature from "../../components/OurFatures/OurFeature";
+import TeamSection from "./../../components/TeamSection/TeamSection";
 import TestimonialSection from "../../components/TestimonialSection/TestimonialSection";
 import DownloadAdvertiementSection from "../../components/DownloadAdvertiementSection/DownloadAdvertiementSection";
 import OurBestServices from "../../components/OurBestServices/OurBestServices";
 import FeatureCarousel from "../../components/FeatureCarousel/FeatureCarousel";
 import AboutUs from "../../components/AboutUsSection/AboutUs";
 import Offers from "../../components/OffersSection/Offers";
-import OurBlogs from '../../components/OurBlogs/OurBlogs';
-import Gallery from '../../components/Gallery/Gallery';
+import OurBlogs from "../../components/OurBlogs/OurBlogs";
+import Gallery from "../../components/Gallery/Gallery";
+import GalleryOwner from "../../components/GallerySalonOwner/GalleryOwner";
 
 export default function HomePage() {
   return (
     <>
-      <div id='/'>
+      <div id="/">
         <FeatureCarousel />
       </div>
-      <div><OurFeature /></div>
+      <div id="/">
+        <GalleryOwner />
+      </div>
+      <div>
+        <OurFeature />
+      </div>
       <div id="about">
         <AboutUs />
       </div>
@@ -38,7 +44,9 @@ export default function HomePage() {
       <div id="testimonial">
         <TestimonialSection />
       </div>
-      <div id="blog"><OurBlogs /></div>
+      <div id="blog">
+        <OurBlogs />
+      </div>
     </>
   );
 }
