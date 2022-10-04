@@ -37,7 +37,7 @@ class SalonCategory extends Component <categoryProps> {
                   <Card className={classes.categoryCard}>
                     <CardActionArea>
                       <CardMedia
-                        className="imgBx"
+                        className={classes.categoryImage}
                         image={item.img}
                         title="categoryImg"
                       />

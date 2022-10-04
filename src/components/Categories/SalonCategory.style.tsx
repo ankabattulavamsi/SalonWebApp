@@ -43,6 +43,10 @@ export const styles:any = {
             },
         }
     },
+    categoryImage:{
+        width: '100%',
+        height: '215px'
+    },
     categoryImageBox:{
         marginTop: '0 !important'
     },
