@@ -13,14 +13,34 @@ import {
 import { withStyles } from "@mui/styles";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Container } from "@mui/system";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 import { Styles } from "./BookingDashboard.Styles";
 import KeyboardDoubleArrowRightOutlinedIcon from "@mui/icons-material/KeyboardDoubleArrowRightOutlined";
 import { bookingSectionData } from "../../utils/data/bookings/BookingsDashboardData";
+import { datesArray } from "../../utils/data/bookings/CalenderData";
+
+interface DateProps {
+  day: string;
+  date: string;
+}
 
 class BookingsDashboard extends Component {
+  state = { currentDate: new Date().getDate() };
+
+  onNextDate = () => {
+    const { currentDate } = this.state;
+    this.setState({ currentDate: currentDate + 1 });
+  };
+
+  onPreviousDate = () => {
+    const { currentDate } = this.state;
+    this.setState({ currentDate: currentDate - 1 });
+  };
   render() {
     const { classes, theme }: any = this.props;
+    const { currentDate } = this.state;
     return (
       <Box
         sx={{
@@ -28,6 +48,96 @@ class BookingsDashboard extends Component {
         }}
       >
         <Container maxWidth="lg" sx={{ mx: "auto" }}>
+          <>
+            <Box sx={{ display: "flex", py: 8 }}>
+              <Button onClick={this.onPreviousDate}>
+                <ArrowBackIosNewIcon
+                  sx={{
+                    color: "#999999",
+                    width: "38px",
+                    height: "31px",
+                    mr: 2,
+                  }}
+                />
+              </Button>
+              {datesArray
+                .slice(currentDate - 3, currentDate + 4)
+                .map((date: DateProps) => {
+                  return (
+                    <Box
+                      sx={{
+                        textAlign: "center",
+                        m: 0,
+                        p: 0,
+                      }}
+                      key={date.date}
+                    >
+                      <Button
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                          margin: 0,
+                          px: "40px",
+                          py: "20px",
+                          backgroundColor:
+                            Number(date.date) === currentDate
+                              ? "#E7A356"
+                              : "#FFF",
+                        }}
+                      >
+                        <Typography
+                          variant="h4"
+                          sx={{
+                            fontFamily: "Fira Sans",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            fontSize: "25px",
+                            lineHeight: "48px",
+                            textAlign: "center",
+                            textTransform: "capitalize",
+                            color:
+                              Number(date.date) === currentDate
+                                ? "#FFFFFF"
+                                : "#272522",
+                          }}
+                        >
+                          {date.date}
+                        </Typography>
+
+                        <Typography
+                          variant="h6"
+                          sx={{
+                            fontFamily: "Roboto",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            fontSize: "16px",
+                            lineHeight: "28px",
+                            textAlign: "center",
+                            textTransform: "capitalize",
+                            color:
+                              Number(date.date) === currentDate
+                                ? "#FFFFFF"
+                                : "#272522",
+                          }}
+                        >
+                          {date.day}
+                        </Typography>
+                      </Button>
+                    </Box>
+                  );
+                })}
+              <Button sx={{ textAlign: "center" }} onClick={this.onNextDate}>
+                <ArrowForwardIosIcon
+                  sx={{
+                    color: "#999999",
+                    width: "38px",
+                    height: "31px",
+                    ml: 2,
+                  }}
+                />
+              </Button>
+            </Box>
+          </>
           <Grid
             container
             spacing={2}
@@ -126,38 +236,13 @@ class BookingsDashboard extends Component {
                       >
                         <Typography
                           variant="h5"
-                          //   className={classes.bookingTimeHeading}
-                          sx={{
-                            fontFamily: "Fira Sans",
-                            fontStyle: "normal",
-                            fontWeight: 500,
-                            fontSize: "18px",
-                            lineHeight: "48px",
-                            textTransform: "capitalize",
-                            color: "#272522",
-                            [theme.breakpoints.down("sm")]: {
-                              fontSize: "17px",
-                            },
-                          }}
+                          className={classes.bookingTimeHeading}
                         >
                           Time
                           <Typography
                             variant="h3"
                             component="span"
-                            // className={classes.bookingTime}
-                            sx={{
-                              fontFamily: "Fira Sans",
-                              fontStyle: "normal",
-                              fontWeight: 500,
-                              fontSize: "18px",
-                              lineHeight: "36px",
-                              textTransform: "capitalize",
-                              color: "#88878F",
-                              ml: 3,
-                              [theme.breakpoints.down("sm")]: {
-                                fontSize: "17px",
-                              },
-                            }}
+                            className={classes.bookingTime}
                           >
                             Afternoon 3:00 Pm
                           </Typography>
