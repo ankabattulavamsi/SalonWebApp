@@ -7,14 +7,16 @@ import OurBestServices from "../../components/OurBestServices/OurBestServices";
 import FeatureCarousel from "../../components/FeatureCarousel/FeatureCarousel";
 import AboutUs from "../../components/AboutUsSection/AboutUs";
 import Offers from "../../components/OffersSection/Offers";
+import OurBlogs from '../../components/OurBlogs/OurBlogs';
+import Gallery from '../../components/Gallery/Gallery';
 
 export default function HomePage() {
   return (
     <>
-      <div>
+      <div id='/'>
         <FeatureCarousel />
       </div>
-      <div id='features'><OurFeature/></div>
+      <div><OurFeature /></div>
       <div id="about">
         <AboutUs />
       </div>
@@ -24,16 +26,19 @@ export default function HomePage() {
       <div id="services" style={{ marginBottom: "25px", marginTop: "15px" }}>
         <OurBestServices />
       </div>
+      <div id="gallery">
+        <Gallery />
+      </div>
       <div id="downloadsection">
         <DownloadAdvertiementSection />
       </div>
-
       <div id="team">
         <TeamSection />
       </div>
       <div id="testimonial">
         <TestimonialSection />
       </div>
+      <div id="blog"><OurBlogs /></div>
     </>
   );
 }

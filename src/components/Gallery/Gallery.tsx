@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { withStyles } from "@mui/styles";
-
+import { Styles } from "./GalleryStyles";
 
 import { Grid, Typography, Box } from "@mui/material";
-
+import { GallaryImgs } from "../../utils/fixtures/GallaryData";
 
 export class Gallery extends Component {
   render() {

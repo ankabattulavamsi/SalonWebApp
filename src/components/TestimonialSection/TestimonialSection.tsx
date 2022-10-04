@@ -4,7 +4,7 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import {
-  bgImage,
+  bgImageTestimonial,
   TestmonialData,
   testmonialData,
 } from "../../utils/data/testomonialSection/test";
@@ -49,7 +49,7 @@ class TestimonialSection extends React.Component<
               <Box
                 sx={{
                   bgcolor: "#EBB273",
-                  background: `url(${bgImage}) no-repeat`,
+                  background: `url(${bgImageTestimonial}) no-repeat`,
                   height: "auto",
                   backgroundSize: "cover",
                   backgroundPosition: "center center",
@@ -99,7 +99,7 @@ class TestimonialSection extends React.Component<
                                 justifyContent: "center",
                                 mb: 10,
                                 gap: 2,
-                                mt: 37 ,
+                                mt: 37,
                                 ml: 0,
                               }}
                             >

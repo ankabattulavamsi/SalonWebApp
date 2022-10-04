@@ -47,20 +47,18 @@ class OurFeature extends Component<Iprops, Istate> {
             <Grid container>
               {featureData.map((item: any, id: number) => {
                 return (
-                  <>
-                    <Grid
-                      item
-                      lg={5}
-                      md={6}
-                      sm={6}
-                      xs={12}
-                      key={id}
-                      className={classes.feature_iconBox_section}
-                    >
-                      <img src={item.img} alt="logos" />
-                      <Typography component="h3">{item.title}</Typography>
-                    </Grid>
-                  </>
+                  <Grid
+                    item
+                    lg={5}
+                    md={6}
+                    sm={6}
+                    xs={12}
+                    key={id}
+                    className={classes.feature_iconBox_section}
+                  >
+                    <img src={item.img} alt="logos" />
+                    <Typography component="h3">{item.title}</Typography>
+                  </Grid>
                 );
               })}
             </Grid>
