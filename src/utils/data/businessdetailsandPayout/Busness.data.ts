@@ -12,7 +12,7 @@ export interface BuesnessInputFields {
 export interface optionsBanksname {
   id: number;
   title: string;
-  icon: any;
+  icon?: string;
 }
 export const profileImage: string = require("../../../assets/images/BuesnessProfile/profile.png");
 export const storeImage: string = require("../../../assets/images/BuesnessProfile/store.png");
@@ -43,6 +43,12 @@ export const optionsBankName: optionsBanksname[] = [
     title: "icic",
     icon: require("../../../assets/images/BuesnessProfile/icic.png"),
   },
+];
+
+export const optionsStateName = [
+  { id: 1, title: "maharastra" },
+  { id: 2, title: "telangana" },
+  { id: 3, title: "uttar pardesh" },
 ];
 
 // export interface InputFields {

@@ -1,10 +1,12 @@
+/** @format */
+
 import React, { Fragment, Component } from "react";
 import { Box, Button, Drawer, List, ListItem } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import PersonIcon from "@mui/icons-material/Person";
 import CloseIcon from "@mui/icons-material/Close";
 import Logo from "../../../assets/images/Navbarimage/logo.jpg";
-
+import Login from "../../Login/Login";
 import "./Navbar.css";
 import { landingMenu } from "../../../utils/data/navbar_menus";
 import BuisnessDetails from "../../BuisnessDetail/BuisnessDetails";
@@ -16,6 +18,7 @@ export interface navSate {
   activeLink: string;
   mobileDrawer: boolean;
   registerDrawer: boolean;
+  openDrawer: boolean;
   openBusiness: boolean;
   image: any;
   bname: string;
@@ -31,12 +34,14 @@ export interface navSate {
   accHoldername: string;
   ifscCode: string;
   bankname: string;
+  fname: string;
 }
 class Navbar extends Component<{}, navSate> {
   state = {
     activeLink: "Home",
     mobileDrawer: false,
-    registerDrawer: false,
+    registerDrawer: true,
+    openDrawer: false,
     openBusiness: false,
     openPayout: false,
     image: "",
@@ -52,6 +57,7 @@ class Navbar extends Component<{}, navSate> {
     confirmaccNumber: "",
     ifscCode: "",
     accNumber: "",
+    fname: "",
   };
 
   handleClick = (title: string) => {
@@ -129,9 +135,19 @@ class Navbar extends Component<{}, navSate> {
     }
   };
 
+  handleDrawerClose = () => {
+    this.setState({
+      openDrawer: false,
+    });
+  };
+  handleDrawerOpen = () => {
+    this.setState({
+      openDrawer: true,
+    });
+  };
   //button click to navigate or open the payout detalis page
   handleClickSave = () => {
-    this.handleToggleDrawer("openPayout");
+    this.handleToggleDrawer(modalConstants.PAYOUT_DRAWER);
     this.handleToggleDrawer();
   };
   render() {
@@ -163,7 +179,7 @@ class Navbar extends Component<{}, navSate> {
             <Button
               startIcon={<PersonIcon />}
               className="login-btn"
-              onClick={() => this.handleToggleDrawer()}
+              onClick={this.handleDrawerOpen}
             >
               Login
             </Button>
@@ -174,7 +190,7 @@ class Navbar extends Component<{}, navSate> {
             <Box sx={{ background: "#272522", px: 4, py: 2.6 }}>
               <PersonIcon
                 sx={{ color: "#E7A356", fontSize: "30px" }}
-                onClick={() => this.handleToggleDrawer()}
+                onClick={this.handleDrawerOpen}
               />
             </Box>
             <MenuIcon
@@ -224,11 +240,20 @@ class Navbar extends Component<{}, navSate> {
         </Drawer>
 
         <>
+          {/* all modals */}
+          <Login
+            open={this.state.openDrawer}
+            onClose={this.handleDrawerClose}
+            handleLogin={this.handleToggleDrawer}
+          />
+
           <RegisteredNowPage
             open={this.state.registerDrawer}
             toogleDrawer={() =>
               this.handleToggleDrawer(modalConstants.REGISTER_DRAWER)
             }
+            handleChange={this.handleChange}
+            state={this.state}
           />
 
           <BuisnessDetails
@@ -251,5 +276,4 @@ class Navbar extends Component<{}, navSate> {
     );
   }
 }
-
 export default Navbar;

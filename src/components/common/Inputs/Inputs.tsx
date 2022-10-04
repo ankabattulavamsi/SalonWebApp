@@ -61,7 +61,6 @@ export default class Inputs extends Component<InputsProps, InputsState> {
               name={name}
               required={required}
               placeholder={placeholder}
-              
               className="input--input--1 "
               value={value}
               onChange={(e) => handleChange && handleChange(e)}
@@ -98,16 +97,18 @@ export default class Inputs extends Component<InputsProps, InputsState> {
                           alignItems: "center",
                         }}
                       >
-                        <img
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            objectFit: "contain",
-                          }}
-                          src={option.icon}
-                          alt={`${option.id}`}
-                          className={"select-option-img"}
-                        />
+                        {option.icon && (
+                          <img
+                            style={{
+                              width: "20px",
+                              height: "20px",
+                              objectFit: "contain",
+                            }}
+                            src={option.icon}
+                            alt={`${option.id}`}
+                            className={"select-option-img"}
+                          />
+                        )}
 
                         <span style={{ width: "80%" }}>{option.title}</span>
                       </Box>

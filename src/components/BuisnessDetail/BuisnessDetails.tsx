@@ -188,7 +188,6 @@ class BuisnessDetails extends Component<
             }}
           >
             <Buttons
-              title="save & continue"
               disabled={
                 this.state.error !== "" ||
                 this.props.state.email === "" ||
@@ -197,6 +196,7 @@ class BuisnessDetails extends Component<
                 this.props.state.bname === "" ||
                 this.props.state.owner === ""
               }
+              title="save & continue"
               handleClick={() => {
                 this.props.handleClickSave();
               }}

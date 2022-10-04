@@ -5,6 +5,8 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "./routes/HomePage/HomePage";
 import LandingPageNavigation from "./routes/LandingPageNavigation/LandingPageNavigation";
 import "./App.css";
+import Salon from "./temp/Salon";
+import Customer from "./temp/Customer";
 function App() {
   return (
     <div>
@@ -15,14 +17,15 @@ function App() {
             <Route index element={<HomePage />} />
           </Route>
           {/*Guest Flow*/}
+          {/* Login */}
+          <Route path="/salon" element={<Salon />} />
+          <Route path="/customer" element={<Customer />} />
+          {/* temprorary */}
 
+          {/* Login */}
           {/* Login */}
         </Routes>
       </ThemeProvider>
-
-      {/* Login */}
-
-      {/* Login */}
     </div>
   );
 }
