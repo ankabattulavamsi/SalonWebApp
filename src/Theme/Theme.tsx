@@ -12,12 +12,15 @@ const defaultTheme = createTheme({
     h2: {
       fontFamily: "Fira Sans",
       fontSize: "26px",
-      fontWeight: 700,
+      fontWeight: 600,
+      textTransform:"capitalize",
+
     },
     h3: {
       fontFamily: "Roboto",
       fontSize: "18px",
-      fontWeight: 600,
+      fontWeight: 500,
+      textTransform:"capitalize"
     },
     h4: {
       fontFamily: "Roboto",
@@ -30,6 +33,8 @@ const defaultTheme = createTheme({
       fontSize: "14px",
       fontWeight: 400,
       LineHeight: "24px",
+      textTransform:"capitalize"
+
     },
     h6: {
       fontFamily: "Fira Sans",

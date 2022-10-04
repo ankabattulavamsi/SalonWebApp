@@ -1,48 +1,54 @@
-import { Box, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+  Grid,
+  Typography,
+} from "@mui/material";
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import { data } from "../../utils/data/ownerDashboard/ownerDashboardCharts";
+import {
+  Cards,
+  CardData,
+} from "../../utils/data/ownerDashboard/ownerDashboard";
+import { withStyles } from "@mui/styles";
 
-type Props = {};
+import { DashboardChartStyles } from "./OwnerDashboardCharts.Style";
+import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 
-type State = {};
+interface chartProps {
+  classes: any;
+}
 
-class OwnerDashboardChart extends Component<Props, State> {
-  state = {};
-
+class OwnerDashboardChart extends Component<chartProps> {
   render() {
+    const { classes } = this.props;
+
     return (
       <>
         <Grid container>
           <Grid item xs={1} sm={1} md={1} lg={1}></Grid>
           <Grid item xs={10} sm={10} md={10} lg={10}>
-            <Box
-              sx={{
-                display: "grid",
-                flexDirection: "row",
-                rowGap: "43px",
-              }}
-            >
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  alignItems: "center",
-                  mt: "30px",
-                }}
-              >
+            <Box className={classes.mainDashboardDiv}>
+              <Box className={classes.overallProfitDiv}>
                 <Typography
                   variant="h5"
                   color="secondary.dark"
                   sx={{
-                    textTransform: "capitalize",
                     marginRight: "18px",
                   }}
                 >
                   overall profits
                 </Typography>
                 <Typography variant="h2" color="primary.dark">
-                  $5,24,900
+                  <CurrencyRupeeIcon
+                    sx={{
+                      marginBottom: "-2px",
+                    }}
+                  />
+                  5,24,900
                 </Typography>
               </Box>
               <ReactApexChart
@@ -52,80 +58,41 @@ class OwnerDashboardChart extends Component<Props, State> {
                 height={350}
               />
 
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  columnGap: "16px",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  background: "blue",
-                }}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-around",
-                    alignItems: "center",
-                    width: "250px",
-                    height: "100px",
-                    background: "#FFFEFE",
-                    boxShadow: " 0px 4px 50px rgba(0, 0, 0, 0.07)",
-                    borderRadius: "10px",
-                  }}
-                >
-                  <Box
-                    sx={{
-                      component: "img",
-                      height: "94px",
-                      width: "94px",
-                      image:
-                        "../../assets/images/OwnerDashboardCharts/profits 1.png",
-                      alt: "profit",
-                    }}
-                  ></Box>
-                  <Box>
-                    <Typography>5,256,00</Typography>
-                    <Typography>septembar profit</Typography>
-                  </Box>
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-
-                    justifyContent: "space-around",
-                    alignItems: "center",
-                    width: "250px",
-                    height: "100px",
-                    background: "#FFFEFE",
-                    boxShadow: " 0px 4px 50px rgba(0, 0, 0, 0.07)",
-                    borderRadius: "10px",
-                  }}
-                >
-                  1
-                  <Box>
-                    <Typography>5,256,00</Typography>
-                    <Typography>septembar profit</Typography>
-                  </Box>
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-around",
-                    alignItems: "center",
-                    width: "250px",
-                    height: "100px",
-                    background: "#FFFEFE",
-                    boxShadow: " 0px 4px 50px rgba(0, 0, 0, 0.07)",
-                    borderRadius: "10px",
-                  }}
-                >
-                  1
-                  <Box>
-                    <Typography>5,256,00</Typography>
-                    <Typography>septembar profit</Typography>
-                  </Box>
-                </Box>
+              <Box className={classes.dashboardChartCardDiv}>
+                <Grid container spacing={{ xs: 2, sm: 2, md: 4, lg: 6 }}>
+                  {CardData.map((cards: Cards) => {
+                    return (
+                      <Grid item xs={12} sm={6} md={4} lg={4}>
+                        <Card className={classes.dashboardChartCard}>
+                          <CardMedia
+                            sx={{
+                              height: "50px",
+                              width: "50px",
+                            }}
+                            component="img"
+                            image={cards.image}
+                            alt="profit "
+                          />
+                          <CardContent >
+                            <Typography variant="h2" >
+                              {cards.description === "January Profits" ? (
+                                <CurrencyRupeeIcon
+                                sx={{
+                                  marginBottom: "-2px",
+                                }}
+                                />
+                              ) : null}
+                              {cards.heading}
+                            </Typography>
+                            <Typography variant="h3" color="secondary.dark">
+                              {cards.description}
+                            </Typography>
+                          </CardContent>
+                        </Card>
+                      </Grid>
+                    );
+                  })}
+                </Grid>
               </Box>
             </Box>
           </Grid>
@@ -135,4 +102,4 @@ class OwnerDashboardChart extends Component<Props, State> {
     );
   }
 }
-export default OwnerDashboardChart;
+export default withStyles(DashboardChartStyles)(OwnerDashboardChart);
