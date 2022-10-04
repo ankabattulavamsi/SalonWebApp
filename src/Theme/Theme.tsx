@@ -14,7 +14,7 @@ const defaultTheme = createTheme({
       fontWeight: 700,
     },
     h3: {
-      fontFamily: "Roboto",
+      fontFamily: "Fira Sans",
       fontSize: "18px",
       fontWeight: 600,
     },
