@@ -9,10 +9,13 @@ import "./Navbar.css";
 import { landingMenu } from "../../../utils/data/navbar_menus";
 import BuisnessDetails from "../../BuisnessDetail/BuisnessDetails";
 import PayoutDetails from "../../PayoutDetails/PayoutDetails";
+import RegisteredNowPage from "../../RegisterNowPage/RegisteredNowPage";
+import { modalConstants } from "../../../utils/data/constants/loginRegistration";
 
 export interface navSate {
   activeLink: string;
   mobileDrawer: boolean;
+  registerDrawer: boolean;
   openBusiness: boolean;
   image: any;
   bname: string;
@@ -33,7 +36,7 @@ class Navbar extends Component<{}, navSate> {
   state = {
     activeLink: "Home",
     mobileDrawer: false,
-
+    registerDrawer: false,
     openBusiness: false,
     openPayout: false,
     image: "",
@@ -68,7 +71,7 @@ class Navbar extends Component<{}, navSate> {
   };
   handleToggleDrawer = (type?: string) => {
     switch (type) {
-      case "openPayout":
+      case modalConstants.PAYOUT_DRAWER:
         this.setState({
           openPayout: !this.state.openPayout,
           image: "",
@@ -87,6 +90,24 @@ class Navbar extends Component<{}, navSate> {
         });
         break;
 
+      case modalConstants.REGISTER_DRAWER:
+        this.setState({
+          registerDrawer: !this.state.registerDrawer,
+          image: "",
+          address: "",
+          bname: "",
+          email: "",
+          owner: "",
+          GSTIN: "",
+          error: "",
+          upiAddress: "",
+          accHoldername: "",
+          bankname: "",
+          confirmaccNumber: "",
+          ifscCode: "",
+          accNumber: "",
+        });
+        break;
       default:
         this.setState({
           openBusiness: !this.state.openBusiness,
@@ -203,6 +224,13 @@ class Navbar extends Component<{}, navSate> {
         </Drawer>
 
         <>
+          <RegisteredNowPage
+            open={this.state.registerDrawer}
+            toogleDrawer={() =>
+              this.handleToggleDrawer(modalConstants.REGISTER_DRAWER)
+            }
+          />
+
           <BuisnessDetails
             handleToggleDrawer={this.handleToggleDrawer}
             open={this.state.openBusiness}

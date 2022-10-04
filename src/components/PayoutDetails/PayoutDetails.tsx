@@ -10,6 +10,7 @@ import withRouter from "../../hoc/withRouter";
 import { Buttons, PayoutButton, Inputs, Drawers } from "../common";
 import { payoutStyles } from "./PayoutDetails.Styles";
 import { navSate } from "../common/Navbar/Navbar";
+import { modalConstants } from "../../utils/data/constants/loginRegistration";
 interface PayoutDetailsProps {
   open: boolean;
   toggleFunc: (type?: string) => void;
@@ -70,7 +71,9 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
       <>
         <Drawers
           open={this.props.open}
-          toggleDrawer={() => this.props.toggleFunc("openPayout")}
+          toggleDrawer={() =>
+            this.props.toggleFunc(modalConstants.PAYOUT_DRAWER)
+          }
         >
           <Box>
             <Box>
