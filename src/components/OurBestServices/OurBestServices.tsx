@@ -18,7 +18,7 @@ class OurBestServices extends Component {
       },
       desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 3,
+        items: 4
       },
       tablet: {
         breakpoint: { max: 1024, min: 464 },
@@ -31,76 +31,54 @@ class OurBestServices extends Component {
     };
 
     return (
-      <Box
-        maxWidth="xl"
-        sx={{ mx: "auto", mb: 10 }}
-        className="our-best-services-carousel-buttons"
-      >
-        <Box sx={{ mt: 3, mb: 3 }}>
-          <Typography
-            variant="h4"
-            className="our-best-services-heading"
-            sx={{
-              fontSize: { xs: "20px", sm: "35px", lg: "42px" },
-              fontWeight: "700",
-              textAlign: "center",
-              lineHeight: "28px",
-              letterSpacing: "-0.01rem",
-              textTransform: "capitalize",
-              color: "#272522",
-              fontFamily: "Fira sans",
-            }}
-          >
-            Our Best Services
-            {/* <br />{" "}
-              <span className="our-best-services-undeline">___</span> */}
-          </Typography>
+      <Box maxWidth='xl' sx={{mx: 'auto', mb: 10, pt: 14}}  className='our-best-services-carousel-buttons'>
+        <Box sx={{ mt:3, mb:3 }}>
+            <Typography
+              variant="h4"
+              className="our-best-services-heading"
+              sx={{
+                fontSize: { xs: "20px", sm: "35px", lg: "42px" },
+                fontWeight: "700",
+                textAlign: "center",
+                lineHeight: "28px",
+                letterSpacing: "-0.01rem",
+                textTransform: "capitalize",
+                color: "#272522",
+                fontFamily: "Fira sans",
+              }}
+            >
+              Our Best Services
+            </Typography>
         </Box>
         <Carousel
           additionalTransfrom={0}
-          arrows
           autoPlay
           autoPlaySpeed={2000}
-          centerMode={false}
-          className="our-best-services-carousel-buttons"
-          containerClass="container-with-dots"
-          dotListClass=""
           draggable
           focusOnSelect={false}
           infinite
-          itemClass=""
           keyBoardControl
           minimumTouchDrag={80}
-          pauseOnHover
-          renderArrowsWhenDisabled={false}
-          renderButtonGroupOutside={false}
-          renderDotsOutside={false}
           responsive={responsiveForAllDevicesInServices}
-          rewind={false}
           rewindWithAnimation={false}
           rtl={false}
           shouldResetAutoplay
           showDots
-          sliderClass=""
           slidesToSlide={1}
           swipeable
         >
-          {ourBestServicesData.map((item: any, index: number) => (
-            <figure
-              key={index}
-              className="Our-best-Services-Carousel-main-container"
-              style={{
-                flex: " 1 1 auto",
-                position: "relative",
-                width: "80%",
-                height: "auto",
-                marginBottom: "65px",
-              }}
-            >
+          {ourBestServicesData.map((item:any, index: number) => (
+            <figure className="Our-best-Services-Carousel-main-container" style={{
+              position: 'relative',
+              width: '96%',
+              height: 'auto', 
+              marginBottom: '105px'}} 
+              key={index}>
               <img
                 src={item.mainImage}
                 alt="item1"
                 className="our-best-services-carousel-images"
+                style={{}}
               />
               <h2 className="our-best-services-main-sub-heading">
                 {item.heading}

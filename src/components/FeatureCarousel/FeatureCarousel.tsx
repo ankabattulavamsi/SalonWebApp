@@ -14,11 +14,11 @@ import { CarouselData } from "../../utils/data/featureCarousel/featureCarousel_d
 
 
 interface IProps {
-  login?: string;
+  
 }
 class FeatureCarousel extends Component<IProps> {
   state = {
-    redirect: false,
+   
   };
 
   render() {
@@ -42,7 +42,7 @@ class FeatureCarousel extends Component<IProps> {
             alignItems: "center",
             width: " 44px",
             height: " 79px",
-            backgroundColor: "#545454",
+            backgroundColor: "#3e3e3e",
             border: "1px solid #000000",
             borderRadius: "0px 30px 30px 0px",
           }}
@@ -70,7 +70,7 @@ class FeatureCarousel extends Component<IProps> {
             marginRight: "20px",
             marginLeft: "21px",
             zIndex: 0,
-            backgroundColor: "#545454",
+            backgroundColor: "#3e3e3e",
             width: " 44px",
             height: " 79px",
             alignItems: "center",
@@ -138,14 +138,6 @@ class FeatureCarousel extends Component<IProps> {
                               </Typography>
 
                               <Stack
-                                sx={{
-                                  display: {
-                                    lg: "block",
-                                    md: "block",
-                                    sm: "block",
-                                    xs: "block",
-                                  },
-                                }}
                               >
                                 <Button variant="outlined" className="btn">
                                   see all services
