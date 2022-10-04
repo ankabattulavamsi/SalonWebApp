@@ -1,20 +1,25 @@
+import { Typography } from "@mui/material";
+import { withStyles } from "@mui/styles";
 import { Box } from "@mui/system";
 import React, { Component } from "react";
 import { modalConstants } from "../../utils/data/constants/loginRegistration";
-import { Buttons, Drawers } from "../common";
+import { Buttons, Drawers, OtpPass } from "../common";
 import { navSate } from "../common/Navbar/Navbar";
+import { VerificationCompStyles } from "./VerificationComp.styles";
 
 interface VerificationCompProps {
   open: boolean;
   handleToggle: (type?: string) => void;
   state?: navSate;
+  classes: any;
 }
 interface VerificationCompState {}
-export default class VerificationComp extends Component<
+class VerificationComp extends Component<
   VerificationCompProps,
   VerificationCompState
 > {
   render() {
+    const { classes } = this.props;
     return (
       <Drawers
         open={this.props.open}
@@ -22,8 +27,14 @@ export default class VerificationComp extends Component<
           this.props.handleToggle(modalConstants.VERIFICATION_DRAWER)
         }
       >
-        verificationDrawer
         <Box>
+          <Box>
+            <Typography className={classes.heading}>Verification</Typography>
+          </Box>
+          <Box>
+            <OtpPass numberInputs={4} placeholder="2809" />
+          </Box>
+
           <Box>
             <Buttons
               title="Verify & continue"
@@ -37,3 +48,5 @@ export default class VerificationComp extends Component<
     );
   }
 }
+
+export default withStyles(VerificationCompStyles)(VerificationComp);

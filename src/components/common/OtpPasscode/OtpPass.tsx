@@ -15,17 +15,19 @@ export default class OtpPass extends Component<OtpPassProps, OtpPassState> {
     const { id, placeholder, numberInputs, classNames, label } = this.props;
     return (
       <Box sx={{ mt: 2, mb: 2 }}>
-        <Box>
-          <Typography
-            sx={{
-              color: "#272522",
-              fontSize: "17px",
-              textTransform: "capitalize",
-            }}
-          >
-            {label}
-          </Typography>
-        </Box>
+        {label && (
+          <Box>
+            <Typography
+              sx={{
+                color: "#272522",
+                fontSize: "17px",
+                textTransform: "capitalize",
+              }}
+            >
+              {label}
+            </Typography>
+          </Box>
+        )}
         <Box className="passcodeParentDiv">
           <OtpInput
             data-testid={id}

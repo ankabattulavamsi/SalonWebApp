@@ -90,7 +90,6 @@ class RegisteredNowPage extends React.Component<
               <Buttons
                 title="Register now"
                 handleClick={() => {
-                  alert("clicked");
                   this.props.toogleDrawer(modalConstants.VERIFICATION_DRAWER);
                 }}
               />
