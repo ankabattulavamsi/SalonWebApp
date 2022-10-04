@@ -32,10 +32,17 @@ class VerificationComp extends Component<
             <Typography className={classes.heading}>Verification</Typography>
           </Box>
           <Box>
+            <Typography>
+              Enter the OTP Sent at <span>+91 9876543210</span>
+            </Typography>
             <OtpPass numberInputs={4} placeholder="2809" />
+
+            <Typography>
+              Didn’t receive the OTP?<span>Resend</span>
+            </Typography>
           </Box>
 
-          <Box>
+          <Box sx={{ mt: 5 }}>
             <Buttons
               title="Verify & continue"
               handleClick={() => {

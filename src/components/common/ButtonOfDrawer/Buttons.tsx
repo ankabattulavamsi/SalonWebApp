@@ -17,6 +17,7 @@ export default class Buttons extends Component<ButtonProps, ButtonState> {
           width: "100%",
           bgcolor: "#E7A356",
           color: "#ffffff",
+          fontSize: "20px",
           ":hover": {
             color: "#E7A356",
             bgcolor: "#ffffff",

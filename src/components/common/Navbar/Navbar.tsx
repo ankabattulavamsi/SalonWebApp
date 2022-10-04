@@ -45,7 +45,7 @@ class Navbar extends Component<{}, navSate> {
     activeLink: "Home",
     mobileDrawer: false,
     registerDrawer: false,
-    verificationDrawer: true,
+    verificationDrawer: false,
     openDrawer: false,
     openBusiness: false,
     openPayout: false,
@@ -184,7 +184,6 @@ class Navbar extends Component<{}, navSate> {
   //button click to navigate or open the payout detalis page
   handleClickSave = () => {
     this.handleToggleDrawer(modalConstants.PAYOUT_DRAWER);
-    this.handleToggleDrawer();
   };
   render() {
     return (
