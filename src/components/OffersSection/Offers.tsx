@@ -11,7 +11,7 @@ class Offers extends Component {
     return (
       <Box
         sx={{
-          py: { md: 30, xs: 15 },
+          py: { md: 19, xs: 15 },
         }}
       >
         <Container maxWidth="lg">
