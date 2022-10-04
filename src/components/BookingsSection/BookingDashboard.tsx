@@ -35,15 +35,10 @@ class BookingsDashboard extends Component {
               py: "34px",
             }}
           >
-            {bookingSectionData.slice(0, 4).map((item: any, index: number) => {
+            {bookingSectionData.slice(0, 4).map((item: any) => {
               return (
                 <Grid item key={item.id} md={6} xs={12}>
-                  <Card
-                    sx={{
-                      mx: "auto",
-                    }}
-                    className={classes.customerContainer}
-                  >
+                  <Card className={classes.customerContainer}>
                     <CardHeader
                       classes={{
                         title: classes.customerName,

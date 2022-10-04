@@ -9,22 +9,9 @@ export const Styles: any = (theme: any) => ({
       height: "74px !important",
     },
   },
-  customerCost: {
-    fontFamily: "Fira Sans",
-    fontStyle: "normal",
-    fontWeight: 600,
-    fontSize: "24px",
-    lineHeight: "48px",
-    textTransform: "capitalize",
-    color: "#88878F",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "22px !important",
-    },
-  },
   customerName: {
     fontFamily: "Fira Sans !important",
-    color: "#272522 !important",
-
+    color: "#272522 ",
     fontWeight: "600 !important",
     lineHeight: "48px !important",
     textTransform: "capitalize !important",
@@ -37,6 +24,9 @@ export const Styles: any = (theme: any) => ({
     },
     [theme.breakpoints.up("md")]: {
       fontSize: "24px !important",
+    },
+    "&:hover": {
+      color: "#E7A356 !important",
     },
   },
   bookingsServicesTitle: {
@@ -123,7 +113,6 @@ export const Styles: any = (theme: any) => ({
     fontFamily: "Fira Sans !important",
     fontStyle: "normal !important",
     fontWeight: "500 !important",
-
     lineHeight: "36px !important",
     textTransform: "capitalize",
     color: "#88878F",
@@ -148,16 +137,15 @@ export const Styles: any = (theme: any) => ({
     [theme.breakpoints.down("sm")]: {
       fontSize: "22px !important",
     },
+    "&:hover": {
+      color: "#E7A356 !important",
+    },
   },
   customerContainer: {
     maxWidth: "555px",
     p: "20px",
     height: "auto",
-    "&:hover": {
-      title: {
-        color: "#E7A356",
-      },
-    },
+
     boxShadow: "0px 0px",
   },
 });
