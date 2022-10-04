@@ -10,6 +10,7 @@ const defaultTheme = createTheme({
       fontWeight: 700,
     },
     h2: {
+      fontFamily: "Fira Sans",
       fontSize: "26px",
       fontWeight: 700,
     },
