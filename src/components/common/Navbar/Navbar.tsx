@@ -13,13 +13,17 @@ import BuisnessDetails from "../../BuisnessDetail/BuisnessDetails";
 import PayoutDetails from "../../PayoutDetails/PayoutDetails";
 import RegisteredNowPage from "../../RegisterNowPage/RegisteredNowPage";
 import { modalConstants } from "../../../utils/data/constants/loginRegistration";
+import VerificationComp from "../../VerificationCOmp/VerificationComp";
 
 export interface navSate {
   activeLink: string;
   mobileDrawer: boolean;
   registerDrawer: boolean;
+
+  verificationDrawer: boolean;
   openDrawer: boolean;
   openBusiness: boolean;
+
   image: any;
   bname: string;
   owner: string;
@@ -40,7 +44,8 @@ class Navbar extends Component<{}, navSate> {
   state = {
     activeLink: "Home",
     mobileDrawer: false,
-    registerDrawer: true,
+    registerDrawer: false,
+    verificationDrawer: false,
     openDrawer: false,
     openBusiness: false,
     openPayout: false,
@@ -99,6 +104,33 @@ class Navbar extends Component<{}, navSate> {
       case modalConstants.REGISTER_DRAWER:
         this.setState({
           registerDrawer: !this.state.registerDrawer,
+          openBusiness: false,
+          verificationDrawer: false,
+          openPayout: false,
+          openDrawer: false,
+          image: "",
+          address: "",
+          bname: "",
+          email: "",
+          owner: "",
+          GSTIN: "",
+          error: "",
+          upiAddress: "",
+          accHoldername: "",
+          bankname: "",
+          confirmaccNumber: "",
+          ifscCode: "",
+          accNumber: "",
+        });
+        break;
+
+      case modalConstants.VERIFICATION_DRAWER:
+        this.setState({
+          verificationDrawer: !this.state.verificationDrawer,
+          registerDrawer: false,
+          openBusiness: false,
+          openDrawer: false,
+          openPayout: false,
           image: "",
           address: "",
           bname: "",
@@ -117,6 +149,10 @@ class Navbar extends Component<{}, navSate> {
       default:
         this.setState({
           openBusiness: !this.state.openBusiness,
+          registerDrawer: false,
+          verificationDrawer: false,
+          openDrawer: false,
+          openPayout: false,
           image: "",
           address: "",
           bname: "",
@@ -249,10 +285,15 @@ class Navbar extends Component<{}, navSate> {
 
           <RegisteredNowPage
             open={this.state.registerDrawer}
-            toogleDrawer={() =>
-              this.handleToggleDrawer(modalConstants.REGISTER_DRAWER)
-            }
+            toogleDrawer={this.handleToggleDrawer}
             handleChange={this.handleChange}
+            state={this.state}
+            handleOnClick={this.handleToggleDrawer}
+          />
+
+          <VerificationComp
+            handleToggle={this.handleToggleDrawer}
+            open={this.state.verificationDrawer}
             state={this.state}
           />
 

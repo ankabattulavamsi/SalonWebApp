@@ -20,6 +20,7 @@ interface RegisteredNowPageProps {
   classes: any;
   handleChange: (e: any) => void;
   state: navSate;
+  handleOnClick: () => void;
 }
 
 interface RegisteredNowPageState {}
@@ -86,7 +87,13 @@ class RegisteredNowPage extends React.Component<
             </Box>
 
             <Box>
-              <Buttons title="Register now" />
+              <Buttons
+                title="Register now"
+                handleClick={() => {
+                  alert("clicked");
+                  this.props.toogleDrawer(modalConstants.VERIFICATION_DRAWER);
+                }}
+              />
             </Box>
           </Box>
         </Box>
