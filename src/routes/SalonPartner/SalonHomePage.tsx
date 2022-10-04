@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class SalonHomePage extends Component {
-    render() {
-        return (
-            <div>
-                <h2>Thishishii</h2>
-            </div>
-        );
-    }
+  render() {
+    return <div>home</div>;
+  }
 }
 
 export default SalonHomePage;

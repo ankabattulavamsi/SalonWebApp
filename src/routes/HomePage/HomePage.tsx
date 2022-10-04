@@ -9,7 +9,6 @@ import AboutUs from "../../components/AboutUsSection/AboutUs";
 import Offers from "../../components/OffersSection/Offers";
 import OurBlogs from "../../components/OurBlogs/OurBlogs";
 import Gallery from "../../components/Gallery/Gallery";
-import GalleryOwner from "../../components/GallerySalonOwner/GalleryOwner";
 
 export default function HomePage() {
   return (
@@ -17,9 +16,7 @@ export default function HomePage() {
       <div id="/">
         <FeatureCarousel />
       </div>
-      <div id="/">
-        <GalleryOwner />
-      </div>
+     
       <div>
         <OurFeature />
       </div>
