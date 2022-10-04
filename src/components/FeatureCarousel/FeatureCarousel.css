@@ -151,7 +151,7 @@
 }
 .text .btn:hover {
   border: 2px solid #e7a356;
-  text-decoration: underline;
+ 
 }
 
 @media only screen and (max-width: 660px) {
@@ -303,7 +303,7 @@
     width: 250px !important;
     margin-top: 22px !important;
     height: 70px !important;
-    text-decoration: underline;
+    
   }
 
   .text .heading {
