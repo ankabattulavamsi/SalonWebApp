@@ -20,7 +20,6 @@ class HomePage extends React.Component<HomeProps, HomeState> {
     super(props);
     this.state = {};
   }
-  // ON CHANGE FUNCTION    TO CHNGE  THE INPUTS VALUE AND STORE IN STATE
 
   render() {
     return (
