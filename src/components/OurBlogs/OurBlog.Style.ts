@@ -48,7 +48,7 @@ export const BlogStyles :any = {
         textTransform: 'lowercase',
         color: '#272522',
         opacity:0.5,
-        marginTop: '8% !important',
+        marginTop: '6% !important',
     },
     blogDate:{
         fontFamily: 'Fira Sans !important',
@@ -63,7 +63,7 @@ export const BlogStyles :any = {
         fontFamily: 'Fira Sans !important',
         fontStyle: 'normal',
         fontWeight: '500 !important',
-        fontSize: '18px !important',
+        fontSize: '1rem !important',
         lineHeight: '38px',
         textAlign: 'center',
         letterSpacing: '0.02em',
