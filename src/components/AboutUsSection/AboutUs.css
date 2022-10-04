@@ -59,6 +59,9 @@
   .about-us-heading {
     margin-top: 1rem;
   }
+  .about-us-section-container {
+    margin-bottom: 10;
+  }
 }
 
 @media screen and (max-width: 600px) {
