@@ -3,7 +3,8 @@
   height: auto;
   background-color: #fdf6ef;
   background-image: url("../../assets/images/AboutUsSection/Aboutus-background.png");
-  padding-top: "3%";
+  padding-top: "4%";
+  margin-bottom: 10;
 }
 
 .about-us-video-container {

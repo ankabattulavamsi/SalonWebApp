@@ -11,7 +11,8 @@ class Offers extends Component {
     return (
       <Box
         sx={{
-          py: { md: 19, xs: 15 },
+          paddingTop: { md: 20, xs: 13 },
+          paddingBottom: { md: 18, xs: 10 },
         }}
       >
         <Container maxWidth="lg">
@@ -30,7 +31,7 @@ class Offers extends Component {
                 <Grid item md={6} xs={12} key={offer.id}>
                   <Card
                     sx={{
-                      maxHeight: { xs: "100%", sm: "350px" },
+                      maxHeight: { xs: "100%", sm: "350px " },
                       display: "flex",
                       mx: "auto",
                       bgcolor: offer.bgColor,
@@ -114,7 +115,7 @@ class Offers extends Component {
                         height="100%"
                         image={offer.imgUrl}
                         alt="green iguana"
-                        sx={{ objectFit: { xs: "contain" } }}
+                        sx={{ objectFit: { xs: "contain" }, mx: "auto" }}
                       />
                     </Box>
                   </Card>
