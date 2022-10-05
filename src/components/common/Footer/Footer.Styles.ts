@@ -1,3 +1,4 @@
+import theme from "../../../Theme/Theme";
 
 export const Styles:any = {
     footerText:{
@@ -72,6 +73,41 @@ export const Styles:any = {
         backgroundColor:'#353331',
         padding: '8px 15px 8px 15px', 
         borderRadius:'4px'
-    }
+    },
+    salonFooterText:{
+        color: '#939290',
+        fontFamily: 'Roboto !important',
+        fontStyle:'normal',
+        fontWeight: 400,
+        fontSize: '18px',
+        lineHeight: '32px',
+        letterSpacing: '0.01em',
+        textTransform: 'lowercase',
+        marginTop:'4% !important',
+        textAlign:'center',
+    },
+    salonSocialmedia:{
+        marginTop:'5%',
+        width: '20%',
+        display:'flex',
+        alignItems:'center', 
+        justifyContent:'space-around',
+        [theme.breakpoints.up("xs")]:{
+            width:'80%',
+            marginTop:'10%',
+        },
+        [theme.breakpoints.up("sm")]:{
+            width:'30%',
+            marginTop:'5%',
+        },
+        [theme.breakpoints.only("md")]:{
+            width:'25%',
+            marginTop:'5%',
+        },
+        [theme.breakpoints.up("lg")]:{
+            width:'18%',
+            marginTop:'5%',
+        }
+    },
 
 }

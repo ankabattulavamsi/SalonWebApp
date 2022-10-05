@@ -16,7 +16,9 @@ class SalonPartner extends Component{
           menus={SalonMenu}
         />
         <Outlet />
-        {/* <Footer /> */}
+        <Footer 
+          salon={true}
+        />
       </Fragment>
     );
   }
