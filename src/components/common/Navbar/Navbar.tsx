@@ -23,7 +23,8 @@ export interface navSate {
   verificationDrawer: boolean;
   openDrawer: boolean;
   openBusiness: boolean;
-
+  IsCustomerLogin: boolean;
+  IsSalonLogin: boolean;
   image: any;
   bname: string;
   owner: string;
@@ -49,6 +50,8 @@ class Navbar extends Component<{}, navSate> {
     openDrawer: false,
     openBusiness: false,
     openPayout: false,
+    IsCustomerLogin: true,
+    IsSalonLogin: false,
     image: "",
     address: "",
     bname: "",
@@ -185,6 +188,22 @@ class Navbar extends Component<{}, navSate> {
   handleClickSave = () => {
     this.handleToggleDrawer(modalConstants.PAYOUT_DRAWER);
   };
+
+  // handle customer login
+  handleCustomerLogin = () => {
+    console.log("customer");
+    this.setState({
+      IsCustomerLogin: true,
+      IsSalonLogin: false,
+    });
+    console.log(this.state.IsCustomerLogin, "IsCustomerLogin from func");
+  };
+  handleSalonLogin = () => {
+    this.setState({
+      IsCustomerLogin: false,
+      IsSalonLogin: true,
+    });
+  };
   render() {
     return (
       <Fragment>
@@ -280,6 +299,9 @@ class Navbar extends Component<{}, navSate> {
             open={this.state.openDrawer}
             onClose={this.handleDrawerClose}
             handleLogin={this.handleToggleDrawer}
+            handleCustomerLogin={this.handleCustomerLogin}
+            handleSalonLogin={this.handleSalonLogin}
+            state={this.state}
           />
 
           <RegisteredNowPage

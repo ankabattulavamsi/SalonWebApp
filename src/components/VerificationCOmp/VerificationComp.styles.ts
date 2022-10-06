@@ -10,4 +10,13 @@ export const VerificationCompStyles: any = (theme: any) => ({
     textTransform: "capitalize",
     color: " #272522",
   },
+  paragraphText: {
+    fontFamily: "Fira Sans !important",
+    fontStyle: "normal",
+    fontWeight: "500 !important",
+    fontSize: "20px !important",
+    lineHeight: "30px",
+    textTransform: "capitalize",
+    color: "#88878F",
+  },
 });
