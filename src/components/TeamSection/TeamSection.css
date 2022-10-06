@@ -77,3 +77,13 @@
     opacity: 1 !important;
   }
 }
+
+.special-team:hover {
+  cursor: pointer;
+}
+.special-team:hover .special-team-content {
+  transition: linear 0.5s;
+
+  background-color: #ebb273 !important;
+  color: #fff !important;
+}

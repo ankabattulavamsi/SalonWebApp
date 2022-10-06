@@ -94,7 +94,6 @@ class Login extends Component<LoginProps, State> {
 					) : (
 						<CustomerLogin />
 					)}
-					{/* {this.state.IsSalonLogin ? <SalonLogin /> : <CustomerLogin />} */}
 				</Box>
 			</Drawer>
 		);
