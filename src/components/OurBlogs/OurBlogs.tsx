@@ -19,7 +19,7 @@ class OurBlogs extends Component<blogProps> {
 
     return (
       <>
-          <Box sx={{ mb: 10, mt:5 }}>
+          <Box sx={{ pb: 10, pt:10 }}>
             <Box sx={{mb:4}}>
               <Typography className={classes.blogHeading}>
                   Our Blogs
