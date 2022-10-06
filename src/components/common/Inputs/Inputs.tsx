@@ -24,8 +24,26 @@ interface InputsProps {
   isSelect?: boolean | false;
   options?: optionsBanksname[];
 }
-interface InputsState {}
+interface InputsState {
+  error: string;
+}
 export default class Inputs extends Component<InputsProps, InputsState> {
+  constructor(props: InputsProps) {
+    super(props);
+    this.state = {
+      error: "",
+    };
+  }
+  // handleValidateEmail = (e: any) => {
+  //   const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  //   const str = e.target.value;
+
+  //   if (!pattern.test(str)) {
+  //     this.setState({ error: "Email is not valid" });
+  //   } else {
+  //     this.setState({ error: "" });
+  //   }
+  // };
   render() {
     const {
       label,
@@ -53,21 +71,46 @@ export default class Inputs extends Component<InputsProps, InputsState> {
           </label>
         )}
         {!isSelect ? (
-          <Box className={`input--input ${className && className}`}>
-            <input
-              accept={accept && accept}
-              type={type}
-              id={id}
-              name={name}
-              required={required}
-              placeholder={placeholder}
-              className="input--input--1 "
-              value={value}
-              onChange={(e) => handleChange && handleChange(e)}
-            />
+          <>
+            {type === "textarea" ? (
+              <>
+                <Box className={`input--input ${className && className}`}>
+                  <textarea
+                    id={id}
+                    rows={3}
+                    name={name}
+                    required={required}
+                    placeholder={placeholder}
+                    className="input--input--1 "
+                    value={value}
+                    onChange={(e) => {
+                      handleChange && handleChange(e);
+                    }}
+                  ></textarea>
 
-            {icon && <img src={icon} alt={id} className="input--icons" />}
-          </Box>
+                  {icon && <img src={icon} alt={id} className="input--icons" />}
+                </Box>
+              </>
+            ) : (
+              <Box className={`input--input ${className && className}`}>
+                <input
+                  accept={accept && accept}
+                  type={type}
+                  id={id}
+                  name={name}
+                  required={required}
+                  placeholder={placeholder}
+                  className="input--input--1 "
+                  value={value}
+                  onChange={(e) => {
+                    handleChange && handleChange(e);
+                  }}
+                />
+
+                {icon && <img src={icon} alt={id} className="input--icons" />}
+              </Box>
+            )}
+          </>
         ) : (
           <Box>
             <Select
@@ -122,7 +165,7 @@ export default class Inputs extends Component<InputsProps, InputsState> {
           </Box>
         )}
 
-        {error && (
+        {(error || this.state.error) && (
           <FormHelperText
             component={"p"}
             color="error"
@@ -130,7 +173,7 @@ export default class Inputs extends Component<InputsProps, InputsState> {
               color: "#B00020",
             }}
           >
-            {error}
+            {(error && error) || (this.state.error && this.state.error)}
           </FormHelperText>
         )}
       </FormControl>

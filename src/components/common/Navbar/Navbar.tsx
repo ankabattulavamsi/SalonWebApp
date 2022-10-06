@@ -40,12 +40,15 @@ export interface navSate {
   ifscCode: string;
   bankname: string;
   fname: string;
+  password: string;
+  confirmPassword: string;
+  mobileNumber: string;
 }
 class Navbar extends Component<{}, navSate> {
   state = {
     activeLink: "Home",
     mobileDrawer: false,
-    registerDrawer: false,
+    registerDrawer: true,
     verificationDrawer: false,
     openDrawer: false,
     openBusiness: true,
@@ -66,6 +69,9 @@ class Navbar extends Component<{}, navSate> {
     ifscCode: "",
     accNumber: "",
     fname: "",
+    password: "",
+    confirmPassword: "",
+    mobileNumber: "",
   };
 
   handleClick = (title: string) => {
@@ -83,6 +89,17 @@ class Navbar extends Component<{}, navSate> {
   handleImageChange = (e: any): any => {
     this.setState({ image: URL.createObjectURL(e.target.files[0]) });
   };
+
+  //handle change for input and password and confirm password
+
+  handleChangePassword = (password: any) => {
+    this.setState({ password });
+  };
+
+  confirmPassChangehandle = (password: any) => {
+    this.setState({ confirmPassword: password });
+  };
+
   handleToggleDrawer = (type?: string) => {
     switch (type) {
       case modalConstants.PAYOUT_DRAWER:
@@ -140,6 +157,26 @@ class Navbar extends Component<{}, navSate> {
         });
         break;
     }
+
+    this.setState({
+      image: "",
+      address: "",
+      bname: "",
+      email: "",
+      owner: "",
+      GSTIN: "",
+      error: "",
+      upiAddress: "",
+      accHoldername: "",
+      bankname: "",
+      confirmaccNumber: "",
+      ifscCode: "",
+      accNumber: "",
+      fname: "",
+      password: "",
+      confirmPassword: "",
+      mobileNumber: "",
+    });
   };
 
   handleDrawerClose = () => {
@@ -172,6 +209,7 @@ class Navbar extends Component<{}, navSate> {
       IsSalonLogin: true,
     });
   };
+
   render() {
     return (
       <Fragment>
@@ -278,6 +316,8 @@ class Navbar extends Component<{}, navSate> {
             handleChange={this.handleChange}
             state={this.state}
             handleOnClick={this.handleToggleDrawer}
+            handleChangePassword={this.handleChangePassword}
+            confirmPassChangehandle={this.confirmPassChangehandle}
           />
 
           <VerificationComp

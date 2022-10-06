@@ -17,7 +17,6 @@ function App() {
           </Route>
           {/*Guest Flow*/}
           {/* Login */}
-          {/* <Route path="/salon" element={<Salon />} /> */}
           <Route path="/customer" element={<Customer />} />
           {/* temprorary */}
 

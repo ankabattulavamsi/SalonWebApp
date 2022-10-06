@@ -1,18 +1,16 @@
+import * as React from "react";
 import { Box, Checkbox, Typography } from "@mui/material";
 import { withStyles } from "@mui/styles";
-import * as React from "react";
 import {
   emailImage,
   optionsStateName,
   userImage,
 } from "../../utils/data/businessdetailsandPayout/Busness.data";
 import { modalConstants } from "../../utils/data/constants/loginRegistration";
-import { Buttons, Drawers, Inputs } from "../common";
+import { Buttons, Drawers, DropDownLogin, Inputs, OtpPass } from "../common";
 import { navSate } from "../common/Navbar/Navbar";
-import DropDownLogin from "../Login/DropDownLogin";
-import { registeredStyles } from "./RegisteredNowPage.Styles";
 
-import OtpPass from "../common/OtpPasscode/OtpPass";
+import { registeredStyles } from "./RegisteredNowPage.Styles";
 
 interface RegisteredNowPageProps {
   open: boolean;
@@ -21,10 +19,14 @@ interface RegisteredNowPageProps {
   handleChange: (e: any) => void;
   state: navSate;
   handleOnClick: () => void;
+  handleChangePassword?: (e: any) => void;
+  confirmPassChangehandle?: (password: any) => void;
 }
 
 interface RegisteredNowPageState {
+  errorEmail: string;
   isChecked: boolean;
+  error: string;
 }
 
 class RegisteredNowPage extends React.Component<
@@ -35,10 +37,39 @@ class RegisteredNowPage extends React.Component<
     super(props);
     this.state = {
       isChecked: false,
+      errorEmail: "",
+      error: "",
     };
   }
+  handleValidateEmail = (e: any) => {
+    const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    const str = e.target.value;
+
+    if (!pattern.test(str)) {
+      this.setState({ errorEmail: "Email is not valid" });
+    } else {
+      this.setState({ errorEmail: "" });
+    }
+  };
+
+  handleValidateMobileNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const pattern = /(7|8|9)\d{9}/;
+    const str = e.target.value;
+    if (!pattern.test(str)) {
+      this.setState({ error: "Mobile Number is not valid" });
+    } else {
+      this.setState({ error: "" });
+    }
+  };
+
   render() {
-    const { classes, state, handleChange } = this.props;
+    const {
+      classes,
+      state,
+      handleChange,
+      handleChangePassword,
+      confirmPassChangehandle,
+    } = this.props;
     return (
       <Drawers
         open={this.props.open}
@@ -64,28 +95,49 @@ class RegisteredNowPage extends React.Component<
               <Box>
                 <Typography>Mobile No</Typography>
               </Box>
-              <DropDownLogin />
+              <DropDownLogin
+                handleChange={(e) => {
+                  this.handleValidateMobileNumber(e);
+                  handleChange(e);
+                }}
+                name={"mobileNumber"}
+                value={state.mobileNumber}
+                error={this.state.error}
+              />
             </Box>
             <Inputs
               label="email"
               name="email"
-              handleChange={handleChange}
+              handleChange={(e) => {
+                this.handleValidateEmail(e);
+                handleChange(e);
+              }}
               placeholder="stevesmith@gmail.com"
               icon={emailImage}
               type="email"
               value={state.email}
+              error={this.state.errorEmail}
             />
-            <OtpPass numberInputs={6} label="password" placeholder="******" />
+            <OtpPass
+              numberInputs={6}
+              label="password"
+              placeholder="******"
+              value={state.password}
+              handleChange={handleChangePassword}
+            />
             <OtpPass
               numberInputs={6}
               label="confirm password"
               placeholder="******"
+              handleChange={confirmPassChangehandle}
+              value={state.confirmPassword}
             />
             <Inputs
               isSelect
               label="State"
               name="state"
               options={optionsStateName}
+              handleChange={handleChange}
             />
           </Box>
           <Box>
@@ -107,7 +159,10 @@ class RegisteredNowPage extends React.Component<
                 disabled={
                   state.fname === "" ||
                   state.email === "" ||
-                  this.state.isChecked === false
+                  this.state.isChecked === false ||
+                  this.state.errorEmail !== "" ||
+                  state.password === "" ||
+                  state.confirmPassword === ""
                 }
                 title="Register now"
                 handleClick={() => {

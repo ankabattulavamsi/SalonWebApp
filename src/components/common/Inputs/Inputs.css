@@ -30,6 +30,7 @@
 
   padding-bottom: 15px;
   padding-left: 15px;
+  padding-right: 20%;
   background-color: #f0f0f0;
   font-family: "Roboto";
   font-style: normal;
@@ -42,6 +43,7 @@
   border-radius: 5px;
   border: none;
   display: flex;
+  text-align: justify;
 }
 
 .input--input--1:focus {

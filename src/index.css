@@ -16,8 +16,3 @@ body {
 .css-1160xiw-MuiPaper-root-MuiDrawer-paper::-webkit-scrollbar {
   display: none;
 }
-
-input[type="text"] {
-  word-wrap: break-word;
-  word-break: break-all;
-}

@@ -143,7 +143,7 @@ class BuisnessDetails extends Component<
               id={`${3}`}
               placeholder="121 KING STREET Eddy street and Gough  street, San Francisco, CA 94109"
               required={true}
-              type={"text"}
+              type={"textarea"}
               handleChange={(e) => this.props.handleChange(e)}
               value={this.props.state.address}
               icon={locationImage}
