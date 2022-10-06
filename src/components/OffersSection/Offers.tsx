@@ -11,8 +11,8 @@ class Offers extends Component {
     return (
       <Box
         sx={{
-          paddingTop: { md: 24, sm: 15, xs: 5 },
-          paddingBottom: { md: 14 },
+          paddingTop: { md: 24, sm: 12, xs: 13 },
+          paddingBottom: { md: 14, xs: 1, sm: 3 },
         }}
       >
         <Container maxWidth="lg">
@@ -34,6 +34,8 @@ class Offers extends Component {
                       maxHeight: { xs: "100%", sm: "350px " },
                       display: "flex",
                       mx: { md: "auto" },
+                      marginLeft: "15px",
+                      px: "auto",
                       mt: { xs: 5, md: 0 },
                       bgcolor: offer.bgColor,
                       borderRadius: "20px",
@@ -45,6 +47,7 @@ class Offers extends Component {
                         paddingTop: "8%",
                         paddingLeft: "7%",
                         paddingRight: 0,
+                        mx: "auto",
                       }}
                     >
                       <Typography
