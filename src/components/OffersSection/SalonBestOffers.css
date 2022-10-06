@@ -1,0 +1,69 @@
+.parent-container:hover .edit-button1 {
+    background-color: #E7A356;
+}
+
+.edit-icon {
+    color: #88878F;
+}
+
+.best-offers-edit-text {
+    color: #88878F !important;
+}
+
+.parent-container:hover .best-offers-edit-text{
+    color: #fff !important;
+}
+.parent-container:hover .edit-icon {
+    color: #fff;
+}
+
+.delete-icon {
+    color: #88878F;
+}
+
+.best-offers-delete-text{
+    color: #88878F !important;
+}
+
+.parent-container:hover .best-offers-delete-text {
+    color: #fff !important;
+}
+
+.parent-container:hover .delete-icon {
+    color: #fff;
+}
+
+.parent-container:hover .delete-button2 {
+    background-color: #272522;
+    
+}
+
+.best-offers-discount-price{
+    color: #272522;
+}
+
+.parent-container:hover .best-offers-discount-price{
+    color: #E7A356;
+}
+
+.best-offers-original-price {
+    text-decoration: line-through;
+    color: #88878F;
+}
+
+.parent-container:hover .best-offers-original-price {
+    color: #272522;
+}
+
+.parent-container:hover .buttons-border-line {
+    border: none;
+}
+
+.salon-best-offers-heading::after{
+    content: "";
+    width: 52px;
+    height: 6px;
+    display: block;
+    background-color: #ebb273;
+    margin-top: 6px;
+}

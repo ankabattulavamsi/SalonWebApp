@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from "react";
 import { Outlet } from "react-router-dom";
 
+import Footer from "../../components/common/Footer/Footer";
 import SalonNavbar from "../../components/common/Navbar/SalonNavbar";
-import { salonMenu } from "../../utils/data/navbar_menus";
+import { salonMenu, CustomerMenu } from "../../utils/data/navbar_menus";
 
 class SalonPartner extends Component{
 
