@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from "react";
-import { Outlet } from "react-router-dom";
 
 import Footer from "../../components/common/Footer/Footer";
 import SalonNavbar from "../../components/common/Navbar/SalonNavbar";
+import OurBlogs from "../../components/OurBlogs/OurBlogs";
 import { SalonMenu, CustomerMenu } from "../../utils/data/navbar_menus";
 
 class SalonPartner extends Component{
@@ -15,7 +15,6 @@ class SalonPartner extends Component{
           customer={false}
           menus={SalonMenu}
         />
-        <Outlet />
         <Footer 
           salon={true}
         />
