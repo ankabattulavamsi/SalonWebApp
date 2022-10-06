@@ -1,5 +1,4 @@
 import {
-    Button,
     Card,
     CardContent,
     CardMedia,
@@ -56,7 +55,7 @@ import CommonEditDeleteButtons from "../common/CommonSalonPatnerButtons/CommonEd
                 </Box>
               </Grid>
               <Grid item lg={5} md={5} xs={12} sm={5}>
-                <Box sx={{mt:-2}}>
+                <Box sx={{mt:-2}} >
                 <CommonViewAllButton />
                 </Box>
               </Grid>
