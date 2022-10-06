@@ -151,7 +151,7 @@
 }
 .text .btn:hover {
   border: 2px solid #e7a356;
-  text-decoration: underline;
+ 
 }
 
 @media only screen and (max-width: 660px) {
@@ -170,7 +170,7 @@
   .img {
     position: relative;
     right: 40px;
-    top: 133px;
+    top: 132px;
     width: 350px !important;
     height: 389px;
     z-index: 100;
@@ -250,7 +250,6 @@
   .text .btn {
     margin-top: 20px !important;
     height: 60px !important;
-    text-decoration: underline;
   }
 
   #salonImg {
@@ -275,7 +274,7 @@
   }
 
   .Banner .slick-dots {
-    top: 390px;
+    top: 400px;
     margin-left: -20px;
     color: rgba(255, 255, 255, 1);
   }
@@ -303,7 +302,7 @@
     width: 250px !important;
     margin-top: 22px !important;
     height: 70px !important;
-    text-decoration: underline;
+    
   }
 
   .text .heading {

@@ -9,7 +9,7 @@ class LandingPageNavigation extends Component {
       <Fragment>
         <Navbar />
         <Outlet />
-        <Footer />
+        <Footer salon={false} />
       </Fragment>
     );
   }
