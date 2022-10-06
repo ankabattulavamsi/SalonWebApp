@@ -16,7 +16,14 @@ class Buttons extends Component<ButtonProps, ButtonState> {
     return (
       <Button
         sx={{
-         
+          textAlign: "center",
+          width: "100%",
+          bgcolor: "#E7A356",
+          color: "#ffffff",
+          ":hover": {
+            bgcolor: "#E7A356",
+            color: "#ffffff",
+          },
         }}
         onClick={() => handleClick && handleClick()}
         disabled={disabled}

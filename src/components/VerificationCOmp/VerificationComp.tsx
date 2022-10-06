@@ -65,7 +65,7 @@ class VerificationComp extends Component<
           <Box sx={{ mt: 5 }}>
             {state?.IsCustomerLogin ? (
               <Buttons
-                title="Verify & continue customer"
+                title="Verify & continue"
                 handleClick={() => {
                   navigate("/customer");
                   this.props.handleToggle(modalConstants.VERIFICATION_DRAWER);
@@ -73,7 +73,7 @@ class VerificationComp extends Component<
               />
             ) : (
               <Buttons
-                title="Verify & continue salon"
+                title="Verify & continue"
                 handleClick={() => {
                   this.props.handleToggle();
                 }}

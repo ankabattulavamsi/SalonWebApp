@@ -115,7 +115,7 @@ class BuisnessDetails extends Component<
               </Box>
             </Box>
           </Box>
-          <Box sx={{ mt: 1 }}>
+          <Box sx={{ mt: 1, width: "90%", mx: "auto" }}>
             <Inputs
               label={"Business name"}
               id={`${1}`}
@@ -182,9 +182,11 @@ class BuisnessDetails extends Component<
               display: "flex",
               flexDirection: "column",
               justifyContent: "flex-end",
-              width: "90%",
               ml: 0.5,
               mb: 2,
+              mt: 1,
+              width: "90%",
+              mx: "auto",
             }}
           >
             <Buttons

@@ -48,10 +48,10 @@ class Navbar extends Component<{}, navSate> {
   state = {
     activeLink: "Home",
     mobileDrawer: false,
-    registerDrawer: true,
+    registerDrawer: false,
     verificationDrawer: false,
     openDrawer: false,
-    openBusiness: false,
+    openBusiness: true,
     openPayout: false,
     IsCustomerLogin: true,
     IsSalonLogin: false,

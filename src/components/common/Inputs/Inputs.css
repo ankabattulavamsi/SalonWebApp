@@ -1,5 +1,5 @@
 .input--formcontrol {
-  width: 90%;
+  width: 100%;
   height: auto;
   margin: 10px auto !important;
   position: relative;
@@ -58,7 +58,7 @@
   background-color: #f0f0f0;
   object-fit: contain;
 }
-
+/* 
 @media only screen and (max-width: 600px) {
   .input--formcontrol {
     width: 92%;
@@ -80,4 +80,4 @@
   .input--label {
     font-size: 15px;
   }
-}
+} */

@@ -18,5 +18,15 @@ export const VerificationCompStyles: any = (theme: any) => ({
     lineHeight: "30px",
     textTransform: "capitalize",
     color: "#88878F",
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "16px !important",
+    },
+
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "14px !important",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "20px !important",
+    },
   },
 });
