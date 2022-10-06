@@ -66,14 +66,12 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
     }
   };
   render() {
-    const { classes } = this.props;
+    const { classes, navigate, toggleFunc } = this.props;
     return (
       <>
         <Drawers
           open={this.props.open}
-          toggleDrawer={() =>
-            this.props.toggleFunc(modalConstants.PAYOUT_DRAWER)
-          }
+          toggleDrawer={() => toggleFunc(modalConstants.PAYOUT_DRAWER)}
         >
           <Box>
             <Box>
@@ -82,7 +80,12 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
               </Typography>
             </Box>
             <Box
-              sx={{ width: "90%", display: "flex", justifyContent: "center" }}
+              sx={{
+                width: "90%",
+                mx: "auto",
+                display: "flex",
+                justifyContent: "center",
+              }}
               className={classes.handleBorder}
             >
               <Box
@@ -116,7 +119,10 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
             </Box>
             {!this.state.buttonActive ? (
               <>
-                <Box sx={{ mt: 3 }} className="scrollbar--hide">
+                <Box
+                  sx={{ mt: 2, width: "90%", mx: "auto" }}
+                  className="scrollbar--hide"
+                >
                   <Inputs
                     handleChange={this.props.handleChange}
                     label="Account Holder Name"
@@ -174,6 +180,7 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                     width: "90%",
                     ml: 0.5,
                     mb: 2,
+                    mx: "auto",
                   }}
                 >
                   <Buttons
@@ -187,13 +194,16 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                       this.props.state.bankname === "" ||
                       this.props.state.confirmaccNumber === ""
                     }
-                    handleClick={() => {}}
+                    handleClick={() => {
+                      navigate("/salon");
+                      toggleFunc(modalConstants.PAYOUT_DRAWER);
+                    }}
                   />
                 </Box>
               </>
             ) : (
               <>
-                <Box sx={{ mt: 5 }}>
+                <Box sx={{ mt: 2, width: "90%", mx: "auto" }}>
                   <Inputs
                     type="text"
                     name="upiAddress"
@@ -217,6 +227,7 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                     width: "90%",
                     ml: 0.5,
                     mb: 2,
+                    mx: "auto",
                   }}
                 >
                   <Buttons
@@ -225,7 +236,10 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                       this.props.state.upiAddress === "" ||
                       this.state.error !== ""
                     }
-                    handleClick={() => {}}
+                    handleClick={() => {
+                      navigate("/salon");
+                      toggleFunc(modalConstants.PAYOUT_DRAWER);
+                    }}
                   />
                 </Box>
               </>

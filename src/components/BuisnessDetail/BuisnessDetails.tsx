@@ -72,6 +72,8 @@ class BuisnessDetails extends Component<
               display: "flex",
               justifyContent: "flex-start",
               gap: 2,
+              width: "90%",
+              mx: "auto",
             }}
           >
             <Box width={"30%"}>
@@ -115,7 +117,7 @@ class BuisnessDetails extends Component<
               </Box>
             </Box>
           </Box>
-          <Box sx={{ mt: 1 }}>
+          <Box sx={{ mt: 1, width: "90%", mx: "auto" }}>
             <Inputs
               label={"Business name"}
               id={`${1}`}
@@ -143,7 +145,7 @@ class BuisnessDetails extends Component<
               id={`${3}`}
               placeholder="121 KING STREET Eddy street and Gough  street, San Francisco, CA 94109"
               required={true}
-              type={"text"}
+              type={"textarea"}
               handleChange={(e) => this.props.handleChange(e)}
               value={this.props.state.address}
               icon={locationImage}
@@ -182,9 +184,11 @@ class BuisnessDetails extends Component<
               display: "flex",
               flexDirection: "column",
               justifyContent: "flex-end",
-              width: "90%",
               ml: 0.5,
               mb: 2,
+              mt: 1,
+              width: "90%",
+              mx: "auto",
             }}
           >
             <Buttons

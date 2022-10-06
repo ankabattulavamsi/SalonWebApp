@@ -12,6 +12,7 @@ import { modalConstants } from "../../utils/data/constants/loginRegistration";
 interface CustomerLoginProps {
   navigate: any;
   handleLogin: (type?: string) => void;
+
 }
 interface CustomerLoginState {}
 class CustomerLogin extends Component<CustomerLoginProps, CustomerLoginState> {
@@ -29,6 +30,7 @@ class CustomerLogin extends Component<CustomerLoginProps, CustomerLoginState> {
           </Typography>
           <Stack>
             <DropDownLogin />
+            
           </Stack>
         </Stack>
         <Stack>
@@ -66,7 +68,9 @@ class CustomerLogin extends Component<CustomerLoginProps, CustomerLoginState> {
             Don't have an account?{" "}
             <span
               className={classes.registerSpan}
-              onClick={() => this.props.handleLogin(modalConstants.REGISTER_DRAWER)}
+              onClick={() =>
+                this.props.handleLogin(modalConstants.REGISTER_DRAWER)
+              }
             >
               Register Now
             </span>
