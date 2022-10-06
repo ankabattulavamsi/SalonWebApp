@@ -23,14 +23,22 @@ interface RegisteredNowPageProps {
   handleOnClick: () => void;
 }
 
-interface RegisteredNowPageState {}
+interface RegisteredNowPageState {
+  isChecked: boolean;
+}
 
 class RegisteredNowPage extends React.Component<
   RegisteredNowPageProps,
   RegisteredNowPageState
 > {
+  constructor(props: RegisteredNowPageProps) {
+    super(props);
+    this.state = {
+      isChecked: false,
+    };
+  }
   render() {
-    const { classes } = this.props;
+    const { classes, state, handleChange } = this.props;
     return (
       <Drawers
         open={this.props.open}
@@ -46,10 +54,11 @@ class RegisteredNowPage extends React.Component<
             <Inputs
               label="Full Name"
               name="fname"
-              handleChange={this.props.handleChange}
+              handleChange={handleChange}
               placeholder="Steve smith"
               icon={userImage}
               type="text"
+              value={state.fname}
             />
             <Box sx={{ mt: 2, mb: 1 }}>
               <Box>
@@ -60,10 +69,11 @@ class RegisteredNowPage extends React.Component<
             <Inputs
               label="email"
               name="email"
-              handleChange={this.props.handleChange}
+              handleChange={handleChange}
               placeholder="stevesmith@gmail.com"
               icon={emailImage}
               type="email"
+              value={state.email}
             />
             <OtpPass numberInputs={6} label="password" placeholder="******" />
             <OtpPass
@@ -80,7 +90,13 @@ class RegisteredNowPage extends React.Component<
           </Box>
           <Box>
             <Box className={classes.agreementBox}>
-              <Checkbox />
+              <Checkbox
+                color={this.state.isChecked ? "success" : "default"}
+                checked={this.state.isChecked}
+                onChange={() =>
+                  this.setState({ isChecked: !this.state.isChecked })
+                }
+              />
               <Typography className={classes.termandcondition}>
                 Agree Terms & Conditions
               </Typography>
@@ -88,6 +104,11 @@ class RegisteredNowPage extends React.Component<
 
             <Box>
               <Buttons
+                disabled={
+                  state.fname === "" ||
+                  state.email === "" ||
+                  this.state.isChecked === false
+                }
                 title="Register now"
                 handleClick={() => {
                   this.props.toogleDrawer(modalConstants.VERIFICATION_DRAWER);

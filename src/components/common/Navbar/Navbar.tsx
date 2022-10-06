@@ -48,7 +48,7 @@ class Navbar extends Component<{}, navSate> {
     registerDrawer: false,
     verificationDrawer: false,
     openDrawer: false,
-    openBusiness: false,
+    openBusiness: true,
     openPayout: false,
     IsCustomerLogin: true,
     IsSalonLogin: false,
@@ -111,19 +111,6 @@ class Navbar extends Component<{}, navSate> {
           verificationDrawer: false,
           openPayout: false,
           openDrawer: false,
-          image: "",
-          address: "",
-          bname: "",
-          email: "",
-          owner: "",
-          GSTIN: "",
-          error: "",
-          upiAddress: "",
-          accHoldername: "",
-          bankname: "",
-          confirmaccNumber: "",
-          ifscCode: "",
-          accNumber: "",
         });
         break;
 
@@ -134,19 +121,6 @@ class Navbar extends Component<{}, navSate> {
           openBusiness: false,
           openDrawer: false,
           openPayout: false,
-          image: "",
-          address: "",
-          bname: "",
-          email: "",
-          owner: "",
-          GSTIN: "",
-          error: "",
-          upiAddress: "",
-          accHoldername: "",
-          bankname: "",
-          confirmaccNumber: "",
-          ifscCode: "",
-          accNumber: "",
         });
         break;
       default:
@@ -163,12 +137,6 @@ class Navbar extends Component<{}, navSate> {
           owner: "",
           GSTIN: "",
           error: "",
-          upiAddress: "",
-          accHoldername: "",
-          bankname: "",
-          confirmaccNumber: "",
-          ifscCode: "",
-          accNumber: "",
         });
         break;
     }

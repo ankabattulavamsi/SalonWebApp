@@ -66,14 +66,12 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
     }
   };
   render() {
-    const { classes } = this.props;
+    const { classes, navigate, toggleFunc } = this.props;
     return (
       <>
         <Drawers
           open={this.props.open}
-          toggleDrawer={() =>
-            this.props.toggleFunc(modalConstants.PAYOUT_DRAWER)
-          }
+          toggleDrawer={() => toggleFunc(modalConstants.PAYOUT_DRAWER)}
         >
           <Box>
             <Box>
@@ -187,7 +185,10 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                       this.props.state.bankname === "" ||
                       this.props.state.confirmaccNumber === ""
                     }
-                    handleClick={() => {}}
+                    handleClick={() => {
+                      navigate("/salon");
+                      toggleFunc(modalConstants.PAYOUT_DRAWER);
+                    }}
                   />
                 </Box>
               </>
@@ -225,7 +226,10 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                       this.props.state.upiAddress === "" ||
                       this.state.error !== ""
                     }
-                    handleClick={() => {}}
+                    handleClick={() => {
+                      navigate("/salon");
+                      toggleFunc(modalConstants.PAYOUT_DRAWER);
+                    }}
                   />
                 </Box>
               </>
