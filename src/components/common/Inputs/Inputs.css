@@ -1,8 +1,7 @@
 .input--formcontrol {
-  width: 100%;
+  width: 90%;
   height: auto;
   margin: 10px auto !important;
-  padding: 2px !important;
   position: relative;
 }
 
@@ -38,7 +37,6 @@
   font-size: 17px;
   line-height: 30px;
   letter-spacing: 0.01em;
-
   color: #a4a1a1;
   border-radius: 5px;
   border: none;
@@ -62,8 +60,24 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .input--formcontrol {
+    width: 92%;
+  }
   .input--input--1 {
-    font-size: small;
-    padding-right: 6%;
+    font-size: 15px;
+  }
+  .input--label {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .input--formcontrol {
+    width: 91%;
+  }
+  .input--input--1 {
+    font-size: 15px;
+  }
+  .input--label {
+    font-size: 15px;
   }
 }
