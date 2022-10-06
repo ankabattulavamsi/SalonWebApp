@@ -18,6 +18,7 @@ import { withStyles } from "@mui/styles";
 import { DashboardChartStyles } from "./OwnerDashboardCharts.Style";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 
+import "./Owner.css"
 interface chartProps {
   classes: any;
 }
@@ -52,12 +53,13 @@ class OwnerDashboardChart extends Component<chartProps> {
                 </Typography>
               </Box>
               <ReactApexChart
+              className="apexcharts-series"
                 options={data.options}
                 series={data.series}
                 type="bar"
                 height={350}
+               
               />
-
               <Box className={classes.dashboardChartCardDiv}>
                 <Grid container spacing={{ xs: 2, sm: 2, md: 4, lg: 6 }}>
                   {CardData.map((cards: Cards) => {
@@ -73,13 +75,13 @@ class OwnerDashboardChart extends Component<chartProps> {
                             image={cards.image}
                             alt="profit "
                           />
-                          <CardContent >
-                            <Typography variant="h2" >
+                          <CardContent>
+                            <Typography variant="h2">
                               {cards.description === "January Profits" ? (
                                 <CurrencyRupeeIcon
-                                sx={{
-                                  marginBottom: "-2px",
-                                }}
+                                  sx={{
+                                    marginBottom: "-2px",
+                                  }}
                                 />
                               ) : null}
                               {cards.heading}

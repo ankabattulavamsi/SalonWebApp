@@ -29,13 +29,11 @@ export const DashboardChartStyles: any = {
       margin: "auto",
      textIndent:'start !important',
      display: "flex",
-     justifyContent: "space-around",
+     justifyContent: "flex-start",
      alignItems: "center",
     },
     "@media (min-width: 660px) and (max-width: 920px) ": {
       margin: "auto",
     },
   },
-
-
-};
+  };
