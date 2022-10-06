@@ -12,7 +12,7 @@ class Offers extends Component {
       <Box
         sx={{
           paddingTop: { md: 24, sm: 15, xs: 5 },
-          paddingBottom: { md: 13 },
+          paddingBottom: { md: 14 },
         }}
       >
         <Container maxWidth="lg">
