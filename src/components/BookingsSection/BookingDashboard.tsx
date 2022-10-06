@@ -25,11 +25,6 @@ import { datesArray } from "../../utils/data/bookings/CalenderData";
 
 import "./BookingDashboard.css";
 
-interface DateProps {
-  day: string;
-  date: string;
-}
-
 class BookingsDashboard extends Component {
   state = { currentDate: new Date().getDate() };
 
@@ -56,19 +51,13 @@ class BookingsDashboard extends Component {
           <Box>
             <ScrollMenu
               LeftArrow={
-                <Button>
-                  <ArrowBackIosNewIcon
-                    className={classes.previousDateIcon}
-                    onClick={this.onPreviousDate}
-                  />
+                <Button onClick={this.onPreviousDate}>
+                  <ArrowBackIosNewIcon className={classes.previousDateIcon} />
                 </Button>
               }
               RightArrow={
-                <Button>
-                  <ArrowForwardIosIcon
-                    onClick={this.onNextDate}
-                    className={classes.nextDateIcon}
-                  />
+                <Button onClick={this.onNextDate}>
+                  <ArrowForwardIosIcon className={classes.nextDateIcon} />
                 </Button>
               }
             >
@@ -78,8 +67,9 @@ class BookingsDashboard extends Component {
                   return (
                     <Box
                       sx={{
-                        px: { md: "50", xs: "5px" },
-                        // py: { md: "15px", xs: "5px" },
+                        width: { xs: "70px", md: "145px" },
+                        px: { md: 5.3, sm: 2, xs: "5px" },
+                        py: { md: "15px", sm: 2.3, xs: "5px" },
                         backgroundColor:
                           Number(date.date) === currentDate
                             ? "#E7A356"
@@ -235,18 +225,8 @@ class BookingsDashboard extends Component {
             })}
 
             <Button
-              // className={classes.viewAllCustomersButton}
+              className={classes.viewAllCustomersButton}
               sx={{
-                color: "#999999",
-                fontFamily: "Fira Sans",
-                fontStyle: "normal",
-                fontWeight: 600,
-                fontSize: "20px",
-                lineHeight: "24px",
-                letterSpacing: "0.02em",
-                textTransform: "capitalize",
-                marginTop: "58px",
-                marginBottom: "91px",
                 mx: "auto",
               }}
             >

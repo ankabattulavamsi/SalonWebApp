@@ -7,5 +7,11 @@
   scrollbar-width: none; /* Firefox */
 }
 .css-819f2t-MuiGrid-root > .MuiGrid-item {
-  padding-left: 0px !important;
+  padding-left: 16px !important;
+}
+@media screen and (max-width: 600px) {
+  .css-1emfm6o-MuiButtonBase-root-MuiButton-root {
+    min-width: 35px !important;
+    padding: 0px !important;
+  }
 }

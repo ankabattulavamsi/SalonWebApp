@@ -72,17 +72,17 @@ export const Styles: any = (theme: any) => ({
     },
   },
   viewAllCustomersButton: {
-    color: "#999999",
-    fontFamily: "Fira Sans",
+    color: "#999999 !important",
+    fontFamily: "Fira Sans !important",
     fontStyle: "normal",
-    fontWeight: 600,
-    fontSize: "20px",
-    lineHeight: "24px",
-    letterSpacing: "0.02em",
+    fontWeight: "600 !important",
+    fontSize: "20px !important",
+    lineHeight: "24px !important",
+    letterSpacing: "0.02em !important",
     textTransform: "capitalize",
-    marginTop: "58px",
-    marginBottom: "91px",
-    mx: "auto",
+    marginTop: "58px !important",
+    marginBottom: "91px !important",
+    mx: "auto !important",
   },
   serviceNameContainer: {
     backgroundColor: "#F0F0F0",
@@ -168,23 +168,27 @@ export const Styles: any = (theme: any) => ({
     lineHeight: "28px",
     textAlign: "center !important",
     textTransform: "capitalize",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("sm")]: {
       fontSize: "14px !important",
     },
   },
   nextDateIcon: {
     color: "#999999 !important",
-    width: "100px",
+    width: "120px",
     height: "100px !important",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("sm")]: {
       width: "32px !important ",
       height: "76px !important",
     },
   },
   previousDateIcon: {
     color: "#999999 !important",
-    width: "85px",
+    width: "90px",
     height: "100px !important",
+    [theme.breakpoints.down("sm")]: {
+      width: "32px !important ",
+      height: "76px !important ",
+    },
     [theme.breakpoints.down("md")]: {
       width: "32px !important ",
       height: "76px !important ",
