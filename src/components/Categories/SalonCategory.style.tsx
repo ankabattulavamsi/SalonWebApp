@@ -38,6 +38,9 @@ export const styles:any = {
             color: '#FFFFFF',
             padding: '18px 30px',
             borderRadius: '8px',
+            '&:hover':{
+                background: '#272522',
+            },
             '@media screen and (max-width: 600px)': {
                 marginTop: '25px',
             },
@@ -72,10 +75,11 @@ export const styles:any = {
             fontSize: '20px',
             lineHeight: '30px',
             textTransform: 'capitalize',
-            padding: '16px 49px 23px 47px',
+            padding: '19px 49px 21px 47px',
             width: '160px',
             borderRadius: '0',
-            marginLeft: '0 !important'
+            marginLeft: '0 !important',
+            
         },
         '& :nth-child(1)':{
             borderRadius: '10px 0 0 10px'

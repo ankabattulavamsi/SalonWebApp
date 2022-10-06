@@ -33,7 +33,13 @@ class SalonCategory extends Component <categoryProps> {
           <Grid container spacing={4} className={classes.categoryImageBox}>
             {salonCategoryData.map((item: any) => {
               return (
-                <Grid item lg={4} md={4} sm={6} xs={12}>
+                <Grid item 
+                  lg={4} 
+                  md={4} 
+                  sm={6} 
+                  xs={12} 
+                  key={item.id}
+                >
                   <Card className={classes.categoryCard}>
                     <CardActionArea>
                       <CardMedia
