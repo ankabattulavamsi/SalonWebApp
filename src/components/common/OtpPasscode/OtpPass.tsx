@@ -11,6 +11,7 @@ interface OtpPassProps {
   value?: any;
   handleChange?: (e: any) => void;
   isInputSecure?: boolean;
+  error?: string;
 }
 interface OtpPassState {}
 export default class OtpPass extends Component<OtpPassProps, OtpPassState> {
@@ -24,6 +25,7 @@ export default class OtpPass extends Component<OtpPassProps, OtpPassState> {
       handleChange,
       value,
       isInputSecure,
+      error,
     } = this.props;
     return (
       <Box sx={{ mt: 2, mb: 2 }}>
@@ -61,6 +63,7 @@ export default class OtpPass extends Component<OtpPassProps, OtpPassState> {
             value={value}
           />
         </Box>
+        {error && <p>{error}</p>}
       </Box>
     );
   }

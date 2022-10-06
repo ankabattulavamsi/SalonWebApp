@@ -131,6 +131,7 @@ class RegisteredNowPage extends React.Component<
               placeholder="******"
               handleChange={confirmPassChangehandle}
               value={state.confirmPassword}
+              error={state.errorPass}
             />
             <Inputs
               value={state.city}
@@ -163,7 +164,8 @@ class RegisteredNowPage extends React.Component<
                   this.state.isChecked === false ||
                   this.state.errorEmail !== "" ||
                   state.password === "" ||
-                  state.confirmPassword === ""
+                  state.confirmPassword === "" ||
+                  state.errorPass !== ""
                 }
                 title="Register now"
                 handleClick={() => {
