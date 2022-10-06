@@ -43,6 +43,9 @@ export interface navSate {
   password: string;
   confirmPassword: string;
   mobileNumber: string;
+  errorPass: string;
+  city: string;
+  otpVerif: string;
 }
 class Navbar extends Component<{}, navSate> {
   state = {
@@ -51,7 +54,7 @@ class Navbar extends Component<{}, navSate> {
     registerDrawer: false,
     verificationDrawer: false,
     openDrawer: false,
-    openBusiness: true,
+    openBusiness: false,
     openPayout: false,
     IsCustomerLogin: true,
     IsSalonLogin: false,
@@ -62,6 +65,7 @@ class Navbar extends Component<{}, navSate> {
     owner: "",
     GSTIN: "",
     error: "",
+    errorPass: "",
     upiAddress: "",
     accHoldername: "",
     bankname: "",
@@ -72,6 +76,8 @@ class Navbar extends Component<{}, navSate> {
     password: "",
     confirmPassword: "",
     mobileNumber: "",
+    city: "",
+    otpVerif: "",
   };
 
   handleClick = (title: string) => {
@@ -98,6 +104,11 @@ class Navbar extends Component<{}, navSate> {
 
   confirmPassChangehandle = (password: any) => {
     this.setState({ confirmPassword: password });
+    if (password !== this.state.password) {
+      this.setState({ errorPass: "Password should be match" });
+    } else {
+      this.setState({ errorPass: "" });
+    }
   };
 
   handleToggleDrawer = (type?: string) => {
@@ -210,7 +221,11 @@ class Navbar extends Component<{}, navSate> {
     });
   };
 
+  otpChangeHandle = (otp: string) => {
+    this.setState({ otpVerif: otp });
+  };
   render() {
+    console.log({ navState: this.state });
     return (
       <Fragment>
         <Box className="navbar-body">
@@ -324,6 +339,7 @@ class Navbar extends Component<{}, navSate> {
             handleToggle={this.handleToggleDrawer}
             open={this.state.verificationDrawer}
             state={this.state}
+            handleChangeOtp={this.otpChangeHandle}
           />
 
           <BuisnessDetails

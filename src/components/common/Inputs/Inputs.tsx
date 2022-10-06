@@ -125,11 +125,12 @@ export default class Inputs extends Component<InputsProps, InputsState> {
                 color: "#a1a1a1",
                 fontSize: "17px",
               }}
+              value={value}
             >
               {options ? (
                 options.map((option: optionsBanksname) => {
                   return (
-                    <MenuItem key={option.id} value={option.id}>
+                    <MenuItem key={option.id} value={option.title}>
                       <Box
                         sx={{
                           width: "100%",

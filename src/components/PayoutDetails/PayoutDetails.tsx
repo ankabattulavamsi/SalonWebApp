@@ -80,7 +80,12 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
               </Typography>
             </Box>
             <Box
-              sx={{ width: "90%", display: "flex", justifyContent: "center" }}
+              sx={{
+                width: "90%",
+                mx: "auto",
+                display: "flex",
+                justifyContent: "center",
+              }}
               className={classes.handleBorder}
             >
               <Box
@@ -114,7 +119,10 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
             </Box>
             {!this.state.buttonActive ? (
               <>
-                <Box sx={{ mt: 3 }} className="scrollbar--hide">
+                <Box
+                  sx={{ mt: 2, width: "90%", mx: "auto" }}
+                  className="scrollbar--hide"
+                >
                   <Inputs
                     handleChange={this.props.handleChange}
                     label="Account Holder Name"
@@ -172,6 +180,7 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                     width: "90%",
                     ml: 0.5,
                     mb: 2,
+                    mx: "auto",
                   }}
                 >
                   <Buttons
@@ -194,7 +203,7 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
               </>
             ) : (
               <>
-                <Box sx={{ mt: 5 }}>
+                <Box sx={{ mt: 2, width: "90%", mx: "auto" }}>
                   <Inputs
                     type="text"
                     name="upiAddress"
@@ -218,6 +227,7 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                     width: "90%",
                     ml: 0.5,
                     mb: 2,
+                    mx: "auto",
                   }}
                 >
                   <Buttons

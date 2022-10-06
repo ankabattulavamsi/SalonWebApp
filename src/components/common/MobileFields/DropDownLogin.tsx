@@ -26,7 +26,7 @@ class DropDownLogin extends Component<DropDownLoginProps, DropDownLoginState> {
 
   render() {
     const { handleChange, name, value, error } = this.props;
-    console.log({ state: this.state });
+   
     return (
       <Box>
         <Box className="mobileNoChildBox1">

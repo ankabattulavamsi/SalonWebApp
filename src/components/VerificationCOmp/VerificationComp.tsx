@@ -14,6 +14,7 @@ interface VerificationCompProps {
   state?: navSate;
   classes: any;
   navigate: any;
+  handleChangeOtp?: (otp: string) => void;
 }
 interface VerificationCompState {}
 class VerificationComp extends Component<
@@ -21,7 +22,7 @@ class VerificationComp extends Component<
   VerificationCompState
 > {
   render() {
-    const { classes, state, navigate } = this.props;
+    const { classes, state, navigate, handleChangeOtp } = this.props;
     return (
       <Drawers
         open={this.props.open}
@@ -46,7 +47,13 @@ class VerificationComp extends Component<
                 +91 9876543210
               </span>
             </Typography>
-            <OtpPass numberInputs={4} placeholder="2809" />
+            <OtpPass
+              numberInputs={4}
+              placeholder="2809"
+              value={state?.otpVerif}
+              handleChange={handleChangeOtp}
+              isInputSecure
+            />
 
             <Typography className={classes.paragraphText}>
               Didn’t receive the OTP?

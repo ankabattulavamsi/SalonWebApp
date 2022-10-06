@@ -72,6 +72,8 @@ class BuisnessDetails extends Component<
               display: "flex",
               justifyContent: "flex-start",
               gap: 2,
+              width: "90%",
+              mx: "auto",
             }}
           >
             <Box width={"30%"}>

@@ -133,9 +133,10 @@ class RegisteredNowPage extends React.Component<
               value={state.confirmPassword}
             />
             <Inputs
+              value={state.city}
               isSelect
               label="State"
-              name="state"
+              name="city"
               options={optionsStateName}
               handleChange={handleChange}
             />
@@ -144,7 +145,7 @@ class RegisteredNowPage extends React.Component<
             <Box className={classes.agreementBox}>
               <Checkbox
                 color={this.state.isChecked ? "success" : "default"}
-                checked={this.state.isChecked}
+                value={this.state.isChecked}
                 onChange={() =>
                   this.setState({ isChecked: !this.state.isChecked })
                 }
