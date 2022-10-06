@@ -4,8 +4,9 @@ import theme from "./Theme/Theme";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./routes/HomePage/HomePage";
 import LandingPageNavigation from "./routes/LandingPageNavigation/LandingPageNavigation";
+import SalonPartner from "./routes/SalonPartner/SalonPartner";
+
 import "./App.css";
-import Customer from "./routes/CustomerPage/Customer";
 function App() {
   return (
     <div>
@@ -17,11 +18,12 @@ function App() {
           </Route>
           {/*Guest Flow*/}
           {/* Login */}
-          <Route path="/customer" element={<Customer />} />
           {/* temprorary */}
 
           {/* Login */}
-          {/* Login */}
+          {/* Salon Partners */}
+          <Route path="salon" element={<SalonPartner />} />
+          {/* Salon Partners */}
         </Routes>
       </ThemeProvider>
     </div>
