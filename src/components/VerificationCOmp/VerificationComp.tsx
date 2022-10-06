@@ -21,8 +21,15 @@ class VerificationComp extends Component<
   VerificationCompProps,
   VerificationCompState
 > {
+  handleSalonClick = () => {
+    this.props.handleToggle();
+  };
+  handleCustomerClick = () => {
+    this.props.navigate("/customer");
+    this.props.handleToggle(modalConstants.VERIFICATION_DRAWER);
+  };
   render() {
-    const { classes, state, navigate, handleChangeOtp } = this.props;
+    const { classes, state, handleChangeOtp } = this.props;
     return (
       <Drawers
         open={this.props.open}
@@ -70,22 +77,14 @@ class VerificationComp extends Component<
           </Box>
 
           <Box sx={{ mt: 5 }}>
-            {state?.IsCustomerLogin ? (
-              <Buttons
-                title="Verify & continue"
-                handleClick={() => {
-                  navigate("/customer");
-                  this.props.handleToggle(modalConstants.VERIFICATION_DRAWER);
-                }}
-              />
-            ) : (
-              <Buttons
-                title="Verify & continue"
-                handleClick={() => {
-                  this.props.handleToggle();
-                }}
-              />
-            )}
+            <Buttons
+              title="Verify & continue"
+              handleClick={() => {
+                state?.IsCustomerLogin
+                  ? this.handleCustomerClick()
+                  : this.handleSalonClick();
+              }}
+            />
           </Box>
         </Box>
       </Drawers>
