@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Praise&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Praise&display=swap");
 
 body {
   margin: 0;
@@ -8,4 +8,11 @@ body {
 }
 * {
   font-family: "Fira Sans", sans-serif;
+}
+
+.scrollbar--hide::-webkit-scrollbar {
+  display: none;
+}
+.css-1160xiw-MuiPaper-root-MuiDrawer-paper::-webkit-scrollbar {
+  display: none;
 }

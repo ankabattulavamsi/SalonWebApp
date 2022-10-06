@@ -1,26 +1,28 @@
 import React, { Component, Fragment } from "react";
-import { Outlet } from "react-router-dom";
-import Footer from "../../components/common/Footer/Footer";
-// import Navbar from "../../components/common/Navbar/Navbar";
-import SalonNavbar from "../../components/common/Navbar/SalonNavbar";
-import SalonCategory from "../../components/Categories/SalonCategory";
-import OurBlogs from "../../components/OurBlogs/OurBlogs";
 import { Grid } from "@mui/material";
 
-
+import Footer from "../../components/common/Footer/Footer";
+import SalonNavbar from "../../components/common/Navbar/SalonNavbar";
+import { SalonMenu } from "../../utils/data/navbar_menus";
+import SalonCategory from "../../components/Categories/SalonCategory";
 
 class SalonPartner extends Component{
 
   render() {
     return (
       <Fragment>
-        <SalonNavbar />
+        <SalonNavbar 
+          link="Home"
+          customer={false}
+          menus={SalonMenu}
+        />
         <Grid container>
+          {/* salon page sections */}
           <SalonCategory/>
         </Grid>
-        
-        {/* <Outlet /> */}
-        {/* <Footer /> */}
+        <Footer 
+          salon={true}
+        />
       </Fragment>
     );
   }

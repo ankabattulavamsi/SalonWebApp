@@ -25,7 +25,7 @@ const responsive = {
 export default class TeamSection extends Component {
   render() {
     return (
-      <Box sx={{ mt: { xs: 5, md: 15 }, mb: 7, pb: 7 }}>
+      <Box sx={{ pt: { xs: 10, sm: 10, md: 9 }, pb: 0 }}>
         <Box>
           <Typography
             variant="h3"

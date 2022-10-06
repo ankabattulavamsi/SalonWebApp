@@ -1,0 +1,17 @@
+.bg-color-black {
+  background-color: #272522 !important;
+  color: #ffffff !important;
+}
+.bg-color-black::after {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 0px;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 20px solid #272522;
+  /* border-top: 20px solid #ffffff; */
+  position: absolute !important;
+  bottom: -34%;
+  left: 50%;
+}
