@@ -5,8 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "./routes/HomePage/HomePage";
 import LandingPageNavigation from "./routes/LandingPageNavigation/LandingPageNavigation";
 import "./App.css";
-import Salon from "./temp/Salon";
-import Customer from "./temp/Customer";
+import Customer from "./routes/CustomerPage/Customer";
 function App() {
   return (
     <div>
