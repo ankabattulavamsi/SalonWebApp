@@ -42,9 +42,9 @@ import CommonEditDeleteButtons from "../common/CommonSalonPatnerButtons/CommonEd
                     variant="h4"
                     className="salon-best-offers-heading"
                     sx={{
-                      fontSize: { xs: "20px", sm: "35px", lg: "40px" },
+                      fontSize: { xs: "20px", sm: "32px", lg: "36px" },
                       fontWeight: "700",
-                      lineHeight: "28px",
+                      lineHeight: "18px",
                       letterSpacing: "-0.01rem",
                       textTransform: "capitalize",
                       color: "#272522",
@@ -56,7 +56,9 @@ import CommonEditDeleteButtons from "../common/CommonSalonPatnerButtons/CommonEd
                 </Box>
               </Grid>
               <Grid item lg={5} md={5} xs={12} sm={5}>
+                <Box sx={{mt:-2}}>
                 <CommonViewAllButton />
+                </Box>
               </Grid>
             </Grid>
             <Grid
