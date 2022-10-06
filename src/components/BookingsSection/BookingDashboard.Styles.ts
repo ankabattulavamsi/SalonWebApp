@@ -131,10 +131,8 @@ export const Styles: any = (theme: any) => ({
   },
   customerContainer: {
     maxWidth: "555px",
-    p: "20px",
+    p: "50px",
     height: "auto",
-    mx: "auto !important",
-    boxShadow: "0px 0px",
   },
   bookingTimeHeading: {
     fontFamily: "Fira Sans !important",
@@ -148,4 +146,49 @@ export const Styles: any = (theme: any) => ({
       fontSize: "17px !important",
     },
   },
+
+  //Bookings calender styles
+  calenderDateText: {
+    fontFamily: "Fira Sans !important",
+    fontStyle: "normal !important",
+    fontWeight: "600 !important",
+    fontSize: "25px !important",
+    lineHeight: "48px !important",
+    textAlign: "center !important",
+    textTransform: "capitalize !important",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "24px !important",
+    },
+  },
+  calenderDayText: {
+    fontFamily: "Roboto !important",
+    fontStyle: "normal ",
+    fontWeight: "600 !important",
+    fontSize: "16px !important",
+    lineHeight: "28px",
+    textAlign: "center !important",
+    textTransform: "capitalize",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "14px !important",
+    },
+  },
+  nextDateIcon: {
+    color: "#999999 !important",
+    width: "100px",
+    height: "100px !important",
+    [theme.breakpoints.down("md")]: {
+      width: "32px !important ",
+      height: "76px !important",
+    },
+  },
+  previousDateIcon: {
+    color: "#999999 !important",
+    width: "85px",
+    height: "100px !important",
+    [theme.breakpoints.down("md")]: {
+      width: "32px !important ",
+      height: "76px !important ",
+    },
+  },
+  mx: "auto !important",
 });

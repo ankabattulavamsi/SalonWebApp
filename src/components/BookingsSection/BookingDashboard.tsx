@@ -13,6 +13,8 @@ import {
 import { withStyles } from "@mui/styles";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Container } from "@mui/system";
+import { ScrollMenu } from "react-horizontal-scrolling-menu";
+
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
@@ -20,6 +22,8 @@ import { Styles } from "./BookingDashboard.Styles";
 import KeyboardDoubleArrowRightOutlinedIcon from "@mui/icons-material/KeyboardDoubleArrowRightOutlined";
 import { bookingSectionData } from "../../utils/data/bookings/BookingsDashboardData";
 import { datesArray } from "../../utils/data/bookings/CalenderData";
+
+import "./BookingDashboard.css";
 
 interface DateProps {
   day: string;
@@ -45,99 +49,73 @@ class BookingsDashboard extends Component {
       <Box
         sx={{
           backgroundColor: "#FDF6EE",
+          paddingTop: 15,
         }}
       >
         <Container maxWidth="lg" sx={{ mx: "auto" }}>
-          <>
-            <Box sx={{ display: "flex", py: 8 }}>
-              <Button onClick={this.onPreviousDate}>
-                <ArrowBackIosNewIcon
-                  sx={{
-                    color: "#999999",
-                    width: "38px",
-                    height: "31px",
-                    mr: 2,
-                  }}
-                />
-              </Button>
+          <Box>
+            <ScrollMenu
+              LeftArrow={
+                <Button>
+                  <ArrowBackIosNewIcon
+                    className={classes.previousDateIcon}
+                    onClick={this.onPreviousDate}
+                  />
+                </Button>
+              }
+              RightArrow={
+                <Button>
+                  <ArrowForwardIosIcon
+                    onClick={this.onNextDate}
+                    className={classes.nextDateIcon}
+                  />
+                </Button>
+              }
+            >
               {datesArray
                 .slice(currentDate - 3, currentDate + 4)
-                .map((date: DateProps) => {
+                .map((date: any, index: number) => {
                   return (
                     <Box
                       sx={{
-                        textAlign: "center",
-                        m: 0,
-                        p: 0,
+                        px: { md: "50", xs: "5px" },
+                        // py: { md: "15px", xs: "5px" },
+                        backgroundColor:
+                          Number(date.date) === currentDate
+                            ? "#E7A356"
+                            : "#FFF",
                       }}
-                      key={date.date}
                     >
-                      <Button
+                      <Typography
+                        variant="h4"
+                        className={classes.calenderDateText}
                         sx={{
-                          display: "flex",
-                          flexDirection: "column",
-                          margin: 0,
-                          px: "40px",
-                          py: "20px",
-                          backgroundColor:
+                          color:
                             Number(date.date) === currentDate
-                              ? "#E7A356"
-                              : "#FFF",
+                              ? "#FFFFFF"
+                              : "#272522",
                         }}
                       >
-                        <Typography
-                          variant="h4"
-                          sx={{
-                            fontFamily: "Fira Sans",
-                            fontStyle: "normal",
-                            fontWeight: 600,
-                            fontSize: "25px",
-                            lineHeight: "48px",
-                            textAlign: "center",
-                            textTransform: "capitalize",
-                            color:
-                              Number(date.date) === currentDate
-                                ? "#FFFFFF"
-                                : "#272522",
-                          }}
-                        >
-                          {date.date}
-                        </Typography>
+                        {date.date}
+                      </Typography>
 
-                        <Typography
-                          variant="h6"
-                          sx={{
-                            fontFamily: "Roboto",
-                            fontStyle: "normal",
-                            fontWeight: 600,
-                            fontSize: "16px",
-                            lineHeight: "28px",
-                            textAlign: "center",
-                            textTransform: "capitalize",
-                            color:
-                              Number(date.date) === currentDate
-                                ? "#FFFFFF"
-                                : "#272522",
-                          }}
-                        >
-                          {date.day}
-                        </Typography>
-                      </Button>
+                      <Typography
+                        variant="h6"
+                        className={classes.calenderDayText}
+                        sx={{
+                          color:
+                            Number(date.date) === currentDate
+                              ? "#FFFFFF"
+                              : "#272522",
+                        }}
+                      >
+                        {date.day}
+                      </Typography>
                     </Box>
                   );
                 })}
-              <Button sx={{ textAlign: "center" }} onClick={this.onNextDate}>
-                <ArrowForwardIosIcon
-                  sx={{
-                    color: "#999999",
-                    width: "38px",
-                    height: "31px",
-                    ml: 2,
-                  }}
-                />
-              </Button>
-            </Box>
-          </>
+            </ScrollMenu>
+          </Box>
           <Grid
             container
             spacing={2}
@@ -148,15 +126,17 @@ class BookingsDashboard extends Component {
             {bookingSectionData.slice(0, 4).map((item: any) => {
               return (
                 <Grid item key={item.id} md={6} xs={12}>
-                  <Card className={classes.customerContainer}>
+                  <Card
+                    className={classes.customerContainer}
+                    sx={{ mx: "auto !important" }}
+                  >
                     <CardHeader
                       classes={{
                         title: classes.customerName,
                         subheader: classes.bookingsSubHeading,
                       }}
                       sx={{
-                        padding: 0,
-                        paddingLeft: "16px",
+                        px: "16px",
                         paddingTop: "10px",
                       }}
                       avatar={
