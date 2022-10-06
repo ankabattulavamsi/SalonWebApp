@@ -122,7 +122,6 @@ export default class Inputs extends Component<InputsProps, InputsState> {
               sx={{
                 width: "100%",
                 bgcolor: "#f0f0f0",
-
                 fontSize: "17px",
                 ":placeholder": {
                   color: "#a1a1a1",
