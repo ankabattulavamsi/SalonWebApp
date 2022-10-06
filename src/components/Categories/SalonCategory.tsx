@@ -1,3 +1,4 @@
+import React, { Component } from "react";
 import {
   Box,
   Typography,
@@ -10,12 +11,16 @@ import {
   CardActions,
   CardContent,
 } from "@mui/material";
+
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+
 import { withStyles } from "@mui/styles";
-import { salonCategoryData } from "../../utils/data/SalonCategory/SalonCategory_data";
 import { styles } from "./SalonCategory.style";
-import React, { Component } from "react";
+
+import { salonCategoryData } from "../../utils/data/SalonCategory/SalonCategory_data";
+
+
 
 interface categoryProps{
     classes: any
