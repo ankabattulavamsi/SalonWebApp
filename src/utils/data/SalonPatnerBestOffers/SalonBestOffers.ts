@@ -1,5 +1,5 @@
-import offerImg1 from '../images/BestOffersImages/Rectangle64(1).png'
-import offerImg2 from '../images/BestOffersImages/Rectangle64.png'
+import offerImg1 from '../../../assets/images/SalonPatnerBestOffersImg/Rectangle64(1).png'
+import offerImg2 from '../../../assets/images/SalonPatnerBestOffersImg/Rectangle64.png'
 import ModeEditIcon from '@mui/icons-material/ModeEdit'; 
 import DeleteIcon from '@mui/icons-material/Delete';
 

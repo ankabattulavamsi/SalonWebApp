@@ -11,9 +11,12 @@ import {
   import { withStyles } from "@mui/styles";
   import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import { SalonBestOffersData } from "../../utils/data/SalonPatnerBestOffers/SalonBestOffers";
+import CommonViewAllButton from "../common/CommonSalonPatnerButtons/CommonViewAllButton";
 import { StylesOffers } from "./BestOffers.styles";
   
 import "./SalonBestOffers.css";
+import CommonEditDeleteButtons from "../common/CommonSalonPatnerButtons/CommonEditDeleteButtons";
+
 
   interface IsStateProps {
     classes: any;
@@ -53,7 +56,7 @@ import "./SalonBestOffers.css";
                 </Box>
               </Grid>
               <Grid item lg={5} md={5} xs={12} sm={5}>
-                {/* <CommonViewButton /> */}
+                <CommonViewAllButton />
               </Grid>
             </Grid>
             <Grid
@@ -126,7 +129,7 @@ import "./SalonBestOffers.css";
                           </Typography>
                         </CardContent>
                         <Box sx={{}}>
-                          {/* <CommonEditNdDeleteButtons /> */}
+                          <CommonEditDeleteButtons />
                         </Box>
                       </Card>
                     </Box>
