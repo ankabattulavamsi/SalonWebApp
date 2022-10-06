@@ -23,7 +23,7 @@ export const salonCategoryData = [
   {
     id: 3,
     img: categoryImg3,
-    title: "Hair color",
+    title: "Hair Color",
     editButton: "Edit",
     deleteButton: "delete"
   },
@@ -37,14 +37,14 @@ export const salonCategoryData = [
   {
     id: 5,
     img: categoryImg5,
-    title: "facial",
+    title: "Facial",
     editButton: "Edit",
     deleteButton: "delete"
   },
   {
     id: 6,
     img: categoryImg6,
-    title: "spa",
+    title: "Spa",
     editButton: "Edit",
     deleteButton: "delete"
   }

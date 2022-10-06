@@ -1,7 +1,11 @@
 export const styles:any = {
     categoryBox:{
-        margin: "100px 0", 
-        paddingTop: "39px"
+        margin: "100px 0",
+        paddingTop: "39px",
+        '@media screen and (max-width: 600px)': {
+            margin: "10px 0",
+            paddingBottom: "50px",
+        },
     },
     categoryTitleBox:{
         display: 'flex',
@@ -17,6 +21,9 @@ export const styles:any = {
             lineHeight: '48px',
             color: "#272522",
             position: 'relative',
+            '@media screen and (max-width: 600px)': {
+                fontSize: '32px',
+            },
             '&::after':{
                 content: " '' ",
                 width: '29px',
@@ -79,10 +86,13 @@ export const styles:any = {
             width: '160px',
             borderRadius: '0',
             marginLeft: '0 !important',
-            
+            '@media screen and (max-width: 600px)': {
+                fontSize: '18px',
+            },
         },
         '& :nth-child(1)':{
-            borderRadius: '10px 0 0 10px'
+            borderRadius: '10px 0 0 10px',
+            borderRight: "1px solid #88878F"
         },
         '& :nth-child(2)':{
             borderRadius: '0 10px 10px 0'
@@ -90,15 +100,22 @@ export const styles:any = {
         '& :nth-child(1):hover':{
             background: '#E7A356',
             color: '#FFFFFF',
-            borderRadius: '10px 0 0 10px'
+            borderRadius: '10px 0 0 10px',  
+            '& svg:hover':{
+                background: 'none',
+            }
         },
         '& :nth-child(2):hover':{
             background: '#272522',
             color: '#FFFFFF',
-            borderRadius: '0 10px 10px 0'
+            borderRadius: '0 10px 10px 0',
+            '& svg:hover':{
+                background: 'none',
+            }
         },
         '& svg':{
-            marginRight: '8px'
+            marginRight: '8px',
+            borderRight: "none !important"
         }
     },
     categoryCard:{

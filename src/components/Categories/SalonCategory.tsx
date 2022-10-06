@@ -19,9 +19,6 @@ import { withStyles } from "@mui/styles";
 import { styles } from "./SalonCategory.style";
 
 import { salonCategoryData } from "../../utils/data/SalonCategory/SalonCategory_data";
-
-
-
 interface categoryProps{
     classes: any
 }
@@ -57,7 +54,7 @@ class SalonCategory extends Component <categoryProps> {
                       </CardContent>
                       <CardActions className={classes.categoryButton}>
                         <Button><EditIcon/>{item.editButton}</Button>
-                        <Button><DeleteIcon/>{item.deleteButton}</Button>
+                        <Button ><DeleteIcon/>{item.deleteButton}</Button>
                       </CardActions>
                     </CardActionArea>
                   </Card>
