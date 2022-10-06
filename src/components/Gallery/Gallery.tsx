@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { withStyles } from "@mui/styles";
 import { Styles } from "./GalleryStyles";
 
@@ -23,12 +23,12 @@ export class Gallery extends Component {
         >
           {GallaryImgs.map((item: any, i: any) => {
             return (
-              <>
+              <Fragment key={i}>
                 <Grid item lg={3} md={3} sm={12} xs={12}>
                   <img src={item.img} width="100%" alt="gallery imgx" />
                 </Grid>
                 <Grid item lg={0.5} md={0.5} sm={12} xs={12}></Grid>
-              </>
+              </Fragment>
             );
           })}
         </Grid>

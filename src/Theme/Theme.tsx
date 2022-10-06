@@ -17,7 +17,7 @@ const defaultTheme = createTheme({
 
     },
     h3: {
-      fontFamily: "Roboto",
+      fontFamily: "Fira Sans",
       fontSize: "18px",
       fontWeight: 500,
       textTransform:"capitalize"

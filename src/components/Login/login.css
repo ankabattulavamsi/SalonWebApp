@@ -1,0 +1,132 @@
+  .drawerSize {
+    width: 460px;
+    padding: 30px !important
+  }
+
+
+  .mobileNoChildBox1 {
+    display: flex;
+    background: #F0F0F0 !important;
+    justify-content: space-around;
+    border-radius: 5px;
+  }
+  
+  .mobileNoChildBox2 {
+    padding: 3%;
+    padding-left: 5%;
+    flex: 3;
+    height: 39px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  
+  .mobileNoChildBox2Typography {
+    color: #a4a1a1;
+    font-size: 13px;
+    padding-left: 5px;
+  }
+  
+  .mobileNoChildBox2Box {
+    width: 24px;
+    height: 24px;
+    bottom: -99.98%;
+  }
+  .mobileNoChildBox2BoxIcon {
+    color: black;
+    font-size: 13px;
+    padding-left: 4px;
+  }
+  
+  .divider {
+    height: 20px;
+  }
+  
+  .mobileNoChildBox3 {
+    flex: 5;
+    display: flex;
+    align-items: center;
+  }
+  .textField {
+    font-family: Fira Sans;
+    color: white;
+    border-radius: 5px !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+  
+    padding-top: 0px;
+    padding-left: 13%;
+    padding-right: 13%;
+    padding-bottom: 10%;
+  }
+  .childBox4 {
+    flex: 1;
+  
+    padding-top: 5%;
+    align-items: center;
+    justify-content: center;
+    color: #a4a1a1;
+    vertical-align: middle;
+  }
+  .phoneIcon {
+    height: 16px;
+    margin-top: -7px;
+  }
+  
+  .india {
+    margin-top: 0.5px;
+  }
+  .bgColor .MuiSelect-select  {
+    background: none !important;
+  }
+  .passcodeParentDiv {
+    display: flex;
+  }
+  .passcodeParentDiv input {
+    outline: none !important;
+    font-size: 23px !important;
+    background: #F0F0F0 !important;
+    height: 50px !important;
+  }
+  .traingle-sec{
+    position: absolute;
+    left: 100px;
+    top: 54px;
+  }
+  .traingle-sec1{
+    position: absolute;
+    right: 100px;
+    top: 54px;
+  }
+  .traingle {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid black;
+    border-bottom: 10px solid transparent;
+    width:0;
+    height:0
+  }
+
+
+.buttons{
+  width: 200px;
+  padding: 15px !important;
+  background: #F9F3EC !important;
+  color: #333 !important ; 
+  border: none !important
+}
+.customer {
+  background-color: #000 !important;
+  color: white !important ; 
+}
+@media only screen and (min-width: 200px) and (max-width: 600px)  {
+  .drawerSize {
+    width: 100%;
+    padding: 20px;
+  }
+  .buttons{
+    width: 100%;
+   
+  }
+  }
