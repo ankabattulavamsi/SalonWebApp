@@ -1,3 +1,5 @@
+import theme from "../../Theme/Theme";
+
 export const BlogStyles :any = {
     blogHeading:{
         fontFamily: 'Fira Sans !important',
@@ -68,5 +70,51 @@ export const BlogStyles :any = {
         textAlign: 'center',
         letterSpacing: '0.02em',
         textTransform: 'capitalize',
+    },
+    // salon page style
+    salonBlogTitleBox:{
+        margin:'0 13% 0 13%',
+        display:'flex', 
+        alignItems:'center', 
+        justifyContent:'space-between',
+        
+    },
+    salonBlogTitleLine:{
+        width: "30px", 
+        borderBottom: "5px solid #EBB273",
+    },
+    salonBlogCard:{
+        marginTop: '5% !important',
+        paddingBottom: '50px !important',
+        '&:hover':{
+            boxShadow:'-5px 10px 70px 10px #efefef',
+            borderRadius: '10px !important',
+            background:'#fff'
+        }
+    },
+    salonBlogCardTitle:{
+        fontFamily: 'Fira Sans !important',
+        fontStyle: 'normal',
+        fontWeight: '600 !important',
+        fontSize: '1.3rem !important',
+        padding: '0px 5px 0px 5px',
+        lineHeight: '48px',
+        textAlign: 'center',
+        letterSpacing: '0.02em',
+        textTransform: 'capitalize',
+        color: '#272522',
+        marginTop: '14% !important',
+    },
+    salonBlogCardText:{
+        fontFamily: 'Roboto !important',
+        fontStyle: 'normal',
+        padding: '0px 15px 0px 15px',
+        fontSize: '18px !important',
+        lineHeight: '30px',
+        textAlign: 'center',
+        textTransform: 'lowercase',
+        color: '#272522',
+        opacity:0.5,
+        marginTop: '4% !important',
     },
 }
