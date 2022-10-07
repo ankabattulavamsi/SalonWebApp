@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+import BookingDashboard from "../../components/BookingsSection/BookingDashboard";
 
 class SalonHomePage extends Component {
   render() {
-    return <div>home</div>;
+    return (
+      <div>
+        <BookingDashboard />
+      </div>
+    );
   }
 }
 

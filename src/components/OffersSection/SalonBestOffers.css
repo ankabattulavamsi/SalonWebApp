@@ -1,0 +1,102 @@
+.parent-container:hover .edit-button1 {
+    background-color: #E7A356;
+}
+
+.edit-button1 {
+    display: flex;
+    cursor: pointer;
+    padding: 7px;
+    padding-right: 32px;
+    padding-left: 32px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.edit-icon {
+    color: #88878F;
+    margin-top: 10px !important;
+    margin-right: -5px;
+    margin-left: 5px;
+}
+
+.best-offers-edit-text {
+    color: #88878F !important;
+    font-family: 'Fira Sans';
+    font-weight: 800 !important;
+    font-size: 20px !important;
+}
+
+.parent-container:hover .best-offers-edit-text{
+    color: #fff !important;
+}
+.parent-container:hover .edit-icon {
+    color: #fff;
+}
+
+.delete-icon {
+    color: #88878F;
+    margin-top: 16px !important;
+}
+
+.best-offers-delete-text{
+    color: #88878F !important;
+    font-family: 'Fira Sans';
+    font-weight: 800 !important;
+    font-size: 20px !important;
+}
+
+.parent-container:hover .best-offers-delete-text {
+    color: #fff !important;
+}
+
+.parent-container:hover .delete-icon {
+    color: #fff;
+    background-color: #272522;
+}
+
+.delete-button2 {
+    display: flex;
+    cursor: pointer;
+    padding: 1px !important;
+    padding-left: 32px !important;
+    padding-right: 28px !important;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.parent-container:hover .delete-button2 {
+    background-color: #272522;
+}
+
+.best-offers-discount-price{
+    color: #272522;
+    display: flex;
+}
+
+.parent-container:hover .best-offers-discount-price{
+    color: #E7A356;
+}
+
+.best-offers-original-price {
+    text-decoration: line-through;
+    color: #88878F;
+    display: flex;
+}
+
+.parent-container:hover .best-offers-original-price {
+    color: #272522;
+}
+
+.parent-container:hover .buttons-border-line {
+    border: none;
+}
+
+.salon-best-offers-heading::after{
+    content: "";
+    width: 52px;
+    height: 4px;
+    display: block;
+    background-color: #ebb273;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}

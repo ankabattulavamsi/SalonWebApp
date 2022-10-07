@@ -12,9 +12,6 @@ interface ButtonProps {
 }
 interface ButtonState {}
 export default class ButtonCust extends Component<ButtonProps, ButtonState> {
-  // constructor(props: ButtonProps) {
-  //   super(props);
-  // }
   render() {
     const { bgColor, color, avatar, subTitle, title } = this.props;
     return (
