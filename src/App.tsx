@@ -7,7 +7,6 @@ import LandingPageNavigation from "./routes/LandingPageNavigation/LandingPageNav
 import SalonPartner from "./routes/SalonPartner/SalonPartner";
 
 import "./App.css";
-
 function App() {
   return (
     <div>
@@ -18,6 +17,8 @@ function App() {
             <Route index element={<HomePage />} />
           </Route>
           {/*Guest Flow*/}
+          {/* Login */}
+          {/* temprorary */}
 
           {/* Login */}
           {/* Salon Partners */}

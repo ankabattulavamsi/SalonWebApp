@@ -1,0 +1,95 @@
+.input--formcontrol {
+  width: 100%;
+  height: auto;
+  margin: 10px auto !important;
+  position: relative;
+}
+
+.input--label {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 30px;
+  letter-spacing: 0.01em;
+  text-transform: capitalize;
+  color: #272522;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+.input--input {
+  background-color: #f0f0f0;
+  width: 100%;
+  border: none;
+  display: flex;
+}
+.input--input--1 {
+  padding-top: 15px;
+  width: 100%;
+
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 20%;
+  background-color: #f0f0f0;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 30px;
+  letter-spacing: 0.01em;
+  color: #272522;
+  border-radius: 5px;
+  border: none;
+  display: flex;
+  text-align: justify;
+}
+
+.input--input--1::placeholder {
+  color: #a4a1a1;
+}
+.input--input--1:focus {
+  border: none;
+  outline: none;
+}
+
+.input--icons {
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  width: 26px;
+  height: 26px;
+  background-color: #f0f0f0;
+  object-fit: contain;
+}
+/* 
+@media only screen and (max-width: 600px) {
+  .input--formcontrol {
+    width: 92%;
+  }
+  .input--input--1 {
+    font-size: 15px;
+  }
+  .input--label {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .input--formcontrol {
+    width: 91%;
+  }
+  .input--input--1 {
+    font-size: 15px;
+  }
+  .input--label {
+    font-size: 15px;
+  }
+} */
+
+.error-message {
+  color: #b00020 !important;
+  margin-top: 5px;
+  font-size: 14px;
+  text-align: left;
+  text-transform: capitalize;
+  font-family: "Roboto";
+}
