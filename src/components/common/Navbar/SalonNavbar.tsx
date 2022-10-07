@@ -15,14 +15,14 @@ import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 
 import Logo from "../../../assets/images/Navbarimage/logo.jpg";
 import Profile from "../../../assets/images/Navbarimage/profile-img.png";
-import { salonMenus } from "../../../utils/models/navbar_interface";
+import { SalonMenus } from "../../../utils/models/navbar_interface";
 
 import "./SalonNav.css";
 
 interface salonProps {
   customer: boolean;
   link: string;
-  menus: salonMenus[];
+  menus: SalonMenus[];
 }
 interface salonState {
   salonLink: string;

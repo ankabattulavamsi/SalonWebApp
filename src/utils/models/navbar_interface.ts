@@ -5,7 +5,7 @@ export interface landingMenus{
     title: string;
 }
 
-export interface salonMenus{
+export interface SalonMenus{
     id: number;
     path: string;
     title: string
