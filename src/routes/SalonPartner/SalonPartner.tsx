@@ -18,7 +18,7 @@ class SalonPartner extends Component{
           menus={salonMenu}
         />
         <Outlet />
-        <Box sx={{mt: 10}}>
+        <Box>
         <SalonPatnerBestOffers />
         </Box>
         {/* <Footer /> */}
