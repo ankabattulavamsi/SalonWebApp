@@ -5,7 +5,7 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
-import { Component } from "react";
+import React, { Component } from "react";
 import { optionsBanksname } from "../../../utils/data/businessdetailsandPayout/Busness.data";
 import "./Inputs.css";
 interface InputsProps {
@@ -169,13 +169,7 @@ export default class Inputs extends Component<InputsProps, InputsState> {
         )}
 
         {(error || this.state.error) && (
-          <FormHelperText
-            component={"p"}
-            color="error"
-            sx={{
-              color: "#B00020",
-            }}
-          >
+          <FormHelperText component={"p"} className={"error-message"}>
             {(error && error) || (this.state.error && this.state.error)}
           </FormHelperText>
         )}

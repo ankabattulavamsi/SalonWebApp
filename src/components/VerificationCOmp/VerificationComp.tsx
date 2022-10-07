@@ -78,6 +78,7 @@ class VerificationComp extends Component<
 
           <Box sx={{ mt: 5 }}>
             <Buttons
+              disabled={state.otpVerif === ""}
               title="Verify & continue"
               handleClick={() => {
                 state.IsCustomerLogin

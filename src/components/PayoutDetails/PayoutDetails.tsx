@@ -57,7 +57,7 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
 
   handleConfirmAccNumber = (e: any) => {
     if (this.props.state.accNumber !== e.target.value) {
-      this.setState({ errorB: "accound number is same" });
+      this.setState({ errorB: "accound number is must be  same" });
     } else {
       this.setState({
         errorB: "",

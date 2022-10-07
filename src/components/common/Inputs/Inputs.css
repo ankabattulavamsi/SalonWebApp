@@ -84,3 +84,12 @@
     font-size: 15px;
   }
 } */
+
+.error-message {
+  color: #b00020 !important;
+  margin-top: 5px;
+  font-size: 14px;
+  text-align: left;
+  text-transform: capitalize;
+  font-family: "Roboto";
+}
