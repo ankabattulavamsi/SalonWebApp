@@ -11,10 +11,10 @@ class SalonPartner extends Component {
     return (
       <Fragment>
         <SalonNavbar link="Home" customer={false} menus={SalonMenu} />
-        <Grid container>
-          {/* salon page sections */}
-          <BookingDashboard />
-        </Grid>
+
+        {/* salon page sections */}
+        <BookingDashboard />
+
         <Footer salon={true} />
       </Fragment>
     );

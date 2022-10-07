@@ -96,6 +96,9 @@ export const Styles: any = (theme: any) => ({
       width: "112px",
       height: "49px",
     },
+    [theme.breakpoints.up("lg")]: {
+      paddingTop: "8px",
+    },
   },
   bookingsServicesName: {
     fontFamily: "Fira Sans !important",
@@ -169,7 +172,14 @@ export const Styles: any = (theme: any) => ({
     textAlign: "center !important",
     textTransform: "capitalize",
     [theme.breakpoints.down("sm")]: {
-      fontSize: "14px !important",
+      fontSize: "14px ",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "70px",
+    },
+    [theme.breakpoints.only("xs")]: {
+      width: "63px",
+      fontSize: "60%",
     },
   },
   nextDateIcon: {

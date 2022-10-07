@@ -62,12 +62,16 @@ class BookingsDashboard extends Component {
               }
             >
               {datesArray
-                .slice(currentDate - 3, currentDate + 4)
+                .slice(currentDate - 4, currentDate + 3)
                 .map((date: any, index: number) => {
                   return (
                     <Box
-                      sx={{
-                        width: { xs: "70px", md: "145px" },
+                      sx={{ 
+                        width: {
+                          sx: "70px !important",
+                          sm: "100%",
+                          md: "145px",
+                        },
                         px: { md: 5.3, sm: 2, xs: "5px" },
                         py: { md: "15px", sm: 2.3, xs: "5px" },
                         backgroundColor:
@@ -115,7 +119,7 @@ class BookingsDashboard extends Component {
           >
             {bookingSectionData.slice(0, 4).map((item: any) => {
               return (
-                <Grid item key={item.id} md={6} xs={12}>
+                <Grid item key={item.id} md={6} sm={6} xs={12}>
                   <Card
                     className={classes.customerContainer}
                     sx={{ mx: "auto !important" }}
