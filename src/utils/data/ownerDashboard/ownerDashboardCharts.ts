@@ -29,15 +29,12 @@ export const data: ChartData = {
       bar: {
         horizontal: false,
         columnWidth: "30%",
-        endingShap:"flat",
-        borderRadius: 10,
-        // border: "4px solid #E7A356",
+        endingShap: "flat",
+        borderRadius: 5,
       },
     },
 
-    colors: [
-     
-    ],
+    colors: ["#E7A356"],
 
     dataLabels: {
       enabled: false,
@@ -110,7 +107,7 @@ export const data: ChartData = {
         // console.log(seriesIndex,"seriesIndex");
         console.log(dataPointIndex, "dataPointIndex");
         return (
-          "<div style='background:#272522;width:99px;height:62px;border-radius:15px 15px 0px 15px;color:white;display:flex;flex-direction: column;justify-content:space-evenly;align-items:center;'>" +
+          "<div style='background:#272522;width:99px;height:62px;border-radius:15px 15px 15px 0px;color:white;display:flex;flex-direction: column;justify-content:space-evenly;align-items:center;'>" +
           "<span style='font-family: Fira Sans;font-style: normal;font-weight: 500;font-size: 18px;text-transform: capitalize;letter-spacing: 1px; '>" +
           "₹" +
           value +

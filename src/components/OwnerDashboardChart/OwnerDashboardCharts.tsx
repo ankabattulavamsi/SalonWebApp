@@ -29,10 +29,10 @@ class OwnerDashboardChart extends Component<chartProps> {
 
     return (
       <>
-        <Grid container sx={{mt:10}}>
+        <Grid container >
           <Grid item xs={1} sm={1} md={1} lg={1}></Grid>
           <Grid item xs={10} sm={10} md={10} lg={10}>
-            <Box className={classes.mainDashboardDiv}>
+            <Box sx={{mt:10}} className={classes.mainDashboardDiv}>
               <Box className={classes.overallProfitDiv}>
                 <Typography
                   variant="h5"
@@ -57,7 +57,7 @@ class OwnerDashboardChart extends Component<chartProps> {
                 options={data.options}
                 series={data.series}
                 type="bar"
-                height={350}
+                height={330}
                
               />
               <Box className={classes.dashboardChartCardDiv}>

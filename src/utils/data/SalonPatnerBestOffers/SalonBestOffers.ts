@@ -10,7 +10,10 @@ export const SalonBestOffersData = [
         headingOff: 'Hair Color 20% Off',
         price: '240',
         dissPrice: '150', 
-        description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking'
+        description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
+        modeIcon : ModeEditIcon, 
+        typeEdit: 'Edit',
+        typeDelete: 'Delete'
     }, 
     {
         id: 2,
@@ -18,18 +21,10 @@ export const SalonBestOffersData = [
         headingOff: 'Hair Color 20% Off',
         price: '240',
         dissPrice: '150', 
-        description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking'
+        description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
+        modeIcon : DeleteIcon, 
+        typeEdit: 'Edit',
+        typeDelete: 'Delete'
     }, 
     
 ] 
-
-export const commonButtonsData = [
-    {
-        modeIcon : ModeEditIcon, 
-        type: 'Edit'
-    }, 
-    {
-        modeIcon : DeleteIcon, 
-        type: 'Delete'
-    }
-]

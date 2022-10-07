@@ -1,13 +1,13 @@
-import { Box } from "@mui/system";
 import React, { Component, Fragment } from "react";
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 
-import Footer from "../../components/common/Footer/Footer";
 import SalonNavbar from "../../components/common/Navbar/SalonNavbar";
 import { salonMenu } from "../../utils/data/navbar_menus";
+import SalonBlog from "../../components/OurBlogs/SalonBlog";
 import OwnerDashboardCharts from "../../components/OwnerDashboardChart/OwnerDashboardCharts";
 import SalonPatnerBestOffers from "../../components/OffersSection/SalonPatnerBestOffers";
-import { Outlet } from "react-router-dom";
+import Footer from "../../components/common/Footer/Footer";
+import Specialists from "../../components/OurSpecialists/Specialists";
 
 class SalonPartner extends Component {
   render() {
@@ -17,13 +17,12 @@ class SalonPartner extends Component {
         <Grid container>
           {/* salon page sections */}
           <OwnerDashboardCharts />
+          <Box sx={{ mt: 10 }}>
+            <SalonPatnerBestOffers />
+          </Box>
+          <Specialists />
+          <SalonBlog />
         </Grid>
-
-        <Outlet />
-        <Box sx={{ mt: 10 }}>
-          <SalonPatnerBestOffers />
-        </Box>
-        {/* <Footer /> */}
         <Footer salon={true} />
       </Fragment>
     );
