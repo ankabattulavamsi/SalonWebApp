@@ -85,9 +85,9 @@ export const BlogStyles :any = {
     },
     salonBlogCard:{
         marginTop: '5% !important',
-        paddingBottom: '50px !important',
+        paddingBottom: '40px !important',
         '&:hover':{
-            boxShadow:'-5px 10px 70px 10px #efefef',
+            boxShadow:'-2px 10px 20px 10px #efefef',
             borderRadius: '10px !important',
             background:'#fff'
         }
@@ -117,4 +117,27 @@ export const BlogStyles :any = {
         opacity:0.5,
         marginTop: '4% !important',
     },
+    salonEditBtn:{
+        borderRadius:'10px 0% 0% 10px !important',
+        width:'35%',
+        textTransform:'capitalize !important',
+        fontSize:'20px !important',
+        padding:'15px 0 15px 0 !important',
+        '&:hover':{
+        background:'#E7A356 !important',
+        color: '#fff !important',
+        }
+    },
+    salonDelBtn:{
+        borderRadius:'0 10px 10px 0 !important',
+        width:'35%',
+        textTransform:'capitalize !important',
+        fontSize:'20px !important',
+        borderLeft:'1px solid #d7d9db !important',
+        padding:'15px 0 15px 0 !important',
+        '&:hover':{
+        background:'#272522 !important',
+        color: '#fff !important',
+        }
+    }
 }
