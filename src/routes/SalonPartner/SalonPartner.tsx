@@ -24,7 +24,7 @@ class SalonPartner extends Component {
             <SalonPatnerBestOffers />
           </Box>
 
-          <div id="/" style={{ marginTop: "100px" }}>
+          <div id="/" style={{ margin: "50px auto", width: "100%" }}>
             <GalleryOwner />
           </div>
           <Specialists />
