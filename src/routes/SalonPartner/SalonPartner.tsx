@@ -1,12 +1,12 @@
-import { Box } from "@mui/system";
 import React, { Component, Fragment } from "react";
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 
 import Footer from "../../components/common/Footer/Footer";
 import SalonNavbar from "../../components/common/Navbar/SalonNavbar";
+import { salonMenu } from "../../utils/data/navbar_menus";
+import SalonBlog from "../../components/OurBlogs/SalonBlog";
+import OwnerDashboardCharts from "../../components/OwnerDashboardChart/OwnerDashboardCharts";
 import SalonPatnerBestOffers from "../../components/OffersSection/SalonPatnerBestOffers";
-import { salonMenu, CustomerMenu } from "../../utils/data/navbar_menus";
-import { Outlet } from "react-router-dom";
 
 class SalonPartner extends Component{
 
@@ -18,11 +18,17 @@ class SalonPartner extends Component{
           customer={false}
           menus={salonMenu}
         />
-        <Outlet />
-        <Box>
-        <SalonPatnerBestOffers />
-        </Box>
-        {/* <Footer /> */}
+        <Grid container>
+          {/* salon page sections */}
+          <OwnerDashboardCharts/>
+          <Box sx={{mt: 10}}>
+          <SalonPatnerBestOffers />
+          </Box>
+          <SalonBlog />
+        </Grid>
+        <Footer 
+          salon={true}
+        />
       </Fragment>
     );
   }

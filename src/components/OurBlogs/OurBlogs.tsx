@@ -1,7 +1,11 @@
 /** @format */
 
 import React, { Component } from "react";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Typography,
+} from "@mui/material";
 import { withStyles } from "@mui/styles";
 
 import { BlogStyles } from "./OurBlog.Style";
