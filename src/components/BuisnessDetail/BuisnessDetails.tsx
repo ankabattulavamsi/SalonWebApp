@@ -9,6 +9,7 @@ import {
   locationImage,
   noteImage,
   profileImage,
+  profilesImage,
   storeImage,
   userImage,
 } from "../../utils/data/businessdetailsandPayout/Busness.data";
@@ -90,7 +91,7 @@ class BuisnessDetails extends Component<
                   src={
                     this.props.state.image
                       ? this.props.state.image
-                      : profileImage
+                      : profilesImage
                   }
                   alt="imag"
                 />
