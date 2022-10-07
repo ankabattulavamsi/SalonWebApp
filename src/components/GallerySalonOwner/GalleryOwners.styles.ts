@@ -8,7 +8,6 @@ export const galleryStyles: any = (theme: any) => ({
   },
 
   titleText: {
-    fontSize: "35px !important",
     fontFamily: "Fira Sans !important",
     fontStyle: "normal !important",
     fontWeight: "700 !important",
@@ -16,17 +15,15 @@ export const galleryStyles: any = (theme: any) => ({
     lineHeight: "48px !important",
 
     textTransform: "capitalize !important",
+    fontSize: "35px !important",
 
     color: "#272522 !important",
 
-    [theme.breakpoints.up("md")]: {
-      fontSize: "35px !important",
-    },
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("md")]: {
       fontSize: "30px !important",
     },
-    [theme.breakpoints.up("xs")]: {
-      fontSize: "100% !important",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "100%!important",
     },
   },
   card: {
