@@ -1,21 +1,83 @@
+/** @format */
+
 import React, { Fragment, Component } from "react";
 import { Box, Button, Drawer, List, ListItem } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import PersonIcon from "@mui/icons-material/Person";
 import CloseIcon from "@mui/icons-material/Close";
 import Logo from "../../../assets/images/Navbarimage/logo.jpg";
-
+import Login from "../../Login/Login";
 import "./Navbar.css";
 import { landingMenu } from "../../../utils/data/navbar_menus";
+import BuisnessDetails from "../../BuisnessDetail/BuisnessDetails";
+import PayoutDetails from "../../PayoutDetails/PayoutDetails";
+import RegisteredNowPage from "../../RegisterNowPage/RegisteredNowPage";
+import { modalConstants } from "../../../utils/data/constants/loginRegistration";
+import VerificationComp from "../../VerificationCOmp/VerificationComp";
 
-interface navSate {
+export interface navSate {
   activeLink: string;
   mobileDrawer: boolean;
+  registerDrawer: boolean;
+
+  verificationDrawer: boolean;
+  openDrawer: boolean;
+  openBusiness: boolean;
+  IsCustomerLogin: boolean;
+  IsSalonLogin: boolean;
+  image: any;
+  bname: string;
+  owner: string;
+  address: string;
+  email: string;
+  GSTIN: string;
+  error: string;
+  openPayout: boolean;
+  upiAddress: string;
+  accNumber: string;
+  confirmaccNumber: string;
+  accHoldername: string;
+  ifscCode: string;
+  bankname: string;
+  fname: string;
+  password: string;
+  confirmPassword: string;
+  mobileNumber: string;
+  errorPass: string;
+  city: string;
+  otpVerif: string;
 }
 class Navbar extends Component<{}, navSate> {
   state = {
     activeLink: "Home",
     mobileDrawer: false,
+    registerDrawer: false,
+    verificationDrawer: false,
+    openDrawer: false,
+    openBusiness: false,
+    openPayout: false,
+    IsCustomerLogin: true,
+    IsSalonLogin: false,
+    image: "",
+    address: "",
+    bname: "",
+    email: "",
+    owner: "",
+    GSTIN: "",
+    error: "",
+    errorPass: "",
+    upiAddress: "",
+    accHoldername: "",
+    bankname: "",
+    confirmaccNumber: "",
+    ifscCode: "",
+    accNumber: "",
+    fname: "",
+    password: "",
+    confirmPassword: "",
+    mobileNumber: "",
+    city: "",
+    otpVerif: "",
   };
 
   handleClick = (title: string) => {
@@ -24,7 +86,146 @@ class Navbar extends Component<{}, navSate> {
       mobileDrawer: !this.state.mobileDrawer,
     });
   };
+
+  handleChange = (e: any) => {
+    this.setState({ ...this.state, [e.target.name]: e.target.value });
+  };
+
+  // on change function to change the input value of the  profile image
+  handleImageChange = (e: any): any => {
+    this.setState({ image: URL.createObjectURL(e.target.files[0]) });
+  };
+
+  //handle change for input and password and confirm password
+
+  handleChangePassword = (password: any) => {
+    this.setState({ password });
+  };
+
+  confirmPassChangehandle = (password: any) => {
+    this.setState({ confirmPassword: password });
+    if (password !== this.state.password) {
+      this.setState({ errorPass: "Password should be match" });
+    } else {
+      this.setState({ errorPass: "" });
+    }
+  };
+
+  handleToggleDrawer = (type?: string) => {
+    switch (type) {
+      case modalConstants.PAYOUT_DRAWER:
+        this.setState({
+          openPayout: !this.state.openPayout,
+          image: "",
+          address: "",
+          bname: "",
+          email: "",
+          owner: "",
+          GSTIN: "",
+          error: "",
+          upiAddress: "",
+          accHoldername: "",
+          bankname: "",
+          confirmaccNumber: "",
+          ifscCode: "",
+          accNumber: "",
+        });
+        break;
+
+      case modalConstants.REGISTER_DRAWER:
+        this.setState({
+          registerDrawer: !this.state.registerDrawer,
+          openBusiness: false,
+          verificationDrawer: false,
+          openPayout: false,
+          openDrawer: false,
+        });
+        break;
+
+      case modalConstants.VERIFICATION_DRAWER:
+        this.setState({
+          verificationDrawer: !this.state.verificationDrawer,
+          registerDrawer: false,
+          openBusiness: false,
+          openDrawer: false,
+          openPayout: false,
+        });
+        break;
+      default:
+        this.setState({
+          openBusiness: !this.state.openBusiness,
+          registerDrawer: false,
+          verificationDrawer: false,
+          openDrawer: false,
+          openPayout: false,
+          image: "",
+          address: "",
+          bname: "",
+          email: "",
+          owner: "",
+          GSTIN: "",
+          error: "",
+        });
+        break;
+    }
+
+    this.setState({
+      image: "",
+      address: "",
+      bname: "",
+      email: "",
+      owner: "",
+      GSTIN: "",
+      error: "",
+      upiAddress: "",
+      accHoldername: "",
+      bankname: "",
+      confirmaccNumber: "",
+      ifscCode: "",
+      accNumber: "",
+      fname: "",
+      password: "",
+      confirmPassword: "",
+      mobileNumber: "",
+    });
+  };
+
+  handleDrawerClose = () => {
+    this.setState({
+      openDrawer: false,
+    });
+  };
+  handleDrawerOpen = () => {
+    this.setState({
+      openDrawer: true,
+    });
+  };
+  //button click to navigate or open the payout detalis page
+  handleClickSave = () => {
+    this.handleToggleDrawer(modalConstants.PAYOUT_DRAWER);
+  };
+
+  // handle customer login
+  handleCustomerLogin = () => {
+    console.log("customer");
+    this.setState({
+      IsCustomerLogin: true,
+      IsSalonLogin: false,
+    });
+    console.log(this.state.IsCustomerLogin, "IsCustomerLogin from func");
+  };
+  handleSalonLogin = () => {
+    this.setState({
+      IsCustomerLogin: false,
+      IsSalonLogin: true,
+    });
+  };
+
+  otpChangeHandle = (otp: string) => {
+    this.setState({ otpVerif: otp });
+  };
   render() {
+    console.log({ navState: this.state });
     return (
       <Fragment>
         <Box className="navbar-body">
@@ -50,7 +251,11 @@ class Navbar extends Component<{}, navSate> {
             })}
           </Box>
           <Box className="nav-login-section">
-            <Button startIcon={<PersonIcon />} className="login-btn">
+            <Button
+              startIcon={<PersonIcon />}
+              className="login-btn"
+              onClick={this.handleDrawerOpen}
+            >
               Login
             </Button>
           </Box>
@@ -58,7 +263,10 @@ class Navbar extends Component<{}, navSate> {
           {/* mobile drawer section */}
           <Box className="mobile-drawer">
             <Box sx={{ background: "#272522", px: 4, py: 2.6 }}>
-              <PersonIcon sx={{ color: "#E7A356", fontSize: "30px" }} />
+              <PersonIcon
+                sx={{ color: "#E7A356", fontSize: "30px" }}
+                onClick={this.handleDrawerOpen}
+              />
             </Box>
             <MenuIcon
               sx={{ ml: 4, fontSize: "30px" }}
@@ -105,9 +313,53 @@ class Navbar extends Component<{}, navSate> {
             </List>
           </Box>
         </Drawer>
+
+        <>
+          {/* all modals */}
+          <Login
+            open={this.state.openDrawer}
+            onClose={this.handleDrawerClose}
+            handleLogin={this.handleToggleDrawer}
+            handleCustomerLogin={this.handleCustomerLogin}
+            handleSalonLogin={this.handleSalonLogin}
+            state={this.state}
+          />
+
+          <RegisteredNowPage
+            open={this.state.registerDrawer}
+            toogleDrawer={this.handleToggleDrawer}
+            handleChange={this.handleChange}
+            state={this.state}
+            handleOnClick={this.handleToggleDrawer}
+            handleChangePassword={this.handleChangePassword}
+            confirmPassChangehandle={this.confirmPassChangehandle}
+          />
+
+          <VerificationComp
+            handleToggle={this.handleToggleDrawer}
+            open={this.state.verificationDrawer}
+            state={this.state}
+            handleChangeOtp={this.otpChangeHandle}
+          />
+
+          <BuisnessDetails
+            handleToggleDrawer={this.handleToggleDrawer}
+            open={this.state.openBusiness}
+            handleChange={this.handleChange}
+            handleImageChange={this.handleImageChange}
+            state={this.state}
+            handleClickSave={this.handleClickSave}
+          />
+
+          <PayoutDetails
+            open={this.state.openPayout}
+            toggleFunc={this.handleToggleDrawer}
+            state={this.state}
+            handleChange={this.handleChange}
+          />
+        </>
       </Fragment>
     );
   }
 }
-
 export default Navbar;

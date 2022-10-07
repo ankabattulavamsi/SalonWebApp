@@ -7,14 +7,11 @@ interface ButtonProps {
   color: string;
   bgColor: string;
   avatar?: string;
-  title?: string;
+  title: string;
   subTitle?: string;
 }
 interface ButtonState {}
 export default class ButtonCust extends Component<ButtonProps, ButtonState> {
-  // constructor(props: ButtonProps) {
-  //   super(props);
-  // }
   render() {
     const { bgColor, color, avatar, subTitle, title } = this.props;
     return (
@@ -24,7 +21,7 @@ export default class ButtonCust extends Component<ButtonProps, ButtonState> {
           color: color,
           bgcolor: bgColor,
           width: { xs: "100%", sm: "40%" },
-          
+
           ":hover": {
             color: color,
             bgcolor: bgColor,
@@ -49,16 +46,18 @@ export default class ButtonCust extends Component<ButtonProps, ButtonState> {
             },
           }}
         >
-          <Typography
-            variant="caption"
-            className="para-button"
-            sx={{
-              fontSize: { xs: "12px", md: "14px" },
-            }}
-            textAlign={"left"}
-          >
-            {subTitle}
-          </Typography>
+          {subTitle && (
+            <Typography
+              variant="caption"
+              className="para-button"
+              sx={{
+                fontSize: { xs: "12px", md: "14px" },
+              }}
+              textAlign={"left"}
+            >
+              {subTitle}
+            </Typography>
+          )}
           <Typography
             variant="caption"
             className="heding-button"
