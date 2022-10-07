@@ -1,4 +1,4 @@
-import { landingMenus, salonMenus } from "../models/navbar_interface";
+import { landingMenus, SalonMenus } from "../models/navbar_interface";
 
 
 export const landingMenu:landingMenus[] = [
@@ -12,7 +12,7 @@ export const landingMenu:landingMenus[] = [
     {id:8, path:'#blog', title:'Blog'}
 ];
 
-export const SalonMenu:salonMenus[] = [
+export const salonMenu:SalonMenus[] = [
     {id:1, path:'/salon', title:'Home'},
     {id:2, path:'/salon/dashboard', title:'Dashboard'},
     {id:3, path:'salon/booking', title:'Booking'},
@@ -22,7 +22,7 @@ export const SalonMenu:salonMenus[] = [
     {id:7, path:'salon/blog', title:'Blog'}
 ];
 
-export const CustomerMenu:salonMenus[] = [
+export const CustomerMenu:SalonMenus[] = [
     {id:1, path:'/salon', title:'Home'},
     {id:2, path:'/salon/dashboard', title:'Dashboard'},
     {id:3, path:'salon/booking', title:'Booking'},

@@ -1,15 +1,18 @@
 import { Button } from "@mui/material";
+import { withStyles } from "@mui/styles";
 import React, { Component } from "react";
+import { buttonStyles } from "./Btuttons.style";
 interface ButtonProps {
   title: string;
   disabled?: boolean;
   handleClick?: () => void;
   className?: string;
+  classes: any;
 }
 interface ButtonState {}
-export default class Buttons extends Component<ButtonProps, ButtonState> {
+class Buttons extends Component<ButtonProps, ButtonState> {
   render() {
-    const { title, handleClick, disabled, className } = this.props;
+    const { title, handleClick, disabled, className, classes } = this.props;
     return (
       <Button
         sx={{
@@ -17,18 +20,19 @@ export default class Buttons extends Component<ButtonProps, ButtonState> {
           width: "100%",
           bgcolor: "#E7A356",
           color: "#ffffff",
-          fontSize: "20px",
+          mb: 2,
           ":hover": {
-            color: "#E7A356",
-            bgcolor: "#ffffff",
+            bgcolor: "#E7A356",
+            color: "#ffffff",
           },
         }}
         onClick={() => handleClick && handleClick()}
         disabled={disabled}
-        className={className && className}
+        className={`${classes.buttonBox} ${className && className}`}
       >
         {title}
       </Button>
     );
   }
 }
+export default withStyles(buttonStyles)(Buttons);

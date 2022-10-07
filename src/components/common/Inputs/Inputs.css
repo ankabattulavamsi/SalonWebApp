@@ -2,7 +2,6 @@
   width: 100%;
   height: auto;
   margin: 10px auto !important;
-  padding: 2px !important;
   position: relative;
 }
 
@@ -30,6 +29,7 @@
 
   padding-bottom: 15px;
   padding-left: 15px;
+  padding-right: 20%;
   background-color: #f0f0f0;
   font-family: "Roboto";
   font-style: normal;
@@ -37,13 +37,16 @@
   font-size: 17px;
   line-height: 30px;
   letter-spacing: 0.01em;
-
-  color: #a4a1a1;
+  color: #272522;
   border-radius: 5px;
   border: none;
   display: flex;
+  text-align: justify;
 }
 
+.input--input--1::placeholder {
+  color: #a4a1a1;
+}
 .input--input--1:focus {
   border: none;
   outline: none;
@@ -58,10 +61,35 @@
   background-color: #f0f0f0;
   object-fit: contain;
 }
-
+/* 
 @media only screen and (max-width: 600px) {
-  .input--input--1 {
-    font-size: small;
-    padding-right: 6%;
+  .input--formcontrol {
+    width: 92%;
   }
+  .input--input--1 {
+    font-size: 15px;
+  }
+  .input--label {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .input--formcontrol {
+    width: 91%;
+  }
+  .input--input--1 {
+    font-size: 15px;
+  }
+  .input--label {
+    font-size: 15px;
+  }
+} */
+
+.error-message {
+  color: #b00020 !important;
+  margin-top: 5px;
+  font-size: 14px;
+  text-align: left;
+  text-transform: capitalize;
+  font-family: "Roboto";
 }

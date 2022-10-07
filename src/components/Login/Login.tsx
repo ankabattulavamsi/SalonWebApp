@@ -14,47 +14,34 @@ import { withStyles } from "@mui/styles";
 import "./login.css";
 import CustomerLogin from "./CustomerLogin";
 import SalonLogin from "./SalonLogin";
+import { navSate } from "../common/Navbar/Navbar";
 interface LoginProps {
 	open: boolean;
 	onClose: any;
 	handleLogin: (type?: string) => void;
+	handleCustomerLogin?: () => void;
+	handleSalonLogin?: () => void;
+	classes: any;
+	state: navSate;
 }
-interface State {
-	IsCustomerLogin: boolean;
-	IsSalonLogin: boolean;
-}
+interface State {}
 class Login extends Component<LoginProps, State> {
-	state: State = {
-		IsCustomerLogin: true,
-		IsSalonLogin: false,
-	};
-	handleCustomerLogin = () => {
-		console.log("customer");
-		this.setState({
-			IsCustomerLogin: true,
-			IsSalonLogin: false,
-		});
-		console.log(this.state.IsCustomerLogin, "IsCustomerLogin from func");
-	};
-	handleSalonLogin = () => {
-		this.setState({
-			IsCustomerLogin: false,
-			IsSalonLogin: true,
-		});
-	};
+	state: State = {};
+
 	render() {
-		console.log(this.state.IsCustomerLogin, "IsCustomerLogin");
-		const { classes }: any = this.props;
+		const {
+			classes,
+			open,
+			handleLogin,
+			onClose,
+			handleCustomerLogin,
+			handleSalonLogin,
+			state,
+		}: LoginProps = this.props;
 		return (
-			<Drawer
-				anchor="right"
-				open={this.props.open}
-				onClose={this.props.onClose}>
+			<Drawer anchor="right" open={open} onClose={onClose}>
 				<Box className="drawerSize" role="presentation">
-					<CloseIcon
-						style={{ cursor: "pointer" }}
-						onClick={this.props.onClose}
-					/>
+					<CloseIcon style={{ cursor: "pointer" }} onClick={onClose} />
 					<Typography className={classes.heading} variant="h2">
 						Login
 					</Typography>
@@ -63,51 +50,41 @@ class Login extends Component<LoginProps, State> {
 						variant="outlined"
 						aria-label="outlined button group">
 						<Button
-							onClick={this.handleCustomerLogin}
+							onClick={handleCustomerLogin}
 							className={
-								this.state.IsCustomerLogin ? "buttons customer" : "buttons"
+								this.props.state.IsCustomerLogin
+									? "buttons customer"
+									: "buttons"
 							}>
 							I Am Customer
 						</Button>
 						<Button
 							sx={{ borderleft: "1px solid black !important" }}
-							onClick={this.handleSalonLogin}
+							onClick={handleSalonLogin}
 							className={
-								this.state.IsSalonLogin ? "buttons customer" : "buttons"
+								state.IsSalonLogin ? "buttons customer" : "buttons"
 							}>
 							Salon
 						</Button>
 						<div
 							className={
-								this.state.IsCustomerLogin
+								state.IsCustomerLogin
 									? "traingle-sec"
-									: this.state.IsSalonLogin
+									: state.IsSalonLogin
 									? "traingle-sec1"
 									: ""
 							}>
 							<p className="traingle"></p>
 						</div>
 					</ButtonGroup>
-					{this.state.IsCustomerLogin ? (
-						<CustomerLogin
-							// number={this.state.number}
-							// loginOtp={this.state.loginOtp}
-							handleLogin={this.props.handleLogin}
-						/>
-					) : this.state.IsSalonLogin ? (
-						<SalonLogin
-							// number={this.state.number}
-							// loginOtp={this.state.loginOtp}
-							handleLogin={this.props.handleLogin}
-						/>
+					{state.IsCustomerLogin ? (
+						<CustomerLogin handleLogin={handleLogin} />
+					) : state.IsSalonLogin ? (
+						<SalonLogin handleLogin={handleLogin} />
 					) : (
-						<CustomerLogin
-							// number={this.state.number}
-							// loginOtp={this.state.loginOtp}
-							handleLogin={this.props.handleLogin}
-						/>
+						<CustomerLogin handleLogin={handleLogin} />
 					)}
-					{/* {this.state.IsSalonLogin ? <SalonLogin /> : <CustomerLogin />} */}
+					{/* {state.IsSalonLogin ? <SalonLogin /> : <CustomerLogin />} */}
 				</Box>
 			</Drawer>
 		);
