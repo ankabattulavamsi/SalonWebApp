@@ -63,7 +63,7 @@ export default class OtpPass extends Component<OtpPassProps, OtpPassState> {
             value={value}
           />
         </Box>
-        {error && <p>{error}</p>}
+        {error && <p className="error-message">{error}</p>}
       </Box>
     );
   }

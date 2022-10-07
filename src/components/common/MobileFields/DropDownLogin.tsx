@@ -26,7 +26,7 @@ class DropDownLogin extends Component<DropDownLoginProps, DropDownLoginState> {
 
   render() {
     const { handleChange, name, value, error } = this.props;
-   
+
     return (
       <Box>
         <Box className="mobileNoChildBox1">
@@ -128,7 +128,7 @@ class DropDownLogin extends Component<DropDownLoginProps, DropDownLoginState> {
 
         {error && (
           <Box>
-            <FormHelperText sx={{ color: "red" }}>{error}</FormHelperText>
+            <FormHelperText className="error-message">{error}</FormHelperText>
           </Box>
         )}
       </Box>
