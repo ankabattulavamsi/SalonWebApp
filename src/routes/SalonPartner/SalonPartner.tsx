@@ -18,12 +18,13 @@ class SalonPartner extends Component {
           {/* salon page sections */}
           <OwnerDashboardCharts />
         </Grid>
-        <Footer salon={true} />
+
         <Outlet />
         <Box sx={{ mt: 10 }}>
           <SalonPatnerBestOffers />
         </Box>
         {/* <Footer /> */}
+        <Footer salon={true} />
       </Fragment>
     );
   }
