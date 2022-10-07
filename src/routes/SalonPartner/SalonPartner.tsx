@@ -1,28 +1,29 @@
 import React, { Component, Fragment } from "react";
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 
-import Footer from "../../components/common/Footer/Footer";
 import SalonNavbar from "../../components/common/Navbar/SalonNavbar";
-import { SalonMenu } from "../../utils/data/navbar_menus";
-import SalonCategory from "../../components/Categories/SalonCategory";
+import { salonMenu } from "../../utils/data/navbar_menus";
+import SalonBlog from "../../components/OurBlogs/SalonBlog";
+import OwnerDashboardCharts from "../../components/OwnerDashboardChart/OwnerDashboardCharts";
+import SalonPatnerBestOffers from "../../components/OffersSection/SalonPatnerBestOffers";
+import Footer from "../../components/common/Footer/Footer";
+import Specialists from "../../components/OurSpecialists/Specialists";
 
-class SalonPartner extends Component{
-
+class SalonPartner extends Component {
   render() {
     return (
       <Fragment>
-        <SalonNavbar 
-          link="Home"
-          customer={false}
-          menus={SalonMenu}
-        />
+        <SalonNavbar link="Home" customer={false} menus={salonMenu} />
         <Grid container>
           {/* salon page sections */}
-          <SalonCategory/>
+          <OwnerDashboardCharts />
+          <Box sx={{ mt: 10 }}>
+            <SalonPatnerBestOffers />
+          </Box>
+          <Specialists />
+          <SalonBlog />
         </Grid>
-        <Footer 
-          salon={true}
-        />
+        <Footer salon={true} />
       </Fragment>
     );
   }

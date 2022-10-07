@@ -23,7 +23,8 @@ export interface navSate {
   verificationDrawer: boolean;
   openDrawer: boolean;
   openBusiness: boolean;
-
+  IsCustomerLogin: boolean;
+  IsSalonLogin: boolean;
   image: any;
   bname: string;
   owner: string;
@@ -39,6 +40,12 @@ export interface navSate {
   ifscCode: string;
   bankname: string;
   fname: string;
+  password: string;
+  confirmPassword: string;
+  mobileNumber: string;
+  errorPass: string;
+  city: string;
+  otpVerif: string;
 }
 class Navbar extends Component<{}, navSate> {
   state = {
@@ -49,6 +56,8 @@ class Navbar extends Component<{}, navSate> {
     openDrawer: false,
     openBusiness: false,
     openPayout: false,
+    IsCustomerLogin: true,
+    IsSalonLogin: false,
     image: "",
     address: "",
     bname: "",
@@ -56,6 +65,7 @@ class Navbar extends Component<{}, navSate> {
     owner: "",
     GSTIN: "",
     error: "",
+    errorPass: "",
     upiAddress: "",
     accHoldername: "",
     bankname: "",
@@ -63,6 +73,11 @@ class Navbar extends Component<{}, navSate> {
     ifscCode: "",
     accNumber: "",
     fname: "",
+    password: "",
+    confirmPassword: "",
+    mobileNumber: "",
+    city: "",
+    otpVerif: "",
   };
 
   handleClick = (title: string) => {
@@ -80,6 +95,22 @@ class Navbar extends Component<{}, navSate> {
   handleImageChange = (e: any): any => {
     this.setState({ image: URL.createObjectURL(e.target.files[0]) });
   };
+
+  //handle change for input and password and confirm password
+
+  handleChangePassword = (password: any) => {
+    this.setState({ password });
+  };
+
+  confirmPassChangehandle = (password: any) => {
+    this.setState({ confirmPassword: password });
+    if (password !== this.state.password) {
+      this.setState({ errorPass: "Password should be match" });
+    } else {
+      this.setState({ errorPass: "" });
+    }
+  };
+
   handleToggleDrawer = (type?: string) => {
     switch (type) {
       case modalConstants.PAYOUT_DRAWER:
@@ -108,19 +139,6 @@ class Navbar extends Component<{}, navSate> {
           verificationDrawer: false,
           openPayout: false,
           openDrawer: false,
-          image: "",
-          address: "",
-          bname: "",
-          email: "",
-          owner: "",
-          GSTIN: "",
-          error: "",
-          upiAddress: "",
-          accHoldername: "",
-          bankname: "",
-          confirmaccNumber: "",
-          ifscCode: "",
-          accNumber: "",
         });
         break;
 
@@ -131,19 +149,6 @@ class Navbar extends Component<{}, navSate> {
           openBusiness: false,
           openDrawer: false,
           openPayout: false,
-          image: "",
-          address: "",
-          bname: "",
-          email: "",
-          owner: "",
-          GSTIN: "",
-          error: "",
-          upiAddress: "",
-          accHoldername: "",
-          bankname: "",
-          confirmaccNumber: "",
-          ifscCode: "",
-          accNumber: "",
         });
         break;
       default:
@@ -160,15 +165,29 @@ class Navbar extends Component<{}, navSate> {
           owner: "",
           GSTIN: "",
           error: "",
-          upiAddress: "",
-          accHoldername: "",
-          bankname: "",
-          confirmaccNumber: "",
-          ifscCode: "",
-          accNumber: "",
         });
         break;
     }
+
+    this.setState({
+      image: "",
+      address: "",
+      bname: "",
+      email: "",
+      owner: "",
+      GSTIN: "",
+      error: "",
+      upiAddress: "",
+      accHoldername: "",
+      bankname: "",
+      confirmaccNumber: "",
+      ifscCode: "",
+      accNumber: "",
+      fname: "",
+      password: "",
+      confirmPassword: "",
+      mobileNumber: "",
+    });
   };
 
   handleDrawerClose = () => {
@@ -185,7 +204,28 @@ class Navbar extends Component<{}, navSate> {
   handleClickSave = () => {
     this.handleToggleDrawer(modalConstants.PAYOUT_DRAWER);
   };
+
+  // handle customer login
+  handleCustomerLogin = () => {
+    console.log("customer");
+    this.setState({
+      IsCustomerLogin: true,
+      IsSalonLogin: false,
+    });
+    console.log(this.state.IsCustomerLogin, "IsCustomerLogin from func");
+  };
+  handleSalonLogin = () => {
+    this.setState({
+      IsCustomerLogin: false,
+      IsSalonLogin: true,
+    });
+  };
+
+  otpChangeHandle = (otp: string) => {
+    this.setState({ otpVerif: otp });
+  };
   render() {
+    console.log({ navState: this.state });
     return (
       <Fragment>
         <Box className="navbar-body">
@@ -280,6 +320,9 @@ class Navbar extends Component<{}, navSate> {
             open={this.state.openDrawer}
             onClose={this.handleDrawerClose}
             handleLogin={this.handleToggleDrawer}
+            handleCustomerLogin={this.handleCustomerLogin}
+            handleSalonLogin={this.handleSalonLogin}
+            state={this.state}
           />
 
           <RegisteredNowPage
@@ -288,12 +331,15 @@ class Navbar extends Component<{}, navSate> {
             handleChange={this.handleChange}
             state={this.state}
             handleOnClick={this.handleToggleDrawer}
+            handleChangePassword={this.handleChangePassword}
+            confirmPassChangehandle={this.confirmPassChangehandle}
           />
 
           <VerificationComp
             handleToggle={this.handleToggleDrawer}
             open={this.state.verificationDrawer}
             state={this.state}
+            handleChangeOtp={this.otpChangeHandle}
           />
 
           <BuisnessDetails
