@@ -1,30 +1,38 @@
-import { Box } from "@mui/system";
 import React, { Component, Fragment } from "react";
+import { Box, Grid } from "@mui/material";
 
 import SalonNavbar from "../../components/common/Navbar/SalonNavbar";
-import SalonPatnerBestOffers from "../../components/OffersSection/SalonPatnerBestOffers";
 import { salonMenu } from "../../utils/data/navbar_menus";
-import Specialists from "../../components/OurSpecialists/Specialists";
-import Footer from "../../components/common/Footer/Footer";
+import SalonBlog from "../../components/OurBlogs/SalonBlog";
 import OwnerDashboardCharts from "../../components/OwnerDashboardChart/OwnerDashboardCharts";
-import { Grid } from "@mui/material";
+import SalonPatnerBestOffers from "../../components/OffersSection/SalonPatnerBestOffers";
+import Footer from "../../components/common/Footer/Footer";
+import Specialists from "../../components/OurSpecialists/Specialists";
+
+
 
 class SalonPartner extends Component {
   render() {
     return (
       <Fragment>
-				<SalonNavbar link="Home" customer={false} menus={salonMenu} />
-				<Grid container>
-					{/* salon page sections */}
-					<OwnerDashboardCharts />
-				</Grid>
-				<Box sx={{ mt: 10 }}>
-					<SalonPatnerBestOffers />
-				</Box>
-				<Specialists />
-				<Footer salon={true} />
-			
-			</Fragment>
+        <SalonNavbar 
+          link="Home"
+          customer={false}
+          menus={salonMenu}
+        />
+        <Grid container>
+          {/* salon page sections */}
+          <OwnerDashboardCharts/>
+          <Box sx={{mt: 10}}>
+          <SalonPatnerBestOffers />
+          </Box>
+          <Specialists/>
+          <SalonBlog />
+        </Grid>
+        <Footer 
+          salon={true}
+        />
+      </Fragment>
     );
   }
 }
