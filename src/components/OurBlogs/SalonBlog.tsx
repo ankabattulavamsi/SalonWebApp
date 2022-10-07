@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { Box, Button, Container, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import { withStyles } from "@mui/styles";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import { BlogStyles } from "./OurBlog.Style";
 import { blogsData } from "../../utils/data/blogs/blogs_data";
-import CommonEditDeleteButtons from "../common/CommonSalonPatnerButtons/CommonEditDeleteButtons";
 import CommonViewAllButton from "../common/CommonSalonPatnerButtons/CommonViewAllButton";
 
 interface blogProps {
@@ -31,15 +30,15 @@ class SalonBlog extends Component<blogProps, salonBlogS> {
       <>
         <Box sx={{ pb: 10, pt: 10, background: "#FDF6EE" }}>
           <Box className={classes.salonBlogTitleBox}>
-            <Box>
-              <Typography className={classes.blogHeading}>Our Blogs</Typography>
+            <Box sx={{mb:{xs:2, sm:0, md:0}}}>
+              <Typography className={classes.salonBlogHeading}>Our Blogs</Typography>
               <Typography className={classes.salonBlogTitleLine}></Typography>
             </Box>
-            {/* <Button>View all blogs</Button> */}
             <CommonViewAllButton />
           </Box>
           <Grid
             container
+            alignItems="center"
             justifyContent="center"
             columnSpacing={4}
             rowSpacing={3}

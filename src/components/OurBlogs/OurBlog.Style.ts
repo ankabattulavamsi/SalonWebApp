@@ -77,7 +77,28 @@ export const BlogStyles :any = {
         display:'flex', 
         alignItems:'center', 
         justifyContent:'space-between',
-        
+        [theme.breakpoints.up("xs")]:{
+            display:'block',
+            margin:'0 0 2% 4%',
+        },
+        [theme.breakpoints.up("sm")]:{
+            margin:'0 4% 0 4%',
+            display:'flex', 
+        },
+        [theme.breakpoints.up("md")]:{
+            margin:'0 13% 0 13%',
+            display:'flex', 
+        },
+    },
+    salonBlogHeading:{
+        fontFamily: 'Fira Sans !important',
+        fontStyle: 'normal',
+        fontWeight: '700 !important',
+        fontSize: '35px !important',
+        lineHeight: '48px',
+        letterSpacing: '0.01em',
+        textTransform: 'capitalize',
+        color: '#272522',
     },
     salonBlogTitleLine:{
         width: "30px", 
@@ -121,23 +142,35 @@ export const BlogStyles :any = {
         borderRadius:'10px 0% 0% 10px !important',
         width:'35%',
         textTransform:'capitalize !important',
-        fontSize:'20px !important',
+        fontSize:'1.2rem !important',
         padding:'15px 0 15px 0 !important',
         '&:hover':{
         background:'#E7A356 !important',
         color: '#fff !important',
+        },
+        [theme.breakpoints.up("sm")]:{
+            width:'40%',
+        },
+        [theme.breakpoints.down("md")]:{
+            width:'45%',
         }
     },
     salonDelBtn:{
         borderRadius:'0 10px 10px 0 !important',
         width:'35%',
         textTransform:'capitalize !important',
-        fontSize:'20px !important',
+        fontSize:'1.2rem !important',
         borderLeft:'1px solid #d7d9db !important',
         padding:'15px 0 15px 0 !important',
         '&:hover':{
         background:'#272522 !important',
         color: '#fff !important',
+        },
+        [theme.breakpoints.up("sm")]:{
+            width:'40%',
+        },
+        [theme.breakpoints.down("md")]:{
+            width:'45%',
         }
     }
 }
