@@ -3,15 +3,11 @@ import { Box, Grid } from "@mui/material";
 
 import SalonNavbar from "../../components/common/Navbar/SalonNavbar";
 import GalleryOwner from "../../components/GallerySalonOwner/GalleryOwner";
-
 import OwnerDashboardCharts from "../../components/OwnerDashboardChart/OwnerDashboardCharts";
-
 import SalonPatnerBestOffers from "../../components/OffersSection/SalonPatnerBestOffers";
-import { salonMenu, CustomerMenu } from "../../utils/data/navbar_menus";
+import { salonMenu } from "../../utils/data/navbar_menus";
 import BookingDashboard from "../../components/BookingsSection/BookingDashboard";
-import { Outlet } from "react-router-dom";
 import Footer from "../../components/common/Footer/Footer";
-
 import SalonBlog from "../../components/OurBlogs/SalonBlog";
 import Specialists from "../../components/OurSpecialists/Specialists";
 
@@ -20,25 +16,20 @@ class SalonPartner extends Component {
     return (
       <Fragment>
         <SalonNavbar link="Home" customer={false} menus={salonMenu} />
-        <Outlet />
+        <Grid container>
+          {/* salon page sections */}
+          <OwnerDashboardCharts />
+          <BookingDashboard />
+          <Box sx={{ mt: 10 }}>
+            <SalonPatnerBestOffers />
+          </Box>
 
-        {/* salon page sections */}
-        <OwnerDashboardCharts />
-        <BookingDashboard />
-        <Box sx={{ mt: 10 }}>
-          <SalonPatnerBestOffers />
-        </Box>
-
-        <div id="/" style={{ marginTop: "100px" }}>
-          <GalleryOwner />
-        </div>
-
-        <Specialists />
-        <SalonBlog />
-
-        <Outlet />
-
-        {/* <Footer /> */}
+          <div id="/" style={{ marginTop: "100px" }}>
+            <GalleryOwner />
+          </div>
+          <Specialists />
+          <SalonBlog />
+        </Grid>
         <Footer salon={true} />
       </Fragment>
     );
