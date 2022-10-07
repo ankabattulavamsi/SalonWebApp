@@ -1,0 +1,25 @@
+.react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.react-horizontal-scrolling-menu--scroll-container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.css-819f2t-MuiGrid-root > .MuiGrid-item {
+  padding-left: 16px !important;
+}
+@media screen and (max-width: 600px) {
+  .css-1emfm6o-MuiButtonBase-root-MuiButton-root {
+    min-width: 35px !important;
+    padding: 0px !important;
+  }
+}
+.css-mhc70k-MuiGrid-root > .MuiGrid-item {
+  padding-left: 10px !important;
+}
+
+.bookings-container {
+  position: relative;
+  z-index: 0;
+}
