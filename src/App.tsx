@@ -4,6 +4,8 @@ import theme from "./Theme/Theme";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./routes/HomePage/HomePage";
 import LandingPageNavigation from "./routes/LandingPageNavigation/LandingPageNavigation";
+import SalonPartner from "./routes/SalonPartner/SalonPartner";
+
 import "./App.css";
 function App() {
   return (
@@ -15,14 +17,15 @@ function App() {
             <Route index element={<HomePage />} />
           </Route>
           {/*Guest Flow*/}
+          {/* Login */}
+          {/* temprorary */}
 
           {/* Login */}
+          {/* Salon Partners */}
+          <Route path="salon" element={<SalonPartner />} />
+          {/* Salon Partners */}
         </Routes>
       </ThemeProvider>
-
-      {/* Login */}
-
-      {/* Login */}
     </div>
   );
 }

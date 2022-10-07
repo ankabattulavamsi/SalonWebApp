@@ -24,7 +24,7 @@ export class Gallery extends Component {
 					sx={{ px: { lg: 25, md: 25, sm: 1, xs: 1 } }}>
 					{GallaryImgs.map((item: any, i: any) => {
 						return (
-							<Fragment key={item.id}>
+							<Fragment key={i}>
 								<Grid item lg={3} md={3} sm={12} xs={12}>
 									<img src={item.img} width="100%" alt="gallery imgx" />
 								</Grid>

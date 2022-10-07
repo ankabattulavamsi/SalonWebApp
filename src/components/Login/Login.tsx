@@ -17,6 +17,7 @@ import SalonLogin from "./SalonLogin";
 interface LoginProps {
 	open: boolean;
 	onClose: any;
+	handleLogin: (type?: string) => void;
 }
 interface State {
 	IsCustomerLogin: boolean;
@@ -88,12 +89,25 @@ class Login extends Component<LoginProps, State> {
 						</div>
 					</ButtonGroup>
 					{this.state.IsCustomerLogin ? (
-						<CustomerLogin />
+						<CustomerLogin
+							// number={this.state.number}
+							// loginOtp={this.state.loginOtp}
+							handleLogin={this.props.handleLogin}
+						/>
 					) : this.state.IsSalonLogin ? (
-						<SalonLogin />
+						<SalonLogin
+							// number={this.state.number}
+							// loginOtp={this.state.loginOtp}
+							handleLogin={this.props.handleLogin}
+						/>
 					) : (
-						<CustomerLogin />
+						<CustomerLogin
+							// number={this.state.number}
+							// loginOtp={this.state.loginOtp}
+							handleLogin={this.props.handleLogin}
+						/>
 					)}
+					{/* {this.state.IsSalonLogin ? <SalonLogin /> : <CustomerLogin />} */}
 				</Box>
 			</Drawer>
 		);

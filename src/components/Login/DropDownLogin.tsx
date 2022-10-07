@@ -2,28 +2,25 @@
 
 import React, { Component } from "react";
 import {
-	Button,
 	Divider,
 	FormControl,
 	MenuItem,
-	Stack,
 	TextField,
 	Typography,
 	Box,
 	Select,
 } from "@mui/material";
 import flag from "../../assets/images/Login/flag.png";
-import { PhonelinkLockOutlined } from "@mui/icons-material";
 import PhoneIcon from "@mui/icons-material/Phone";
-export default class DropDownLogin extends Component {
+
+interface IProps {
+	number?: string;
+	onChangeHandle?: any;
+}
+export default class DropDownLogin extends Component<IProps> {
 	state = {
 		selected: 10,
-		number: "",
-	};
-	onChangeHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
-		this.setState({
-			number: e.target.value,
-		});
+		// number: "",
 	};
 	render() {
 		return (
@@ -100,10 +97,10 @@ export default class DropDownLogin extends Component {
 						}}>
 						<Box className="mobileNoChildBox3">
 							<TextField
-								value={this.state.number}
+								value={this.props.number}
 								className="textField"
 								select={false}
-								onChange={this.onChangeHandle}
+								onChange={this.props.onChangeHandle}
 								variant="standard"
 								placeholder="Phone Number"
 								type="tel"

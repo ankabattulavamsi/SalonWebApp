@@ -12,9 +12,6 @@ interface ButtonProps {
 }
 interface ButtonState {}
 export default class ButtonCust extends Component<ButtonProps, ButtonState> {
-  // constructor(props: ButtonProps) {
-  //   super(props);
-  // }
   render() {
     const { bgColor, color, avatar, subTitle, title } = this.props;
     return (
@@ -24,7 +21,7 @@ export default class ButtonCust extends Component<ButtonProps, ButtonState> {
           color: color,
           bgcolor: bgColor,
           width: { xs: "100%", sm: "40%" },
-          
+
           ":hover": {
             color: color,
             bgcolor: bgColor,

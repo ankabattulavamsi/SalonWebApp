@@ -72,8 +72,11 @@ class OurBestServices extends Component {
               position: 'relative',
               width: '96%',
               height: 'auto', 
-              marginBottom: '105px'}} 
+              marginBottom: '105px',
+              backgroundImage: 'linear-gradient(red, yellow) !important'}} 
               key={index}>
+              <div className="box-shadow-on-images" style={{ marginLeft: 15,
+              position: 'absolute', bottom: -42, left: 0, right: 0, paddingTop: 220}}></div>
               <img
                 src={item.mainImage}
                 alt="item1"

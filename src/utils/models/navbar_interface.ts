@@ -5,6 +5,12 @@ export interface landingMenus{
     title: string;
 }
 
+export interface salonMenus{
+    id: number;
+    path: string;
+    title: string
+}
+
 export interface blogsdata{
     id: number;
     image:any;

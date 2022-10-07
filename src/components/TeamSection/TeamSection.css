@@ -1,89 +1,76 @@
+/** @format */
+
 .export-team:hover {
-  transition: linear 0.5s;
-  background: #ebb273 !important;
+	transition: linear 0.5s;
+	background: #ebb273 !important;
 }
 .export-team:hover .expert-team-content {
-  transition: linear 0.5s;
+	transition: linear 0.5s;
 
-  background-color: #272522 !important;
-  color: #fff !important;
+	background-color: #272522 !important;
+	color: #fff !important;
 }
 
 .corosel-team-experts
-  .react-multiple-carousel__arrow
-  .react-multiple-carousel__.arrow--right {
-  background: #ebb273 !important;
+	.react-multiple-carousel__arrow
+	.react-multiple-carousel__.arrow--right {
+	background: #ebb273 !important;
 }
 .corosel-team-experts .react-multiple-carousel__arrow::before {
-  background-color: #272522;
-  width: 44px;
-  height: 79px;
+	background-color: #272522;
+	width: 44px;
+	height: 79px;
 
-  display: flex !important;
-  align-items: center;
-  align-self: center;
-  margin: auto;
-  justify-content: center;
+	display: flex !important;
+	align-items: center;
+	align-self: center;
+	margin: auto;
+	justify-content: center;
 }
 .export-team {
-  margin-top: 35% !important;
+	margin-top: 35% !important;
 }
 .corosel-team-experts .react-multiple-carousel__arrow {
-  background-color: transparent !important;
-  margin-top: 10%;
+	background-color: transparent !important;
+	margin-top: 10%;
 }
-.corosel-team-experts .react-multiple-carousel__arrow--right {
-  right: calc(0% + 1px) !important;
-}
+
 .corosel-team-experts .react-multiple-carousel__arrow--right::before {
-  border-top-left-radius: 20px !important;
-  border-bottom-left-radius: 20px !important;
-}
-.corosel-team-experts .react-multiple-carousel__arrow--left {
-  left: calc(0% + 1px) !important;
+	border-top-left-radius: 20px !important;
+	border-bottom-left-radius: 20px !important;
 }
 
 .corosel-team-experts .react-multiple-carousel__arrow--left::before {
-  border-top-right-radius: 10px !important;
-  border-bottom-right-radius: 10px !important;
+	border-top-right-radius: 10px !important;
+	border-bottom-right-radius: 10px !important;
 }
 .underline--our-expert-team::after {
-  content: "";
-  width: 29px;
-  height: 5px;
-  display: block;
-  background-color: #ebb273;
-  text-align: center;
-  margin: 10px auto;
+	content: "";
+	width: 29px;
+	height: 5px;
+	display: block;
+	background-color: #ebb273;
+	text-align: center;
+	margin: 10px auto;
 }
 .corosel-team-experts .custom-dot-list-style button {
-  border: #ebb273 solid 3px !important;
-  padding: 5px;
-  opacity: 0.8;
+	border: #ebb273 solid 3px !important;
+	padding: 5px;
+	opacity: 0.8;
 }
 
 @media only screen and (min-width: 0px) {
-  .corosel-team-experts .react-multiple-carousel__arrow {
-    opacity: 0 !important;
-  }
-  .corosel-team-experts
-    .react-multi-carousel-list:hover
-    .react-multiple-carousel__arrow {
-    opacity: 1 !important;
-  }
+	.corosel-team-experts .react-multiple-carousel__arrow {
+		opacity: 0 !important;
+	}
+	.corosel-team-experts
+		.react-multi-carousel-list:hover
+		.react-multiple-carousel__arrow {
+		opacity: 1 !important;
+	}
 }
 @media only screen and (min-width: 790px) {
-  .corosel-team-experts .react-multiple-carousel__arrow {
-    opacity: 1 !important;
-  }
-}
-
-.special-team:hover {
-  cursor: pointer;
-}
-.special-team:hover .special-team-content {
-  transition: linear 0.5s;
-
-  background-color: #ebb273 !important;
-  color: #fff !important;
+	.corosel-team-experts .react-multiple-carousel__arrow {
+		opacity: 1 !important;
+	}
 }

@@ -27,26 +27,19 @@ export default class SpecialistCard extends Component<IProps> {
 				<Card
 					className="special-team"
 					sx={{
-						width: 345,
-						// boxShadow: "none",
-						// borderRadius: "10px",
-						// mb: 5,
-						// overflow: "visible",
-						// alignSelf: "center",
-						// position: "relative",
+						width: { sm: "100%", md: "100%", lg: "345px" },
 					}}>
 					<Box sx={{}}>
 						<CardMedia
-							height="400px"
-							// width={"90%"}
 							component={"img"}
 							src={team.imgeUrl}
 							sx={{
+								height: "400px",
 								display: "block",
-								// position: "absolute",
-								// top: "-100px",
-								objectFit: "cover",
+								objectFit: "fill !important",
 								justifyContent: "center",
+								width: "320px",
+								margin: "auto",
 							}}
 							alt={team.title}></CardMedia>
 					</Box>
