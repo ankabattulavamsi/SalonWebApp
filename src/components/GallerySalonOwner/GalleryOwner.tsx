@@ -37,7 +37,7 @@ class GalleryOwner extends Component<GalleryOwnerProps, GalleryOwnerState> {
                 Our Gallery
               </Typography>
             </Box>
-            <Box>
+            <Box className={classes.viewBox}>
               <ViewAll title="view all gallery" />
             </Box>
           </Box>

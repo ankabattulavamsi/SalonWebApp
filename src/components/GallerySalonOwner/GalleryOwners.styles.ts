@@ -5,6 +5,15 @@ export const galleryStyles: any = (theme: any) => ({
     width: "100%",
     marginBottom: "20px",
     marginTop: "20px",
+    [theme.breakpoints.down("sm")]: {
+      display: "block ",
+    },
+  },
+  viewBox: {
+    [theme.breakpoints.down("sm")]: {
+      width: "50%",
+      marginTop: "18px",
+    },
   },
 
   titleText: {
@@ -23,7 +32,7 @@ export const galleryStyles: any = (theme: any) => ({
       fontSize: "30px !important",
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: "100%!important",
+      fontSize: "35px !important",
     },
   },
   card: {
