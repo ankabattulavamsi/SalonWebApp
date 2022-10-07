@@ -1,10 +1,12 @@
 import React, { Component, Fragment } from "react";
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 
 import Footer from "../../components/common/Footer/Footer";
 import SalonNavbar from "../../components/common/Navbar/SalonNavbar";
-import { SalonMenu } from "../../utils/data/navbar_menus";
+import { salonMenu } from "../../utils/data/navbar_menus";
 import SalonBlog from "../../components/OurBlogs/SalonBlog";
+import OwnerDashboardCharts from "../../components/OwnerDashboardChart/OwnerDashboardCharts";
+import SalonPatnerBestOffers from "../../components/OffersSection/SalonPatnerBestOffers";
 
 class SalonPartner extends Component{
 
@@ -14,15 +16,20 @@ class SalonPartner extends Component{
         <SalonNavbar 
           link="Home"
           customer={false}
-          menus={SalonMenu}
+          menus={salonMenu}
         />
         <Grid container>
           {/* salon page sections */}
+          <OwnerDashboardCharts/>
+          <Box sx={{mt: 10}}>
+          <SalonPatnerBestOffers />
+          </Box>
           <SalonBlog />
         </Grid>
         <Footer 
           salon={true}
         />
+        
       </Fragment>
     );
   }
