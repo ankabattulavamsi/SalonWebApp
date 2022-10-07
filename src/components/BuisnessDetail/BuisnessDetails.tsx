@@ -2,7 +2,7 @@ import { Box, Button, Typography } from "@mui/material";
 import React, { Component } from "react";
 import { BusinessStyles } from "./BuisnessDetailsStyle";
 import { withStyles } from "@mui/styles";
-import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import "./BuisnessDetails.css";
 import {
   emailImage,
