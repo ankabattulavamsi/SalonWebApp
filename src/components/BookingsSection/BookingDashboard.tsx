@@ -46,10 +46,12 @@ class BookingsDashboard extends Component {
     const { classes, theme }: any = this.props;
     const { currentDate } = this.state;
     return (
-      <Box
-        sx={{
+      <div
+        style={{
           backgroundColor: "#FDF6EE",
-          paddingTop: 15,
+          marginTop: 60,
+          paddingTop: 100,
+          width: "100%",
         }}
       >
         <Container maxWidth="lg" sx={{ mx: "auto" }}>
@@ -263,7 +265,7 @@ class BookingsDashboard extends Component {
             </Button>
           </Grid>
         </Container>
-      </Box>
+      </div>
     );
   }
 }
