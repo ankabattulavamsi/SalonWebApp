@@ -79,56 +79,65 @@ class BookingsDashboard extends Component {
                   <ArrowForwardIosIcon className={classes.nextDateIcon} />
                 </Button>
               }
+              itemClassName="bookings-container"
             >
               {datesArray
                 .slice(currentDate - 4, currentDate + 3)
                 .map((date: DateProps) => {
                   return (
-                    <Box
-                      key={date.date}
-                      sx={{
-                        width: {
-                          sx: "70px !important",
-                          sm: "100%",
-                          md: "145px",
-                        },
-                        px: { md: 5.3, sm: 2, xs: "5px" },
-                        py: { md: "15px", sm: 2.3, xs: "5px" },
-                        backgroundColor:
-                          Number(date.date) === currentDate
-                            ? "#E7A356"
-                            : "#FFF",
-                      }}
-                      className={
-                        Number(date.date) === currentDate ? "card-booking" : ""
-                      }
-                    >
-                      <Typography
-                        variant="h4"
-                        className={classes.calenderDateText}
+                    <>
+                      <Box
+                        key={date.date}
                         sx={{
-                          color:
+                          width: {
+                            sx: "70px !important",
+                            sm: "100%",
+                            md: "145px",
+                          },
+                          position: "relative",
+                          px: { md: 5.3, sm: 2, xs: "5px" },
+                          py: { md: "15px", sm: 2.3, xs: "5px" },
+                          backgroundColor:
                             Number(date.date) === currentDate
-                              ? "#FFFFFF"
-                              : "#272522",
+                              ? "#E7A356"
+                              : "#FFF",
                         }}
+                        className={Number(date.date) === currentDate ? "" : ""}
                       >
-                        {date.date}
-                      </Typography>
+                        <Typography
+                          variant="h4"
+                          className={classes.calenderDateText}
+                          sx={{
+                            color:
+                              Number(date.date) === currentDate
+                                ? "#FFFFFF"
+                                : "#272522",
+                          }}
+                        >
+                          {date.date}
+                        </Typography>
 
-                      <Typography
-                        variant="h6"
-                        className={classes.calenderDayText}
-                        sx={{
-                          color:
-                            Number(date.date) === currentDate
-                              ? "#FFFFFF"
-                              : "#272522",
-                        }}
-                      >
-                        {date.day}
-                      </Typography>
-                    </Box>
+                        <Typography
+                          variant="h6"
+                          className={classes.calenderDayText}
+                          sx={{
+                            color:
+                              Number(date.date) === currentDate
+                                ? "#FFFFFF"
+                                : "#272522",
+                          }}
+                        >
+                          {date.day}
+                        </Typography>
+                      </Box>
+                      {Number(date.date) === currentDate ? (
+                        <img
+                          src={require("../../assets/images/SalonBookings/Triangle.png")}
+                          alt="triangle"
+                          style={{ marginLeft: "40%" }}
+                        />
+                      ) : null}
+                    </>
                   );
                 })}
             </ScrollMenu>
