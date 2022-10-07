@@ -13,6 +13,7 @@ export const Styles: any = (theme: any) => ({
     fontFamily: "Fira Sans !important",
     fontWeight: "600 !important",
     lineHeight: "48px !important",
+    color: "#272522",
     textTransform: "capitalize !important",
     fontStyle: "normal",
     [theme.breakpoints.down("sm")]: {
@@ -92,8 +93,8 @@ export const Styles: any = (theme: any) => ({
       width: "112px",
       height: "49px",
     },
-    [theme.breakpoints.up("lg")]: {
-      paddingTop: "8px",
+    [theme.breakpoints.up("md")]: {
+      paddingTop: "6px",
     },
   },
   bookingsServicesName: {
@@ -117,6 +118,7 @@ export const Styles: any = (theme: any) => ({
     fontFamily: "Fira Sans !important",
     fontStyle: "normal !important",
     fontWeight: "600 !important",
+    color: "#88878F",
     fontSize: "24px !important",
     lineHeight: "48px !important",
     textTransform: "capitalize !important",
