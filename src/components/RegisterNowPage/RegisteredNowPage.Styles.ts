@@ -18,13 +18,22 @@ export const registeredStyles: any = (theme: any) => ({
   termandcondition: {
     fontFamily: "Roboto  !important",
     fontStyle: "normal",
-    fontWeight: "500 ",
+    fontWeight: "500 !important",
     fontSize: "17px !important",
     lineHeight: "30px",
 
     letterSpacing: " 0.01em",
-    textTransform: "capitalize",
+    textTransform: "capitalize !important",
 
-    color: "#272522",
+    color: "#272522 !important",
+    [theme.breakpoints.up("md")]: {
+      fontSize: "17px !important",
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "16px !important",
+    },
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "14px !important",
+    },
   },
 });

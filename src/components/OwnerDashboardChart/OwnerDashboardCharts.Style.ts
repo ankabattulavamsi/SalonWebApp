@@ -1,4 +1,3 @@
-
 export const DashboardChartStyles: any = {
   mainDashboardDiv: {
     display: "grid",
@@ -10,7 +9,7 @@ export const DashboardChartStyles: any = {
     justifyContent: "flex-end",
     alignItems: "center",
     marginTop: "30px !important",
-    marginBottom: "20px",
+    // marginBottom: "20px",
   },
   dashboardChartCardDiv: {
     display: "flex",
@@ -37,3 +36,4 @@ export const DashboardChartStyles: any = {
     },
   },
   };
+

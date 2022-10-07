@@ -1,10 +1,7 @@
-import { Box } from "@mui/system";
 import React, { Component, Fragment } from "react";
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 
-import Footer from "../../components/common/Footer/Footer";
 import SalonNavbar from "../../components/common/Navbar/SalonNavbar";
-
 
 import OwnerDashboardCharts from "../../components/OwnerDashboardChart/OwnerDashboardCharts";
 
@@ -12,7 +9,10 @@ import SalonPatnerBestOffers from "../../components/OffersSection/SalonPatnerBes
 import { salonMenu, CustomerMenu } from "../../utils/data/navbar_menus";
 import BookingDashboard from "../../components/BookingsSection/BookingDashboard";
 import { Outlet } from "react-router-dom";
+import Footer from "../../components/common/Footer/Footer";
 
+import SalonBlog from "../../components/OurBlogs/SalonBlog";
+import Specialists from "../../components/OurSpecialists/Specialists";
 
 class SalonPartner extends Component {
   render() {
@@ -21,22 +21,20 @@ class SalonPartner extends Component {
         <SalonNavbar link="Home" customer={false} menus={salonMenu} />
 
         {/* salon page sections */}
-
-        
-
-        <Grid container>
-          {/* salon page sections */}
-          <OwnerDashboardCharts/>
-        </Grid>
-     
+        <OwnerDashboardCharts />
         <BookingDashboard />
+        <Box sx={{ mt: 10 }}>
+          <SalonPatnerBestOffers />
+        </Box>
+        <Specialists />
+        <SalonBlog />
+
         <Outlet />
-        <Box sx={{mt: 10}}>
-        <SalonPatnerBestOffers />
+        <Box sx={{ mt: 10 }}>
+          <SalonPatnerBestOffers />
         </Box>
         {/* <Footer /> */}
         <Footer salon={true} />
-
       </Fragment>
     );
   }
