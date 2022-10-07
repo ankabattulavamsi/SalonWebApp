@@ -1,3 +1,5 @@
+import { height } from "@mui/system";
+
 export const StylesOffers = {
   MainContainer: {
     backgroundColor: "#FDF6EE",
@@ -91,4 +93,41 @@ export const StylesOffers = {
     margin: 10,
     width: "320px",
   },
+  ModelSaveButton : {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#E7A356', 
+    borderRadius: '5px', 
+    marginRight: '10px',
+    height: '50px'
+  }, 
+  ModelSaveIcon : {
+    fontSize: '20px !important',
+    color: '#fff'
+  },
+  ModelSaveText : {
+    color: '#fff !important', 
+    fontSize: '20px'
+  }, 
+  ModelDeleteButton : {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: "#272522",
+    borderRadius: '5px',
+    marginLeft: '10px',
+    height: '50px'
+  }, 
+  ModelDeleteIcon : {
+    fontSize: '20px !important',
+    color: '#fff'
+  },
+  ModelDeleteText : {
+    color: '#fff !important', 
+    fontSize: '20px'
+  }, 
+  ModelAvatarImage : {
+    
+  }
 };
