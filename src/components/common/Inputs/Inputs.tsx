@@ -5,7 +5,7 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
-import { Component } from "react";
+import React, { Component } from "react";
 import { optionsBanksname } from "../../../utils/data/businessdetailsandPayout/Busness.data";
 import "./Inputs.css";
 interface InputsProps {

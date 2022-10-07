@@ -20,6 +20,7 @@ class Buttons extends Component<ButtonProps, ButtonState> {
           width: "100%",
           bgcolor: "#E7A356",
           color: "#ffffff",
+          mb: 2,
           ":hover": {
             bgcolor: "#E7A356",
             color: "#ffffff",

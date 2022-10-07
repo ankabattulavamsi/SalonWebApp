@@ -8,8 +8,6 @@ export const buttonStyles: any = (theme: any) => ({
     textTransform: "uppercase",
     textAlign: "center",
     width: "100%",
-
-    padding: "15px 20px !important",
     fontSize: "20px !important",
 
     [theme.breakpoints.up("md")]: {
