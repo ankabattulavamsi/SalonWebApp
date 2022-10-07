@@ -17,18 +17,18 @@ class SalonPartner extends Component {
       <Fragment>
         <SalonNavbar link="Home" customer={false} menus={salonMenu} />
         <Grid container>
-        {/* salon page sections */}
-        <OwnerDashboardCharts />
-        <BookingDashboard />
-        <Box sx={{ mt: 10 }}>
-          <SalonPatnerBestOffers />
-        </Box>
+          {/* salon page sections */}
+          <OwnerDashboardCharts />
+          <BookingDashboard />
+          <Box sx={{ mt: 10 }}>
+            <SalonPatnerBestOffers />
+          </Box>
 
-        <div id="/" style={{ marginTop: "100px" }}>
-          <GalleryOwner />
-        </div>
-        <Specialists />
-        <SalonBlog />
+          <div id="/" style={{ marginTop: "100px" }}>
+            <GalleryOwner />
+          </div>
+          <Specialists />
+          <SalonBlog />
         </Grid>
         <Footer salon={true} />
       </Fragment>
