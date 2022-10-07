@@ -1,0 +1,4 @@
+.cards:hover .cardActio {
+  display: flex !important;
+  transition: all 2s;
+}

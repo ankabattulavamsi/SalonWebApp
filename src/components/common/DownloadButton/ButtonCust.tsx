@@ -7,7 +7,7 @@ interface ButtonProps {
   color: string;
   bgColor: string;
   avatar?: string;
-  title?: string;
+  title: string;
   subTitle?: string;
 }
 interface ButtonState {}
@@ -46,16 +46,18 @@ export default class ButtonCust extends Component<ButtonProps, ButtonState> {
             },
           }}
         >
-          <Typography
-            variant="caption"
-            className="para-button"
-            sx={{
-              fontSize: { xs: "12px", md: "14px" },
-            }}
-            textAlign={"left"}
-          >
-            {subTitle}
-          </Typography>
+          {subTitle && (
+            <Typography
+              variant="caption"
+              className="para-button"
+              sx={{
+                fontSize: { xs: "12px", md: "14px" },
+              }}
+              textAlign={"left"}
+            >
+              {subTitle}
+            </Typography>
+          )}
           <Typography
             variant="caption"
             className="heding-button"
