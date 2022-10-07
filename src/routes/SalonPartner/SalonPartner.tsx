@@ -1,9 +1,12 @@
+import { Box } from "@mui/system";
 import React, { Component, Fragment } from "react";
 import { Grid } from "@mui/material";
 
 import Footer from "../../components/common/Footer/Footer";
 import SalonNavbar from "../../components/common/Navbar/SalonNavbar";
-import { SalonMenu } from "../../utils/data/navbar_menus";
+import SalonPatnerBestOffers from "../../components/OffersSection/SalonPatnerBestOffers";
+import { salonMenu, CustomerMenu } from "../../utils/data/navbar_menus";
+import { Outlet } from "react-router-dom";
 
 class SalonPartner extends Component{
 
@@ -13,15 +16,13 @@ class SalonPartner extends Component{
         <SalonNavbar 
           link="Home"
           customer={false}
-          menus={SalonMenu}
+          menus={salonMenu}
         />
-        <Grid container>
-          {/* salon page sections */}
-          
-        </Grid>
-        <Footer 
-          salon={true}
-        />
+        <Outlet />
+        <Box>
+        <SalonPatnerBestOffers />
+        </Box>
+        {/* <Footer /> */}
       </Fragment>
     );
   }
