@@ -1,4 +1,5 @@
 import {
+<<<<<<< HEAD
   Button,
   Card,
   CardContent,
@@ -11,6 +12,18 @@ import { Box } from "@mui/system";
 import React, { Component } from "react";
 import { withStyles } from "@mui/styles";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
+=======
+    Card,
+    CardContent,
+    CardMedia,
+    Grid,
+    Typography,
+  } from "@mui/material";
+  import { Box } from "@mui/system";
+  import React, { Component } from "react";
+  import { withStyles } from "@mui/styles";
+  import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
+>>>>>>> 160d2b41d3a9ff121eb3823287ea76b54d30a504
 import { SalonBestOffersData } from "../../utils/data/SalonPatnerBestOffers/SalonBestOffers";
 import CommonViewAllButton from "../common/CommonSalonPatnerButtons/CommonViewAllButton";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
@@ -64,9 +77,9 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
                     variant="h4"
                     className="salon-best-offers-heading"
                     sx={{
-                      fontSize: { xs: "20px", sm: "35px", lg: "40px" },
+                      fontSize: { xs: "20px", sm: "32px", lg: "36px" },
                       fontWeight: "700",
-                      lineHeight: "28px",
+                      lineHeight: "18px",
                       letterSpacing: "-0.01rem",
                       textTransform: "capitalize",
                       color: "#272522",
@@ -78,9 +91,15 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
                 </Box>
               </Grid>
               <Grid item lg={5} md={5} xs={12} sm={5}>
+<<<<<<< HEAD
                 <Link to="/best-offers" style={{textDecoration: 'none'}}>
                   <CommonViewAllButton />
                 </Link>
+=======
+                <Box sx={{mt:-2}} >
+                <CommonViewAllButton />
+                </Box>
+>>>>>>> 160d2b41d3a9ff121eb3823287ea76b54d30a504
               </Grid>
             </Grid>
             <Grid

@@ -62,8 +62,9 @@
 .salon-best-offers-heading::after{
     content: "";
     width: 52px;
-    height: 6px;
+    height: 4px;
     display: block;
     background-color: #ebb273;
-    margin-top: 6px;
+    margin-top: 10px;
+    margin-bottom: 0px;
 }
