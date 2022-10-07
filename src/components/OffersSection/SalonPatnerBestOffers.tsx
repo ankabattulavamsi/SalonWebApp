@@ -1,33 +1,62 @@
 import {
-    Card,
-    CardContent,
-    CardMedia,
-    Grid,
-    Typography,
-  } from "@mui/material";
-  import { Box } from "@mui/system";
-  import React, { Component } from "react";
-  import { withStyles } from "@mui/styles";
-  import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
-  
-import "./SalonBestOffers.css";
-import CommonViewAllButton from "../common/CommonSalonPatnerButtons/CommonViewAllButton";
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  Divider,
+  Grid,
+  Typography,
+} from "@mui/material";
+import { Box } from "@mui/system";
+import React, { Component } from "react";
+import { withStyles } from "@mui/styles";
+import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import { SalonBestOffersData } from "../../utils/data/SalonPatnerBestOffers/SalonBestOffers";
-import CommonEditDeleteButtons from "../common/CommonSalonPatnerButtons/CommonEditDeleteButtons";
+import CommonViewAllButton from "../common/CommonSalonPatnerButtons/CommonViewAllButton";
+import ModeEditIcon from "@mui/icons-material/ModeEdit";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { StylesOffers } from "./BestOffers.styles";
 
+import "./SalonBestOffers.css";
+import SalonBestOffersModel from "./SalonBestOffersModel";
+import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
 
-  interface IsStateProps {
-    classes: any;
-  }
-  
-  export class SalonPatnerBestOffers extends Component<IsStateProps> {
-    render() {
-      const { classes } = this.props;
-      return (
-        <div>
-          <Box sx={{  pt: 5, pb: 5 }} className={classes.MainContainer} >
-            <Box maxWidth='xl' >
+interface IsStateProps {
+  classes: any;
+  navigate?: any;
+}
+
+interface IsState {
+  open: boolean;
+}
+
+export class SalonPatnerBestOffers extends Component<IsStateProps> {
+  state: IsState = {
+    open: false,
+  };
+
+  onClickOpenModel = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+
+  onClickNavigateOffersPage = () => {
+    this.props.navigate("/best-offers");
+  };
+
+  render() {
+    const { classes } = this.props;
+    const { open } = this.state;
+
+    const navigatePageButton = "View All Offers";
+
+    return (
+      <div>
+        <Box sx={{ pt: 5, pb: 5, mt: 5 }} className={classes.MainContainer}>
+          <Box maxWidth="xl">
             <Grid
               container
               justifyContent="center"
@@ -36,7 +65,7 @@ import { StylesOffers } from "./BestOffers.styles";
               sx={{ px: { sm: 4, xs: 2, md: 0, lg: 0 }, mb: 5 }}
             >
               <Grid item lg={5} md={5} xs={12} sm={5}>
-                <Box>
+                <Box sx={{mt:2}}>
                   <Typography
                     variant="h4"
                     className="salon-best-offers-heading"
@@ -55,8 +84,11 @@ import { StylesOffers } from "./BestOffers.styles";
                 </Box>
               </Grid>
               <Grid item lg={5} md={5} xs={12} sm={5}>
-                <Box sx={{mt:-2}} >
-                <CommonViewAllButton />
+                <Box>
+                  <CommonViewAllButton
+                    buttonName={navigatePageButton}
+                    onClickNavigateOffersPage={this.onClickNavigateOffersPage}
+                  />
                 </Box>
               </Grid>
             </Grid>
@@ -76,47 +108,38 @@ import { StylesOffers } from "./BestOffers.styles";
                         className="parent-container"
                       >
                         <CardMedia
-                          sx={{
-                            maxHeight: { xs: "100%", sm: "300px" },
-                            display: "flex",
-                            mx: "auto",
-                          }}
                           component="img"
                           image={item.offerImage}
                           alt="green iguana"
-                          className="card-image-salon-offers"
                         />
                         <CardContent>
                           <Box className={classes.headingCardContainer}>
-                            <Typography className={classes.offersPercentageHead} sx={{fontSize: '22px'}}>
+                            <Typography
+                              className={classes.offersPercentageHead}
+                              sx={{ fontSize: "22px" }}
+                            >
                               {item.headingOff}
                             </Typography>
                             <Box sx={{ display: "flex", width: "101px" }}>
-                              <Box
-                                className="best-offers-discount-price"
-                                sx={{
-                                  display: "flex",
-                                }}
-                              >
+                              <Box className="best-offers-discount-price">
                                 <CurrencyRupeeIcon
-                                  style={{ width: "18px", marginRight: 0, marginTop: 2 }}
+                                  style={{
+                                    width: "18px",
+                                    marginTop: 2,
+                                  }}
                                 />
-                                <Typography sx={{  fontSize: "20px", mb:0 }}>
+                                <Typography sx={{ fontSize: "20px" }}>
                                   {item.dissPrice}
                                 </Typography>
                               </Box>
-                              <Box
-                                className="best-offers-original-price"
-                                sx={{
-                                  display: "flex",
-                                }}
-                              >
+                              <Box className="best-offers-original-price">
                                 <CurrencyRupeeIcon
-                                  style={{ width: "18px", marginRight: 0, marginTop: 2 }}
+                                  style={{
+                                    width: "18px",
+                                    marginTop: 2,
+                                  }}
                                 />
-                                <Typography
-                                  sx={{ fontSize: "20px", ml: 0 }}
-                                >
+                                <Typography sx={{ fontSize: "20px" }}>
                                   {item.price}
                                 </Typography>
                               </Box>
@@ -124,13 +147,33 @@ import { StylesOffers } from "./BestOffers.styles";
                           </Box>
                           <Typography
                             className={classes.offerDescription}
-                            sx={{ textAlign: "start", fontSize: '18px', mt: 2 }}
+                            sx={{ fontSize: "18px", mt: 2 }}
                           >
                             {item.description}
                           </Typography>
                         </CardContent>
-                        <Box sx={{}}>
-                          <CommonEditDeleteButtons />
+                        <Box className={classes.EditDeleteButonsContainer}>
+                          <Box
+                            onClick={this.onClickOpenModel}
+                            className="edit-button1"
+                          >
+                            <ModeEditIcon className="edit-icon" />
+                            <Button className="best-offers-edit-text">
+                              {item.typeEdit}
+                            </Button>
+                          </Box>
+
+                          <Divider
+                            sx={{ border: "1px solid #88878F", opacity: "0.2" }}
+                            className="buttons-border-line"
+                          />
+
+                          <Box className="delete-button2">
+                            <DeleteIcon className="delete-icon" />
+                            <Button className="best-offers-delete-text">
+                              {item.typeDelete}
+                            </Button>
+                          </Box>
                         </Box>
                       </Card>
                     </Box>
@@ -138,12 +181,12 @@ import { StylesOffers } from "./BestOffers.styles";
                 );
               })}
             </Grid>
-            </Box>
           </Box>
-        </div>
-      );
-    }
+        </Box>
+        <SalonBestOffersModel open={open} handleClose={this.handleClose} />
+      </div>
+    );
   }
-  
-  export default withStyles(StylesOffers)(SalonPatnerBestOffers);
-  
+}
+
+export default WithRouterHoc(withStyles(StylesOffers)(SalonPatnerBestOffers));

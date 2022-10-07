@@ -29,7 +29,6 @@ class SalonPartner extends Component{
         <Footer 
           salon={true}
         />
-        
       </Fragment>
     );
   }
