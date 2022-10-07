@@ -21,6 +21,7 @@ export const locationImage: string = require("../../../assets/images/BuesnessPro
 export const noteImage: string = require("../../../assets/images/BuesnessProfile/note_add.png");
 export const emailImage: string = require("../../../assets/images/BuesnessProfile/email.png");
 export const yblImage: string = require("../../../assets/images/BuesnessProfile/@ybI.png");
+export const profilesImage: string = require("../../../assets/images/BuesnessProfile/profile.jpg");
 
 export const optionsBankName: optionsBanksname[] = [
   {

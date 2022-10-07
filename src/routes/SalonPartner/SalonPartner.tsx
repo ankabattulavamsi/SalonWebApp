@@ -9,29 +9,21 @@ import SalonPatnerBestOffers from "../../components/OffersSection/SalonPatnerBes
 import Footer from "../../components/common/Footer/Footer";
 import Specialists from "../../components/OurSpecialists/Specialists";
 
-
-
 class SalonPartner extends Component {
   render() {
     return (
       <Fragment>
-        <SalonNavbar 
-          link="Home"
-          customer={false}
-          menus={salonMenu}
-        />
+        <SalonNavbar link="Home" customer={false} menus={salonMenu} />
         <Grid container>
           {/* salon page sections */}
-          <OwnerDashboardCharts/>
-          <Box sx={{mt: 10}}>
-          <SalonPatnerBestOffers />
+          <OwnerDashboardCharts />
+          <Box sx={{ mt: 10 }}>
+            <SalonPatnerBestOffers />
           </Box>
-          <Specialists/>
+          <Specialists />
           <SalonBlog />
         </Grid>
-        <Footer 
-          salon={true}
-        />
+        <Footer salon={true} />
       </Fragment>
     );
   }
