@@ -19,7 +19,9 @@ class SalonPartner extends Component {
         <Grid container>
           {/* salon page sections */}
           <OwnerDashboardCharts />
-          <BookingDashboard />
+          <Box sx={{ mx: "auto", width: "100%" }}>
+            <BookingDashboard />
+          </Box>
           <Box sx={{ mt: 10 }}>
             <SalonPatnerBestOffers />
           </Box>
