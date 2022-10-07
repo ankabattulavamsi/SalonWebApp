@@ -8,8 +8,8 @@ export const data: ChartData = {
     {
       name: "",
       data: [
-        5000, 4550, 3000, 7800, 5600, 4800, 3200, 4200, 5500, 5600, 4800, 3200,
-        4200, 5500, 5000, 4550, 3000, 7800, 5600, 4800, 3200, 4200, 5500, 5600,
+        5000, 4550, 3000, 7400, 5600, 4800, 3200, 4200, 5500, 5600, 4800, 3200,
+        4200, 5500, 5000, 4550, 3000, 7000, 5600, 4800, 3200, 4200, 5500, 5600,
         4800, 3200, 4200, 5500, 4200, 5500,
       ],
     },
@@ -94,20 +94,20 @@ export const data: ChartData = {
       custom: function ({ series, dataPointIndex, w }: any) {
         const se = series[0];
         let value = se.filter((e: any, i: any) => i === dataPointIndex);
-        console.log("value", value);
+        // console.log("value", value);
 
         const la = w.globals.labels;
         const labe = la.filter((e: any, i: any) => i === dataPointIndex);
-        console.log("! labe", labe);
+        // console.log("! labe", labe);
         //  console.log(la,"lable");
-        console.log(w, "wwwww");
+        // console.log(w, "wwwww");
         // const op = "$" + value + labe.toString();
 
         //  console.log(se,"series");
         // console.log(seriesIndex,"seriesIndex");
-        console.log(dataPointIndex, "dataPointIndex");
+        // console.log(dataPointIndex, "dataPointIndex");
         return (
-          "<div style='background:#272522;width:99px;height:62px;border-radius:15px 15px 15px 0px;color:white;display:flex;flex-direction: column;justify-content:space-evenly;align-items:center;'>" +
+          "<div style='background:#272522;width:99px;height:62px;border-radius:15px 15px 0px 15px;color:white;display:flex;flex-direction: column;justify-content:space-evenly;align-items:center;'>" +
           "<span style='font-family: Fira Sans;font-style: normal;font-weight: 500;font-size: 18px;text-transform: capitalize;letter-spacing: 1px; '>" +
           "₹" +
           value +

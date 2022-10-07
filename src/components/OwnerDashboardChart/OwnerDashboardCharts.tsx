@@ -1,3 +1,4 @@
+import React, { Component } from "react";
 import {
   Box,
   Card,
@@ -6,18 +7,15 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
+import { withStyles } from "@mui/styles";
 import { data } from "../../utils/data/ownerDashboard/ownerDashboardCharts";
 import {
   Cards,
   CardData,
 } from "../../utils/data/ownerDashboard/ownerDashboard";
-import { withStyles } from "@mui/styles";
 
 import { DashboardChartStyles } from "./OwnerDashboardCharts.Style";
-import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
-
 import "./Owner.css"
 interface chartProps {
   classes: any;
@@ -44,12 +42,7 @@ class OwnerDashboardChart extends Component<chartProps> {
                   overall profits
                 </Typography>
                 <Typography variant="h2" color="primary.dark">
-                  <CurrencyRupeeIcon
-                    sx={{
-                      marginBottom: "-2px",
-                    }}
-                  />
-                  5,24,900
+                ₹5,24,900
                 </Typography>
               </Box>
               <ReactApexChart
@@ -57,7 +50,7 @@ class OwnerDashboardChart extends Component<chartProps> {
                 options={data.options}
                 series={data.series}
                 type="bar"
-                height={330}
+                height={395}
                
               />
               <Box className={classes.dashboardChartCardDiv}>
@@ -77,13 +70,7 @@ class OwnerDashboardChart extends Component<chartProps> {
                           />
                           <CardContent>
                             <Typography variant="h2">
-                              {cards.description === "January Profits" ? (
-                                <CurrencyRupeeIcon
-                                  sx={{
-                                    marginBottom: "-2px",
-                                  }}
-                                />
-                              ) : null}
+                              {cards.description === "January Profits" ? "₹": null}
                               {cards.heading}
                             </Typography>
                             <Typography variant="h3" color="secondary.dark">
