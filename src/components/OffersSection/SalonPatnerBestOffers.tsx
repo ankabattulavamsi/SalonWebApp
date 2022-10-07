@@ -19,14 +19,34 @@ import { StylesOffers } from "./BestOffers.styles";
 
 import "./SalonBestOffers.css";
 import { Link } from "react-router-dom";
+import SalonBestOffersModel from "./SalonBestOffersModel";
 
 interface IsStateProps {
   classes: any;
 }
 
+interface IsState {
+  open: boolean
+}
+
 export class SalonPatnerBestOffers extends Component<IsStateProps> {
+
+  state:IsState = { 
+      open : false
+  }
+
+  onClickOpenModel = () => {
+    this.setState({open: true})
+  }
+
+  handleClose = () => {
+    this.setState({open: false})
+  }
+
   render() {
     const { classes } = this.props;
+    const {open} = this.state 
+
     return (
       <div>
         <Box sx={{ pt: 5, pb: 5, mt:5 }} className={classes.MainContainer}>
@@ -150,7 +170,8 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
                             width: "320px",
                           }}
                         >
-                          <Box
+                          <Box 
+                          onClick={this.onClickOpenModel}
                             className="edit-button1"
                             sx={{
                               display: "flex",
@@ -219,6 +240,7 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
             </Grid>
           </Box>
         </Box>
+        <SalonBestOffersModel open={open} handleClose={this.handleClose} />
       </div>
     );
   }
