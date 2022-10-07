@@ -4,7 +4,7 @@ import React, { Component } from "react";
 
 interface IsStatePassProps {
   open: boolean, 
-  handleClose: (id :any) => void,
+  handleClose: (id :any) => void
 }
 
 class SalonBestOffersModel extends Component<IsStatePassProps> {
