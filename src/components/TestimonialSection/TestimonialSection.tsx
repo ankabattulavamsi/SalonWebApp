@@ -43,7 +43,11 @@ class TestimonialSection extends React.Component<
   render() {
     return (
       <>
-        <Box>
+        <Box
+          sx={{
+            pt: 10,
+          }}
+        >
           <>
             <>
               <Box
@@ -65,7 +69,7 @@ class TestimonialSection extends React.Component<
                   className="underline-testimonials"
                   sx={{
                     fontSize: "35px",
-                    mt: 20,
+                    pt: 5,
                   }}
                 >
                   Testimonials
@@ -135,8 +139,8 @@ class TestimonialSection extends React.Component<
                                       className="comments-testm"
                                       sx={{
                                         fontSize: {
-                                          xs: "14px",
-                                          sm: "16px",
+                                          xs: "80%",
+                                          sm: "80%",
                                           md: "18px",
                                         },
                                       }}
