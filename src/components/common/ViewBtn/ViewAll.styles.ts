@@ -5,7 +5,7 @@ export const viewAllStyles: any = (theme: any) => ({
     padding: "18px 25px !important",
 
     borderRadius: "8px !important",
-    textTransform: "capitalize !important",
+    textTransform: "uppercase !important",
     fontSize: "18px !important",
     ":hover": {
       bgcolor: "#272522 !important",
