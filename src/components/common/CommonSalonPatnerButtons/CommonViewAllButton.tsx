@@ -1,31 +1,37 @@
-import { Button, Grid } from "@mui/material";
+import { Button } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { Component, Fragment } from "react";
+import { withStyles } from "@mui/styles";
+import { StylesOffers } from "../../OffersSection/BestOffers.styles";
 
-export class CommonViewAllButton extends Component {
+interface IsNameProps {
+  classes: any;
+  buttonName: string;
+  onClickNavigateOffersPage: (id: any) => void;
+}
+
+export class CommonViewAllButton extends Component<IsNameProps> {
   render() {
+    const { classes } = this.props;
+
     return (
       <>
         <Box
+          className={classes.ViewAllButtonContainer}
           sx={{
-            backgroundColor: "#272522",
-            borderRadius: "8px",
-            width: { xs: "110px", sm: "160px", lg: "200px" },
+            width: { xs: "150px", sm: "180px", lg: "200px" },
             textAlign: "center",
             ml: { lg: "auto", sm: "auto" },
-            mr: 0,
           }}
         >
           <Button
+            className={classes.ViewAllButton}
+            onClick={this.props.onClickNavigateOffersPage}
             sx={{
-              color: "#FFFFFF",
-              fontFamily: "Fira Sans",
-              fontWeight: 700,
-              letterSpacing: "0.02em",
-              fontSize: { xs: "16px", sm: "20px", lg: "24px" },
+              fontSize: { xs: "14px", sm: "18px", lg: "20px" },
             }}
           >
-            View All
+            {this.props.buttonName}
           </Button>
         </Box>
       </>
@@ -33,4 +39,4 @@ export class CommonViewAllButton extends Component {
   }
 }
 
-export default CommonViewAllButton;
+export default withStyles(StylesOffers)(CommonViewAllButton);
