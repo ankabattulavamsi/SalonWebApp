@@ -18,6 +18,16 @@ export const galleryStyles: any = (theme: any) => ({
     textTransform: "capitalize !important",
 
     color: "#272522 !important",
+
+    [theme.breakpoints.up("md")]: {
+      fontSize: "35px !important",
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "30px !important",
+    },
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "100% !important",
+    },
   },
   card: {
     position: "relative",

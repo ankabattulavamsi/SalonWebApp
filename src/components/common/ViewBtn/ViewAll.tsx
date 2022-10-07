@@ -1,29 +1,22 @@
 import { Button } from "@mui/material";
+import { withStyles } from "@mui/styles";
 import React, { Component } from "react";
+import { viewAllStyles } from "./ViewAll.styles";
 interface Istate {}
 interface Iprops {
   title: string;
 }
-export default class ViewAll extends Component<Iprops, Istate> {
+class ViewAll extends Component<Iprops, Istate> {
   render() {
+    const { classes }: any = this.props;
     return (
       <Button
-        sx={{
-          bgcolor: "#272522",
-          color: "#ffffff",
-          py: "18px",
-          px: "25px",
-          borderRadius: "8px",
-          textTransform: "capitalize",
-          fontSize: "18px",
-          ":hover": {
-            bgcolor: "#272522",
-            color: "#ffffff",
-          },
-        }}
+        className={classes.buttonClass}
+       
       >
         {this.props.title}
       </Button>
     );
   }
 }
+export default withStyles(viewAllStyles)(ViewAll);
