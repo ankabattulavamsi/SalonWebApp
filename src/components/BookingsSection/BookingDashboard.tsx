@@ -55,12 +55,13 @@ class BookingsDashboard extends Component {
         }}
       >
         <Container maxWidth="lg" sx={{ mx: "auto" }}>
-          <Box sx={{ position: "reltive" }}>
+          <Box>
             <ScrollMenu
               LeftArrow={
                 <Button
                   onClick={this.onPreviousDate}
                   disabled={currentDate === 4 ? true : false}
+                  sx={{ paddingBottom: "25px" }}
                 >
                   <ArrowBackIosNewIcon className={classes.previousDateIcon} />
                 </Button>
@@ -69,6 +70,7 @@ class BookingsDashboard extends Component {
                 <Button
                   onClick={this.onNextDate}
                   disabled={currentDate === 27 ? true : false}
+                  sx={{ paddingBottom: "25px" }}
                 >
                   <ArrowForwardIosIcon className={classes.nextDateIcon} />
                 </Button>

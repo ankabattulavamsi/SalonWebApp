@@ -179,7 +179,7 @@ export const Styles: any = (theme: any) => ({
   nextDateIcon: {
     color: "#999999 !important",
     width: "120px",
-    height: "100px !important",
+    height: "80px !important",
     [theme.breakpoints.down("sm")]: {
       width: "32px !important ",
       height: "76px !important",
@@ -188,7 +188,7 @@ export const Styles: any = (theme: any) => ({
   previousDateIcon: {
     color: "#999999 !important",
     width: "90px",
-    height: "100px !important",
+    height: "80px !important",
     [theme.breakpoints.down("sm")]: {
       width: "32px !important ",
       height: "76px !important ",
