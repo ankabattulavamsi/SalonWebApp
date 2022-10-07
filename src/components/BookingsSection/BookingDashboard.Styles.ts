@@ -11,7 +11,6 @@ export const Styles: any = (theme: any) => ({
   },
   customerName: {
     fontFamily: "Fira Sans !important",
-    color: "#272522 ",
     fontWeight: "600 !important",
     lineHeight: "48px !important",
     textTransform: "capitalize !important",
@@ -24,9 +23,6 @@ export const Styles: any = (theme: any) => ({
     },
     [theme.breakpoints.up("md")]: {
       fontSize: "24px !important",
-    },
-    "&:hover": {
-      color: "#E7A356 !important",
     },
   },
   bookingsServicesTitle: {
@@ -124,12 +120,8 @@ export const Styles: any = (theme: any) => ({
     fontSize: "24px !important",
     lineHeight: "48px !important",
     textTransform: "capitalize !important",
-    color: "#88878F !important",
     [theme.breakpoints.down("sm")]: {
       fontSize: "22px !important",
-    },
-    "&:hover": {
-      color: "#E7A356 !important",
     },
   },
   customerContainer: {

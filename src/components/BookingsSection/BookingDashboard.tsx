@@ -20,13 +20,21 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 import { Styles } from "./BookingDashboard.Styles";
 import KeyboardDoubleArrowRightOutlinedIcon from "@mui/icons-material/KeyboardDoubleArrowRightOutlined";
-import { bookingSectionData } from "../../utils/data/bookings/BookingsDashboardData";
+import {
+  bookingSectionData,
+  BookingCardProps,
+} from "../../utils/data/bookings/BookingsDashboardData";
 import { datesArray } from "../../utils/data/bookings/CalenderData";
 
 import "./BookingDashboard.css";
 
+interface DateProps {
+  day: string;
+  date: number;
+}
+
 class BookingsDashboard extends Component {
-  state = { currentDate: new Date().getDate() };
+  state = { currentDate: new Date().getDate(), activeCard: 0 };
 
   onNextDate = () => {
     const { currentDate } = this.state;
@@ -37,9 +45,14 @@ class BookingsDashboard extends Component {
     const { currentDate } = this.state;
     this.setState({ currentDate: currentDate - 1 });
   };
+
+  onClickActiveCard = (id: number) => {
+    this.setState({ activeCard: id });
+  };
+
   render() {
     const { classes, theme }: any = this.props;
-    const { currentDate } = this.state;
+    const { currentDate, activeCard } = this.state;
     return (
       <Box
         sx={{
@@ -48,25 +61,32 @@ class BookingsDashboard extends Component {
         }}
       >
         <Container maxWidth="lg" sx={{ mx: "auto" }}>
-          <Box>
+          <Box sx={{ position: "reltive" }}>
             <ScrollMenu
               LeftArrow={
-                <Button onClick={this.onPreviousDate}>
+                <Button
+                  onClick={this.onPreviousDate}
+                  disabled={currentDate === 4 ? true : false}
+                >
                   <ArrowBackIosNewIcon className={classes.previousDateIcon} />
                 </Button>
               }
               RightArrow={
-                <Button onClick={this.onNextDate}>
+                <Button
+                  onClick={this.onNextDate}
+                  disabled={currentDate === 27 ? true : false}
+                >
                   <ArrowForwardIosIcon className={classes.nextDateIcon} />
                 </Button>
               }
             >
               {datesArray
                 .slice(currentDate - 4, currentDate + 3)
-                .map((date: any, index: number) => {
+                .map((date: DateProps) => {
                   return (
                     <Box
-                      sx={{ 
+                      key={date.date}
+                      sx={{
                         width: {
                           sx: "70px !important",
                           sm: "100%",
@@ -79,6 +99,9 @@ class BookingsDashboard extends Component {
                             ? "#E7A356"
                             : "#FFF",
                       }}
+                      className={
+                        Number(date.date) === currentDate ? "card-booking" : ""
+                      }
                     >
                       <Typography
                         variant="h4"
@@ -117,12 +140,13 @@ class BookingsDashboard extends Component {
               py: "34px",
             }}
           >
-            {bookingSectionData.slice(0, 4).map((item: any) => {
+            {bookingSectionData.slice(0, 4).map((item: any, index: number) => {
               return (
                 <Grid item key={item.id} md={6} sm={6} xs={12}>
                   <Card
                     className={classes.customerContainer}
-                    sx={{ mx: "auto !important" }}
+                    sx={{ mx: "auto !important", boxShadow: "none" }}
+                    onClick={() => this.onClickActiveCard(index)}
                   >
                     <CardHeader
                       classes={{
@@ -149,6 +173,10 @@ class BookingsDashboard extends Component {
                           <Typography
                             variant="h5"
                             className={classes.profileHeaderCost}
+                            sx={{
+                              color:
+                                activeCard === index ? "#E7A356" : "#88878F",
+                            }}
                           >
                             ₹{item.cost}
                           </Typography>
@@ -159,6 +187,9 @@ class BookingsDashboard extends Component {
                           </IconButton>
                         </Box>
                       }
+                      titleTypographyProps={{
+                        color: activeCard === index ? "#E7A356" : "#272522",
+                      }}
                       title={item.title}
                       subheader="OD11721633"
                     />
@@ -180,7 +211,7 @@ class BookingsDashboard extends Component {
                                   sm={3}
                                   md={3}
                                   lg={3}
-                                  key={index}
+                                  key={service}
                                 >
                                   <Box className={classes.serviceNameContainer}>
                                     <Typography

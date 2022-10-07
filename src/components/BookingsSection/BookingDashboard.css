@@ -18,3 +18,14 @@
 .css-mhc70k-MuiGrid-root > .MuiGrid-item {
   padding-left: 10px !important;
 }
+
+.card-booking::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 60px solid #e7a356;
+  position: absolute !important;
+}
