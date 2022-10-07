@@ -11,7 +11,7 @@ import { VerificationCompStyles } from "./VerificationComp.styles";
 interface VerificationCompProps {
   open: boolean;
   handleToggle: (type?: string) => void;
-  state?: navSate;
+  state: navSate;
   classes: any;
   navigate: any;
   handleChangeOtp?: (otp: string) => void;
@@ -57,7 +57,7 @@ class VerificationComp extends Component<
             <OtpPass
               numberInputs={4}
               placeholder="2809"
-              value={state?.otpVerif}
+              value={state.otpVerif}
               handleChange={handleChangeOtp}
               isInputSecure
             />
@@ -78,10 +78,10 @@ class VerificationComp extends Component<
 
           <Box sx={{ mt: 5 }}>
             <Buttons
-              disabled={state?.otpVerif === ""}
+              disabled={state.otpVerif === ""}
               title="Verify & continue"
               handleClick={() => {
-                state?.IsCustomerLogin
+                state.IsCustomerLogin
                   ? this.handleCustomerClick()
                   : this.handleSalonClick();
               }}
