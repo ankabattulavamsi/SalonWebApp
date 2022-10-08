@@ -25,7 +25,7 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
   render() {
     const { classes } = this.props;
     return (
-      <Container>
+      <Container maxWidth="lg">
         <Box sx={{ mb: 5 }}>
           <Box
             sx={{
