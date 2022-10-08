@@ -27,7 +27,7 @@ export class Gallery extends Component {
             </Box>
           </Box>
           <Grid container spacing={2}>
-            {gallaryData.map((images: GallaryData) => {
+            {gallaryData.slice(0, 6).map((images: GallaryData) => {
               return (
                 <Grid item xs={12} sm={6} md={4} key={images.id}>
                   <Card sx={{ width: "100%" }} className={classes.card}>

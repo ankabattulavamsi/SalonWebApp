@@ -28,4 +28,12 @@ export const gallaryData: GallaryData[] = [
     id: 6,
     imgUrl: require("../../../assets/images/GalleryOwner/6.png"),
   },
+  {
+    id: 7,
+    imgUrl: require("../../../assets/images/GalleryOwner/6.png"),
+  },
+  {
+    id: 8,
+    imgUrl: require("../../../assets/images/GalleryOwner/6.png"),
+  },
 ];

@@ -1,4 +1,3 @@
-import { CenterFocusStrong } from "@mui/icons-material";
 
 export const Styles: any = (theme: any) => ({
   titlebox: {

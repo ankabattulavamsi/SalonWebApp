@@ -7,6 +7,8 @@ import LandingPageNavigation from "./routes/LandingPageNavigation/LandingPageNav
 import SalonPartner from "./routes/SalonPartner/SalonPartner";
 
 import "./App.css";
+import GallerySalon from "./components/GallerySalonOwner/Gallery.Salon";
+import Nopage from "./routes/Nopage/Nopage";
 function App() {
   return (
     <div>
@@ -23,6 +25,8 @@ function App() {
           {/* Login */}
           {/* Salon Partners */}
           <Route path="salon" element={<SalonPartner />} />
+          <Route path="salon/gallery" element={<GallerySalon />} />
+          <Route path="/*" element={<Nopage />} />
           {/* Salon Partners */}
         </Routes>
       </ThemeProvider>
