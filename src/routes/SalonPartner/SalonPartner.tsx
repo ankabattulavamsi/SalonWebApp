@@ -23,8 +23,7 @@ class SalonPartner extends Component {
           <Box sx={{ mx: "auto", width: "100%" }}>
             <BookingDashboard />
           </Box>
-          <SalonCategory/>
-          <BookingDashboard />
+          <SalonCategory />
           <Box sx={{ mt: 10 }}>
             <SalonPatnerBestOffers />
           </Box>
