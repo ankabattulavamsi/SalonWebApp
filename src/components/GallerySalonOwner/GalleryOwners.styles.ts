@@ -74,4 +74,8 @@ export const galleryStyles: any = (theme: any) => ({
       border: "2px solid #E7A356 !important",
     },
   },
+
+  capitalized: {
+    textTransform: "capitalize !important",
+  },
 });

@@ -2,7 +2,7 @@ export interface GallaryData {
   id: number;
   imgUrl: any;
 }
-
+export const galleryBanner = require("../../../assets/images/GalleryOwner/bg-gallery.png");
 export const gallaryData: GallaryData[] = [
   {
     id: 1,
