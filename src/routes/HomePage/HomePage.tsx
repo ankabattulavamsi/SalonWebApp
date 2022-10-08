@@ -9,10 +9,10 @@ import OurBestServices from "../../components/OurBestServices/OurBestServices";
 import FeatureCarousel from "../../components/FeatureCarousel/FeatureCarousel";
 import AboutUs from "../../components/AboutUsSection/AboutUs";
 import Offers from "../../components/OffersSection/Offers";
-import OurBlogs from "../../components/OurBlogs/OurBlogs";
 import Gallery from "../../components/Gallery/Gallery";
 import withRouter from "../../hoc/withRouter";
 import { NavigateFunction } from "react-router-dom";
+import OurBlogs from "../../components/OurBlogs/OurBlogs";
 interface HomeProps {
 	navigate: NavigateFunction;
 }

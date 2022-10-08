@@ -10,6 +10,7 @@ import BookingDashboard from "../../components/BookingsSection/BookingDashboard"
 import Footer from "../../components/common/Footer/Footer";
 import SalonBlog from "../../components/OurBlogs/SalonBlog";
 import Specialists from "../../components/OurSpecialists/Specialists";
+import SalonCategory from "../../components/Categories/SalonCategory";
 
 class SalonPartner extends Component {
   render() {
@@ -22,6 +23,8 @@ class SalonPartner extends Component {
           <Box sx={{ mx: "auto", width: "100%" }}>
             <BookingDashboard />
           </Box>
+          <SalonCategory/>
+          <BookingDashboard />
           <Box sx={{ mt: 10 }}>
             <SalonPatnerBestOffers />
           </Box>
