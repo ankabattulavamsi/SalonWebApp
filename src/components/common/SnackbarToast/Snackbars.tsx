@@ -23,7 +23,7 @@ export default class Snackbars extends Component<
         <Alert
           onClose={() => handleClose()}
           severity={type}
-          sx={{ width: "100%" }}
+          sx={{ width: "100%", textTransform: "capitalize" }}
         >
           {message}
         </Alert>
