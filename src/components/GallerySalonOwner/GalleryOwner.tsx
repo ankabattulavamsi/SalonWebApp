@@ -15,7 +15,7 @@ import {
   gallaryData,
   GallaryData,
 } from "../../utils/data/GalleryOwner/Gallery";
-import { ViewAll } from "../common";
+import { CommonViewAllButton } from "../common";
 import { galleryStyles } from "./GalleryOwners.styles";
 import "./GalleryOwner.styles.css";
 import withRouter from "../../hoc/withRouter";
@@ -39,9 +39,11 @@ class GalleryOwner extends Component<GalleryOwnerProps, GalleryOwnerState> {
               </Typography>
             </Box>
             <Box className={classes.viewBox}>
-              <ViewAll
-                title="view all gallery"
-                onClick={() => this.props.navigate("/salon/gallery")}
+              <CommonViewAllButton
+                buttonName="view all gallery"
+                onClickNavigateOffersPage={() => {
+                  this.props.navigate("/salon/gallery");
+                }}
               />
             </Box>
           </Box>

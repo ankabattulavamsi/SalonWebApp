@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Checkbox, Typography } from "@mui/material";
+import { AlertColor, Box, Checkbox, Typography } from "@mui/material";
 import { withStyles } from "@mui/styles";
 import {
   emailImage,
@@ -21,6 +21,7 @@ interface RegisteredNowPageProps {
   handleOnClick: () => void;
   handleChangePassword?: (e: any) => void;
   confirmPassChangehandle?: (password: any) => void;
+  handleError: (open: boolean, type: AlertColor, message: string) => void;
 }
 
 interface RegisteredNowPageState {
@@ -47,13 +48,15 @@ class RegisteredNowPage extends React.Component<
 
     if (!pattern.test(str)) {
       this.setState({ errorEmail: "Email is not valid" });
+      this.props.handleError(true, "error", "Email is not valid");
     } else {
       this.setState({ errorEmail: "" });
+      this.props.handleError(true, "success", "Email is  valid");
     }
   };
 
   handleValidateMobileNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const pattern = /(7|8|9)\d{9}/;
+    const pattern = /^[7-9][0-9]{9}$/;
     const str = e.target.value;
     if (!pattern.test(str)) {
       this.setState({ error: "Mobile Number is not valid" });
@@ -61,7 +64,7 @@ class RegisteredNowPage extends React.Component<
       this.setState({ error: "" });
     }
   };
-
+  handleError = () => {};
   render() {
     const {
       classes,
@@ -102,7 +105,6 @@ class RegisteredNowPage extends React.Component<
                 }}
                 name={"mobileNumber"}
                 value={state.mobileNumber}
-                error={this.state.error}
               />
             </Box>
             <Inputs
@@ -116,7 +118,6 @@ class RegisteredNowPage extends React.Component<
               icon={emailImage}
               type="email"
               value={state.email}
-              error={this.state.errorEmail}
             />
             <OtpPass
               numberInputs={6}
@@ -131,7 +132,6 @@ class RegisteredNowPage extends React.Component<
               placeholder="******"
               handleChange={confirmPassChangehandle}
               value={state.confirmPassword}
-              error={state.errorPass}
             />
             <Inputs
               value={state.city}
@@ -158,7 +158,9 @@ class RegisteredNowPage extends React.Component<
 
             <Box>
               <Buttons
-                disabled={
+                disabled={false}
+                title="Register now"
+                handleClick={() => {
                   state.fname === "" ||
                   state.email === "" ||
                   this.state.isChecked === false ||
@@ -166,10 +168,10 @@ class RegisteredNowPage extends React.Component<
                   state.password === "" ||
                   state.confirmPassword === "" ||
                   state.errorPass !== ""
-                }
-                title="Register now"
-                handleClick={() => {
-                  this.props.toogleDrawer(modalConstants.VERIFICATION_DRAWER);
+                    ? this.handleError()
+                    : this.props.toogleDrawer(
+                        modalConstants.VERIFICATION_DRAWER
+                      );
                 }}
               />
             </Box>
