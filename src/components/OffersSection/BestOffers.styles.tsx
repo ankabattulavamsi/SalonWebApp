@@ -1,6 +1,6 @@
 import { height } from "@mui/system";
 
-export const StylesOffers = {
+export const StylesOffers: any = {
   MainContainer: {
     backgroundColor: "#FDF6EE",
   },
@@ -18,7 +18,7 @@ export const StylesOffers = {
       fontSize: "35px",
       margin: "30px",
       lineHeight: "48px",
-      marginLeft: '-50px !important',
+      marginLeft: "-50px !important",
       letterSpacing: "-1px",
       textTransform: "capitalize",
       position: "relative",
@@ -39,36 +39,39 @@ export const StylesOffers = {
     justifyContent: "space-between",
   },
   offersPercentageHead: {
-    fonFamily: "Fira Sans",
-    fontStyle: "normal",
-    fontWeight: 800,
-    fontSize: "22px",
-    color: "#272522",
+    fonFamily: "Fira Sans !important",
+    fontStyle: "normal !normal",
+    fontWeight: "600 !important",
+    fontSize: "22px !important",
+    color: "#272522 !important",
+    textTransform: "capitalize",
   },
-  offeredPrice: {
-    color: "#272522",
-    "&:hover": {
-      color: "#E7A356",
-    },
-    fonFamily: "Fira Sans",
-    fontStyle: "normal",
-    fontWeight: 800,
-    fontSize: "26px",
+  OffersDissPrice: {
+    fonFamily: "Fira Sans !important",
+    fontStyle: "normal !important",
+    fontWeight: "600 !important",
+    fontSize: "20px !important",
   },
   originalPrice: {
-    color: "#272522",
-    fonFamily: "Fira Sans",
-    fontStyle: "normal",
-    fontWeight: 800,
-    fontSize: "26px",
-    textDecoration: "line-through",
+    fonFamily: "Fira Sans !important",
+    fontStyle: "normal !important",
+    fontWeight: "800 !important",
+    fontSize: "20px !important",
   },
+
+  OffersRuppeIcon: {
+    fonFamily: "Fira Sans !important",
+    fontStyle: "normal !important",
+    fontWeight: "800 !important",
+    fontSize: "20px !important",
+  },
+
   offerDescription: {
-    color: "#88878F",
-    fonFamily: "Fira Sans",
-    fontStyle: "normal",
-    fontWeight: 600,
-    fontSize: "17px",
+    color: "#88878F !important",
+    fonFamily: "Fira Sans !important",
+    fontStyle: "normal !important",
+    fontWeight: "500 !important",
+    fontSize: "17px !important",
   },
   BestOffersDissRupeeIcon: {
     color: "#272522",
@@ -79,55 +82,60 @@ export const StylesOffers = {
   ViewAllButton: {
     color: "#FFFFFF !important",
     fontFamily: "Fira Sans !important",
-    fontWeight: 900,
+    fontWeight: "600 !important",
     letterSpacing: "0.02em !important",
+    fontStyle: "normal !important",
+    fontSize: "18px !important",
+    lineHeight: "22px !important",
+    textTransform: 'none !important'
   },
   ViewAllButtonContainer: {
     backgroundColor: "#272522",
-    borderRadius: "10px",
-  },
-  EditDeleteButonsContainer: {
+    borderRadius: "8px",
+    height: "58px !important",
     display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  SalonEditDeleteButonsContainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "start",
+    margin: "10px !important",
+  },
+  ModelSaveButton: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#E7A356",
     borderRadius: "5px",
-    backgroundColor: "#FFFFFF",
-    margin: 10,
-    width: "320px",
+    marginRight: "10px",
+    height: "50px",
   },
-  ModelSaveButton : {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#E7A356', 
-    borderRadius: '5px', 
-    marginRight: '10px',
-    height: '50px'
-  }, 
-  ModelSaveIcon : {
-    fontSize: '20px !important',
-    color: '#fff'
+  ModelSaveIcon: {
+    fontSize: "20px !important",
+    color: "#fff",
   },
-  ModelSaveText : {
-    color: '#fff !important', 
-    fontSize: '20px'
-  }, 
-  ModelDeleteButton : {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+  ModelSaveText: {
+    color: "#fff !important",
+    fontSize: "20px",
+  },
+  ModelDeleteButton: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     backgroundColor: "#272522",
-    borderRadius: '5px',
-    marginLeft: '10px',
-    height: '50px'
-  }, 
-  ModelDeleteIcon : {
-    fontSize: '20px !important',
-    color: '#fff'
+    borderRadius: "5px",
+    marginLeft: "10px",
+    height: "50px",
   },
-  ModelDeleteText : {
-    color: '#fff !important', 
-    fontSize: '20px'
-  }, 
-  ModelAvatarImage : {
-    
-  }
+  ModelDeleteIcon: {
+    fontSize: "20px !important",
+    color: "#fff",
+  },
+  ModelDeleteText: {
+    color: "#fff !important",
+    fontSize: "20px",
+  },
+  ModelAvatarImage: {},
 };

@@ -1,3 +1,5 @@
+import React, { Component } from "react";
+
 import {
   Button,
   Card,
@@ -8,18 +10,19 @@ import {
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { Component } from "react";
 import { withStyles } from "@mui/styles";
+
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
-import { SalonBestOffersData } from "../../utils/data/SalonPatnerBestOffers/SalonBestOffers";
-import CommonViewAllButton from "../common/CommonSalonPatnerButtons/CommonViewAllButton";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { StylesOffers } from "./BestOffers.styles";
 
-import "./SalonBestOffers.css";
+import { SalonBestOffersData } from "../../utils/data/SalonPatnerBestOffers/SalonBestOffers";
+import CommonViewAllButton from "../common/CommonSalonPatnerButtons/CommonViewAllButton";
+import { StylesOffers } from "./BestOffers.styles";
 import SalonBestOffersModel from "./SalonBestOffersModel";
 import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
+
+import "./SalonBestOffers.css";
 
 interface IsStateProps {
   classes: any;
@@ -56,7 +59,7 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
     return (
       <>
         <Box sx={{ pt: 5, pb: 5, mt: 5 }} className={classes.MainContainer}>
-          <Box >
+          <Box>
             <Grid
               container
               justifyContent="center"
@@ -65,12 +68,12 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
               sx={{ px: { sm: 4, xs: 2, md: 0, lg: 0 }, mb: 5 }}
             >
               <Grid item lg={5} md={5} xs={12} sm={5}>
-                <Box sx={{mt:2}}>
+                <Box sx={{ mt: 2 }}>
                   <Typography
                     variant="h4"
                     className="salon-best-offers-heading"
                     sx={{
-                      fontSize: { xs: "20px", sm: "32px", lg: "36px" },
+                      fontSize: { xs: "30px", sm: "32px", lg: "36px" },
                       fontWeight: "700",
                       lineHeight: "18px",
                       letterSpacing: "-0.01rem",
@@ -123,23 +126,19 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
                             <Box sx={{ display: "flex", width: "101px" }}>
                               <Box className="best-offers-discount-price">
                                 <CurrencyRupeeIcon
-                                  style={{
-                                    width: "18px",
-                                    marginTop: 2,
-                                  }}
+                                  sx={{ mt: 0.8 }}
+                                  className={classes.OffersRuppeIcon}
                                 />
-                                <Typography sx={{ fontSize: "20px" }}>
+                                <Typography className={classes.OffersDissPrice}>
                                   {item.dissPrice}
                                 </Typography>
                               </Box>
                               <Box className="best-offers-original-price">
                                 <CurrencyRupeeIcon
-                                  style={{
-                                    width: "18px",
-                                    marginTop: 2,
-                                  }}
+                                  sx={{ mt: 0.8 }}
+                                  className={classes.OffersRuppeIcon}
                                 />
-                                <Typography sx={{ fontSize: "20px" }}>
+                                <Typography className={classes.originalPrice}>
                                   {item.price}
                                 </Typography>
                               </Box>
@@ -152,28 +151,21 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
                             {item.description}
                           </Typography>
                         </CardContent>
-                        <Box className={classes.EditDeleteButonsContainer}>
-                          <Box
-                            onClick={this.onClickOpenModel}
-                            className="edit-button1"
+                        <Box className={classes.SalonEditDeleteButonsContainer}>
+                          <Button 
+                          onClick={this.onClickOpenModel}
+                            startIcon={<ModeEditIcon />}
+                            className="best-offers-edit-btn-text"
                           >
-                            <ModeEditIcon className="edit-icon" />
-                            <Button className="best-offers-edit-text">
-                              {item.typeEdit}
-                            </Button>
-                          </Box>
+                            Edit
+                          </Button>
 
-                          <Divider
-                            sx={{ border: "1px solid #88878F", opacity: "0.2" }}
-                            className="buttons-border-line"
-                          />
-
-                          <Box className="delete-button2">
-                            <DeleteIcon className="delete-icon" />
-                            <Button className="best-offers-delete-text">
-                              {item.typeDelete}
-                            </Button>
-                          </Box>
+                          <Button
+                            startIcon={<DeleteIcon />}
+                            className="best-offers-delete-btn-text"
+                          >
+                            Delete
+                          </Button>
                         </Box>
                       </Card>
                     </Box>

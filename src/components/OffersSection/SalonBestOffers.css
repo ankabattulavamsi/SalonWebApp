@@ -1,102 +1,115 @@
-.parent-container:hover .edit-button1 {
-    background-color: #E7A356;
+.parent-container:hover .best-offers-edit-btn-text {
+  background-color: #e7a356 !important;
+  color: #fff !important;
+  border-radius: 5px 0px 0px 5px !important;
+  border-right: none !important;
 }
 
-.edit-button1 {
-    display: flex;
-    cursor: pointer;
-    padding: 7px;
-    padding-right: 32px;
-    padding-left: 32px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+.best-offers-edit-btn-text {
+  font-style: normal;
+  line-height: 30px;
+  text-transform: none !important;
+  text-align: center;
+  text-transform: capitalize;
+  color: #88878f !important;
+  font-family: "Fira Sans";
+  font-weight: 600 !important;
+  font-size: 20px !important;
+  cursor: pointer;
+  background-color: #fff !important;
+  border-radius: 5px 0px 0px 5px !important;
+  border-right: 1px solid #d7d9db !important;
+  width: 35%;
+  height: 58px !important;
+}
+@media screen and (max-width: 480px) {
+  .best-offers-edit-btn-text {
+    width: 40%;
+    height: 58px !important;
+  }
 }
 
-.edit-icon {
-    color: #88878F;
-    margin-top: 10px !important;
-    margin-right: -5px;
-    margin-left: 5px;
+@media screen and (min-width: 1280px) {
+  .best-offers-edit-btn-text {
+    width: 30%;
+    height: 58px !important;
+  }
 }
 
-.best-offers-edit-text {
-    color: #88878F !important;
-    font-family: 'Fira Sans';
-    font-weight: 800 !important;
-    font-size: 20px !important;
+.parent-container:hover .best-offers-delete-btn-text {
+  color: #fff !important;
+  background-color: #272522 !important;
+  border-radius: 0px 5px 5px 0px !important;
+}
+.css-1emfm6o-MuiButtonBase-root-MuiButton-root {
+    text-transform: none;
 }
 
-.parent-container:hover .best-offers-edit-text{
-    color: #fff !important;
-}
-.parent-container:hover .edit-icon {
-    color: #fff;
-}
-
-.delete-icon {
-    color: #88878F;
-    margin-top: 16px !important;
-}
-
-.best-offers-delete-text{
-    color: #88878F !important;
-    font-family: 'Fira Sans';
-    font-weight: 800 !important;
-    font-size: 20px !important;
+.best-offers-delete-btn-text {
+  font-style: normal;
+  line-height: 30px;
+  text-align: center;
+  text-transform: none !important;
+  text-transform: capitalize;
+  color: #88878f !important;
+  font-family: "Fira Sans";
+  font-weight: 800 !important;
+  font-size: 20px !important;
+  cursor: pointer;
+  background-color: #fff !important;
+  border-radius: 0px 5px 5px 0px !important;
+  width: 35%;
+  height: 58px !important;
 }
 
-.parent-container:hover .best-offers-delete-text {
-    color: #fff !important;
+@media screen and (max-width: 480px) {
+  .best-offers-delete-btn-text {
+    width: 40%;
+    height: 58px !important;
+  }
 }
 
-.parent-container:hover .delete-icon {
-    color: #fff;
-    background-color: #272522;
+@media screen and (min-width: 1280px) {
+  .best-offers-delete-btn-text {
+    width: 30%;
+    height: 58px !important;
+  }
 }
 
-.delete-button2 {
-    display: flex;
-    cursor: pointer;
-    padding: 1px !important;
-    padding-left: 32px !important;
-    padding-right: 28px !important;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+.best-offers-discount-price {
+  color: #272522;
+  display: flex;
+  font-family: "Fira Sans" !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 80px !important;
+  line-height: 48px !important;
 }
 
-.parent-container:hover .delete-button2 {
-    background-color: #272522;
-}
-
-.best-offers-discount-price{
-    color: #272522;
-    display: flex;
-}
-
-.parent-container:hover .best-offers-discount-price{
-    color: #E7A356;
+.parent-container:hover .best-offers-discount-price {
+  color: #e7a356;
 }
 
 .best-offers-original-price {
-    text-decoration: line-through;
-    color: #88878F;
-    display: flex;
+  text-decoration: line-through;
+  color: #88878f;
+  display: flex;
 }
 
 .parent-container:hover .best-offers-original-price {
-    color: #272522;
+  color: #272522;
 }
 
 .parent-container:hover .buttons-border-line {
-    border: none;
+  border: none;
 }
 
-.salon-best-offers-heading::after{
-    content: "";
-    width: 52px;
-    height: 4px;
-    display: block;
-    background-color: #ebb273;
-    margin-top: 10px;
-    margin-bottom: 0px;
+.salon-best-offers-heading::after {
+  content: "";
+  width: 52px;
+  height: 4px;
+  display: block;
+  background-color: #ebb273;
+  margin-top: 10px;
+  margin-bottom: 0px;
 }

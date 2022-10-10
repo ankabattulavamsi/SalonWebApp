@@ -4,7 +4,6 @@ import React, { Component } from "react";
 
 import ClassIcon from "@mui/icons-material/Class";
 import DeleteIcon from "@mui/icons-material/Delete";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import ClearIcon from '@mui/icons-material/Clear';
 
 import OferrImg from "../../assets/images/SalonPatnerBestOffersImg/Rectangle64(1).png";
@@ -27,7 +26,7 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
       <Box>
         <Dialog onClose={handleClose} open={open} maxWidth="md">
        <Box sx={{display :'flex', alignItems: 'center', justifyContent: 'flex-end', cursor: 'pointer'}} onClick={handleClose} >
-       <ClearIcon sx={{ backgroundColor: '#fff', fontSize: '28px'  }} />
+       <ClearIcon sx={{ backgroundColor: '#000', fontSize: '28px', color:'#fff',   }} />
        </Box>
           <Box sx={{ p: 3 }}>
             <Grid container spacing={2}>
@@ -51,27 +50,18 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
                         alt="offered-image"
                         style={{ width: "100px" }}
                       />
-                      <HighlightOffIcon
+                      <ClearIcon
                         style={{
                           marginBottom: "28px",
                           marginLeft: "-12px",
                           color: "#fff",
                           backgroundColor: "black",
                           borderRadius: "25px",
+                          fontSize: '18px'
                         }}
                       />
                     </Box>
                   </Grid>
-
-                  {/* <Grid item xs={6} md={6} lg={6}>
-                  <Box>
-                    <img
-                      src={OferrImg}
-                      alt="offered-image"
-                      style={{ width: "100px" }}
-                    />
-                  </Box>
-                  </Grid> */}
                 </Grid>
               </Grid>
 

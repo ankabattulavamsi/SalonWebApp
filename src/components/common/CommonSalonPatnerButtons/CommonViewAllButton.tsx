@@ -19,8 +19,7 @@ export class CommonViewAllButton extends Component<IsNameProps> {
         <Box
           className={classes.ViewAllButtonContainer}
           sx={{
-            width: { xs: "150px", sm: "180px", lg: "200px" },
-            textAlign: "center",
+            width: { xs: "180px", sm: "180px", lg: "190px" },
             ml: { lg: "auto", sm: "auto" },
           }}
         >
@@ -28,7 +27,7 @@ export class CommonViewAllButton extends Component<IsNameProps> {
             className={classes.ViewAllButton}
             onClick={this.props.onClickNavigateOffersPage}
             sx={{
-              fontSize: { xs: "14px", sm: "18px", lg: "20px" },
+              fontSize: { xs: "16px", sm: "18px", lg: "18px" },
             }}
           >
             {this.props.buttonName}
