@@ -20,8 +20,8 @@ class SalonPartner extends Component {
         <Grid container>
           {/* salon page sections */}
           <OwnerDashboardCharts />
-          <SalonCategory/>
           <BookingDashboard />
+          <SalonCategory/>
           <Box sx={{ mt: 10 }}>
             <SalonPatnerBestOffers />
           </Box>
