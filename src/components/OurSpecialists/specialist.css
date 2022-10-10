@@ -26,6 +26,7 @@
 	background-color: #ebb273 !important;
 	color: white !important;
 	transition: 1s ease-in-out !important;
+	margin-right: 0px !important;
 }
 .special-team:hover .delete {
 	background-color: #000 !important;
@@ -49,6 +50,7 @@
 	border-top-right-radius: 0 !important;
 	border-bottom-right-radius: 0 !important;
 	color: #88878f !important;
+	margin-right: 2px !important;
 }
 .delete {
 	border-top-left-radius: 0 !important;

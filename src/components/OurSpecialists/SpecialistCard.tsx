@@ -27,7 +27,7 @@ export default class SpecialistCard extends Component<IProps> {
 				<Card
 					className="special-team"
 					sx={{
-						width: { sm: "100%", md: "100%", lg: "345px" },
+						width: { sm: "100%", md: "100%", lg: "400px" },
 					}}>
 					<Box sx={{}}>
 						<CardMedia
