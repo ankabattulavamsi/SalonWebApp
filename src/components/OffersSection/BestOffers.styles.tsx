@@ -37,6 +37,7 @@ export const StylesOffers: any = {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
+    marginTop: '15px'
   },
   offersPercentageHead: {
     fonFamily: "Fira Sans !important",
@@ -57,6 +58,7 @@ export const StylesOffers: any = {
     fontStyle: "normal !important",
     fontWeight: "800 !important",
     fontSize: "20px !important",
+    marginRight: '3px !important'
   },
 
   OffersRuppeIcon: {
@@ -101,7 +103,7 @@ export const StylesOffers: any = {
     display: "flex",
     alignItems: "center",
     justifyContent: "start",
-    margin: "10px !important",
+    marginTop: "15px !important",
   },
   ModelSaveButton: {
     display: "flex",

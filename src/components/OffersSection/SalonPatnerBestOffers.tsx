@@ -58,8 +58,8 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
 
     return (
       <>
-        <Box sx={{ pt: 5, pb: 5, mt: 5 }} className={classes.MainContainer}>
-          <Box>
+        <Box>
+          <Box sx={{ pt: 5, pb: 5, mt: 5 }} className={classes.MainContainer}>
             <Grid
               container
               justifyContent="center"
@@ -67,7 +67,7 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
               rowSpacing={3}
               sx={{ px: { sm: 4, xs: 2, md: 0, lg: 0 }, mb: 5 }}
             >
-              <Grid item lg={5} md={5} xs={12} sm={5}>
+              <Grid item lg={4.5} md={5} xs={12} sm={6}>
                 <Box sx={{ mt: 2 }}>
                   <Typography
                     variant="h4"
@@ -86,7 +86,7 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
                   </Typography>
                 </Box>
               </Grid>
-              <Grid item lg={5} md={5} xs={12} sm={5}>
+              <Grid item lg={4.5} md={5} xs={12} sm={6}>
                 <Box>
                   <CommonViewAllButton
                     buttonName={navigatePageButton}
@@ -102,11 +102,11 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
               rowSpacing={3}
               sx={{ px: { sm: 4, xs: 2, md: 0, lg: 0 } }}
             >
-              {SalonBestOffersData.map((item) => {
+              {SalonBestOffersData.slice(0, 2).map((item) => {
                 return (
-                  <Grid item lg={5} md={5} xs={12} sm={10} key={item.id}>
+                  <Grid item lg={4.5} md={5} xs={12} sm={6} key={item.id}>
                     <Box>
-                      <Card
+                      <Box
                         sx={{ backgroundColor: "#FDF6EE" }}
                         className="parent-container"
                       >
@@ -115,7 +115,7 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
                           image={item.offerImage}
                           alt="green iguana"
                         />
-                        <CardContent>
+                        <Box>
                           <Box className={classes.headingCardContainer}>
                             <Typography
                               className={classes.offersPercentageHead}
@@ -123,7 +123,7 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
                             >
                               {item.headingOff}
                             </Typography>
-                            <Box sx={{ display: "flex", width: "101px" }}>
+                            <Box sx={{ display: "flex" }}>
                               <Box className="best-offers-discount-price">
                                 <CurrencyRupeeIcon
                                   sx={{ mt: 0.8 }}
@@ -150,32 +150,35 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
                           >
                             {item.description}
                           </Typography>
-                        </CardContent>
-                        <Box className={classes.SalonEditDeleteButonsContainer}>
-                          <Button 
-                          onClick={this.onClickOpenModel}
-                            startIcon={<ModeEditIcon />}
-                            className="best-offers-edit-btn-text"
-                          >
-                            Edit
-                          </Button>
 
-                          <Button
-                            startIcon={<DeleteIcon />}
-                            className="best-offers-delete-btn-text"
+                          <Box
+                            className={classes.SalonEditDeleteButonsContainer}
                           >
-                            Delete
-                          </Button>
+                            <Button
+                              onClick={this.onClickOpenModel}
+                              startIcon={<ModeEditIcon />}
+                              className="best-offers-edit-btn-text"
+                            >
+                              Edit
+                            </Button>
+
+                            <Button
+                              startIcon={<DeleteIcon />}
+                              className="best-offers-delete-btn-text"
+                            >
+                              Delete
+                            </Button>
+                          </Box>
                         </Box>
-                      </Card>
+                      </Box>
                     </Box>
                   </Grid>
                 );
               })}
             </Grid>
           </Box>
+          <SalonBestOffersModel open={open} handleClose={this.handleClose} />
         </Box>
-        <SalonBestOffersModel open={open} handleClose={this.handleClose} />
       </>
     );
   }

@@ -1,8 +1,9 @@
 .parent-container:hover .best-offers-edit-btn-text {
   background-color: #e7a356 !important;
   color: #fff !important;
-  border-radius: 5px 0px 0px 5px !important;
+  border-radius: 10px 0px 0px 10px !important;
   border-right: none !important;
+  transition: 1.5s;
 }
 
 .best-offers-edit-btn-text {
@@ -17,15 +18,21 @@
   font-size: 20px !important;
   cursor: pointer;
   background-color: #fff !important;
-  border-radius: 5px 0px 0px 5px !important;
+  border-radius: 10px 0px 0px 10px !important;
   border-right: 1px solid #d7d9db !important;
   width: 35%;
   height: 58px !important;
 }
 @media screen and (max-width: 480px) {
   .best-offers-edit-btn-text {
-    width: 40%;
+    width: 50%;
     height: 58px !important;
+    border-radius: 5px 0px 0px 5px !important;
+    margin-bottom: 15px !important;
+  }
+
+  .parent-container:hover .best-offers-edit-btn-text {
+    border-radius: 5px 0px 0px 5px !important;
   }
 }
 
@@ -39,10 +46,11 @@
 .parent-container:hover .best-offers-delete-btn-text {
   color: #fff !important;
   background-color: #272522 !important;
-  border-radius: 0px 5px 5px 0px !important;
+  border-radius: 0px 10px 10px 0px !important;
+  transition: 1.5s;
 }
 .css-1emfm6o-MuiButtonBase-root-MuiButton-root {
-    text-transform: none;
+  text-transform: none;
 }
 
 .best-offers-delete-btn-text {
@@ -57,15 +65,21 @@
   font-size: 20px !important;
   cursor: pointer;
   background-color: #fff !important;
-  border-radius: 0px 5px 5px 0px !important;
+  border-radius: 0px 10px 10px 0px !important;
   width: 35%;
   height: 58px !important;
 }
 
 @media screen and (max-width: 480px) {
   .best-offers-delete-btn-text {
-    width: 40%;
+    width: 50%;
     height: 58px !important;
+    border-radius: 0px 5px 5px 0px !important;
+    margin-bottom: 15px !important;
+  }
+
+  .parent-container:hover .best-offers-delete-btn-text {
+    border-radius: 0px 5px 5px 0px !important;
   }
 }
 
@@ -88,6 +102,7 @@
 
 .parent-container:hover .best-offers-discount-price {
   color: #e7a356;
+  transition: 1s;
 }
 
 .best-offers-original-price {
@@ -98,6 +113,7 @@
 
 .parent-container:hover .best-offers-original-price {
   color: #272522;
+  transition: 1s;
 }
 
 .parent-container:hover .buttons-border-line {
