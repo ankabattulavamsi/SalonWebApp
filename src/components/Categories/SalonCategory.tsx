@@ -22,7 +22,6 @@ import CommonViewAllButton from "../common/CommonSalonPatnerButtons/CommonViewAl
 import { salonCategoryData } from "../../utils/data/SalonCategory/SalonCategory_data";
 interface categoryProps{
     classes: any,
-    navigate: any
 }
 class SalonCategory extends Component <categoryProps> {
   render() {
