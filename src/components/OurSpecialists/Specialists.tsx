@@ -52,8 +52,13 @@ class Specialists extends Component {
 							</Box>
 							<Grid className={classes.CardItems} gap={2} container>
 								{specialistData.map((team: TeamData, index: number) => (
-									<Grid className="innerCard" sm={4} md={4} lg={4}>
-										<SpecialistCard key={index} team={team} />
+									<Grid
+										key={index}
+										className="innerCard"
+										sm={4}
+										md={4}
+										lg={4}>
+										<SpecialistCard team={team} />
 									</Grid>
 								))}
 							</Grid>

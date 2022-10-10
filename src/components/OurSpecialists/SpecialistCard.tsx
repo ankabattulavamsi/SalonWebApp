@@ -24,7 +24,7 @@ export default class SpecialistCard extends Component<IProps> {
 		return (
 			<>
 				<Card className="special-team">
-					<Box sx={{}}>
+					<Box>
 						<CardMedia
 							component={"img"}
 							src={team.imgeUrl}
