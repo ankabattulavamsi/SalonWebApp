@@ -57,7 +57,8 @@ class Specialists extends Component {
 										className="innerCard"
 										sm={4}
 										md={4}
-										lg={4}>
+										lg={4}
+										item>
 										<SpecialistCard team={team} />
 									</Grid>
 								))}
