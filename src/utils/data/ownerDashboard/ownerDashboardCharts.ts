@@ -3,7 +3,7 @@ export interface ChartData {
   options: any;
 }
 
-export const data: ChartData = {
+export var data: ChartData = {
   series: [
     {
       name: "",
@@ -14,6 +14,7 @@ export const data: ChartData = {
       ],
     },
   ],
+
   options: {
     chart: {
       type: "bar",
@@ -46,6 +47,8 @@ export const data: ChartData = {
       ],
     },
     yaxis: {
+      show: true,
+      showAlways: true,
       min: (min: any) => {
         return min;
       },

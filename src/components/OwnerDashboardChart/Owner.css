@@ -1,3 +1,20 @@
 .apexcharts-bar-area:hover { fill: #E7A356 !important; }
 /* .apexcharts-bar-area:visited { fill: #f53939 !important; } */
 
+.apexcharts-series{
+ 
+    overflow-x: auto;
+    overflow-y: hidden;
+
+}
+@media only screen and (max-width: 660px) {
+    .apexcharts-series{
+        margin-bottom: 30px;
+    }
+}
+@media (min-width: 660px) and (max-width: 920px)  {
+    .apexcharts-series{
+        margin-bottom: 30px;
+    }
+  }
+ 
