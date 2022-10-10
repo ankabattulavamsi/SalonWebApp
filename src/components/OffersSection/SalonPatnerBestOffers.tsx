@@ -59,7 +59,7 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
     return (
       <>
         <Box>
-          <Box sx={{ pt: 5, pb: 5, mt: 5 }} className={classes.MainContainer}>
+          <Box sx={{ pt: 11, pb: 11, mt: 5 }} className={classes.MainContainer}>
             <Grid
               container
               justifyContent="center"
