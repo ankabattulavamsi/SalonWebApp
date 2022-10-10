@@ -1,26 +1,27 @@
 import {
   Button,
+  Box,
   Card,
   CardActions,
-  CardContent,
   CardMedia,
   Container,
   Grid,
   Typography,
 } from "@mui/material";
 import { withStyles } from "@mui/styles";
-import { Box } from "@mui/system";
 import React, { Component } from "react";
 import { Edit, Delete } from "@mui/icons-material";
 import {
   gallaryData,
   GallaryData,
 } from "../../utils/data/GalleryOwner/Gallery";
-import ViewAll from "../common/ViewBtn/ViewAll";
+import { ViewAll } from "../common";
 import { galleryStyles } from "./GalleryOwners.styles";
 import "./GalleryOwner.styles.css";
+import withRouter from "../../hoc/withRouter";
 interface GalleryOwnerProps {
   classes: any;
+  navigate?: any;
 }
 interface GalleryOwnerState {}
 class GalleryOwner extends Component<GalleryOwnerProps, GalleryOwnerState> {
@@ -38,12 +39,15 @@ class GalleryOwner extends Component<GalleryOwnerProps, GalleryOwnerState> {
               </Typography>
             </Box>
             <Box className={classes.viewBox}>
-              <ViewAll title="view all gallery" />
+              <ViewAll
+                title="view all gallery"
+                onClick={() => this.props.navigate("/salon/gallery")}
+              />
             </Box>
           </Box>
 
           <Grid container spacing={2}>
-            {gallaryData.map((images: GallaryData) => {
+            {gallaryData.slice(0, 6).map((images: GallaryData) => {
               return (
                 <Grid item xs={12} sm={6} md={4} key={images.id}>
                   <Card
@@ -87,4 +91,4 @@ class GalleryOwner extends Component<GalleryOwnerProps, GalleryOwnerState> {
   }
 }
 
-export default withStyles(galleryStyles)(GalleryOwner);
+export default withStyles(galleryStyles)(withRouter(GalleryOwner));

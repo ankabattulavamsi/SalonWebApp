@@ -5,6 +5,7 @@ import Inputs from "./Inputs/Inputs";
 import OtpPass from "./OtpPasscode/OtpPass";
 import ButtonCust from "./DownloadButton/ButtonCust";
 import DropDownLogin from "./MobileFields/DropDownLogin";
+import ViewAll from "./ViewBtn/ViewAll";
 export {
   Buttons,
   PayoutButton,
@@ -13,4 +14,5 @@ export {
   OtpPass,
   ButtonCust,
   DropDownLogin,
+  ViewAll,
 };
