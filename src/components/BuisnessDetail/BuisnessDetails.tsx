@@ -53,17 +53,7 @@ class BuisnessDetails extends Component<
   };
 
   handleError = () => {
-    //   this.state.error !== "" ||
-    // this.props.state.email === "" ||
-    // this.props.state.GSTIN === "" ||
-    // this.props.state.address === "" ||
-    // this.props.state.bname === "" ||
-    // this.props.state.owner === ""
-
     const { state, handleError } = this.props;
-
-    // if(state.)
-
     if (state.bname === "" || state.bname.length < 5) {
       handleError(
         true,
@@ -204,13 +194,12 @@ class BuisnessDetails extends Component<
               required={true}
               type={"email"}
               handleChange={(e) => {
-                this.handleValidateEmail(e);
                 this.props.handleChange(e);
+                this.handleValidateEmail(e);
               }}
               value={this.props.state.email}
               icon={emailImage}
               name={"email"}
-              error={this.state.error}
             />
           </Box>
           <Box
