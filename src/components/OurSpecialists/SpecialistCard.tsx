@@ -24,11 +24,7 @@ export default class SpecialistCard extends Component<IProps> {
 		const { team } = this.props;
 		return (
 			<>
-				<Card
-					className="special-team"
-					sx={{
-						width: { sm: "100%", md: "100%", lg: "400px" },
-					}}>
+				<Card className="special-team">
 					<Box sx={{}}>
 						<CardMedia
 							component={"img"}
@@ -38,7 +34,6 @@ export default class SpecialistCard extends Component<IProps> {
 								display: "block",
 								objectFit: "fill !important",
 								justifyContent: "center",
-								width: "320px",
 								margin: "auto",
 							}}
 							alt={team.title}></CardMedia>
