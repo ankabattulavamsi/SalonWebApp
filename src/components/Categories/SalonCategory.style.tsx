@@ -1,5 +1,3 @@
-import { Kayaking } from "@mui/icons-material"
-import { avatarClasses } from "@mui/material"
 
 export const styles:any = {
     categoryBox:{
@@ -44,7 +42,7 @@ export const styles:any = {
         },
         '& button':{
             textTransform: 'capitalize',
-            padding: "15px 0"
+            padding: '15px 0px',
         }
     },
     categoryImage:{
@@ -102,21 +100,21 @@ export const styles:any = {
             boxShadow: '0 4px 20px rgba(0, 0, 0, 0.07) !important',
         },
         '&:hover div button:nth-child(1)':{
-                background: '#E7A356',
-                color: '#FFFFFF',
-                borderRadius: '10px 0 0 10px',  
-                '& svg:hover':{
-                    background: 'none',
-                }
-            },
+            background: '#E7A356',
+            color: '#FFFFFF',
+            borderRadius: '10px 0 0 10px',  
+            '& svg:hover':{
+                background: 'none',
+            }
+        },
         '&:hover div button:nth-child(2)':{
-                background: '#272522',
-                color: '#FFFFFF',
-                borderRadius: '0 10px 10px 0',
-                '& svg:hover':{
-                    background: 'none',
-                }
-            },
+            background: '#272522',
+            color: '#FFFFFF',
+            borderRadius: '0 10px 10px 0',
+            '& svg:hover':{
+                background: 'none',
+            }
+        },
         '& span':{
            opacity: '0 !important',
         },
