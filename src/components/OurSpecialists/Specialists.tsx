@@ -23,16 +23,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 const responsive = {
-	// desktop: {
-	// 	breakpoint: { max: 3000, min: 1113 },
-	// 	items: 3,
-	// 	slidesToSlide: 3, // optional, default to 1.
-	// },
-	// tablet: {
-	// 	breakpoint: { max: 1113, min: 763 },
-	// 	items: 2,
-	// 	slidesToSlide: 2, // optional, default to 1.
-	// },
 	mobile: {
 		breakpoint: { max: 763, min: 0 },
 		items: 1,
@@ -60,29 +50,34 @@ class Specialists extends Component {
 									Views All Teams
 								</Button>
 							</Box>
-							<Stack className={classes.CardItems}>
+							<Grid className={classes.CardItems} gap={2} container>
 								{specialistData.map((team: TeamData, index: number) => (
-									<SpecialistCard key={index} team={team} />
+									<Grid
+										key={index}
+										className="innerCard"
+										sm={4}
+										md={4}
+										lg={4}
+										item>
+										<SpecialistCard team={team} />
+									</Grid>
 								))}
-							</Stack>
+							</Grid>
 						</Stack>
 						<Box className={classes.carouselSec}>
 							<Container maxWidth="lg">
-								<Box className="corosel-team-experts">
+								<Box className="corosel-team-specialist">
 									<Carousel
 										swipeable={false}
 										draggable={false}
 										showDots
 										responsive={responsive}
-										ssr={false} // means to render carousel on server-side.
 										infinite
 										autoPlay
-										autoPlaySpeed={4000}
-										keyBoardControl={true}
+										autoPlaySpeed={2000}
 										customTransition="all 0.7"
 										transitionDuration={700}
 										containerClass="container"
-										deviceType={"mobile  | tablet"}
 										dotListClass="custom-dot-list-style">
 										{teamdata.map((team: TeamData, index: number) => {
 											return (

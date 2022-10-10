@@ -2,7 +2,7 @@ export interface GallaryData {
   id: number;
   imgUrl: any;
 }
-
+export const galleryBanner = require("../../../assets/images/GalleryOwner/bg-gallery.png");
 export const gallaryData: GallaryData[] = [
   {
     id: 1,
@@ -26,6 +26,14 @@ export const gallaryData: GallaryData[] = [
   },
   {
     id: 6,
+    imgUrl: require("../../../assets/images/GalleryOwner/6.png"),
+  },
+  {
+    id: 7,
+    imgUrl: require("../../../assets/images/GalleryOwner/6.png"),
+  },
+  {
+    id: 8,
     imgUrl: require("../../../assets/images/GalleryOwner/6.png"),
   },
 ];

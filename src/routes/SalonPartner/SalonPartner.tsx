@@ -20,13 +20,15 @@ class SalonPartner extends Component {
         <Grid container>
           {/* salon page sections */}
           <OwnerDashboardCharts />
-          <BookingDashboard />
-          <SalonCategory/>
+          <Box sx={{ mx: "auto", width: "100%" }}>
+            <BookingDashboard />
+          </Box>
+          <SalonCategory />
           <Box sx={{ mt: 10 }}>
             <SalonPatnerBestOffers />
           </Box>
 
-          <div id="/" style={{ marginTop: "100px" }}>
+          <div id="/" style={{ margin: "50px auto", width: "100%" }}>
             <GalleryOwner />
           </div>
           <Specialists />

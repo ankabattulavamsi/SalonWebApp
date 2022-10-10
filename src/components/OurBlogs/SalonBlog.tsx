@@ -28,7 +28,7 @@ class SalonBlog extends Component<blogProps, salonBlogS> {
 
     return (
       <>
-        <Box sx={{ pb: 10, pt: 10, background: "#FDF6EE" }}>
+        <Box sx={{ pb: 10, pt: {lg:10, md:10, sm: 5, xs:5}, background: "#FDF6EE" }}>
           <Box className={classes.salonBlogTitleBox}>
             <Box sx={{mb:{xs:2, sm:0, md:0}}}>
               <Typography className={classes.salonBlogHeading}>Our Blogs</Typography>
@@ -68,11 +68,11 @@ class SalonBlog extends Component<blogProps, salonBlogS> {
                           py: 1,
                           px: 2,
                           background:
-                            this.state.cardActive == item.id
+                            this.state.cardActive === item.id
                               ? "#E7A356"
                               : "#272522",
                           color:
-                            this.state.cardActive == item.id
+                            this.state.cardActive === item.id
                               ? "#fff"
                               : "#E7A356",
                           borderRadius: "5px",
@@ -105,11 +105,11 @@ class SalonBlog extends Component<blogProps, salonBlogS> {
                         className={classes.salonEditBtn}
                         sx={{
                           background:
-                            this.state.cardActive == item.id
+                            this.state.cardActive === item.id
                               ? "#E7A356"
                               : "#fff",
                           color:
-                            this.state.cardActive == item.id
+                            this.state.cardActive === item.id
                               ? "#fff"
                               : "#88878F",
                         }}
@@ -121,11 +121,11 @@ class SalonBlog extends Component<blogProps, salonBlogS> {
                         className={classes.salonDelBtn}
                         sx={{
                           background:
-                            this.state.cardActive == item.id
+                            this.state.cardActive === item.id
                               ? "#272522"
                               : "#fff",
                           color:
-                            this.state.cardActive == item.id
+                            this.state.cardActive === item.id
                               ? "#fff"
                               : "#88878F",
                         }}
