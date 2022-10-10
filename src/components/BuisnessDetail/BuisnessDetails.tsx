@@ -78,8 +78,10 @@ class BuisnessDetails extends Component<
       handleError(true, "error", "please give proper adress");
     } else if (state.email === "" || this.state.error) {
       handleError(true, "error", this.state.error);
-    } else if (state.bankname === "") {
-      handleError(true, "error", "Bank name is required");
+    } else if (state.image === "") {
+      handleError(true, "error", "profile image is required");
+    } else {
+      handleError(true, "error", "something is wrong");
     }
   };
 
@@ -230,8 +232,8 @@ class BuisnessDetails extends Component<
                 this.props.state.email === "" ||
                 this.props.state.GSTIN === "" ||
                 this.props.state.address === "" ||
-                this.props.state.bname === "" ||
-                this.props.state.owner === ""
+                this.props.state.owner === "" ||
+                this.props.state.image === ""
                   ? this.handleError()
                   : this.props.handleClickSave();
               }}

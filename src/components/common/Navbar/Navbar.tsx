@@ -60,8 +60,8 @@ class Navbar extends Component<{}, navSate> {
       registerDrawer: false,
       verificationDrawer: false,
       openDrawer: false,
-      openBusiness: true,
-      openPayout: false,
+      openBusiness: false,
+      openPayout: true,
       IsCustomerLogin: true,
       IsSalonLogin: false,
       image: "",
@@ -366,9 +366,7 @@ class Navbar extends Component<{}, navSate> {
             handleOnClick={this.handleToggleDrawer}
             handleChangePassword={this.handleChangePassword}
             confirmPassChangehandle={this.confirmPassChangehandle}
-            handleError={(open: boolean, type: AlertColor, message: string) =>
-              this.handleError(open, type, message)
-            }
+            handleError={this.handleError}
           />
           <VerificationComp
             handleToggle={this.handleToggleDrawer}
@@ -391,6 +389,7 @@ class Navbar extends Component<{}, navSate> {
             toggleFunc={this.handleToggleDrawer}
             state={this.state}
             handleChange={this.handleChange}
+            handleError={this.handleError}
           />
         </>
       </Fragment>
