@@ -49,6 +49,7 @@ export interface navSate {
   openSnackbar: boolean;
   errorMessage: string;
   alertType: AlertColor;
+  errrorConfirmPassword: string;
 }
 class Navbar extends Component<{}, navSate> {
   constructor(props: {}) {
@@ -86,6 +87,7 @@ class Navbar extends Component<{}, navSate> {
       openSnackbar: false,
       errorMessage: "",
       alertType: "success",
+      errrorConfirmPassword: "",
     };
   }
 
@@ -115,11 +117,13 @@ class Navbar extends Component<{}, navSate> {
     this.setState({ confirmPassword: password });
     if (password !== this.state.password) {
       this.setState({
-        errorMessage: "Password should be match",
-        openSnackbar: true,
+        errrorConfirmPassword:
+          "please password and confirm password is not matched",
       });
     } else {
-      this.setState({ errorPass: "", openSnackbar: false });
+      this.setState({
+        errrorConfirmPassword: "",
+      });
     }
   };
 
@@ -219,7 +223,6 @@ class Navbar extends Component<{}, navSate> {
 
   // handle customer login
   handleCustomerLogin = () => {
-    console.log("customer");
     this.setState({
       IsCustomerLogin: true,
       IsSalonLogin: false,
@@ -239,13 +242,13 @@ class Navbar extends Component<{}, navSate> {
 
   handleError = (open: boolean, type: AlertColor, message: string) => {
     console.log({ open, type, message });
-
     this.setState({
-      openSnackbar: open,
-      alertType: type,
       errorMessage: message,
+      alertType: type,
+      openSnackbar: open,
     });
   };
+
   render() {
     console.log({ navState: this.state });
     return (
@@ -349,7 +352,7 @@ class Navbar extends Component<{}, navSate> {
           {/* common snackbar */}
           <Snackbars
             handleClose={() => {
-              this.setState({ openSnackbar: !this.state.openSnackbar });
+              this.setState({ openSnackbar: false });
             }}
             message={this.state.errorMessage}
             open={this.state.openSnackbar}

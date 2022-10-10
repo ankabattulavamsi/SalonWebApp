@@ -45,13 +45,12 @@ class RegisteredNowPage extends React.Component<
   handleValidateEmail = (e: any) => {
     const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     const str = e.target.value;
-
     if (!pattern.test(str)) {
       this.setState({ errorEmail: "Email is not valid" });
-      this.props.handleError(true, "error", "Email is not valid");
     } else {
-      this.setState({ errorEmail: "" });
-      this.props.handleError(true, "success", "Email is  valid");
+      this.setState({
+        errorEmail: "",
+      });
     }
   };
 
@@ -59,12 +58,44 @@ class RegisteredNowPage extends React.Component<
     const pattern = /^[7-9][0-9]{9}$/;
     const str = e.target.value;
     if (!pattern.test(str)) {
-      this.setState({ error: "Mobile Number is not valid" });
+      this.setState({ error: "Mobile number is not valid" });
     } else {
       this.setState({ error: "" });
     }
   };
-  handleError = () => {};
+
+  handleError = () => {
+    const { handleError, state } = this.props;
+    if (state.fname === "") {
+      handleError(true, "error", "first name should not be empty");
+    } else if (state.mobileNumber === "") {
+      handleError(true, "error", "please entered mobile ");
+    } else if (isNaN(Number(state.mobileNumber))) {
+      handleError(true, "error", "Dont entered string in number");
+    } else if (this.state.error !== "") {
+      handleError(true, "error", "Entered 10 digit valid mobile number");
+    } else if (state.email === "") {
+      handleError(true, "error", "email should not be empty");
+    } else if (this.state.errorEmail !== "") {
+      handleError(true, "error", this.state.errorEmail);
+    } else if (state.password === "") {
+      handleError(true, "error", "please enter the password");
+    } else if (state.confirmPassword === "") {
+      handleError(true, "error", "please enter confirm  password");
+    } else if (state.errrorConfirmPassword !== "") {
+      handleError(true, "error", state.errrorConfirmPassword);
+    } else if (this.state.isChecked === false) {
+      this.props.handleError(
+        true,
+        "error",
+        "Please read and check the agreement button "
+      );
+    }
+  };
+
+  handleNavigate = () => {
+    this.props.toogleDrawer(modalConstants.VERIFICATION_DRAWER);
+  };
   render() {
     const {
       classes,
@@ -100,8 +131,8 @@ class RegisteredNowPage extends React.Component<
               </Box>
               <DropDownLogin
                 handleChange={(e) => {
-                  this.handleValidateMobileNumber(e);
                   handleChange(e);
+                  this.handleValidateMobileNumber(e);
                 }}
                 name={"mobileNumber"}
                 value={state.mobileNumber}
@@ -111,8 +142,8 @@ class RegisteredNowPage extends React.Component<
               label="email"
               name="email"
               handleChange={(e) => {
-                this.handleValidateEmail(e);
                 handleChange(e);
+                this.handleValidateEmail(e);
               }}
               placeholder="stevesmith@gmail.com"
               icon={emailImage}
@@ -164,14 +195,13 @@ class RegisteredNowPage extends React.Component<
                   state.fname === "" ||
                   state.email === "" ||
                   this.state.isChecked === false ||
-                  this.state.errorEmail !== "" ||
                   state.password === "" ||
                   state.confirmPassword === "" ||
-                  state.errorPass !== ""
+                  this.state.error ||
+                  this.state.errorEmail ||
+                  state.errrorConfirmPassword !== ""
                     ? this.handleError()
-                    : this.props.toogleDrawer(
-                        modalConstants.VERIFICATION_DRAWER
-                      );
+                    : this.handleNavigate();
                 }}
               />
             </Box>
