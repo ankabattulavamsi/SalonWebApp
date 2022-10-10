@@ -22,6 +22,9 @@
 	background-color: #ebb273 !important;
 	color: #fff !important;
 }
+.special-team:hover .special-team-content p {
+	color: #fff !important;
+}
 .special-team:hover .edit {
 	background-color: #ebb273 !important;
 	color: white !important;
@@ -44,6 +47,7 @@
 	border: none !important;
 	border-radius: 10px !important;
 	text-transform: capitalize !important;
+	font-size: 20px !important;
 }
 .edit {
 	border-top-right-radius: 0 !important;
@@ -56,13 +60,31 @@
 	border-bottom-left-radius: 0 !important;
 	color: #88878f !important;
 }
-/* .buttonTogether.edit:hover {
-	background-color: #ebb273 !important;
-	color: white !important;
-	transition: 1s ease-in-out;
+
+.corosel-team-specialist .react-multiple-carousel__arrow--left {
+	display: none !important;
 }
-.buttonTogether.delete:hover {
-	background-color: #000 !important;
-	color: white !important;
-	transition: 1s ease-in-out !important;
-} */
+.corosel-team-specialist .react-multiple-carousel__arrow--right {
+	display: none !important;
+}
+.innerCard {
+	flex-basis: 32.2% !important;
+}
+@media only screen and (min-width: 980px) and (max-width: 1050px) {
+	.innerCard {
+		flex-basis: 32% !important;
+	}
+}
+@media only screen and (min-width: 900px) and (max-width: 979px) {
+	.innerCard {
+		flex-basis: 31.5% !important;
+	}
+}
+@media only screen and (min-width: 599px) and (max-width: 850px) {
+	.innerCard {
+		flex-basis: 31.6% !important;
+	}
+	.special-team .special-team-content {
+		height: 100px !important;
+	}
+}

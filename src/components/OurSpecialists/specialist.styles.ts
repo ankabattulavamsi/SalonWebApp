@@ -1,24 +1,8 @@
 import theme from "../../Theme/Theme";
 
 export const Styles: any = {
-    specialist: {
-        // margin: "40px 180px",
-        [theme.breakpoints.down("lg")]: {
-        //    margin: "40px !important",
-        },
-    },
     CardItems: {
-        display: "flex",
-        flexDirection: "row !important",
-        alignItems: "center",
-        justifyContent: "space-between",
-        marginTop: "50px",
-        [theme.breakpoints.down("lg")]: {
-            display: "grid !important",
-            gridTemplateColumns: "repeat(2 , 1fr) !important",
-            gridGap: "10px !important",
-            margin: "30px auto"
-        },
+        marginTop:"50px",
         [theme.breakpoints.down("sm")]: {
             display: "none !important",
           
