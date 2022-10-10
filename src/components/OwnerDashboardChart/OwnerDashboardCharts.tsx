@@ -1,3 +1,4 @@
+import React, { Component } from "react";
 import {
   Box,
   Card,
@@ -6,19 +7,17 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
+import { withStyles } from "@mui/styles";
 import { data } from "../../utils/data/ownerDashboard/ownerDashboardCharts";
 import {
   Cards,
   CardData,
 } from "../../utils/data/ownerDashboard/ownerDashboard";
-import { withStyles } from "@mui/styles";
 
 import { DashboardChartStyles } from "./OwnerDashboardCharts.Style";
-import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
+import "./Owner.css";
 
-import "./Owner.css"
 interface chartProps {
   classes: any;
 }
@@ -29,10 +28,10 @@ class OwnerDashboardChart extends Component<chartProps> {
 
     return (
       <>
-        <Grid container >
-          <Grid item xs={1} sm={1} md={1} lg={1}></Grid>
-          <Grid item xs={10} sm={10} md={10} lg={10}>
-            <Box sx={{mt:10}} className={classes.mainDashboardDiv}>
+        <Grid container>
+          <Grid item xs={0.5} sm={1.5} md={1.5} lg={1.5}></Grid>
+          <Grid item xs={11} sm={9} md={9} lg={9}>
+            <Box sx={{ mt: 10 }} className={classes.mainDashboardDiv}>
               <Box className={classes.overallProfitDiv}>
                 <Typography
                   variant="h5"
@@ -44,29 +43,26 @@ class OwnerDashboardChart extends Component<chartProps> {
                   overall profits
                 </Typography>
                 <Typography variant="h2" color="primary.dark">
-                  <CurrencyRupeeIcon
-                    sx={{
-                      marginBottom: "-2px",
-                    }}
-                  />
-                  5,24,900
+                  ₹5,24,900
                 </Typography>
               </Box>
               <ReactApexChart
-              className="apexcharts-series"
+                className="apexcharts-series"
                 options={data.options}
                 series={data.series}
                 type="bar"
-                height={330}
-               
+                height={395}
+                width={"1130px"}
+              
               />
               <Box className={classes.dashboardChartCardDiv}>
                 <Grid container spacing={{ xs: 2, sm: 2, md: 4, lg: 6 }}>
                   {CardData.map((cards: Cards) => {
                     return (
-                      <Grid item xs={12} sm={6} md={4} lg={4}>
+                      <Grid item xs={12} sm={6} md={4} lg={4} key="cards">
                         <Card className={classes.dashboardChartCard}>
                           <CardMedia
+                          className={classes.dashboardChartCardImg}
                             sx={{
                               height: "50px",
                               width: "50px",
@@ -75,15 +71,13 @@ class OwnerDashboardChart extends Component<chartProps> {
                             image={cards.image}
                             alt="profit "
                           />
-                          <CardContent>
+                          <CardContent
+                          className={classes.dashboardChartCardText}
+                          >
                             <Typography variant="h2">
-                              {cards.description === "January Profits" ? (
-                                <CurrencyRupeeIcon
-                                  sx={{
-                                    marginBottom: "-2px",
-                                  }}
-                                />
-                              ) : null}
+                              {cards.description === "January Profits"
+                                ? "₹"
+                                : null}
                               {cards.heading}
                             </Typography>
                             <Typography variant="h3" color="secondary.dark">
@@ -98,7 +92,7 @@ class OwnerDashboardChart extends Component<chartProps> {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={1} sm={1} md={1} lg={1}></Grid>
+          <Grid item xs={0.5} sm={1.5} md={1.5} lg={1.5}></Grid>
         </Grid>
       </>
     );

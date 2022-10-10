@@ -7,7 +7,6 @@ import {
 	Card,
 	CardContent,
 	CardMedia,
-	Divider,
 	Typography,
 } from "@mui/material";
 import { TeamData } from "../../utils/data/expertTeam/team";
@@ -24,12 +23,8 @@ export default class SpecialistCard extends Component<IProps> {
 		const { team } = this.props;
 		return (
 			<>
-				<Card
-					className="special-team"
-					sx={{
-						width: { sm: "100%", md: "100%", lg: "345px" },
-					}}>
-					<Box sx={{}}>
+				<Card className="special-team">
+					<Box>
 						<CardMedia
 							component={"img"}
 							src={team.imgeUrl}
@@ -38,7 +33,6 @@ export default class SpecialistCard extends Component<IProps> {
 								display: "block",
 								objectFit: "fill !important",
 								justifyContent: "center",
-								width: "320px",
 								margin: "auto",
 							}}
 							alt={team.title}></CardMedia>
@@ -57,7 +51,7 @@ export default class SpecialistCard extends Component<IProps> {
 						<Typography
 							align="center"
 							variant="body2"
-							sx={{ color: "#88878F !important", marginTop: "10px" }}>
+							sx={{ color: "#88878F", marginTop: "10px" }}>
 							{team.position}
 						</Typography>
 					</CardContent>

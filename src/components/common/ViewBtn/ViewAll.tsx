@@ -5,15 +5,13 @@ import { viewAllStyles } from "./ViewAll.styles";
 interface Istate {}
 interface Iprops {
   title: string;
+  onClick?: () => void;
 }
 class ViewAll extends Component<Iprops, Istate> {
   render() {
     const { classes }: any = this.props;
     return (
-      <Button
-        className={classes.buttonClass}
-       
-      >
+      <Button className={classes.buttonClass} onClick={this.props.onClick}>
         {this.props.title}
       </Button>
     );
