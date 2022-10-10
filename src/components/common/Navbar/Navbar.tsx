@@ -61,7 +61,7 @@ class Navbar extends Component<{}, navSate> {
       verificationDrawer: false,
       openDrawer: false,
       openBusiness: false,
-      openPayout: true,
+      openPayout: false,
       IsCustomerLogin: true,
       IsSalonLogin: false,
       image: "",
