@@ -44,12 +44,9 @@ export const Styles: any = {
     blogTitleLine:{
         position:'relative',
         width: "30px", 
-        left:'48%', 
+        left:'0%', 
         top:'50%',
         borderBottom: "5px solid #EBB273",
-        [theme.breakpoints.down("sm")]: {
-            left:'0 !important'
-         },
     },
     specialistHeading: {
         display: "flex",

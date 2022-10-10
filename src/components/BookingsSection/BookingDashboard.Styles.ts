@@ -13,6 +13,7 @@ export const Styles: any = (theme: any) => ({
     fontFamily: "Fira Sans !important",
     fontWeight: "600 !important",
     lineHeight: "48px !important",
+    color: "#272522",
     textTransform: "capitalize !important",
     fontStyle: "normal",
     [theme.breakpoints.down("sm")]: {
@@ -92,8 +93,8 @@ export const Styles: any = (theme: any) => ({
       width: "112px",
       height: "49px",
     },
-    [theme.breakpoints.up("lg")]: {
-      paddingTop: "8px",
+    [theme.breakpoints.up("md")]: {
+      paddingTop: "6px",
     },
   },
   bookingsServicesName: {
@@ -117,6 +118,7 @@ export const Styles: any = (theme: any) => ({
     fontFamily: "Fira Sans !important",
     fontStyle: "normal !important",
     fontWeight: "600 !important",
+    color: "#88878F",
     fontSize: "24px !important",
     lineHeight: "48px !important",
     textTransform: "capitalize !important",
@@ -177,7 +179,7 @@ export const Styles: any = (theme: any) => ({
   nextDateIcon: {
     color: "#999999 !important",
     width: "120px",
-    height: "100px !important",
+    height: "80px !important",
     [theme.breakpoints.down("sm")]: {
       width: "32px !important ",
       height: "76px !important",
@@ -186,7 +188,7 @@ export const Styles: any = (theme: any) => ({
   previousDateIcon: {
     color: "#999999 !important",
     width: "90px",
-    height: "100px !important",
+    height: "80px !important",
     [theme.breakpoints.down("sm")]: {
       width: "32px !important ",
       height: "76px !important ",

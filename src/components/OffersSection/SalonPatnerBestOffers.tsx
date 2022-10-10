@@ -54,9 +54,9 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
     const navigatePageButton = "View All Offers";
 
     return (
-      <div>
+      <>
         <Box sx={{ pt: 5, pb: 5, mt: 5 }} className={classes.MainContainer}>
-          <Box maxWidth="xl">
+          <Box >
             <Grid
               container
               justifyContent="center"
@@ -184,7 +184,7 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
           </Box>
         </Box>
         <SalonBestOffersModel open={open} handleClose={this.handleClose} />
-      </div>
+      </>
     );
   }
 }
