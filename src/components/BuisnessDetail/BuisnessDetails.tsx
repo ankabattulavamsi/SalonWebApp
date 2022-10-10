@@ -8,7 +8,6 @@ import {
   emailImage,
   locationImage,
   noteImage,
-  profileImage,
   profilesImage,
   storeImage,
   userImage,

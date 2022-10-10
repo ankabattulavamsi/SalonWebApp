@@ -12,17 +12,17 @@ export const viewAllStyles: any = (theme: any) => ({
       color: "#ffffff !important",
     },
 
-    // [theme.breakpoints.up("md")]: {
-    //   fontSize: "18px !important",
-    //   padding: "18px 25px !important",
-    // },
-    // [theme.breakpoints.up("sm")]: {
-    //   fontSize: "15px !important",
-    //   padding: "14px 20px !important",
-    // },
-    // [theme.breakpoints.up("xs")]: {
-    //   fontSize: "13px !important",
-    //   padding: "14px 20px !important",
-    // },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "18px !important",
+      padding: "18px 25px !important",
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "15px !important",
+      padding: "14px 20px !important",
+    },
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "13px !important",
+      padding: "14px 20px !important",
+    },
   },
 });

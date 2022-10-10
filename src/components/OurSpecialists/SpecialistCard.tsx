@@ -7,7 +7,6 @@ import {
 	Card,
 	CardContent,
 	CardMedia,
-	Divider,
 	Typography,
 } from "@mui/material";
 import { TeamData } from "../../utils/data/expertTeam/team";
