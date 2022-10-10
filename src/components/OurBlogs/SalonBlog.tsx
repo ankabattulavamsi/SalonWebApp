@@ -28,7 +28,7 @@ class SalonBlog extends Component<blogProps, salonBlogS> {
 
     return (
       <>
-        <Box sx={{ pb: 10, pt: 10, background: "#FDF6EE" }}>
+        <Box sx={{ pb: 10, pt: {lg:10, md:10, sm: 5, xs:5}, background: "#FDF6EE" }}>
           <Box className={classes.salonBlogTitleBox}>
             <Box sx={{mb:{xs:2, sm:0, md:0}}}>
               <Typography className={classes.salonBlogHeading}>Our Blogs</Typography>

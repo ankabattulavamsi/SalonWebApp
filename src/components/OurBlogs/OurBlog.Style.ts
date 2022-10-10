@@ -82,11 +82,11 @@ export const BlogStyles :any = {
             margin:'0 0 2% 4%',
         },
         [theme.breakpoints.up("sm")]:{
-            margin:'0 4% 0 4%',
+            margin:'0 4% 2% 4%',
             display:'flex', 
         },
         [theme.breakpoints.up("md")]:{
-            margin:'0 13% 0 13%',
+            margin:'0 13% 1% 13%',
             display:'flex', 
         },
     },
@@ -142,7 +142,7 @@ export const BlogStyles :any = {
         borderRadius:'10px 0% 0% 10px !important',
         width:'35%',
         textTransform:'capitalize !important',
-        fontSize:'1.2rem !important',
+        fontSize:'1rem !important',
         padding:'15px 0 15px 0 !important',
         '&:hover':{
         background:'#E7A356 !important',
@@ -153,13 +153,18 @@ export const BlogStyles :any = {
         },
         [theme.breakpoints.down("md")]:{
             width:'45%',
+        },
+        [theme.breakpoints.only("md")]:{
+            width:'45%',
+            fontSize:'.8rem !important',
+            padding:'20px 0 20px 0',
         }
     },
     salonDelBtn:{
         borderRadius:'0 10px 10px 0 !important',
         width:'35%',
         textTransform:'capitalize !important',
-        fontSize:'1.2rem !important',
+        fontSize:'1rem !important',
         borderLeft:'1px solid #d7d9db !important',
         padding:'15px 0 15px 0 !important',
         '&:hover':{
@@ -171,6 +176,11 @@ export const BlogStyles :any = {
         },
         [theme.breakpoints.down("md")]:{
             width:'45%',
+        },
+        [theme.breakpoints.only("md")]:{
+            width:'48%',
+            fontSize:'.8rem !important',
+            padding:'20px 0 20px 0',
         }
     }
 }
