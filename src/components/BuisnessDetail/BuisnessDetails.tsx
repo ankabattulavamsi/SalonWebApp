@@ -1,8 +1,8 @@
-import { Box, Button, Typography } from "@mui/material";
+import { AlertColor, Box, Button, Typography } from "@mui/material";
 import React, { Component } from "react";
 import { BusinessStyles } from "./BuisnessDetailsStyle";
 import { withStyles } from "@mui/styles";
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import "./BuisnessDetails.css";
 import {
   emailImage,
@@ -24,6 +24,7 @@ interface BuisnessDetailsProps {
   handleImageChange: (e: any) => void;
   state: navSate;
   handleClickSave: () => void;
+  handleError: (open: boolean, type: AlertColor, message: string) => void;
 }
 interface BuisnessDetailsState {
   error: string;
@@ -45,9 +46,40 @@ class BuisnessDetails extends Component<
     const str = e.target.value;
 
     if (!pattern.test(str)) {
-      this.setState({ error: "Email is not valid" });
+      this.setState({ error: "please enter valid email" });
     } else {
       this.setState({ error: "" });
+    }
+  };
+
+  handleError = () => {
+    //   this.state.error !== "" ||
+    // this.props.state.email === "" ||
+    // this.props.state.GSTIN === "" ||
+    // this.props.state.address === "" ||
+    // this.props.state.bname === "" ||
+    // this.props.state.owner === ""
+
+    const { state, handleError } = this.props;
+
+    // if(state.)
+
+    if (state.bname === "" || state.bname.length < 5) {
+      handleError(
+        true,
+        "error",
+        "Please enter buesness name atleast 4 or 5 character"
+      );
+    } else if (state.owner === "") {
+      handleError(true, "error", "owner name is required");
+    } else if (state.GSTIN === "") {
+      handleError(true, "error", "GSTIN number  is required");
+    } else if (state.address === "") {
+      handleError(true, "error", "please give proper adress");
+    } else if (state.email === "" || this.state.error) {
+      handleError(true, "error", this.state.error);
+    } else if (state.bankname === "") {
+      handleError(true, "error", "Bank name is required");
     }
   };
 
@@ -192,17 +224,16 @@ class BuisnessDetails extends Component<
             }}
           >
             <Buttons
-              disabled={
+              title="save & continue"
+              handleClick={() => {
                 this.state.error !== "" ||
                 this.props.state.email === "" ||
                 this.props.state.GSTIN === "" ||
                 this.props.state.address === "" ||
                 this.props.state.bname === "" ||
                 this.props.state.owner === ""
-              }
-              title="save & continue"
-              handleClick={() => {
-                this.props.handleClickSave();
+                  ? this.handleError()
+                  : this.props.handleClickSave();
               }}
             />
           </Box>

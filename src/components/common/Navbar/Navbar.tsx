@@ -60,7 +60,7 @@ class Navbar extends Component<{}, navSate> {
       registerDrawer: false,
       verificationDrawer: false,
       openDrawer: false,
-      openBusiness: false,
+      openBusiness: true,
       openPayout: false,
       IsCustomerLogin: true,
       IsSalonLogin: false,
@@ -375,6 +375,7 @@ class Navbar extends Component<{}, navSate> {
             open={this.state.verificationDrawer}
             state={this.state}
             handleChangeOtp={this.otpChangeHandle}
+            handleError={this.handleError}
           />
           <BuisnessDetails
             handleToggleDrawer={this.handleToggleDrawer}
@@ -383,6 +384,7 @@ class Navbar extends Component<{}, navSate> {
             handleImageChange={this.handleImageChange}
             state={this.state}
             handleClickSave={this.handleClickSave}
+            handleError={this.handleError}
           />
           <PayoutDetails
             open={this.state.openPayout}
