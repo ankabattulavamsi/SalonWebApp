@@ -51,7 +51,7 @@ export default class SpecialistCard extends Component<IProps> {
 						<Typography
 							align="center"
 							variant="body2"
-							sx={{ color: "#88878F !important", marginTop: "10px" }}>
+							sx={{ color: "#88878F", marginTop: "10px" }}>
 							{team.position}
 						</Typography>
 					</CardContent>
