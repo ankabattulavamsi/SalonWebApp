@@ -17,7 +17,12 @@ class Drawers extends Component<DrawersProps, {}> {
     return (
       <>
         <Drawer anchor={"right"} open={open} onClose={() => toggleDrawer()}>
-          <Box>
+          <Box
+            sx={{
+              ml: { xs: "1rem", md: "1rem" },
+              mt: { xs: "1rem", md: "1rem" },
+            }}
+          >
             <Button
               role="button"
               onClick={() => toggleDrawer()}

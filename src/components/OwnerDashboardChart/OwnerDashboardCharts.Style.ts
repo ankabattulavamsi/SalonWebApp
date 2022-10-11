@@ -23,17 +23,40 @@ export const DashboardChartStyles: any = {
     background: "#FFFEFE",
     boxShadow: "0px 4px 50px rgba(0, 0, 0, 0.07) !important",
     borderRadius: " 10px !important",
-    marginTop: "48px",
+    marginTop: "40px",
+    padding:"10px 40px",
     "@media only screen and (max-width: 660px) ": {
       margin: "auto",
-     textIndent:'start !important',
-     display: "flex",
-     justifyContent: "flex-start",
-     alignItems: "center",
+      display: "flex",
+      justifyContent: "flex-start",
+      alignItems: "center",
+      padding: "0px",
     },
-    "@media (min-width: 660px) and (max-width: 920px) ": {
+    "@media (min-width: 660px) and (max-width: 900px) ": {
       margin: "auto",
+      padding: "0px !important",
+      justifyContent: "flex-start",
+
     },
   },
-  };
-
+  dashboardChartCardImg: {
+    "@media only screen and (max-width: 600px) ": {
+      position: "relative",
+      left: "59px",
+    },
+    "@media (min-width: 600px) and (max-width: 900px) ": {
+      position: "relative",
+      left: "15px",
+    }
+  },
+  dashboardChartCardText: {
+    "@media only screen and (max-width: 600px) ": {
+      position: "relative",
+      left: "90px",
+    },
+    "@media (min-width: 600px) and (max-width: 900px) ": {
+      position: "relative",
+      left: "30px",
+    }
+  },
+};
