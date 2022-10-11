@@ -1,8 +1,14 @@
+import { Repeat } from "@mui/icons-material";
 import theme from "../../Theme/Theme";
 
 export const Styles: any = {
     CardItems: {
-        marginTop:"50px",
+        marginTop: "50px",
+        [theme.breakpoints.only("sm")]: {
+            display: "grid !important",
+            gridTemplateColumns: "repeat(3 , 1fr) !important"
+          
+         },
         [theme.breakpoints.down("sm")]: {
             display: "none !important",
           
@@ -45,8 +51,9 @@ export const Styles: any = {
         background: "#000 !important",
         color: "white !important",
         textTransform: "capitalize !important",
-        padding: "16px 32px !important",
+        padding: "10px 32px !important",
         borderRadius: "10px !important",
+        fontSize:"22px !important",
         [theme.breakpoints.down("sm")]: {
             marginTop:"20px !important"
          },

@@ -16,7 +16,7 @@ export const useStyles = makeStyles({
     [`& button`]: {
       color: "white",
       width: "100%",
-      padding: "15px 20px",
+      padding: "15px 20px !important",
       background: "#E7A356",
       "&:hover": {
         background: "#E7A356",

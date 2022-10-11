@@ -16,7 +16,7 @@ export default class Snackbars extends Component<
     return (
       <Snackbar
         open={open}
-        autoHideDuration={1000}
+        autoHideDuration={2000}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         onClose={() => handleClose()}
       >

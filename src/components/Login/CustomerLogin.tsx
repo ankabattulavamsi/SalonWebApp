@@ -37,8 +37,11 @@ class CustomerLogin extends Component<
 		});
 	};
 	LoginHandler = () => {
-		if (!this.state.number || !this.state.loginOtp) {
+		if (!this.state.number || this.state.loginOtp.length < 6) {
 			const notify = () => toast.warn("Please Enter valid data!");
+			notify();
+		} else if (this.state.number.length < 10) {
+			const notify = () => toast.warn("Please enter valid phone number!");
 			notify();
 		} else {
 			this.props.navigate("/customer");

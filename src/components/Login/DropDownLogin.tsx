@@ -103,7 +103,7 @@ export default class DropDownLogin extends Component<IProps> {
 								onChange={this.props.onChangeHandle}
 								variant="standard"
 								placeholder="Phone Number"
-								type="tel"
+								type="number"
 								required
 								InputProps={{
 									disableUnderline: true,
