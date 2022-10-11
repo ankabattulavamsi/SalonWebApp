@@ -18,19 +18,24 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { withStyles } from "@mui/styles";
 import { styles } from "./SalonCategory.style";
 
+import CommonViewAllButton from "../common/CommonSalonPatnerButtons/CommonViewAllButton";
 import { salonCategoryData } from "../../utils/data/SalonCategory/SalonCategory_data";
 interface categoryProps{
-    classes: any
+    classes: any,
 }
 class SalonCategory extends Component <categoryProps> {
   render() {
     const { classes } = this.props;
+    
     return (
       <>
         <Container className={classes.categoryBox}>
           <Box className={classes.categoryTitleBox}>
             <Typography variant="h2">Category</Typography>
-            <Button>View all Category</Button>
+            <CommonViewAllButton 
+              buttonName="View All Category" 
+              onClickNavigateOffersPage={()=>{}}
+            />
           </Box>
           <Grid container spacing={4} className={classes.categoryImageBox}>
             {salonCategoryData.map((item: any) => {
@@ -52,7 +57,7 @@ class SalonCategory extends Component <categoryProps> {
                       <CardContent className={classes.categoryContent}>
                         <Typography>{item.title}</Typography>
                       </CardContent>
-                      <CardActions className={classes.categoryButton}>
+                      <CardActions className={classes.categoryButtonBox}>
                         <Button><EditIcon/>{item.editButton}</Button>
                         <Button ><DeleteIcon/>{item.deleteButton}</Button>
                       </CardActions>
