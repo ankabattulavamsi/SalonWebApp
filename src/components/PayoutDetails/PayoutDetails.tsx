@@ -1,4 +1,4 @@
-import { Typography,Box } from "@mui/material";
+import { Typography, Box, AlertColor } from "@mui/material";
 import { withStyles } from "@mui/styles";
 import React, { Component } from "react";
 import {
@@ -17,6 +17,7 @@ interface PayoutDetailsProps {
   classes: any;
   state: navSate;
   handleChange: (e: any) => void;
+  handleError: (open: boolean, type: AlertColor, message: string) => void;
 }
 interface PayoutDetailsState {
   buttonActive?: boolean;
@@ -64,8 +65,49 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
       });
     }
   };
+
+  handleError = () => {
+    const { state, handleError } = this.props;
+    if (state.accHoldername === "") {
+      handleError(
+        true,
+        "error",
+        "please add account holder name as per your bank"
+      );
+    } else if (state.accNumber === "" || this.state.errorA) {
+      handleError(
+        true,
+        "error",
+        "please add account number atleast 9 and atmost 13 digits"
+      );
+    } else if (state.confirmaccNumber === "" || this.state.errorB) {
+      handleError(
+        true,
+        "error",
+        "Your account number and confirm account number must be same"
+      );
+    } else if (this.props.state.ifscCode === "") {
+      handleError(true, "error", "Please enter ifsc code as per bank");
+    } else if (state.bankname === "") {
+      handleError(true, "error", "Please select bank name from list");
+    }
+  };
+  handleNavigate = () => {
+    this.props.navigate("/salon");
+    this.props.toggleFunc(modalConstants.PAYOUT_DRAWER);
+  };
+
+  handleErrorUpi = () => {
+    if (this.props.state.upiAddress === "" || this.state.error) {
+      this.props.handleError(
+        true,
+        "error",
+        "Please give the proper upi adress as per your bank"
+      );
+    }
+  };
   render() {
-    const { classes, navigate, toggleFunc } = this.props;
+    const { classes, toggleFunc } = this.props;
     return (
       <>
         <Drawers
@@ -138,7 +180,6 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                     placeholder="798765432104441"
                     name="accNumber"
                     value={this.props.state.accNumber}
-                    error={this.state.errorA}
                   />
                   <Inputs
                     handleChange={(e: any) => {
@@ -149,7 +190,6 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                     placeholder="798765432104441"
                     name="confirmaccNumber"
                     value={this.props.state.confirmaccNumber}
-                    error={this.state.errorB}
                   />
                   <Inputs
                     handleChange={this.props.handleChange}
@@ -184,18 +224,17 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                 >
                   <Buttons
                     title="save & continue"
-                    disabled={
+                    handleClick={() => {
                       this.state.errorA !== "" ||
                       this.state.errorB !== "" ||
                       this.state.error !== "" ||
                       this.props.state.accHoldername === "" ||
                       this.props.state.accNumber === "" ||
                       this.props.state.bankname === "" ||
-                      this.props.state.confirmaccNumber === ""
-                    }
-                    handleClick={() => {
-                      navigate("/salon");
-                      toggleFunc(modalConstants.PAYOUT_DRAWER);
+                      this.props.state.confirmaccNumber === "" ||
+                      this.props.state.ifscCode === ""
+                        ? this.handleError()
+                        : this.handleNavigate();
                     }}
                   />
                 </Box>
@@ -214,7 +253,6 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                       this.handleValidateUpi(e);
                       this.props.handleChange(e);
                     }}
-                    error={this.state.error}
                   />
                 </Box>
 
@@ -231,13 +269,11 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                 >
                   <Buttons
                     title="save & continue"
-                    disabled={
+                    handleClick={() => {
                       this.props.state.upiAddress === "" ||
                       this.state.error !== ""
-                    }
-                    handleClick={() => {
-                      navigate("/salon");
-                      toggleFunc(modalConstants.PAYOUT_DRAWER);
+                        ? this.handleErrorUpi()
+                        : this.handleNavigate();
                     }}
                   />
                 </Box>
