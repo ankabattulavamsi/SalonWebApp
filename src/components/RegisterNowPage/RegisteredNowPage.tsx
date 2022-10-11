@@ -90,6 +90,8 @@ class RegisteredNowPage extends React.Component<
         "error",
         "Please read and check the agreement button "
       );
+    } else {
+      this.props.handleError(true, "error", "Please enter all filled");
     }
   };
 
@@ -204,7 +206,8 @@ class RegisteredNowPage extends React.Component<
                   state.confirmPassword === "" ||
                   this.state.error ||
                   this.state.errorEmail ||
-                  state.errrorConfirmPassword !== ""
+                  state.errrorConfirmPassword !== "" ||
+                  state.city === ""
                     ? this.handleError()
                     : this.handleNavigate();
                 }}

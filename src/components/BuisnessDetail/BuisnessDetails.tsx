@@ -54,11 +54,13 @@ class BuisnessDetails extends Component<
 
   handleError = () => {
     const { state, handleError } = this.props;
-    if (state.bname === "" || state.bname.length < 5) {
+    if (state.image === "") {
+      handleError(true, "error", "profile image is required");
+    } else if (state.bname === "" || state.bname.length < 5) {
       handleError(
         true,
         "error",
-        "Please enter buesness name atleast 4 or 5 character"
+        "Please enter busness name atleast 4 or 5 character"
       );
     } else if (state.owner === "") {
       handleError(true, "error", "owner name is required");
@@ -68,8 +70,6 @@ class BuisnessDetails extends Component<
       handleError(true, "error", "please give proper adress");
     } else if (state.email === "" || this.state.error) {
       handleError(true, "error", this.state.error);
-    } else if (state.image === "") {
-      handleError(true, "error", "profile image is required");
     } else {
       handleError(true, "error", "something is wrong");
     }
@@ -217,12 +217,14 @@ class BuisnessDetails extends Component<
             <Buttons
               title="save & continue"
               handleClick={() => {
+                this.props.state.image === "" ||
+                this.props.state.bname === "" ||
+                this.props.state.bname.length < 5 ||
                 this.state.error !== "" ||
                 this.props.state.email === "" ||
                 this.props.state.GSTIN === "" ||
                 this.props.state.address === "" ||
-                this.props.state.owner === "" ||
-                this.props.state.image === ""
+                this.props.state.owner === ""
                   ? this.handleError()
                   : this.props.handleClickSave();
               }}
