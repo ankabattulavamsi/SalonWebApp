@@ -85,7 +85,7 @@
 }
 @media only screen and (min-width: 599px) and (max-width: 850px) {
 	.innerCard {
-		flex-basis: 31.6% !important;
+		max-width: 100% !important;
 	}
 	.special-team .special-team-content {
 		height: 100px !important;
