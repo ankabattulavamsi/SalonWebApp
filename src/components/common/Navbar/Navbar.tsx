@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { Fragment, Component } from "react";
-import { Box, Button, Drawer, List, ListItem } from "@mui/material";
+import { AlertColor, Box, Button, Drawer, List, ListItem } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import PersonIcon from "@mui/icons-material/Person";
 import CloseIcon from "@mui/icons-material/Close";
@@ -14,12 +14,12 @@ import PayoutDetails from "../../PayoutDetails/PayoutDetails";
 import RegisteredNowPage from "../../RegisterNowPage/RegisteredNowPage";
 import { modalConstants } from "../../../utils/data/constants/loginRegistration";
 import VerificationComp from "../../VerificationCOmp/VerificationComp";
+import Snackbars from "../SnackbarToast/Snackbars";
 
 export interface navSate {
   activeLink: string;
   mobileDrawer: boolean;
   registerDrawer: boolean;
-
   verificationDrawer: boolean;
   openDrawer: boolean;
   openBusiness: boolean;
@@ -46,39 +46,50 @@ export interface navSate {
   errorPass: string;
   city: string;
   otpVerif: string;
+  openSnackbar: boolean;
+  errorMessage: string;
+  alertType: AlertColor;
+  errrorConfirmPassword: string;
 }
 class Navbar extends Component<{}, navSate> {
-  state = {
-    activeLink: "Home",
-    mobileDrawer: false,
-    registerDrawer: false,
-    verificationDrawer: false,
-    openDrawer: false,
-    openBusiness: false,
-    openPayout: false,
-    IsCustomerLogin: true,
-    IsSalonLogin: false,
-    image: "",
-    address: "",
-    bname: "",
-    email: "",
-    owner: "",
-    GSTIN: "",
-    error: "",
-    errorPass: "",
-    upiAddress: "",
-    accHoldername: "",
-    bankname: "",
-    confirmaccNumber: "",
-    ifscCode: "",
-    accNumber: "",
-    fname: "",
-    password: "",
-    confirmPassword: "",
-    mobileNumber: "",
-    city: "",
-    otpVerif: "",
-  };
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      activeLink: "Home",
+      mobileDrawer: false,
+      registerDrawer: false,
+      verificationDrawer: false,
+      openDrawer: false,
+      openBusiness: false,
+      openPayout: false,
+      IsCustomerLogin: true,
+      IsSalonLogin: false,
+      image: "",
+      address: "",
+      bname: "",
+      email: "",
+      owner: "",
+      GSTIN: "",
+      error: "",
+      errorPass: "",
+      upiAddress: "",
+      accHoldername: "",
+      bankname: "",
+      confirmaccNumber: "",
+      ifscCode: "",
+      accNumber: "",
+      fname: "",
+      password: "",
+      confirmPassword: "",
+      mobileNumber: "",
+      city: "",
+      otpVerif: "",
+      openSnackbar: false,
+      errorMessage: "",
+      alertType: "success",
+      errrorConfirmPassword: "",
+    };
+  }
 
   handleClick = (title: string) => {
     this.setState({
@@ -105,9 +116,14 @@ class Navbar extends Component<{}, navSate> {
   confirmPassChangehandle = (password: any) => {
     this.setState({ confirmPassword: password });
     if (password !== this.state.password) {
-      this.setState({ errorPass: "Password should be match" });
+      this.setState({
+        errrorConfirmPassword:
+          "please password and confirm password is not matched",
+      });
     } else {
-      this.setState({ errorPass: "" });
+      this.setState({
+        errrorConfirmPassword: "",
+      });
     }
   };
 
@@ -200,14 +216,13 @@ class Navbar extends Component<{}, navSate> {
       openDrawer: true,
     });
   };
-  //button click to navigate or open the payout detalis page
+  //button click to navigate or open the payout details page
   handleClickSave = () => {
     this.handleToggleDrawer(modalConstants.PAYOUT_DRAWER);
   };
 
   // handle customer login
   handleCustomerLogin = () => {
-    console.log("customer");
     this.setState({
       IsCustomerLogin: true,
       IsSalonLogin: false,
@@ -224,6 +239,16 @@ class Navbar extends Component<{}, navSate> {
   otpChangeHandle = (otp: string) => {
     this.setState({ otpVerif: otp });
   };
+
+  handleError = (open: boolean, type: AlertColor, message: string) => {
+    console.log({ open, type, message });
+    this.setState({
+      errorMessage: message,
+      alertType: type,
+      openSnackbar: open,
+    });
+  };
+
   render() {
     console.log({ navState: this.state });
     return (
@@ -324,7 +349,15 @@ class Navbar extends Component<{}, navSate> {
             handleSalonLogin={this.handleSalonLogin}
             state={this.state}
           />
-
+          {/* common snackbar */}
+          <Snackbars
+            handleClose={() => {
+              this.setState({ openSnackbar: false });
+            }}
+            message={this.state.errorMessage}
+            open={this.state.openSnackbar}
+            type={this.state.alertType}
+          />
           <RegisteredNowPage
             open={this.state.registerDrawer}
             toogleDrawer={this.handleToggleDrawer}
@@ -333,15 +366,15 @@ class Navbar extends Component<{}, navSate> {
             handleOnClick={this.handleToggleDrawer}
             handleChangePassword={this.handleChangePassword}
             confirmPassChangehandle={this.confirmPassChangehandle}
+            handleError={this.handleError}
           />
-
           <VerificationComp
             handleToggle={this.handleToggleDrawer}
             open={this.state.verificationDrawer}
             state={this.state}
             handleChangeOtp={this.otpChangeHandle}
+            handleError={this.handleError}
           />
-
           <BuisnessDetails
             handleToggleDrawer={this.handleToggleDrawer}
             open={this.state.openBusiness}
@@ -349,13 +382,14 @@ class Navbar extends Component<{}, navSate> {
             handleImageChange={this.handleImageChange}
             state={this.state}
             handleClickSave={this.handleClickSave}
+            handleError={this.handleError}
           />
-
           <PayoutDetails
             open={this.state.openPayout}
             toggleFunc={this.handleToggleDrawer}
             state={this.state}
             handleChange={this.handleChange}
+            handleError={this.handleError}
           />
         </>
       </Fragment>
