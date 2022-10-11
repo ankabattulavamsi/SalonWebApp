@@ -1,4 +1,12 @@
 export const Styles: any = (theme: any) => ({
+  customerContainer: {
+    maxWidth: "555px",
+    p: "50px",
+    [theme.breakpoints.up("sm")]: {
+      marginTop: "20px",
+    },
+    height: "auto",
+  },
   dashboardAvatar: {
     [theme.breakpoints.down("md")]: {
       width: "54px",
@@ -26,6 +34,36 @@ export const Styles: any = (theme: any) => ({
       fontSize: "24px !important",
     },
   },
+
+  customerId: {
+    fontWeight: "500 !important",
+    lineHeight: "28px !important",
+    color: "#88878F",
+    fontStyle: "normal",
+    fontFamily: "Fira Sans !important",
+    letterSpacing: "0.01 !important",
+    textTransform: "capitalize !important",
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "16px !important",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "18px !important",
+    },
+  },
+
+  customerPaidAmount: {
+    fontFamily: "Fira Sans !important",
+    fontStyle: "normal !important",
+    fontWeight: "600 !important",
+    color: "#88878F !important",
+    fontSize: "24px !important",
+    lineHeight: "48px !important",
+    textTransform: "capitalize !important",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "22px !important",
+    },
+  },
+
   bookingsServicesTitle: {
     fontFamily: "Fira Sans !important",
     fontStyle: "normal !important",
@@ -40,19 +78,57 @@ export const Styles: any = (theme: any) => ({
       fontSize: "18px !important",
     },
   },
-  bookingsSubHeading: {
-    fontWeight: "500 !important",
-    lineHeight: "28px !important",
-    color: "#272522 !important",
-    fontStyle: "normal",
-    fontFamily: "Fira Sans !important",
-    letterSpacing: "0.01 !important",
-    textTransform: "capitalize !important",
-    [theme.breakpoints.up("xs")]: {
-      fontSize: "16px !important",
+  serviceNameContainer: {
+    backgroundColor: "#F0F0F0",
+    borderRadius: "5px",
+    display: "flex",
+    alignContent: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    [theme.breakpoints.down("md")]: {
+      width: "87px",
+      // height: "37px",
     },
     [theme.breakpoints.up("md")]: {
-      fontSize: "18px !important",
+      width: "112px",
+      // height: "49px",
+    },
+    [theme.breakpoints.up("md")]: {
+      paddingTop: "6px",
+    },
+  },
+
+  bookingsServicesName: {
+    fontFamily: "Fira Sans !important",
+    fontStyle: "normal !important",
+    fontWeight: "500 !important",
+    // lineHeight: "36px !important",
+    textTransform: "capitalize",
+    // textAligin: "center",
+    color: "#88878F",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "12px !important",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "14px !important",
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "16px !important",
+    },
+    paddingTop: 5,
+    paddingBottom: 7,
+  },
+
+  bookingTimeHeading: {
+    fontFamily: "Fira Sans !important",
+    fontStyle: "normal !important",
+    fontWeight: "500 !important",
+    fontSize: "18px !important",
+    lineHeight: "48px !important",
+    textTransform: "capitalize !important",
+    color: "#272522 !important",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "17px !important",
     },
   },
   bookingTime: {
@@ -76,72 +152,10 @@ export const Styles: any = (theme: any) => ({
     fontSize: "20px !important",
     lineHeight: "24px !important",
     letterSpacing: "0.02em !important",
-    textTransform: "capitalize",
     marginTop: "58px !important",
+
     marginBottom: "91px !important",
     mx: "auto !important",
-  },
-  serviceNameContainer: {
-    backgroundColor: "#F0F0F0",
-    // textAlign: "center",
-    borderRadius: "5px",
-    [theme.breakpoints.down("md")]: {
-      width: "87px",
-      height: "37px",
-    },
-    [theme.breakpoints.up("md")]: {
-      width: "112px",
-      height: "49px",
-    },
-    [theme.breakpoints.up("md")]: {
-      paddingTop: "6px",
-    },
-  },
-  bookingsServicesName: {
-    fontFamily: "Fira Sans !important",
-    fontStyle: "normal !important",
-    fontWeight: "500 !important",
-    lineHeight: "36px !important",
-    textTransform: "capitalize",
-    color: "#88878F",
-    [theme.breakpoints.down("md")]: {
-      fontSize: "12px !important",
-    },
-    [theme.breakpoints.up("md")]: {
-      fontSize: "14px !important",
-    },
-    [theme.breakpoints.up("lg")]: {
-      fontSize: "16px !important",
-    },
-  },
-  profileHeaderCost: {
-    fontFamily: "Fira Sans !important",
-    fontStyle: "normal !important",
-    fontWeight: "600 !important",
-    color: "#88878F",
-    fontSize: "24px !important",
-    lineHeight: "48px !important",
-    textTransform: "capitalize !important",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "22px !important",
-    },
-  },
-  customerContainer: {
-    maxWidth: "555px",
-    p: "50px",
-    height: "auto",
-  },
-  bookingTimeHeading: {
-    fontFamily: "Fira Sans !important",
-    fontStyle: "normal !important",
-    fontWeight: "500 !important",
-    fontSize: "18px !important",
-    lineHeight: "48px !important",
-    textTransform: "capitalize !important",
-    color: "#272522 !important",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "17px !important",
-    },
   },
 
   //Bookings calender styles
@@ -153,20 +167,19 @@ export const Styles: any = (theme: any) => ({
     lineHeight: "48px !important",
     textAlign: "center !important",
     textTransform: "capitalize !important",
-    [theme.breakpoints.down("md")]: {
-      fontSize: "24px !important",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "20px !important",
     },
   },
   calenderDayText: {
     fontFamily: "Roboto !important",
     fontStyle: "normal ",
     fontWeight: "600 !important",
-    fontSize: "16px !important",
     lineHeight: "28px",
     textAlign: "center !important",
     textTransform: "capitalize",
     [theme.breakpoints.down("sm")]: {
-      fontSize: "14px ",
+      fontSize: "0.8em ",
     },
     [theme.breakpoints.down("sm")]: {
       width: "70px",
@@ -175,10 +188,14 @@ export const Styles: any = (theme: any) => ({
       width: "63px",
       fontSize: "60%",
     },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "16px !important",
+    },
   },
   nextDateIcon: {
     color: "#999999 !important",
     width: "120px",
+    alignSelf: "center",
     height: "80px !important",
     [theme.breakpoints.down("sm")]: {
       width: "32px !important ",
@@ -189,14 +206,21 @@ export const Styles: any = (theme: any) => ({
     color: "#999999 !important",
     width: "90px",
     height: "80px !important",
+    // marginTop: "16px",
+    alignSelf: "center",
     [theme.breakpoints.down("sm")]: {
-      width: "32px !important ",
-      height: "76px !important ",
+      width: "60% !important ",
+      height: "60% !important ",
     },
     [theme.breakpoints.down("md")]: {
       width: "32px !important ",
       height: "76px !important ",
     },
   },
-  mx: "auto !important",
+  iconContainer: {
+    width: { sm: "80px !important", xs: "40px !important" },
+    backgroundColor: "#fff !important",
+    display: "flex !important",
+    justifyContent: "center !important",
+  },
 });

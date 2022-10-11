@@ -28,3 +28,14 @@
 .customerCard:hover .personPrice {
   color: #e7a356 !important;
 }
+
+.customerCard:hover .customerSubHeading {
+  color: #272522 !important;
+}
+.react-horizontal-scrolling-menu--scroll-container {
+  width: auto;
+}
+.css-10ht2rm-MuiButtonBase-root-MuiButton-root {
+  min-width: auto !important;
+  padding: 0 !important;
+}

@@ -24,13 +24,12 @@ import { datesArray } from "../../utils/data/bookings/CalenderData";
 import { Styles } from "./BookingDashboard.Styles";
 import "./BookingDashboard.css";
 
-interface DateProps {
-  day: string;
-  date: number;
-}
-
 class BookingsDashboard extends Component {
-  state = { currentDate: new Date().getDate() };
+  state = {
+    currentDate: new Date().getDate(),
+    activeDate: new Date().getDate(),
+    isActiveClicked: false,
+  };
 
   onNextDate = () => {
     const { currentDate } = this.state;
@@ -39,12 +38,18 @@ class BookingsDashboard extends Component {
 
   onPreviousDate = () => {
     const { currentDate } = this.state;
+
     this.setState({ currentDate: currentDate - 1 });
+  };
+
+  handleActiveDate = (date: number) => {
+    this.setState({ currentDate: date });
+    this.setState({ isActiveClicked: true });
   };
 
   render() {
     const { classes, theme }: any = this.props;
-    const { currentDate } = this.state;
+    const { currentDate, isActiveClicked, activeDate } = this.state;
     return (
       <div
         style={{
@@ -54,23 +59,27 @@ class BookingsDashboard extends Component {
           width: "100%",
         }}
       >
-        <Container maxWidth="lg" sx={{ mx: "auto" }}>
+        <Container maxWidth="lg">
           <Box>
             <ScrollMenu
               LeftArrow={
                 <Button
+                  disabled={
+                    currentDate === new Date().getUTCDate() - 6 ? true : false
+                  }
+                  className={classes.iconContainer}
                   onClick={this.onPreviousDate}
-                  disabled={currentDate === 4 ? true : false}
-                  sx={{ paddingBottom: "25px" }}
                 >
                   <ArrowBackIosNewIcon className={classes.previousDateIcon} />
                 </Button>
               }
               RightArrow={
                 <Button
+                  disabled={
+                    currentDate === new Date().getUTCDate() + 4 ? true : false
+                  }
+                  className={classes.iconContainer}
                   onClick={this.onNextDate}
-                  disabled={currentDate === 27 ? true : false}
-                  sx={{ paddingBottom: "25px" }}
                 >
                   <ArrowForwardIosIcon className={classes.nextDateIcon} />
                 </Button>
@@ -79,23 +88,31 @@ class BookingsDashboard extends Component {
             >
               {datesArray
                 .slice(currentDate - 4, currentDate + 3)
-                .map((date: DateProps) => {
+                .map((date: any) => {
                   return (
-                    <Box key={date.date}>
+                    <Box
+                      key={date.date}
+                      sx={{
+                        width: {
+                          xs: "4.3rem !important",
+                          sm: "100% !important",
+                          md: "145px !important",
+                        },
+                        position: "relative",
+                        px: { md: 5.3, sm: 2, xs: "5px" },
+                        py: { md: "15px", sm: 2.3, xs: "5px" },
+                        backgroundColor:
+                          Number(date.date) === currentDate
+                            ? "#E7A356"
+                            : "#FFF",
+                      }}
+                      onClick={() => this.handleActiveDate(date.date)}
+                    >
                       <Box
                         sx={{
-                          width: {
-                            sx: "70px !important",
-                            sm: "100%",
-                            md: "145px",
-                          },
-                          position: "relative",
-                          px: { md: 5.3, sm: 2, xs: "5px" },
-                          py: { md: "15px", sm: 2.3, xs: "5px" },
-                          backgroundColor:
-                            Number(date.date) === currentDate
-                              ? "#E7A356"
-                              : "#FFF",
+                          display: "flex",
+                          justifyContent: "center",
+                          flexDirection: "column",
                         }}
                       >
                         <Typography
@@ -124,24 +141,26 @@ class BookingsDashboard extends Component {
                           {date.day}
                         </Typography>
                       </Box>
-                      {Number(date.date) === currentDate ? (
-                        <img
-                          src={require("../../assets/images/SalonBookings/Triangle.png")}
-                          alt="triangle"
-                          style={{ marginLeft: "40%" }}
-                        />
-                      ) : null}
+                      {/* <Box>
+                          {Number(date.date) === currentDate ? (
+                            <img
+                              src={require("../../assets/images/SalonBookings/Triangle.png")}
+                              alt="triangle"
+                              style={{ marginLeft: "40%" }}
+                            />
+                          ) : null}
+                        </Box> */}
                     </Box>
                   );
                 })}
             </ScrollMenu>
           </Box>
+        </Container>
+        <Container maxWidth="lg" sx={{ paddingBottom: 0, paddingTop: 6 }}>
           <Grid
             container
             spacing={2}
-            sx={{
-              py: "34px",
-            }}
+            sx={{ paddingTop: "24px", paddingBlock: 0 }}
           >
             {bookingSectionData.slice(0, 4).map((item: any, index: number) => {
               return (
@@ -153,7 +172,7 @@ class BookingsDashboard extends Component {
                     <CardHeader
                       classes={{
                         title: classes.customerName + " customerTitleHeading",
-                        subheader: classes.bookingsSubHeading,
+                        subheader: classes.customerId + " customerSubHeading",
                       }}
                       sx={{
                         px: "16px",
@@ -175,7 +194,7 @@ class BookingsDashboard extends Component {
                           <Typography
                             variant="h5"
                             className={
-                              classes.profileHeaderCost + " personPrice"
+                              classes.customerPaidAmount + " personPrice"
                             }
                           >
                             ₹{item.cost}
@@ -205,7 +224,7 @@ class BookingsDashboard extends Component {
                                 <Grid
                                   item
                                   xs={4}
-                                  sm={3}
+                                  sm={4}
                                   md={3}
                                   lg={3}
                                   key={service}
@@ -213,7 +232,6 @@ class BookingsDashboard extends Component {
                                   <Box className={classes.serviceNameContainer}>
                                     <Typography
                                       variant="body2"
-                                      align="center"
                                       className={classes.bookingsServicesName}
                                     >
                                       {service}
@@ -260,6 +278,7 @@ class BookingsDashboard extends Component {
               className={classes.viewAllCustomersButton}
               sx={{
                 mx: "auto",
+                textTransform: "capitalize",
               }}
             >
               View all Bookings

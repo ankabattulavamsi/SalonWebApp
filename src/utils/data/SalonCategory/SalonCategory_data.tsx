@@ -1,9 +1,9 @@
-import categoryImg1 from "../../../assets/images/SalonCategory/cate1.png";
-import categoryImg2 from "../../../assets/images/SalonCategory/cate2.png";
-import categoryImg3 from "../../../assets/images/SalonCategory/cate3.png";
-import categoryImg4 from "../../../assets/images/SalonCategory/cate4.png";
-import categoryImg5 from "../../../assets/images/SalonCategory/cate5.png";
-import categoryImg6 from "../../../assets/images/SalonCategory/cate6.png";
+import categoryImg1 from "../../../assets/images/SalonCategory/cateImg1.png";
+import categoryImg2 from "../../../assets/images/SalonCategory/cateImg2.png";
+import categoryImg3 from "../../../assets/images/SalonCategory/cateImg3.png";
+import categoryImg4 from "../../../assets/images/SalonCategory/cateImg4.png";
+import categoryImg5 from "../../../assets/images/SalonCategory/cateImg5.png";
+import categoryImg6 from "../../../assets/images/SalonCategory/cateImg6.png";
 
 export const salonCategoryData = [
   {
