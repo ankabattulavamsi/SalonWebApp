@@ -52,7 +52,7 @@ class OwnerDashboardChart extends Component<chartProps> {
                 series={data.series}
                 type="bar"
                 height={395}
-                width={"1130px"}
+                width={"1200px"}
               
               />
               <Box className={classes.dashboardChartCardDiv}>

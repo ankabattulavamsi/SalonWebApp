@@ -9,7 +9,6 @@ export const DashboardChartStyles: any = {
     justifyContent: "flex-end",
     alignItems: "center",
     marginTop: "30px !important",
-    // marginBottom: "20px",
   },
   dashboardChartCardDiv: {
     display: "flex",

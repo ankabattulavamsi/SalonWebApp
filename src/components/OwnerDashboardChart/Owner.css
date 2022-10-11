@@ -3,18 +3,28 @@
 
 .apexcharts-series{
  
-    overflow-x: auto;
+    overflow-x: hidden;
     overflow-y: hidden;
 
 }
 @media only screen and (max-width: 660px) {
     .apexcharts-series{
         margin-bottom: 30px;
+        overflow-x: auto;
+        overflow-y: hidden;
     }
 }
 @media (min-width: 660px) and (max-width: 920px)  {
     .apexcharts-series{
         margin-bottom: 30px;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+  }
+@media (min-width: 920px) and (max-width: 1500px)  {
+    .apexcharts-series{
+        overflow-x: auto;
+        overflow-y: hidden;
     }
   }
  
