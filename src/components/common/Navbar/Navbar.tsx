@@ -132,6 +132,7 @@ class Navbar extends Component<{}, navSate> {
       case modalConstants.PAYOUT_DRAWER:
         this.setState({
           openPayout: !this.state.openPayout,
+          openBusiness: false,
           image: "",
           address: "",
           bname: "",
@@ -155,6 +156,13 @@ class Navbar extends Component<{}, navSate> {
           verificationDrawer: false,
           openPayout: false,
           openDrawer: false,
+          mobileDrawer: false,
+          fname: "",
+          password: "",
+          confirmPassword: "",
+          mobileNumber: "",
+          city: "",
+          otpVerif: "",
         });
         break;
 
@@ -165,6 +173,8 @@ class Navbar extends Component<{}, navSate> {
           openBusiness: false,
           openDrawer: false,
           openPayout: false,
+          mobileDrawer: false,
+          otpVerif: "",
         });
         break;
       default:
@@ -184,26 +194,6 @@ class Navbar extends Component<{}, navSate> {
         });
         break;
     }
-
-    this.setState({
-      image: "",
-      address: "",
-      bname: "",
-      email: "",
-      owner: "",
-      GSTIN: "",
-      error: "",
-      upiAddress: "",
-      accHoldername: "",
-      bankname: "",
-      confirmaccNumber: "",
-      ifscCode: "",
-      accNumber: "",
-      fname: "",
-      password: "",
-      confirmPassword: "",
-      mobileNumber: "",
-    });
   };
 
   handleDrawerClose = () => {
