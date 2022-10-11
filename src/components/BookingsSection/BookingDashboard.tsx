@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from "moment";
 import {
   Grid,
   Avatar,
@@ -26,8 +27,8 @@ import "./BookingDashboard.css";
 
 class BookingsDashboard extends Component {
   state = {
-    currentDate: new Date().getDate(),
-    activeDate: new Date().getDate(),
+    currentDate: moment().date(),
+    activeDate: moment().date(),
   };
 
   onNextDate = () => {
@@ -64,7 +65,7 @@ class BookingsDashboard extends Component {
               LeftArrow={
                 <Button
                   disabled={
-                    currentDate === new Date().getUTCDate() - 6 ? true : false
+                    currentDate === new Date().getUTCDate() - 2 ? true : false
                   }
                   className={classes.iconContainer}
                   onClick={this.onPreviousDate}
@@ -86,7 +87,7 @@ class BookingsDashboard extends Component {
               itemClassName="bookings-container"
             >
               {datesArray
-                .slice(currentDate - 5, currentDate + 3)
+                .slice(currentDate - 9, currentDate)
                 .map((date: any) => {
                   return (
                     <Box
@@ -108,7 +109,7 @@ class BookingsDashboard extends Component {
                           px: { md: 5.3, sm: 2, xs: "5px" },
                           py: { md: "15px", sm: 2.3, xs: "5px" },
                           backgroundColor:
-                            Number(date.date) == this.state.activeDate
+                            Number(date.date) === this.state.activeDate
                               ? "#E7A356"
                               : "#FFF",
                         }}
@@ -126,7 +127,7 @@ class BookingsDashboard extends Component {
                             className={classes.calenderDateText}
                             sx={{
                               color:
-                                Number(date.date) == this.state.activeDate
+                                Number(date.date) === this.state.activeDate
                                   ? "#FFFFFF"
                                   : "#272522",
                             }}
@@ -139,27 +140,20 @@ class BookingsDashboard extends Component {
                             className={classes.calenderDayText}
                             sx={{
                               color:
-                                Number(date.date) == this.state.activeDate
+                                Number(date.date) === this.state.activeDate
                                   ? "#FFFFFF"
                                   : "#272522",
                             }}
                           >
-                            {date.day}
+                            {date.days}
                           </Typography>
                         </Box>
                       </Box>
-                      {currentDate === date.date ? (
+                      {this.state.activeDate === date.date ? (
                         <Box
                           component="img"
                           sx={{
-                            // marginLeft: "45%",
                             alignSelf: "center",
-                            //  {
-                            //   lg: "49%",
-                            //   md: "64%",
-                            //   xs: "76%",
-                            //   sm: "45%",
-                            // },
                           }}
                           alt="triangle"
                           src={require("../../assets/images/SalonBookings/Triangle.png")}
@@ -169,14 +163,6 @@ class BookingsDashboard extends Component {
                   );
                 })}
             </ScrollMenu>
-            {/* <Box
-              component="img"
-              sx={{
-                marginLeft: { lg: "49%", md: "64%", xs: "76%", sm: "45%" },
-              }}
-              alt="triangle"
-              src={require("../../assets/images/SalonBookings/Triangle.png")}
-            /> */}
           </Box>
         </Container>
         <Container maxWidth="lg" sx={{ paddingBottom: 0, paddingTop: 6 }}>

@@ -25,7 +25,7 @@ export const bookingSectionData = [
     id: 2,
     title: "Smith Warner",
     subTitle: "0D11721633",
-    cost: 900,
+    cost: 120,
     services: ["Hair Color", "Body Massage", "Shaving", "Hair Cut"],
     img: ProfilePicture2,
   },
