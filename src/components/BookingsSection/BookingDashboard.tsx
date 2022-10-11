@@ -87,61 +87,61 @@ class BookingsDashboard extends Component {
               itemClassName="bookings-container"
             >
               {datesArray
-                .slice(currentDate - 4, currentDate + 3)
+                .slice(currentDate - 5, currentDate + 3)
                 .map((date: any) => {
                   return (
-                    <Box
-                      key={date.date}
-                      sx={{
-                        width: {
-                          xs: "4.3rem !important",
-                          sm: "100% !important",
-                          md: "145px !important",
-                        },
-                        position: "relative",
-                        px: { md: 5.3, sm: 2, xs: "5px" },
-                        py: { md: "15px", sm: 2.3, xs: "5px" },
-                        backgroundColor:
-                          Number(date.date) === currentDate
-                            ? "#E7A356"
-                            : "#FFF",
-                      }}
-                      onClick={() => this.handleActiveDate(date.date)}
-                    >
+                    <Box key={date.date}>
                       <Box
                         sx={{
-                          display: "flex",
-                          justifyContent: "center",
-                          flexDirection: "column",
+                          width: {
+                            xs: "4.3rem !important",
+                            sm: "100% !important",
+                            md: "145px !important",
+                          },
+                          position: "relative",
+                          px: { md: 5.3, sm: 2, xs: "5px" },
+                          py: { md: "15px", sm: 2.3, xs: "5px" },
+                          backgroundColor:
+                            Number(date.date) === currentDate
+                              ? "#E7A356"
+                              : "#FFF",
                         }}
+                        onClick={() => this.handleActiveDate(date.date)}
                       >
-                        <Typography
-                          variant="h4"
-                          className={classes.calenderDateText}
+                        <Box
                           sx={{
-                            color:
-                              Number(date.date) === currentDate
-                                ? "#FFFFFF"
-                                : "#272522",
+                            display: "flex",
+                            justifyContent: "center",
+                            flexDirection: "column",
                           }}
                         >
-                          {date.date}
-                        </Typography>
+                          <Typography
+                            variant="h4"
+                            className={classes.calenderDateText}
+                            sx={{
+                              color:
+                                Number(date.date) === currentDate
+                                  ? "#FFFFFF"
+                                  : "#272522",
+                            }}
+                          >
+                            {date.date}
+                          </Typography>
 
-                        <Typography
-                          variant="h6"
-                          className={classes.calenderDayText}
-                          sx={{
-                            color:
-                              Number(date.date) === currentDate
-                                ? "#FFFFFF"
-                                : "#272522",
-                          }}
-                        >
-                          {date.day}
-                        </Typography>
-                      </Box>
-                      {/* <Box>
+                          <Typography
+                            variant="h6"
+                            className={classes.calenderDayText}
+                            sx={{
+                              color:
+                                Number(date.date) === currentDate
+                                  ? "#FFFFFF"
+                                  : "#272522",
+                            }}
+                          >
+                            {date.day}
+                          </Typography>
+                        </Box>
+                        {/* <Box>
                           {Number(date.date) === currentDate ? (
                             <img
                               src={require("../../assets/images/SalonBookings/Triangle.png")}
@@ -150,10 +150,19 @@ class BookingsDashboard extends Component {
                             />
                           ) : null}
                         </Box> */}
+                      </Box>
                     </Box>
                   );
                 })}
             </ScrollMenu>
+            <Box
+              component="img"
+              sx={{
+                marginLeft: { lg: "49%", md: "64%", xs: "76%", sm: "45%" },
+              }}
+              alt="triangle"
+              src={require("../../assets/images/SalonBookings/Triangle.png")}
+            />
           </Box>
         </Container>
         <Container maxWidth="lg" sx={{ paddingBottom: 0, paddingTop: 6 }}>
