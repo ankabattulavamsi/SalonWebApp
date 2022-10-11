@@ -84,7 +84,7 @@ class BookingsDashboard extends Component {
               itemClassName="bookings-container"
             >
               {datesArray
-                .slice(currentDate - 5, currentDate + 3)
+                .slice(currentDate - 9, currentDate)
                 .map((date: any) => {
                   return (
                     <Box
@@ -137,12 +137,12 @@ class BookingsDashboard extends Component {
                             className={classes.calenderDayText}
                             sx={{
                               color:
-                                Number(date.date) === currentDate
+                                date.date === currentDate
                                   ? "#FFFFFF"
                                   : "#272522",
                             }}
                           >
-                            {date.day}
+                            {date.days}
                           </Typography>
                         </Box>
                       </Box>
