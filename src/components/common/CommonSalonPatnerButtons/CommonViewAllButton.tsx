@@ -7,7 +7,7 @@ import { StylesOffers } from "../../OffersSection/BestOffers.styles";
 interface IsNameProps {
   classes: any;
   buttonName: string;
-  onClickNavigateOffersPage: (id: any) => void;
+  onClickNavigateOffersPage: (id?: any) => void;
 }
 
 export class CommonViewAllButton extends Component<IsNameProps> {

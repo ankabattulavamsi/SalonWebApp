@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { AlertColor, Typography } from "@mui/material";
 import { withStyles } from "@mui/styles";
 import { Box } from "@mui/system";
 import React, { Component } from "react";
@@ -15,12 +15,18 @@ interface VerificationCompProps {
   classes: any;
   navigate: any;
   handleChangeOtp?: (otp: string) => void;
+  handleError: (open: boolean, type: AlertColor, message: string) => void;
 }
 interface VerificationCompState {}
 class VerificationComp extends Component<
   VerificationCompProps,
   VerificationCompState
 > {
+  constructor(props: VerificationCompProps) {
+    super(props);
+    this.state = {};
+  }
+
   handleSalonClick = () => {
     this.props.handleToggle();
   };
@@ -28,6 +34,22 @@ class VerificationComp extends Component<
     this.props.navigate("/customer");
     this.props.handleToggle(modalConstants.VERIFICATION_DRAWER);
   };
+
+  handleError = () => {
+    // state.otpVerif === "" ||
+    // isNaN(Number(state.otpVerif)) ||
+    // state.otpVerif.length < 4
+
+    const { state, handleError } = this.props;
+    if (state.otpVerif === "") {
+      handleError(true, "error", "please enter the otp");
+    } else if (isNaN(Number(state.otpVerif))) {
+      handleError(true, "error", "otp is not a string");
+    } else if (state.otpVerif.length < 4) {
+      handleError(true, "error", "please enter 4 digit otp");
+    }
+  };
+  handleValidateOtp = (otp: string) => this.setState({ otp: otp });
   render() {
     const { classes, state, handleChangeOtp } = this.props;
     return (
@@ -58,7 +80,11 @@ class VerificationComp extends Component<
               numberInputs={4}
               placeholder="2809"
               value={state.otpVerif}
-              handleChange={handleChangeOtp}
+              handleChange={(otp) => {
+                handleChangeOtp && handleChangeOtp(otp);
+
+                this.handleValidateOtp(otp);
+              }}
               isInputSecure
             />
 
@@ -78,10 +104,13 @@ class VerificationComp extends Component<
 
           <Box sx={{ mt: 5 }}>
             <Buttons
-              disabled={state.otpVerif === ""}
               title="Verify & continue"
               handleClick={() => {
-                state.IsCustomerLogin
+                state.otpVerif === "" ||
+                isNaN(Number(state.otpVerif)) ||
+                state.otpVerif.length < 4
+                  ? this.handleError()
+                  : state.IsCustomerLogin
                   ? this.handleCustomerClick()
                   : this.handleSalonClick();
               }}
