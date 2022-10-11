@@ -27,6 +27,7 @@ import "./BookingDashboard.css";
 class BookingsDashboard extends Component {
   state = {
     currentDate: new Date().getDate(),
+    activeDate: new Date().getDate(),
   };
 
   onNextDate = () => {
@@ -41,7 +42,8 @@ class BookingsDashboard extends Component {
   };
 
   handleActiveDate = (date: number) => {
-    this.setState({ currentDate: date });
+    this.setState({ isActiveClicked: true });
+    this.setState({ activeDate: date });
   };
 
   render() {
@@ -106,7 +108,7 @@ class BookingsDashboard extends Component {
                           px: { md: 5.3, sm: 2, xs: "5px" },
                           py: { md: "15px", sm: 2.3, xs: "5px" },
                           backgroundColor:
-                            Number(date.date) === currentDate
+                            Number(date.date) === this.state.activeDate
                               ? "#E7A356"
                               : "#FFF",
                         }}
@@ -124,7 +126,7 @@ class BookingsDashboard extends Component {
                             className={classes.calenderDateText}
                             sx={{
                               color:
-                                Number(date.date) === currentDate
+                                Number(date.date) === this.state.activeDate
                                   ? "#FFFFFF"
                                   : "#272522",
                             }}
@@ -137,7 +139,7 @@ class BookingsDashboard extends Component {
                             className={classes.calenderDayText}
                             sx={{
                               color:
-                                date.date === currentDate
+                                Number(date.date) === this.state.activeDate
                                   ? "#FFFFFF"
                                   : "#272522",
                             }}
@@ -146,7 +148,7 @@ class BookingsDashboard extends Component {
                           </Typography>
                         </Box>
                       </Box>
-                      {currentDate === date.date ? (
+                      {this.state.activeDate === date.date ? (
                         <Box
                           component="img"
                           sx={{

@@ -89,7 +89,7 @@ export const StylesOffers: any = {
     fontStyle: "normal !important",
     fontSize: "18px !important",
     lineHeight: "22px !important",
-    textTransform: 'none !important'
+    textTransform: 'capitalize !important'
   },
   ViewAllButtonContainer: {
     backgroundColor: "#272522",
