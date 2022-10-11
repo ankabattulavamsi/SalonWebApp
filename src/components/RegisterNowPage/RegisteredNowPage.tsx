@@ -95,6 +95,11 @@ class RegisteredNowPage extends React.Component<
 
   handleNavigate = () => {
     this.props.toogleDrawer(modalConstants.VERIFICATION_DRAWER);
+    this.setState({
+      isChecked: false,
+      errorEmail: "",
+      error: "",
+    });
   };
   render() {
     const {
