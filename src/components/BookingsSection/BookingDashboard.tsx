@@ -42,7 +42,6 @@ class BookingsDashboard extends Component {
 
   handleActiveDate = (date: number) => {
     this.setState({ currentDate: date });
-    this.setState({ isActiveClicked: true });
   };
 
   render() {
@@ -151,14 +150,7 @@ class BookingsDashboard extends Component {
                         <Box
                           component="img"
                           sx={{
-                            // marginLeft: "45%",
                             alignSelf: "center",
-                            //  {
-                            //   lg: "49%",
-                            //   md: "64%",
-                            //   xs: "76%",
-                            //   sm: "45%",
-                            // },
                           }}
                           alt="triangle"
                           src={require("../../assets/images/SalonBookings/Triangle.png")}
@@ -168,14 +160,6 @@ class BookingsDashboard extends Component {
                   );
                 })}
             </ScrollMenu>
-            {/* <Box
-              component="img"
-              sx={{
-                marginLeft: { lg: "49%", md: "64%", xs: "76%", sm: "45%" },
-              }}
-              alt="triangle"
-              src={require("../../assets/images/SalonBookings/Triangle.png")}
-            /> */}
           </Box>
         </Container>
         <Container maxWidth="lg" sx={{ paddingBottom: 0, paddingTop: 6 }}>
