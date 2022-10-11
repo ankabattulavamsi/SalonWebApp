@@ -24,7 +24,7 @@ class SalonPartner extends Component {
             <BookingDashboard />
           </Box>
           <SalonCategory />
-          <Box sx={{ mt: 10 }}>
+          <Box >
             <SalonPatnerBestOffers />
           </Box>
 

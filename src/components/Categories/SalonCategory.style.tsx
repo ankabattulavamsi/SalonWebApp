@@ -2,10 +2,10 @@
 export const styles:any = {
     categoryBox:{
         margin: "100px 0",
-        paddingTop: "39px",
         '@media screen and (max-width: 600px)': {
             margin: "10px 0",
-            paddingBottom: "50px",
+            paddingBottom: "30px",
+            paddingTop: "25px",
         },
     },
     categoryTitleBox:{
