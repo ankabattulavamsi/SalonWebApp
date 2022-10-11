@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from "moment";
 import {
   Grid,
   Avatar,
@@ -26,8 +27,8 @@ import "./BookingDashboard.css";
 
 class BookingsDashboard extends Component {
   state = {
-    currentDate: new Date().getDate(),
-    activeDate: new Date().getDate(),
+    currentDate: moment().date(),
+    activeDate: moment().date(),
   };
 
   onNextDate = () => {
@@ -64,7 +65,7 @@ class BookingsDashboard extends Component {
               LeftArrow={
                 <Button
                   disabled={
-                    currentDate === new Date().getUTCDate() - 6 ? true : false
+                    currentDate === new Date().getUTCDate() - 2 ? true : false
                   }
                   className={classes.iconContainer}
                   onClick={this.onPreviousDate}
