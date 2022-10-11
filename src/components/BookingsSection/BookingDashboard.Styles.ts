@@ -185,8 +185,8 @@ export const Styles: any = (theme: any) => ({
       width: "70px",
     },
     [theme.breakpoints.only("xs")]: {
-      width: "63px",
-      fontSize: "60%",
+      width: "60px",
+      fontSize: "73% !important",
     },
     [theme.breakpoints.up("md")]: {
       fontSize: "16px !important",
@@ -222,5 +222,9 @@ export const Styles: any = (theme: any) => ({
     backgroundColor: "#fff !important",
     display: "flex !important",
     justifyContent: "center !important",
+    height: "85%",
+    [theme.breakpoints.down("sm")]: {
+      height: "82% !important ",
+    },
   },
 });
