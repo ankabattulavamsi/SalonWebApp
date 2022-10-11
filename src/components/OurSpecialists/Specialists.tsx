@@ -40,7 +40,7 @@ class Specialists extends Component {
 					<Grid item xs={10} sm={10} md={9} lg={9}>
 						<Stack className={classes.specialist}>
 							<Box className={classes.specialistHeading}>
-								<Stack>
+								<Stack sx={{mb:{sm:2, xs:4}}}>
 									<Typography className={classes.blogHeading}>
 										Our Specialists
 									</Typography>
