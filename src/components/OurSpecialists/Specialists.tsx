@@ -21,6 +21,7 @@ import {
 import SpecialistCard from "./SpecialistCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { CommonViewAllButton } from "../common";
 
 const responsive = {
 	mobile: {
@@ -46,9 +47,10 @@ class Specialists extends Component {
 									<Typography
 										className={classes.blogTitleLine}></Typography>
 								</Stack>
-								<Button className={classes.teamButton} variant="contained">
-									Views All Teams
-								</Button>
+								<CommonViewAllButton  
+									buttonName="view all teams"
+									onClickNavigateOffersPage={() => {}}
+								/>
 							</Box>
 							<Grid className={classes.CardItems} gap={2} container>
 								{specialistData.map((team: TeamData, index: number) => (
