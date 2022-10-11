@@ -72,12 +72,15 @@
 }
 @media only screen and (min-width: 980px) and (max-width: 1050px) {
 	.innerCard {
-		flex-basis: 32% !important;
+		flex-basis: 31.9% !important;
 	}
 }
 @media only screen and (min-width: 900px) and (max-width: 979px) {
 	.innerCard {
 		flex-basis: 31.5% !important;
+	}
+	.special-team .special-team-content {
+		height: 100px !important;
 	}
 }
 @media only screen and (min-width: 599px) and (max-width: 850px) {

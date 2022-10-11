@@ -35,8 +35,8 @@ class Specialists extends Component {
 		return (
 			<>
 				<Grid container sx={{ mt: 10 }}>
-					<Grid item xs={1} sm={1} md={1} lg={1}></Grid>
-					<Grid item xs={10} sm={10} md={10} lg={10}>
+					<Grid item xs={1} sm={1} md={1.5} lg={1.5}></Grid>
+					<Grid item xs={10} sm={10} md={9} lg={9}>
 						<Stack className={classes.specialist}>
 							<Box className={classes.specialistHeading}>
 								<Stack>
@@ -134,7 +134,7 @@ class Specialists extends Component {
 							</Container>
 						</Box>
 					</Grid>
-					<Grid item xs={1} sm={1} md={1} lg={1}></Grid>
+					<Grid item xs={1} sm={1} md={1.5} lg={1.5}></Grid>
 				</Grid>
 			</>
 		);
