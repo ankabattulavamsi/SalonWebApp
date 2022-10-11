@@ -11,9 +11,6 @@ export const SalonBestOffersData = [
         price: '240',
         dissPrice: '150', 
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
-        modeIcon : ModeEditIcon, 
-        typeEdit: 'Edit',
-        typeDelete: 'Delete'
     }, 
     {
         id: 2,
@@ -22,9 +19,6 @@ export const SalonBestOffersData = [
         price: '240',
         dissPrice: '150', 
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
-        modeIcon : DeleteIcon, 
-        typeEdit: 'Edit',
-        typeDelete: 'Delete'
     }, 
     
 ] 
