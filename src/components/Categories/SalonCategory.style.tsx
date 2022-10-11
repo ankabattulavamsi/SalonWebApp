@@ -1,3 +1,4 @@
+
 export const styles:any = {
     categoryBox:{
         margin: "100px 0",
@@ -34,23 +35,14 @@ export const styles:any = {
                 left: '0'
             }
         },
-        '& button':{
-            background: "#272522",
-            fontFamily: 'Fira Sans',
-            fontStyle: 'normal',
-            fontWeight: '600',
-            fontSize: '18px',
-            lineHeight: '22px',
-            textTransform: 'capitalize',
-            color: '#FFFFFF',
-            padding: '18px 30px',
-            borderRadius: '8px',
-            '&:hover':{
-                background: '#272522',
-            },
+        '& div':{
             '@media screen and (max-width: 600px)': {
                 marginTop: '25px',
             },
+        },
+        '& button':{
+            textTransform: 'capitalize',
+            padding: '15px 0px',
         }
     },
     categoryImage:{
@@ -71,7 +63,7 @@ export const styles:any = {
             color: '#272522',
         }
     },
-    categoryButton:{
+    categoryButtonBox:{
         padding: '0 20px 30px !important',
         '& button':{
             color: '#88878F',
@@ -79,10 +71,10 @@ export const styles:any = {
             fontFamily: 'Fira Sans',
             fontStyle: 'normal',
             fontWeight: '600',  
-            fontSize: '20px',
+            fontSize: '20px !important',
             lineHeight: '30px',
             textTransform: 'capitalize',
-            padding: '19px 49px 21px 47px',
+            padding: '19px 49px 21px 47px !important',
             width: '160px',
             borderRadius: '0',
             marginLeft: '0 !important',
@@ -97,22 +89,6 @@ export const styles:any = {
         '& :nth-child(2)':{
             borderRadius: '0 10px 10px 0'
         },
-        '& :nth-child(1):hover':{
-            background: '#E7A356',
-            color: '#FFFFFF',
-            borderRadius: '10px 0 0 10px',  
-            '& svg:hover':{
-                background: 'none',
-            }
-        },
-        '& :nth-child(2):hover':{
-            background: '#272522',
-            color: '#FFFFFF',
-            borderRadius: '0 10px 10px 0',
-            '& svg:hover':{
-                background: 'none',
-            }
-        },
         '& svg':{
             marginRight: '8px',
             borderRight: "none !important"
@@ -121,11 +97,27 @@ export const styles:any = {
     categoryCard:{
         boxShadow:  'none !important',
         '&:hover':{
-            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.07) !important'
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.07) !important',
+        },
+        '&:hover div button:nth-child(1)':{
+            background: '#E7A356',
+            color: '#FFFFFF',
+            borderRadius: '10px 0 0 10px',  
+            '& svg:hover':{
+                background: 'none',
+            }
+        },
+        '&:hover div button:nth-child(2)':{
+            background: '#272522',
+            color: '#FFFFFF',
+            borderRadius: '0 10px 10px 0',
+            '& svg:hover':{
+                background: 'none',
+            }
         },
         '& span':{
            opacity: '0 !important',
-        }
+        },
     },
     
 }
