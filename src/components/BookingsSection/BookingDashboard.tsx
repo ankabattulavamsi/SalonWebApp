@@ -27,8 +27,6 @@ import "./BookingDashboard.css";
 class BookingsDashboard extends Component {
   state = {
     currentDate: new Date().getDate(),
-    activeDate: new Date().getDate(),
-    isActiveClicked: false,
   };
 
   onNextDate = () => {
@@ -49,7 +47,7 @@ class BookingsDashboard extends Component {
 
   render() {
     const { classes, theme }: any = this.props;
-    const { currentDate, isActiveClicked, activeDate } = this.state;
+    const { currentDate } = this.state;
     return (
       <div
         style={{
@@ -90,7 +88,14 @@ class BookingsDashboard extends Component {
                 .slice(currentDate - 5, currentDate + 3)
                 .map((date: any) => {
                   return (
-                    <Box key={date.date}>
+                    <Box
+                      key={date.date}
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        zIndex: 0,
+                      }}
+                    >
                       <Box
                         sx={{
                           width: {
@@ -141,28 +146,36 @@ class BookingsDashboard extends Component {
                             {date.day}
                           </Typography>
                         </Box>
-                        {/* <Box>
-                          {Number(date.date) === currentDate ? (
-                            <img
-                              src={require("../../assets/images/SalonBookings/Triangle.png")}
-                              alt="triangle"
-                              style={{ marginLeft: "40%" }}
-                            />
-                          ) : null}
-                        </Box> */}
                       </Box>
+                      {currentDate === date.date ? (
+                        <Box
+                          component="img"
+                          sx={{
+                            // marginLeft: "45%",
+                            alignSelf: "center",
+                            //  {
+                            //   lg: "49%",
+                            //   md: "64%",
+                            //   xs: "76%",
+                            //   sm: "45%",
+                            // },
+                          }}
+                          alt="triangle"
+                          src={require("../../assets/images/SalonBookings/Triangle.png")}
+                        />
+                      ) : null}
                     </Box>
                   );
                 })}
             </ScrollMenu>
-            <Box
+            {/* <Box
               component="img"
               sx={{
                 marginLeft: { lg: "49%", md: "64%", xs: "76%", sm: "45%" },
               }}
               alt="triangle"
               src={require("../../assets/images/SalonBookings/Triangle.png")}
-            />
+            /> */}
           </Box>
         </Container>
         <Container maxWidth="lg" sx={{ paddingBottom: 0, paddingTop: 6 }}>
