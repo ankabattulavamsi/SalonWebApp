@@ -34,7 +34,7 @@ class SalonBlog extends Component<blogProps, salonBlogS> {
               <Typography className={classes.salonBlogHeading}>Our Blogs</Typography>
               <Typography className={classes.salonBlogTitleLine}></Typography>
             </Box>
-            <CommonViewAllButton buttonName="View All Blog" onClickNavigateOffersPage={()=>{}}/>
+            <CommonViewAllButton buttonName="View All Blogs" onClickNavigateOffersPage={()=>{}}/>
           </Box>
           <Grid
             container
