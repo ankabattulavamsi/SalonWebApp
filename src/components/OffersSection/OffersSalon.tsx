@@ -1,6 +1,7 @@
 import {
   Button,
   CardMedia,
+  Container,
   Grid,
   Typography,
 } from "@mui/material";
@@ -17,6 +18,7 @@ import { SalonBestOffersData } from "../../utils/data/SalonPatnerBestOffers/Salo
 import { Buttons } from "../common";
 import { StylesOffers } from "./BestOffers.styles";
 import Banner from "../common/Banner/Banner";
+import Layout from "../Layout/Layout";
 
 interface IsStateProps {
   classes: any;
@@ -26,9 +28,9 @@ export class OffersSalon extends Component<IsStateProps> {
   render() {
     const { classes } = this.props;
     return (
-      <div>
-        <Box sx={{ pt: 5, pb: 5 }} className={classes.MainContainer}>
-          <Box>
+      <Layout>
+         <Box sx={{ pt: 8, pb: 5 }} className={classes.MainContainer}>
+          <Container maxWidth='lg'>
             <Banner image={offerImg}
 					title="Best Offers"
 					buttonTitle="Add new Offer" />
@@ -37,11 +39,11 @@ export class OffersSalon extends Component<IsStateProps> {
               justifyContent="center"
               columnSpacing={4}
               rowSpacing={3}
-              sx={{ px: { sm: 4, xs: 2, md: 0, lg: 0 } }}
+              sx={{ px: { sm: 0, xs: 0, md: 0, lg: 0 } }}
             >
               {SalonBestOffersData.slice(0, 2).map((item) => {
                 return (
-                  <Grid item lg={4.5} md={5} xs={12} sm={6} key={item.id}>
+                  <Grid item lg={6} md={6} xs={12} sm={6} key={item.id}>
                     <Box>
                       <Box
                         sx={{ backgroundColor: "#FDF6EE" }}
@@ -113,9 +115,9 @@ export class OffersSalon extends Component<IsStateProps> {
                 );
               })}
             </Grid>
-          </Box>
+          </Container>
         </Box>
-      </div>
+      </Layout>
     );
   }
 }
