@@ -13,12 +13,12 @@ interface OtpPassProps {
   handleChange?: (e: any) => void;
   isInputSecure?: boolean;
   error?: string;
+  name: string;
 }
 interface OtpPassState {}
 export default class OtpPass extends Component<OtpPassProps, OtpPassState> {
   render() {
     const {
-      id,
       placeholder,
       numberInputs,
       classNames,
@@ -26,7 +26,7 @@ export default class OtpPass extends Component<OtpPassProps, OtpPassState> {
       handleChange,
       value,
       isInputSecure,
-      error,
+      name,
     } = this.props;
     return (
       <Box sx={{ mt: 2, mb: 2 }}>
@@ -45,7 +45,7 @@ export default class OtpPass extends Component<OtpPassProps, OtpPassState> {
         )}
         <Box className="passcodeParentDiv">
           <OtpInput
-            data-testid={id}
+            data-testid={name}
             placeholder={placeholder}
             inputStyle={{
               width: "100%",
@@ -64,8 +64,7 @@ export default class OtpPass extends Component<OtpPassProps, OtpPassState> {
             value={value}
           />
         </Box>
-        {/* <ErrorMessage component={"p"} className={"error-message"} name={name} /> */}
-        {error && <p className="error-message">{error}</p>}
+        <ErrorMessage component={"p"} className={"error-message"} name={name} />
       </Box>
     );
   }

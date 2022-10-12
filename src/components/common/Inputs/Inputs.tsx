@@ -1,7 +1,6 @@
 import {
   Box,
   FormControl,
-  FormHelperText,
   MenuItem,
   Select,
 } from "@mui/material";
@@ -48,7 +47,6 @@ export default class Inputs extends Component<InputsProps, InputsState> {
       className,
       name,
       accept,
-      error,
       isSelect,
       options,
     } = this.props;

@@ -7,7 +7,6 @@ import {
   Typography,
   Box,
   Select,
-  FormHelperText,
 } from "@mui/material";
 import flag from "../../../assets/images/Login/flag.png";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -26,7 +25,7 @@ class DropDownLogin extends Component<DropDownLoginProps, DropDownLoginState> {
   };
 
   render() {
-    const { handleChange, name, value, error } = this.props;
+    const { handleChange, name, value } = this.props;
 
     return (
       <Box>

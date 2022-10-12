@@ -43,58 +43,6 @@ class RegisteredNowPage extends React.Component<
       error: "",
     };
   }
-  // handleValidateEmail = (e: any) => {
-  //   const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-  //   const str = e.target.value;
-  //   if (!pattern.test(str)) {
-  //     this.setState({ errorEmail: "Email is not valid" });
-  //   } else {
-  //     this.setState({
-  //       errorEmail: "",
-  //     });
-  //   }
-  // };
-
-  // handleValidateMobileNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const pattern = /^[7-9][0-9]{9}$/;
-  //   const str = e.target.value;
-  //   if (!pattern.test(str)) {
-  //     this.setState({ error: "Mobile number is not valid" });
-  //   } else {
-  //     this.setState({ error: "" });
-  //   }
-  // };
-
-  // handleError = () => {
-  //   const { handleError, state } = this.props;
-  //   if (state.fname === "") {
-  //     handleError(true, "error", "first name should not be empty");
-  //   } else if (state.mobileNumber === "") {
-  //     handleError(true, "error", "please entered mobile ");
-  //   } else if (isNaN(Number(state.mobileNumber))) {
-  //     handleError(true, "error", "Dont entered string in number");
-  //   } else if (this.state.error !== "") {
-  //     handleError(true, "error", "Entered 10 digit valid mobile number");
-  //   } else if (state.email === "") {
-  //     handleError(true, "error", "email should not be empty");
-  //   } else if (this.state.errorEmail !== "") {
-  //     handleError(true, "error", this.state.errorEmail);
-  //   } else if (state.password === "") {
-  //     handleError(true, "error", "please enter the password");
-  //   } else if (state.confirmPassword === "") {
-  //     handleError(true, "error", "please enter confirm  password");
-  //   } else if (state.errrorConfirmPassword !== "") {
-  //     handleError(true, "error", state.errrorConfirmPassword);
-  //   } else if (this.state.isChecked === false) {
-  //     this.props.handleError(
-  //       true,
-  //       "error",
-  //       "Please read and check the agreement button "
-  //     );
-  //   } else {
-  //     this.props.handleError(true, "error", "Please enter all filled");
-  //   }
-  // };
 
   handleNavigate = () => {
     this.props.toogleDrawer(modalConstants.VERIFICATION_DRAWER);
@@ -141,111 +89,116 @@ class RegisteredNowPage extends React.Component<
           this.props.toogleDrawer(modalConstants.REGISTER_DRAWER)
         }
       >
-        <Formik
-          initialValues={{
-            fname: state.fname,
-            email: state.email,
-            password: state.password,
-            confirmPassword: state.confirmPassword,
-            mobileNumber: state.mobileNumber,
-            city: state.city,
-          }}
-          validationSchema={this.registeredSchema}
-          onSubmit={() => {
-            this.handleNavigate();
-          }}
-        >
-          <>
-            <Box>
-              <Typography className={classes.heading}>
-                Registered Now
-              </Typography>
-            </Box>
-            <Form>
-              <Box>
-                <Inputs
-                  label="Full Name"
-                  name="fname"
-                  handleChange={handleChange}
-                  placeholder="Enter Full Name"
-                  icon={userImage}
-                  type="text"
-                  value={state.fname}
-                />
-                <Box sx={{ mt: 2, mb: 1 }}>
+        <>
+          <Box>
+            <Typography className={classes.heading}>Registered Now</Typography>
+          </Box>
+          <Formik
+            enableReinitialize={true}
+            initialValues={{
+              fname: state.fname,
+              email: state.email,
+              password: state.password,
+              confirmPassword: state.confirmPassword,
+              mobileNumber: state.mobileNumber,
+              city: state.city,
+            }}
+            validationSchema={this.registeredSchema}
+            onSubmit={(values) => {
+              this.handleNavigate();
+            }}
+          >
+            {({ values }) => {
+              return (
+                <Form>
                   <Box>
-                    <Typography>Mobile No</Typography>
+                    <Inputs
+                      label="Full Name"
+                      name="fname"
+                      handleChange={handleChange}
+                      placeholder="Enter Full Name"
+                      icon={userImage}
+                      type="text"
+                      value={state.fname}
+                    />
+                    <Box sx={{ mt: 2, mb: 1 }}>
+                      <Box>
+                        <Typography>Mobile No</Typography>
+                      </Box>
+                      <DropDownLogin
+                        handleChange={(e) => {
+                          handleChange(e);
+                          // this.handleValidateMobileNumber(e);
+                        }}
+                        name={"mobileNumber"}
+                        value={state.mobileNumber}
+                      />
+                    </Box>
+                    <Inputs
+                      label="email"
+                      name="email"
+                      handleChange={(e) => {
+                        handleChange(e);
+                        // this.handleValidateEmail(e);
+                      }}
+                      placeholder="enter email"
+                      icon={emailImage}
+                      type="email"
+                      value={state.email}
+                    />
+                    <OtpPass
+                      numberInputs={6}
+                      label="password"
+                      placeholder="******"
+                      value={state.password}
+                      handleChange={handleChangePassword}
+                      name="password"
+                    />
+                    <OtpPass
+                      numberInputs={6}
+                      label="confirm password"
+                      placeholder="******"
+                      handleChange={confirmPassChangehandle}
+                      value={state.confirmPassword}
+                      name="password"
+                    />
+                    <Inputs
+                      value={state.city}
+                      isSelect
+                      label="State"
+                      name="city"
+                      options={optionsStateName}
+                      handleChange={handleChange}
+                    />
                   </Box>
-                  <DropDownLogin
-                    handleChange={(e) => {
-                      handleChange(e);
-                      // this.handleValidateMobileNumber(e);
-                    }}
-                    name={"mobileNumber"}
-                    value={state.mobileNumber}
-                  />
-                </Box>
-                <Inputs
-                  label="email"
-                  name="email"
-                  handleChange={(e) => {
-                    handleChange(e);
-                    // this.handleValidateEmail(e);
-                  }}
-                  placeholder="enter email"
-                  icon={emailImage}
-                  type="email"
-                  value={state.email}
-                />
-                <OtpPass
-                  numberInputs={6}
-                  label="password"
-                  placeholder="******"
-                  value={state.password}
-                  handleChange={handleChangePassword}
-                />
-                <OtpPass
-                  numberInputs={6}
-                  label="confirm password"
-                  placeholder="******"
-                  handleChange={confirmPassChangehandle}
-                  value={state.confirmPassword}
-                />
-                <Inputs
-                  value={state.city}
-                  isSelect
-                  label="State"
-                  name="city"
-                  options={optionsStateName}
-                  handleChange={handleChange}
-                />
-              </Box>
-              <Box>
-                <Box className={classes.agreementBox}>
-                  <Checkbox
-                    color={this.state.isChecked ? "success" : "default"}
-                    value={this.state.isChecked}
-                    onChange={() =>
-                      this.setState({ isChecked: !this.state.isChecked })
-                    }
-                  />
-                  <Typography className={classes.termandcondition}>
-                    Agree Terms & Conditions
-                  </Typography>
-                </Box>
+                  <Box>
+                    <Box className={classes.agreementBox}>
+                      <Checkbox
+                        color={this.state.isChecked ? "success" : "default"}
+                        value={this.state.isChecked}
+                        onChange={() =>
+                          this.setState({ isChecked: !this.state.isChecked })
+                        }
+                      />
+                      <Typography className={classes.termandcondition}>
+                        Agree Terms & Conditions
+                      </Typography>
+                    </Box>
 
-                <Box>
-                  <Buttons
-                    type="submit"
-                    disabled={false}
-                    title="Register now"
-                    handleClick={() => {}}
-                  />
-                </Box>
-              </Box>
-            </Form>
-          </>
-        </Formik>
+                    <Box>
+                      <Buttons
+                        type="submit"
+                        disabled={false}
+                        title="Register now"
+                        handleClick={() => {}}
+                      />
+                    </Box>
+                  </Box>
+                </Form>
+              );
+            }}
+          </Formik>
+        </>
       </Drawers>
     );
   }
