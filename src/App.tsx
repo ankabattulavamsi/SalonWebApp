@@ -10,8 +10,8 @@ import SalonPartner from "./routes/SalonPartner/SalonPartner";
 
 import "./App.css";
 import Nopage from "./routes/Nopage/Nopage";
-import GalleryRoutes from "./routes/GalleryRoutes/GalleryRoutes";
-import SpecialistTeamRoutes from "./routes/SpecialistTeamRoutes/SpecialistTeamRoutes";
+import SpecialistTeam from "./components/OurSpecialists/SpecialistTeam";
+import GallerySalon from "./components/GallerySalonOwner/Gallery.Salon";
 function App() {
 	return (
 		<div>
@@ -28,8 +28,8 @@ function App() {
 					{/* Login */}
 					{/* Salon Partners */}
 					<Route path="salon" element={<SalonPartner />} />
-					<Route path="salon/gallery" element={<GalleryRoutes />} />
-					<Route path="salon/team" element={<SpecialistTeamRoutes />} />
+					<Route path="salon/gallery" element={<GallerySalon />} />
+					<Route path="salon/team" element={<SpecialistTeam />} />
 					<Route path="/*" element={<Nopage />} />
 					{/* Salon Partners */}
 				</Routes>

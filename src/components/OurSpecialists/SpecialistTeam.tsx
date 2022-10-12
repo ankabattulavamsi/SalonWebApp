@@ -1,6 +1,6 @@
 /** @format */
 import React, { Component } from "react";
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { withStyles } from "@mui/styles";
 import { Container } from "@mui/system";
 
@@ -12,6 +12,7 @@ import {
 import { Styles } from "./specialist.styles";
 import SpecialistCard from "./SpecialistCard";
 import Banner from "../common/Banner/Banner";
+import Layout from "../Layout/Layout";
 interface GallerySalonProps {
 	classes: any;
 }
@@ -22,28 +23,32 @@ class SpecialistTeam extends Component<
 > {
 	render() {
 		return (
-			<Container maxWidth="lg">
-				<Banner
-					image={TeamBanner}
-					title="Our Team Member"
-					buttonTitle="Add new team"
-				/>
-				<Grid container spacing={2}>
-					{specialistData.map((team: TeamData, index: number) => (
-						<Grid
-							key={index}
-							className="innerCardTeam"
-							sx={{}}
-							xs={12}
-							sm={4}
-							md={4}
-							lg={4}
-							item>
-							<SpecialistCard team={team} />
+			<Layout>
+				<Box sx={{ pt: 10, mb: 10 }}>
+					<Container maxWidth="lg">
+						<Banner
+							image={TeamBanner}
+							title="Our Team Member"
+							buttonTitle="Add new team"
+						/>
+						<Grid container spacing={2}>
+							{specialistData.map((team: TeamData, index: number) => (
+								<Grid
+									key={index}
+									className="innerCardTeam"
+									sx={{}}
+									xs={12}
+									sm={4}
+									md={4}
+									lg={4}
+									item>
+									<SpecialistCard team={team} />
+								</Grid>
+							))}
 						</Grid>
-					))}
-				</Grid>
-			</Container>
+					</Container>
+				</Box>
+			</Layout>
 		);
 	}
 }
