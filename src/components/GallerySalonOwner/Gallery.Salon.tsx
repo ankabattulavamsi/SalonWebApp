@@ -1,16 +1,28 @@
+<<<<<<< HEAD
 import React, { Component } from "react";
 import { Grid, Typography } from "@mui/material";
+=======
+/** @format */
+
+import { Edit, Delete } from "@mui/icons-material";
+import { Grid, Card, CardMedia, CardActions, Button } from "@mui/material";
+>>>>>>> 14e847e67538d47a05fc5fcd45395f743a71f65d
 import { withStyles } from "@mui/styles";
 import { Box, Container } from "@mui/system";
 import {
-  gallaryData,
-  GallaryData,
-  galleryBanner,
+	gallaryData,
+	GallaryData,
+	galleryBanner,
 } from "../../utils/data/GalleryOwner/Gallery";
+<<<<<<< HEAD
 import { Buttons, GalleryCards } from "../common";
+=======
+import Banner from "../common/Banner/Banner";
+import Layout from "../Layout/Layout";
+>>>>>>> 14e847e67538d47a05fc5fcd45395f743a71f65d
 import { galleryStyles } from "./GalleryOwners.styles";
 interface GallerySalonProps {
-  classes: any;
+	classes: any;
 }
 interface GallerySalonState {}
 class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
