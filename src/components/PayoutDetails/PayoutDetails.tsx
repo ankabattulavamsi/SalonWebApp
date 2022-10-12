@@ -80,7 +80,7 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
       .matches(/^\d{9,18}$/, "account number is not valid")
       .required("This field is Required account number"),
     confirmaccNumber: Yup.string()
-      .matches(/^\d{9,18}$/, "confirm account number is not valid")
+      .oneOf([Yup.ref("accNumber"), null], "account number must be match")
       .required("This field is Required confirm account number"),
     ifscCode: Yup.string()
       .min(9, "min 9 character required")

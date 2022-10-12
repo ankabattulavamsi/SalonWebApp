@@ -11,7 +11,7 @@ import { Buttons, Drawers, DropDownLogin, Inputs, OtpPass } from "../common";
 import { navSate } from "../common/Navbar/Navbar";
 
 import { registeredStyles } from "./RegisteredNowPage.Styles";
-import { Form, Formik } from "formik";
+import { ErrorMessage, Form, Formik } from "formik";
 import * as Yup from "yup";
 interface RegisteredNowPageProps {
   open: boolean;
@@ -69,10 +69,12 @@ class RegisteredNowPage extends React.Component<
       .email("Invalid email")
       .required("Please fill this field email"),
     confirmPassword: Yup.string()
-      .min(2, "Too Short!")
-      .max(50, "Too Long!")
+      .oneOf([Yup.ref("password"), null], "Passwords must be match")
       .required("Required"),
     city: Yup.string().required("required"),
+    isChecked: Yup.boolean()
+      .oneOf([true], "You need to accept the terms and conditions")
+      .required("You need to accept the terms and conditions"),
   });
   render() {
     const {
@@ -102,6 +104,7 @@ class RegisteredNowPage extends React.Component<
               confirmPassword: state.confirmPassword,
               mobileNumber: state.mobileNumber,
               city: state.city,
+              isChecked: this.state.isChecked,
             }}
             validationSchema={this.registeredSchema}
             onSubmit={(values) => {
@@ -160,7 +163,7 @@ class RegisteredNowPage extends React.Component<
                       placeholder="******"
                       handleChange={confirmPassChangehandle}
                       value={state.confirmPassword}
-                      name="password"
+                      name="confirmPassword"
                     />
                     <Inputs
                       value={state.city}
@@ -172,17 +175,26 @@ class RegisteredNowPage extends React.Component<
                     />
                   </Box>
                   <Box>
-                    <Box className={classes.agreementBox}>
-                      <Checkbox
-                        color={this.state.isChecked ? "success" : "default"}
-                        value={this.state.isChecked}
-                        onChange={() =>
-                          this.setState({ isChecked: !this.state.isChecked })
-                        }
+                    <Box>
+                      <Box className={classes.agreementBox}>
+                        <Checkbox
+                          name="isChecked"
+                          required
+                          color={this.state.isChecked ? "success" : "default"}
+                          value={this.state.isChecked}
+                          onChange={() =>
+                            this.setState({ isChecked: !this.state.isChecked })
+                          }
+                        />
+                        <Typography className={classes.termandcondition}>
+                          Agree Terms & Conditions
+                        </Typography>
+                      </Box>
+                      <ErrorMessage
+                        name="isChecked"
+                        component={"P"}
+                        className="error-message"
                       />
-                      <Typography className={classes.termandcondition}>
-                        Agree Terms & Conditions
-                      </Typography>
                     </Box>
 
                     <Box>
