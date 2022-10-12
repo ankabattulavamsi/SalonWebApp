@@ -1,4 +1,3 @@
-import { Repeat } from "@mui/icons-material";
 import theme from "../../Theme/Theme";
 
 export const Styles: any = {
@@ -57,6 +56,28 @@ export const Styles: any = {
         [theme.breakpoints.down("sm")]: {
             marginTop:"20px !important"
          },
-    }
-
+    },
+    titleText: {
+        fontFamily: "Fira Sans !important",
+        fontStyle: "normal !important",
+        fontWeight: "700 !important",
+    
+        lineHeight: "48px !important",
+    
+        textTransform: "capitalize !important",
+        fontSize: "35px !important",
+    
+        color: "#272522 !important",
+    
+        [theme.breakpoints.down("md")]: {
+          fontSize: "30px !important",
+        },
+        [theme.breakpoints.down("sm")]: {
+          fontSize: "35px !important",
+        },
+    },
+    capitalized: {
+        textTransform: "capitalize !important",
+        margin:"0px !important"
+      },
 }
