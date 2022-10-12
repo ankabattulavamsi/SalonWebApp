@@ -12,28 +12,28 @@ import "./App.css";
 import Nopage from "./routes/Nopage/Nopage";
 import GalleryRoutes from "./routes/GalleryRoutes/GalleryRoutes";
 function App() {
-	return (
-		<div>
-			<ThemeProvider theme={theme}>
-				<Routes>
-					{/*Guest Flow*/}
-					<Route path="/" element={<LandingPageNavigation />}>
-						<Route index element={<HomePage />} />
-					</Route>
-					{/*Guest Flow*/}
-					{/* Login */}
-					{/* temprorary */}
+  return (
+    <div>
+      <ThemeProvider theme={theme}>
+        <Routes>
+          {/*Guest Flow*/}
+          <Route path="/" element={<LandingPageNavigation />}>
+            <Route index element={<HomePage />} />
+          </Route>
+          {/*Guest Flow*/}
+          {/* Login */}
+          {/* temprorary */}
 
-					{/* Login */}
-					{/* Salon Partners */}
-					<Route path="salon" element={<SalonPartner />} />
-					<Route path="salon/gallery" element={<GalleryRoutes />} />
-					<Route path="/*" element={<Nopage />} />
-					{/* Salon Partners */}
-				</Routes>
-			</ThemeProvider>
-		</div>
-	);
+          {/* Login */}
+          {/* Salon Partners */}
+          <Route path="salon" element={<SalonPartner />} />
+          <Route path="salon/gallery" element={<GalleryRoutes />} />
+          <Route path="/*" element={<Nopage />} />
+          {/* Salon Partners */}
+        </Routes>
+      </ThemeProvider>
+    </div>
+  );
 }
 
 export default App;
