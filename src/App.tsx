@@ -12,6 +12,7 @@ import "./App.css";
 import Nopage from "./routes/Nopage/Nopage";
 import SpecialistTeam from "./components/OurSpecialists/SpecialistTeam";
 import GallerySalon from "./components/GallerySalonOwner/Gallery.Salon";
+import SalonBlogs from "./components/OurBlogs/SalonBlogs";
 function App() {
 	return (
 		<div>
@@ -22,14 +23,12 @@ function App() {
 						<Route index element={<HomePage />} />
 					</Route>
 					{/*Guest Flow*/}
-					{/* Login */}
-					{/* temprorary */}
-
-					{/* Login */}
+					
 					{/* Salon Partners */}
 					<Route path="salon" element={<SalonPartner />} />
 					<Route path="salon/gallery" element={<GallerySalon />} />
 					<Route path="salon/team" element={<SpecialistTeam />} />
+          <Route path="salon/blog" element={<SalonBlogs />} />
 					<Route path="/*" element={<Nopage />} />
 					{/* Salon Partners */}
 				</Routes>
