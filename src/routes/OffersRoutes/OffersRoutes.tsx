@@ -11,7 +11,7 @@ export default class OffersRoutes extends Component {
       <>
         <SalonNavbar link="Home" customer={false} menus={salonMenu} />
 
-        <Box sx={{ pt: 9.8, }}>
+        <Box sx={{ pt: 9.8, mb: 10}}>
             <OffersSalon />
         </Box>
 

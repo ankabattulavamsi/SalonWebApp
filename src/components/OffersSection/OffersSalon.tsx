@@ -11,11 +11,12 @@ import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-import bgImg from "../../assets/images/OffersSection/Rectangle73.png";
+import offerImg from "../../assets/images/OffersSection/Rectangle73.png";
 
 import { SalonBestOffersData } from "../../utils/data/SalonPatnerBestOffers/SalonBestOffers";
 import { Buttons } from "../common";
 import { StylesOffers } from "./BestOffers.styles";
+import Banner from "../common/Banner/Banner";
 
 interface IsStateProps {
   classes: any;
@@ -28,76 +29,9 @@ export class OffersSalon extends Component<IsStateProps> {
       <div>
         <Box sx={{ pt: 5, pb: 5 }} className={classes.MainContainer}>
           <Box>
-            <Grid
-              container
-              justifyContent="center"
-              sx={{ px: { sm: 4, xs: 0, md: 0, lg: 0 } }}
-            >
-              <Grid item lg={9} md={10} xs={12} sm={12}>
-                <Box sx={{ mb: 5 }}>
-                  <Box
-                    sx={{
-                      background: `url(${bgImg})`,
-                      height: { xs: "30vh", sm: "25vh", lg: "40vh" },
-                      backgroundSize: "cover",
-                      position: "relative",
-                      overflow: "visible",
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        position: "absolute",
-                        width: "100%",
-                        height: "100%",
-                        bgcolor: "rgba(40, 44, 44, 0.651)",
-                        top: "50%",
-                        left: "50%",
-                        mx: "auto",
-                        transform: "translate(-50%,-50%)",
-                      }}
-                    >
-                      <Typography
-                        sx={{
-                          color: "white !important",
-                          width: "100%",
-                          height: "100%",
-                          display: "flex",
-                          alignItems: "center",
-                          textAlign: "center",
-                          justifyContent: "center",
-                          fontWeight: "bold",
-                          fontSize: { xs: "22px", sm: "35px", lg: "36px" },
-                          lineHeight: "48px",
-                        }}
-                      >
-                        Best Offers
-                      </Typography>
-                    </Box>
-                  </Box>
-
-                  <Box
-                    sx={{
-                      width: "100%",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        transform: "translateY(-50%)",
-                        width: { xs: "50%", sm: "25%", lg: "15%" },
-                      }}
-                    >
-                      <Buttons
-                        title="Add New Offer"
-                        className={classes.capitalized}
-                      />
-                    </Box>
-                  </Box>
-                </Box>
-              </Grid>
-            </Grid>
+            <Banner image={offerImg}
+					title="Best Offers"
+					buttonTitle="Add new Offer" />
             <Grid
               container
               justifyContent="center"
