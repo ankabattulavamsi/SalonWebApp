@@ -5,6 +5,7 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
+import { ErrorMessage, Field } from "formik";
 import React, { Component } from "react";
 import { optionsBanksname } from "../../../utils/data/businessdetailsandPayout/Busness.data";
 import "./Inputs.css";
@@ -19,7 +20,7 @@ interface InputsProps {
   icon?: string;
   className?: any;
   accept?: string;
-  name?: string;
+  name: string;
   error?: string;
   isSelect?: boolean | false;
   options?: optionsBanksname[];
@@ -83,16 +84,17 @@ export default class Inputs extends Component<InputsProps, InputsState> {
               </>
             ) : (
               <Box className={`input--input ${className && className}`}>
-                <input
+                <Field
+                  autoComplete={"off"}
                   accept={accept && accept}
                   type={type}
-                  id={id}
+                  id={name}
                   name={name}
                   required={required}
                   placeholder={placeholder}
                   className="input--input--1 "
                   value={value}
-                  onChange={(e) => {
+                  onChange={(e: any) => {
                     handleChange && handleChange(e);
                   }}
                 />
@@ -157,12 +159,12 @@ export default class Inputs extends Component<InputsProps, InputsState> {
             </Select>
           </Box>
         )}
-
-        {(error || this.state.error) && (
+        <ErrorMessage component={"p"} className={"error-message"} name={name} />
+        {/* {(error || this.state.error) && (
           <FormHelperText component={"p"} className={"error-message"}>
             {(error && error) || (this.state.error && this.state.error)}
           </FormHelperText>
-        )}
+        )} */}
       </FormControl>
     );
   }

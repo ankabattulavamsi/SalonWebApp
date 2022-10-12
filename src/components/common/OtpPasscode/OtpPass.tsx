@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import { ErrorMessage } from "formik";
 import React, { Component } from "react";
 import OtpInput from "react-otp-input";
 interface OtpPassProps {
@@ -63,6 +64,7 @@ export default class OtpPass extends Component<OtpPassProps, OtpPassState> {
             value={value}
           />
         </Box>
+        {/* <ErrorMessage component={"p"} className={"error-message"} name={name} /> */}
         {error && <p className="error-message">{error}</p>}
       </Box>
     );
