@@ -5,8 +5,8 @@ import ProfilePicture2 from "../../../assets/images/SalonBookings/ProfilePicture
 import ProfilePicture4 from "../../../assets/images/SalonBookings/ProfilePicture4.png";
 
 export interface BookingCardProps {
+  id: number;
   title: string;
-  subTitile: string;
   cost: number;
   services: string[];
   img: any;

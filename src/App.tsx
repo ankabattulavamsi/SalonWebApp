@@ -11,6 +11,8 @@ import SalonPartner from "./routes/SalonPartner/SalonPartner";
 import "./App.css";
 import Nopage from "./routes/Nopage/Nopage";
 import GalleryRoutes from "./routes/GalleryRoutes/GalleryRoutes";
+import SpecialistTeamRoutes from "./routes/SpecialistTeamRoutes/SpecialistTeamRoutes";
+import BookingDashboardRoute from "./routes/BookingDashboard/BookingDashboardRoute";
 function App() {
   return (
     <div>
@@ -24,16 +26,20 @@ function App() {
           {/* Login */}
           {/* temprorary */}
 
-          {/* Login */}
-          {/* Salon Partners */}
-          <Route path="salon" element={<SalonPartner />} />
-          <Route path="salon/gallery" element={<GalleryRoutes />} />
-          <Route path="/*" element={<Nopage />} />
-          {/* Salon Partners */}
-        </Routes>
-      </ThemeProvider>
-    </div>
-  );
+					{/* Login */}
+					{/* Salon Partners */}
+					<Route path="salon" element={<SalonPartner />} />
+					<Route path="salon/gallery" element={<GalleryRoutes />} />
+					<Route path="salon/team" element={<SpecialistTeamRoutes />} />
+					<Route path="salon/booking" element={<BookingDashboardRoute />} />
+
+          
+					<Route path="/*" element={<Nopage />} />
+					{/* Salon Partners */}
+				</Routes>
+			</ThemeProvider>
+		</div>
+	);
 }
 
 export default App;

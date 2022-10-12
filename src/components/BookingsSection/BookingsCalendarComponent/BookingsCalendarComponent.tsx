@@ -13,15 +13,15 @@ import "../BookingDashboard.css";
 
 class BookingsCalendarComponent extends Component {
   state = {
-    currentDate: moment().date(),
+    len: datesArray.length / 2,
     activeDate: moment().date(),
   };
   onNextDate = () => {
-    this.setState({ currentDate: this.state.currentDate + 1 });
+    this.setState({ len: this.state.len + 1 });
   };
 
   onPreviousDate = () => {
-    this.setState({ currentDate: this.state.currentDate - 1 });
+    this.setState({ len: this.state.len - 1 });
   };
 
   handleActiveDate = (date: number) => {
@@ -29,7 +29,7 @@ class BookingsCalendarComponent extends Component {
   };
   render() {
     const { classes }: any = this.props;
-    const { currentDate } = this.state;
+    const { len } = this.state;
     return (
       <Container maxWidth="lg">
         <Box>
@@ -52,82 +52,74 @@ class BookingsCalendarComponent extends Component {
             }
             itemClassName="bookings-container"
           >
-            {datesArray
-              .slice(currentDate - (moment().date() - 2), currentDate + 3)
-              .map((date: any) => {
-                return (
+            {datesArray.slice(len - 4, len + 4).map((date: any) => {
+              return (
+                <Box
+                  key={date.date}
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    zIndex: 0,
+                  }}
+                >
                   <Box
-                    key={date.date}
                     sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      zIndex: 0,
+                      px: { md: 5.3, sm: '1.1em', xs: "5px" },
+                      py: { md: "15px", sm: 2.3, xs: "5px" },
+                      backgroundColor:
+                        Number(date.date) === this.state.activeDate
+                          ? "#E7A356"
+                          : "#FFF",
                     }}
+                    onClick={() => this.handleActiveDate(date.date)}
                   >
                     <Box
                       sx={{
-                        width: {
-                          xs: "4.3rem !important",
-                          sm: "100% !important",
-                          md: "145px !important",
-                        },
-                        position: "relative",
-                        px: { md: 5.3, sm: 2, xs: "5px" },
-                        py: { md: "15px", sm: 2.3, xs: "5px" },
-                        backgroundColor:
-                          Number(date.date) === this.state.activeDate
-                            ? "#E7A356"
-                            : "#FFF",
+                        display: "flex",
+                        justifyContent: "center",
+                        flexDirection: "column",
                       }}
-                      onClick={() => this.handleActiveDate(date.date)}
                     >
-                      <Box
+                      <Typography
+                        variant="h4"
+                        className={classes.calenderDateText}
                         sx={{
-                          display: "flex",
-                          justifyContent: "center",
-                          flexDirection: "column",
+                          color:
+                            Number(date.date) === this.state.activeDate
+                              ? "#FFFFFF"
+                              : "#272522",
                         }}
                       >
-                        <Typography
-                          variant="h4"
-                          className={classes.calenderDateText}
-                          sx={{
-                            color:
-                              Number(date.date) === this.state.activeDate
-                                ? "#FFFFFF"
-                                : "#272522",
-                          }}
-                        >
-                          {date.date}
-                        </Typography>
+                        {date.date}
+                      </Typography>
 
-                        <Typography
-                          variant="h6"
-                          className={classes.calenderDayText}
-                          sx={{
-                            color:
-                              Number(date.date) === this.state.activeDate
-                                ? "#FFFFFF"
-                                : "#272522",
-                          }}
-                        >
-                          {date.weekday}
-                        </Typography>
-                      </Box>
-                    </Box>
-                    {this.state.activeDate === date.date ? (
-                      <Box
-                        component="img"
+                      <Typography
+                        variant="h6"
+                        className={classes.calenderDayText}
                         sx={{
-                          alignSelf: "center",
+                          color:
+                            Number(date.date) === this.state.activeDate
+                              ? "#FFFFFF"
+                              : "#272522",
                         }}
-                        alt="triangle"
-                        src={require("../../../assets/images/SalonBookings/Triangle.png")}
-                      />
-                    ) : null}
+                      >
+                        {date.weekday}
+                      </Typography>
+                    </Box>
                   </Box>
-                );
-              })}
+                  {this.state.activeDate === date.date ? (
+                    <Box
+                      component="img"
+                      sx={{
+                        alignSelf: "center",
+                      }}
+                      alt="triangle"
+                      src={require("../../../assets/images/SalonBookings/Triangle.png")}
+                    />
+                  ) : null}
+                </Box>
+              );
+            })}
           </ScrollMenu>
         </Box>
       </Container>

@@ -6,12 +6,20 @@ import KeyboardDoubleArrowRightOutlinedIcon from "@mui/icons-material/KeyboardDo
 
 import BookingsProfileCard from "../BookingsProfileCard/BookingsProfileCard";
 import BookingsCalendarComponent from "../BookingsCalendarComponent/BookingsCalendarComponent";
-import { bookingSectionData } from "../../../utils/data/bookings/BookingsDashboardData";
+import {
+  BookingCardProps,
+  bookingSectionData,
+} from "../../../utils/data/bookings/BookingsDashboardData";
 
 import { Styles } from "./BookingDashboard.Styles";
 import "../BookingDashboard.css";
+import withRouter from "../../../hoc/withRouter";
 
-class BookingsDashboard extends Component {
+interface BookingProps {
+  navigate?: any;
+}
+
+class BookingsDashboard extends Component<BookingProps, BookingCardProps> {
   render() {
     const { classes }: any = this.props;
 
@@ -31,7 +39,7 @@ class BookingsDashboard extends Component {
             spacing={2}
             sx={{ paddingTop: "24px", paddingBlock: 0 }}
           >
-            {bookingSectionData.slice(0, 4).map((item: any, index: number) => {
+            {bookingSectionData.slice(0, 4).map((item: BookingCardProps) => {
               return (
                 <Grid item key={item.id} md={6} sm={6} xs={12}>
                   <BookingsProfileCard item={item} />
@@ -45,6 +53,9 @@ class BookingsDashboard extends Component {
                 mx: "auto",
                 textTransform: "capitalize",
               }}
+              onClick={() => {
+                this.props.navigate("/salon/booking");
+              }}
             >
               View all Bookings
               <KeyboardDoubleArrowRightOutlinedIcon />
@@ -56,4 +67,6 @@ class BookingsDashboard extends Component {
   }
 }
 
-export default withStyles(Styles, { withTheme: true })(BookingsDashboard);
+export default withStyles(Styles, { withTheme: true })(
+  withRouter(BookingsDashboard)
+);

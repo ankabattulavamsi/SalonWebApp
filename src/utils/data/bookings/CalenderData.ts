@@ -3,14 +3,14 @@ import moment from "moment";
 function getPastAndFuture7Days() {
   let daysFuture = [];
   let daysPast = [];
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 30; i++) {
     let day = moment().subtract(i, "days");
     let date = day.date();
     let weekday = day.format("dddd");
     daysPast.push({ date, weekday });
   }
 
-  for (let i = 1; i <= 7; i++) {
+  for (let i = 1; i <= 30; i++) {
     let day = moment().add(i, "days");
     let date = day.date();
     let weekday = day.format("dddd");

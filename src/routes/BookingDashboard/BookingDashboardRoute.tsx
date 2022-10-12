@@ -1,4 +1,3 @@
-import { Box } from "@mui/system";
 import React, { Component } from "react";
 import BookingsMainPage from "../../components/BookingsSection/BookingsMainPage/BookingsMainPage";
 import Footer from "../../components/common/Footer/Footer";
@@ -11,9 +10,7 @@ class BookingDashboardRoute extends Component {
       <>
         <SalonNavbar link="Home" customer={false} menus={salonMenu} />
 
-        <Box sx={{ pt: 10, mb: 10 }}>
-          <BookingsMainPage />
-        </Box>
+        <BookingsMainPage />
 
         <Footer salon={true} />
       </>
