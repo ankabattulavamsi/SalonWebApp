@@ -17,7 +17,7 @@ class SalonPartner extends Component {
   render() {
     return (
       <Fragment>
-        <SalonNavbar link="Home" customer={false} menus={salonMenu} />
+        <SalonNavbar customer={false} menus={salonMenu} />
         <Grid container>
           {/* salon page sections */}
           <OwnerDashboardCharts />

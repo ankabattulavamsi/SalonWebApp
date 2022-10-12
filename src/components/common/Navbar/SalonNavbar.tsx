@@ -21,29 +21,28 @@ import "./SalonNav.css";
 
 interface salonProps {
   customer: boolean;
-  link: string;
   menus: SalonMenus[];
 }
 interface salonState {
-  salonLink: string;
+  isCustomer: boolean;
   open: boolean;
 }
 
 class SalonNavbar extends Component<salonProps, salonState> {
   state = {
     isCustomer: this.props.customer,
-    salonLink: this.props.link,
     open: false,
   };
 
   handleClick = (title: string) => {
     this.setState({
-      salonLink: title,
       open: !this.state.open,
     });
   };
   render() {
     const { menus } = this.props;
+    console.log(window.location.pathname,"paththth");
+    
     return (
       <>
         <Fragment>
@@ -58,11 +57,10 @@ class SalonNavbar extends Component<salonProps, salonState> {
                     key={menu.id}
                     href={menu.path}
                     className={
-                      menu.title === this.state.salonLink
+                      window.location.pathname == menu.path
                         ? "active"
                         : "salon-menu-link"
                     }
-                    onClick={() => this.setState({ salonLink: menu.title })}
                   >
                     {menu.title}
                   </a>
@@ -138,7 +136,7 @@ class SalonNavbar extends Component<salonProps, salonState> {
                       <a
                         href={menu.path}
                         className={
-                          menu.title === this.state.salonLink
+                          window.location.pathname == menu.path
                             ? "salon-moblie-active-link"
                             : "salon-mobile-menus"
                         }
