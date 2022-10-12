@@ -4,6 +4,7 @@ export interface TeamData {
   position: string;
   imgeUrl?: string;
 }
+export const TeamBanner = require("../../../assets/images/expertTeamSection/teamBanner.png");
 export const teamdata: TeamData[] = [
   {
     id: 1,

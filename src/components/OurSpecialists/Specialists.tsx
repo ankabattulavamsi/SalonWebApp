@@ -1,16 +1,6 @@
 /** @format */
 import React, { Component } from "react";
-import {
-	Box,
-	Button,
-	Card,
-	CardContent,
-	CardMedia,
-	Container,
-	Grid,
-	Stack,
-	Typography,
-} from "@mui/material";
+import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import { Styles } from "./specialist.styles";
 import { withStyles } from "@mui/styles";
 import {
@@ -22,6 +12,7 @@ import SpecialistCard from "./SpecialistCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { CommonViewAllButton } from "../common";
+import withRouter from "../../hoc/withRouter";
 
 const responsive = {
 	mobile: {
@@ -30,9 +21,16 @@ const responsive = {
 		slidesToSlide: 1, // optional, default to 1.
 	},
 };
-class Specialists extends Component {
+interface IProps {
+	navigate: any;
+}
+class Specialists extends Component<IProps> {
+	onClickNavigateOffersPage = () => {
+		this.props.navigate("/salon/team");
+	};
 	render() {
 		const { classes }: any = this.props;
+
 		return (
 			<>
 				<Grid container sx={{ mt: 10 }}>
@@ -40,16 +38,18 @@ class Specialists extends Component {
 					<Grid item xs={10} sm={10} md={9} lg={9}>
 						<Stack className={classes.specialist}>
 							<Box className={classes.specialistHeading}>
-								<Stack sx={{mb:{sm:2, xs:2}}}>
+								<Stack sx={{ mb: { sm: 2, xs: 2 } }}>
 									<Typography className={classes.blogHeading}>
 										Our Specialists
 									</Typography>
 									<Typography
 										className={classes.blogTitleLine}></Typography>
 								</Stack>
-								<CommonViewAllButton  
+								<CommonViewAllButton
 									buttonName="view all teams"
-									onClickNavigateOffersPage={() => {}}
+									onClickNavigateOffersPage={
+										this.onClickNavigateOffersPage
+									}
 								/>
 							</Box>
 							<Grid className={classes.CardItems} gap={2} container>
@@ -76,60 +76,13 @@ class Specialists extends Component {
 										responsive={responsive}
 										infinite
 										autoPlay
-										autoPlaySpeed={2000}
+										autoPlaySpeed={1000}
 										customTransition="all 0.7"
 										transitionDuration={700}
 										containerClass="container"
 										dotListClass="custom-dot-list-style">
 										{teamdata.map((team: TeamData, index: number) => {
-											return (
-												<Card
-													key={index}
-													className="export-team"
-													sx={{
-														maxWidth: 345,
-														display: "block",
-														boxShadow: "none",
-														borderRadius: "10px",
-														mb: 5,
-														ml: "auto",
-														mr: "auto",
-														overflow: "visible",
-														alignSelf: "center",
-														position: "relative",
-													}}>
-													<Box sx={{ minHeight: 310 }}>
-														<CardMedia
-															height={"410"}
-															width={"90%"}
-															component={"img"}
-															src={team.imgeUrl}
-															sx={{
-																display: "block",
-																position: "absolute",
-																top: "-100px",
-																objectFit: "cover",
-																justifyContent: "center",
-															}}
-															alt={team.title}></CardMedia>
-													</Box>
-													<CardContent
-														className="expert-team-content"
-														sx={{
-															bgcolor: "#FFF2E4",
-															color: "black",
-															borderBottomLeftRadius: "10px",
-															borderBottomRightRadius: "10px",
-														}}>
-														<Typography variant="h5" align="center">
-															{team.title}
-														</Typography>
-														<Typography align="center" variant="body2">
-															{team.position}
-														</Typography>
-													</CardContent>
-												</Card>
-											);
+											return <SpecialistCard team={team} />;
 										})}
 									</Carousel>
 								</Box>
@@ -142,4 +95,4 @@ class Specialists extends Component {
 		);
 	}
 }
-export default withStyles(Styles)(Specialists);
+export default withStyles(Styles)(withRouter(Specialists));
