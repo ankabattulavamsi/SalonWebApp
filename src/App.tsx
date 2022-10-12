@@ -11,6 +11,7 @@ import SalonPartner from "./routes/SalonPartner/SalonPartner";
 import "./App.css";
 import Nopage from "./routes/Nopage/Nopage";
 import GalleryRoutes from "./routes/GalleryRoutes/GalleryRoutes";
+import OffersRoutes from "./routes/OffersRoutes/OffersRoutes";
 function App() {
 	return (
 		<div>
@@ -28,6 +29,7 @@ function App() {
 					{/* Salon Partners */}
 					<Route path="salon" element={<SalonPartner />} />
 					<Route path="salon/gallery" element={<GalleryRoutes />} />
+					<Route path="salon/offers" element={<OffersRoutes />} />
 					<Route path="/*" element={<Nopage />} />
 					{/* Salon Partners */}
 				</Routes>
