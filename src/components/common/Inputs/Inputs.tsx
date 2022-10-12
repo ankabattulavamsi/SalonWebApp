@@ -34,16 +34,6 @@ export default class Inputs extends Component<InputsProps, InputsState> {
       error: "",
     };
   }
-  // handleValidateEmail = (e: any) => {
-  //   const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-  //   const str = e.target.value;
-
-  //   if (!pattern.test(str)) {
-  //     this.setState({ error: "Email is not valid" });
-  //   } else {
-  //     this.setState({ error: "" });
-  //   }
-  // };
   render() {
     const {
       label,
