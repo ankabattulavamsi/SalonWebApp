@@ -1,21 +1,13 @@
-import { Edit, Delete } from "@mui/icons-material";
-import {
-  Grid,
-  Card,
-  CardMedia,
-  CardActions,
-  Button,
-  Typography,
-} from "@mui/material";
+import React, { Component } from "react";
+import { Grid, Typography } from "@mui/material";
 import { withStyles } from "@mui/styles";
 import { Box, Container } from "@mui/system";
-import React, { Component } from "react";
 import {
   gallaryData,
   GallaryData,
   galleryBanner,
 } from "../../utils/data/GalleryOwner/Gallery";
-import { Buttons } from "../common";
+import { Buttons, GalleryCards } from "../common";
 import { galleryStyles } from "./GalleryOwners.styles";
 interface GallerySalonProps {
   classes: any;
@@ -25,14 +17,19 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
   render() {
     const { classes } = this.props;
     return (
-      <Container maxWidth="lg">
+      <Container
+        sx={{
+          maxWidth: { xs: "100%", md: "lg" },
+          pl: { xs: 0 },
+          pr: { xs: 0 },
+        }}
+      >
         <Box sx={{ mb: 5 }}>
           <Box
             sx={{
               background: `url(${galleryBanner}) no-repeat`,
               height: "50vh",
               backgroundSize: "cover",
-
               position: "relative",
               overflow: "visible",
             }}
@@ -84,45 +81,23 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
             </Box>
           </Box>
         </Box>
-        <Grid container spacing={2}>
-          {gallaryData.map((images: GallaryData) => {
-            return (
-              <Grid item xs={12} sm={6} md={4} key={images.id}>
-                <Card
-                  sx={{ width: "100%" }}
-                  className={`cards ${classes.card}`}
-                >
-                  <CardMedia
-                    component="img"
-                    alt={`${images.id}`}
-                    image={images.imgUrl}
-                    src={images.imgUrl}
-                    sx={{ borderRadius: "4px" }}
-                    className={classes.imgCard}
-                  />
-
-                  <CardActions className={`cardActio ${classes.cardActions}`}>
-                    <Box
-                      sx={{
-                        width: "100%",
-                        mx: "auto",
-                        justifyContent: "center",
-                        gap: "50px",
-                      }}
-                    >
-                      <Button className={classes.buttonClass}>
-                        <Edit />
-                      </Button>
-                      <Button className={classes.buttonClass}>
-                        <Delete />
-                      </Button>
-                    </Box>
-                  </CardActions>
-                </Card>
-              </Grid>
-            );
-          })}
-        </Grid>
+        <Container
+          maxWidth="lg"
+          sx={{
+            pl: { md: 0 },
+            pr: { md: 0 },
+          }}
+        >
+          <Grid container spacing={2}>
+            {gallaryData.map((images: GallaryData) => {
+              return (
+                <Grid item xs={12} sm={6} md={4} key={images.id}>
+                  <GalleryCards {...images} />
+                </Grid>
+              );
+            })}
+          </Grid>
+        </Container>
       </Container>
     );
   }
