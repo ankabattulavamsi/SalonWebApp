@@ -8,7 +8,9 @@ import { withStyles } from "@mui/styles";
 import { Styles } from "../BookingDashBoardSalonHomepage/BookingDashboard.Styles";
 import Layout from "../../Layout/Layout";
 
-class BookingsMainPage extends Component {
+import "../BookingDashboard.css";
+
+class BookingsMainPage extends Component<any> {
   render() {
     return (
       <Layout>
@@ -24,7 +26,10 @@ class BookingsMainPage extends Component {
             <Grid
               container
               spacing={2}
-              sx={{ paddingTop: "24px", paddingBlock: 0 }}
+              sx={{
+                paddingTop: "24px",
+                paddingBlock: 0,
+              }}
             >
               {bookingSectionData.map((item: any, index: number) => {
                 return (

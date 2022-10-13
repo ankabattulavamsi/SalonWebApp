@@ -13,10 +13,17 @@ import { Box } from "@mui/system";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 import { Styles } from "../BookingDashBoardSalonHomepage/BookingDashboard.Styles";
+import { BookingCardProps } from "../../../utils/data/bookings/BookingsDashboardData";
 
-class BookingsProfileCard extends Component<any, any> {
+interface CardProps {
+  classes?: any;
+  theme?: any;
+  item: BookingCardProps;
+}
+
+class BookingsProfileCard extends Component<CardProps> {
   render() {
-    const { classes, theme, item }: any = this.props;
+    const { classes, theme, item } = this.props;
     return (
       <Card
         className={classes.customerContainer + " customerCard"}

@@ -15,7 +15,7 @@ import { Styles } from "./BookingDashboard.Styles";
 import "../BookingDashboard.css";
 import withRouter from "../../../hoc/withRouter";
 
-interface BookingProps {
+export interface BookingProps {
   navigate?: any;
 }
 

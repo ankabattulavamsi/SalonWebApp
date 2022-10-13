@@ -11,7 +11,9 @@ import { withStyles } from "@mui/styles";
 import { Styles } from "../BookingDashBoardSalonHomepage/BookingDashboard.Styles";
 import "../BookingDashboard.css";
 
-class BookingsCalendarComponent extends Component {
+
+
+class BookingsCalendarComponent extends Component<any> {
   state = {
     len: datesArray.length / 2,
     activeDate: moment().date(),
@@ -64,7 +66,7 @@ class BookingsCalendarComponent extends Component {
                 >
                   <Box
                     sx={{
-                      px: { md: 5.3, sm: '1.1em', xs: "5px" },
+                      px: { md: 5.3, sm: "1.1em", xs: "5px" },
                       py: { md: "15px", sm: 2.3, xs: "5px" },
                       backgroundColor:
                         Number(date.date) === this.state.activeDate
