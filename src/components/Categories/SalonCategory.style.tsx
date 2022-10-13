@@ -119,5 +119,7 @@ export const styles:any = {
            opacity: '0 !important',
         },
     },
-    
+    categoryBannerBtn:{
+
+    }
 }

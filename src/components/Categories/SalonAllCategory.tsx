@@ -14,9 +14,9 @@ class SalonAllCategory extends Component {
 			<Box sx={{ pt: 10, mb: 10 }}>
 				<Container maxWidth="lg">
 					<Banner
-					image={categoryBanner}
-					title="Category"
-					buttonTitle="Add new category"
+						image={categoryBanner}
+						title="Category"
+						buttonTitle="Add new category"
 					/>
 					<SalonCategoryCard />
 				</Container>
