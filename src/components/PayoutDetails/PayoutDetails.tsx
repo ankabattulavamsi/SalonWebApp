@@ -183,7 +183,7 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                           this.props.handleChange(e);
                         }}
                         label="Account Number"
-                        placeholder="798765432104441"
+                        placeholder="account number"
                         name="accNumber"
                         value={state.accNumber}
                       />
@@ -192,14 +192,14 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                           this.props.handleChange(e);
                         }}
                         label="Confirm Account Number"
-                        placeholder="798765432104441"
+                        placeholder="confirm account number"
                         name="confirmaccNumber"
                         value={state.confirmaccNumber}
                       />
                       <Inputs
                         handleChange={this.props.handleChange}
                         label="IFSC Code"
-                        placeholder="SBIN0000432"
+                        placeholder="Enter IFSC code"
                         name="ifscCode"
                         value={state.ifscCode}
                       />
@@ -208,7 +208,7 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                           this.props.handleChange(e);
                         }}
                         label="Bank Name"
-                        placeholder="State bank of India"
+                        placeholder="select bank from list"
                         name="bankname"
                         value={state.bankname}
                         isSelect={true}
@@ -255,7 +255,7 @@ class PayoutDetails extends Component<PayoutDetailsProps, PayoutDetailsState> {
                         name="upiAddress"
                         value={this.props.state.upiAddress}
                         label="UPI"
-                        placeholder="1234567890"
+                        placeholder="Enter Upi address"
                         icon={yblImage}
                         handleChange={(e) => {
                           this.props.handleChange(e);
