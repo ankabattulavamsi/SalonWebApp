@@ -45,6 +45,7 @@ export default class OtpPass extends Component<OtpPassProps, OtpPassState> {
         )}
         <Box className="passcodeParentDiv">
           <OtpInput
+           
             data-testid={name}
             placeholder={placeholder}
             inputStyle={{
