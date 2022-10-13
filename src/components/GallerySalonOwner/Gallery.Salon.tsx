@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import { withStyles } from "@mui/styles";
 import { Box, Container } from "@mui/system";
 import {
@@ -7,7 +7,7 @@ import {
   GallaryData,
   galleryBanner,
 } from "../../utils/data/GalleryOwner/Gallery";
-import { Buttons, GalleryCards } from "../common";
+import { GalleryCards, Banner } from "../common";
 import { galleryStyles } from "./GalleryOwners.styles";
 import Layout from "../Layout/Layout";
 import CommonModal from "../common/CommonModal/CommonModal";
@@ -25,7 +25,6 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
     };
   }
   render() {
-    const { classes } = this.props;
     return (
       <Layout>
         <Container
@@ -36,7 +35,15 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
             mb: 5,
           }}
         >
-          <Box sx={{ mb: 5, mt: 15 }}>
+          <Box sx={{ mt: 15}}>
+            <Banner
+              OnClick={() => this.setState({ openGalleryAddModal: true })}
+              buttonTitle="Add New Image"
+              image={galleryBanner}
+              title="Our Gallery"
+            />
+          </Box>
+          {/* <Box sx={{ mb: 5, mt: 15 }}>
             <Box
               sx={{
                 background: `url(${galleryBanner}) no-repeat`,
@@ -100,7 +107,7 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
                 />
               </Box>
             </Box>
-          </Box>
+          </Box> */}
           <Container
             maxWidth="lg"
             sx={{
