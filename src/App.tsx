@@ -14,6 +14,7 @@ import SpecialistTeam from "./components/OurSpecialists/SpecialistTeam";
 import GallerySalon from "./components/GallerySalonOwner/Gallery.Salon";
 import OffersSalon from "./components/OffersSection/OffersSalon";
 import SalonBlogs from "./components/OurBlogs/SalonBlogs";
+import SalonAllCategory from "./components/Categories/SalonAllCategory";
 import BookingsMainPage from "./components/BookingsSection/BookingsMainPage/BookingsMainPage";
 function App() {
   return (
@@ -31,8 +32,10 @@ function App() {
           <Route path="salon/offers" element={<OffersSalon />} />
           <Route path="salon/gallery" element={<GallerySalon />} />
           <Route path="salon/team" element={<SpecialistTeam />} />
-          <Route path="salon/blog" element={<SalonBlogs />} />
-          <Route path="salon/booking" element={<BookingsMainPage />} />
+		  <Route path="salon/blog" element={<SalonBlogs />} />
+		  <Route path="salon/booking" element={<BookingsMainPage />} />
+
+		  <Route path="salon/category" element={<SalonAllCategory />} />
           <Route path="/*" element={<Nopage />} />
           {/* Salon Partners */}
         </Routes>

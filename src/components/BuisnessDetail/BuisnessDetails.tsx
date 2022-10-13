@@ -150,7 +150,7 @@ class BuisnessDetails extends Component<
                   <Inputs
                     label={"Business name"}
                     id={`${1}`}
-                    placeholder={"Beauty salon shop"}
+                    placeholder={"enter Business name"}
                     required={true}
                     type={"text"}
                     handleChange={(e) => this.props.handleChange(e)}
@@ -161,7 +161,7 @@ class BuisnessDetails extends Component<
                   <Inputs
                     label={"Owner name"}
                     id={`${2}`}
-                    placeholder={"Steve Smith"}
+                    placeholder={"enter owner name"}
                     required={true}
                     type={"text"}
                     handleChange={(e) => this.props.handleChange(e)}
@@ -172,7 +172,7 @@ class BuisnessDetails extends Component<
                   <Inputs
                     label={"Address"}
                     id={`${3}`}
-                    placeholder="121 KING STREET Eddy street and Gough  street, San Francisco, CA 94109"
+                    placeholder="Enter address"
                     required={true}
                     type={"textarea"}
                     handleChange={(e) => this.props.handleChange(e)}
@@ -184,7 +184,7 @@ class BuisnessDetails extends Component<
                   <Inputs
                     label={"GSTIN No"}
                     id={`${4}`}
-                    placeholder="Example123"
+                    placeholder="enter GSTIN no"
                     required={true}
                     type={"text"}
                     handleChange={(e) => this.props.handleChange(e)}

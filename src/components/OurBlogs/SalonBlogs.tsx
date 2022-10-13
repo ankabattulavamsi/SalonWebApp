@@ -8,6 +8,7 @@ import blogBanner from "../../assets/images/Blogimages/blog-banner.png";
 import SalonBlogCard from "./SalonBlogCard";
 
 class SalonBlogs extends Component {
+  
   render() {
     return (
       <>
