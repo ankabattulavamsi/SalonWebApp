@@ -12,9 +12,11 @@ import {
   storeImage,
   userImage,
 } from "../../utils/data/businessdetailsandPayout/Busness.data";
+import * as Yup from "yup";
 
 import { Buttons, Drawers, Inputs } from "../common";
 import { navSate } from "../common/Navbar/Navbar";
+import { Form, Formik } from "formik";
 
 interface BuisnessDetailsProps {
   handleToggleDrawer: () => void;
@@ -26,9 +28,7 @@ interface BuisnessDetailsProps {
   handleClickSave: () => void;
   handleError: (open: boolean, type: AlertColor, message: string) => void;
 }
-interface BuisnessDetailsState {
-  error: string;
-}
+interface BuisnessDetailsState {}
 
 class BuisnessDetails extends Component<
   BuisnessDetailsProps,
@@ -36,47 +36,34 @@ class BuisnessDetails extends Component<
 > {
   constructor(props: BuisnessDetailsProps) {
     super(props);
-    this.state = {
-      error: "",
-    };
+    this.state = {};
   }
 
-  handleValidateEmail = (e: any) => {
-    const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    const str = e.target.value;
+  businessSchema = Yup.object().shape({
+    // image: Yup.string().required("image is "),
+    bname: Yup.string()
+      .required("buseness name should not be empty")
+      .min(2, "busness name is too short")
+      .max(50, "too long"),
+    owner: Yup.string()
+      .required("owner name should not be empty")
+      .min(2, "owner name is too short")
+      .max(50, "too long"),
+    GSTIN: Yup.string()
+      .required("GSTIN number should not be empty")
+      .min(5, "GSTIN number is too short")
+      .max(13, "GSTIN number is  too long"),
 
-    if (!pattern.test(str)) {
-      this.setState({ error: "please enter valid email" });
-    } else {
-      this.setState({ error: "" });
-    }
-  };
-
-  handleError = () => {
-    const { state, handleError } = this.props;
-    if (state.image === "") {
-      handleError(true, "error", "profile image is required");
-    } else if (state.bname === "" || state.bname.length < 5) {
-      handleError(
-        true,
-        "error",
-        "Please enter busness name atleast 4 or 5 character"
-      );
-    } else if (state.owner === "") {
-      handleError(true, "error", "owner name is required");
-    } else if (state.GSTIN === "") {
-      handleError(true, "error", "GSTIN number  is required");
-    } else if (state.address === "") {
-      handleError(true, "error", "please give proper adress");
-    } else if (state.email === "" || this.state.error) {
-      handleError(true, "error", this.state.error);
-    } else {
-      handleError(true, "error", "something is wrong");
-    }
-  };
-
+    address: Yup.string()
+      .required("adress should not be empty")
+      .min(2, "address is too short")
+      .max(100, "GSTIN number is  too long"),
+    email: Yup.string()
+      .email("Invalid email")
+      .required("Please fill this field email"),
+  });
   render() {
-    const { classes } = this.props;
+    const { classes, state } = this.props;
 
     return (
       <Box>
@@ -89,147 +76,157 @@ class BuisnessDetails extends Component<
               Business Details
             </Typography>
           </Box>
-
-          <Box
-            sx={{
-              mt: 2,
-              display: "flex",
-              justifyContent: "flex-start",
-              gap: 2,
-              width: "90%",
-              mx: "auto",
+          <Formik
+            enableReinitialize={true}
+            initialValues={{
+              image: state.image,
+              bname: state.bname,
+              owner: state.owner,
+              GSTIN: state.GSTIN,
+              email: state.email,
+              address: state.address,
             }}
+            validationSchema={this.businessSchema}
+            onSubmit={() => this.props.handleClickSave()}
           >
-            <Box width={"30%"}>
-              <Box
-                sx={{
-                  borderRadius: "50%",
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  flex: 1,
-                }}
-              >
-                <img
-                  className="img-profile"
-                  src={
-                    this.props.state.image
-                      ? this.props.state.image
-                      : profilesImage
-                  }
-                  alt="imag"
-                />
-              </Box>
-            </Box>
+            <Form>
+              <>
+                <Box
+                  sx={{
+                    mt: 2,
+                    display: "flex",
+                    justifyContent: "flex-start",
+                    gap: 2,
+                    width: "90%",
+                    mx: "auto",
+                  }}
+                >
+                  <Box width={"30%"}>
+                    <Box
+                      sx={{
+                        borderRadius: "50%",
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        flex: 1,
+                      }}
+                    >
+                      <img
+                        className="img-profile"
+                        src={
+                          this.props.state.image
+                            ? this.props.state.image
+                            : profilesImage
+                        }
+                        alt="imag"
+                      />
+                    </Box>
+                  </Box>
 
-            <Box width={"auto"}>
-              <Box>
-                <Typography variant="h4" className={classes.profilelabelText}>
-                  Upload Profile Picture
-                </Typography>
-                <Box className={classes.boxinput}>
-                  <input
-                    accept="image/*"
-                    className={"inputHide"}
-                    onChange={this.props.handleImageChange}
-                    type="file"
-                  />
-                  <Button className={classes.btnCloud}>
-                    <CloudUploadIcon fontSize="large" />
-                    <span>Browse</span>
-                  </Button>
+                  <Box width={"auto"}>
+                    <Box>
+                      <Typography
+                        variant="h4"
+                        className={classes.profilelabelText}
+                      >
+                        Upload Profile Picture
+                      </Typography>
+                      <Box className={classes.boxinput}>
+                        <input
+                          accept="image/*"
+                          className={"inputHide"}
+                          onChange={this.props.handleImageChange}
+                          type="file"
+                          name="image"
+                        />
+                        <Button className={classes.btnCloud}>
+                          <CloudUploadIcon fontSize="large" />
+                          <span>Browse</span>
+                        </Button>
+                      </Box>
+                    </Box>
+                  </Box>
                 </Box>
-              </Box>
-            </Box>
-          </Box>
-          <Box sx={{ mt: 1, width: "90%", mx: "auto" }}>
-            <Inputs
-              label={"Business name"}
-              id={`${1}`}
-              placeholder={"Beauty salon shop"}
-              required={true}
-              type={"text"}
-              handleChange={(e) => this.props.handleChange(e)}
-              value={this.props.state.bname}
-              icon={storeImage}
-              name={"bname"}
-            />
-            <Inputs
-              label={"Owner name"}
-              id={`${2}`}
-              placeholder={"Steve Smith"}
-              required={true}
-              type={"text"}
-              handleChange={(e) => this.props.handleChange(e)}
-              value={this.props.state.owner}
-              icon={userImage}
-              name={"owner"}
-            />
-            <Inputs
-              label={"Address"}
-              id={`${3}`}
-              placeholder="121 KING STREET Eddy street and Gough  street, San Francisco, CA 94109"
-              required={true}
-              type={"textarea"}
-              handleChange={(e) => this.props.handleChange(e)}
-              value={this.props.state.address}
-              icon={locationImage}
-              name={"address"}
-            />
+                <Box sx={{ mt: 1, width: "90%", mx: "auto" }}>
+                  <Inputs
+                    label={"Business name"}
+                    id={`${1}`}
+                    placeholder={"Beauty salon shop"}
+                    required={true}
+                    type={"text"}
+                    handleChange={(e) => this.props.handleChange(e)}
+                    value={this.props.state.bname}
+                    icon={storeImage}
+                    name={"bname"}
+                  />
+                  <Inputs
+                    label={"Owner name"}
+                    id={`${2}`}
+                    placeholder={"Steve Smith"}
+                    required={true}
+                    type={"text"}
+                    handleChange={(e) => this.props.handleChange(e)}
+                    value={this.props.state.owner}
+                    icon={userImage}
+                    name={"owner"}
+                  />
+                  <Inputs
+                    label={"Address"}
+                    id={`${3}`}
+                    placeholder="121 KING STREET Eddy street and Gough  street, San Francisco, CA 94109"
+                    required={true}
+                    type={"textarea"}
+                    handleChange={(e) => this.props.handleChange(e)}
+                    value={this.props.state.address}
+                    icon={locationImage}
+                    name={"address"}
+                  />
 
-            <Inputs
-              label={"GSTIN No"}
-              id={`${4}`}
-              placeholder="Example123"
-              required={true}
-              type={"text"}
-              handleChange={(e) => this.props.handleChange(e)}
-              value={this.props.state.GSTIN}
-              icon={noteImage}
-              name={"GSTIN"}
-            />
-            <Inputs
-              label={"Email"}
-              id={`${5}`}
-              placeholder="stevesmithexample@gmail.com"
-              required={true}
-              type={"email"}
-              handleChange={(e) => {
-                this.props.handleChange(e);
-                this.handleValidateEmail(e);
-              }}
-              value={this.props.state.email}
-              icon={emailImage}
-              name={"email"}
-            />
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "flex-end",
-              ml: 0.5,
-              mb: 2,
-              mt: 1,
-              width: "90%",
-              mx: "auto",
-            }}
-          >
-            <Buttons
-              title="save & continue"
-              handleClick={() => {
-                this.props.state.image === "" ||
-                this.props.state.bname === "" ||
-                this.props.state.bname.length < 5 ||
-                this.state.error !== "" ||
-                this.props.state.email === "" ||
-                this.props.state.GSTIN === "" ||
-                this.props.state.address === "" ||
-                this.props.state.owner === ""
-                  ? this.handleError()
-                  : this.props.handleClickSave();
-              }}
-            />
-          </Box>
+                  <Inputs
+                    label={"GSTIN No"}
+                    id={`${4}`}
+                    placeholder="Example123"
+                    required={true}
+                    type={"text"}
+                    handleChange={(e) => this.props.handleChange(e)}
+                    value={this.props.state.GSTIN}
+                    icon={noteImage}
+                    name={"GSTIN"}
+                  />
+                  <Inputs
+                    label={"Email"}
+                    id={`${5}`}
+                    placeholder="enter email"
+                    required={true}
+                    type={"email"}
+                    handleChange={(e) => {
+                      this.props.handleChange(e);
+                    }}
+                    value={this.props.state.email}
+                    icon={emailImage}
+                    name={"email"}
+                  />
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "flex-end",
+                    ml: 0.5,
+                    mb: 2,
+                    mt: 1,
+                    width: "90%",
+                    mx: "auto",
+                  }}
+                >
+                  <Buttons
+                    title="save & continue"
+                    type="submit"
+                    handleClick={() => {}}
+                  />
+                </Box>
+              </>
+            </Form>
+          </Formik>
         </Drawers>
       </Box>
     );

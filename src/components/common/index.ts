@@ -7,6 +7,7 @@ import ButtonCust from "./DownloadButton/ButtonCust";
 import DropDownLogin from "./MobileFields/DropDownLogin";
 import CommonViewAllButton from "./CommonSalonPatnerButtons/CommonViewAllButton";
 import Snackbars from "./SnackbarToast/Snackbars";
+import GalleryCards from "./GalleryCards";
 export {
   Buttons,
   PayoutButton,
@@ -17,4 +18,5 @@ export {
   DropDownLogin,
   CommonViewAllButton,
   Snackbars,
+  GalleryCards,
 };
