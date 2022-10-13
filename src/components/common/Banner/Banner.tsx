@@ -23,6 +23,7 @@ class Banner extends Component<IProps> {
             background: `url(${image}) no-repeat`,
             height: "325px",
             backgroundSize: "cover",
+            backgroundColor:'#272522',
             backgroundPosition: "center center",
             position: "relative",
             overflow: "visible",
@@ -34,8 +35,8 @@ class Banner extends Component<IProps> {
               position: "absolute",
               width: "100%",
               height: "100%",
-              background:
-                "linear-gradient(135deg, rgba(0,0,0,.6) , rgba(0,0,0,.6)) ",
+              // background:
+              //   "linear-gradient(135deg, rgba(0,0,0,.6) , rgba(0,0,0,.6)) ",
               top: "50%",
               left: "50%",
               mx: "auto",
