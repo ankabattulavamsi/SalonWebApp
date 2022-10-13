@@ -7,10 +7,11 @@ import {
   GallaryData,
   galleryBanner,
 } from "../../utils/data/GalleryOwner/Gallery";
-import { GalleryCards, Banner } from "../common";
+import { GalleryCards, Banner, Inputs } from "../common";
 import { galleryStyles } from "./GalleryOwners.styles";
 import Layout from "../Layout/Layout";
 import CommonModal from "../common/CommonModal/CommonModal";
+import { Form, Formik } from "formik";
 interface GallerySalonProps {
   classes: any;
 }
@@ -35,7 +36,7 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
             mb: 5,
           }}
         >
-          <Box sx={{ mt: 15}}>
+          <Box sx={{ mt: 15 }}>
             <Banner
               OnClick={() => this.setState({ openGalleryAddModal: true })}
               buttonTitle="Add New Image"
@@ -43,71 +44,6 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
               title="Our Gallery"
             />
           </Box>
-          {/* <Box sx={{ mb: 5, mt: 15 }}>
-            <Box
-              sx={{
-                background: `url(${galleryBanner}) no-repeat`,
-                height: "50vh",
-                backgroundSize: "cover",
-                backgroundPosition: "center center",
-                position: "relative",
-                overflow: "visible",
-              }}
-            >
-              <Box
-                sx={{
-                  position: "absolute",
-                  width: "100%",
-                  height: "100%",
-                  background:
-                    "linear-gradient(135deg, rgba(0,0,0,.6) , rgba(0,0,0,.6)) ",
-                  top: "50%",
-                  left: "50%",
-                  mx: "auto",
-                  transform: "translate(-50%,-50%)",
-                }}
-              >
-                <Typography
-                  sx={{
-                    color: "white !important",
-                    width: "100%",
-                    height: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    textAlign: "center",
-                    justifyContent: "center",
-                  }}
-                  className={classes.titleText}
-                >
-                  Our Gallery
-                </Typography>
-              </Box>
-            </Box>
-
-            <Box
-              sx={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Box
-                sx={{
-                  transform: "translateY(-50%)",
-                  width: { xs: "50%", sm: "25%", lg: "15%" },
-                }}
-              >
-                <Buttons
-                  handleClick={() =>
-                    this.setState({ openGalleryAddModal: true })
-                  }
-                  title="Add New Image"
-                  className={classes.capitalized}
-                />
-              </Box>
-            </Box>
-          </Box> */}
           <Container
             maxWidth="lg"
             sx={{
@@ -132,9 +68,21 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
             open={this.state.openGalleryAddModal}
           >
             <Box sx={{ display: "flex", gap: 5, width: "100%" }}>
-              <Box width={"50%"}>1</Box>
-              <Box width={"50%"}>2</Box>
-              <Box sx={{ clear: "both" }}></Box>
+              <Box width={"47%"}>images component</Box>
+              <Box width={"47%"}>
+                <Box>
+                  <Formik initialValues={{}} onSubmit={() => {}}>
+                    <Form>
+                      <Inputs
+                        name="title"
+                        placeholder="enter title"
+                        label="Add Gallery Title"
+                      />
+                    </Form>
+                  </Formik>
+                </Box>
+              </Box>
+              {/* <Box sx={{ clear: "both" }}></Box> */}
             </Box>
           </CommonModal>
         </Container>
