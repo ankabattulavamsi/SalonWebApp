@@ -34,7 +34,7 @@ class SalonBlogSection extends Component<blogProps> {
             <CommonViewAllButton
               buttonName="View All Blogs"
               onClickNavigateOffersPage={() =>
-                this.props.navigate("salon/blog")
+                this.props.navigate("/salon/blog")
               }
             />
           </Box>

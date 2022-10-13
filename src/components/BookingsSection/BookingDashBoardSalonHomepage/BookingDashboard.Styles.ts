@@ -226,5 +226,6 @@ export const Styles: any = (theme: any) => ({
     [theme.breakpoints.down("sm")]: {
       height: "82% !important ",
     },
+    borderRight: "dotted 1px #88878F",
   },
 });

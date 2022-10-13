@@ -10,13 +10,18 @@ interface DrawersProps {
   toggleDrawer: (type?: string) => void;
   children: React.ReactNode;
   classes: any;
+  anchor?: "bottom" | "left" | "right" | "top";
 }
 class Drawers extends Component<DrawersProps, {}> {
   render() {
-    const { children, open, toggleDrawer, classes } = this.props;
+    const { children, open, toggleDrawer, classes, anchor } = this.props;
     return (
       <>
-        <Drawer anchor={"right"} open={open} onClose={() => toggleDrawer()}>
+        <Drawer
+          anchor={anchor ? anchor : "right"}
+          open={open}
+          onClose={() => toggleDrawer()}
+        >
           <Box
             sx={{
               ml: { xs: "1rem", md: "1rem" },

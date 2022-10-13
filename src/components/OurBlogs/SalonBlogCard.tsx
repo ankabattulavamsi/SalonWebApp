@@ -5,16 +5,19 @@ import { Box, Button, Grid, Typography } from '@mui/material';
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { blogsData } from '../../utils/data/blogs/blogs_data';
+import BlogEditModal from './BlogEditModal';
 
 interface blogProps{
     classes: any;
 }
 interface salonBlogS {
     cardActive: number;
+    edit: boolean;
   }
 class SalonBlogCard extends Component<blogProps, salonBlogS> {
     state = {
         cardActive: 0,
+        edit:false,
       };
 
       handlecardActive = (id: number) => {
@@ -101,6 +104,7 @@ class SalonBlogCard extends Component<blogProps, salonBlogS> {
                               ? "#fff"
                               : "#88878F",
                         }}
+                        onClick={()=>this.setState({edit: true})}
                       >
                         Edit
                       </Button>
@@ -126,6 +130,7 @@ class SalonBlogCard extends Component<blogProps, salonBlogS> {
               );
             })}
           </Grid>
+          <BlogEditModal open={this.state.edit} close={()=>this.setState({edit: false})} />
       </>
     )
   }
