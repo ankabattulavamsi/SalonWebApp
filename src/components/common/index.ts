@@ -8,6 +8,8 @@ import DropDownLogin from "./MobileFields/DropDownLogin";
 import CommonViewAllButton from "./CommonSalonPatnerButtons/CommonViewAllButton";
 import Snackbars from "./SnackbarToast/Snackbars";
 import GalleryCards from "./GalleryCards";
+
+import Banner from "./Banner/Banner";
 export {
   Buttons,
   PayoutButton,
@@ -19,4 +21,5 @@ export {
   CommonViewAllButton,
   Snackbars,
   GalleryCards,
+  Banner,
 };

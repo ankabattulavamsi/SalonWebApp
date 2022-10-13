@@ -1,9 +1,4 @@
-import {
-  Box,
-  FormControl,
-  MenuItem,
-  Select,
-} from "@mui/material";
+import { Box, FormControl, MenuItem, Select } from "@mui/material";
 import { ErrorMessage, Field } from "formik";
 import React, { Component } from "react";
 import { optionsBanksname } from "../../../utils/data/businessdetailsandPayout/Busness.data";
@@ -65,6 +60,7 @@ export default class Inputs extends Component<InputsProps, InputsState> {
               <>
                 <Box className={`input--input ${className && className}`}>
                   <textarea
+                    autoComplete={"off"}
                     id={id}
                     rows={3}
                     name={name}

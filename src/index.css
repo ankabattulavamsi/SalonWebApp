@@ -16,3 +16,7 @@ body {
 .css-1160xiw-MuiPaper-root-MuiDrawer-paper::-webkit-scrollbar {
   display: none;
 }
+
+input::placeholder {
+  text-transform: capitalize;
+}
