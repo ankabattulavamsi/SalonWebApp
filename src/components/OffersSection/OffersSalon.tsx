@@ -6,8 +6,7 @@ import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-import offerImg from "../../assets/images/SalonPatnerBestOffersImg/82dc96a3fb75d43396f9605212d3f87e_pr3yyh.png";
-
+import offerImg from "../../assets/images//OffersSection/Rectangle73.png";
 import { SalonBestOffersData } from "../../utils/data/SalonPatnerBestOffers/SalonBestOffers";
 import { Buttons } from "../common";
 import { StylesOffers } from "./BestOffers.styles";
