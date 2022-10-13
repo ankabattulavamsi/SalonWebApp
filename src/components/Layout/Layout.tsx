@@ -13,7 +13,7 @@ class Layout extends React.Component<IProps> {
 		return (
 			<>
 				<>
-					<SalonNavbar link="Home" customer={false} menus={salonMenu} />
+					<SalonNavbar customer={false} menus={salonMenu} />
 
 					{this.props.children}
 

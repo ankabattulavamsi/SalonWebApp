@@ -6,24 +6,25 @@ import GalleryOwner from "../../components/GallerySalonOwner/GalleryOwner";
 import OwnerDashboardCharts from "../../components/OwnerDashboardChart/OwnerDashboardCharts";
 import SalonPatnerBestOffers from "../../components/OffersSection/SalonPatnerBestOffers";
 import { salonMenu } from "../../utils/data/navbar_menus";
-import BookingDashboard from "../../components/BookingsSection/BookingDashboard";
+import BookingDashboard from "../../components/BookingsSection/BookingDashBoardSalonHomepage/BookingDashboard";
 import Footer from "../../components/common/Footer/Footer";
-import SalonBlog from "../../components/OurBlogs/SalonBlog";
+import SalonBlog from "../../components/OurBlogs/SalonBlogSection";
 import Specialists from "../../components/OurSpecialists/Specialists";
 import SalonCategory from "../../components/Categories/SalonCategory";
+import SalonBlogSection from "../../components/OurBlogs/SalonBlogSection";
 
 class SalonPartner extends Component {
   render() {
     return (
       <Fragment>
-        <SalonNavbar link="Home" customer={false} menus={salonMenu} />
+        <SalonNavbar customer={false} menus={salonMenu} />
         <Grid container>
           {/* salon page sections */}
           <OwnerDashboardCharts />
           <Box sx={{ mx: "auto", width: "100%" }}>
             <BookingDashboard />
           </Box>
-          <SalonCategory />
+            <SalonCategory />
           <Box >
             <SalonPatnerBestOffers />
           </Box>
@@ -32,7 +33,7 @@ class SalonPartner extends Component {
             <GalleryOwner />
           </div>
           <Specialists />
-          <SalonBlog />
+          <SalonBlogSection />
         </Grid>
         <Footer salon={true} />
       </Fragment>

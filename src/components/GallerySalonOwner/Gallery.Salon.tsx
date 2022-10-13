@@ -3,14 +3,14 @@ import { Grid, Typography } from "@mui/material";
 import { withStyles } from "@mui/styles";
 import { Box, Container } from "@mui/system";
 import {
-	gallaryData,
-	GallaryData,
-	galleryBanner,
+  gallaryData,
+  GallaryData,
+  galleryBanner,
 } from "../../utils/data/GalleryOwner/Gallery";
 import { Buttons, GalleryCards } from "../common";
 import { galleryStyles } from "./GalleryOwners.styles";
 interface GallerySalonProps {
-	classes: any;
+  classes: any;
 }
 interface GallerySalonState {}
 class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {

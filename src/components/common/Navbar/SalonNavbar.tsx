@@ -1,12 +1,5 @@
 import React, { Component, Fragment } from "react";
-import {
-  Avatar,
-  Box,
-  Drawer,
-  List,
-  ListItem,
-  Typography,
-} from "@mui/material";
+import { Avatar, Box, Drawer, List, ListItem, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import NotificationsIcon from "@mui/icons-material/Notifications";
@@ -18,32 +11,44 @@ import Profile from "../../../assets/images/Navbarimage/profile-img.png";
 import { SalonMenus } from "../../../utils/models/navbar_interface";
 
 import "./SalonNav.css";
+import SalonNotification from "../../SalonNotification/SalonNotification";
 
 interface salonProps {
   customer: boolean;
-  link: string;
   menus: SalonMenus[];
 }
 interface salonState {
-  salonLink: string;
+  isCustomer: boolean;
   open: boolean;
+  dialogOpen: boolean;
 }
 
 class SalonNavbar extends Component<salonProps, salonState> {
   state = {
     isCustomer: this.props.customer,
-    salonLink: this.props.link,
     open: false,
+    dialogOpen: false,
   };
 
   handleClick = (title: string) => {
     this.setState({
-      salonLink: title,
       open: !this.state.open,
+    });
+  };
+
+  handleDialogOpen = () => {
+    this.setState({
+      dialogOpen: true,
+    });
+  };
+  handleDialogClose = () => {
+    this.setState({
+      dialogOpen: false,
     });
   };
   render() {
     const { menus } = this.props;
+    
     return (
       <>
         <Fragment>
@@ -58,11 +63,10 @@ class SalonNavbar extends Component<salonProps, salonState> {
                     key={menu.id}
                     href={menu.path}
                     className={
-                      menu.title === this.state.salonLink
+                      window.location.pathname == menu.path
                         ? "active"
                         : "salon-menu-link"
                     }
-                    onClick={() => this.setState({ salonLink: menu.title })}
                   >
                     {menu.title}
                   </a>
@@ -72,7 +76,9 @@ class SalonNavbar extends Component<salonProps, salonState> {
             <Box className="nav-profile-section">
               <Box sx={{ display: "flex", alignItems: "center" }}>
                 <Avatar alt="Remy Sharp" src={Profile} />
-                <Typography sx={{ ml: 2 }} variant='h3'>Profile</Typography>
+                <Typography sx={{ ml: 2 }} variant="h3">
+                  Profile
+                </Typography>
               </Box>
               <Box>
                 <Badge
@@ -80,7 +86,13 @@ class SalonNavbar extends Component<salonProps, salonState> {
                   sx={{ "& .MuiBadge-badge": { backgroundColor: "#E7A356" } }}
                   // badgeContent="5"
                 >
-                  <NotificationsIcon sx={{ fontSize: "32px" }} />
+                  <NotificationsIcon
+                    onClick={this.handleDialogOpen}
+                    sx={{
+                      fontSize: "32px",
+                      color: this.state.dialogOpen ? "#E7A356" : "",
+                    }}
+                  />
                 </Badge>
               </Box>
               {this.state.isCustomer && (
@@ -107,7 +119,13 @@ class SalonNavbar extends Component<salonProps, salonState> {
                     "& .MuiBadge-badge": { backgroundColor: "#E7A356" },
                   }}
                 >
-                  <NotificationsIcon sx={{ fontSize: "32px" }} />
+                  <NotificationsIcon
+                    onClick={this.handleDialogOpen}
+                    sx={{ fontSize: "32px",
+                    color: this.state.dialogOpen ? "#E7A356" : "",
+                  
+                  }}
+                  />
                 </Badge>
               </Box>
               <Box>
@@ -138,7 +156,7 @@ class SalonNavbar extends Component<salonProps, salonState> {
                       <a
                         href={menu.path}
                         className={
-                          menu.title === this.state.salonLink
+                          window.location.pathname == menu.path
                             ? "salon-moblie-active-link"
                             : "salon-mobile-menus"
                         }
@@ -151,6 +169,14 @@ class SalonNavbar extends Component<salonProps, salonState> {
               </List>
             </Box>
           </Drawer>
+
+          <>
+            {/* notification dialog */}
+            <SalonNotification
+              open={this.state.dialogOpen}
+              onClose={this.handleDialogClose}
+            />
+          </>
         </Fragment>
       </>
     );

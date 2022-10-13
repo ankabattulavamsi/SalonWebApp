@@ -8,11 +8,13 @@ interface ButtonProps {
   handleClick?: () => void;
   className?: string;
   classes: any;
+  type?: "button" | "submit" | "reset" | undefined;
 }
 interface ButtonState {}
 class Buttons extends Component<ButtonProps, ButtonState> {
   render() {
-    const { title, handleClick, disabled, className, classes } = this.props;
+    const { title, handleClick, disabled, className, classes, type } =
+      this.props;
     return (
       <Button
         sx={{
@@ -26,6 +28,7 @@ class Buttons extends Component<ButtonProps, ButtonState> {
             color: "#ffffff",
           },
         }}
+        type={type}
         onClick={() => handleClick && handleClick()}
         disabled={disabled}
         className={`${classes.buttonBox} ${className && className}`}

@@ -1,42 +1,30 @@
-import React, { Component } from "react";
-import { Box, Button, Grid, Typography } from "@mui/material";
-import { withStyles } from "@mui/styles";
+import React, { Component } from 'react'
+import { withStyles } from '@mui/styles';
+import { BlogStyles } from './OurBlog.Style';
+import { Box, Button, Grid, Typography } from '@mui/material';
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { blogsData } from '../../utils/data/blogs/blogs_data';
 
-import { BlogStyles } from "./OurBlog.Style";
-import { blogsData } from "../../utils/data/blogs/blogs_data";
-import CommonViewAllButton from "../common/CommonSalonPatnerButtons/CommonViewAllButton";
-
-interface blogProps {
-  classes: any;
+interface blogProps{
+    classes: any;
 }
 interface salonBlogS {
-  cardActive: number;
-}
-class SalonBlog extends Component<blogProps, salonBlogS> {
-  state = {
-    cardActive: 0,
-  };
+    cardActive: number;
+  }
+class SalonBlogCard extends Component<blogProps, salonBlogS> {
+    state = {
+        cardActive: 0,
+      };
 
-  handlecardActive = (id: number) => {
-    this.setState({ cardActive: id });
-  };
-
+      handlecardActive = (id: number) => {
+        this.setState({ cardActive: id });
+      };
   render() {
-    const { classes } = this.props;
-
+    const {classes} = this.props;
     return (
       <>
-        <Box sx={{ pb: 10, pt: {lg:10, md:10, sm: 5, xs:5}, background: "#FDF6EE" }}>
-          <Box className={classes.salonBlogTitleBox}>
-            <Box sx={{mb:{xs:2, sm:0, md:0}}}>
-              <Typography className={classes.salonBlogHeading}>Our Blogs</Typography>
-              <Typography className={classes.salonBlogTitleLine}></Typography>
-            </Box>
-            <CommonViewAllButton buttonName="View All Blogs" onClickNavigateOffersPage={()=>{}}/>
-          </Box>
-          <Grid
+        <Grid
             container
             alignItems="center"
             justifyContent="center"
@@ -138,10 +126,8 @@ class SalonBlog extends Component<blogProps, salonBlogS> {
               );
             })}
           </Grid>
-        </Box>
       </>
-    );
+    )
   }
 }
-
-export default withStyles(BlogStyles)(SalonBlog);
+export default withStyles(BlogStyles)(SalonBlogCard);
