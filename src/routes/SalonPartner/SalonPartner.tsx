@@ -6,7 +6,7 @@ import GalleryOwner from "../../components/GallerySalonOwner/GalleryOwner";
 import OwnerDashboardCharts from "../../components/OwnerDashboardChart/OwnerDashboardCharts";
 import SalonPatnerBestOffers from "../../components/OffersSection/SalonPatnerBestOffers";
 import { salonMenu } from "../../utils/data/navbar_menus";
-import BookingDashboard from "../../components/BookingsSection/BookingDashboard";
+import BookingDashboard from "../../components/BookingsSection/BookingDashBoardSalonHomepage/BookingDashboard";
 import Footer from "../../components/common/Footer/Footer";
 import SalonBlog from "../../components/OurBlogs/SalonBlogSection";
 import Specialists from "../../components/OurSpecialists/Specialists";
@@ -24,7 +24,7 @@ class SalonPartner extends Component {
           <Box sx={{ mx: "auto", width: "100%" }}>
             <BookingDashboard />
           </Box>
-          <SalonCategory />
+            <SalonCategory />
           <Box >
             <SalonPatnerBestOffers />
           </Box>
