@@ -15,17 +15,15 @@ import GallerySalon from "./components/GallerySalonOwner/Gallery.Salon";
 import SalonAllCategory from "./components/Categories/SalonAllCategory";
 
 function App() {
-	return (
-		<div>
-			<ThemeProvider theme={theme}>
-				<Routes>
-					{/*Guest Flow*/}
-					<Route path="/" element={<LandingPageNavigation />}>
-						<Route index element={<HomePage />} />
-					</Route>
-					{/*Guest Flow*/}
-					{/* Login */}
-					{/* temprorary */}
+  return (
+    <div>
+      <ThemeProvider theme={theme}>
+        <Routes>
+          {/*Guest Flow*/}
+          <Route path="/" element={<LandingPageNavigation />}>
+            <Route index element={<HomePage />} />
+          </Route>
+          {/*Guest Flow*/}
 
 					{/* Login */}
 					{/* Salon Partners */}

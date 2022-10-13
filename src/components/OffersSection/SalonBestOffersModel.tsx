@@ -1,4 +1,4 @@
-import { Button, Dialog, Grid, TextField, Typography } from "@mui/material";
+import { Button, Container, Dialog, Grid, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { Component } from "react";
 
@@ -23,8 +23,9 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
     const { open, handleClose } = this.props;
     const { classes } = this.props;
     return (
-      <Box>
-        <Dialog onClose={handleClose} open={open} maxWidth="md">
+      <>
+        <Container maxWidth='md'>
+        <Dialog onClose={handleClose} open={open} >
        <Box sx={{display :'flex', alignItems: 'center', justifyContent: 'flex-end', cursor: 'pointer'}} onClick={handleClose} >
        <ClearIcon sx={{ backgroundColor: '#000', fontSize: '28px', color:'#fff',   }} />
        </Box>
@@ -42,7 +43,7 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
                   </Box>
                 </Grid>
 
-                <Grid container xs={12} md={12} lg={12} sx={{ mt: 2 }}>
+                <Grid xs={12} md={12} lg={12} sx={{ mt: 2 }}>
                   <Grid item xs={3} md={6} lg={6}>
                     <Box className={classes.ModelAvatarImage}>
                       <img
@@ -206,7 +207,8 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
             </Grid>
           </Box>
         </Dialog>
-      </Box>
+        </Container>
+      </>
     );
   }
 }

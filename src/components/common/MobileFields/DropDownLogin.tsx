@@ -7,12 +7,12 @@ import {
   Typography,
   Box,
   Select,
-  FormHelperText,
 } from "@mui/material";
 import flag from "../../../assets/images/Login/flag.png";
 import PhoneIcon from "@mui/icons-material/Phone";
+import { ErrorMessage } from "formik";
 interface DropDownLoginProps {
-  name?: string;
+  name: string;
   value?: string;
   error?: string;
   handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -25,7 +25,7 @@ class DropDownLogin extends Component<DropDownLoginProps, DropDownLoginState> {
   };
 
   render() {
-    const { handleChange, name, value, error } = this.props;
+    const { handleChange, name, value } = this.props;
 
     return (
       <Box>
@@ -125,12 +125,12 @@ class DropDownLogin extends Component<DropDownLoginProps, DropDownLoginState> {
             </Box>
           </Box>
         </Box>
-
-        {error && (
+        <ErrorMessage component={"p"} className={"error-message"} name={name} />
+        {/* {error && (
           <Box>
             <FormHelperText className="error-message">{error}</FormHelperText>
           </Box>
-        )}
+        )} */}
       </Box>
     );
   }
