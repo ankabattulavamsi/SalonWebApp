@@ -14,27 +14,27 @@ import SpecialistTeam from "./components/OurSpecialists/SpecialistTeam";
 import GallerySalon from "./components/GallerySalonOwner/Gallery.Salon";
 import SalonBlogs from "./components/OurBlogs/SalonBlogs";
 function App() {
-	return (
-		<div>
-			<ThemeProvider theme={theme}>
-				<Routes>
-					{/*Guest Flow*/}
-					<Route path="/" element={<LandingPageNavigation />}>
-						<Route index element={<HomePage />} />
-					</Route>
-					{/*Guest Flow*/}
-					
-					{/* Salon Partners */}
-					<Route path="salon" element={<SalonPartner />} />
-					<Route path="salon/gallery" element={<GallerySalon />} />
-					<Route path="salon/team" element={<SpecialistTeam />} />
+  return (
+    <div>
+      <ThemeProvider theme={theme}>
+        <Routes>
+          {/*Guest Flow*/}
+          <Route path="/" element={<LandingPageNavigation />}>
+            <Route index element={<HomePage />} />
+          </Route>
+          {/*Guest Flow*/}
+
+          {/* Salon Partners */}
+          <Route path="salon" element={<SalonPartner />} />
+          <Route path="salon/gallery" element={<GallerySalon />} />
+          <Route path="salon/team" element={<SpecialistTeam />} />
           <Route path="salon/blog" element={<SalonBlogs />} />
-					<Route path="/*" element={<Nopage />} />
-					{/* Salon Partners */}
-				</Routes>
-			</ThemeProvider>
-		</div>
-	);
+          <Route path="/*" element={<Nopage />} />
+          {/* Salon Partners */}
+        </Routes>
+      </ThemeProvider>
+    </div>
+  );
 }
 
 export default App;
