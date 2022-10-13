@@ -25,7 +25,7 @@ class CommonModal extends React.Component<CommonModalProps, CommonModalState> {
   render() {
     const { handleClose, open, children } = this.props;
     return (
-      <>
+      <Box className="common-modal">
         <BootstrapDialog
           onClose={() => handleClose()}
           open={open}
@@ -60,7 +60,7 @@ class CommonModal extends React.Component<CommonModalProps, CommonModalState> {
             {children}
           </DialogContent>
         </BootstrapDialog>
-      </>
+      </Box>
     );
   }
 }
