@@ -104,6 +104,7 @@ class DropDownLogin extends Component<DropDownLoginProps, DropDownLoginState> {
           >
             <Box className="mobileNoChildBox3">
               <TextField
+                autoComplete={"off"}
                 value={value}
                 className="textField"
                 select={false}

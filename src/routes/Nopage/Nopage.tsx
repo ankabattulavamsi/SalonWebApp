@@ -9,7 +9,7 @@ export default class Nopage extends Component {
           component={"h2"}
           textAlign="center"
           textTransform={"uppercase"}
-          sx={{ fontSize: { xs: "3rem", sm: "5rem", md: "10rem" } }}
+          sx={{ fontSize: { xs: "2rem", sm: "3rem", md: "5rem" } }}
         >
           404 Not Found
         </Typography>
