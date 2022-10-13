@@ -12,6 +12,7 @@ import "./App.css";
 import Nopage from "./routes/Nopage/Nopage";
 import SpecialistTeam from "./components/OurSpecialists/SpecialistTeam";
 import GallerySalon from "./components/GallerySalonOwner/Gallery.Salon";
+import OffersSalon from "./components/OffersSection/OffersSalon";
 import SalonBlogs from "./components/OurBlogs/SalonBlogs";
 function App() {
   return (
@@ -26,9 +27,10 @@ function App() {
 
           {/* Salon Partners */}
           <Route path="salon" element={<SalonPartner />} />
+          <Route path="salon/offers" element={<OffersSalon />} />
           <Route path="salon/gallery" element={<GallerySalon />} />
           <Route path="salon/team" element={<SpecialistTeam />} />
-          <Route path="salon/blog" element={<SalonBlogs />} />
+		  <Route path="salon/blog" element={<SalonBlogs />} />
           <Route path="/*" element={<Nopage />} />
           {/* Salon Partners */}
         </Routes>

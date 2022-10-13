@@ -1,6 +1,7 @@
 import { AlertColor, Typography } from "@mui/material";
 import { withStyles } from "@mui/styles";
 import { Box } from "@mui/system";
+import { Form, Formik } from "formik";
 import React, { Component } from "react";
 import withRouter from "../../hoc/withRouter";
 import { modalConstants } from "../../utils/data/constants/loginRegistration";
@@ -63,59 +64,71 @@ class VerificationComp extends Component<
           <Box>
             <Typography className={classes.heading}>Verification</Typography>
           </Box>
-          <Box>
-            <Typography className={classes.paragraphText}>
-              Enter the OTP Sent at{" "}
-              <span
-                style={{
-                  marginLeft: "6px",
-                  color: "#272522",
-                  fontWeight: "bold",
-                }}
-              >
-                +91 9876543210
-              </span>
-            </Typography>
-            <OtpPass
-              numberInputs={4}
-              placeholder="2809"
-              value={state.otpVerif}
-              handleChange={(otp) => {
-                handleChangeOtp && handleChangeOtp(otp);
 
-                this.handleValidateOtp(otp);
-              }}
-              isInputSecure
-            />
+          <Formik
+            initialValues={{
+              otpVerif: state.otpVerif,
+            }}
+            onSubmit={() => {}}
+          >
+            <Form>
+              <Box>
+                <Typography className={classes.paragraphText}>
+                  Enter the OTP Sent at{" "}
+                  <span
+                    style={{
+                      marginLeft: "6px",
+                      color: "#272522",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    +91 9876543210
+                  </span>
+                </Typography>
+                <OtpPass
+                  name="otpVerif"
+                  numberInputs={4}
+                  placeholder="----"
+                  value={state.otpVerif}
+                  handleChange={(otp) => {
+                    handleChangeOtp && handleChangeOtp(otp);
 
-            <Typography className={classes.paragraphText}>
-              Didn’t receive the OTP?
-              <span
-                style={{
-                  marginLeft: "7px",
-                  color: "#272522",
-                  fontWeight: "bold",
-                }}
-              >
-                Resend
-              </span>
-            </Typography>
-          </Box>
+                    // this.handleValidateOtp(otp);
+                  }}
+                  isInputSecure
+                />
 
-          <Box sx={{ mt: 5 }}>
-            <Buttons
-              title="Verify & continue"
-              handleClick={() => {
-                state.otpVerif === "" ||
-                isNaN(Number(state.otpVerif)) ||
-                state.otpVerif.length < 4
-                  ? this.handleError()
-                  : state.IsCustomerLogin
-                  ? this.handleCustomerClick()
-                  : this.handleSalonClick();
-              }}
-            />
-          </Box>
+                <Typography className={classes.paragraphText}>
+                  Didn’t receive the OTP?
+                  <span
+                    style={{
+                      marginLeft: "7px",
+                      color: "#272522",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Resend
+                  </span>
+                </Typography>
+              </Box>
+
+              <Box sx={{ mt: 5 }}>
+                <Buttons
+                  type="submit"
+                  title="Verify & continue"
+                  handleClick={() => {
+                    state.otpVerif === "" ||
+                    isNaN(Number(state.otpVerif)) ||
+                    state.otpVerif.length < 4
+                      ? this.handleError()
+                      : state.IsCustomerLogin
+                      ? this.handleCustomerClick()
+                      : this.handleSalonClick();
+                  }}
+                />
+              </Box>
+            </Form>
+          </Formik>
         </Box>
       </Drawers>
     );
