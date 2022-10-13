@@ -21,11 +21,13 @@ interface IsStateProps {
 
 interface IsState {
   open: boolean;
+  SalonOffersData: any[]
 }
 
 export class OffersSalon extends Component<IsStateProps> {
   state: IsState = {
     open: false,
+    SalonOffersData: SalonBestOffersData
   };
 
   onClickOpenModel = () => {
@@ -37,12 +39,13 @@ export class OffersSalon extends Component<IsStateProps> {
   };
 
   onClickDeleteOffer = (id: any) => {
-    const filterData = SalonBestOffersData.filter((item) => item.id !== id);
+    let filterData = this.state.SalonOffersData.filter((item) => item.id !== id);
+    this.setState({SalonOffersData: filterData})
     console.log('delete', filterData)
   };
 
   render() {
-    const { open } = this.state;
+    const { open, SalonOffersData } = this.state;
     const { classes } = this.props;
     return (
       <>
@@ -61,9 +64,9 @@ export class OffersSalon extends Component<IsStateProps> {
                 rowSpacing={3}
                 sx={{ px: { sm: 0, xs: 0, md: 0, lg: 0 } }}
               >
-                {SalonBestOffersData.slice(0, 2).map((item) => {
+                {SalonOffersData.map((item, index: number) => {
                   return (
-                    <Grid item lg={6} md={6} xs={12} sm={6} key={item.id}>
+                    <Grid item lg={6} md={6} xs={12} sm={6} key={index}>
                       <Box>
                         <Box
                           sx={{ backgroundColor: "#FDF6EE" }}
@@ -125,7 +128,7 @@ export class OffersSalon extends Component<IsStateProps> {
 
                               <Button
                                 onClick={(e) =>
-                                  this.onClickDeleteOffer(item.id)
+                                  this.onClickDeleteOffer(index)
                                 }
                                 startIcon={<DeleteIcon />}
                                 className="best-offers-delete-btn-text"

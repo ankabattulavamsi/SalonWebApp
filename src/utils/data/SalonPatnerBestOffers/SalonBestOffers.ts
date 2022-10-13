@@ -1,7 +1,5 @@
 import offerImg1 from '../../../assets/images/SalonPatnerBestOffersImg/Rectangle64(1).png'
 import offerImg2 from '../../../assets/images/SalonPatnerBestOffersImg/Rectangle64.png'
-import ModeEditIcon from '@mui/icons-material/ModeEdit'; 
-import DeleteIcon from '@mui/icons-material/Delete';
 
 export const SalonBestOffersData = [
     {
@@ -20,5 +18,4 @@ export const SalonBestOffersData = [
         dissPrice: '150', 
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
-    
 ] 
