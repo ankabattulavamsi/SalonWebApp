@@ -41,7 +41,6 @@ class SalonNavbar extends Component<salonProps, salonState> {
   };
   render() {
     const { menus } = this.props;
-    console.log(window.location.pathname,"paththth");
     
     return (
       <>
