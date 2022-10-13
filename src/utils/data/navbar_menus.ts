@@ -15,19 +15,19 @@ export const landingMenu:landingMenus[] = [
 export const salonMenu:SalonMenus[] = [
     {id:1, path:'/salon', title:'Home'},
     {id:2, path:'/salon/dashboard', title:'Dashboard'},
-    {id:3, path:'salon/booking', title:'Booking'},
-    {id:4, path:'salon/category', title:'Category'},
-    {id:5, path:'salon/offers', title:'Offers'},
-    {id:6, path:'salon/team', title:'Team'},
-    {id:7, path:'salon/blog', title:'Blog'}
+    {id:3, path:'/salon/booking', title:'Booking'},
+    {id:4, path:'/salon/category', title:'Category'},
+    {id:5, path:'/salon/offers', title:'Offers'},
+    {id:6, path:'/salon/team', title:'Team'},
+    {id:7, path:'/salon/blog', title:'Blog'}
 ];
 
 export const CustomerMenu:SalonMenus[] = [
     {id:1, path:'/salon', title:'Home'},
     {id:2, path:'/salon/dashboard', title:'Dashboard'},
-    {id:3, path:'salon/booking', title:'Booking'},
-    {id:4, path:'salon/category', title:'Category'},
-    {id:5, path:'salon/offers', title:'Offers'},
+    {id:3, path:'/salon/booking', title:'Booking'},
+    {id:4, path:'/salon/category', title:'Category'},
+    {id:5, path:'/salon/offers', title:'Offers'},
     // {id:6, path:'salon/team', title:'Team'},
     // {id:7, path:'salon/blog', title:'Blog'}
 ];
