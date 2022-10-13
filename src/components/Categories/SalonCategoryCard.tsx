@@ -17,11 +17,17 @@ import { withStyles } from "@mui/styles";
 import { styles } from "./SalonCategory.style";
 
 import { salonCategoryData } from "../../utils/data/SalonCategory/SalonCategory_data";
+import withRouter from "../../hoc/withRouter";
 
 interface categoryProps {
   classes: any;
+  navigate: any;
 }
 class SalonCategoryCard extends Component<categoryProps> {
+
+    onClickNavigateCategory = () => {
+
+    }
   render() {
     const { classes } = this.props;
     return (
@@ -61,4 +67,4 @@ class SalonCategoryCard extends Component<categoryProps> {
   }
 }
 
-export default withStyles(styles)(SalonCategoryCard);
+export default withStyles(styles)(withRouter(SalonCategoryCard));

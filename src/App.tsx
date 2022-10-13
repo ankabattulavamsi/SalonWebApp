@@ -32,10 +32,10 @@ function App() {
           <Route path="salon/offers" element={<OffersSalon />} />
           <Route path="salon/gallery" element={<GallerySalon />} />
           <Route path="salon/team" element={<SpecialistTeam />} />
-		  <Route path="salon/blog" element={<SalonBlogs />} />
-		  <Route path="salon/booking" element={<BookingsMainPage />} />
+          <Route path="salon/blog" element={<SalonBlogs />} />
+          <Route path="salon/booking" element={<BookingsMainPage />} />
 
-		  <Route path="salon/category" element={<SalonAllCategory />} />
+          <Route path="salon/category" element={<SalonAllCategory />} />
           <Route path="/*" element={<Nopage />} />
           {/* Salon Partners */}
         </Routes>
