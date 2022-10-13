@@ -2,16 +2,20 @@ import React, { Component } from "react";
 import { Box, Button, Grid, Modal, TextField, Typography } from "@mui/material";
 import ClassIcon from '@mui/icons-material/Class';
 import DeleteIcon from "@mui/icons-material/Delete";
+import { withStyles } from "@mui/styles";
+
 import blogpic from '../../assets/images/Blogimages/blogimg-1.png';
+import {BlogStyles} from './OurBlog.Style';
 
 interface blogP{
+    classes: any;
     open: boolean;
     close: ()=>void
 }
 class BlogEditModal extends Component<blogP> {
 
   render() {
-    const {open, close} = this.props;
+    const {open, close, classes} = this.props;
     return (
       <>
         <Modal
@@ -37,13 +41,13 @@ class BlogEditModal extends Component<blogP> {
                 </Grid>
                 <Grid item lg={6} md={6} sm={12} xs={12}>
                     <Box>
-                        <Typography variant="h3">
+                        <Typography className={classes.editFeilds}>
                             Blog Title
                         </Typography>
                         <TextField placeholder="blog name" 
                             fullWidth
                         />
-                        <Typography variant="h3">
+                        <Typography className={classes.editFeilds}>
                             Description
                         </Typography>
                         <TextField maxRows={5} placeholder="blog description"
@@ -106,4 +110,4 @@ class BlogEditModal extends Component<blogP> {
   }
 }
 
-export default BlogEditModal;
+export default withStyles(BlogStyles)(BlogEditModal);

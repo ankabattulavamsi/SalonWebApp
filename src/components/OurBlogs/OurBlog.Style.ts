@@ -183,4 +183,12 @@ export const BlogStyles :any = {
             padding:'20px 0 20px 0',
         }
     }
+    // edit modal css 
+    // editFeilds:{
+    //     font-family: 'Roboto';
+    //     font-style: normal;
+    //     font-weight: 500;
+    //     font-size: 17px;
+    //     line-height: 30px;
+    // }
 }
