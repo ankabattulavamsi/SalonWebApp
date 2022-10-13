@@ -16,16 +16,20 @@ interface IsStatePassProps {
   classes: any;
   open: boolean;
   handleClose: (id: any) => void;
+  editOfferTitle: string;
+  editPrice: string, 
+  editDissPrice: string, 
+  editDescription: string
 }
 
 class SalonBestOffersModel extends Component<IsStatePassProps> {
   render() {
-    const { open, handleClose } = this.props;
+    const { open, handleClose, editOfferTitle, editPrice, editDissPrice, editDescription } = this.props;
     const { classes } = this.props;
     return (
       <>
-        <Container maxWidth='md'>
-        <Dialog onClose={handleClose} open={open} >
+        <Container>
+        <Dialog onClose={handleClose} open={open}  maxWidth='md'>
        <Box sx={{display :'flex', alignItems: 'center', justifyContent: 'flex-end', cursor: 'pointer'}} onClick={handleClose} >
        <ClearIcon sx={{ backgroundColor: '#000', fontSize: '28px', color:'#fff',   }} />
        </Box>
@@ -84,7 +88,7 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
                       fullWidth
                       variant="standard"
                       InputProps={{ disableUnderline: true }}
-                      placeholder="Hair Color 20% Off"
+                      value={editOfferTitle}
                       sx={{
                         backgroundColor: "#F0F0F0",
                         borderRadius: "5px",
@@ -114,7 +118,8 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
                         fullWidth
                         variant="standard"
                         InputProps={{ disableUnderline: true }}
-                        placeholder="150"
+                        placeholder="Original Price"
+                        value={editDissPrice}
                         sx={{
                           backgroundColor: "#F0F0F0",
                           borderRadius: "5px",
@@ -143,7 +148,8 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
                         fullWidth
                         variant="standard"
                         InputProps={{ disableUnderline: true }}
-                        placeholder="240"
+                        placeholder="Discount Price"
+                        value={editPrice}
                         sx={{
                           backgroundColor: "#F0F0F0",
                           borderRadius: "5px",
@@ -176,6 +182,7 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
                       variant="standard"
                       InputProps={{ disableUnderline: true }}
                       placeholder="Long descreption type here..."
+                      value={editDescription}
                       sx={{
                         backgroundColor: "#F0F0F0",
                         borderRadius: "5px",

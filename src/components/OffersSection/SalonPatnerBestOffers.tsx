@@ -174,7 +174,7 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
               })}
             </Grid>
           </Box>
-          <SalonBestOffersModel open={open} handleClose={this.handleClose} />
+          {/* <SalonBestOffersModel open={open} handleClose={this.handleClose} /> */}
         </Box>
       </>
     );

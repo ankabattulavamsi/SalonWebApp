@@ -6,7 +6,7 @@ import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-import offerImg from "../../assets/images/OffersSection/Rectangle73.png";
+import offerImg from "../../assets/images/SalonPatnerBestOffersImg/82dc96a3fb75d43396f9605212d3f87e_pr3yyh.png";
 
 import { SalonBestOffersData } from "../../utils/data/SalonPatnerBestOffers/SalonBestOffers";
 import { Buttons } from "../common";
@@ -21,17 +21,33 @@ interface IsStateProps {
 
 interface IsState {
   open: boolean;
-  SalonOffersData: any[]
+  SalonOffersData: any[];
+  editId: string;
+  editOfferTitle: string;
+  editPrice: string;
+  editDissPrice: string;
+  editDescription: string;
 }
 
 export class OffersSalon extends Component<IsStateProps> {
   state: IsState = {
     open: false,
-    SalonOffersData: SalonBestOffersData
+    SalonOffersData: SalonBestOffersData,
+    editId: "",
+    editOfferTitle: "",
+    editPrice: "",
+    editDissPrice: "",
+    editDescription: "",
   };
 
-  onClickOpenModel = () => {
+  onClickOpenModel = (item: any) => {
     this.setState({ open: true });
+    console.log("item", item);
+    this.setState({ editId: item.id });
+    this.setState({ editOfferTitle: item.headingOff });
+    this.setState({ editPrice: item.price });
+    this.setState({ editDissPrice: item.dissPrice });
+    this.setState({ editDescription: item.description });
   };
 
   handleClose = () => {
@@ -39,14 +55,25 @@ export class OffersSalon extends Component<IsStateProps> {
   };
 
   onClickDeleteOffer = (id: any) => {
-    let filterData = this.state.SalonOffersData.filter((item) => item.id !== id);
-    this.setState({SalonOffersData: filterData})
-    console.log('delete', filterData)
+    let filterData = this.state.SalonOffersData.filter(
+      (item) => item.id !== id
+    );
+    this.setState({ SalonOffersData: filterData });
   };
 
   render() {
-    const { open, SalonOffersData } = this.state;
+    const {
+      open,
+      SalonOffersData,
+      editId,
+      editOfferTitle,
+      editPrice,
+      editDissPrice,
+      editDescription,
+    } = this.state;
     const { classes } = this.props;
+    console.log("editPrice", editPrice);
+    console.log("editdiss", editDissPrice);
     return (
       <>
         <Layout>
@@ -119,7 +146,7 @@ export class OffersSalon extends Component<IsStateProps> {
                               className={classes.SalonEditDeleteButonsContainer}
                             >
                               <Button
-                                onClick={this.onClickOpenModel}
+                                onClick={() => this.onClickOpenModel(item)}
                                 startIcon={<ModeEditIcon />}
                                 className="best-offers-edit-btn-text"
                               >
@@ -127,9 +154,7 @@ export class OffersSalon extends Component<IsStateProps> {
                               </Button>
 
                               <Button
-                                onClick={(e) =>
-                                  this.onClickDeleteOffer(index)
-                                }
+                                // onClick={(e) => this.onClickDeleteOffer(index)}
                                 startIcon={<DeleteIcon />}
                                 className="best-offers-delete-btn-text"
                               >
@@ -146,7 +171,14 @@ export class OffersSalon extends Component<IsStateProps> {
             </Container>
           </Box>
         </Layout>
-        <SalonBestOffersModel open={open} handleClose={this.handleClose} />
+        <SalonBestOffersModel
+          open={open}
+          handleClose={this.handleClose}
+          editOfferTitle={editOfferTitle}
+          editPrice={editPrice}
+          editDissPrice={editDissPrice}
+          editDescription={editDescription}
+        />
       </>
     );
   }
