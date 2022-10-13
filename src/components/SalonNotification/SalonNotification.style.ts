@@ -2,6 +2,7 @@ export const NotificationStyles: any = {
   MainDialogBox: {
     width: "395px",
     height: "700px",
+    // background:"#fff",
 
     "& .css-1t1j96h-MuiPaper-root-MuiDialog-paper": {
       position: "fixed",
@@ -10,6 +11,7 @@ export const NotificationStyles: any = {
       width: "390px",
       height: "600px",
       overflowX: "hidden",
+      background: '#fff !important',
 
       "@media only screen and (max-width: 660px) ": {
         position: "fixed",

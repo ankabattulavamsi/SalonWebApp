@@ -11,8 +11,6 @@ import { withStyles } from "@mui/styles";
 import { Styles } from "../BookingDashBoardSalonHomepage/BookingDashboard.Styles";
 import "../BookingDashboard.css";
 
-
-
 class BookingsCalendarComponent extends Component<any> {
   state = {
     len: datesArray.length / 2,
@@ -34,7 +32,7 @@ class BookingsCalendarComponent extends Component<any> {
     const { len } = this.state;
     return (
       <Container maxWidth="lg">
-        <Box>
+        <Box sx={{ width: "99%" }}>
           <ScrollMenu
             LeftArrow={
               <Button

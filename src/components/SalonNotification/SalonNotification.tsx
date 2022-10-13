@@ -9,6 +9,7 @@ import {
   ListItem,
   ListItemAvatar,
   ListItemText,
+  Paper
 } from "@mui/material";
 
 import React, { Component } from "react";
@@ -63,6 +64,8 @@ class SalonNotification extends Component<NotiProps, State> {
           open={open}
           onClose={onClose}
           className={classes.MainDialogBox}
+         
+          
         >
           <BootstrapDialogTitle
             id="customized-dialog-title"
