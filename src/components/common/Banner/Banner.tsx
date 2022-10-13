@@ -21,9 +21,9 @@ class Banner extends Component<IProps> {
         <Box
           sx={{
             background: `url(${image}) no-repeat`,
-            height: "325px",
+            height: "50vh",
             backgroundSize: "cover",
-            backgroundPosition: "center center",
+            backgroundPosition: "100% contain",
             position: "relative",
             overflow: "visible",
             borderRadius: "10px",
