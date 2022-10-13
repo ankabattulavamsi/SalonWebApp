@@ -5,8 +5,8 @@ import ProfilePicture2 from "../../../assets/images/SalonBookings/ProfilePicture
 import ProfilePicture4 from "../../../assets/images/SalonBookings/ProfilePicture4.png";
 
 export interface BookingCardProps {
+  id: number;
   title: string;
-  subTitile: string;
   cost: number;
   services: string[];
   img: any;
@@ -39,6 +39,46 @@ export const bookingSectionData = [
   },
   {
     id: 4,
+    title: "Kaira Smith",
+    subTitle: "0D11721633",
+    cost: 900,
+    services: ["Hair Color", "Body Massage", "Shaving", "Hair Cut"],
+    img: ProfilePicture4,
+  },
+  {
+    id: 5,
+    title: "James Bond",
+    subTitle: "0D11721633",
+    cost: 900,
+    services: ["Hair Color", "Body Massage", "Shaving", "Hair Cut"],
+    img: ProfilePicture1,
+  },
+  {
+    id: 6,
+    title: "Smith Warner",
+    subTitle: "0D11721633",
+    cost: 120,
+    services: ["Hair Color", "Body Massage", "Shaving", "Hair Cut"],
+    img: ProfilePicture2,
+  },
+  {
+    id: 7,
+    title: "John Doe",
+    subTitle: "0D11721633",
+    cost: 900,
+    services: ["Hair Color", "Body Massage", "Shaving", "Hair Cut"],
+    img: ProfilePicture3,
+  },
+  {
+    id: 8,
+    title: "Kaira Smith",
+    subTitle: "0D11721633",
+    cost: 900,
+    services: ["Hair Color", "Body Massage", "Shaving", "Hair Cut"],
+    img: ProfilePicture4,
+  },
+  {
+    id: 9,
     title: "Kaira Smith",
     subTitle: "0D11721633",
     cost: 900,
