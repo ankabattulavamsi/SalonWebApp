@@ -10,11 +10,20 @@ import {
 import { Buttons, GalleryCards } from "../common";
 import { galleryStyles } from "./GalleryOwners.styles";
 import Layout from "../Layout/Layout";
+import CommonModal from "../common/CommonModal/CommonModal";
 interface GallerySalonProps {
   classes: any;
 }
-interface GallerySalonState {}
+interface GallerySalonState {
+  openGalleryAddModal: boolean;
+}
 class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
+  constructor(props: GallerySalonProps) {
+    super(props);
+    this.state = {
+      openGalleryAddModal: false,
+    };
+  }
   render() {
     const { classes } = this.props;
     return (
@@ -83,6 +92,9 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
                 }}
               >
                 <Buttons
+                  handleClick={() =>
+                    this.setState({ openGalleryAddModal: true })
+                  }
                   title="Add New Image"
                   className={classes.capitalized}
                 />
@@ -107,6 +119,17 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
               })}
             </Grid>
           </Container>
+
+          <CommonModal
+            handleClose={() => this.setState({ openGalleryAddModal: false })}
+            open={this.state.openGalleryAddModal}
+          >
+            <Box sx={{ display: "flex", gap: 5, width: "100%" }}>
+              <Box width={"50%"}>1</Box>
+              <Box width={"50%"}>2</Box>
+              <Box sx={{ clear: "both" }}></Box>
+            </Box>
+          </CommonModal>
         </Container>
       </Layout>
     );
