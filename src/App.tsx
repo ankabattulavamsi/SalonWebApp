@@ -12,7 +12,9 @@ import "./App.css";
 import Nopage from "./routes/Nopage/Nopage";
 import SpecialistTeam from "./components/OurSpecialists/SpecialistTeam";
 import GallerySalon from "./components/GallerySalonOwner/Gallery.Salon";
-import BookingDashboardRoute from "./routes/BookingDashboard/BookingDashboardRoute";
+import OffersSalon from "./components/OffersSection/OffersSalon";
+import SalonBlogs from "./components/OurBlogs/SalonBlogs";
+import BookingsMainPage from "./components/BookingsSection/BookingsMainPage/BookingsMainPage";
 function App() {
   return (
     <div>
@@ -23,16 +25,14 @@ function App() {
             <Route index element={<HomePage />} />
           </Route>
           {/*Guest Flow*/}
-          {/* Login */}
-          {/* temprorary */}
 
-          {/* Login */}
           {/* Salon Partners */}
           <Route path="salon" element={<SalonPartner />} />
+          <Route path="salon/offers" element={<OffersSalon />} />
           <Route path="salon/gallery" element={<GallerySalon />} />
           <Route path="salon/team" element={<SpecialistTeam />} />
-          <Route path="salon/booking" element={<BookingDashboardRoute />} />
-
+          <Route path="salon/blog" element={<SalonBlogs />} />
+          <Route path="salon/booking" element={<BookingsMainPage />} />
           <Route path="/*" element={<Nopage />} />
           {/* Salon Partners */}
         </Routes>

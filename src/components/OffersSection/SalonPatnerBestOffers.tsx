@@ -2,10 +2,7 @@ import React, { Component } from "react";
 
 import {
   Button,
-  Card,
-  CardContent,
   CardMedia,
-  Divider,
   Grid,
   Typography,
 } from "@mui/material";
@@ -47,7 +44,7 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
   };
 
   onClickNavigateOffersPage = () => {
-    this.props.navigate("/best-offers");
+    this.props.navigate("/salon/offers");
   };
 
   render() {
