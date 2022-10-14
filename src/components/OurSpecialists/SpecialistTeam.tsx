@@ -13,6 +13,7 @@ import { Styles } from "./specialist.styles";
 import SpecialistCard from "./SpecialistCard";
 import Banner from "../common/Banner/Banner";
 import Layout from "../Layout/Layout";
+import AddTeam from "./AddTeam";
 interface GallerySalonProps {
 	classes: any;
 }
@@ -21,6 +22,15 @@ class SpecialistTeam extends Component<
 	GallerySalonProps,
 	GallerySalonState
 > {
+	state = {
+		open: false,
+	};
+	onClose = () => {
+		this.setState({ open: false });
+	};
+	handleClick = () => {
+		this.setState({ open: true });
+	};
 	render() {
 		return (
 			<Layout>
@@ -30,6 +40,7 @@ class SpecialistTeam extends Component<
 							image={TeamBanner}
 							title="Our Team Member"
 							buttonTitle="Add new team"
+							handleClick={this.handleClick}
 						/>
 						<Grid container spacing={2}>
 							{specialistData.map((team: TeamData, index: number) => (
@@ -48,6 +59,7 @@ class SpecialistTeam extends Component<
 						</Grid>
 					</Container>
 				</Box>
+				<AddTeam open={this.state.open} onClose={this.onClose} />
 			</Layout>
 		);
 	}
