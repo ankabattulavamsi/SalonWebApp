@@ -164,3 +164,36 @@
     width: 330px;
   }
 }
+
+
+.edit-offer-upload-image{
+  width: 270px;
+  height: 180px;
+}
+
+@media only screen and (max-width: 600px) {
+  .edit-offer-upload-image{
+    width: 260px;
+    height: 180px;
+  }
+}
+
+@media only screen and (min-width: 600px){
+  .edit-offer-upload-image{
+    width: 410px;
+    height: 180px;
+  }
+}
+
+@media only screen and (min-width: 768px){
+  .edit-offer-upload-image{
+    width: 330px;
+    height: 180px;
+  }
+}
+
+/* .border-offer-add-image{
+  border: 4px dotted lightgrey;
+  width: 330px;
+  margin: 15px;
+} */

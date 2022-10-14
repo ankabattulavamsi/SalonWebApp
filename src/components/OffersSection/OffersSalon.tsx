@@ -14,6 +14,7 @@ import Banner from "../common/Banner/Banner";
 import Layout from "../Layout/Layout";
 import SalonBestOffersModel from "./SalonBestOffersModel";
 import DeleteModal from "../common/DeleteModal/DeleteModal";
+import AddNewOffer from "./AddNewOffer";
 
 interface IsStateProps {
   classes: any;
@@ -22,6 +23,7 @@ interface IsStateProps {
 interface IsState {
   open: boolean;
   openDeleteModel: boolean;
+  addNewOfferOpen: boolean;
   SalonOffersData: any[];
   editId: string;
   editOfferTitle: string;
@@ -34,6 +36,7 @@ export class OffersSalon extends Component<IsStateProps> {
   state: IsState = {
     open: false,
     openDeleteModel: false,
+    addNewOfferOpen: false, 
     SalonOffersData: SalonBestOffersData || [],
     editId: "",
     editOfferTitle: "",
@@ -42,19 +45,26 @@ export class OffersSalon extends Component<IsStateProps> {
     editDescription: "",
   };
 
+  handleCloseAddOffer = () =>{
+    this.setState({addNewOfferOpen: false})
+  }
+
   onClose = () => {
     this.setState({ openDeleteModel: false });
   };
 
   onClickOpenModel = (item: any) => {
     this.setState({ open: true });
-    console.log("item", item);
     this.setState({ editId: item.id });
     this.setState({ editOfferTitle: item.headingOff });
     this.setState({ editPrice: item.price });
     this.setState({ editDissPrice: item.dissPrice });
     this.setState({ editDescription: item.description });
   };
+
+  handleClickOpenAddModel = () => {
+    this.setState({addNewOfferOpen: true})
+  }
 
   onSubmitEditModel = () => {
     const {
@@ -72,6 +82,10 @@ export class OffersSalon extends Component<IsStateProps> {
     SalonOffersData[findIndex].description = editDescription;
     this.setState({ SalonBestOffersData: SalonBestOffersData });
     this.setState({ open: false });
+    this.setState({editOfferTitle : ''})
+    this.setState({editPrice: ''})
+    this.setState({editDissPrice: ''})
+    this.setState({editDescription: ''})
   };
 
   onChangeeditOfferTitle = (e: any) => {
@@ -111,6 +125,7 @@ export class OffersSalon extends Component<IsStateProps> {
       editPrice,
       editDissPrice,
       editDescription,
+      addNewOfferOpen
     } = this.state;
     const { classes } = this.props;
     return (
@@ -122,7 +137,7 @@ export class OffersSalon extends Component<IsStateProps> {
                 image={offerImg}
                 title="Best Offers"
                 buttonTitle="Add new Offer"
-                OnClick={() => this.setState({ open: true })}
+                handleClick={this.handleClickOpenAddModel}
               />
               <Grid
                 container
@@ -211,6 +226,15 @@ export class OffersSalon extends Component<IsStateProps> {
             </Container>
           </Box>
         </Layout>
+        <AddNewOffer addNewOfferOpen={addNewOfferOpen} handleCloseAddOffer={this.handleCloseAddOffer} editOfferTitle={editOfferTitle}
+          editPrice={editPrice}
+          editDissPrice={editDissPrice}
+          editDescription={editDescription}
+          onChangeeditOfferTitle={this.onChangeeditOfferTitle}
+          onSubmitEditModel={this.onSubmitEditModel}
+          onChangePrice={this.onChangePrice}
+          onChangeDissPrice={this.onChangeDissPrice}
+          onChangeDescription={this.onChangeDescription} />
         <SalonBestOffersModel
           open={open}
           handleClose={this.handleClose}

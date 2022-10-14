@@ -1,6 +1,6 @@
 import { height } from "@mui/system";
 
-export const StylesOffers: any = {
+export const StylesOffers: any  = (theme: any) =>  ({
   MainContainer: {
     backgroundColor: "#FDF6EE",
   },
@@ -139,5 +139,37 @@ export const StylesOffers: any = {
     color: "#fff !important",
     fontSize: "20px",
   },
-  ModelAvatarImage: {},
-};
+  boxinput: {
+    position: "relative",
+    width: "70%",
+    [theme.breakpoints.up("xs")]: {
+      width: "100%",
+    },
+    [theme.breakpoints.up("md")]: {
+      width: "70%",
+    },
+  },
+  btnCloud: {
+    fontFamily: "Fira Sans !important",
+    fontStyle: "normal",
+    fontWeight: "600 !important",
+    fontSize: "16px !important",
+    lineHeight: "30px",
+    letterSpacing: "0.01em",
+    textTransform: "capitalize",
+    color: " #A4A1A1 !important",
+    display: "flex",
+    justifyContent: "center",
+    gap: 5,
+    alignItem: "center",
+    position: "absolute",
+    top: 10,
+    left: 5,
+    backgroundColor: "#F0F0F0 !important",
+    borderRadius: "5px !important",
+    zIndex: 0,
+    width: "100%",
+
+    opacity: "1",
+  },
+});
