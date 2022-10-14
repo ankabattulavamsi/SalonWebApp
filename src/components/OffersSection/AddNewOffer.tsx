@@ -39,12 +39,12 @@ interface IsAddNewProps {
 export class AddNewOffer extends Component<IsAddNewProps> {
   render() {
     const {
-        classes,
-        editOfferTitle,
-        editPrice,
-        editDissPrice,
-        editDescription,
-      } = this.props;
+      classes,
+      editOfferTitle,
+      editPrice,
+      editDissPrice,
+      editDescription,
+    } = this.props;
     return (
       <>
         <Container>
@@ -84,9 +84,9 @@ export class AddNewOffer extends Component<IsAddNewProps> {
             <Box sx={{ p: 3 }}>
               <Grid container spacing={2}>
                 <Grid item xs={12} md={6} sm={6} lg={6}>
-                  <Grid item xs={12} md={6} sm={6} lg={6}>
+                  <Box>
                     <OfferUploadImages />
-                  </Grid>
+                  </Box>
 
                   {/* <Grid xs={12} md={12} lg={12} sx={{ mt: 2 }}>
                     <Grid item xs={3} md={6} lg={6}>
@@ -129,7 +129,7 @@ export class AddNewOffer extends Component<IsAddNewProps> {
                         fullWidth
                         variant="standard"
                         InputProps={{ disableUnderline: true }}
-                        placeholder='Add Offer Title'
+                        placeholder="Add Offer Title"
                         value={editOfferTitle}
                         onChange={this.props.onChangeeditOfferTitle}
                         sx={{
@@ -162,8 +162,8 @@ export class AddNewOffer extends Component<IsAddNewProps> {
                           variant="standard"
                           InputProps={{ disableUnderline: true }}
                           placeholder="Original Price"
-                            onChange={this.props.onChangeDissPrice}
-                            value={editDissPrice}
+                          onChange={this.props.onChangeDissPrice}
+                          value={editDissPrice}
                           sx={{
                             backgroundColor: "#F0F0F0",
                             borderRadius: "5px",
@@ -193,8 +193,8 @@ export class AddNewOffer extends Component<IsAddNewProps> {
                           variant="standard"
                           InputProps={{ disableUnderline: true }}
                           placeholder="Discount Price"
-                            value={editPrice}
-                            onChange={this.props.onChangePrice}
+                          value={editPrice}
+                          onChange={this.props.onChangePrice}
                           sx={{
                             backgroundColor: "#F0F0F0",
                             borderRadius: "5px",
