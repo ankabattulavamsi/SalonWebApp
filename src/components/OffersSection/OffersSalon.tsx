@@ -31,7 +31,7 @@ interface IsState {
 export class OffersSalon extends Component<IsStateProps> {
   state: IsState = {
     open: false,
-    SalonOffersData: SalonBestOffersData,
+    SalonOffersData: SalonBestOffersData || [] ,
     editId: "",
     editOfferTitle: "",
     editPrice: "",
@@ -107,6 +107,7 @@ export class OffersSalon extends Component<IsStateProps> {
                 image={offerImg}
                 title="Best Offers"
                 buttonTitle="Add new Offer"
+                OnClick={() => this.setState({ open: true })}
               />
               <Grid
                 container
