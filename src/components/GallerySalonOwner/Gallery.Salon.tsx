@@ -12,7 +12,6 @@ import { galleryStyles } from "./GalleryOwners.styles";
 import Layout from "../Layout/Layout";
 import GalleryAddModal from "./GalleryAddModal";
 import DeleteModal from "../common/DeleteModal/DeleteModal";
-import { date } from "yup";
 interface GallerySalonProps {
   classes: any;
 }
@@ -127,7 +126,7 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
         >
           <Box sx={{ mt: 15 }}>
             <Banner
-              OnClick={() => this.handleGalleryOpenModal()}
+              handleClick={() => this.handleGalleryOpenModal()}
               buttonTitle="Add New Image"
               image={galleryBanner}
               title="Our Gallery"
