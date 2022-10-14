@@ -222,9 +222,9 @@ export const Styles: any = (theme: any) => ({
     backgroundColor: "#fff !important",
     display: "flex !important",
     justifyContent: "center !important",
-    height: "85%",
+    height: "104px",
     [theme.breakpoints.down("sm")]: {
-      height: "82% !important ",
+      height: "76px !important ",
     },
   },
 });

@@ -9,7 +9,6 @@ import {
   ListItem,
   ListItemAvatar,
   ListItemText,
-  Paper
 } from "@mui/material";
 
 import React, { Component } from "react";
@@ -64,8 +63,6 @@ class SalonNotification extends Component<NotiProps, State> {
           open={open}
           onClose={onClose}
           className={classes.MainDialogBox}
-         
-          
         >
           <BootstrapDialogTitle
             id="customized-dialog-title"
@@ -73,7 +70,7 @@ class SalonNotification extends Component<NotiProps, State> {
           >
             Notification
           </BootstrapDialogTitle>
-          <DialogContent dividers>
+          <DialogContent dividers  className={classes.listItemNotificationBox}>
             {notificationData.map((notification: notify) => {
               return (
                 <List sx={{ width: "320px", height: "103px", }}  className={classes.listItemNotification}>

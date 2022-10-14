@@ -2,8 +2,9 @@ export const NotificationStyles: any = {
   MainDialogBox: {
     width: "395px",
     height: "700px",
-    // background:"#fff",
-
+    "& .css-yiavyu-MuiBackdrop-root-MuiDialog-backdrop": {
+      backgroundColor: "transparent",
+    },
     "& .css-1t1j96h-MuiPaper-root-MuiDialog-paper": {
       position: "fixed",
       top: "45px",
@@ -11,7 +12,9 @@ export const NotificationStyles: any = {
       width: "390px",
       height: "600px",
       overflowX: "hidden",
-      background: '#fff !important',
+      background: "#fff !important",
+      boxShadow: "4px 4px 50px rgba(0, 0, 0, 0.15) !important",
+      borderRadius: " 0px 0px 5px 5px",
 
       "@media only screen and (max-width: 660px) ": {
         position: "fixed",
@@ -25,6 +28,17 @@ export const NotificationStyles: any = {
   DialogTitleBox: {
     width: "390px",
     height: "62px",
+  },
+  listItemNotificationBox: {
+    "&::-webkit-scrollbar": {
+      width: "5px!important",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      width: "0.5px !important",
+      background: "#27252233",
+
+      borderRadius: "5px",
+    },
   },
   listItemNotification: {
     "& .css-lxljjk-MuiListItem-root": {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Grid } from "@mui/material";
 import { Container } from "@mui/system";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player-pfy";
 
 import "./AboutUs.css";
 
@@ -16,8 +16,12 @@ class AboutUs extends Component {
           >
             <Grid item md={6} xs={12} className="about-us-video-container">
               <ReactPlayer
-                url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
+                url="https://assets.mixkit.co/videos/preview/mixkit-older-woman-at-the-salon-6409-large.mp4"
+                controls
+                playing
+                light={require("../../assets/images/AboutUsSection/salonVideobg.png")}
                 width="97%"
+                muted
               />
             </Grid>
             <Grid item md={6} xs={12} className="about-us-text-container">
