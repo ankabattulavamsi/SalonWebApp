@@ -18,8 +18,9 @@ interface GallerySalonState {
   openGalleryAddModal: boolean;
   ImagesData: GallaryData[];
   id?: string | number;
-  item?: GallaryData;
+  item: GallaryData;
   title: string;
+  image: string;
 }
 class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
   constructor(props: GallerySalonProps) {
@@ -29,6 +30,12 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
       ImagesData: gallaryData || [],
       id: "",
       title: "",
+      image: "",
+      item: {
+        id: "",
+        imgUrl: "",
+        title: "",
+      },
     };
   }
 
@@ -37,10 +44,13 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
       openGalleryAddModal: true,
     });
   };
-  handleGalleryCloseModal = () => {
+  handleGalleryCloseModal = async () => {
     this.setState({
       openGalleryAddModal: false,
+    });
+    this.setState({
       id: "",
+      image: "",
       item: {
         id: "",
         imgUrl: "",
@@ -50,7 +60,11 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
     });
   };
 
-  handleEditImage = (id?: string | number, item?: GallaryData) => {
+  handleOnChangeImage = (e: any) => {
+    console.log(e);
+    this.setState({ image: URL.createObjectURL(e.target.files[0]) });
+  };
+  handleEditImage = (id: string | number, item: GallaryData) => {
     this.setState({ id, item });
     console.log({ item });
     this.handleGalleryOpenModal();
@@ -59,6 +73,11 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
     console.log(id);
   };
 
+  handleCloseBage = () => {
+    this.setState({
+      image: "",
+    });
+  };
   render() {
     return (
       <Layout>
@@ -108,6 +127,9 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
             item={this.state.item}
             title={this.state.title}
             onChange={(e?: any) => this.setState({ title: e.target.value })}
+            image={this.state.image}
+            handleOnChangeImage={this.handleOnChangeImage}
+            onClicOfCloseBadge={this.handleCloseBage}
           />
         </Container>
       </Layout>

@@ -3,6 +3,7 @@ export interface GallaryData {
   imgUrl: any;
   title?: string;
 }
+export const galleryUploadIcon = require("../../../assets/images/GalleryOwner/modalImage.png");
 export const galleryBanner = require("../../../assets/images/GalleryOwner/bg-gallery.png");
 export const gallaryData: GallaryData[] = [
   {

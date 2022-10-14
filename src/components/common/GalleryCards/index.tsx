@@ -11,7 +11,7 @@ interface GalleryCardProps {
   imgUrl: string;
   id: number | string;
 
-  handleEditImage?: (id?: string | number, item?: GallaryData) => void;
+  handleEditImage?: (id: string | number, item: GallaryData) => void;
   handleDeleteImage?: (id?: string | number) => void;
 }
 interface GalleryCardState {}
