@@ -2,4 +2,11 @@
   background-color: transparent !important;
   border-radius: 4px;
   box-shadow: none !important;
+  max-width: 100% !important;
+  overflow: hidden;
+
+  padding: 16px 24px !important;
+}
+.common-modal .css-1pslkut-MuiDialogContent-root {
+  padding: 25px 30px !important;
 }

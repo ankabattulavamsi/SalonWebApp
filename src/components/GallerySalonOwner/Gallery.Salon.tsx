@@ -7,11 +7,12 @@ import {
   GallaryData,
   galleryBanner,
 } from "../../utils/data/GalleryOwner/Gallery";
-import { GalleryCards, Banner, Inputs } from "../common";
+import { GalleryCards, Banner, Inputs, Buttons } from "../common";
 import { galleryStyles } from "./GalleryOwners.styles";
 import Layout from "../Layout/Layout";
 import CommonModal from "../common/CommonModal/CommonModal";
 import { Form, Formik } from "formik";
+import ButtonModal from "../common/ButtonModal/ButtonModal";
 interface GallerySalonProps {
   classes: any;
 }
@@ -68,7 +69,19 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
             open={this.state.openGalleryAddModal}
           >
             <Box sx={{ display: "flex", gap: 5, width: "100%" }}>
-              <Box width={"47%"}>images component</Box>
+              <Box width={"47%"}>
+                <Box width={"100%"} height="100%">
+                  <img
+                    src={gallaryData[0].imgUrl}
+                    alt=""
+                    style={{
+                      // objectFit: "contain",
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  />
+                </Box>
+              </Box>
               <Box width={"47%"}>
                 <Box>
                   <Formik initialValues={{}} onSubmit={() => {}}>
@@ -78,11 +91,26 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
                         placeholder="enter title"
                         label="Add Gallery Title"
                       />
+
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          width: "100%",
+                          mt: 2,
+                        }}
+                      >
+                        <Box sx={{ width: "48%" }}>
+                          <ButtonModal icon="" title="save" />
+                        </Box>
+                        <Box sx={{ width: "50%" }}>
+                          <ButtonModal icon="" title="delete" />
+                        </Box>
+                      </Box>
                     </Form>
                   </Formik>
                 </Box>
               </Box>
-              {/* <Box sx={{ clear: "both" }}></Box> */}
             </Box>
           </CommonModal>
         </Container>
