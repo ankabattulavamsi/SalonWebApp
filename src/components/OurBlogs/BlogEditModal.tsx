@@ -37,13 +37,13 @@ class BlogEditModal extends Component<blogP> {
                 </Grid>
                 <Grid item lg={6} md={6} sm={12} xs={12}>
                     <Box>
-                        <Typography>
+                        <Typography variant="h3">
                             Blog Title
                         </Typography>
                         <TextField placeholder="blog name" 
                             fullWidth
                         />
-                        <Typography>
+                        <Typography variant="h3">
                             Description
                         </Typography>
                         <TextField maxRows={5} placeholder="blog description"
@@ -52,13 +52,50 @@ class BlogEditModal extends Component<blogP> {
                     </Box>
                     
                     <Box sx={{
-
+                        mt:2,
                         display:'flex',
                         alignItems:'center',
                         justifyContent:'space-between'
                     }}>
-                        <Button startIcon={<ClassIcon />}>Save</Button>
-                        <Button startIcon={<DeleteIcon />}>Delete</Button>
+                        <Button startIcon={<ClassIcon />}
+                          sx={{
+                            px:6,
+                            color:'#fff',
+                            background:'#E7A356',
+                            borderRadius:'5px',
+                            fontFamily: 'Fira Sans',
+                            fontWeight: 700,
+                            fontSize: '20px',
+                            // lineHeight: '48px',
+                            textTransform:'capitalize',
+                            '&:hover':{
+                              color:'#fff',
+                            background:'#E7A356',
+                            }
+                          }}
+                        
+                        >
+                          Save
+                        </Button>
+                        <Button startIcon={<DeleteIcon />}
+                          sx={{
+                            px:5,
+                            color:'#fff',
+                            background:'#272522',
+                            borderRadius:'5px',
+                            fontFamily: 'Fira Sans',
+                            fontWeight: 700,
+                            fontSize: '20px',
+                            // lineHeight: '48px',
+                            textTransform:'capitalize',
+                            '&:hover':{
+                              color:'#fff',
+                              background:'#272522',
+                            }
+                          }}
+                        >
+                          Delete
+                        </Button>
                     </Box>
                 </Grid>
             </Grid>
