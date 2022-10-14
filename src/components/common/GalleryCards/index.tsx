@@ -10,6 +10,7 @@ interface GalleryCardProps {
   classes: any;
   imgUrl: string;
   id: number | string;
+  title?: string;
 
   handleEditImage?: (id: string | number, item: GallaryData) => void;
   handleDeleteImage?: (id?: string | number) => void;
@@ -17,7 +18,7 @@ interface GalleryCardProps {
 interface GalleryCardState {}
 class GalleryCard extends React.Component<GalleryCardProps, GalleryCardState> {
   render() {
-    const { classes, id, imgUrl, handleDeleteImage, handleEditImage } =
+    const { classes, id, imgUrl, title, handleDeleteImage, handleEditImage } =
       this.props;
     return (
       <Card sx={{ width: "100%" }} className={`cards ${classes.card}`}>
@@ -41,7 +42,7 @@ class GalleryCard extends React.Component<GalleryCardProps, GalleryCardState> {
           >
             <Button
               onClick={() => {
-                handleEditImage && handleEditImage(id, { id, imgUrl });
+                handleEditImage && handleEditImage(id, { id, imgUrl, title });
               }}
               className={classes.buttonClass}
             >

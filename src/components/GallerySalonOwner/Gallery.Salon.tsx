@@ -20,7 +20,7 @@ interface GallerySalonState {
   ImagesData: GallaryData[];
   id?: string | number;
   item: GallaryData;
-  title: string;
+  title?: string;
   image: string;
   openDeleteModal: boolean;
 }
@@ -85,13 +85,30 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
   };
 
   handleEditImage = (id: string | number, item: GallaryData) => {
-    this.setState({ id, item });
+    this.setState({
+      id,
+      item,
+      image: item.imgUrl,
+      title: item.title,
+    });
     console.log({ item });
     this.handleGalleryOpenModal();
   };
 
   handleEdit = (id?: string | number) => {
     console.log("edit id", id);
+
+    this.setState({
+      ImagesData: this.state.ImagesData.map((item) => {
+        if (item.id === id) {
+          item.imgUrl = this.state.image;
+          item.title = this.state.title;
+        }
+        return item;
+      }),
+    });
+
+    this.handleGalleryCloseModal();
   };
 
   handleDeleteImage = (id?: string | number) => {
