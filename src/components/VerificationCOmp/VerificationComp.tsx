@@ -18,14 +18,18 @@ interface VerificationCompProps {
   handleChangeOtp?: (otp: string) => void;
   handleError: (open: boolean, type: AlertColor, message: string) => void;
 }
-interface VerificationCompState {}
+interface VerificationCompState {
+  error: string;
+}
 class VerificationComp extends Component<
   VerificationCompProps,
   VerificationCompState
 > {
   constructor(props: VerificationCompProps) {
     super(props);
-    this.state = {};
+    this.state = {
+      error: "",
+    };
   }
 
   handleSalonClick = () => {
@@ -35,22 +39,22 @@ class VerificationComp extends Component<
     this.props.navigate("/customer");
     this.props.handleToggle(modalConstants.VERIFICATION_DRAWER);
   };
-
+  handleErrors = (message: string) => {
+    this.setState({ error: message });
+  };
   handleError = () => {
-    // state.otpVerif === "" ||
-    // isNaN(Number(state.otpVerif)) ||
-    // state.otpVerif.length < 4
-
-    const { state, handleError } = this.props;
+    const { state } = this.props;
     if (state.otpVerif === "") {
-      handleError(true, "error", "please enter the otp");
+      this.handleErrors("please enter the otp");
     } else if (isNaN(Number(state.otpVerif))) {
-      handleError(true, "error", "otp is not a string");
+      this.handleErrors("otp is not a string");
     } else if (state.otpVerif.length < 4) {
-      handleError(true, "error", "please enter 4 digit otp");
+      this.handleErrors("please enter 4 digit otp");
+    } else {
+      this.handleErrors("");
     }
   };
-  handleValidateOtp = (otp: string) => this.setState({ otp: otp });
+
   render() {
     const { classes, state, handleChangeOtp } = this.props;
     return (
@@ -92,13 +96,16 @@ class VerificationComp extends Component<
                   value={state.otpVerif}
                   handleChange={(otp) => {
                     handleChangeOtp && handleChangeOtp(otp);
+                    this.handleErrors("");
 
                     // this.handleValidateOtp(otp);
                   }}
                   isInputSecure
                 />
-
-                <Typography className={classes.paragraphText}>
+                {this.state.error && (
+                  <p className="error-message">{this.state.error}</p>
+                )}
+                <Typography className={classes.paragraphText} sx={{ mt: 2 }}>
                   Didn’t receive the OTP?
                   <span
                     style={{
