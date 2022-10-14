@@ -1,0 +1,42 @@
+/** @format */
+
+.deleteBox {
+	background-color: white;
+	display: flex;
+	flex-direction: column !important;
+	justify-content: center;
+	align-items: center;
+	padding: 30px;
+	border-radius: 10px;
+}
+.deleteIcon {
+	font-size: 30px !important;
+	border: 2px solid #e7a356;
+	margin: 10px;
+	border-radius: 25%;
+	color: #e7a356;
+}
+.titleJob {
+	margin: 15px 0 !important;
+	font-size: 20px !important;
+}
+.groupButton {
+	flex-direction: row !important;
+	margin-top: 20px;
+}
+.groupButton .buttonSec {
+	border-color: #80808030 !important;
+	color: #000000a6 !important;
+	background: white !important;
+	padding: 5px 30px !important;
+}
+.groupButton .buttonSec.confirm {
+	color: white !important;
+	background: #000 !important;
+	margin-left: 25px !important;
+}
+/* .groupButton .buttonSec.cancel {
+	color: white !important;
+	background: #000 !important;
+    margin-left: 25px !important;
+} */
