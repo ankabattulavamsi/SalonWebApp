@@ -38,6 +38,7 @@ class BookingsCalendarComponent extends Component<any> {
               <Button
                 className={classes.iconContainer}
                 onClick={this.onPreviousDate}
+                disabled={len ? false : true}
               >
                 <ArrowBackIosNewIcon className={classes.previousDateIcon} />
               </Button>
@@ -63,7 +64,7 @@ class BookingsCalendarComponent extends Component<any> {
                 >
                   <Box
                     sx={{
-                      px: { md: 5.3, sm: "1.1em", xs: "5px" },
+                      px: { md: "2.6em", sm: "1.05em", xs: "0.26em" },
                       py: { md: "15px", sm: 2.3, xs: "5px" },
                       backgroundColor:
                         Number(date.date) === this.state.activeDate
