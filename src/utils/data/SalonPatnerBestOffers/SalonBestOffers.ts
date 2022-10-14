@@ -1,7 +1,7 @@
 import offerImg1 from '../../../assets/images/SalonPatnerBestOffersImg/Rectangle64(1).png'
 import offerImg2 from '../../../assets/images/SalonPatnerBestOffersImg/Rectangle64.png'
 
-export const SalonBestOffersData = [
+export const SalonBestOffersData:any = [
     {
         id: 1,
         offerImage: offerImg1, 

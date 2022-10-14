@@ -49,6 +49,33 @@ export class OffersSalon extends Component<IsStateProps> {
     this.setState({ editDescription: item.description });
   };
 
+  onSubmitEditModel = () => {
+    const {SalonOffersData, editId, editOfferTitle, editPrice, editDissPrice,editDescription} = this.state
+    const findIndex = SalonOffersData.findIndex((item) => item.id === editId)
+    SalonOffersData[findIndex].headingOff = editOfferTitle
+    SalonOffersData[findIndex].price = editPrice
+    SalonOffersData[findIndex].dissPrice = editDissPrice
+    SalonOffersData[findIndex].description = editDescription
+    this.setState({SalonBestOffersData: SalonBestOffersData})
+    this.setState({open: false})
+  }
+
+  onChangeeditOfferTitle = (e:any) => {
+    this.setState({editOfferTitle: e.target.value})
+  }
+
+  onChangePrice = (e: any)=> {
+    this.setState({editPrice: e.target.value})
+  }
+
+  onChangeDissPrice = (e: any) => {
+    this.setState({editDissPrice: e.target.value})
+  }
+
+  onChangeDescription = (e: any) => {
+    this.setState({editDescription: e.target.value})
+  }
+
   handleClose = () => {
     this.setState({ open: false });
   };
@@ -71,8 +98,6 @@ export class OffersSalon extends Component<IsStateProps> {
       editDescription,
     } = this.state;
     const { classes } = this.props;
-    console.log("editPrice", editPrice);
-    console.log("editdiss", editDissPrice);
     return (
       <>
         <Layout>
@@ -90,7 +115,7 @@ export class OffersSalon extends Component<IsStateProps> {
                 rowSpacing={3}
                 sx={{ px: { sm: 0, xs: 0, md: 0, lg: 0 } }}
               >
-                {SalonOffersData.map((item, index: number) => {
+                {SalonBestOffersData.map((item:any, index: number) => {
                   return (
                     <Grid item lg={6} md={6} xs={12} sm={6} key={index}>
                       <Box>
@@ -177,6 +202,11 @@ export class OffersSalon extends Component<IsStateProps> {
           editPrice={editPrice}
           editDissPrice={editDissPrice}
           editDescription={editDescription}
+          onChangeeditOfferTitle={this.onChangeeditOfferTitle}
+          onSubmitEditModel={this.onSubmitEditModel}
+          onChangePrice={this.onChangePrice}
+          onChangeDissPrice={this.onChangeDissPrice}
+          onChangeDescription={this.onChangeDescription}
         />
       </>
     );
