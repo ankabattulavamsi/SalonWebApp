@@ -38,7 +38,6 @@ class BookingsCalendarComponent extends Component<any> {
               <Button
                 className={classes.iconContainer}
                 onClick={this.onPreviousDate}
-                disabled={len ? false : true}
               >
                 <ArrowBackIosNewIcon className={classes.previousDateIcon} />
               </Button>
@@ -59,7 +58,6 @@ class BookingsCalendarComponent extends Component<any> {
                   sx={{
                     display: "flex",
                     flexDirection: "column",
-                    zIndex: 0,
                   }}
                 >
                   <Box
