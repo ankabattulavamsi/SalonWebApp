@@ -129,11 +129,6 @@
   margin-top: 10px;
   margin-bottom: 0px;
 }
-.css-12rl710-MuiPaper-root-MuiDialog-paper .offers-dialog-box {
-  background-color: red;
-  border-radius: 4px;
-  box-shadow: none !important;
-}
 
 
 .offers-dialog-box {
@@ -190,4 +185,10 @@
     width: 330px;
     height: 180px;
   }
+}
+
+
+.css-12rl710-MuiPaper-root-MuiDialog-paper .offers-dialog-box{
+  background: transparent !important;
+  background-color: transparent !important;
 }

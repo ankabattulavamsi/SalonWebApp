@@ -77,11 +77,11 @@ export class AddNewOffer extends Component<IsAddNewProps> {
                   color: (theme) => theme.palette.grey[500],
                 }}
               >
-                <CloseIcon />
+                <CloseIcon style={{width:"42px"}} />
               </IconButton>
             </Box>
             <Divider />
-            <Box sx={{ p: 3 }}>
+            <Box sx={{ p: 3, backgroundColor: '#fff' }}>
               <Grid container spacing={2}>
                 <Grid item xs={12} md={6} sm={6} lg={6}>
                   <Box>
