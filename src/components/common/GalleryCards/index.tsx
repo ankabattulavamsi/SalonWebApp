@@ -13,7 +13,7 @@ interface GalleryCardProps {
   title?: string;
 
   handleEditImage?: (id: string | number, item: GallaryData) => void;
-  handleDeleteImage?: (id?: string | number) => void;
+  handleDeleteImage?: (id: string | number) => void;
 }
 interface GalleryCardState {}
 class GalleryCard extends React.Component<GalleryCardProps, GalleryCardState> {

@@ -23,6 +23,7 @@ interface GallerySalonState {
   title?: string;
   image: string;
   openDeleteModal: boolean;
+  deletedId: string | number;
 }
 class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
   constructor(props: GallerySalonProps) {
@@ -39,6 +40,7 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
         imgUrl: "",
         title: "",
       },
+      deletedId: "",
     };
   }
 
@@ -111,12 +113,18 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
     this.handleGalleryCloseModal();
   };
 
-  handleDeleteImage = (id?: string | number) => {
-    console.log(id);
+  handleDeleteImage = (id: string | number) => {
+    this.setState({ deletedId: id });
     this.handleToggleDeleteModal();
   };
   handleDelete = (id?: string | number) => {
-    console.log("dleted id", id);
+    console.log("leted id", id);
+
+    this.setState({
+      ImagesData: this.state.ImagesData.filter((item) => item.id !== id),
+    });
+
+    this.handleToggleDeleteModal();
   };
 
   handleCloseBage = () => {
@@ -188,6 +196,8 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
             jobTitle="image"
             onClose={() => this.handleToggleDeleteModal()}
             open={this.state.openDeleteModal}
+            deletedId={this.state.deletedId}
+            handleConfirmDelete={this.handleDelete}
           />
         </Container>
       </Layout>
