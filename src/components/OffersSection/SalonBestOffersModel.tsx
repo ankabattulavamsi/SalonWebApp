@@ -248,13 +248,12 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
 
                   <Grid
                     container
-                    justifyContent="center"
                     xs={12}
                     md={12}
                     sm={12}
                     lg={12}
                   >
-                    <Grid item xs={12} md={6} lg={8}>
+                    <Grid item xs={6} md={6} lg={6}>
                       <Box
                         className={classes.ModelSaveButton}
                         onClick={this.props.onSubmitEditModel}
@@ -265,6 +264,21 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
                           className={classes.ModelSaveText}
                         >
                           Save
+                        </Button>
+                      </Box>
+                    </Grid>
+
+                    <Grid item xs={6} md={6} lg={6}>
+                      <Box
+                        className={classes.ModelDeleteButton}
+                        onClick={this.props.onSubmitEditModel}
+                      >
+                        <Button
+                          startIcon={<CloseIcon />}
+                          onClick={this.props.handleClose}
+                          className={classes.ModelDeleteText}
+                        >
+                          Cancel
                         </Button>
                       </Box>
                     </Grid>

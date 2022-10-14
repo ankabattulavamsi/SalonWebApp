@@ -13,6 +13,7 @@ import { StylesOffers } from "./BestOffers.styles";
 import Banner from "../common/Banner/Banner";
 import Layout from "../Layout/Layout";
 import SalonBestOffersModel from "./SalonBestOffersModel";
+import DeleteModal from "../common/DeleteModal/DeleteModal";
 
 interface IsStateProps {
   classes: any;
@@ -20,6 +21,7 @@ interface IsStateProps {
 
 interface IsState {
   open: boolean;
+  openDeleteModel: boolean;
   SalonOffersData: any[];
   editId: string;
   editOfferTitle: string;
@@ -31,12 +33,17 @@ interface IsState {
 export class OffersSalon extends Component<IsStateProps> {
   state: IsState = {
     open: false,
-    SalonOffersData: SalonBestOffersData || [] ,
+    openDeleteModel: false,
+    SalonOffersData: SalonBestOffersData || [],
     editId: "",
     editOfferTitle: "",
     editPrice: "",
     editDissPrice: "",
     editDescription: "",
+  };
+
+  onClose = () => {
+    this.setState({ openDeleteModel: false });
   };
 
   onClickOpenModel = (item: any) => {
@@ -50,31 +57,38 @@ export class OffersSalon extends Component<IsStateProps> {
   };
 
   onSubmitEditModel = () => {
-    const {SalonOffersData, editId, editOfferTitle, editPrice, editDissPrice,editDescription} = this.state
-    const findIndex = SalonOffersData.findIndex((item) => item.id === editId)
-    SalonOffersData[findIndex].headingOff = editOfferTitle
-    SalonOffersData[findIndex].price = editPrice
-    SalonOffersData[findIndex].dissPrice = editDissPrice
-    SalonOffersData[findIndex].description = editDescription
-    this.setState({SalonBestOffersData: SalonBestOffersData})
-    this.setState({open: false})
-  }
+    const {
+      SalonOffersData,
+      editId,
+      editOfferTitle,
+      editPrice,
+      editDissPrice,
+      editDescription,
+    } = this.state;
+    const findIndex = SalonOffersData.findIndex((item) => item.id === editId);
+    SalonOffersData[findIndex].headingOff = editOfferTitle;
+    SalonOffersData[findIndex].price = editPrice;
+    SalonOffersData[findIndex].dissPrice = editDissPrice;
+    SalonOffersData[findIndex].description = editDescription;
+    this.setState({ SalonBestOffersData: SalonBestOffersData });
+    this.setState({ open: false });
+  };
 
-  onChangeeditOfferTitle = (e:any) => {
-    this.setState({editOfferTitle: e.target.value})
-  }
+  onChangeeditOfferTitle = (e: any) => {
+    this.setState({ editOfferTitle: e.target.value });
+  };
 
-  onChangePrice = (e: any)=> {
-    this.setState({editPrice: e.target.value})
-  }
+  onChangePrice = (e: any) => {
+    this.setState({ editPrice: e.target.value });
+  };
 
   onChangeDissPrice = (e: any) => {
-    this.setState({editDissPrice: e.target.value})
-  }
+    this.setState({ editDissPrice: e.target.value });
+  };
 
   onChangeDescription = (e: any) => {
-    this.setState({editDescription: e.target.value})
-  }
+    this.setState({ editDescription: e.target.value });
+  };
 
   handleClose = () => {
     this.setState({ open: false });
@@ -85,6 +99,7 @@ export class OffersSalon extends Component<IsStateProps> {
       (item) => item.id !== id
     );
     this.setState({ SalonOffersData: filterData });
+    this.setState({openDeleteModel: true})
   };
 
   render() {
@@ -116,7 +131,7 @@ export class OffersSalon extends Component<IsStateProps> {
                 rowSpacing={3}
                 sx={{ px: { sm: 0, xs: 0, md: 0, lg: 0 } }}
               >
-                {SalonBestOffersData.map((item:any, index: number) => {
+                {SalonBestOffersData.map((item: any, index: number) => {
                   return (
                     <Grid item lg={6} md={6} xs={12} sm={6} key={index}>
                       <Box>
@@ -179,7 +194,7 @@ export class OffersSalon extends Component<IsStateProps> {
                               </Button>
 
                               <Button
-                                // onClick={(e) => this.onClickDeleteOffer(index)}
+                                onClick={(e) => this.onClickDeleteOffer(index)}
                                 startIcon={<DeleteIcon />}
                                 className="best-offers-delete-btn-text"
                               >
@@ -208,6 +223,12 @@ export class OffersSalon extends Component<IsStateProps> {
           onChangePrice={this.onChangePrice}
           onChangeDissPrice={this.onChangeDissPrice}
           onChangeDescription={this.onChangeDescription}
+        />
+
+        <DeleteModal
+          jobTitle="Specialist"
+          open={this.state.openDeleteModel}
+          onClose={this.onClose}
         />
       </>
     );
