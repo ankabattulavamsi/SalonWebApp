@@ -10,20 +10,110 @@ import {
 import { GalleryCards, Banner } from "../common";
 import { galleryStyles } from "./GalleryOwners.styles";
 import Layout from "../Layout/Layout";
-import CommonModal from "../common/CommonModal/CommonModal";
+import GalleryAddModal from "./GalleryAddModal";
+import DeleteModal from "../common/DeleteModal/DeleteModal";
+import { date } from "yup";
 interface GallerySalonProps {
   classes: any;
 }
 interface GallerySalonState {
   openGalleryAddModal: boolean;
+  ImagesData: GallaryData[];
+  id?: string | number;
+  item: GallaryData;
+  title: string;
+  image: string;
+  openDeleteModal: boolean;
 }
 class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
   constructor(props: GallerySalonProps) {
     super(props);
     this.state = {
       openGalleryAddModal: false,
+      ImagesData: gallaryData || [],
+      id: "",
+      title: "",
+      image: "",
+      openDeleteModal: false,
+      item: {
+        id: "",
+        imgUrl: "",
+        title: "",
+      },
     };
   }
+
+  handleGalleryOpenModal = () => {
+    this.setState({
+      openGalleryAddModal: true,
+    });
+  };
+
+  handleGalleryCloseModal = async () => {
+    this.setState({
+      openGalleryAddModal: false,
+    });
+    this.setState({
+      id: "",
+      image: "",
+      item: {
+        id: "",
+        imgUrl: "",
+        title: "",
+      },
+      title: "",
+    });
+  };
+
+  handleToggleDeleteModal = () =>
+    this.setState({ openDeleteModal: !this.state.openDeleteModal });
+
+  handleOnChangeImage = (e: any) => {
+    console.log(e);
+    this.setState({ image: URL.createObjectURL(e.target.files[0]) });
+  };
+
+  handleAdd = () => {
+    console.log("called");
+    this.setState({
+      ImagesData: [
+        ...this.state.ImagesData,
+        { id: Date.now(), imgUrl: this.state.image, title: this.state.title },
+      ],
+    });
+
+    this.handleGalleryCloseModal();
+  };
+
+  handleEditImage = (id: string | number, item: GallaryData) => {
+    this.setState({ id, item });
+    console.log({ item });
+    this.handleGalleryOpenModal();
+  };
+
+  handleEdit = (id?: string | number) => {
+    console.log("edit id", id);
+  };
+
+  handleDeleteImage = (id?: string | number) => {
+    console.log(id);
+    this.handleToggleDeleteModal();
+  };
+  handleDelete = (id?: string | number) => {
+    console.log("dleted id", id);
+  };
+
+  handleCloseBage = () => {
+    this.setState({
+      image: "",
+      item: {
+        id: this.state.item.id,
+        imgUrl: "",
+        title: this.state.item.title,
+      },
+    });
+  };
+
   render() {
     return (
       <Layout>
@@ -35,79 +125,14 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
             mb: 5,
           }}
         >
-          <Box sx={{ mt: 15}}>
+          <Box sx={{ mt: 15 }}>
             <Banner
-              OnClick={() => this.setState({ openGalleryAddModal: true })}
+              OnClick={() => this.handleGalleryOpenModal()}
               buttonTitle="Add New Image"
               image={galleryBanner}
               title="Our Gallery"
             />
           </Box>
-          {/* <Box sx={{ mb: 5, mt: 15 }}>
-            <Box
-              sx={{
-                background: `url(${galleryBanner}) no-repeat`,
-                height: "50vh",
-                backgroundSize: "cover",
-                backgroundPosition: "center center",
-                position: "relative",
-                overflow: "visible",
-              }}
-            >
-              <Box
-                sx={{
-                  position: "absolute",
-                  width: "100%",
-                  height: "100%",
-                  background:
-                    "linear-gradient(135deg, rgba(0,0,0,.6) , rgba(0,0,0,.6)) ",
-                  top: "50%",
-                  left: "50%",
-                  mx: "auto",
-                  transform: "translate(-50%,-50%)",
-                }}
-              >
-                <Typography
-                  sx={{
-                    color: "white !important",
-                    width: "100%",
-                    height: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    textAlign: "center",
-                    justifyContent: "center",
-                  }}
-                  className={classes.titleText}
-                >
-                  Our Gallery
-                </Typography>
-              </Box>
-            </Box>
-
-            <Box
-              sx={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Box
-                sx={{
-                  transform: "translateY(-50%)",
-                  width: { xs: "50%", sm: "25%", lg: "15%" },
-                }}
-              >
-                <Buttons
-                  handleClick={() =>
-                    this.setState({ openGalleryAddModal: true })
-                  }
-                  title="Add New Image"
-                  className={classes.capitalized}
-                />
-              </Box>
-            </Box>
-          </Box> */}
           <Container
             maxWidth="lg"
             sx={{
@@ -117,26 +142,37 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
             }}
           >
             <Grid container spacing={2}>
-              {gallaryData.map((images: GallaryData) => {
+              {this.state.ImagesData.map((images: GallaryData) => {
                 return (
                   <Grid item xs={12} sm={6} md={4} key={images.id}>
-                    <GalleryCards {...images} />
+                    <GalleryCards
+                      {...images}
+                      handleEditImage={this.handleEditImage}
+                      handleDeleteImage={this.handleDeleteImage}
+                    />
                   </Grid>
                 );
               })}
             </Grid>
           </Container>
-
-          <CommonModal
-            handleClose={() => this.setState({ openGalleryAddModal: false })}
-            open={this.state.openGalleryAddModal}
-          >
-            <Box sx={{ display: "flex", gap: 5, width: "100%" }}>
-              <Box width={"50%"}>1</Box>
-              <Box width={"50%"}>2</Box>
-              <Box sx={{ clear: "both" }}></Box>
-            </Box>
-          </CommonModal>
+          <GalleryAddModal
+            handleClose={() => this.handleGalleryCloseModal()}
+            openGalleryAddModal={this.state.openGalleryAddModal}
+            editId={this.state.id}
+            item={this.state.item}
+            title={this.state.title}
+            onChange={(e?: any) => this.setState({ title: e.target.value })}
+            image={this.state.image}
+            handleOnChangeImage={this.handleOnChangeImage}
+            onClicOfCloseBadge={this.handleCloseBage}
+            handleAdd={this.handleAdd}
+            handleEdit={this.handleEdit}
+          />
+          <DeleteModal
+            jobTitle="image"
+            onClose={() => this.handleToggleDeleteModal()}
+            open={this.state.openDeleteModal}
+          />
         </Container>
       </Layout>
     );

@@ -3,9 +3,7 @@ import React, { Component } from "react";
 import {
 	Box,
 	Button,
-	ButtonGroup,
 	Dialog,
-	Modal,
 	Typography,
 } from "@mui/material";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
