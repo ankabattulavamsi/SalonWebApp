@@ -50,7 +50,6 @@ class BookingsCalendarComponent extends Component<any> {
                 <ArrowForwardIosIcon className={classes.nextDateIcon} />
               </Button>
             }
-            itemClassName="bookings-container"
           >
             {datesArray.slice(len - 4, len + 4).map((date: any) => {
               return (
@@ -59,53 +58,45 @@ class BookingsCalendarComponent extends Component<any> {
                   sx={{
                     display: "flex",
                     flexDirection: "column",
-                    zIndex: 0,
                   }}
                 >
                   <Box
                     sx={{
-                      px: { md: 5.3, sm: "1.1em", xs: "5px" },
+                      px: { md: "2.6em", sm: "1.05em", xs: "0.26em" },
                       py: { md: "15px", sm: 2.3, xs: "5px" },
                       backgroundColor:
                         Number(date.date) === this.state.activeDate
                           ? "#E7A356"
                           : "#FFF",
+                      flexDirection: "column",
                     }}
                     onClick={() => this.handleActiveDate(date.date)}
                   >
-                    <Box
+                    <Typography
+                      variant="h4"
+                      className={classes.calenderDateText}
                       sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        flexDirection: "column",
+                        color:
+                          Number(date.date) === this.state.activeDate
+                            ? "#FFFFFF"
+                            : "#272522",
                       }}
                     >
-                      <Typography
-                        variant="h4"
-                        className={classes.calenderDateText}
-                        sx={{
-                          color:
-                            Number(date.date) === this.state.activeDate
-                              ? "#FFFFFF"
-                              : "#272522",
-                        }}
-                      >
-                        {date.date}
-                      </Typography>
+                      {date.date}
+                    </Typography>
 
-                      <Typography
-                        variant="h6"
-                        className={classes.calenderDayText}
-                        sx={{
-                          color:
-                            Number(date.date) === this.state.activeDate
-                              ? "#FFFFFF"
-                              : "#272522",
-                        }}
-                      >
-                        {date.weekday}
-                      </Typography>
-                    </Box>
+                    <Typography
+                      variant="h6"
+                      className={classes.calenderDayText}
+                      sx={{
+                        color:
+                          Number(date.date) === this.state.activeDate
+                            ? "#FFFFFF"
+                            : "#272522",
+                      }}
+                    >
+                      {date.weekday}
+                    </Typography>
                   </Box>
                   {this.state.activeDate === date.date ? (
                     <Box

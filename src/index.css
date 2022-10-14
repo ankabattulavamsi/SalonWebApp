@@ -20,3 +20,9 @@ body {
 input::placeholder {
   text-transform: capitalize;
 }
+
+/* to hide the scrollbar to all html elements */
+/* 
+*::-webkit-scrollbar {
+  display: none;
+} */

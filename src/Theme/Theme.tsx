@@ -13,14 +13,13 @@ const defaultTheme = createTheme({
       fontFamily: "Fira Sans",
       fontSize: "26px",
       fontWeight: 600,
-      textTransform:"capitalize",
-
+      textTransform: "capitalize",
     },
     h3: {
       fontFamily: "Fira Sans",
       fontSize: "18px",
       fontWeight: 500,
-      textTransform:"capitalize"
+      textTransform: "capitalize",
     },
     h4: {
       fontFamily: "Roboto",
@@ -33,8 +32,7 @@ const defaultTheme = createTheme({
       fontSize: "14px",
       fontWeight: 400,
       LineHeight: "24px",
-      textTransform:"capitalize"
-
+      textTransform: "capitalize",
     },
     h6: {
       fontFamily: "Fira Sans",
@@ -62,6 +60,7 @@ const defaultTheme = createTheme({
       xl: 1536,
     },
   },
+ 
 });
 const theme = {
   ...defaultTheme,
