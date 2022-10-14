@@ -182,5 +182,70 @@ export const BlogStyles :any = {
             fontSize:'.8rem !important',
             padding:'20px 0 20px 0',
         }
+    },
+    // edit modal css 
+    modalClose:{
+        position: 'absolute', 
+        left:'96%', 
+        top:'-10%'
+    },
+    editFeilds:{
+        fontFamily: 'Roboto !important',
+        fontWeight: '500!important',
+        fontSize: '17px !important',
+        lineHeight: '30px !important',
+        color:'#272522 !important',
+    },
+    modalBtnBox:{
+        marginTop:'20px',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'space-between'
+    },
+    saveBtn:{
+        padding: '5px 40px 5px 45px !important',
+        color:'#fff !important',
+        background:'#E7A356 !important',
+        borderRadius:'5px',
+        fontFamily: 'Fira Sans',
+        fontWeight: 700,
+        fontSize: '20px !important',
+        textTransform:'capitalize !important',
+        '&:hover':{
+        color:'#fff',
+        background:'#E7A356',
+        },
+        [theme.breakpoints.up('xs')]:{
+            padding: '5px 10px 5px 15px !important',
+        },
+        [theme.breakpoints.up('sm')]:{
+            padding: '5px 40px 5px 45px !important',
+        },
+        [theme.breakpoints.only('md')]:{
+            padding: '5px 30px 5px 15px !important',
+        }
+    },
+    delBtn:{
+        padding: '5px 40px 5px 40px !important',
+        color:'#fff !important',
+        background:'#272522 !important',
+        borderRadius:'5px',
+        fontFamily: 'Fira Sans',
+        fontWeight: 700,
+        fontSize: '20px !important',
+        textTransform:'capitalize !important',
+        '&:hover':{
+        color:'#fff',
+        background:'#272522',
+        },
+        [theme.breakpoints.up('xs')]:{
+            padding: '5px 10px 5px 15px !important',
+        },
+        [theme.breakpoints.up('sm')]:{
+            padding: '5px 40px 5px 45px !important',
+        },
+        [theme.breakpoints.only('md')]:{
+            padding: '5px 20px 5px 15px !important',
+        }
     }
 }

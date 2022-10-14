@@ -6,6 +6,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { blogsData } from '../../utils/data/blogs/blogs_data';
 import BlogEditModal from './BlogEditModal';
+import DeleteModal from '../common/DeleteModal/DeleteModal';
 
 interface blogProps{
     classes: any;
@@ -13,11 +14,14 @@ interface blogProps{
 interface salonBlogS {
     cardActive: number;
     edit: boolean;
+    delModal: boolean
   }
 class SalonBlogCard extends Component<blogProps, salonBlogS> {
     state = {
         cardActive: 0,
         edit:false,
+        delModal: false,
+        
       };
 
       handlecardActive = (id: number) => {
@@ -121,6 +125,7 @@ class SalonBlogCard extends Component<blogProps, salonBlogS> {
                               ? "#fff"
                               : "#88878F",
                         }}
+                        onClick={()=> this.setState({delModal:true})}
                       >
                         Delete
                       </Button>
@@ -131,6 +136,9 @@ class SalonBlogCard extends Component<blogProps, salonBlogS> {
             })}
           </Grid>
           <BlogEditModal open={this.state.edit} close={()=>this.setState({edit: false})} />
+          <DeleteModal open={this.state.delModal} onClose={()=>this.setState({delModal:false})} 
+            jobTitle="Blog"
+          />
       </>
     )
   }
