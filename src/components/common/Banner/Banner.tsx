@@ -23,7 +23,7 @@ class Banner extends Component<IProps> {
             background: `url(${image}) no-repeat`,
             height: "50vh",
             backgroundSize: "cover",
-            backgroundPosition: "100% contain",
+            backgroundPosition: "100% 30%",
             position: "relative",
             overflow: "visible",
             borderRadius: "10px",
