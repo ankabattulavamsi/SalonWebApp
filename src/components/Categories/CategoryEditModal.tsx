@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Box, Button, Grid, Modal, TextField, Typography } from "@mui/material";
-import EditIcon from "@mui/icons-material/Edit";
+import ClassIcon from "@mui/icons-material/Class";
 import DeleteIcon from "@mui/icons-material/Delete";
 import cateImg from '../../assets/images/SalonCategory/cateImg1.png';
 
@@ -32,7 +32,7 @@ class CategoryEditModal extends Component<categoryEditProps> {
                     <TextField className={classes.editInputfield} placeholder="edit category title here"/>
                   </Box>
                   <Box className={classes.editButtonBox}>
-                    <Button startIcon={<EditIcon />}>
+                    <Button startIcon={<ClassIcon />}>
                       Save
                     </Button>
                     <Button startIcon={<DeleteIcon />} onClick={() => onClose()}>
