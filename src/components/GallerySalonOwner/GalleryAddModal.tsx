@@ -24,6 +24,8 @@ interface GalleryAddModalProps {
   onChange: (e?: any) => void;
   handleOnChangeImage: (e?: any) => void;
   onClicOfCloseBadge: () => void;
+  handleAdd: () => void;
+  handleEdit: (id?: string | number) => void;
 }
 interface GalleryAddModalState {}
 export default class GalleryAddModal extends Component<
@@ -41,6 +43,8 @@ export default class GalleryAddModal extends Component<
       image,
       handleOnChangeImage,
       onClicOfCloseBadge,
+      handleAdd,
+      handleEdit,
     } = this.props;
     console.log({ image });
     return (
@@ -198,9 +202,9 @@ export default class GalleryAddModal extends Component<
                         >
                           <img
                             src={item && item.imgUrl}
-                            alt=""
+                            alt="fesdga "
                             style={{
-                              objectFit: "cover",
+                              objectFit: "contain",
                               width: "100%",
                               height: "100%",
                             }}
@@ -225,7 +229,7 @@ export default class GalleryAddModal extends Component<
                             src={image}
                             alt=""
                             style={{
-                              objectFit: "cover",
+                              objectFit: "contain",
                               width: "100%",
                               height: "100%",
                             }}
@@ -240,7 +244,14 @@ export default class GalleryAddModal extends Component<
           </Grid>
           <Grid item xs={12} md={6}>
             <Box width={"90%"}>
-              <Formik initialValues={{}} onSubmit={() => {}}>
+              <Formik
+                initialValues={{
+                  title: item && editId !== "" ? item?.title : title,
+                }}
+                onSubmit={() => {
+                  // item && editId !== "" ? handleEdit(editId) : handleAdd();
+                }}
+              >
                 <Form>
                   <Inputs
                     name="title"
@@ -267,10 +278,12 @@ export default class GalleryAddModal extends Component<
                       <>
                         <Box sx={{ width: { xs: "100%", md: "48%" } }}>
                           <ButtonModal
+                            type="submit"
                             icon={<SaveIcon />}
                             bgColor="#E7A356"
                             color="#fff"
                             title="save"
+                            handleClick={() => handleEdit(editId)}
                           />
                         </Box>
                         <Box sx={{ width: { xs: "100%", md: "48%" } }}>
@@ -279,15 +292,18 @@ export default class GalleryAddModal extends Component<
                             bgColor="#272522"
                             color="#fff"
                             title="delete"
+                            handleClick={() => handleClose()}
                           />
                         </Box>
                       </>
                     ) : (
                       <ButtonModal
+                        type="submit"
                         icon={<SaveIcon />}
                         bgColor="#E7A356"
                         color="#fff"
                         title="Add New Image"
+                        handleClick={() => handleAdd()}
                       />
                     )}
                   </Box>

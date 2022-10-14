@@ -11,6 +11,8 @@ import { GalleryCards, Banner } from "../common";
 import { galleryStyles } from "./GalleryOwners.styles";
 import Layout from "../Layout/Layout";
 import GalleryAddModal from "./GalleryAddModal";
+import DeleteModal from "../common/DeleteModal/DeleteModal";
+import { date } from "yup";
 interface GallerySalonProps {
   classes: any;
 }
@@ -21,6 +23,7 @@ interface GallerySalonState {
   item: GallaryData;
   title: string;
   image: string;
+  openDeleteModal: boolean;
 }
 class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
   constructor(props: GallerySalonProps) {
@@ -31,6 +34,7 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
       id: "",
       title: "",
       image: "",
+      openDeleteModal: false,
       item: {
         id: "",
         imgUrl: "",
@@ -44,6 +48,7 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
       openGalleryAddModal: true,
     });
   };
+
   handleGalleryCloseModal = async () => {
     this.setState({
       openGalleryAddModal: false,
@@ -60,24 +65,55 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
     });
   };
 
+  handleToggleDeleteModal = () =>
+    this.setState({ openDeleteModal: !this.state.openDeleteModal });
+
   handleOnChangeImage = (e: any) => {
     console.log(e);
     this.setState({ image: URL.createObjectURL(e.target.files[0]) });
   };
+
+  handleAdd = () => {
+    console.log("called");
+    this.setState({
+      ImagesData: [
+        ...this.state.ImagesData,
+        { id: Date.now(), imgUrl: this.state.image, title: this.state.title },
+      ],
+    });
+
+    this.handleGalleryCloseModal();
+  };
+
   handleEditImage = (id: string | number, item: GallaryData) => {
     this.setState({ id, item });
     console.log({ item });
     this.handleGalleryOpenModal();
   };
+
+  handleEdit = (id?: string | number) => {
+    console.log("edit id", id);
+  };
+
   handleDeleteImage = (id?: string | number) => {
     console.log(id);
+    this.handleToggleDeleteModal();
+  };
+  handleDelete = (id?: string | number) => {
+    console.log("dleted id", id);
   };
 
   handleCloseBage = () => {
     this.setState({
       image: "",
+      item: {
+        id: this.state.item.id,
+        imgUrl: "",
+        title: this.state.item.title,
+      },
     });
   };
+
   render() {
     return (
       <Layout>
@@ -119,7 +155,6 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
               })}
             </Grid>
           </Container>
-
           <GalleryAddModal
             handleClose={() => this.handleGalleryCloseModal()}
             openGalleryAddModal={this.state.openGalleryAddModal}
@@ -130,6 +165,13 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
             image={this.state.image}
             handleOnChangeImage={this.handleOnChangeImage}
             onClicOfCloseBadge={this.handleCloseBage}
+            handleAdd={this.handleAdd}
+            handleEdit={this.handleEdit}
+          />
+          <DeleteModal
+            jobTitle="image"
+            onClose={() => this.handleToggleDeleteModal()}
+            open={this.state.openDeleteModal}
           />
         </Container>
       </Layout>
