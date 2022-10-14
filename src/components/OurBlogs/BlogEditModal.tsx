@@ -30,14 +30,16 @@ class BlogEditModal extends Component<blogP> {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            width: 800,
+            width: {md:600, sm:'90%', xs:'80%', lg:800},
             bgcolor: 'background.paper',
-            // border: '2px solid #000',
+            borderRadius:'5px',
             boxShadow: 24,
             p: 4,
           }}>
-            <Box sx={{position: 'relative', left:'100%'}}>
-              <CloseIcon />
+            <Box className={classes.modalClose}
+              onClick={close}
+            >
+              <CloseIcon sx={{color:'#fff', fontSize:'30px'}} />
             </Box>
             <Grid container columnSpacing={4}>
                 <Grid item lg={6} md={6} sm={12} xs={12}>
@@ -50,6 +52,7 @@ class BlogEditModal extends Component<blogP> {
                         </Typography>
                         <TextField placeholder="blog name" 
                             fullWidth
+                            sx={{mb:2}}
                         />
                         <Typography className={classes.editFeilds}>
                             Description
@@ -59,48 +62,16 @@ class BlogEditModal extends Component<blogP> {
                         />
                     </Box>
                     
-                    <Box sx={{
-                        mt:2,
-                        display:'flex',
-                        alignItems:'center',
-                        justifyContent:'space-between'
-                    }}>
+                    <Box className={classes.modalBtnBox}>
                         <Button startIcon={<ClassIcon />}
-                          sx={{
-                            px:6,
-                            color:'#fff',
-                            background:'#E7A356',
-                            borderRadius:'5px',
-                            fontFamily: 'Fira Sans',
-                            fontWeight: 700,
-                            fontSize: '20px',
-                            // lineHeight: '48px',
-                            textTransform:'capitalize',
-                            '&:hover':{
-                              color:'#fff',
-                            background:'#E7A356',
-                            }
-                          }}
-                        
+                          className={classes.saveBtn}
+                          onClick={close}
                         >
                           Save
                         </Button>
                         <Button startIcon={<DeleteIcon />}
-                          sx={{
-                            px:5,
-                            color:'#fff',
-                            background:'#272522',
-                            borderRadius:'5px',
-                            fontFamily: 'Fira Sans',
-                            fontWeight: 700,
-                            fontSize: '20px',
-                            // lineHeight: '48px',
-                            textTransform:'capitalize',
-                            '&:hover':{
-                              color:'#fff',
-                              background:'#272522',
-                            }
-                          }}
+                          className={classes.delBtn}
+                          onClick={close}
                         >
                           Delete
                         </Button>
