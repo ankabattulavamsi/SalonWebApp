@@ -1,5 +1,21 @@
+<<<<<<< HEAD
 /* .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
   background-color: transparent !important;
   border-radius: 4px;
   box-shadow: none !important;
 } */
+=======
+.common-modal .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+  background-color: transparent !important;
+  border-radius: 4px;
+  box-shadow: none !important;
+  max-width: 150% !important;
+  overflow: hidden;
+  width: 65%;
+
+  padding: 16px 24px !important;
+}
+.common-modal .css-1pslkut-MuiDialogContent-root {
+  padding: 25px 30px !important;
+}
+>>>>>>> origin/develop

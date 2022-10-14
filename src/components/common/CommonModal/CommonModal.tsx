@@ -25,42 +25,49 @@ class CommonModal extends React.Component<CommonModalProps, CommonModalState> {
   render() {
     const { handleClose, open, children } = this.props;
     return (
-      <>
-        <BootstrapDialog
-          onClose={() => handleClose()}
-          open={open}
-          sx={{ mt: -10 }}
-        >
-          <Box
-            sx={{
-              bgcolor: "transparent",
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "center",
-              width: "100%",
-              position: "relative",
-              height: "3rem",
-              background: "transparent",
-            }}
+      <Box className="common-modal">
+        <>
+          <BootstrapDialog
+            onClose={() => handleClose()}
+            open={open}
+            sx={{ mt: -10, maxWidth: "xl" }}
+            className={"common-modal"}
           >
-            <IconButton
-              aria-label="close"
-              onClick={() => handleClose()}
+            <Box
               sx={{
-                position: "absolute",
-                right: 8,
-                top: 8,
-                color: (theme) => theme.palette.grey[500],
+                bgcolor: "transparent",
+                display: "flex",
+                justifyContent: "flex-end",
+                alignItems: "center",
+                width: "100%",
+                position: "relative",
+                height: "3rem",
+                background: "transparent",
               }}
             >
-              <CloseIcon />
-            </IconButton>
-          </Box>
-          <DialogContent dividers sx={{ bgcolor: "#fff" }}>
-            {children}
-          </DialogContent>
-        </BootstrapDialog>
-      </>
+              <IconButton
+                aria-label="close"
+                onClick={() => handleClose()}
+                sx={{
+                  position: "absolute",
+                  right: -8,
+                  top: 0,
+                  color: "#ffffff",
+                  fontSize: "1.5rem",
+                }}
+              >
+                <CloseIcon />
+              </IconButton>
+            </Box>
+            <DialogContent
+              dividers
+              sx={{ bgcolor: "#fff", width: "100%", height: "100%" }}
+            >
+              {children}
+            </DialogContent>
+          </BootstrapDialog>
+        </>
+      </Box>
     );
   }
 }
