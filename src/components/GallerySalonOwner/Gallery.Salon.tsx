@@ -16,18 +16,49 @@ interface GallerySalonProps {
 }
 interface GallerySalonState {
   openGalleryAddModal: boolean;
+  ImagesData: GallaryData[];
+  id?: string | number;
+  item?: GallaryData;
+  title: string;
 }
 class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
   constructor(props: GallerySalonProps) {
     super(props);
     this.state = {
       openGalleryAddModal: false,
+      ImagesData: gallaryData || [],
+      id: "",
+      title: "",
     };
   }
 
-  handleGalleryOpenCloseModal = () => {
-    this.setState({ openGalleryAddModal: !this.state.openGalleryAddModal });
+  handleGalleryOpenModal = () => {
+    this.setState({
+      openGalleryAddModal: true,
+    });
   };
+  handleGalleryCloseModal = () => {
+    this.setState({
+      openGalleryAddModal: false,
+      id: "",
+      item: {
+        id: "",
+        imgUrl: "",
+        title: "",
+      },
+      title: "",
+    });
+  };
+
+  handleEditImage = (id?: string | number, item?: GallaryData) => {
+    this.setState({ id, item });
+    console.log({ item });
+    this.handleGalleryOpenModal();
+  };
+  handleDeleteImage = (id?: string | number) => {
+    console.log(id);
+  };
+
   render() {
     return (
       <Layout>
@@ -41,7 +72,7 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
         >
           <Box sx={{ mt: 15 }}>
             <Banner
-              OnClick={() => this.handleGalleryOpenCloseModal()}
+              OnClick={() => this.handleGalleryOpenModal()}
               buttonTitle="Add New Image"
               image={galleryBanner}
               title="Our Gallery"
@@ -56,10 +87,14 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
             }}
           >
             <Grid container spacing={2}>
-              {gallaryData.map((images: GallaryData) => {
+              {this.state.ImagesData.map((images: GallaryData) => {
                 return (
                   <Grid item xs={12} sm={6} md={4} key={images.id}>
-                    <GalleryCards {...images} />
+                    <GalleryCards
+                      {...images}
+                      handleEditImage={this.handleEditImage}
+                      handleDeleteImage={this.handleDeleteImage}
+                    />
                   </Grid>
                 );
               })}
@@ -67,8 +102,12 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
           </Container>
 
           <GalleryAddModal
-            handleClose={() => this.handleGalleryOpenCloseModal()}
+            handleClose={() => this.handleGalleryCloseModal()}
             openGalleryAddModal={this.state.openGalleryAddModal}
+            editId={this.state.id}
+            item={this.state.item}
+            title={this.state.title}
+            onChange={(e?: any) => this.setState({ title: e.target.value })}
           />
         </Container>
       </Layout>

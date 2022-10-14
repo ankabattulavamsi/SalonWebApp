@@ -7,12 +7,17 @@ import ButtonModal from "../common/ButtonModal/ButtonModal";
 import SaveIcon from "@mui/icons-material/Save";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CloseIcon from "@mui/icons-material/Close";
-import { gallaryData } from "../../utils/data/GalleryOwner/Gallery";
+import { GallaryData } from "../../utils/data/GalleryOwner/Gallery";
 import { Inputs } from "../common";
 
 interface GalleryAddModalProps {
   openGalleryAddModal: boolean;
   handleClose: (type?: string) => void;
+  editId?: string | number;
+  item?: GallaryData;
+  title?: string;
+
+  onChange: (e?: any) => void;
 }
 interface GalleryAddModalState {}
 export default class GalleryAddModal extends Component<
@@ -20,87 +25,64 @@ export default class GalleryAddModal extends Component<
   GalleryAddModalState
 > {
   render() {
+    const { handleClose, onChange, openGalleryAddModal, editId, item, title } =
+      this.props;
     return (
-      <CommonModal
-        handleClose={() => this.props.handleClose()}
-        open={this.props.openGalleryAddModal}
-      >
+      <CommonModal handleClose={() => handleClose()} open={openGalleryAddModal}>
         <Grid container>
           <Grid item xs={12} md={6}>
             <Box width={"95%"} height="100%">
-              <Box>
-                <Box sx={{ postion: "relative" }}>
-                  <img
-                    src={gallaryData[2].imgUrl}
-                    alt=""
-                    style={{
-                      objectFit: "cover",
-                      width: "100%",
-                      height: "100%",
-                    }}
-                  />
-                </Box>
-
-                <Box
-                  marginTop={3}
-                  display={"flex"}
-                  justifyContent={"flex-start"}
-                  gap={2}
-                  flexWrap="wrap"
-                >
-                  <Box width={"100px"} height="100%">
-                    <Badge
-                      color="secondary"
-                      badgeContent={
-                        <CloseIcon
-                          sx={{
-                            bgcolor: "#272727",
-                            color: "#fff",
-                            borderRadius: "50%",
-                            fontSize: "1rem",
-                          }}
-                        />
-                      }
-                    >
-                      <img
-                        src={gallaryData[2].imgUrl}
-                        alt=""
-                        style={{
-                          objectFit: "cover",
-                          width: "100%",
-                          height: "100%",
-                        }}
-                      />
-                    </Badge>
+              {item && editId !== "" ? (
+                <Box>
+                  <Box sx={{ postion: "relative" }}>
+                    <img
+                      src={item.imgUrl}
+                      alt={item.title}
+                      style={{
+                        objectFit: "cover",
+                        width: "100%",
+                        height: "100%",
+                      }}
+                    />
                   </Box>
 
-                  <Box width={"100px"} height="100%">
-                    <Badge
-                      color="secondary"
-                      badgeContent={
-                        <CloseIcon
-                          sx={{
-                            bgcolor: "#272727",
-                            color: "#fff",
-                            borderRadius: "50%",
-                            fontSize: "1rem",
+                  <Box
+                    marginTop={3}
+                    display={"flex"}
+                    justifyContent={"flex-start"}
+                    gap={2}
+                    flexWrap="wrap"
+                  >
+                    <Box width={"100px"} height="100%">
+                      <Badge
+                        color="secondary"
+                        badgeContent={
+                          <CloseIcon
+                            sx={{
+                              bgcolor: "#272727",
+                              color: "#fff",
+                              borderRadius: "50%",
+                              fontSize: "1rem",
+                            }}
+                          />
+                        }
+                      >
+                        <img
+                          src={item.imgUrl}
+                          alt=""
+                          style={{
+                            objectFit: "cover",
+                            width: "100%",
+                            height: "100%",
                           }}
                         />
-                      }
-                    >
-                      <img
-                        src={gallaryData[2].imgUrl}
-                        alt=""
-                        style={{
-                          objectFit: "cover",
-                          width: "100%",
-                          height: "100%",
-                        }}
-                      />
-                    </Badge>
+                      </Badge>
+                    </Box>
                   </Box>
                 </Box>
-              </Box>
+              ) : (
+                <Box>img box</Box>
+              )}
             </Box>
           </Grid>
           <Grid item xs={12} md={6}>
@@ -110,7 +92,13 @@ export default class GalleryAddModal extends Component<
                   <Inputs
                     name="title"
                     placeholder="enter title"
-                    label="Add Gallery Title"
+                    handleChange={(e) => onChange(e)}
+                    value={item && editId !== "" ? item?.title : title}
+                    label={
+                      item && editId !== ""
+                        ? "Edit Gallery title"
+                        : "Add Gallery Title"
+                    }
                   />
 
                   <Box
@@ -122,22 +110,33 @@ export default class GalleryAddModal extends Component<
                       mt: 2,
                     }}
                   >
-                    <Box sx={{ width: { xs: "100%", md: "48%" } }}>
+                    {item && editId !== "" ? (
+                      <>
+                        <Box sx={{ width: { xs: "100%", md: "48%" } }}>
+                          <ButtonModal
+                            icon={<SaveIcon />}
+                            bgColor="#E7A356"
+                            color="#fff"
+                            title="save"
+                          />
+                        </Box>
+                        <Box sx={{ width: { xs: "100%", md: "48%" } }}>
+                          <ButtonModal
+                            icon={<DeleteIcon />}
+                            bgColor="#272522"
+                            color="#fff"
+                            title="delete"
+                          />
+                        </Box>
+                      </>
+                    ) : (
                       <ButtonModal
                         icon={<SaveIcon />}
                         bgColor="#E7A356"
                         color="#fff"
-                        title="save"
+                        title="Add New Image"
                       />
-                    </Box>
-                    <Box sx={{ width: { xs: "100%", md: "48%" } }}>
-                      <ButtonModal
-                        icon={<DeleteIcon />}
-                        bgColor="#272522"
-                        color="#fff"
-                        title="delete"
-                      />
-                    </Box>
+                    )}
                   </Box>
                 </Form>
               </Formik>
