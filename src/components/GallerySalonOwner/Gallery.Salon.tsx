@@ -7,13 +7,10 @@ import {
   GallaryData,
   galleryBanner,
 } from "../../utils/data/GalleryOwner/Gallery";
-import { GalleryCards, Banner, Inputs, Buttons } from "../common";
+import { GalleryCards, Banner } from "../common";
 import { galleryStyles } from "./GalleryOwners.styles";
 import Layout from "../Layout/Layout";
-import CommonModal from "../common/CommonModal/CommonModal";
-import { Form, Formik } from "formik";
-import ButtonModal from "../common/ButtonModal/ButtonModal";
-import SaveIcon from "@mui/icons-material/Save";
+import GalleryAddModal from "./GalleryAddModal";
 interface GallerySalonProps {
   classes: any;
 }
@@ -27,6 +24,10 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
       openGalleryAddModal: false,
     };
   }
+
+  handleGalleryOpenCloseModal = () => {
+    this.setState({ openGalleryAddModal: !this.state.openGalleryAddModal });
+  };
   render() {
     return (
       <Layout>
@@ -40,7 +41,7 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
         >
           <Box sx={{ mt: 15 }}>
             <Banner
-              OnClick={() => this.setState({ openGalleryAddModal: true })}
+              OnClick={() => this.handleGalleryOpenCloseModal()}
               buttonTitle="Add New Image"
               image={galleryBanner}
               title="Our Gallery"
@@ -65,65 +66,10 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
             </Grid>
           </Container>
 
-          <CommonModal
-            handleClose={() => this.setState({ openGalleryAddModal: false })}
-            open={this.state.openGalleryAddModal}
-          >
-            <Box sx={{ display: "flex", gap: 5, width: "100%" }}>
-              <Box width={"47%"}>
-                <Box width={"100%"} height="100%">
-                  <img
-                    src={gallaryData[0].imgUrl}
-                    alt=""
-                    style={{
-                      // objectFit: "contain",
-                      width: "100%",
-                      height: "100%",
-                    }}
-                  />
-                </Box>
-              </Box>
-              <Box width={"47%"}>
-                <Box>
-                  <Formik initialValues={{}} onSubmit={() => {}}>
-                    <Form>
-                      <Inputs
-                        name="title"
-                        placeholder="enter title"
-                        label="Add Gallery Title"
-                      />
-
-                      <Box
-                        sx={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          width: "100%",
-                          mt: 2,
-                        }}
-                      >
-                        <Box sx={{ width: "48%" }}>
-                          <ButtonModal
-                            icon={<SaveIcon />}
-                            bgColor="#E7A356"
-                            color="#fff"
-                            title="save"
-                          />
-                        </Box>
-                        <Box sx={{ width: "50%" }}>
-                          <ButtonModal
-                            icon={<SaveIcon />}
-                            bgColor="#272522"
-                            color="#fff"
-                            title="delete"
-                          />
-                        </Box>
-                      </Box>
-                    </Form>
-                  </Formik>
-                </Box>
-              </Box>
-            </Box>
-          </CommonModal>
+          <GalleryAddModal
+            handleClose={() => this.handleGalleryOpenCloseModal()}
+            openGalleryAddModal={this.state.openGalleryAddModal}
+          />
         </Container>
       </Layout>
     );

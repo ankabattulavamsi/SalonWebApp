@@ -30,7 +30,7 @@ class CommonModal extends React.Component<CommonModalProps, CommonModalState> {
           <BootstrapDialog
             onClose={() => handleClose()}
             open={open}
-            sx={{ mt: -20, maxWidth: "xl" }}
+            sx={{ mt: -10, maxWidth: "xl" }}
             className={"common-modal"}
           >
             <Box
