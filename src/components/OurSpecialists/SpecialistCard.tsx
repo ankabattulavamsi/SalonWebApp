@@ -14,6 +14,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import { DeleteOutline } from "@mui/icons-material";
 import "./specialist.css";
 import DeleteModal from "../common/DeleteModal/DeleteModal";
+import EditTeam from "./EditTeam";
 
 interface IProps {
 	team: TeamData;
@@ -21,16 +22,24 @@ interface IProps {
 
 interface State {
 	open: boolean;
+	openEditModal: boolean;
 }
 export default class SpecialistCard extends Component<IProps, State> {
 	state: State = {
 		open: false,
+		openEditModal: false,
 	};
 	onClose = () => {
 		this.setState({ open: false });
 	};
 	onClickFunc = () => {
 		this.setState({ open: true });
+	};
+	onEditFunc = () => {
+		this.setState({ openEditModal: true });
+	};
+	closeEditModal = () => {
+		this.setState({ openEditModal: false });
 	};
 	render() {
 		const { team } = this.props;
@@ -73,6 +82,7 @@ export default class SpecialistCard extends Component<IProps, State> {
 						variant="outlined"
 						aria-label="split button">
 						<Button
+							onClick={this.onEditFunc}
 							className="buttonTogether edit"
 							startIcon={<EditIcon />}>
 							Edit
@@ -89,6 +99,10 @@ export default class SpecialistCard extends Component<IProps, State> {
 					jobTitle="Specialist"
 					open={this.state.open}
 					onClose={this.onClose}
+				/>
+				<EditTeam
+					open={this.state.openEditModal}
+					onClose={this.closeEditModal}
 				/>
 			</>
 		);
