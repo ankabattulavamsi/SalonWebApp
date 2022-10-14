@@ -214,6 +214,15 @@ export const BlogStyles :any = {
         '&:hover':{
         color:'#fff',
         background:'#E7A356',
+        },
+        [theme.breakpoints.up('xs')]:{
+            padding: '5px 10px 5px 15px !important',
+        },
+        [theme.breakpoints.up('sm')]:{
+            padding: '5px 40px 5px 45px !important',
+        },
+        [theme.breakpoints.only('md')]:{
+            padding: '5px 30px 5px 15px !important',
         }
     },
     delBtn:{
@@ -228,6 +237,15 @@ export const BlogStyles :any = {
         '&:hover':{
         color:'#fff',
         background:'#272522',
+        },
+        [theme.breakpoints.up('xs')]:{
+            padding: '5px 10px 5px 15px !important',
+        },
+        [theme.breakpoints.up('sm')]:{
+            padding: '5px 40px 5px 45px !important',
+        },
+        [theme.breakpoints.only('md')]:{
+            padding: '5px 20px 5px 15px !important',
         }
     }
 }

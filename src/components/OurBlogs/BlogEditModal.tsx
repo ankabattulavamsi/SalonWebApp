@@ -41,7 +41,7 @@ class BlogEditModal extends Component<blogP> {
             >
               <CloseIcon sx={{color:'#fff', fontSize:'30px'}} />
             </Box>
-            <Grid container columnSpacing={4}>
+            <Grid container columnSpacing={4} rowSpacing={2}>
                 <Grid item lg={6} md={6} sm={12} xs={12}>
                     <img src={blogpic} width="100%" alt="blog img" />
                 </Grid>
@@ -69,11 +69,11 @@ class BlogEditModal extends Component<blogP> {
                         >
                           Save
                         </Button>
-                        <Button startIcon={<DeleteIcon />}
+                        <Button startIcon={<CloseIcon />}
                           className={classes.delBtn}
                           onClick={close}
                         >
-                          Delete
+                          Cancel
                         </Button>
                     </Box>
                 </Grid>
