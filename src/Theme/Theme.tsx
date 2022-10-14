@@ -62,6 +62,7 @@ const defaultTheme = createTheme({
       xl: 1536,
     },
   },
+ 
 });
 const theme = {
   ...defaultTheme,
