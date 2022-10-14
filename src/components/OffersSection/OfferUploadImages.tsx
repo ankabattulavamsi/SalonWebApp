@@ -42,7 +42,7 @@ export class OfferUploadImages extends Component<IsProps> {
             type="file"
             name="image"
           />
-          <Button className={classes.btnCloud}>
+          <Button className={classes.btnCloud}> 
             <CollectionsOutlinedIcon fontSize="large" />
             <span>Browse</span>
           </Button>

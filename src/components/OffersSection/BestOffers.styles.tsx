@@ -141,7 +141,7 @@ export const StylesOffers: any  = (theme: any) =>  ({
   },
   boxinput: {
     position: "relative",
-    width: "70%",
+    width: "100%",
     [theme.breakpoints.up("xs")]: {
       width: "100%",
     },
@@ -171,5 +171,6 @@ export const StylesOffers: any  = (theme: any) =>  ({
     width: "100%",
 
     opacity: "1",
+    
   },
 });
