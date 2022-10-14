@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import { withStyles } from "@mui/styles";
 import React, { Component } from "react";
+import { buttonStyles } from "../ButtonOfDrawer/Btuttons.style";
 interface ButtonModalProps {
   type?: "button" | "submit" | "reset" | undefined;
 
@@ -9,27 +10,35 @@ interface ButtonModalProps {
   className?: any;
   disabled?: boolean;
   title: string;
-  icon: string;
+  icon?: any;
+  bgColor?: string;
+  color?: string;
 }
 interface ButtonModalState {}
-export default class ButtonModal extends Component<
-  ButtonModalProps,
-  ButtonModalState
-> {
+class ButtonModal extends Component<ButtonModalProps, ButtonModalState> {
   render() {
-    const { type, handleClick, classes, className, disabled, title, icon } =
-      this.props;
+    const {
+      type,
+      handleClick,
+      classes,
+      className,
+      disabled,
+      title,
+      icon,
+      bgColor,
+      color,
+    } = this.props;
     return (
       <Button
         sx={{
           textAlign: "center",
           width: "100%",
-          bgcolor: "#E7A356",
-          color: "#ffffff",
+          bgcolor: bgColor ? bgColor : "#E7A356",
+          color: color ? color : "#fff",
           mb: 2,
           ":hover": {
-            bgcolor: "#E7A356",
-            color: "#ffffff",
+            bgcolor: bgColor ? bgColor : "#E7A356",
+            color: color ? color : "#fff",
           },
         }}
         type={type}
@@ -42,3 +51,5 @@ export default class ButtonModal extends Component<
     );
   }
 }
+
+export default withStyles(buttonStyles)(ButtonModal);

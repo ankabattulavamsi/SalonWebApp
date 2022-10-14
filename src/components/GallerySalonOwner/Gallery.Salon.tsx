@@ -13,6 +13,7 @@ import Layout from "../Layout/Layout";
 import CommonModal from "../common/CommonModal/CommonModal";
 import { Form, Formik } from "formik";
 import ButtonModal from "../common/ButtonModal/ButtonModal";
+import SaveIcon from "@mui/icons-material/Save";
 interface GallerySalonProps {
   classes: any;
 }
@@ -101,10 +102,20 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
                         }}
                       >
                         <Box sx={{ width: "48%" }}>
-                          <ButtonModal icon="" title="save" />
+                          <ButtonModal
+                            icon={<SaveIcon />}
+                            bgColor="#E7A356"
+                            color="#fff"
+                            title="save"
+                          />
                         </Box>
                         <Box sx={{ width: "50%" }}>
-                          <ButtonModal icon="" title="delete" />
+                          <ButtonModal
+                            icon={<SaveIcon />}
+                            bgColor="#272522"
+                            color="#fff"
+                            title="delete"
+                          />
                         </Box>
                       </Box>
                     </Form>
