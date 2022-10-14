@@ -13,12 +13,25 @@ import { TeamData } from "../../utils/data/expertTeam/team";
 import EditIcon from "@mui/icons-material/Edit";
 import { DeleteOutline } from "@mui/icons-material";
 import "./specialist.css";
+import DeleteModal from "../common/DeleteModal/DeleteModal";
 
 interface IProps {
 	team: TeamData;
 }
 
-export default class SpecialistCard extends Component<IProps> {
+interface State {
+	open: boolean;
+}
+export default class SpecialistCard extends Component<IProps, State> {
+	state: State = {
+		open: false,
+	};
+	onClose = () => {
+		this.setState({ open: false });
+	};
+	onClickFunc = () => {
+		this.setState({ open: true });
+	};
 	render() {
 		const { team } = this.props;
 		return (
@@ -65,12 +78,18 @@ export default class SpecialistCard extends Component<IProps> {
 							Edit
 						</Button>
 						<Button
+							onClick={this.onClickFunc}
 							className="buttonTogether delete"
 							startIcon={<DeleteOutline />}>
 							Delete
 						</Button>
 					</ButtonGroup>
 				</Card>
+				<DeleteModal
+					jobTitle="Specialist"
+					open={this.state.open}
+					onClose={this.onClose}
+				/>
 			</>
 		);
 	}
