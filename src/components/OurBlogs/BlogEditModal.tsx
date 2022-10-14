@@ -3,6 +3,7 @@ import { Box, Button, Grid, Modal, TextField, Typography } from "@mui/material";
 import ClassIcon from '@mui/icons-material/Class';
 import DeleteIcon from "@mui/icons-material/Delete";
 import { withStyles } from "@mui/styles";
+import CloseIcon from '@mui/icons-material/Close';
 
 import blogpic from '../../assets/images/Blogimages/blogimg-1.png';
 import {BlogStyles} from './OurBlog.Style';
@@ -31,10 +32,13 @@ class BlogEditModal extends Component<blogP> {
             transform: 'translate(-50%, -50%)',
             width: 800,
             bgcolor: 'background.paper',
-            border: '2px solid #000',
+            // border: '2px solid #000',
             boxShadow: 24,
             p: 4,
           }}>
+            <Box sx={{position: 'relative', left:'100%'}}>
+              <CloseIcon />
+            </Box>
             <Grid container columnSpacing={4}>
                 <Grid item lg={6} md={6} sm={12} xs={12}>
                     <img src={blogpic} width="100%" alt="blog img" />
@@ -50,7 +54,7 @@ class BlogEditModal extends Component<blogP> {
                         <Typography className={classes.editFeilds}>
                             Description
                         </Typography>
-                        <TextField maxRows={5} placeholder="blog description"
+                        <TextField maxRows={5} placeholder="Long description type here"
                             fullWidth multiline
                         />
                     </Box>
