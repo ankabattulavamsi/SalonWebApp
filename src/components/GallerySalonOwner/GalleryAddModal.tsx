@@ -133,7 +133,11 @@ export default class GalleryAddModal extends Component<
                                 <Typography
                                   component={"h5"}
                                   sx={{
-                                    fontSize: "20px",
+                                    fontSize: {
+                                      xs: "16px",
+                                      md: "18px",
+                                      lg: "20px",
+                                    },
                                     color: "#272522",
                                     fontWeight: "600",
                                     textTransform: "capitalize",
@@ -145,7 +149,12 @@ export default class GalleryAddModal extends Component<
                               <Box>
                                 <Typography
                                   sx={{
-                                    fontSize: "16px",
+                                    fontSize: {
+                                      xs: "10px",
+                                      sm: "12px",
+                                      md: "14px",
+                                      lg: "16px",
+                                    },
                                     color: "#A4A1A1",
                                     fontWeight: "500",
                                     textTransform: "lowercase",

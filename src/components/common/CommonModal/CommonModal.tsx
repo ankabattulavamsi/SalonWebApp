@@ -25,13 +25,13 @@ class CommonModal extends React.Component<CommonModalProps, CommonModalState> {
   render() {
     const { handleClose, open, children } = this.props;
     return (
-      <Box className="common-modal">
+      <Box className="common-modal ">
         <>
           <BootstrapDialog
             onClose={() => handleClose()}
             open={open}
             sx={{ mt: -10, maxWidth: "xl" }}
-            className={"common-modal"}
+            className={"common-modal "}
           >
             <Box
               sx={{
@@ -61,6 +61,7 @@ class CommonModal extends React.Component<CommonModalProps, CommonModalState> {
             </Box>
             <DialogContent
               dividers
+              className="scrollbar--hide"
               sx={{ bgcolor: "#fff", width: "100%", height: "100%" }}
             >
               {children}
