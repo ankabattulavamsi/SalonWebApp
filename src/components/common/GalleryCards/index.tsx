@@ -27,7 +27,7 @@ class GalleryCard extends React.Component<GalleryCardProps, GalleryCardState> {
           alt={`${id}`}
           image={imgUrl}
           src={imgUrl}
-          sx={{ borderRadius: "4px" }}
+          sx={{ borderRadius: "4px", objectFit: "cover" }}
           className={classes.imgCard}
         />
 
