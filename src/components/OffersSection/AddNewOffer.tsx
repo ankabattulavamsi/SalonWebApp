@@ -29,6 +29,7 @@ interface IsAddNewProps {
   editPrice: string;
   editDissPrice: string;
   editDescription: string;
+  editImage: string;
   onChangeeditOfferTitle: (id: any) => void;
   onChangePrice: (id: any) => void;
   onChangeDissPrice: (id: any) => void;
@@ -44,6 +45,7 @@ export class AddNewOffer extends Component<IsAddNewProps> {
       editPrice,
       editDissPrice,
       editDescription,
+      editImage
     } = this.props;
     return (
       <>
@@ -72,9 +74,10 @@ export class AddNewOffer extends Component<IsAddNewProps> {
                 onClick={this.props.handleCloseAddOffer}
                 sx={{
                   position: "absolute",
-                  right: 8,
-                  top: 8,
-                  color: (theme) => theme.palette.grey[500],
+                  right: 0,
+                  left: '93%',
+                  top: '0%',
+                  color: '#fff',
                 }}
               >
                 <CloseIcon style={{width:"42px"}} />

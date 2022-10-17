@@ -12,7 +12,6 @@ import { Box } from "@mui/system";
 import React, { Component } from "react";
 
 import ClassIcon from "@mui/icons-material/Class";
-import DeleteIcon from "@mui/icons-material/Delete";
 import CloseIcon from "@mui/icons-material/Close";
 
 import OferrImg from "../../assets/images/SalonPatnerBestOffersImg/Rectangle64(1).png";
@@ -29,6 +28,7 @@ interface IsStatePassProps {
   editPrice: string;
   editDissPrice: string;
   editDescription: string;
+  editImage: string;
   onChangeeditOfferTitle: (id: any) => void;
   onChangePrice: (id: any) => void;
   onChangeDissPrice: (id: any) => void;
@@ -45,6 +45,7 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
       editPrice,
       editDissPrice,
       editDescription,
+      editImage
     } = this.props;
     const { classes } = this.props;
     return (
@@ -74,12 +75,13 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
                 onClick={handleClose}
                 sx={{
                   position: "absolute",
-                  right: 8,
-                  top: 8,
-                  color: (theme) => theme.palette.grey[500],
+                  right: 0,
+                  left: '93%',
+                  top: '0%',
+                  color: '#fff',
                 }}
               >
-                <CloseIcon />
+                <CloseIcon sx={{color: '#fff', fontSize:'30px'}} />
               </IconButton>
             </Box>
             <Divider />
@@ -89,8 +91,8 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
                   <Grid item xs={12} md={6} sm={6} lg={6}>
                     <Box>
                       <img
-                        src={OferrImg}
-                        alt="offered-image"
+                        src={editImage}
+                        alt="offered"
                         className="edit-offer-image"
                       />
                     </Box>

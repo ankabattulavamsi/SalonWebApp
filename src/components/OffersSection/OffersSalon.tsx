@@ -30,6 +30,7 @@ interface IsState {
   editPrice: string;
   editDissPrice: string;
   editDescription: string;
+  editImage: string
 }
 
 export class OffersSalon extends Component<IsStateProps> {
@@ -43,6 +44,7 @@ export class OffersSalon extends Component<IsStateProps> {
     editPrice: "",
     editDissPrice: "",
     editDescription: "",
+    editImage: ''
   };
 
   handleCloseAddOffer = () =>{
@@ -60,6 +62,7 @@ export class OffersSalon extends Component<IsStateProps> {
     this.setState({ editPrice: item.price });
     this.setState({ editDissPrice: item.dissPrice });
     this.setState({ editDescription: item.description });
+    this.setState({ editImage: item.offerImage });
   };
 
   handleClickOpenAddModel = () => {
@@ -74,12 +77,14 @@ export class OffersSalon extends Component<IsStateProps> {
       editPrice,
       editDissPrice,
       editDescription,
+      editImage
     } = this.state;
     const findIndex = SalonOffersData.findIndex((item) => item.id === editId);
     SalonOffersData[findIndex].headingOff = editOfferTitle;
     SalonOffersData[findIndex].price = editPrice;
     SalonOffersData[findIndex].dissPrice = editDissPrice;
     SalonOffersData[findIndex].description = editDescription;
+    SalonOffersData[findIndex].offerImage = editImage;
     this.setState({ SalonBestOffersData: SalonBestOffersData });
     this.setState({ open: false });
     this.setState({editOfferTitle : ''})
@@ -125,7 +130,8 @@ export class OffersSalon extends Component<IsStateProps> {
       editPrice,
       editDissPrice,
       editDescription,
-      addNewOfferOpen
+      addNewOfferOpen, 
+      editImage
     } = this.state;
     const { classes } = this.props;
     return (
@@ -230,6 +236,7 @@ export class OffersSalon extends Component<IsStateProps> {
           editPrice={editPrice}
           editDissPrice={editDissPrice}
           editDescription={editDescription}
+          editImage={editImage}
           onChangeeditOfferTitle={this.onChangeeditOfferTitle}
           onSubmitEditModel={this.onSubmitEditModel}
           onChangePrice={this.onChangePrice}
@@ -240,6 +247,7 @@ export class OffersSalon extends Component<IsStateProps> {
           handleClose={this.handleClose}
           editOfferTitle={editOfferTitle}
           editPrice={editPrice}
+          editImage={editImage}
           editDissPrice={editDissPrice}
           editDescription={editDescription}
           onChangeeditOfferTitle={this.onChangeeditOfferTitle}

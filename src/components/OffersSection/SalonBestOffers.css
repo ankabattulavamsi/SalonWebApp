@@ -188,7 +188,13 @@
 }
 
 
-.css-12rl710-MuiPaper-root-MuiDialog-paper .offers-dialog-box{
-  background: transparent !important;
+.offers-dialog-box .css-12rl710-MuiPaper-root-MuiDialog-paper {
   background-color: transparent !important;
+  box-shadow: none !important;
+  max-width: 150% !important;
+  overflow: hidden;
+}
+
+.offers-dialog-box .css-45k6up{
+  overflow: scroll !important;
 }
