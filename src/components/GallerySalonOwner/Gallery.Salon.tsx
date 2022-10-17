@@ -13,7 +13,7 @@ import Layout from "../Layout/Layout";
 import GalleryAddModal from "./GalleryAddModal";
 import DeleteModal from "../common/DeleteModal/DeleteModal";
 interface GallerySalonProps {
-  classes: any;
+  classes?: any;
 }
 interface GallerySalonState {
   openGalleryAddModal: boolean;
