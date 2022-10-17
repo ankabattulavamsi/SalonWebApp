@@ -6,7 +6,12 @@ export const stylesCard: any = (theme: any) => ({
     borderRadius: "4px !important",
     transition: " all .5s",
   },
-  imgCard: {},
+
+  imgCard: {
+    width: "100%",
+    height: "230px",
+   
+  },
 
   cardActions: {
     position: "absolute",
