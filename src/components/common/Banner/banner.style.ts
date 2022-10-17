@@ -24,7 +24,6 @@ export const Styles: any = {
         textTransform: "capitalize !important",
         margin: "auto !important",
         lineHeight: "40px",
-        fontWeight:"500"
-        
+        fontWeight:"500",
       },
 }

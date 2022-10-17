@@ -7,16 +7,15 @@ import Buttons from "../ButtonOfDrawer/Buttons";
 import { Styles } from "./banner.style";
 
 interface IProps {
-	image: string;
-	title: string;
-	buttonTitle: string;
-	OnClick?: () => void;
-	classes: any;
-	handleClick?: any;
+  image: string;
+  title: string;
+  buttonTitle: string;
+  classes: any;
+  handleClick?: () => void;
 }
 class Banner extends Component<IProps> {
   render() {
-    const { classes, OnClick, buttonTitle, image, title } = this.props;
+    const { classes, buttonTitle, image, title, handleClick } = this.props;
     return (
       <Box sx={{ mb: 5, mt: 5 }}>
         <Box
@@ -61,28 +60,32 @@ class Banner extends Component<IProps> {
           </Box>
         </Box>
 
-				<Box
-					sx={{
-						width: "100%",
-						display: "flex",
-						justifyContent: "center",
-						alignItems: "center",
-					}}>
-					<Box
-						sx={{
-							transform: "translateY(-50%)",
-							width: { xs: "50%", sm: "25%", lg: "15%" },
-						}}>
-						<Buttons
-							title={buttonTitle}
-							className={classes.capitalized}
-							handleClick={this.props.handleClick}
-						/>
-					</Box>
-				</Box>
-			</Box>
-		);
-	}
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Box
+            sx={{
+              transform: "translateY(-50%)",
+              width: { xs: "50%", sm: "25%", lg: "15%" },
+            }}
+          >
+            <Buttons
+              title={buttonTitle}
+              className={classes.capitalized}
+              handleClick={() => {
+                handleClick && handleClick();
+              }}
+            />
+          </Box>
+        </Box>
+      </Box>
+    );
+  }
 }
 
 export default withStyles(Styles)(Banner);

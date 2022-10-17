@@ -118,8 +118,5 @@ export const styles:any = {
         '& span':{
            opacity: '0 !important',
         },
-    },
-    categoryBannerBtn:{
-
     }
 }
