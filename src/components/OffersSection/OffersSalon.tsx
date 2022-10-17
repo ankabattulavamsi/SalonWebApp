@@ -30,7 +30,8 @@ interface IsState {
   editPrice: string;
   editDissPrice: string;
   editDescription: string;
-  editImage: string
+  editImage: string;
+  deleteId: string
 }
 
 export class OffersSalon extends Component<IsStateProps> {
@@ -44,7 +45,8 @@ export class OffersSalon extends Component<IsStateProps> {
     editPrice: "",
     editDissPrice: "",
     editDescription: "",
-    editImage: ''
+    editImage: '',
+    deleteId: ''
   };
 
   handleCloseAddOffer = () =>{
@@ -93,6 +95,18 @@ export class OffersSalon extends Component<IsStateProps> {
     this.setState({editDescription: ''})
   };
 
+
+  handleCloseBage = () => {
+    this.setState({
+      editImage: "",
+      id: this.state.editId
+    });
+  };
+
+  handleOnChangeImage = (e: any) => {
+    this.setState({ editImage: URL.createObjectURL(e.target.files[0]) });
+  };
+
   onChangeeditOfferTitle = (e: any) => {
     this.setState({ editOfferTitle: e.target.value });
   };
@@ -114,12 +128,16 @@ export class OffersSalon extends Component<IsStateProps> {
   };
 
   onClickDeleteOffer = (id: any) => {
-    let filterData = this.state.SalonOffersData.filter(
-      (item) => item.id !== id
-    );
-    this.setState({ SalonOffersData: filterData });
+    this.setState({editId: id})
     this.setState({openDeleteModel: true})
   };
+
+  onClickOfferDelete = (id: any) => {
+    this.setState({ SalonOffersData: this.state.SalonOffersData.filter(
+      (item) => item.id !== id
+    ) });
+    this.setState({openDeleteModel: false})
+  }
 
   render() {
     const {
@@ -162,8 +180,11 @@ export class OffersSalon extends Component<IsStateProps> {
                         >
                           <CardMedia
                             component="img"
-                            image={item.offerImage}
-                            alt="green iguana"
+                            image={item.editImage}
+                            className={classes.CardImageOffer}
+                            alt={`${item.id}`}
+                            src={item.offerImage}
+                            sx={{ borderRadius: "4px", objectFit: "cover" }}
                           />
                           <Box>
                             <Box className={classes.headingCardContainer}>
@@ -235,8 +256,11 @@ export class OffersSalon extends Component<IsStateProps> {
         <AddNewOffer addNewOfferOpen={addNewOfferOpen} handleCloseAddOffer={this.handleCloseAddOffer} editOfferTitle={editOfferTitle}
           editPrice={editPrice}
           editDissPrice={editDissPrice}
+          editId={editId}
           editDescription={editDescription}
           editImage={editImage}
+          onClicOfCloseBadge={this.handleCloseBage}
+          handleOnChangeImage={this.handleOnChangeImage}
           onChangeeditOfferTitle={this.onChangeeditOfferTitle}
           onSubmitEditModel={this.onSubmitEditModel}
           onChangePrice={this.onChangePrice}
@@ -246,10 +270,13 @@ export class OffersSalon extends Component<IsStateProps> {
           open={open}
           handleClose={this.handleClose}
           editOfferTitle={editOfferTitle}
+          editId={editId}
           editPrice={editPrice}
           editImage={editImage}
           editDissPrice={editDissPrice}
           editDescription={editDescription}
+          onClicOfCloseBadge={this.handleCloseBage}
+          handleOnChangeImage={this.handleOnChangeImage}
           onChangeeditOfferTitle={this.onChangeeditOfferTitle}
           onSubmitEditModel={this.onSubmitEditModel}
           onChangePrice={this.onChangePrice}
@@ -258,9 +285,10 @@ export class OffersSalon extends Component<IsStateProps> {
         />
 
         <DeleteModal
-          jobTitle="Specialist"
+          jobTitle="Offer"
           open={this.state.openDeleteModel}
           onClose={this.onClose}
+          handleConfirmDelete={this.onClickOfferDelete}
         />
       </>
     );
