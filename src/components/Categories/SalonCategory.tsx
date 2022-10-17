@@ -35,7 +35,6 @@ class SalonCategory extends Component <categoryProps> {
               onClickNavigateOffersPage={
                 this.onClickNavigateOffersPage
               }
-
             />
           </Box>
           <SalonCategoryCard/>

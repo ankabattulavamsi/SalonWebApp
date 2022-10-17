@@ -5,15 +5,21 @@ import { withStyles } from "@mui/styles";
 import { stylesCard } from "./Cards";
 import { Box } from "@mui/system";
 import "./GalleryOwner.styles.css";
+import { GallaryData } from "../../../utils/data/GalleryOwner/Gallery";
 interface GalleryCardProps {
   classes: any;
   imgUrl: string;
-  id: number;
+  id: number | string;
+  title?: string;
+
+  handleEditImage?: (id: string | number, item: GallaryData) => void;
+  handleDeleteImage?: (id: string | number) => void;
 }
 interface GalleryCardState {}
 class GalleryCard extends React.Component<GalleryCardProps, GalleryCardState> {
   render() {
-    const { classes, id, imgUrl } = this.props;
+    const { classes, id, imgUrl, title, handleDeleteImage, handleEditImage } =
+      this.props;
     return (
       <Card sx={{ width: "100%" }} className={`cards ${classes.card}`}>
         <CardMedia
@@ -21,7 +27,7 @@ class GalleryCard extends React.Component<GalleryCardProps, GalleryCardState> {
           alt={`${id}`}
           image={imgUrl}
           src={imgUrl}
-          sx={{ borderRadius: "4px" }}
+          sx={{ borderRadius: "4px", objectFit: "cover" }}
           className={classes.imgCard}
         />
 
@@ -34,10 +40,20 @@ class GalleryCard extends React.Component<GalleryCardProps, GalleryCardState> {
               gap: "50px",
             }}
           >
-            <Button className={classes.buttonClass}>
+            <Button
+              onClick={() => {
+                handleEditImage && handleEditImage(id, { id, imgUrl, title });
+              }}
+              className={classes.buttonClass}
+            >
               <Edit />
             </Button>
-            <Button className={classes.buttonClass}>
+            <Button
+              onClick={() => {
+                handleDeleteImage && handleDeleteImage(id);
+              }}
+              className={classes.buttonClass}
+            >
               <Delete />
             </Button>
           </Box>

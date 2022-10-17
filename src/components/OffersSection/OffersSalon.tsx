@@ -6,14 +6,15 @@ import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-import offerImg from "../../assets/images/OffersSection/Rectangle73.png";
-
+import offerImg from "../../assets/images//OffersSection/Rectangle73.png";
 import { SalonBestOffersData } from "../../utils/data/SalonPatnerBestOffers/SalonBestOffers";
 import { Buttons } from "../common";
 import { StylesOffers } from "./BestOffers.styles";
 import Banner from "../common/Banner/Banner";
 import Layout from "../Layout/Layout";
 import SalonBestOffersModel from "./SalonBestOffersModel";
+import DeleteModal from "../common/DeleteModal/DeleteModal";
+import AddNewOffer from "./AddNewOffer";
 
 interface IsStateProps {
   classes: any;
@@ -21,15 +22,86 @@ interface IsStateProps {
 
 interface IsState {
   open: boolean;
+  openDeleteModel: boolean;
+  addNewOfferOpen: boolean;
+  SalonOffersData: any[];
+  editId: string;
+  editOfferTitle: string;
+  editPrice: string;
+  editDissPrice: string;
+  editDescription: string;
 }
 
 export class OffersSalon extends Component<IsStateProps> {
   state: IsState = {
     open: false,
+    openDeleteModel: false,
+    addNewOfferOpen: false, 
+    SalonOffersData: SalonBestOffersData || [],
+    editId: "",
+    editOfferTitle: "",
+    editPrice: "",
+    editDissPrice: "",
+    editDescription: "",
   };
 
-  onClickOpenModel = () => {
+  handleCloseAddOffer = () =>{
+    this.setState({addNewOfferOpen: false})
+  }
+
+  onClose = () => {
+    this.setState({ openDeleteModel: false });
+  };
+
+  onClickOpenModel = (item: any) => {
     this.setState({ open: true });
+    this.setState({ editId: item.id });
+    this.setState({ editOfferTitle: item.headingOff });
+    this.setState({ editPrice: item.price });
+    this.setState({ editDissPrice: item.dissPrice });
+    this.setState({ editDescription: item.description });
+  };
+
+  handleClickOpenAddModel = () => {
+    this.setState({addNewOfferOpen: true})
+  }
+
+  onSubmitEditModel = () => {
+    const {
+      SalonOffersData,
+      editId,
+      editOfferTitle,
+      editPrice,
+      editDissPrice,
+      editDescription,
+    } = this.state;
+    const findIndex = SalonOffersData.findIndex((item) => item.id === editId);
+    SalonOffersData[findIndex].headingOff = editOfferTitle;
+    SalonOffersData[findIndex].price = editPrice;
+    SalonOffersData[findIndex].dissPrice = editDissPrice;
+    SalonOffersData[findIndex].description = editDescription;
+    this.setState({ SalonBestOffersData: SalonBestOffersData });
+    this.setState({ open: false });
+    this.setState({editOfferTitle : ''})
+    this.setState({editPrice: ''})
+    this.setState({editDissPrice: ''})
+    this.setState({editDescription: ''})
+  };
+
+  onChangeeditOfferTitle = (e: any) => {
+    this.setState({ editOfferTitle: e.target.value });
+  };
+
+  onChangePrice = (e: any) => {
+    this.setState({ editPrice: e.target.value });
+  };
+
+  onChangeDissPrice = (e: any) => {
+    this.setState({ editDissPrice: e.target.value });
+  };
+
+  onChangeDescription = (e: any) => {
+    this.setState({ editDescription: e.target.value });
   };
 
   handleClose = () => {
@@ -37,12 +109,24 @@ export class OffersSalon extends Component<IsStateProps> {
   };
 
   onClickDeleteOffer = (id: any) => {
-    const filterData = SalonBestOffersData.filter((item) => item.id !== id);
-    console.log('delete', filterData)
+    let filterData = this.state.SalonOffersData.filter(
+      (item) => item.id !== id
+    );
+    this.setState({ SalonOffersData: filterData });
+    this.setState({openDeleteModel: true})
   };
 
   render() {
-    const { open } = this.state;
+    const {
+      open,
+      SalonOffersData,
+      editId,
+      editOfferTitle,
+      editPrice,
+      editDissPrice,
+      editDescription,
+      addNewOfferOpen
+    } = this.state;
     const { classes } = this.props;
     return (
       <>
@@ -53,6 +137,7 @@ export class OffersSalon extends Component<IsStateProps> {
                 image={offerImg}
                 title="Best Offers"
                 buttonTitle="Add new Offer"
+                handleClick={this.handleClickOpenAddModel}
               />
               <Grid
                 container
@@ -61,9 +146,9 @@ export class OffersSalon extends Component<IsStateProps> {
                 rowSpacing={3}
                 sx={{ px: { sm: 0, xs: 0, md: 0, lg: 0 } }}
               >
-                {SalonBestOffersData.slice(0, 2).map((item) => {
+                {SalonBestOffersData.map((item: any, index: number) => {
                   return (
-                    <Grid item lg={6} md={6} xs={12} sm={6} key={item.id}>
+                    <Grid item lg={6} md={6} xs={12} sm={6} key={index}>
                       <Box>
                         <Box
                           sx={{ backgroundColor: "#FDF6EE" }}
@@ -116,7 +201,7 @@ export class OffersSalon extends Component<IsStateProps> {
                               className={classes.SalonEditDeleteButonsContainer}
                             >
                               <Button
-                                onClick={this.onClickOpenModel}
+                                onClick={() => this.onClickOpenModel(item)}
                                 startIcon={<ModeEditIcon />}
                                 className="best-offers-edit-btn-text"
                               >
@@ -124,9 +209,7 @@ export class OffersSalon extends Component<IsStateProps> {
                               </Button>
 
                               <Button
-                                onClick={(e) =>
-                                  this.onClickDeleteOffer(item.id)
-                                }
+                                onClick={(e) => this.onClickDeleteOffer(index)}
                                 startIcon={<DeleteIcon />}
                                 className="best-offers-delete-btn-text"
                               >
@@ -143,7 +226,34 @@ export class OffersSalon extends Component<IsStateProps> {
             </Container>
           </Box>
         </Layout>
-        <SalonBestOffersModel open={open} handleClose={this.handleClose} />
+        <AddNewOffer addNewOfferOpen={addNewOfferOpen} handleCloseAddOffer={this.handleCloseAddOffer} editOfferTitle={editOfferTitle}
+          editPrice={editPrice}
+          editDissPrice={editDissPrice}
+          editDescription={editDescription}
+          onChangeeditOfferTitle={this.onChangeeditOfferTitle}
+          onSubmitEditModel={this.onSubmitEditModel}
+          onChangePrice={this.onChangePrice}
+          onChangeDissPrice={this.onChangeDissPrice}
+          onChangeDescription={this.onChangeDescription} />
+        <SalonBestOffersModel
+          open={open}
+          handleClose={this.handleClose}
+          editOfferTitle={editOfferTitle}
+          editPrice={editPrice}
+          editDissPrice={editDissPrice}
+          editDescription={editDescription}
+          onChangeeditOfferTitle={this.onChangeeditOfferTitle}
+          onSubmitEditModel={this.onSubmitEditModel}
+          onChangePrice={this.onChangePrice}
+          onChangeDissPrice={this.onChangeDissPrice}
+          onChangeDescription={this.onChangeDescription}
+        />
+
+        <DeleteModal
+          jobTitle="Specialist"
+          open={this.state.openDeleteModel}
+          onClose={this.onClose}
+        />
       </>
     );
   }
