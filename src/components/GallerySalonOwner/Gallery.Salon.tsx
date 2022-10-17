@@ -117,9 +117,9 @@ class GallerySalon extends Component<GallerySalonProps, GallerySalonState> {
     this.setState({ deletedId: id });
     this.handleToggleDeleteModal();
   };
+
   handleDelete = (id?: string | number) => {
     console.log("leted id", id);
-
     this.setState({
       ImagesData: this.state.ImagesData.filter((item) => item.id !== id),
     });

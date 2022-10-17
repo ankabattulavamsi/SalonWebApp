@@ -161,7 +161,7 @@ class GalleryOwner extends Component<GalleryOwnerProps, GalleryOwnerState> {
           </Box>
 
           <Grid container spacing={2}>
-            {gallaryData.slice(0, 6).map((images: GallaryData) => {
+            {this.state.ImagesData.slice(0, 6).map((images: GallaryData) => {
               return (
                 <Grid item xs={12} sm={6} md={4} key={images.id}>
                   <GalleryCards
