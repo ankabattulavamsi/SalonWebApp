@@ -310,7 +310,7 @@ export default class GalleryAddModal extends Component<
                               icon={<DeleteIcon />}
                               bgColor="#272522"
                               color="#fff"
-                              title="delete"
+                              title="cancel"
                               handleClick={() => handleClose()}
                             />
                           </Box>
