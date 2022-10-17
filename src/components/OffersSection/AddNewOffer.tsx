@@ -19,12 +19,12 @@ import OferrImg from "../../assets/images/SalonPatnerBestOffersImg/Rectangle64(1
 
 import { withStyles } from "@mui/styles";
 import { StylesOffers } from "./BestOffers.styles";
+import OfferUploadImages from "./OfferUploadImages";
 
-import "./SalonBestOffers.css";
-interface IsStatePassProps {
+interface IsAddNewProps {
   classes: any;
-  open: boolean;
-  handleClose: (id: any) => void;
+  addNewOfferOpen: boolean;
+  handleCloseAddOffer: (id: any) => void;
   editOfferTitle: string;
   editPrice: string;
   editDissPrice: string;
@@ -36,23 +36,21 @@ interface IsStatePassProps {
   onSubmitEditModel: (id: any) => void;
 }
 
-class SalonBestOffersModel extends Component<IsStatePassProps> {
+export class AddNewOffer extends Component<IsAddNewProps> {
   render() {
     const {
-      open,
-      handleClose,
+      classes,
       editOfferTitle,
       editPrice,
       editDissPrice,
       editDescription,
     } = this.props;
-    const { classes } = this.props;
     return (
       <>
         <Container>
           <Dialog
-            onClose={handleClose}
-            open={open}
+            onClose={this.props.handleCloseAddOffer}
+            open={this.props.addNewOfferOpen}
             maxWidth="md"
             className="offers-dialog-box"
           >
@@ -71,7 +69,7 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
             >
               <IconButton
                 aria-label="close"
-                onClick={handleClose}
+                onClick={this.props.handleCloseAddOffer}
                 sx={{
                   position: "absolute",
                   right: 8,
@@ -79,22 +77,16 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
                   color: (theme) => theme.palette.grey[500],
                 }}
               >
-                <CloseIcon />
+                <CloseIcon style={{width:"42px"}} />
               </IconButton>
             </Box>
             <Divider />
             <Box sx={{ p: 3, backgroundColor: '#fff' }}>
               <Grid container spacing={2}>
                 <Grid item xs={12} md={6} sm={6} lg={6}>
-                  <Grid item xs={12} md={6} sm={6} lg={6}>
-                    <Box>
-                      <img
-                        src={OferrImg}
-                        alt="offered-image"
-                        className="edit-offer-image"
-                      />
-                    </Box>
-                  </Grid>
+                  <Box>
+                    <OfferUploadImages />
+                  </Box>
 
                   {/* <Grid xs={12} md={12} lg={12} sx={{ mt: 2 }}>
                     <Grid item xs={3} md={6} lg={6}>
@@ -137,6 +129,7 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
                         fullWidth
                         variant="standard"
                         InputProps={{ disableUnderline: true }}
+                        placeholder="Add Offer Title"
                         value={editOfferTitle}
                         onChange={this.props.onChangeeditOfferTitle}
                         sx={{
@@ -246,39 +239,17 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
                     </Box>
                   </Grid>
 
-                  <Grid
-                    container
-                    xs={12}
-                    md={12}
-                    sm={12}
-                    lg={12}
-                  >
-                    <Grid item xs={6} md={6} lg={6}>
+                  <Grid container xs={12} md={12} sm={12} lg={12}>
+                    <Grid item xs={12} md={12} lg={12}>
                       <Box
                         className={classes.ModelSaveButton}
-                        onClick={this.props.onSubmitEditModel}
+                        onClick={this.props.handleCloseAddOffer}
                       >
                         <Button
                           startIcon={<ClassIcon />}
-                          onClick={this.props.onSubmitEditModel}
                           className={classes.ModelSaveText}
                         >
-                          Save
-                        </Button>
-                      </Box>
-                    </Grid>
-
-                    <Grid item xs={6} md={6} lg={6}>
-                      <Box
-                        className={classes.ModelDeleteButton}
-                        onClick={this.props.onSubmitEditModel}
-                      >
-                        <Button
-                          startIcon={<CloseIcon />}
-                          onClick={this.props.handleClose}
-                          className={classes.ModelDeleteText}
-                        >
-                          Cancel
+                          Add
                         </Button>
                       </Box>
                     </Grid>
@@ -293,4 +264,4 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
   }
 }
 
-export default withStyles(StylesOffers)(SalonBestOffersModel);
+export default withStyles(StylesOffers)(AddNewOffer);

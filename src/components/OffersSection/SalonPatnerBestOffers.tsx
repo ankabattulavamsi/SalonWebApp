@@ -99,7 +99,7 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
               rowSpacing={3}
               sx={{ px: { sm: 4, xs: 2, md: 0, lg: 0 } }}
             >
-              {SalonBestOffersData.slice(0, 2).map((item) => {
+              {SalonBestOffersData.slice(0, 2).map((item:any) => {
                 return (
                   <Grid item lg={4.5} md={5} xs={12} sm={6} key={item.id}>
                     <Box>
@@ -174,7 +174,7 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
               })}
             </Grid>
           </Box>
-          <SalonBestOffersModel open={open} handleClose={this.handleClose} />
+          {/* <SalonBestOffersModel open={open} handleClose={this.handleClose} /> */}
         </Box>
       </>
     );
