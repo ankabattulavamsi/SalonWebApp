@@ -173,4 +173,9 @@ export const StylesOffers: any  = (theme: any) =>  ({
     opacity: "1",
     
   },
+  CardImageOffer: {
+    width: '100% !important',
+    height: '220px !important',
+    objectFit: "cover !important"
+  }
 });
