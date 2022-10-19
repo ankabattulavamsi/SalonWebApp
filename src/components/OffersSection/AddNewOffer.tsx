@@ -1,9 +1,11 @@
 import {
+  Badge,
   Button,
   Container,
   Dialog,
   Divider,
   Grid,
+  Icon,
   IconButton,
   TextField,
   Typography,
@@ -15,11 +17,13 @@ import ClassIcon from "@mui/icons-material/Class";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CloseIcon from "@mui/icons-material/Close";
 
-import OferrImg from "../../assets/images/SalonPatnerBestOffersImg/Rectangle64(1).png";
+
+import {
+  galleryUploadIcon,
+} from "../../utils/data/GalleryOwner/Gallery";
 
 import { withStyles } from "@mui/styles";
 import { StylesOffers } from "./BestOffers.styles";
-import OfferUploadImages from "./OfferUploadImages";
 
 interface IsAddNewProps {
   classes: any;
@@ -29,11 +33,15 @@ interface IsAddNewProps {
   editPrice: string;
   editDissPrice: string;
   editDescription: string;
+  editImage: string;
+  editId: string;
   onChangeeditOfferTitle: (id: any) => void;
   onChangePrice: (id: any) => void;
   onChangeDissPrice: (id: any) => void;
   onChangeDescription: (id: any) => void;
   onSubmitEditModel: (id: any) => void;
+  handleOnChangeImage: (id: any) => void;
+  onClicOfCloseBadge: (id:any) => void
 }
 
 export class AddNewOffer extends Component<IsAddNewProps> {
@@ -44,6 +52,10 @@ export class AddNewOffer extends Component<IsAddNewProps> {
       editPrice,
       editDissPrice,
       editDescription,
+      editId,
+      editImage, 
+      handleOnChangeImage, 
+      onClicOfCloseBadge
     } = this.props;
     return (
       <>
@@ -72,9 +84,9 @@ export class AddNewOffer extends Component<IsAddNewProps> {
                 onClick={this.props.handleCloseAddOffer}
                 sx={{
                   position: "absolute",
-                  right: 8,
-                  top: 8,
-                  color: (theme) => theme.palette.grey[500],
+                  right: -10,
+                  top: '-10%',
+                  color: '#fff',
                 }}
               >
                 <CloseIcon style={{width:"42px"}} />
@@ -84,31 +96,207 @@ export class AddNewOffer extends Component<IsAddNewProps> {
             <Box sx={{ p: 3, backgroundColor: '#fff' }}>
               <Grid container spacing={2}>
                 <Grid item xs={12} md={6} sm={6} lg={6}>
-                  <Box>
-                    <OfferUploadImages />
+                <Box sx={{ postion: "relative" }}>
+                  <Box
+                    sx={{ postion: "relative", width: {md: "350px", xs: '100%'}, mx: 'auto', height: "270px" }}
+                  >
+                    {editImage === "" && editImage === "" ? (
+                      <>
+                        <Box sx={{ position: "relative" }}>
+                          <input
+                            name={"image"}
+                            id="image"
+                            accept="*"
+                            type="file"
+                            onChange={(e) => handleOnChangeImage(e)}
+                            style={{
+                              opacity: 0,
+                              position: "relative",
+                              width: "100%",
+                              height: "289px",
+                              top: 0,
+                              bottom: 0,
+                              left: 0,
+                              right: 0,
+                              zIndex: 1,
+                            }}
+                          />
+                          {/* <ErrorMessage name="image" /> */}
+                          <Box
+                            sx={{
+                              bgcolor: "#f0f0f0",
+                              position: "absolute",
+                              top: 0,
+                              left: 0,
+                              right: 0,
+                              bottom: 0,
+                              padding: "32px 40px",
+                              height: "100%",
+                              width: "100%",
+                              borderRadius: "4px 4px 0px 0px",
+                            }}
+                          >
+                            <Box
+                              sx={{
+                                border: "2px dashed #A4A1A1",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                height: "100%",
+                                width: "100%",
+                                flexDirection: "column",
+                              }}
+                            >
+                              <Box>
+                                <img
+                                  src={galleryUploadIcon}
+                                  style={{
+                                    width: "64px",
+                                    height: "64px",
+                                    objectFit: "contain",
+                                  }}
+                                  alt="images"
+                                />
+                              </Box>
+                              <Box>
+                                <Typography
+                                  component={"h5"}
+                                  sx={{
+                                    fontSize: {
+                                      xs: "16px",
+                                      md: "18px",
+                                      lg: "20px",
+                                    },
+                                    color: "#272522",
+                                    fontWeight: "600",
+                                    textTransform: "capitalize",
+                                    textAlign: 'center'
+                                  }}
+                                >
+                                  Upload Offers Image
+                                </Typography>
+                              </Box>
+                              <Box>
+                                <Typography
+                                  sx={{
+                                    fontSize: {
+                                      xs: "10px",
+                                      sm: "12px",
+                                      md: "14px",
+                                      lg: "16px",
+                                    },
+                                    color: "#A4A1A1",
+                                    fontWeight: "500",
+                                    textTransform: "lowercase",
+                                    textAlign: 'center'
+                                  }}
+                                >
+                                  Supported files PNG, JPEG, SVG, wEBP
+                                </Typography>{" "}
+                              </Box>
+                            </Box>
+                          </Box>
+                        </Box>
+                      </>
+                    ) : editImage && editId !== "" ? (
+                      <img
+                        src={editImage}
+                        alt='{item.title}'
+                        style={{
+                          objectFit: "cover",
+                          width: "100%",
+                          height: "100%",
+                        }}
+                      />
+                    ) : (
+                      <img
+                        src={editImage}
+                        alt='{title}'
+                        style={{
+                          objectFit: "cover",
+                          width: "100%",
+                          height: "100%",
+                        }}
+                      />
+                    )}
                   </Box>
 
-                  {/* <Grid xs={12} md={12} lg={12} sx={{ mt: 2 }}>
-                    <Grid item xs={3} md={6} lg={6}>
-                      <Box className={classes.ModelAvatarImage}>
-                        <img
-                          src={OferrImg}
-                          alt="offered-image"
-                          style={{ width: "100px" }}
-                        />
-                        <CloseIcon
-                          style={{
-                            marginBottom: "28px",
-                            marginLeft: "-12px",
-                            color: "#fff",
-                            backgroundColor: "black",
-                            borderRadius: "25px",
-                            fontSize: "18px",
-                          }}
-                        />
-                      </Box>
-                    </Grid>
-                  </Grid> */}
+                  <Box
+                    marginTop={3}
+                    display={"flex"}
+                    justifyContent={"flex-start"}
+                    gap={2}
+                    flexWrap="wrap"
+                  >
+                    <Box width={"120px"} height="50%">
+                      <>
+                        {editImage === "" && editImage === "" ? (
+                          <>
+                            <Box bgcolor={"#f0f0f0"} padding={"10px 9px"}>
+                              <Box p={"9px 13px "}>
+                                <Icon
+                                  sx={{ color: "#A4A1A1", fontSize: "80px" }}
+                                >
+                                  +
+                                </Icon>
+                              </Box>
+                            </Box>
+                          </>
+                        ) : editImage && editId !== "" ? (
+                          <Badge
+                            color="secondary"
+                            badgeContent={
+                              <CloseIcon
+                                onClick={onClicOfCloseBadge}
+                                sx={{
+                                  bgcolor: "#272727",
+                                  color: "#fff",
+                                  borderRadius: "50%",
+                                  fontSize: "1rem",
+                                }}
+                              />
+                            }
+                          >
+                            <img
+                              src={editImage && editImage}
+                              alt="fesdga "
+                              style={{
+                                objectFit: "contain",
+                                width: "120px",
+                                height: "80px",
+                              }}
+                            />
+                          </Badge>
+                        ) : (
+                          <Badge
+                            color="secondary"
+                            badgeContent={
+                              <CloseIcon
+                                onClick={onClicOfCloseBadge}
+                                sx={{
+                                  bgcolor: "#272727",
+                                  color: "#fff",
+                                  borderRadius: "50%",
+                                  fontSize: "1rem",
+                                }}
+                              />
+                            }
+                          >
+                            <img
+                              src={editImage}
+                              alt=""
+                              style={{
+                                objectFit: "contain",
+                                width: "100%",
+                                height: "100%",
+                              }}
+                            />
+                          </Badge>
+                        )}
+                      </>
+                    </Box>
+                  </Box>
+                </Box>
                 </Grid>
 
                 <Grid item xs={12} md={6} sm={6} lg={6}>
