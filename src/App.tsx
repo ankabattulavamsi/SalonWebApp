@@ -30,6 +30,8 @@ function App() {
 
           {/* Salon Partners */}
           <Route path="salon" element={<SalonPartner />} />
+          <Route path="salon/owner" element={<SalonOwnerPage />} />
+
           <Route path="salon/offers" element={<OffersSalon />} />
           <Route path="salon/gallery" element={<GallerySalon />} />
           <Route path="salon/team" element={<SpecialistTeam />} />

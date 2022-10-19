@@ -12,6 +12,7 @@ import { SalonMenus } from "../../../utils/models/navbar_interface";
 
 import "./SalonNav.css";
 import SalonNotification from "../../SalonNotification/SalonNotification";
+import withRouter from "../../../hoc/withRouter";
 
 interface salonProps {
   customer: boolean;
@@ -74,13 +75,23 @@ class SalonNavbar extends Component<salonProps, salonState> {
                 );
               })}
             </Box>
-            <Box
-              className="nav-profile-section"
-              onClick={() => {
-                this.props.navigate("/salon/owner");
-              }}
-            >
-              <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Box className="nav-profile-section">
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  color:
+                    window.location.pathname === "/salon/owner"
+                      ? "#E7A356"
+                      : "",
+                  "&:hover": {
+                    cursor: "pointer",
+                  },
+                }}
+                onClick={() => {
+                  this.props.navigate("/salon/owner");
+                }}
+              >
                 <Avatar alt="Remy Sharp" src={Profile} />
                 <Typography sx={{ ml: 2 }} variant="h3">
                   Profile
@@ -189,4 +200,4 @@ class SalonNavbar extends Component<salonProps, salonState> {
   }
 }
 
-export default SalonNavbar;
+export default withRouter(SalonNavbar);
