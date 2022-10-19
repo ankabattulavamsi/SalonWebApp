@@ -4,7 +4,7 @@ export const style ={
         height: 'auto',
         margin: '0 auto',
         top: '30% !important',
-        overflowY: 'scroll' as 'scroll',
+        // overflowY: 'scroll' as 'scroll',
         '& img':{
             width: '100%',
             height: '100%',
