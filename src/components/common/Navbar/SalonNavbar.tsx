@@ -16,6 +16,7 @@ import SalonNotification from "../../SalonNotification/SalonNotification";
 interface salonProps {
   customer: boolean;
   menus: SalonMenus[];
+  navigate?: any;
 }
 interface salonState {
   isCustomer: boolean;
@@ -48,7 +49,7 @@ class SalonNavbar extends Component<salonProps, salonState> {
   };
   render() {
     const { menus } = this.props;
-    
+
     return (
       <>
         <Fragment>
@@ -73,7 +74,12 @@ class SalonNavbar extends Component<salonProps, salonState> {
                 );
               })}
             </Box>
-            <Box className="nav-profile-section">
+            <Box
+              className="nav-profile-section"
+              onClick={() => {
+                this.props.navigate("/salon/owner");
+              }}
+            >
               <Box sx={{ display: "flex", alignItems: "center" }}>
                 <Avatar alt="Remy Sharp" src={Profile} />
                 <Typography sx={{ ml: 2 }} variant="h3">
@@ -121,10 +127,10 @@ class SalonNavbar extends Component<salonProps, salonState> {
                 >
                   <NotificationsIcon
                     onClick={this.handleDialogOpen}
-                    sx={{ fontSize: "32px",
-                    color: this.state.dialogOpen ? "#E7A356" : "",
-                  
-                  }}
+                    sx={{
+                      fontSize: "32px",
+                      color: this.state.dialogOpen ? "#E7A356" : "",
+                    }}
                   />
                 </Badge>
               </Box>
