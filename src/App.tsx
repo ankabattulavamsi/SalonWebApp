@@ -16,6 +16,7 @@ import OffersSalon from "./components/OffersSection/OffersSalon";
 import SalonBlogs from "./components/OurBlogs/SalonBlogs";
 import SalonAllCategory from "./components/Categories/SalonAllCategory";
 import BookingsMainPage from "./components/BookingsSection/BookingsMainPage/BookingsMainPage";
+import SalonCustomer from "./routes/SalonCustomer/SalonCustomer";
 function App() {
   return (
     <div>
@@ -38,6 +39,12 @@ function App() {
           <Route path="salon/category" element={<SalonAllCategory />} />
           <Route path="/*" element={<Nopage />} />
           {/* Salon Partners */}
+
+          {/* Salon Customer */}
+          <Route path="customer" element={<SalonCustomer />} />
+
+          {/* Salon Customer */}
+
         </Routes>
       </ThemeProvider>
     </div>
