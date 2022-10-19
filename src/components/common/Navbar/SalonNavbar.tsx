@@ -80,7 +80,9 @@ class SalonNavbar extends Component<salonProps, salonState> {
                   Profile
                 </Typography>
               </Box>
-              <Box>
+              <Box sx={{
+                mr:4
+              }}>
                 <Badge
                   variant="dot"
                   sx={{ "& .MuiBadge-badge": { backgroundColor: "#E7A356" } }}
