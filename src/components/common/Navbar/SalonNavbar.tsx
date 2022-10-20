@@ -25,6 +25,10 @@ interface salonState {
   isCustomer: boolean;
   open: boolean;
   dialogOpen: boolean;
+  lat: any;
+  lon: any;
+  data: any;
+  locationData: any;
 }
 
 class SalonNavbar extends Component<salonProps, salonState> {
@@ -32,6 +36,14 @@ class SalonNavbar extends Component<salonProps, salonState> {
     isCustomer: this.props.customer,
     open: false,
     dialogOpen: false,
+    lat: null,
+    lon: null,
+    data: "",
+    locationData: {
+      state_district: "",
+      state: "",
+      country: "",
+    },
   };
 
   handleClick = (title: string) => {
@@ -50,9 +62,96 @@ class SalonNavbar extends Component<salonProps, salonState> {
       dialogOpen: false,
     });
   };
+
+  fetchdata = async () => {
+    console.log(this.state.lat, this.state.lon);
+    await fetch(
+      `https://api.opencagedata.com/geocode/v1/json?q=${this.state.lat}+${this.state.lon}&key=8518d29fbed240129135f8e8283c4c01`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("data", data);
+
+        this.setState({ data: data.results[0].formatted });
+        let localData = data.results[0].components;
+        let { state_district, state, country } = localData;
+        console.log(localData);
+        localStorage.setItem(
+          "Current Adress",
+          JSON.stringify({ state_district, state, country })
+        );
+        console.log(data.results[0].formatted);
+      })
+      .then((data) =>
+        fetch(` https://httpstat.us/200`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: data, time: new Date() }),
+        })
+      );
+  };
+  getLocation = () => {
+    if (navigator.geolocation) {
+      var data = navigator.geolocation.getCurrentPosition(
+        this.showPosition,
+        this.handleLocationError
+      );
+      debugger
+    } else {
+      alert("Geolocation not supported");
+    }
+  };
+  showPosition = (position: any) => {
+   
+    
+    this.setState(
+      {
+        lat: position.coords.latitude,
+        lon: position.coords.longitude,
+      },
+      () => this.fetchdata()
+    );
+  };
+  handleLocationError = (error: any) => {
+    switch (error) {
+      case error.PERMISSION_DENIED:
+        alert("user denied request for geolocation error");
+        break;
+      case error.POSITION_UNAVAILABLE:
+        alert("location information unavailable");
+        break;
+      case error.TIMEOUT:
+        alert("request time out");
+        break;
+      case error.UNKNOWN_ERROR:
+        alert("unknown error occured");
+        break;
+      default:
+    }
+  };
+  componentDidMount() {
+    if (localStorage.getItem("Current Adress")) {
+      const existingdata = JSON.parse(
+        localStorage.getItem("Current Adress") || ""
+      );
+      console.log("Exist Data", existingdata);
+      this.setState({ data: existingdata });
+
+      console.log("local data", existingdata);
+      this.setState({
+        locationData: existingdata,
+      });
+    } else {
+      this.getLocation();
+      console.log("Get location", this.getLocation());
+    }
+  }
+
   render() {
     const { menus } = this.props;
-    
+
+    console.log("locationData", this.state.locationData);
+
     return (
       <>
         <Fragment>
@@ -91,11 +190,14 @@ class SalonNavbar extends Component<salonProps, salonState> {
                         display: "flex",
                       }}
                     >
-                      <Typography variant="h6">Nagpur</Typography>
+                      <Typography variant="h6">
+                        {this.state.locationData.state_district}
+                      </Typography>
                       <ExpandMoreIcon />
                     </Box>
                     <Typography variant="h6" color="secondary.dark">
-                      Maharashtra,India
+                      {this.state.locationData.state},&nbsp;
+                      {this.state.locationData.country}
                     </Typography>
                   </Box>
                 </Box>
@@ -137,6 +239,7 @@ class SalonNavbar extends Component<salonProps, salonState> {
                     onClick={this.handleDialogOpen}
                     sx={{
                       fontSize: "32px",
+                      cursor:"pointer",
                       color: this.state.dialogOpen ? "#E7A356" : "",
                     }}
                   />
@@ -176,6 +279,8 @@ class SalonNavbar extends Component<salonProps, salonState> {
                     onClick={this.handleDialogOpen}
                     sx={{
                       fontSize: "32px",
+                      cursor:"pointer",
+
                       color: this.state.dialogOpen ? "#E7A356" : "",
                     }}
                   />
@@ -197,13 +302,14 @@ class SalonNavbar extends Component<salonProps, salonState> {
                     alignItems: "center",
                     justifyContent: "space-around",
                     ml: { sm: 4 },
-
-                    // pl: { sm: 5 },
                   }}
                 >
                   <LocationOnIcon sx={{ fontSize: "32px" }} />
                   <Typography variant="h6">
-                    Nagpur,Maharashtra,India <ExpandMoreIcon />
+                    {this.state.locationData.state_district},&nbsp;
+                    {this.state.locationData.state},{" "}
+                    {this.state.locationData.country}
+                    <ExpandMoreIcon />
                   </Typography>
                 </Box>
                 <Box

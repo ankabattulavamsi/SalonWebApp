@@ -1,19 +1,24 @@
 /** @format */
 
 import React from "react";
-import { salonMenu } from "../../utils/data/navbar_menus";
+import { CustomerMenu, salonMenu } from "../../utils/data/navbar_menus";
 import Footer from "../common/Footer/Footer";
 import SalonNavbar from "../common/Navbar/SalonNavbar";
 
 interface IProps {
 	children: React.ReactNode;
+	customer?: boolean;
 }
 class Layout extends React.Component<IProps> {
 	render() {
 		return (
 			<>
 				<>
-					<SalonNavbar customer={false} menus={salonMenu} />
+					{this.props.customer === true ? (
+						<SalonNavbar customer={true} menus={CustomerMenu} />
+					) : (
+						<SalonNavbar customer={false} menus={salonMenu} />
+					)}
 
 					{this.props.children}
 
