@@ -16,32 +16,34 @@ import OffersSalon from "./components/OffersSection/OffersSalon";
 import SalonBlogs from "./components/OurBlogs/SalonBlogs";
 import SalonAllCategory from "./components/Categories/SalonAllCategory";
 import BookingsMainPage from "./components/BookingsSection/BookingsMainPage/BookingsMainPage";
+import Customer from "./components/customer/Customer";
 function App() {
-  return (
-    <div>
-      <ThemeProvider theme={theme}>
-        <Routes>
-          {/*Guest Flow*/}
-          <Route path="/" element={<LandingPageNavigation />}>
-            <Route index element={<HomePage />} />
-          </Route>
-          {/*Guest Flow*/}
+	return (
+		<div>
+			<ThemeProvider theme={theme}>
+				<Routes>
+					{/*Guest Flow*/}
+					<Route path="/" element={<LandingPageNavigation />}>
+						<Route index element={<HomePage />} />
+					</Route>
+					{/*Guest Flow*/}
 
-          {/* Salon Partners */}
-          <Route path="salon" element={<SalonPartner />} />
-          <Route path="salon/offers" element={<OffersSalon />} />
-          <Route path="salon/gallery" element={<GallerySalon />} />
-          <Route path="salon/team" element={<SpecialistTeam />} />
-          <Route path="salon/blog" element={<SalonBlogs />} />
-          <Route path="salon/booking" element={<BookingsMainPage />} />
+					{/* Salon Partners */}
+					<Route path="salon" element={<SalonPartner />} />
+					<Route path="salon/offers" element={<OffersSalon />} />
+					<Route path="salon/gallery" element={<GallerySalon />} />
+					<Route path="salon/team" element={<SpecialistTeam />} />
+					<Route path="salon/blog" element={<SalonBlogs />} />
+					<Route path="salon/booking" element={<BookingsMainPage />} />
 
-          <Route path="salon/category" element={<SalonAllCategory />} />
-          <Route path="/*" element={<Nopage />} />
-          {/* Salon Partners */}
-        </Routes>
-      </ThemeProvider>
-    </div>
-  );
+					<Route path="salon/category" element={<SalonAllCategory />} />
+					<Route path="customer" element={<Customer />} />
+					<Route path="/*" element={<Nopage />} />
+					{/* Salon Partners */}
+				</Routes>
+			</ThemeProvider>
+		</div>
+	);
 }
 
 export default App;
