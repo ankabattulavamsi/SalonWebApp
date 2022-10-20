@@ -18,12 +18,13 @@ import { withStyles } from "@mui/styles";
 import './ChangePassCode.css'
 
 interface ChangeCodeProps {
-  classes: any
+  classes: any;
+  open: boolean;
+  onCloseChangeModel: () => void
 }
 
 class ChangePasscode extends Component<ChangeCodeProps> {
   state = {
-    open: false,
     oldPassword: "",
     password: "",
     confirmPassword: "",
@@ -51,22 +52,13 @@ class ChangePasscode extends Component<ChangeCodeProps> {
     }
   };
 
-  onClickOpenModel = () => {
-    this.setState({ open: true });
-  };
-
-  handleCloseAddOffer = () => {
-    this.setState({ open: false });
-  };
-
   handleNavigate = () => {
     this.setState({
       oldPassword: '',
       password: "",
       confirmPassword: "",
-      open: false,
     });
-    console.log("login success");
+    this.props.onCloseChangeModel()
   };
 
   registeredSchema = Yup.object().shape({
@@ -86,16 +78,12 @@ class ChangePasscode extends Component<ChangeCodeProps> {
   });
 
   render() {
-    const { open } = this.state;
-    const {classes} = this.props
+    const {classes, open, onCloseChangeModel} = this.props
     return (
       <>
-        <Box>
-          <Button onClick={this.onClickOpenModel}>Dialouge</Button>
-        </Box>
-
         <Dialog
           open={open}
+          onClose={onCloseChangeModel}
           maxWidth="md"
           sx={{ m: 12 }}
           className="dialog-box-change"
@@ -115,7 +103,7 @@ class ChangePasscode extends Component<ChangeCodeProps> {
           >
             <IconButton
               aria-label="close"
-              onClick={this.handleCloseAddOffer}
+              onClick={onCloseChangeModel}
               sx={{
                 position: "absolute",
                 right: 0,

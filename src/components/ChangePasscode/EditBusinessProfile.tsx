@@ -14,16 +14,19 @@ import "./ChangePassCode.css";
 
 interface EditProfileProps {
   classes: any;
+  open: boolean;
+  onCloseEditBModel: () => void;
+  handleChange: (e:any) => void;
+  handleChangeImage: (e:any) => void;
+  bname: string;
+  GSTIN: string;
+  owner: string;
+  email: string;
+  image: string
 }
 
 interface EditProfileStateProps {
-  open: boolean;
   editData: any;
-  bname: string;
-  owner: string;
-  GSTIN: string;
-  email: string;
-  image: string;
 }
 
 const editProfileData = [
@@ -37,27 +40,16 @@ const editProfileData = [
 
 export class EditBusinessProfile extends Component<EditProfileProps> {
   state: EditProfileStateProps = {
-    open: true,
     editData: editProfileData,
-    bname: "",
-    owner: "",
-    GSTIN: "",
-    email: "",
-    image: "",
   };
 
-  handleChange = (e: any) => {
-    this.setState({ ...this.state, [e.target.name]: e.target.value });
-  };
+  
 
   onSumitEditForm = () => {
     this.setState({ open: false });
   };
-  handleChangeImage = (e:any)=>{
-    this.setState({
-      image:URL.createObjectURL(e.target.files[0])
-    })
-  }
+
+  
 
   businessEditSchema = Yup.object().shape({
     // image: Yup.string().required("image is "),
@@ -84,11 +76,11 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
   });
 
   render() {
-    const { classes } = this.props;
+    const { classes, open, bname } = this.props;
     return (
       <Drawers
-        open={this.state.open}
-        toggleDrawer={() => this.setState({ open: false })}
+        open={open}
+        toggleDrawer={() => this.props.onCloseEditBModel()}
       >
         <Box>
           <Typography variant="h5" className={classes.busText}>
@@ -99,19 +91,19 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
         <Formik
           enableReinitialize={true}
           initialValues={{
-            image: this.state.image,
-            bname: this.state.bname,
-            owner: this.state.owner,
-            GSTIN: this.state.GSTIN,
-            email: this.state.email,
+            image: this.props.image,
+            bname: this.props.bname,
+            owner: this.props.owner,
+            GSTIN: this.props.GSTIN,
+            email: this.props.email,
           }}
           validationSchema={this.businessEditSchema}
-          onSubmit={()=>this.onSumitEditForm()}
+          onSubmit={()=>this.props.onCloseEditBModel()}
 
         >
           <Form onSubmit={(e)=>{
             e.preventDefault()
-            this.onSumitEditForm()
+            this.props.onCloseEditBModel()
            
            }}>
             <>
@@ -134,7 +126,7 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
                       flex: 1,
                     }}
                   >
-                    <img className="img-profile" src={this.state.image ===""?Eliipe :this.state.image} alt="imag" />
+                    <img className="img-profile" src={this.props.image ===""?Eliipe :this.props.image} alt="imag" />
                   </Box>
                 </Box>
 
@@ -150,7 +142,7 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
                       <input
                         accept="image/*"
                         className={"inputHide"}
-                        onChange={this.handleChangeImage}
+                        onChange={this.props.handleChangeImage}
                         type="file"
                         name="image"
                       />
@@ -169,8 +161,8 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
                   placeholder={"enter Business name"}
                   required={true}
                   type={"text"}
-                  handleChange={(e) => this.handleChange(e)}
-                  value={this.state.bname}
+                  handleChange={(e) => this.props.handleChange(e)}
+                  value={this.props.bname}
                   icon={editImg}
                   name={"bname"}
                 />
@@ -180,8 +172,8 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
                   placeholder={"enter owner name"}
                   required={true}
                   type={"text"}
-                  handleChange={(e) => this.handleChange(e)}
-                  value={this.state.owner}
+                  handleChange={(e) => this.props.handleChange(e)}
+                  value={this.props.owner}
                   icon={editImg}
                   name={"owner"}
                 />
@@ -192,8 +184,8 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
                   placeholder="enter GSTIN no"
                   required={true}
                   type={"text"}
-                  handleChange={(e) => this.handleChange(e)}
-                  value={this.state.GSTIN}
+                  handleChange={(e) => this.props.handleChange(e)}
+                  value={this.props.GSTIN}
                   icon={editImg}
                   name={"GSTIN"}
                 />
@@ -204,9 +196,9 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
                   required={true}
                   type={"email"}
                   handleChange={(e) => {
-                    this.handleChange(e);
+                    this.props.handleChange(e);
                   }}
-                  value={this.state.email}
+                  value={this.props.email}
                   icon={editImg}
                   name={"email"}
                 />
