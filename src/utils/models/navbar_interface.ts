@@ -11,6 +11,7 @@ export interface SalonMenus{
     title: string
 }
 
+
 export interface blogsdata{
     id: number;
     image:any;
