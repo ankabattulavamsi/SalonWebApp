@@ -1,26 +1,32 @@
 import {
   Button,
+  Container,
   Dialog,
   Divider,
+  Grid,
   IconButton,
   TextField,
   Typography,
 } from "@mui/material";
+import { withStyles } from "@mui/styles";
 import { Box } from "@mui/system";
 import React, { Component } from "react";
-import OtpInput from "react-otp-input";
+
 import CloseIcon from "@mui/icons-material/Close";
+
 import { ErrorMessage, Form, Formik } from "formik";
 import * as Yup from "yup";
-import { ChangeProfileDetails } from "./ChangePassCode.Style";
-import { withStyles } from "@mui/styles";
 
-import './ChangePassCode.css'
+import OtpInput from "react-otp-input";
+
+import { ChangeProfileDetails } from "./ChangePassCode.Style";
+
+import "./ChangePassCode.css";
 
 interface ChangeCodeProps {
   classes: any;
   open: boolean;
-  onCloseChangeModel: () => void
+  onCloseChangeModel: () => void;
 }
 
 class ChangePasscode extends Component<ChangeCodeProps> {
@@ -54,11 +60,11 @@ class ChangePasscode extends Component<ChangeCodeProps> {
 
   handleNavigate = () => {
     this.setState({
-      oldPassword: '',
+      oldPassword: "",
       password: "",
       confirmPassword: "",
     });
-    this.props.onCloseChangeModel()
+    this.props.onCloseChangeModel();
   };
 
   registeredSchema = Yup.object().shape({
@@ -73,19 +79,21 @@ class ChangePasscode extends Component<ChangeCodeProps> {
       .required("Please fill this field password"),
 
     confirmPassword: Yup.string()
-      .oneOf([Yup.ref("password"), null], "New Passcode & Confirm Passcode Don't Match ")
+      .oneOf(
+        [Yup.ref("password"), null],
+        "New Passcode & Confirm Passcode Don't Match "
+      )
       .required("Please fill this field password"),
   });
 
   render() {
-    const {classes, open, onCloseChangeModel} = this.props
+    const { classes, open, onCloseChangeModel } = this.props;
     return (
       <>
         <Dialog
           open={open}
           onClose={onCloseChangeModel}
           maxWidth="md"
-          sx={{ m: 12 }}
           className="dialog-box-change"
         >
           <Box
@@ -106,8 +114,8 @@ class ChangePasscode extends Component<ChangeCodeProps> {
               onClick={onCloseChangeModel}
               sx={{
                 position: "absolute",
-                right: 0,
-                top: "-10%",
+                right: "-10px",
+                top: "-2px",
                 color: "#fff",
               }}
             >
@@ -115,14 +123,14 @@ class ChangePasscode extends Component<ChangeCodeProps> {
             </IconButton>
           </Box>
           <Divider />
-          <Box sx={{ backgroundColor: "#fff" }}>
-            <Box sx={{ p: 3, m: 2 }}>
+          <Box sx={{ backgroundColor: "#fff", p: 1 }}>
+            <Box sx={{}}>
               <Typography
                 sx={{
                   fontFamily: "Fira Sans",
                   fontStyle: " normal",
                   fontWeight: 700,
-                  fontSize: "28px",
+                  fontSize: { xs: "18px", md: "20px", lg: "24px" },
                   lineHeight: "48px",
                 }}
               >
@@ -141,7 +149,43 @@ class ChangePasscode extends Component<ChangeCodeProps> {
                 }}
               >
                 <Form>
-                  <Box>
+                  <Grid>
+                    <Box>
+                      <Box>
+                        <Typography
+                          sx={{
+                            color: "#272522",
+                            fontSize: "17px",
+                            textTransform: "capitalize",
+                          }}
+                        >
+                          Old Password
+                        </Typography>
+                      </Box>
+                      <OtpInput
+                        value={this.state.oldPassword}
+                        onChange={this.handleChangeOldPassword}
+                        numInputs={6}
+                        placeholder="******"
+                        isInputSecure
+                        inputStyle={{
+                          width: "39px",
+                          height: "40px",
+                          borderRadius: "5%",
+                          border: "none",
+                          margin: "0 3px",
+                          fontSize: "15px",
+                          backgroundColor: "#f0f0f0",
+                          marginBottom: "5px",
+                        }}
+                      />
+                      <ErrorMessage
+                        component={"p"}
+                        className="error-message"
+                        name="oldPassword"
+                      />
+                    </Box>
+
                     <Box>
                       <Typography
                         sx={{
@@ -150,121 +194,97 @@ class ChangePasscode extends Component<ChangeCodeProps> {
                           textTransform: "capitalize",
                         }}
                       >
-                        Old Password
+                        New Password
                       </Typography>
+                      <OtpInput
+                        value={this.state.password}
+                        onChange={this.handleChangePassword}
+                        numInputs={6}
+                        placeholder="******"
+                        isInputSecure
+                        inputStyle={{
+                          width: "39px",
+                          height: "40px",
+                          borderRadius: "5%",
+                          border: "none",
+                          margin: "0 3px",
+                          fontSize: "15px",
+                          backgroundColor: "#f0f0f0",
+                          marginBottom: "5px",
+                        }}
+                      />
+                      <ErrorMessage
+                        component={"p"}
+                        className="error-message"
+                        name="password"
+                      />
                     </Box>
-                    <OtpInput
-                      value={this.state.oldPassword}
-                      onChange={this.handleChangeOldPassword}
-                      numInputs={6}
-                      placeholder="******"
-                      isInputSecure
-                      inputStyle={{
-                        width: "50px",
-                        height: "40px",
-                        borderRadius: "5%",
-                        border: "none",
-                        margin: "0 3px",
-                        fontSize: "15px",
-                        backgroundColor: "#f0f0f0",
-                        marginBottom: "5px",
-                      }}
-                    />
-                    <ErrorMessage
-                      component={"p"}
-                      className="error-message"
-                      name="oldPassword"
-                    />
-                  </Box>
 
-                  <Box>
-                    <Typography
+                    <Box>
+                      <Typography
+                        sx={{
+                          color: "#272522",
+                          fontSize: "17px",
+                          textTransform: "capitalize",
+                        }}
+                      >
+                        Conform Password
+                      </Typography>
+                      <OtpInput
+                        value={this.state.confirmPassword}
+                        onChange={this.confirmPassChangehandle}
+                        numInputs={6}
+                        placeholder="******"
+                        isInputSecure
+                        inputStyle={{
+                          width: "39px",
+                          height: "40px",
+                          borderRadius: "5%",
+                          border: "none",
+                          margin: "0 3px",
+                          fontSize: "15px",
+                          backgroundColor: "#f0f0f0",
+                          type: "password",
+                        }}
+                      />
+                      <ErrorMessage
+                        component={"p"}
+                        className="error-message"
+                        name="confirmPassword"
+                      />
+                    </Box>
+
+                    <Box
                       sx={{
-                        color: "#272522",
-                        fontSize: "17px",
-                        textTransform: "capitalize",
-                      }}
-                    >
-                      New Password
-                    </Typography>
-                    <OtpInput
-                      value={this.state.password}
-                      onChange={this.handleChangePassword}
-                      numInputs={6}
-                      placeholder="******"
-                      isInputSecure
-                      inputStyle={{
-                        width: "50px",
-                        height: "40px",
-                        borderRadius: "5%",
-                        border: "none",
-                        margin: "0 3px",
-                        fontSize: "15px",
-                        backgroundColor: "#f0f0f0",
-                        marginBottom: "5px",
-                      }}
-                    />
-                    <ErrorMessage
-                      component={"p"}
-                      className="error-message"
-                      name="password"
-                    />
-                  </Box>
-
-                  <Box>
-                    <Typography
-                      sx={{
-                        color: "#272522",
-                        fontSize: "17px",
-                        textTransform: "capitalize",
-                      }}
-                    >
-                      Conform Password
-                    </Typography>
-                    <OtpInput
-                      value={this.state.confirmPassword}
-                      onChange={this.confirmPassChangehandle}
-                      numInputs={6}
-                      placeholder="******"
-                      isInputSecure
-                      inputStyle={{
-                        width: "50px",
-                        height: "40px",
-                        borderRadius: "5%",
-                        border: "none",
-                        margin: "0 3px",
-                        fontSize: "15px",
-                        backgroundColor: "#f0f0f0",
-                       type: 'password'
-                      }}
-                    />
-                    <ErrorMessage
-                      component={"p"}
-                      className="error-message"
-                      name="confirmPassword"
-                    />
-                  </Box>
-
-                  <Box sx={{ mt: 2, backgroundColor: "#E7A356" }}>
-                    <Button
-                      type="submit"
-                      style={{
+                        mt: 3,
                         backgroundColor: "#E7A356",
-                        color: "#fff",
+                        display: "flex",
                         borderRadius: "5px",
-                        textAlign: "center",
-                        fontFamily: "Fira Sans",
-                        fontStyle: "normal",
-                        fontWeight: "700",
-                        fontSize: "20px",
-                        letterSpacing: "0.02em",
-                        textTransform: "uppercase",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: "272px",
+                        height: "50px",
                       }}
-                      fullWidth
                     >
-                      Change Passcode
-                    </Button>
-                  </Box>
+                      <Button
+                        type="submit"
+                        style={{
+                          color: "#fff",
+                          borderRadius: "5px",
+                          textAlign: "center",
+                          fontFamily: "Fira Sans",
+                          fontStyle: "normal",
+                          fontWeight: "700",
+                          fontSize: "16px",
+                          letterSpacing: "0.02em",
+                          textTransform: "uppercase",
+                        }}
+                        fullWidth
+                      >
+                        Change Passcode
+                      </Button>
+                    </Box>
+                  </Grid>
                 </Form>
               </Formik>
             </Box>
