@@ -19,8 +19,10 @@ import MobileTable from "./BookingHistoryTables/MobileTable";
 import WebTable from "./BookingHistoryTables/WebTable";
 import { Box } from "@mui/system";
 
+import "./SalonOwnerPage.css";
+
 class BookingHistoryTable extends Component {
-  state = { month: "", date: "", year: "" };
+  state = { month: "", date: "", year: "", status: "" };
 
   handleChange = (event: any) => {
     const { name, value } = event.target;
@@ -28,8 +30,10 @@ class BookingHistoryTable extends Component {
       this.setState({ date: value });
     } else if (name === "month") {
       this.setState({ month: value });
-    } else {
-      this.setState({ month: value });
+    } else if (name === "year") {
+      this.setState({ year: value });
+    } else if (name === "status") {
+      this.setState({ status: value });
     }
   };
   render() {
@@ -42,7 +46,8 @@ class BookingHistoryTable extends Component {
           sx={{
             display: "flex",
             justifyContent: "space-between",
-            my: 5,
+            mb: 2,
+            mt: 5,
             padding: { xs: 3 },
           }}
         >
@@ -57,7 +62,7 @@ class BookingHistoryTable extends Component {
           </Grid>
           <Grid>
             <Grid container spacing={2}>
-              <Grid item>
+              <Grid item xs={7} md={4}>
                 <FormControl>
                   <InputLabel id="date">DD</InputLabel>
                   <Select
@@ -112,16 +117,16 @@ class BookingHistoryTable extends Component {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item>
+              <Grid item >
                 <FormControl>
-                  <InputLabel id="year">Status</InputLabel>
+                  <InputLabel id="status">Status</InputLabel>
                   <Select
-                    labelId="year"
+                    labelId="status"
                     label="Status"
-                    id="year"
-                    value={year}
+                    id="status"
+                    value={this.state.status}
                     onChange={this.handleChange}
-                    name="year"
+                    name="status"
                     sx={{
                       width: { md: "124px", sm: "84px", xs: "84px" },
                     }}
@@ -159,18 +164,12 @@ class BookingHistoryTable extends Component {
             </>
           ) : (
             tableData.map((person: any) => {
-              return <MobileTable person={person} />;
+              return <MobileTable person={person} key={person.name} />;
             })
           )}
         </>
         <Box sx={{ my: 5, display: "flex", justifyContent: "flex-end" }}>
-          <Pagination
-            count={12}
-            shape="rounded"
-            sx={{
-              
-            }}
-          />
+          <Pagination count={12} shape="rounded" sx={{}} />
         </Box>
       </>
     );

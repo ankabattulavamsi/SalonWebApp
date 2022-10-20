@@ -32,12 +32,10 @@
   padding: 0px !important;
 }
 
-.activated-class {
+.activate-class {
   box-shadow: 3px 3px 3px 3px #88878f;
   border: none;
-}
-
-.profile-header-image {
+  color: "#272522";
 }
 
 .css-15193da-MuiButtonBase-root-MuiButton-root {
@@ -54,3 +52,41 @@
   text-transform: capitalize !important;
   color: #ffffff !important;
 } */
+
+.css-1djycer-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.01em;
+  text-transform: capitalize;
+  color: #ffffff;
+  height: 66px;
+  width: 46px;
+  background-color: #272522 !important;
+}
+.css-wjh20t-MuiPagination-ul {
+  background-color: #f0f0f0 !important;
+}
+.css-1djycer-MuiButtonBase-root-MuiPaginationItem-root {
+  height: 66px;
+  width: 46px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px !important;
+  line-height: 30px;
+  letter-spacing: 0.01em;
+  text-transform: capitalize;
+}
+
+@media only screen and (max-width: 800px) {
+  css-1djycer-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+    font-size: 14px !important;
+    line-height: 20px;
+    height: 30px !important;
+    width: 20px !important;
+    background-color: red;
+  }
+}

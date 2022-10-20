@@ -6,7 +6,7 @@ export const Styles: any = (theme: any) => ({
     fontSize: "1.25rem !important",
     lineHeight: "1.625rem !important",
     textTransform: "capitalize",
-    color: "#88878f",
+    color: '#88878f',
   },
   buttonContainer: {
     height: "6rem !important",

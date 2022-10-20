@@ -172,7 +172,7 @@ class SalonOwnerPage extends Component {
                   <Button
                     className={
                       this.state.activeTab === button.name
-                        ? classes.buttonContainer + " activated-class"
+                        ? classes.buttonContainer + " activate-class"
                         : classes.buttonContainer
                     }
                     sx={{
@@ -187,7 +187,14 @@ class SalonOwnerPage extends Component {
                       alt="button"
                       style={{ width: "52px", height: "52px" }}
                     />
-                    <Typography variant="h6" className={classes.buttonName}>
+                    <Typography
+                      variant="h6"
+                      className={classes.buttonName}
+                      sx={{
+                        color:
+                          this.state.activeTab === button.name ? "#272522" : "",
+                      }}
+                    >
                       {button.name}
                     </Typography>
                   </Button>
