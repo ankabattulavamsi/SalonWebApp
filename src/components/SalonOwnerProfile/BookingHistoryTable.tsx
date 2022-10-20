@@ -62,7 +62,7 @@ class BookingHistoryTable extends Component {
           </Grid>
           <Grid>
             <Grid container spacing={2}>
-              <Grid item xs={7} md={4}>
+              <Grid item >
                 <FormControl>
                   <InputLabel id="date">DD</InputLabel>
                   <Select
