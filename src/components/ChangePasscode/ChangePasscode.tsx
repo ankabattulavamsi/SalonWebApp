@@ -1,5 +1,6 @@
 import {
   Button,
+  Container,
   Dialog,
   Divider,
   IconButton,
@@ -80,12 +81,10 @@ class ChangePasscode extends Component<ChangeCodeProps> {
   render() {
     const {classes, open, onCloseChangeModel} = this.props
     return (
-      <>
+      <Container >
         <Dialog
           open={open}
           onClose={onCloseChangeModel}
-          maxWidth="md"
-          sx={{ m: 12 }}
           className="dialog-box-change"
         >
           <Box
@@ -116,13 +115,13 @@ class ChangePasscode extends Component<ChangeCodeProps> {
           </Box>
           <Divider />
           <Box sx={{ backgroundColor: "#fff" }}>
-            <Box sx={{ p: 3, m: 2 }}>
+            <Box sx={{ p: 2, m: 2 }}>
               <Typography
                 sx={{
                   fontFamily: "Fira Sans",
                   fontStyle: " normal",
                   fontWeight: 700,
-                  fontSize: "28px",
+                  fontSize: {xs: "18px", md: "24px", lg: "28px"},
                   lineHeight: "48px",
                 }}
               >
@@ -270,7 +269,7 @@ class ChangePasscode extends Component<ChangeCodeProps> {
             </Box>
           </Box>
         </Dialog>
-      </>
+      </Container>
     );
   }
 }
