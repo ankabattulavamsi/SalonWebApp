@@ -20,7 +20,15 @@ class CustomerBlog extends Component<IProps> {
 
 		return (
 			<>
-				<Grid container sx={{ mt: 10 }}>
+				<Grid
+					container
+					sx={{ mt: 10 }}
+					style={{
+						background: "#FDF6EE",
+						margin: "0px",
+						marginTop: "40px",
+						padding: "60px 0",
+					}}>
 					<Grid item xs={1} sm={1} md={1} lg={1}></Grid>
 					<Grid item xs={10} sm={10} md={10} lg={10}>
 						<Stack className={classes.specialist}>
