@@ -93,11 +93,14 @@ class SalonNavbar extends Component<salonProps, salonState> {
         this.showPosition,
         this.handleLocationError
       );
+      debugger
     } else {
       alert("Geolocation not supported");
     }
   };
   showPosition = (position: any) => {
+   
+    
     this.setState(
       {
         lat: position.coords.latitude,
