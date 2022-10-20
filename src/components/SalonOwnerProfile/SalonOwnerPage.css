@@ -89,3 +89,16 @@
 .profile-header-image {
   height: 275px;
 }
+
+.mobile-table {
+  display: none;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 600px) {
+  .web-table {
+    display: none;
+  }
+  .mobile-table {
+    display: block;
+  }
+}

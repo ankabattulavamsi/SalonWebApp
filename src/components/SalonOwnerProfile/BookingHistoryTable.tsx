@@ -37,7 +37,7 @@ class BookingHistoryTable extends Component {
     }
   };
   render() {
-    const { classes }: any = this.props;
+    const { classes, theme }: any = this.props;
     const { date, month, year } = this.state;
     return (
       <>
@@ -161,15 +161,15 @@ class BookingHistoryTable extends Component {
           </Grid>
         </Grid>
         <>
-          {window.innerWidth > 600 ? (
-            <>
-              <WebTable />
-            </>
-          ) : (
-            tableData.map((person: any) => {
+          <div className="web-table">
+            <WebTable />
+          </div>
+
+          <div className="mobile-table">
+            {tableData.map((person: any) => {
               return <MobileTable person={person} key={person.name} />;
-            })
-          )}
+            })}
+          </div>
         </>
         <Box sx={{ my: 5, display: "flex", justifyContent: "flex-end" }}>
           <Pagination

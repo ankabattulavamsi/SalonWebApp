@@ -70,12 +70,11 @@ class SalonOwnerPage extends Component {
     this.setState({ openBModel: false });
   };
 
-
-  handleChangeImage = (e:any)=>{
+  handleChangeImage = (e: any) => {
     this.setState({
-      image:URL.createObjectURL(e.target.files[0])
-    })
-  }
+      image: URL.createObjectURL(e.target.files[0]),
+    });
+  };
 
   render() {
     const { classes }: any = this.props;
@@ -91,7 +90,7 @@ class SalonOwnerPage extends Component {
                 className="profile-header-image"
               />
               <Avatar
-                src={this.state.image ===""?Eliipe :this.state.image}
+                src={this.state.image === "" ? Eliipe : this.state.image}
                 sx={{
                   width: { md: "140px", xs: "94px" },
                   height: { md: "140px", xs: "94px" },
