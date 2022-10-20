@@ -1,11 +1,15 @@
 /** @format */
 import React, { Component } from "react";
-import { Box, Button, Dialog, TextField, Typography } from "@mui/material";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import {
+	Box,
+	Button,
+	Dialog,
+	TextField,
+	Typography,
+	Stack,
+} from "@mui/material";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import ClassOutlinedIcon from "@mui/icons-material/ClassOutlined";
-import member from "../../assets/images/expertTeamSection/member1.png";
-import { Stack } from "@mui/system";
 import UploadImage from "./UploadImage";
 interface IProps {
 	open: boolean;

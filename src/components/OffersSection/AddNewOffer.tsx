@@ -98,7 +98,7 @@ export class AddNewOffer extends Component<IsAddNewProps> {
                 <Grid item xs={12} md={6} sm={6} lg={6}>
                 <Box sx={{ postion: "relative" }}>
                   <Box
-                    sx={{ postion: "relative", width: "75%", height: "289px" }}
+                    sx={{ postion: "relative", width: {md: "350px", xs: '100%'}, mx: 'auto', height: "270px" }}
                   >
                     {editImage === "" && editImage === "" ? (
                       <>
@@ -228,12 +228,12 @@ export class AddNewOffer extends Component<IsAddNewProps> {
                     gap={2}
                     flexWrap="wrap"
                   >
-                    <Box width={"100px"} height="100%">
+                    <Box width={"120px"} height="50%">
                       <>
                         {editImage === "" && editImage === "" ? (
                           <>
                             <Box bgcolor={"#f0f0f0"} padding={"10px 9px"}>
-                              <Box p={"9px 5px "}>
+                              <Box p={"9px 13px "}>
                                 <Icon
                                   sx={{ color: "#A4A1A1", fontSize: "80px" }}
                                 >
@@ -262,8 +262,8 @@ export class AddNewOffer extends Component<IsAddNewProps> {
                               alt="fesdga "
                               style={{
                                 objectFit: "contain",
-                                width: "100%",
-                                height: "100%",
+                                width: "120px",
+                                height: "80px",
                               }}
                             />
                           </Badge>

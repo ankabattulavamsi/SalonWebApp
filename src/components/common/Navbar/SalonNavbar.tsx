@@ -14,9 +14,12 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./SalonNav.css";
 import SalonNotification from "../../SalonNotification/SalonNotification";
+import withRouter from "../../../hoc/withRouter";
+
 interface salonProps {
   customer: boolean;
   menus: SalonMenus[];
+  navigate?: any;
 }
 interface salonState {
   isCustomer: boolean;
@@ -201,7 +204,22 @@ class SalonNavbar extends Component<salonProps, salonState> {
               </Box>
             )}
             <Box className="nav-profile-section">
-              <Box sx={{ display: "flex", alignItems: "center" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  color:
+                    window.location.pathname === "/salon/owner"
+                      ? "#E7A356"
+                      : "",
+                  "&:hover": {
+                    cursor: "pointer",
+                  },
+                }}
+                onClick={() => {
+                  this.props.navigate("/salon/owner");
+                }}
+              >
                 {this.state.isCustomer ? (
                   <Avatar alt="Remy Sharp" src={CustomerProfile} />
                 ) : (
@@ -221,6 +239,7 @@ class SalonNavbar extends Component<salonProps, salonState> {
                     onClick={this.handleDialogOpen}
                     sx={{
                       fontSize: "32px",
+                      cursor:"pointer",
                       color: this.state.dialogOpen ? "#E7A356" : "",
                     }}
                   />
@@ -260,6 +279,8 @@ class SalonNavbar extends Component<salonProps, salonState> {
                     onClick={this.handleDialogOpen}
                     sx={{
                       fontSize: "32px",
+                      cursor:"pointer",
+
                       color: this.state.dialogOpen ? "#E7A356" : "",
                     }}
                   />
@@ -360,4 +381,4 @@ class SalonNavbar extends Component<salonProps, salonState> {
   }
 }
 
-export default SalonNavbar;
+export default withRouter(SalonNavbar);
