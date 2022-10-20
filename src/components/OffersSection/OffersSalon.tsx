@@ -93,6 +93,7 @@ export class OffersSalon extends Component<IsStateProps> {
     this.setState({editPrice: ''})
     this.setState({editDissPrice: ''})
     this.setState({editDescription: ''})
+    this.setState({editImage: ''})
   };
 
 
@@ -125,6 +126,11 @@ export class OffersSalon extends Component<IsStateProps> {
 
   handleClose = () => {
     this.setState({ open: false });
+    this.setState({editOfferTitle : ''})
+    this.setState({editPrice: ''})
+    this.setState({editDissPrice: ''})
+    this.setState({editDescription: ''})
+    this.setState({editImage: ''})
   };
 
   onClickDeleteOffer = (id: any) => {
