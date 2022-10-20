@@ -14,6 +14,7 @@ import Layout from "../Layout/Layout";
 import ChangePasscode from "../ChangePasscode/ChangePasscode";
 import EditBusinessProfile from "../ChangePasscode/EditBusinessProfile";
 import Eliipe from "../../assets/images/BuesnessProfile/Ellipse 9.png";
+import withRouter from "../../hoc/withRouter";
 
 interface SalonEditState {
   activeTab: string;
@@ -25,7 +26,11 @@ interface SalonEditState {
   email: string;
   image: string;
 }
-class SalonOwnerPage extends Component {
+
+interface SalonOwnerPageProps {
+  navigate?: any;
+}
+class SalonOwnerPage extends Component<SalonOwnerPageProps> {
   state: SalonEditState = {
     activeTab: "Booking History",
     open: false,
@@ -164,6 +169,9 @@ class SalonOwnerPage extends Component {
                   ml: { xs: 2, sm: 0 },
                 }}
                 className={classes.ownerLogoutButton}
+                onClick={() => {
+                  this.props.navigate("/");
+                }}
               >
                 Log Out
               </Button>
@@ -242,4 +250,6 @@ class SalonOwnerPage extends Component {
   }
 }
 
-export default withStyles(Styles, { withTheme: true })(SalonOwnerPage);
+export default withStyles(Styles, { withTheme: true })(
+  withRouter(SalonOwnerPage)
+);
