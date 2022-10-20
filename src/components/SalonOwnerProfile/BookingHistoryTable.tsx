@@ -51,7 +51,7 @@ class BookingHistoryTable extends Component {
             padding: { xs: 3 },
           }}
         >
-          <Grid item sx={{ mt: "16px" }}>
+          <Grid item sx={{ mt: "16px", mb: { xs: "25px !important" } }}>
             <Typography
               variant="h3"
               sx={{}}
@@ -60,9 +60,11 @@ class BookingHistoryTable extends Component {
               Booking History
             </Typography>
           </Grid>
+
+          {/* Date and Search filters */}
           <Grid>
             <Grid container spacing={2}>
-              <Grid item >
+              <Grid item>
                 <FormControl>
                   <InputLabel id="date">DD</InputLabel>
                   <Select
@@ -73,7 +75,7 @@ class BookingHistoryTable extends Component {
                     name="date"
                     label="DD"
                     sx={{
-                      width: { md: "90px", sm: "84px", xs: "84px" },
+                      width: { md: "90px", sm: "84px", xs: "70px" },
                     }}
                   >
                     <MenuItem value="01">01</MenuItem>
@@ -91,7 +93,7 @@ class BookingHistoryTable extends Component {
                     name="month"
                     label="MM"
                     sx={{
-                      width: { md: "90px", xs: "84px" },
+                      width: { md: "90px", xs: "70px" },
                     }}
                   >
                     <MenuItem value="01">01</MenuItem>
@@ -109,7 +111,7 @@ class BookingHistoryTable extends Component {
                     name="year"
                     label="YY"
                     sx={{
-                      width: "90px",
+                      width: { sm: "90px", xs: "70px" },
                     }}
                   >
                     <MenuItem value="2022">2022</MenuItem>
@@ -117,7 +119,7 @@ class BookingHistoryTable extends Component {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item >
+              <Grid item>
                 <FormControl>
                   <InputLabel id="status">Status</InputLabel>
                   <Select
@@ -151,6 +153,7 @@ class BookingHistoryTable extends Component {
                         </InputAdornment>
                       ),
                     }}
+                    sx={{ width: { xs: "19rem" } }}
                   />
                 </FormControl>
               </Grid>
@@ -169,7 +172,11 @@ class BookingHistoryTable extends Component {
           )}
         </>
         <Box sx={{ my: 5, display: "flex", justifyContent: "flex-end" }}>
-          <Pagination count={12} shape="rounded" sx={{}} />
+          <Pagination
+            count={4}
+            shape="rounded"
+            sx={{ height: "20px !important" }}
+          />
         </Box>
       </>
     );

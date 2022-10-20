@@ -38,20 +38,9 @@
   color: "#272522";
 }
 
-.css-15193da-MuiButtonBase-root-MuiButton-root {
+.css-9iunqt-MuiButtonBase-root-MuiButton-root {
   padding: 0px !important;
 }
-
-/* .css-1djycer-MuiButtonBase-root-MuiPaginationItem-root {
-  font-family: "Roboto !important";
-  font-style: normal !important;
-  font-weight: 500 !important;
-  font-size: 20px !important;
-  line-height: 30px !important;
-  letter-spacing: 0.01em !important;
-  text-transform: capitalize !important;
-  color: #ffffff !important;
-} */
 
 .css-1djycer-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
   font-family: "Roboto";
@@ -82,11 +71,21 @@
 }
 
 @media only screen and (max-width: 800px) {
-  css-1djycer-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  css-1djycer-MuiButtonBase-root-MuiPaginationItem-root {
     font-size: 14px !important;
-    line-height: 20px;
+    line-height: 10px;
     height: 30px !important;
     width: 20px !important;
     background-color: red;
   }
+  .profile-header-image {
+    height: 155px !important;
+  }
+  .css-wjh20t-MuiPagination-ul {
+    background-color: #f0f0f0 !important;
+  }
+}
+
+.profile-header-image {
+  height: 275px;
 }

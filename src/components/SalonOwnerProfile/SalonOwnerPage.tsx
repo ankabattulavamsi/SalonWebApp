@@ -32,7 +32,7 @@ class SalonOwnerPage extends Component {
     const { classes }: any = this.props;
     return (
       <Layout>
-        <Container sx={{ mx: "auto", mt: 15, mb: 10 }}>
+        <Container maxWidth="lg" sx={{ mt: 15, mb: 10 }}>
           <Box>
             <Box sx={{ position: "relative" }}>
               <img
@@ -48,61 +48,49 @@ class SalonOwnerPage extends Component {
                   height: { md: "140px", xs: "94px" },
                   // marginRight: "20px",
                   position: "absolute",
-                  top: "70%",
+                  top: { md: "70%", xs: "80%" },
                   ml: { md: "8%", lg: "16%", sm: "14%" },
                 }}
               />
             </Box>
           </Box>
 
-          <Grid container>
+          <Grid container sx={{ mt: 2 }}>
             <Grid item sx={{ ml: { xs: "auto" } }}></Grid>
             <Grid
               item
               xs={7}
               md={4}
-              sm={3}
-              sx={{ margin: "0 !important", marginRight: "auto" }}
+              sm={6}
+              sx={{
+                margin: "0 !important",
+                marginRight: "auto",
+              }}
             >
               <Typography
                 variant="h6"
                 sx={{
-                  fontFamily: "Fira Sans",
-                  fontStyle: "normal",
-                  fontWeight: "600",
                   fontSize: { md: "25px", xs: "22px" },
-                  lineHeight: "50px",
-                  textTransform: "capitalize",
-                  color: "#000000",
+                  mt: { sm: "30px", md: 0 },
                 }}
+                className={classes.salonOwnerName}
               >
                 Steve Smith
               </Typography>
               <Typography
                 variant="h6"
                 sx={{
-                  fontFamily: "Roboto",
-                  fontStyle: "normal",
-                  fontWeight: "500",
                   fontSize: { md: "18px", xs: "16px" },
-                  letterSpacing: "0.02em",
-                  textTransform: "lowercase",
-                  color: "#88878F",
                 }}
+                className={classes.salonOwnerEmail}
               >
                 stevesmith@example.com
               </Typography>
               <Button
                 sx={{
-                  fontFamily: "Fira Sans",
-                  fontStyle: "normal",
-                  fontWeight: 600,
                   fontSize: { md: "18px", xs: "17px" },
-                  letterSpacing: "0.02em",
-                  textDecorationLine: "underline",
-                  textTransform: "capitalize",
-                  color: "#FF0034",
                 }}
+                className={classes.changePasscodeButton}
               >
                 <LockIcon />
                 Change Passcode
@@ -110,24 +98,11 @@ class SalonOwnerPage extends Component {
             </Grid>
             <Grid item>
               <Button
+                className={classes.editBussinessDeatailsButton}
                 sx={{
-                  fontFamily: "Fira Sans",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  fontSize: "16px",
-                  height: "57px",
                   width: { md: "251px", xs: "231" },
-                  textAlign: "center",
-                  letterSpacing: "0.05em",
-                  textTransform: "capitalize",
-                  color: "#FFFFFF",
-                  backgroundColor: "#272522",
-                  borderRadius: "5px",
-                  padding: "5px",
-                  m: 2,
-                  "&:hover": {
-                    backgroundColor: "#272522",
-                  },
+                  mx: { xs: 0, md: 2, sm: 1 },
+                  my: { sm: "40px", md: 0, xs: "20px" },
                 }}
               >
                 Edit Bussness Details
@@ -136,38 +111,30 @@ class SalonOwnerPage extends Component {
                 sx={{
                   height: { md: "57px", sm: "57px" },
                   width: { md: "149px", xs: "133px !important" },
-                  fontFamily: "Fira Sans",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  fontSize: "18px",
-                  lineHeight: "48px",
-                  textAlign: "center",
-                  letterSpacing: "0.02em",
-                  textTransform: "capitalize",
-                  background: "#E7A356",
-                  borderRadius: "5px",
-                  color: "#FFFFFF",
-                  "&:hover": {
-                    backgroundColor: "#E7A356",
-                  },
+                  ml: { xs: 2, sm: 0 },
                 }}
+                className={classes.ownerLogoutButton}
               >
                 Log Out
               </Button>
             </Grid>
           </Grid>
-          <Grid container spacing={4} sx={{ mt: 2 }}>
+          <Grid
+            container
+            spacing={2}
+            sx={{ mt: 2, mx: "auto" }}
+            className="main-button-container"
+          >
             {ButtonData.map((button: any) => {
               return (
                 <Grid
                   item
                   xs={11}
-                  sm={6}
+                  sm={4}
                   md={4}
                   lg={4}
                   key={button.name}
                   onClick={() => this.setState({ activeTab: button.name })}
-                  sx={{ mx: "auto" }}
                 >
                   <Button
                     className={
@@ -178,7 +145,8 @@ class SalonOwnerPage extends Component {
                     sx={{
                       width: {
                         xs: "18rem !important",
-                        sm: "22.5rem !important",
+                        sm: "15rem !important",
+                        md: "22.5rem !important",
                       },
                     }}
                   >
