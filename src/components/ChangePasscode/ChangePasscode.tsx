@@ -8,14 +8,18 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { withStyles } from "@mui/styles";
 import { Box } from "@mui/system";
 import React, { Component } from "react";
-import OtpInput from "react-otp-input";
+
 import CloseIcon from "@mui/icons-material/Close";
+
 import { ErrorMessage, Form, Formik } from "formik";
 import * as Yup from "yup";
+
+import OtpInput from "react-otp-input";
+
 import { ChangeProfileDetails } from "./ChangePassCode.Style";
-import { withStyles } from "@mui/styles";
 
 import "./ChangePassCode.css";
 
@@ -85,7 +89,7 @@ class ChangePasscode extends Component<ChangeCodeProps> {
   render() {
     const { classes, open, onCloseChangeModel } = this.props;
     return (
-      < >
+      <>
         <Dialog
           open={open}
           onClose={onCloseChangeModel}
@@ -119,14 +123,14 @@ class ChangePasscode extends Component<ChangeCodeProps> {
             </IconButton>
           </Box>
           <Divider />
-          <Box sx={{ backgroundColor: "#fff" , p: 1,  }}>
+          <Box sx={{ backgroundColor: "#fff", p: 1 }}>
             <Box sx={{}}>
               <Typography
                 sx={{
                   fontFamily: "Fira Sans",
                   fontStyle: " normal",
                   fontWeight: 700,
-                  fontSize: { xs: "18px", md: "24px", lg: "28px" },
+                  fontSize: { xs: "18px", md: "20px", lg: "24px" },
                   lineHeight: "48px",
                 }}
               >
@@ -265,7 +269,6 @@ class ChangePasscode extends Component<ChangeCodeProps> {
                       <Button
                         type="submit"
                         style={{
-                          // backgroundColor: "#E7A356",
                           color: "#fff",
                           borderRadius: "5px",
                           textAlign: "center",
@@ -276,8 +279,7 @@ class ChangePasscode extends Component<ChangeCodeProps> {
                           letterSpacing: "0.02em",
                           textTransform: "uppercase",
                         }}
-
-                        // fullWidth
+                        fullWidth
                       >
                         Change Passcode
                       </Button>
