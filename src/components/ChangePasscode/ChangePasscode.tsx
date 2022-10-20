@@ -122,7 +122,7 @@ class ChangePasscode extends Component<ChangeCodeProps> {
                   fontFamily: "Fira Sans",
                   fontStyle: " normal",
                   fontWeight: 700,
-                  fontSize: "28px",
+                  fontSize: {xs: "18px", md: "2px", lg: "28px"},
                   lineHeight: "48px",
                 }}
               >
