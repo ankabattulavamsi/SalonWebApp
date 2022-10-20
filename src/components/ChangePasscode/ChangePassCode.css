@@ -1,7 +1,7 @@
 .dialog-box-change .css-12rl710-MuiPaper-root-MuiDialog-paper {
     background-color: transparent !important;
     box-shadow: none !important;
-    max-width: 150% !important;
+    /* max-width: 150% !important; */
     overflow: hidden;
   }
 
