@@ -160,17 +160,6 @@ class BookingHistoryTable extends Component {
             </Grid>
           </Grid>
         </Grid>
-        {/* <>
-          {window.innerWidth > 600 ? (
-            <>
-              <WebTable />
-            </>
-          ) : (
-            tableData.map((person: any) => {
-              return <MobileTable person={person} key={person.name} />;
-            })
-          )}
-        </> */}
         <>
           <div className="web-table">
             <WebTable />
