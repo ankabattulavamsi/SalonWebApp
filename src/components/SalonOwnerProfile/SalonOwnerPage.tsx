@@ -11,9 +11,31 @@ import { Styles } from "./SalonOwnerPage.Styles";
 import "./SalonOwnerPage.css";
 import { withStyles } from "@mui/styles";
 import Layout from "../Layout/Layout";
+import ChangePasscode from "../ChangePasscode/ChangePasscode";
+import EditBusinessProfile from "../ChangePasscode/EditBusinessProfile";
+import Eliipe from "../../assets/images/BuesnessProfile/Ellipse 9.png";
 
+interface SalonEditState {
+  activeTab: string;
+  open: boolean;
+  openBModel: false;
+  bname: string;
+  owner: string;
+  GSTIN: string;
+  email: string;
+  image: string;
+}
 class SalonOwnerPage extends Component {
-  state = { activeTab: "Booking History" };
+  state: SalonEditState = {
+    activeTab: "Booking History",
+    open: false,
+    openBModel: false,
+    bname: "",
+    owner: "Steve Smith",
+    GSTIN: "",
+    email: "stevesmith@example.com",
+    image: "",
+  };
 
   project = () => {
     switch (this.state.activeTab) {
@@ -27,6 +49,33 @@ class SalonOwnerPage extends Component {
         return null;
     }
   };
+
+  handleChange = (e: any) => {
+    this.setState({ ...this.state, [e.target.name]: e.target.value });
+  };
+
+  onClickOpenChangeCodeModel = () => {
+    this.setState({ open: true });
+  };
+
+  onCloseChangeModel = () => {
+    this.setState({ open: false });
+  };
+
+  onClickOpenEditBModel = () => {
+    this.setState({ openBModel: true });
+  };
+
+  onCloseEditBModel = () => {
+    this.setState({ openBModel: false });
+  };
+
+
+  handleChangeImage = (e:any)=>{
+    this.setState({
+      image:URL.createObjectURL(e.target.files[0])
+    })
+  }
 
   render() {
     const { classes }: any = this.props;
@@ -42,7 +91,7 @@ class SalonOwnerPage extends Component {
                 className="profile-header-image"
               />
               <Avatar
-                src={require("../../assets/images/SalonOwnerProfile/HeaderImages/Profile.png")}
+                src={this.state.image ===""?Eliipe :this.state.image}
                 sx={{
                   width: { md: "140px", xs: "94px" },
                   height: { md: "140px", xs: "94px" },
@@ -76,7 +125,7 @@ class SalonOwnerPage extends Component {
                   color: "#000000",
                 }}
               >
-                Steve Smith
+                {this.state.owner}
               </Typography>
               <Typography
                 variant="h6"
@@ -90,9 +139,10 @@ class SalonOwnerPage extends Component {
                   color: "#88878F",
                 }}
               >
-                stevesmith@example.com
+                {this.state.email}
               </Typography>
               <Button
+                onClick={this.onClickOpenChangeCodeModel}
                 sx={{
                   fontFamily: "Fira Sans",
                   fontStyle: "normal",
@@ -110,6 +160,7 @@ class SalonOwnerPage extends Component {
             </Grid>
             <Grid item>
               <Button
+                onClick={this.onClickOpenEditBModel}
                 sx={{
                   fontFamily: "Fira Sans",
                   fontStyle: "normal",
@@ -204,6 +255,21 @@ class SalonOwnerPage extends Component {
           </Grid>
           <>{this.project()}</>
         </Container>
+        <ChangePasscode
+          open={this.state.open}
+          onCloseChangeModel={this.onCloseChangeModel}
+        />
+        <EditBusinessProfile
+          open={this.state.openBModel}
+          onCloseEditBModel={this.onCloseEditBModel}
+          bname={this.state.bname}
+          GSTIN={this.state.GSTIN}
+          owner={this.state.owner}
+          email={this.state.email}
+          image={this.state.image}
+          handleChange={this.handleChange}
+          handleChangeImage={this.handleChangeImage}
+        />
       </Layout>
     );
   }
