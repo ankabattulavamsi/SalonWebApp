@@ -5,16 +5,17 @@ import CloseIcon from "@mui/icons-material/Close";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import Badge from "@mui/material/Badge";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 
+import withRouter from "../../../hoc/withRouter";
 import Logo from "../../../assets/images/Navbarimage/logo.jpg";
 import Profile from "../../../assets/images/Navbarimage/profile-img.png";
 import CustomerProfile from "../../../assets/images/Navbarimage/customerProfile.png";
 import { SalonMenus } from "../../../utils/models/navbar_interface";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import "./SalonNav.css";
 import SalonNotification from "../../SalonNotification/SalonNotification";
-import withRouter from "../../../hoc/withRouter";
+
+import "./SalonNav.css";
 
 interface salonProps {
   customer: boolean;
@@ -75,12 +76,10 @@ class SalonNavbar extends Component<salonProps, salonState> {
         this.setState({ data: data.results[0].formatted });
         let localData = data.results[0].components;
         let { state_district, state, country } = localData;
-        console.log(localData);
         localStorage.setItem(
           "Current Adress",
           JSON.stringify({ state_district, state, country })
         );
-        console.log(data.results[0].formatted);
       })
       .then((data) =>
         fetch(` https://httpstat.us/200`, {
@@ -96,14 +95,12 @@ class SalonNavbar extends Component<salonProps, salonState> {
         this.showPosition,
         this.handleLocationError
       );
-      debugger
+      
     } else {
       alert("Geolocation not supported");
     }
   };
   showPosition = (position: any) => {
-   
-    
     this.setState(
       {
         lat: position.coords.latitude,
@@ -134,23 +131,19 @@ class SalonNavbar extends Component<salonProps, salonState> {
       const existingdata = JSON.parse(
         localStorage.getItem("Current Adress") || ""
       );
-      console.log("Exist Data", existingdata);
       this.setState({ data: existingdata });
 
-      console.log("local data", existingdata);
       this.setState({
         locationData: existingdata,
       });
     } else {
       this.getLocation();
-      console.log("Get location", this.getLocation());
     }
   }
 
   render() {
     const { menus } = this.props;
 
-    console.log("locationData", this.state.locationData);
 
     return (
       <>
@@ -239,7 +232,7 @@ class SalonNavbar extends Component<salonProps, salonState> {
                     onClick={this.handleDialogOpen}
                     sx={{
                       fontSize: "32px",
-                      cursor:"pointer",
+                      cursor: "pointer",
                       color: this.state.dialogOpen ? "#E7A356" : "",
                     }}
                   />
@@ -279,7 +272,7 @@ class SalonNavbar extends Component<salonProps, salonState> {
                     onClick={this.handleDialogOpen}
                     sx={{
                       fontSize: "32px",
-                      cursor:"pointer",
+                      cursor: "pointer",
 
                       color: this.state.dialogOpen ? "#E7A356" : "",
                     }}
