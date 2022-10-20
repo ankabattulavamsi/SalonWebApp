@@ -6,65 +6,89 @@ import { BusinessStyles } from "../BuisnessDetail/BuisnessDetailsStyle";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { Buttons, Drawers, Inputs } from "../common";
 import { Form, Formik } from "formik";
-import * as Yup from 'yup'
-import editImg from '../../assets/images/BuesnessProfile/Vector.png'
-import Eliipe from '../../assets/images/BuesnessProfile/Ellipse 9.png'
+import * as Yup from "yup";
+import editImg from "../../assets/images/BuesnessProfile/Vector.png";
+import Eliipe from "../../assets/images/BuesnessProfile/Ellipse 9.png";
 
-import './ChangePassCode.css'
+import "./ChangePassCode.css";
 
 interface EditProfileProps {
   classes: any;
 }
 
 interface EditProfileStateProps {
-    open: boolean
+  open: boolean;
+  editData: any;
+  bname: string;
+  owner: string;
+  GSTIN: string;
+  email: string;
+  image: string;
 }
 
 const editProfileData = [
-    {
-        businessName: '', 
-        ownerName: '', 
-        gstNum: '',
-        email: 'abc@gmail.com'
-    }
-]
+  {
+    businessName: "",
+    ownerName: "",
+    gstNum: "",
+    email: "abc@gmail.com",
+  },
+];
 
 export class EditBusinessProfile extends Component<EditProfileProps> {
+  state: EditProfileStateProps = {
+    open: true,
+    editData: editProfileData,
+    bname: "",
+    owner: "",
+    GSTIN: "",
+    email: "",
+    image: "",
+  };
 
-    state:EditProfileStateProps = {
-        open: true
-    }
+  handleChange = (e: any) => {
+    this.setState({ ...this.state, [e.target.name]: e.target.value });
+  };
 
-    businessEditSchema = Yup.object().shape({
-        // image: Yup.string().required("image is "),
-        bname: Yup.string()
-          .required("buseness name should not be empty")
-          .min(2, "busness name is too short")
-          .max(50, "too long"),
-        owner: Yup.string()
-          .required("owner name should not be empty")
-          .min(2, "owner name is too short")
-          .max(50, "too long"),
-        GSTIN: Yup.string()
-          .required("GSTIN number should not be empty")
-          .min(5, "GSTIN number is too short")
-          .max(13, "GSTIN number is  too long"),
-    
-        address: Yup.string()
-          .required("adress should not be empty")
-          .min(2, "address is too short")
-          .max(100, "GSTIN number is  too long"),
-        email: Yup.string()
-          .email("Invalid email")
-          .required("Please fill this field email"),
-      });
+  onSumitEditForm = () => {
+    this.setState({ open: false });
+  };
+  handleChangeImage = (e:any)=>{
+    this.setState({
+      image:URL.createObjectURL(e.target.files[0])
+    })
+  }
+
+  businessEditSchema = Yup.object().shape({
+    // image: Yup.string().required("image is "),
+    bname: Yup.string()
+      .min(2, "busness name is too short")
+      .max(50, "too long")
+      .required("buseness name should not be empty"),
+    owner: Yup.string()
+      .required("owner name should not be empty")
+      .min(2, "owner name is too short")
+      .max(50, "too long"),
+    GSTIN: Yup.string()
+      .required("GSTIN number should not be empty")
+      .min(5, "GSTIN number is too short")
+      .max(13, "GSTIN number is  too long"),
+
+    address: Yup.string()
+      .required("adress should not be empty")
+      .min(2, "address is too short")
+      .max(100, "GSTIN number is  too long"),
+    email: Yup.string()
+      .email("Invalid email")
+      .required("Please fill this field email"),
+  });
 
   render() {
     const { classes } = this.props;
     return (
       <Drawers
         open={this.state.open}
-        toggleDrawer={() => this.setState({open: false})}
+        toggleDrawer={() => this.setState({ open: false })}
       >
         <Box>
           <Typography variant="h5" className={classes.busText}>
@@ -74,20 +98,22 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
 
         <Formik
           enableReinitialize={true}
-          initialValues={
-            {
-              //   image: state.image,
-              // bname: this.state.bname,
-              //   owner: state.owner,
-              //   GSTIN: state.GSTIN,
-              //   email: state.email,
-              //   address: state.address,
-            }
-          }
+          initialValues={{
+            image: this.state.image,
+            bname: this.state.bname,
+            owner: this.state.owner,
+            GSTIN: this.state.GSTIN,
+            email: this.state.email,
+          }}
           validationSchema={this.businessEditSchema}
-          onSubmit={() => {}}
+          onSubmit={()=>this.onSumitEditForm()}
+
         >
-          <Form>
+          <Form onSubmit={(e)=>{
+            e.preventDefault()
+            this.onSumitEditForm()
+           
+           }}>
             <>
               <Box
                 sx={{
@@ -108,7 +134,7 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
                       flex: 1,
                     }}
                   >
-                    <img className="img-profile" src={Eliipe} alt="imag" />
+                    <img className="img-profile" src={this.state.image ===""?Eliipe :this.state.image} alt="imag" />
                   </Box>
                 </Box>
 
@@ -124,7 +150,7 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
                       <input
                         accept="image/*"
                         className={"inputHide"}
-                        // onChange={this.props.handleImageChange}
+                        onChange={this.handleChangeImage}
                         type="file"
                         name="image"
                       />
@@ -143,8 +169,8 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
                   placeholder={"enter Business name"}
                   required={true}
                   type={"text"}
-                  //   handleChange={(e) => this.props.handleChange(e)}
-                  //   value={this.props.state.bname}
+                  handleChange={(e) => this.handleChange(e)}
+                  value={this.state.bname}
                   icon={editImg}
                   name={"bname"}
                 />
@@ -154,20 +180,20 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
                   placeholder={"enter owner name"}
                   required={true}
                   type={"text"}
-                  //   handleChange={(e) => this.props.handleChange(e)}
-                  //   value={this.props.state.owner}
+                  handleChange={(e) => this.handleChange(e)}
+                  value={this.state.owner}
                   icon={editImg}
                   name={"owner"}
                 />
-                
+
                 <Inputs
                   label={"GSTIN No"}
                   id={`${4}`}
                   placeholder="enter GSTIN no"
                   required={true}
                   type={"text"}
-                  //   handleChange={(e) => this.props.handleChange(e)}
-                  //   value={this.props.state.GSTIN}
+                  handleChange={(e) => this.handleChange(e)}
+                  value={this.state.GSTIN}
                   icon={editImg}
                   name={"GSTIN"}
                 />
@@ -177,10 +203,10 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
                   placeholder="enter email"
                   required={true}
                   type={"email"}
-                  handleChange={() => {
-                    // this.props.handleChange(e);
+                  handleChange={(e) => {
+                    this.handleChange(e);
                   }}
-                  //   value={this.props.state.email}
+                  value={this.state.email}
                   icon={editImg}
                   name={"email"}
                 />
@@ -198,7 +224,7 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
                 }}
               >
                 <Buttons
-                  title="Save Profile"
+                  title="save & continue"
                   type="submit"
                   handleClick={() => {}}
                 />
