@@ -1,0 +1,92 @@
+.css-mhc70k-MuiGrid-root > .MuiGrid-item {
+  padding-left: 10px !important;
+}
+
+.bookings-container {
+  position: relative;
+  z-index: 0;
+}
+
+.customerCard:hover .customerTitleHeading,
+.customerCard:hover .personPrice {
+  color: #e7a356 !important;
+}
+
+.customerCard:hover .customerSubHeading {
+  color: #272522 !important;
+}
+.react-horizontal-scrolling-menu--scroll-container {
+  width: auto;
+}
+.css-10ht2rm-MuiButtonBase-root-MuiButton-root {
+  min-width: auto !important;
+  padding: 0 !important;
+  height: 76px !important;
+}
+
+.css-xvj8ct-MuiTypography-root {
+  line-height: 0.5 !important;
+}
+
+.css-ejyy9y-MuiButtonBase-root-MuiButton-root {
+  padding: 0px !important;
+}
+
+.activate-class {
+  box-shadow: 3px 3px 3px 3px #88878f;
+  border: none;
+  color: "#272522";
+}
+
+.css-15193da-MuiButtonBase-root-MuiButton-root {
+  padding: 0px !important;
+}
+
+/* .css-1djycer-MuiButtonBase-root-MuiPaginationItem-root {
+  font-family: "Roboto !important";
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 20px !important;
+  line-height: 30px !important;
+  letter-spacing: 0.01em !important;
+  text-transform: capitalize !important;
+  color: #ffffff !important;
+} */
+
+.css-1djycer-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.01em;
+  text-transform: capitalize;
+  color: #ffffff;
+  height: 66px;
+  width: 46px;
+  background-color: #272522 !important;
+}
+.css-wjh20t-MuiPagination-ul {
+  background-color: #f0f0f0 !important;
+}
+.css-1djycer-MuiButtonBase-root-MuiPaginationItem-root {
+  height: 66px;
+  width: 46px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px !important;
+  line-height: 30px;
+  letter-spacing: 0.01em;
+  text-transform: capitalize;
+}
+
+@media only screen and (max-width: 800px) {
+  css-1djycer-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+    font-size: 14px !important;
+    line-height: 20px;
+    height: 30px !important;
+    width: 20px !important;
+    background-color: red;
+  }
+}

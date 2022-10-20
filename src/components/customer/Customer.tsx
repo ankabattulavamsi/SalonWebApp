@@ -11,7 +11,7 @@ import CustomerBlog from "./CustomerBlog";
 export default class Customer extends Component {
 	render() {
 		return (
-			<Layout>
+			<Layout customer={true}>
 				<Box sx={{ pt: 10, mb: 10 }}>
 					<CustomerBanner />
 					<CustomerCatagory />

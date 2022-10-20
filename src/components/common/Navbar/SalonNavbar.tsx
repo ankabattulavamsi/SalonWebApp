@@ -8,14 +8,18 @@ import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 
 import Logo from "../../../assets/images/Navbarimage/logo.jpg";
 import Profile from "../../../assets/images/Navbarimage/profile-img.png";
+import CustomerProfile from "../../../assets/images/Navbarimage/customerProfile.png";
 import { SalonMenus } from "../../../utils/models/navbar_interface";
-
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./SalonNav.css";
 import SalonNotification from "../../SalonNotification/SalonNotification";
+import withRouter from "../../../hoc/withRouter";
 
 interface salonProps {
   customer: boolean;
   menus: SalonMenus[];
+  navigate?: any;
 }
 interface salonState {
   isCustomer: boolean;
@@ -73,9 +77,52 @@ class SalonNavbar extends Component<salonProps, salonState> {
                 );
               })}
             </Box>
+            {this.state.isCustomer && (
+              <Box className="salon-nav-location">
+                <Box
+                  sx={{
+                    display: "flex",
+                  }}
+                >
+                  <LocationOnIcon sx={{ fontSize: "30px" }} />
+                  <Box>
+                    <Box
+                      sx={{
+                        display: "flex",
+                      }}
+                    >
+                      <Typography variant="h6">Nagpur</Typography>
+                      <ExpandMoreIcon />
+                    </Box>
+                    <Typography variant="h6" color="secondary.dark">
+                      Maharashtra,India
+                    </Typography>
+                  </Box>
+                </Box>
+              </Box>
+            )}
             <Box className="nav-profile-section">
-              <Box sx={{ display: "flex", alignItems: "center" }}>
-                <Avatar alt="Remy Sharp" src={Profile} />
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  color:
+                    window.location.pathname === "/salon/owner"
+                      ? "#E7A356"
+                      : "",
+                  "&:hover": {
+                    cursor: "pointer",
+                  },
+                }}
+                onClick={() => {
+                  this.props.navigate("/salon/owner");
+                }}
+              >
+                {this.state.isCustomer ? (
+                  <Avatar alt="Remy Sharp" src={CustomerProfile} />
+                ) : (
+                  <Avatar alt="Remy Sharp" src={Profile} />
+                )}
                 <Typography sx={{ ml: 2 }} variant="h3">
                   Profile
                 </Typography>
@@ -95,9 +142,11 @@ class SalonNavbar extends Component<salonProps, salonState> {
                   />
                 </Badge>
               </Box>
-              {this.state.isCustomer && (
-                <ShoppingBasketIcon sx={{ fontSize: "32px" }} />
-              )}
+              <Box>
+                {this.state.isCustomer && (
+                  <ShoppingBasketIcon sx={{ fontSize: "32px", mr: 3 }} />
+                )}
+              </Box>
             </Box>
 
             {/* mobile drawer section */}
@@ -111,7 +160,11 @@ class SalonNavbar extends Component<salonProps, salonState> {
                   pl: { sm: 5 },
                 }}
               >
-                <Avatar alt="Remy Sharp" src={Profile} />
+                {this.state.isCustomer ? (
+                  <Avatar alt="Remy Sharp" src={CustomerProfile} />
+                ) : (
+                  <Avatar alt="Remy Sharp" src={Profile} />
+                )}
                 <Badge
                   variant="dot"
                   sx={{
@@ -121,10 +174,10 @@ class SalonNavbar extends Component<salonProps, salonState> {
                 >
                   <NotificationsIcon
                     onClick={this.handleDialogOpen}
-                    sx={{ fontSize: "32px",
-                    color: this.state.dialogOpen ? "#E7A356" : "",
-                  
-                  }}
+                    sx={{
+                      fontSize: "32px",
+                      color: this.state.dialogOpen ? "#E7A356" : "",
+                    }}
                   />
                 </Badge>
               </Box>
@@ -135,6 +188,39 @@ class SalonNavbar extends Component<salonProps, salonState> {
                 />
               </Box>
             </Box>
+            {this.state.isCustomer && (
+              <Box className="salon-location-body" mt={9}>
+                {/* mobile drawer section */}
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-around",
+                    ml: { sm: 4 },
+
+                    // pl: { sm: 5 },
+                  }}
+                >
+                  <LocationOnIcon sx={{ fontSize: "32px" }} />
+                  <Typography variant="h6">
+                    Nagpur,Maharashtra,India <ExpandMoreIcon />
+                  </Typography>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                    mr: { xs: 1, sm: 6 },
+                  }}
+                >
+                  <ShoppingBasketIcon sx={{ fontSize: "32px" }} />
+                  <Typography sx={{ pl: 1 }} variant="h6">
+                    Cart
+                  </Typography>
+                </Box>
+              </Box>
+            )}
           </Box>
           <Drawer
             anchor="right"
@@ -172,10 +258,16 @@ class SalonNavbar extends Component<salonProps, salonState> {
 
           <>
             {/* notification dialog */}
-            <SalonNotification
+            {!this.state.isCustomer && (
+              <SalonNotification
+                open={this.state.dialogOpen}
+                onClose={this.handleDialogClose}
+              />
+            )}
+            {/* <SalonNotification
               open={this.state.dialogOpen}
               onClose={this.handleDialogClose}
-            />
+            /> */}
           </>
         </Fragment>
       </>
@@ -183,4 +275,4 @@ class SalonNavbar extends Component<salonProps, salonState> {
   }
 }
 
-export default SalonNavbar;
+export default withRouter(SalonNavbar);

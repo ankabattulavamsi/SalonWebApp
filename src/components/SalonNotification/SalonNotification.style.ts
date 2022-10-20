@@ -7,8 +7,8 @@ export const NotificationStyles: any = {
     },
     "& .css-1t1j96h-MuiPaper-root-MuiDialog-paper": {
       position: "fixed",
-      top: "45px",
-      right: "65px",
+      top: "43px",
+      right: "10px",
       width: "390px",
       height: "600px",
       overflowX: "hidden",
