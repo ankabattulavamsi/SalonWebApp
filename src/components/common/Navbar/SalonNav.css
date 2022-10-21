@@ -76,6 +76,7 @@
 @media (min-width: 1024px) {
   .salon-navbar-body {
     grid-template-columns: 0rem 1fr 3fr 0.2fr 20rem;
+
   }
   .salon-location-body {
     display: none;

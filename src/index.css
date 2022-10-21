@@ -5,6 +5,8 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Fira Sans", sans-serif;
+  padding-right: 0px;
+  overflow: hidden;
 }
 * {
   font-family: "Fira Sans", sans-serif;
