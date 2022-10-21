@@ -53,12 +53,13 @@ class SalonNavbar extends Component<salonProps, salonState> {
     });
   };
 
-  handleDialogOpen = () => {
+  handleDialogOpen = () => {    
     this.setState({
       dialogOpen: true,
     });
   };
   handleDialogClose = () => {
+    
     this.setState({
       dialogOpen: false,
     });
@@ -222,7 +223,9 @@ class SalonNavbar extends Component<salonProps, salonState> {
                   Profile
                 </Typography>
               </Box>
-              <Box>
+              <Box sx={{
+                paddingRight:"0px !important",
+              }}>
                 <Badge
                   variant="dot"
                   sx={{ "& .MuiBadge-badge": { backgroundColor: "#E7A356" } }}
@@ -273,7 +276,6 @@ class SalonNavbar extends Component<salonProps, salonState> {
                     sx={{
                       fontSize: "32px",
                       cursor: "pointer",
-
                       color: this.state.dialogOpen ? "#E7A356" : "",
                     }}
                   />
