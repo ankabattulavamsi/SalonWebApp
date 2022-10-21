@@ -302,8 +302,8 @@ class SalonNavbar extends Component<salonProps, salonState> {
                     {this.state.locationData.state_district},&nbsp;
                     {this.state.locationData.state},{" "}
                     {this.state.locationData.country}
-                    <ExpandMoreIcon />
                   </Typography>
+                    <ExpandMoreIcon />
                 </Box>
                 <Box
                   sx={{
