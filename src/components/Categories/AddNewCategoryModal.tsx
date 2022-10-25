@@ -86,7 +86,6 @@ class AddNewCategoryModal extends Component<addCategoryprops> {
 													InputProps={{ disableUnderline: true }}
 													placeholder="Enter new Category"
 													// value={editOfferTitle}
-													// onChange={this.props.onChangeeditOfferTitle}
 													sx={{
 														backgroundColor: "#F0F0F0",
 														borderRadius: "5px",
