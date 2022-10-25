@@ -32,12 +32,6 @@ class CustomerServeCat extends Component<IProps> {
 									<Typography
 										className={classes.blogTitleLine}></Typography>
 								</Stack>
-								<CommonViewAllButton
-									buttonName="view all Category"
-									onClickNavigateOffersPage={
-										this.onClickNavigateOffersPage
-									}
-								/>
 							</Box>
 							<Grid className="card-item" gap={2} container>
 								{categoryData.map((data, index: number) => (
