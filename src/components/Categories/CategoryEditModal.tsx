@@ -1,70 +1,54 @@
 /** @format */
-
 import React, { Component } from "react";
-import {
-	Box,
-	Button,
-	Grid,
-	Modal,
-	TextField,
-	Typography,
-} from "@mui/material";
-import ClassIcon from "@mui/icons-material/Class";
-import DeleteIcon from "@mui/icons-material/Delete";
-import cateImg from "../../assets/images/SalonCategory/cateImg1.png";
-
-import { withStyles } from "@mui/styles";
-import { style } from "./CategoryEditModel.style";
-
-interface categoryEditProps {
+import { Box, Button, Dialog, TextField, Typography } from "@mui/material";
+import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
+import ClassOutlinedIcon from "@mui/icons-material/ClassOutlined";
+import member from "../../assets/images/SalonCategory/cateImg1.png";
+import { Stack } from "@mui/system";
+interface IProps {
 	open: boolean;
 	onClose: any;
-	classes: any;
 }
-class CategoryEditModal extends Component<categoryEditProps> {
+
+class EditCategory extends Component<IProps> {
 	render() {
-		const { open, onClose, classes } = this.props;
 		return (
-			<>
-				<Modal
-					disableScrollLock={true}
-					className={classes.editmodelBox}
-					open={open}
-					onClose={onClose}>
-					<Box className={classes.mainEditbox}>
-						<Grid container columnSpacing={4}>
-							<Grid item lg={6} md={6} sm={12} xs={12}>
-								<img src={cateImg} alt="categor img" />
-							</Grid>
-							<Grid
-								item
-								lg={6}
-								md={6}
-								sm={12}
-								xs={12}
-								className={classes.editcontentbox}>
-								<Box>
-									<Typography variant="h3">Category Title</Typography>
-									<TextField
-										className={classes.editInputfield}
-										placeholder="edit category title here"
-									/>
-								</Box>
-								<Box className={classes.editButtonBox}>
-									<Button startIcon={<ClassIcon />}>Save</Button>
-									<Button
-										startIcon={<DeleteIcon />}
-										onClick={() => onClose()}>
-										Cancel
-									</Button>
-								</Box>
-							</Grid>
-						</Grid>
-					</Box>
-				</Modal>
-			</>
+			<Dialog
+				disableScrollLock={true}
+				open={this.props.open}
+				onClose={this.props.onClose}>
+				<Box className="addBox">
+					<Stack sx={{ marginRight: "40px" }}>
+						<img src={member} alt="member" className="imageMember" />
+						{/* <TextField type="file" /> */}
+						{/* <UploadImage /> */}
+					</Stack>
+					<Stack className="addContent">
+						<Stack className="inputBox">
+							<Typography>Name of Category</Typography>
+							<TextField variant="outlined" placeholder="name" />
+						</Stack>
+
+						<Stack className="groupButton">
+							<Button
+								variant="outlined"
+								startIcon={<ClassOutlinedIcon />}
+								className="save">
+								Save
+							</Button>
+							<Button
+								onClick={this.props.onClose}
+								startIcon={<ClearOutlinedIcon />}
+								variant="outlined"
+								className="cancel1">
+								Cancel
+							</Button>
+						</Stack>
+					</Stack>
+				</Box>
+			</Dialog>
 		);
 	}
 }
 
-export default withStyles(style)(CategoryEditModal);
+export default EditCategory;
