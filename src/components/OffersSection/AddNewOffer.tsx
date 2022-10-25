@@ -54,6 +54,7 @@ export class AddNewOffer extends Component<IsAddNewProps> {
 					<Dialog
 						onClose={this.props.handleCloseAddOffer}
 						open={this.props.addNewOfferOpen}
+						disableScrollLock={true}
 						maxWidth="md"
 						className="offers-dialog-box">
 						<Box

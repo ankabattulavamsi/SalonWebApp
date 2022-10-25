@@ -41,6 +41,7 @@ class AddNewBlog extends Component<IProps> {
 		return (
 			<Container>
 				<Dialog
+					disableScrollLock={true}
 					onClose={this.props.onClose}
 					open={this.props.open}
 					maxWidth="md"

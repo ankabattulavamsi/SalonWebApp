@@ -30,6 +30,7 @@ class AddNewCategoryModal extends Component<addCategoryprops> {
 			<>
 				<Container>
 					<Dialog
+						disableScrollLock={true}
 						onClose={this.props.onClose}
 						open={this.props.open}
 						maxWidth="md"

@@ -24,24 +24,12 @@ interface IProps {
 }
 
 class AddTeam extends Component<IProps> {
-	state = {
-		profileImg:
-			"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
-	};
-	imageHandler = (e: any) => {
-		const reader = new FileReader();
-		reader.onload = () => {
-			if (reader.readyState === 2) {
-				this.setState({ profileImg: reader.result });
-			}
-		};
-		reader.readAsDataURL(e.target.files[0]);
-	};
 	render() {
 		const { classes } = this.props;
 		return (
 			<Container>
 				<Dialog
+					disableScrollLock={true}
 					onClose={this.props.onClose}
 					open={this.props.open}
 					maxWidth="md"
