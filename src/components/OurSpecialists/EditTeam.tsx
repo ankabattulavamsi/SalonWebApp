@@ -1,12 +1,10 @@
 /** @format */
 import React, { Component } from "react";
 import { Box, Button, Dialog, TextField, Typography } from "@mui/material";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import ClassOutlinedIcon from "@mui/icons-material/ClassOutlined";
 import member from "../../assets/images/expertTeamSection/member1.png";
 import { Stack } from "@mui/system";
-import UploadImage from "./UploadImage";
 interface IProps {
 	open: boolean;
 	onClose: any;
@@ -15,7 +13,10 @@ interface IProps {
 class EditTeam extends Component<IProps> {
 	render() {
 		return (
-			<Dialog open={this.props.open} onClose={this.props.onClose}>
+			<Dialog
+				disableScrollLock={true}
+				open={this.props.open}
+				onClose={this.props.onClose}>
 				<Box className="addBox">
 					<Stack sx={{ marginRight: "40px" }}>
 						<img src={member} alt="member" className="imageMember" />
