@@ -21,6 +21,10 @@ import Customer from "./components/customer/Customer";
 import CustomerSevice from "./components/CusomerServicePage/CustomerSevice";
 import CustomerHairService from "./components/CustomerSalonServices/CustomerHairService";
 import CustomerBridalService from "./components/CustomerSalonServices/CustomerBridalService";
+import CustomerKidsHair from "./components/CustomerSalonServices/CustomerKidsHair";
+import CustomerHairColor from "./components/CustomerSalonServices/CustomerHairColor";
+import CustomerFacial from "./components/CustomerSalonServices/CustomerFacial";
+import CusstomerSpa from "./components/CustomerSalonServices/CusstomerSpa";
 function App() {
 	return (
 		<div>
@@ -50,6 +54,10 @@ function App() {
 					<Route path='/customer/service' element={<CustomerSevice />} />
 					<Route path='customer/service/haircut' element={ <CustomerHairService /> } />
 					<Route path='customer/service/bridal' element={ <CustomerBridalService /> } />
+					<Route path='customer/service/kids-haircut' element={ <CustomerKidsHair /> } />
+					<Route path='customer/service/hair-colors' element={ <CustomerHairColor /> } />
+					<Route path='customer/service/facial' element={ <CustomerFacial /> } />
+					<Route path='customer/service/spa' element={ <CusstomerSpa /> } />
 					{/* Salon Customer */}
 				</Routes>
 			</ThemeProvider>

@@ -37,13 +37,13 @@ class CustomerServeCat extends Component<IProps> {
       case "Bridal":
         return this.props.navigate("bridal");
       case "Kids Haircut":
-        return this.props.navigate("haircut");
+        return this.props.navigate("kids-haircut");
       case "Hair Color":
-        return this.props.navigate("bridal");
+        return this.props.navigate("hair-colors");
         case "Facial":
-				return this.props.navigate('bridal');
+				return this.props.navigate('facial');
         case "Spa":
-				return this.props.navigate('bridal');
+				return this.props.navigate('spa');
       default:
         return null;
     }
