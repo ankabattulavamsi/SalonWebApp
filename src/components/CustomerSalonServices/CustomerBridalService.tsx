@@ -1,7 +1,7 @@
 import { Container } from "@mui/system";
 import React, { Component } from "react";
 import CustomerCommonBanner from "../common/CustomerCommonBanner/CustomerCommonBanner";
-import SalonHairImg from "../../assets/images/CustomerHairServiceImgs/9852e9704ebcfac8c889f491e97ef665.jpeg";
+import BridalImg from "../../assets/images/CustomerBridalServeImgs/bb00431f8e9d142009974a14358c690d.jpeg";
 import Layout from "../Layout/Layout";
 import {
   Box,
@@ -13,48 +13,55 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import { HairServiceData } from "../../utils/data/CustomerHairServiceData/CustomerHairData";
+import { BridalServiceData } from "../../utils/data/CustomerHairServiceData/CustomerHairData";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import { withStyles } from "@mui/styles";
 import { hairStyle } from "./CustomerS.style";
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 
 interface ServeProps {
   classes: any;
 }
 
-export class CustomerHairService extends Component<ServeProps> {
+class CustomerBridalService extends Component<ServeProps> {
   render() {
     const { classes } = this.props;
     return (
       <Layout customer={true}>
         <Container maxWidth="lg" sx={{ mt: 12, mb: 10 }}>
           <Box>
-            <CustomerCommonBanner image={SalonHairImg} title="Hair Cut" />
+            <CustomerCommonBanner image={BridalImg} title="Bridal" />
           </Box>
 
           <Grid container spacing={2} sx={{ p: { lg: 0 } }}>
-            {HairServiceData.map((item: any) => (
+            {BridalServiceData.map((item: any) => (
               <Grid item xs={12} md={6} sm={6} lg={4}>
                 <Card className={classes.cardContainer}>
                   <CardMedia
                     component="img"
                     alt={`${item.heading}`}
                     height="215"
-                    image={item.hairServeImg}
+                    image={item.brideServeImg}
                   />
 
-                  <CardContent sx={{m:1}}>
+                  <CardContent sx={{ m: 1 }}>
                     <Box className={classes.priceServeContainer}>
-                    <Typography className={classes.cardHeading} variant="h2">{item.heading}</Typography>
+                      <Typography className={classes.cardHeading} variant="h2">
+                        {item.heading}
+                      </Typography>
                       <Box className={classes.priceServeContainer}>
                         <Box className={classes.priceServeContainerR}>
-                          <CurrencyRupeeIcon style={{fontSize: '18px', }}  />
+                          <CurrencyRupeeIcon style={{ fontSize: "18px" }} />
                           <Typography variant="h3">{item.dissPrice}</Typography>
                         </Box>
                         <Box className={classes.priceServeContainerRu}>
                           <Box>
-                          <CurrencyRupeeIcon style={{fontSize: '18px', textDecoration: 'line-through',}}   />
+                            <CurrencyRupeeIcon
+                              style={{
+                                fontSize: "18px",
+                                textDecoration: "line-through",
+                              }}
+                            />
                           </Box>
                           <Typography variant="h4">{item.price}</Typography>
                         </Box>
@@ -62,11 +69,18 @@ export class CustomerHairService extends Component<ServeProps> {
                     </Box>
 
                     <Box>
-                      <Typography className={classes.descHair}>{item.description}</Typography>
+                      <Typography className={classes.descHair}>
+                        {item.description}
+                      </Typography>
                     </Box>
                   </CardContent>
-                  <CardActions sx={{m:1}}>
-                    <Button className={classes.cartBtn} startIcon={<ShoppingBasketIcon />}>Add To Cart</Button>
+                  <CardActions sx={{ m: 1 }}>
+                    <Button
+                      className={classes.cartBtn}
+                      startIcon={<ShoppingBasketIcon />}
+                    >
+                      Add To Cart
+                    </Button>
                   </CardActions>
                 </Card>
               </Grid>
@@ -78,4 +92,4 @@ export class CustomerHairService extends Component<ServeProps> {
   }
 }
 
-export default withStyles(hairStyle)(CustomerHairService);
+export default withStyles(hairStyle)(CustomerBridalService);

@@ -20,6 +20,7 @@ import SalonOwnerPage from "./components/SalonOwnerProfile/SalonOwnerPage";
 import Customer from "./components/customer/Customer";
 import CustomerSevice from "./components/CusomerServicePage/CustomerSevice";
 import CustomerHairService from "./components/CustomerSalonServices/CustomerHairService";
+import CustomerBridalService from "./components/CustomerSalonServices/CustomerBridalService";
 function App() {
 	return (
 		<div>
@@ -48,6 +49,7 @@ function App() {
 					<Route path="customer" element={<Customer />} />
 					<Route path='/customer/service' element={<CustomerSevice />} />
 					<Route path='customer/service/haircut' element={ <CustomerHairService /> } />
+					<Route path='customer/service/bridal' element={ <CustomerBridalService /> } />
 					{/* Salon Customer */}
 				</Routes>
 			</ThemeProvider>
