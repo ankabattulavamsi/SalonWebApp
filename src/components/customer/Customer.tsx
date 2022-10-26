@@ -8,6 +8,7 @@ import "./customer.css";
 import CustomerCatagory from "./CustomerCatagory";
 import NearByShop from "./NearByShop";
 import CustomerBlog from "./CustomerBlog";
+
 export default class Customer extends Component {
 	render() {
 		return (
@@ -17,6 +18,7 @@ export default class Customer extends Component {
 					<CustomerCatagory />
 					<NearByShop />
 					<CustomerBlog />
+					
 				</Box>
 			</Layout>
 		);
