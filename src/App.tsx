@@ -19,6 +19,7 @@ import BookingsMainPage from "./components/BookingsSection/BookingsMainPage/Book
 import SalonOwnerPage from "./components/SalonOwnerProfile/SalonOwnerPage";
 import Customer from "./components/customer/Customer";
 import CustomerSevice from "./components/CusomerServicePage/CustomerSevice";
+import SalonNearByPage from "./routes/SalonNearByPage/SalonNearByPage";
 function App() {
 	return (
 		<div>
@@ -45,7 +46,11 @@ function App() {
 
 					{/* Salon Customer */}
 					<Route path="customer" element={<Customer />} />
-					<Route path='/customer/service' element={<CustomerSevice />} />
+					<Route path="/customer/service" element={<CustomerSevice />} />
+					<Route
+						path="/customer/salonNearby"
+						element={<SalonNearByPage />}
+					/>
 					{/* Salon Customer */}
 				</Routes>
 			</ThemeProvider>
