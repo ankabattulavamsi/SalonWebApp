@@ -48,6 +48,7 @@ export const hairStyle: any = {
   },
   cardContainer: {
     boxShadow: "none !important",
+    cursor: 'pointer',
     "&:hover": {
       boxShadow: "0 4px 20px rgba(0, 0, 0, 0.07) !important",
       transitionDelay: '0.2s !important',
@@ -83,4 +84,28 @@ export const hairStyle: any = {
       },
     },
   },
+
+  MainHeading: {
+    fontFamily: "Fira Sans",
+    fontStyle: "SemiBold",
+    fontWeight: "700",
+    fontSize: "26px !important",
+    lineHeight: "48px",
+    color: "#272522 !important",
+    "@media screen and (max-width: 600px)": {
+      fontSize: "26px !important",
+    },
+  },
+  descriptionP: {
+    fontFamily: "Roboto",
+    fontStyle: "Regular",
+    fontWeight: "700",
+    marginTop: "8px !important",
+    fontSize: "17px !important",
+    lineHeight: "26px",
+    color: "#88878F !important",
+    "@media screen and (max-width: 600px)": {
+      fontSize: "18px !important",
+    },
+  }
 };

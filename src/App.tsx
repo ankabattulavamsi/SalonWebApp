@@ -25,6 +25,7 @@ import CustomerKidsHair from "./components/CustomerSalonServices/CustomerKidsHai
 import CustomerHairColor from "./components/CustomerSalonServices/CustomerHairColor";
 import CustomerFacial from "./components/CustomerSalonServices/CustomerFacial";
 import CusstomerSpa from "./components/CustomerSalonServices/CusstomerSpa";
+import CustomerSingleServicePage from "./components/CustomerSalonServices/CustomerSingleServicePage";
 function App() {
 	return (
 		<div>
@@ -58,6 +59,7 @@ function App() {
 					<Route path='customer/service/hair-colors' element={ <CustomerHairColor /> } />
 					<Route path='customer/service/facial' element={ <CustomerFacial /> } />
 					<Route path='customer/service/spa' element={ <CusstomerSpa /> } />
+					<Route path='customer/service/haircut/single' element={ <CustomerSingleServicePage /> } />
 					{/* Salon Customer */}
 				</Routes>
 			</ThemeProvider>

@@ -18,12 +18,22 @@ import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import { withStyles } from "@mui/styles";
 import { hairStyle } from "./CustomerS.style";
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
 
 interface ServeProps {
   classes: any;
+  navigate: any;
 }
 
 export class CustomerHairService extends Component<ServeProps> {
+
+  onClickNavigateSingleServe = (item: any) => {
+    let heading = item.heading.replace(/ /g, '')
+    this.props.navigate(`single`, {
+      state: item
+    })
+  }
+
   render() {
     const { classes } = this.props;
     return (
@@ -36,7 +46,7 @@ export class CustomerHairService extends Component<ServeProps> {
           <Grid container spacing={2} sx={{ p: { lg: 0 } }}>
             {HairServiceData.map((item: any) => (
               <Grid item xs={12} md={6} sm={6} lg={4}>
-                <Card className={classes.cardContainer}>
+                <Card className={classes.cardContainer} onClick={(e) => this.onClickNavigateSingleServe(item)}>
                   <CardMedia
                     component="img"
                     alt={`${item.heading}`}
@@ -78,4 +88,4 @@ export class CustomerHairService extends Component<ServeProps> {
   }
 }
 
-export default withStyles(hairStyle)(CustomerHairService);
+export default WithRouterHoc(withStyles(hairStyle)(CustomerHairService));
