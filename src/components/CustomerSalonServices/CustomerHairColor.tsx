@@ -18,12 +18,20 @@ import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import { withStyles } from "@mui/styles";
 import { hairStyle } from "./CustomerS.style";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
 
 interface ServeProps {
   classes: any;
+  navigate: any
 }
 
 class CustomerHairColor extends Component<ServeProps> {
+  onClickNavigateSingleServe = (item: any) => {
+    let heading = item.heading.replace(/ /g, '')
+    this.props.navigate(`hair-color-details`, {
+      state: item
+    })
+  }
   render() {
     const { classes } = this.props;
     return (
@@ -36,15 +44,16 @@ class CustomerHairColor extends Component<ServeProps> {
           <Grid container spacing={2} sx={{ p: { lg: 0 } }}>
             {HairColors.map((item: any) => (
               <Grid item xs={12} md={6} sm={6} lg={4}>
-                <Card className={classes.cardContainer}>
+                <Card className={classes.cardContainer} >
                   <CardMedia
                     component="img"
                     alt={`${item.heading}`}
                     height="215"
                     image={item.brideServeImg}
+                    key={item.id}  onClick={(e) => this.onClickNavigateSingleServe(item)}
                   />
 
-                  <CardContent sx={{ m: 1 }}>
+                  <CardContent sx={{ m: 1 }} key={item.id}  onClick={(e) => this.onClickNavigateSingleServe(item)}>
                     <Box className={classes.priceServeContainer}>
                       <Typography className={classes.cardHeading} variant="h2">
                         {item.heading}
@@ -92,4 +101,4 @@ class CustomerHairColor extends Component<ServeProps> {
   }
 }
 
-export default withStyles(hairStyle)(CustomerHairColor);
+export default WithRouterHoc(withStyles(hairStyle)(CustomerHairColor));

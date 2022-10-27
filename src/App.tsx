@@ -1,6 +1,6 @@
 /** @format */
 
-import React from "react";
+import React, { useEffect } from "react";
 import { ThemeProvider } from "@mui/material";
 import theme from "./Theme/Theme";
 import { Routes, Route } from "react-router-dom";
@@ -26,7 +26,12 @@ import CustomerHairColor from "./components/CustomerSalonServices/CustomerHairCo
 import CustomerFacial from "./components/CustomerSalonServices/CustomerFacial";
 import CusstomerSpa from "./components/CustomerSalonServices/CusstomerSpa";
 import CustomerSingleServicePage from "./components/CustomerSalonServices/CustomerSingleServicePage";
+import { categoryData } from "./utils/data/customer/CustomerData";
+
+
+
 function App() {
+	
 	return (
 		<div>
 			<ThemeProvider theme={theme}>
@@ -59,7 +64,12 @@ function App() {
 					<Route path='customer/service/hair-colors' element={ <CustomerHairColor /> } />
 					<Route path='customer/service/facial' element={ <CustomerFacial /> } />
 					<Route path='customer/service/spa' element={ <CusstomerSpa /> } />
-					<Route path='customer/service/haircut/single' element={ <CustomerSingleServicePage /> } />
+					<Route path='customer/service/haircut/haircut-details' element={ <CustomerSingleServicePage /> } />
+					<Route path='customer/service/bridal/bridal-details' element={ <CustomerSingleServicePage /> } />
+					<Route path='customer/service/kids-haircut/kids-haircut-details' element={ <CustomerSingleServicePage /> } />
+					<Route path='customer/service/hair-colors/hair-color-details' element={ <CustomerSingleServicePage /> } />
+					<Route path='customer/service/facial/facial-details' element={ <CustomerSingleServicePage /> } />
+					<Route path='customer/service/spa/spa-details' element={ <CustomerSingleServicePage /> } />
 					{/* Salon Customer */}
 				</Routes>
 			</ThemeProvider>

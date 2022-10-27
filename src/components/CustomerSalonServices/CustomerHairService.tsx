@@ -29,7 +29,7 @@ export class CustomerHairService extends Component<ServeProps> {
 
   onClickNavigateSingleServe = (item: any) => {
     let heading = item.heading.replace(/ /g, '')
-    this.props.navigate(`single`, {
+    this.props.navigate(`haircut-details`, {
       state: item
     })
   }
@@ -46,15 +46,16 @@ export class CustomerHairService extends Component<ServeProps> {
           <Grid container spacing={2} sx={{ p: { lg: 0 } }}>
             {HairServiceData.map((item: any) => (
               <Grid item xs={12} md={6} sm={6} lg={4}>
-                <Card className={classes.cardContainer} onClick={(e) => this.onClickNavigateSingleServe(item)}>
+                <Card className={classes.cardContainer} >
                   <CardMedia
                     component="img"
                     alt={`${item.heading}`}
                     height="215"
                     image={item.hairServeImg}
+                    onClick={(e) => this.onClickNavigateSingleServe(item)}
                   />
 
-                  <CardContent sx={{m:1}}>
+                  <CardContent sx={{m:1}} onClick={(e) => this.onClickNavigateSingleServe(item)}>
                     <Box className={classes.priceServeContainer}>
                     <Typography className={classes.cardHeading} variant="h2">{item.heading}</Typography>
                       <Box className={classes.priceServeContainer}>
