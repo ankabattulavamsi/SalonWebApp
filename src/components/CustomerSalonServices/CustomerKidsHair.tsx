@@ -29,7 +29,7 @@ class CustomerKidsHair extends Component<ServeProps> {
 
   onClickNavigateSingleServe = (item: any) => {
     let heading = item.heading.replace(/ /g, '')
-    this.props.navigate(`kida-haircut-details`, {
+    this.props.navigate(`kids-haircut-details`, {
       state: item
     })
   }
