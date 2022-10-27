@@ -71,3 +71,21 @@
     height: 58px !important;
   }
 }
+
+
+.banner-sec-single .slick-dots {
+  top: 258px;
+}
+
+.slick-dots li {
+  width: 8px;
+}
+
+.slick-dots li button:before{
+  color: #fff;
+  font-size: 10px !important;
+}
+
+.Banner .slick-dots li button:before {
+  color: #FFFFFF;
+}
