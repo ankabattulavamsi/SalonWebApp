@@ -1,16 +1,20 @@
+import React, { Component, Fragment } from "react";
+
 import { Button, Grid, Typography,Stack } from "@mui/material";
 import { withStyles } from "@mui/styles";
 import { Box, Container } from "@mui/system";
-import React, { Component, Fragment } from "react";
-import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
-import Layout from "../Layout/Layout";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
-import Slider from "react-slick";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
+
+import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
+import Layout from "../Layout/Layout";
 import { hairStyle } from "./CustomerS.style";
 import { HairServiceData } from "../../utils/data/CustomerHairServiceData/CustomerHairData";
+
+import Slider from "react-slick";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 interface IsSinglePageProps {
   location: any;
   classes: any;

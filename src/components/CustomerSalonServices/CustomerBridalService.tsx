@@ -1,8 +1,5 @@
-import { Container } from "@mui/system";
+
 import React, { Component } from "react";
-import CustomerCommonBanner from "../common/CustomerCommonBanner/CustomerCommonBanner";
-import BridalImg from "../../assets/images/CustomerBridalServeImgs/bb00431f8e9d142009974a14358c690d.jpeg";
-import Layout from "../Layout/Layout";
 import {
   Box,
   Button,
@@ -13,12 +10,20 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import { BridalServiceData } from "../../utils/data/CustomerHairServiceData/CustomerHairData";
+import { Container } from "@mui/system";
+import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import { withStyles } from "@mui/styles";
-import { hairStyle } from "./CustomerS.style";
-import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+
+import CustomerCommonBanner from "../common/CustomerCommonBanner/CustomerCommonBanner";
+import BridalImg from "../../assets/images/CustomerBridalServeImgs/bb00431f8e9d142009974a14358c690d.jpeg";
+import Layout from "../Layout/Layout";
+import { BridalServiceData } from "../../utils/data/CustomerHairServiceData/CustomerHairData";
 import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
+
+import { hairStyle } from "./CustomerS.style";
+
+
 
 interface ServeProps {
   classes: any;

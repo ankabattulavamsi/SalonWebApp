@@ -31,6 +31,7 @@ import { categoryData } from "./utils/data/customer/CustomerData";
 
 
 import SalonNearByPage from "./routes/SalonNearByPage/SalonNearByPage";
+import CartItemsList from "./components/CustomerCartItems/CartItemsList";
 function App() {
 	
 	return (
@@ -58,6 +59,7 @@ function App() {
 
 					{/* Salon Customer */}
 					<Route path="customer" element={<Customer />} />
+					<Route path="customer/cart-items" element={<CartItemsList />} />
 					<Route path='/customer/service' element={<CustomerSevice />} />
 					<Route path='customer/service/haircut' element={ <CustomerHairService /> } />
 					<Route path='customer/service/bridal' element={ <CustomerBridalService /> } />

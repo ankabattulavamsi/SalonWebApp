@@ -11,15 +11,13 @@ import {
 } from "@mui/material";
 import { Styles } from "../OurSpecialists/specialist.styles";
 import { withStyles } from "@mui/styles";
-import "react-multi-carousel/lib/styles.css";
-import { CommonViewAllButton } from "../common";
-import withRouter from "../../hoc/withRouter";
-import { categoryData } from "../../utils/data/customer/CustomerData";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import CategoryCard from "../customer/CategoryCard";
-import CustomerHairService from "../CustomerSalonServices/CustomerHairService";
+
+import { categoryData } from "../../utils/data/customer/CustomerData";
+
+import "react-multi-carousel/lib/styles.css";
+import withRouter from "../../hoc/withRouter";
 import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
-import CustomerBridalService from "../CustomerSalonServices/CustomerBridalService";
 
 interface IProps {
   navigate: any;
