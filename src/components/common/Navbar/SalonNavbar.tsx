@@ -16,6 +16,7 @@ import { SalonMenus } from "../../../utils/models/navbar_interface";
 import SalonNotification from "../../SalonNotification/SalonNotification";
 
 import "./SalonNav.css";
+import { CustomerMenu } from "../../../utils/data/navbar_menus";
 
 interface salonProps {
   customer: boolean;
@@ -24,6 +25,8 @@ interface salonProps {
 }
 interface salonState {
   isCustomer: boolean;
+  activeLink: string;
+
   open: boolean;
   dialogOpen: boolean;
   lat: any;
@@ -40,6 +43,8 @@ class SalonNavbar extends Component<salonProps, salonState> {
     lat: null,
     lon: null,
     data: "",
+    activeLink: "Home",
+
     locationData: {
       state_district: "",
       state: "",
@@ -49,17 +54,18 @@ class SalonNavbar extends Component<salonProps, salonState> {
 
   handleClick = (title: string) => {
     this.setState({
+      activeLink: title,
+
       open: !this.state.open,
     });
   };
 
-  handleDialogOpen = () => {    
+  handleDialogOpen = () => {
     this.setState({
       dialogOpen: true,
     });
   };
   handleDialogClose = () => {
-    
     this.setState({
       dialogOpen: false,
     });
@@ -96,7 +102,6 @@ class SalonNavbar extends Component<salonProps, salonState> {
         this.showPosition,
         this.handleLocationError
       );
-      
     } else {
       alert("Geolocation not supported");
     }
@@ -145,7 +150,6 @@ class SalonNavbar extends Component<salonProps, salonState> {
   render() {
     const { menus } = this.props;
 
-
     return (
       <>
         <Fragment>
@@ -153,23 +157,47 @@ class SalonNavbar extends Component<salonProps, salonState> {
             <Box className="logo">
               <img src={Logo} alt="logo" width="100%" height="75px" />
             </Box>
-            <Box className="salon-nav-menulink">
-              {menus.map((menu) => {
-                return (
-                  <a
-                    key={menu.id}
-                    href={menu.path}
-                    className={
-                      window.location.pathname == menu.path
-                        ? "active"
-                        : "salon-menu-link"
-                    }
-                  >
-                    {menu.title}
-                  </a>
-                );
-              })}
-            </Box>
+
+            {this.state.isCustomer ? (
+              <Box className="nav-menulink">
+                {CustomerMenu.map((menu) => {
+                  return (
+                    <a
+                      key={menu.id}
+                      href={menu.path}
+                      className={
+                        menu.title === this.state.activeLink
+                          ? "active"
+                          : "menu-link"
+                      }
+                      onClick={() => this.setState({ activeLink: menu.title })}
+                    >
+                      {menu.title}
+                    </a>
+                  );
+                })}
+              </Box>
+            ) : (
+              <Box className="salon-nav-menulink">
+                {menus.map((menu) => {
+                  console.log("pathname", window.location.pathname);
+
+                  return (
+                    <a
+                      key={menu.id}
+                      href={menu.path}
+                      className={
+                        window.location.pathname == menu.path
+                          ? "active"
+                          : "salon-menu-link"
+                      }
+                    >
+                      {menu.title}
+                    </a>
+                  );
+                })}
+              </Box>
+            )}
             {this.state.isCustomer && (
               <Box className="salon-nav-location">
                 <Box
@@ -223,9 +251,11 @@ class SalonNavbar extends Component<salonProps, salonState> {
                   Profile
                 </Typography>
               </Box>
-              <Box sx={{
-                paddingRight:"0px !important",
-              }}>
+              <Box
+                sx={{
+                  paddingRight: "0px !important",
+                }}
+              >
                 <Badge
                   variant="dot"
                   sx={{ "& .MuiBadge-badge": { backgroundColor: "#E7A356" } }}
@@ -305,7 +335,7 @@ class SalonNavbar extends Component<salonProps, salonState> {
                     {this.state.locationData.state},{" "}
                     {this.state.locationData.country}
                   </Typography>
-                    <ExpandMoreIcon />
+                  <ExpandMoreIcon />
                 </Box>
                 <Box
                   sx={{
@@ -332,28 +362,54 @@ class SalonNavbar extends Component<salonProps, salonState> {
               <Box onClick={() => this.setState({ open: !this.state.open })}>
                 <CloseIcon />
               </Box>
-              <List>
-                {menus.map((menu) => {
-                  return (
-                    <ListItem
-                      key={menu.id}
-                      className="salon-mobile-menus"
-                      onClick={() => this.handleClick(menu.title)}
-                    >
-                      <a
-                        href={menu.path}
-                        className={
-                          window.location.pathname == menu.path
-                            ? "salon-moblie-active-link"
-                            : "salon-mobile-menus"
-                        }
+
+              {this.state.isCustomer ? (
+                <List>
+                  {CustomerMenu.map((menu) => {
+                    return (
+                      <ListItem
+                        key={menu.id}
+                        className="mobile-menus"
+                        onClick={() => this.handleClick(menu.title)}
                       >
-                        {menu.title}
-                      </a>
-                    </ListItem>
-                  );
-                })}
-              </List>
+                        <a
+                          href={menu.path}
+                          className={
+                            menu.title === this.state.activeLink
+                              ? "moblie-active-link"
+                              : "mobile-menus"
+                          }
+                        >
+                          {menu.title}
+                        </a>
+                      </ListItem>
+                    );
+                  })}
+                </List>
+              ) : (
+                <List>
+                  {menus.map((menu) => {
+                    return (
+                      <ListItem
+                        key={menu.id}
+                        className="salon-mobile-menus"
+                        onClick={() => this.handleClick(menu.title)}
+                      >
+                        <a
+                          href={menu.path}
+                          className={
+                            window.location.pathname == menu.path
+                              ? "salon-moblie-active-link"
+                              : "salon-mobile-menus"
+                          }
+                        >
+                          {menu.title}
+                        </a>
+                      </ListItem>
+                    );
+                  })}
+                </List>
+              )}
             </Box>
           </Drawer>
 

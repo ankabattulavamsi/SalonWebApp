@@ -25,6 +25,7 @@ const CustomerMap = () => {
         center={[19.15790940106618, 77.31012223449918]}
         zoom={13}
         className={classes.map}
+        scrollWheelZoom={false}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
