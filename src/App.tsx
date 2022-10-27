@@ -30,6 +30,7 @@ import { categoryData } from "./utils/data/customer/CustomerData";
 
 
 
+import SalonNearByPage from "./routes/SalonNearByPage/SalonNearByPage";
 function App() {
 	
 	return (
@@ -70,6 +71,11 @@ function App() {
 					<Route path='customer/service/hair-colors/hair-color-details' element={ <CustomerSingleServicePage /> } />
 					<Route path='customer/service/facial/facial-details' element={ <CustomerSingleServicePage /> } />
 					<Route path='customer/service/spa/spa-details' element={ <CustomerSingleServicePage /> } />
+					<Route path="/customer/service" element={<CustomerSevice />} />
+					<Route
+						path="/customer/salonNearby"
+						element={<SalonNearByPage />}
+					/>
 					{/* Salon Customer */}
 				</Routes>
 			</ThemeProvider>
