@@ -31,7 +31,16 @@ export const Styles: any = {
         '&:hover': {
           backgroundColor: '#E7A356 !important', 
           color: '#fff !important',
-        }
+        },
+        [theme.breakpoints.up("md")]: {
+          fontSize: "20px !important",
+        },
+        [theme.breakpoints.up("xs")]: {
+          fontSize: "16px !important",
+        },
+        [theme.breakpoints.up("sm")]: {
+          fontSize: "18px !important",
+        },
       },
 
       otherServeBtn : {
@@ -45,6 +54,15 @@ export const Styles: any = {
         '&:hover': {
           backgroundColor: '#E7A356 !important', 
           color: '#fff !important',
-        }
+        },
+        [theme.breakpoints.up("md")]: {
+          fontSize: "20px !important",
+        },
+        [theme.breakpoints.up("xs")]: {
+          fontSize: "16px !important",
+        },
+        [theme.breakpoints.up("sm")]: {
+          fontSize: "18px !important",
+        },
       }
 }

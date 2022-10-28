@@ -56,7 +56,7 @@ class CustomerServeCat extends Component<IProps> {
 
     return (
       <>
-        <Grid container sx={{ mt: 10 }} maxWidth="lg">
+        <Grid container sx={{ mt: 0 }} maxWidth="lg">
           <Grid item xs={12} sm={12} md={12} lg={12}>
             <Stack className={classes.specialist}>
               <Box className={classes.specialistHeading}>
