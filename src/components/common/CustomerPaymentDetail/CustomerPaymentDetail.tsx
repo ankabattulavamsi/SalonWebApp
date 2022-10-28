@@ -12,49 +12,18 @@ import { withStyles } from "@mui/styles";
 import { Styles } from "../../Login/Login.style";
 import { CustomerPaymentState } from "../../../routes/SalonNearByPage/SalonServiceDetail";
 import BankPayment from "./BankPayment";
-import "./payment.css";
 import UPIPayment from "./UPIPayment";
 import CreditCardPayment from "./CreditCardPayment";
 
 interface IProps {
-	// open: boolean;
 	onClose: any;
 	classes?: any;
-	// bankAccount: boolean;
-	// upi: boolean;
-	// creditCard: boolean
 	state: CustomerPaymentState;
 	handleBankAccPayment: () => void;
 	handleUPIPayment: () => void;
 	handleCreditCardPayment: () => void;
 }
 class CustomerPaymentDetail extends Component<IProps> {
-	// state = {
-	// 	bankAcount: true,
-	// 	upi: false,
-	// 	creditCard: false,
-	// };
-	// handleBankAccPayment = () => {
-	// 	this.setState({
-	// 		upi: false,
-	// 		creditCard: false,
-	// 		backAcount: true,
-	// 	});
-	// };
-	// handleUPIPayment = () => {
-	// 	this.setState({
-	// 		upi: true,
-	// 		bankAcount: false,
-	// 		creditCard: false,
-	// 	});
-	// };
-	// handleCreditCardPayment = () => {
-	// 	this.setState({
-	// 		creditCard: true,
-	// 		upi: false,
-	// 		bankAcount: false,
-	// 	});
-	// };
 	render() {
 		const {
 			onClose,
@@ -63,9 +32,9 @@ class CustomerPaymentDetail extends Component<IProps> {
 			handleUPIPayment,
 			handleCreditCardPayment,
 		} = this.props;
-		console.log("props======================>", this.props);
 		return (
 			<Drawer
+				className="main-drawer-pay"
 				anchor="right"
 				open={this.props.state.open}
 				onClose={onClose}>

@@ -1,7 +1,6 @@
 /** @format */
 
 .drawerSize {
-	width: 460px;
 	padding: 30px !important;
 }
 
@@ -102,17 +101,17 @@
 }
 .traingle-sec2 {
 	position: absolute;
-	left: 65px;
+	left: 15%;
 	top: 54px;
 }
 .traingle-sec3 {
 	position: absolute;
-	left: 185px;
+	left: 50%;
 	top: 54px;
 }
 .traingle-sec4 {
 	position: absolute;
-	right: 55px;
+	right: 15%;
 	top: 54px;
 }
 .traingle {
@@ -147,6 +146,51 @@
 	background-color: #000 !important;
 	color: white !important ;
 }
+.text-input {
+	background: #f0f0f0;
+	border: 0 !important;
+}
+.text-input fieldset {
+	border: 0 !important;
+}
+
+.continue-btn {
+	margin-top: 30px !important;
+	padding: 15px !important;
+	color: #fff !important;
+}
+.input-group-sec {
+	width: 100%;
+}
+@media only screen and (min-width: 1500px) and (max-width: 3100px) {
+	.buttons {
+		width: 100% !important;
+	}
+	.buttonsPay {
+		width: 100% !important;
+	}
+}
+@media only screen and (min-width: 1201px) and (max-width: 1365px) {
+	.main-drawer-pay .css-1160xiw-MuiPaper-root-MuiDrawer-paper {
+		width: 35% !important;
+	}
+}
+@media only screen and (min-width: 1050px) and (max-width: 1200px) {
+	.buttons {
+		width: 100% !important;
+	}
+	.buttonsPay {
+		width: 100% !important;
+	}
+}
+@media only screen and (min-width: 600px) and (max-width: 817px) {
+	.main-drawer-pay .css-1160xiw-MuiPaper-root-MuiDrawer-paper {
+		width: 70% !important;
+	}
+	.login-drawer .css-1160xiw-MuiPaper-root-MuiDrawer-paper {
+		width: 70% !important;
+	}
+}
 @media only screen and (min-width: 600px) and (max-width: 1050px) {
 	.drawerSize {
 		width: 100%;
@@ -156,7 +200,7 @@
 		width: 100% !important;
 	}
 	.buttonsPay {
-		width: 100px !important;
+		width: 100% !important;
 	}
 }
 @media only screen and (min-width: 200px) and (max-width: 600px) {
@@ -173,14 +217,18 @@
 	}
 	.traingle-sec2 {
 		top: 49px;
-		left: 65px;
 	}
+
 	.traingle-sec3 {
-		left: 160px;
 		top: 49px;
 	}
 	.traingle-sec4 {
-		right: 39px;
+		top: 49px;
+	}
+}
+@media only screen and (min-width: 450px) and (max-width: 500px) {
+	.traingle-sec3 {
+		left: 50%;
 		top: 49px;
 	}
 }
