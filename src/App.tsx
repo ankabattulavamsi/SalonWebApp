@@ -60,20 +60,20 @@ function App() {
 					{/* Salon Customer */}
 					<Route path="customer" element={<Customer />} />
 					<Route path="customer/cart-items" element={<CartItemsList />} />
-					<Route path='/customer/service' element={<CustomerSevice />} />
-					<Route path='customer/service/haircut' element={ <CustomerHairService /> } />
-					<Route path='customer/service/bridal' element={ <CustomerBridalService /> } />
-					<Route path='customer/service/kids-haircut' element={ <CustomerKidsHair /> } />
-					<Route path='customer/service/hair-colors' element={ <CustomerHairColor /> } />
-					<Route path='customer/service/facial' element={ <CustomerFacial /> } />
-					<Route path='customer/service/spa' element={ <CusstomerSpa /> } />
-					<Route path='customer/service/haircut/haircut-details' element={ <CustomerSingleServicePage /> } />
-					<Route path='customer/service/bridal/bridal-details' element={ <CustomerSingleServicePage /> } />
-					<Route path='customer/service/kids-haircut/kids-haircut-details' element={ <CustomerSingleServicePage /> } />
-					<Route path='customer/service/hair-colors/hair-color-details' element={ <CustomerSingleServicePage /> } />
-					<Route path='customer/service/facial/facial-details' element={ <CustomerSingleServicePage /> } />
-					<Route path='customer/service/spa/spa-details' element={ <CustomerSingleServicePage /> } />
-					<Route path="/customer/service" element={<CustomerSevice />} />
+					<Route path='customer/category' element={<CustomerSevice />} />
+					<Route path='customer/category/haircut' element={ <CustomerHairService /> } />
+					<Route path='customer/category/bridal' element={ <CustomerBridalService /> } />
+					<Route path='customer/category/kids-haircut' element={ <CustomerKidsHair /> } />
+					<Route path='customer/category/hair-colors' element={ <CustomerHairColor /> } />
+					<Route path='customer/category/facial' element={ <CustomerFacial /> } />
+					<Route path='customer/category/spa' element={ <CusstomerSpa /> } />
+					<Route path='customer/category/haircut/haircut-details' element={ <CustomerSingleServicePage /> } />
+					<Route path='customer/category/bridal/bridal-details' element={ <CustomerSingleServicePage /> } />
+					<Route path='customer/category/kids-haircut/kids-haircut-details' element={ <CustomerSingleServicePage /> } />
+					<Route path='customer/category/hair-colors/hair-color-details' element={ <CustomerSingleServicePage /> } />
+					<Route path='customer/category/facial/facial-details' element={ <CustomerSingleServicePage /> } />
+					<Route path='customer/category/spa/spa-details' element={ <CustomerSingleServicePage /> } />
+					<Route path="/customer/category" element={<CustomerSevice />} />
 					<Route
 						path="/customer/salonNearby"
 						element={<SalonNearByPage />}

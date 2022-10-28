@@ -12,133 +12,162 @@ import { cartStyle } from "./CartItem.Style";
 import { HairServiceData } from "../../utils/data/CustomerHairServiceData/CustomerHairData";
 import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
 import { categoryData } from "../../utils/data/customer/CustomerData";
+import DeleteModal from "../common/DeleteModal/DeleteModal";
 
 interface IsCartProps {
   classes: any;
   location: any;
-  navigate: any
+  navigate: any;
 }
 
 interface IsCartState {
-  open: boolean;
+  openDeleteModel: boolean;
   cartData: any[];
 }
 
 export class CartItemsList extends Component<IsCartProps> {
   state: IsCartState = {
-    open: false,
+    openDeleteModel: false,
     cartData: [],
   };
 
   componentDidMount() {
-    const {state} = this.props.location
+    const { state } = this.props.location;
     // console.log('cart-data', state)
-    localStorage.setItem('todos', JSON.stringify(state))
+    localStorage.setItem("todos", JSON.stringify(state));
   }
 
   onClickNavToCategories = () => {
-    this.props.navigate('/customer/service')
-  }
+    this.props.navigate("/customer/category");
+  };
 
-  onClickDelteItem = (id:any) =>  {
-    console.log('id', id)
-    const filterData = this.state.cartData.filter((item:any) => item.id !== id)
-    this.setState({cartData: filterData})
-  }
+  onClickDelteItem = (id: any) => {
+    const filterData = this.state.cartData.filter(
+      (item: any) => item.id !== id
+    );
+    this.setState({ cartData: filterData });
+    this.setState({openDeleteModel: true})
+  };
+
+  onClickOfferDelete = () => {
+    this.setState({ openDeleteModel: false });
+  };
+
+  onClose = () => {
+    this.setState({ openDeleteModel: false });
+  };
 
   render() {
-    const {cartData} = this.state
+    const { cartData } = this.state;
     const { classes } = this.props;
-    const {state} = this.props.location
-    console.log('cart', this.state.cartData)
-    let totalCartData = cartData.push(state)
+    const { state } = this.props.location;
+    console.log("cart", this.state.cartData);
+    let totalCartData = cartData.push(state);
 
     return (
       <Layout customer={true}>
-        <Container sx={{ pt: 20, pb: 10 }} maxWidth="lg" >
-        <Box className={classes.cartItems}>
-              <Typography variant="h2">Total Cart( {cartData.length} item) </Typography>
-              </Box>
+        <Container sx={{ pt: 20, pb: 10 }} maxWidth="lg">
+          <Box className={classes.cartItems}>
+            <Typography variant="h2">
+              Total Cart( {cartData.length} item){" "}
+            </Typography>
+          </Box>
           <Grid container spacing={2}>
-              {cartData.map((item: any) => (
-                <Grid item xs={12} md={12} sm={12} lg={12}>
+            {cartData.map((item: any) => (
+              <Grid item xs={12} md={12} sm={12} lg={12}>
                 <Card className={classes.CartContainer}>
                   <Box className={classes.imageContainer}>
-                    <img src={item.brideServeImg} alt="ss" className={classes.imagCart} />
+                    <img
+                      src={item.brideServeImg}
+                      alt="ss"
+                      className={classes.imagCart}
+                    />
                   </Box>
-                 <Box className={classes.insideContainer}>
-                 <Box>
-                    <Typography variant="h2" className={classes.cartHeading}>
-                      {item.heading}
-                    </Typography>
-                    <Typography className={classes.cartDesc}>
-                      Sed ut perspiciatis unde omnis iste natus error sit
-                      voluptatem accusantium doloremque laudantium
-                    </Typography>
-                    <Box className={classes.CartLocation}>
-                      <Typography className={classes.CartSalonName}>
-                        Lakme Salon
+                  <Box className={classes.insideContainer}>
+                    <Box>
+                      <Typography variant="h2" className={classes.cartHeading}>
+                        {item.heading}
+                      </Typography>
+                      <Typography className={classes.cartDesc}>
+                        Sed ut perspiciatis unde omnis iste natus error sit
+                        voluptatem accusantium doloremque laudantium
                       </Typography>
                       <Box className={classes.CartLocation}>
-                        <PlaceIcon className={classes.iconCart} />
-                        <Typography className={classes.CartLocationText}>
-                          Lakme Salon, Plot No, I 26, “ Neha Villa” First
-                          Floor....
+                        <Typography className={classes.CartSalonName}>
+                          Lakme Salon
+                        </Typography>
+                        <Box className={classes.CartLocation}>
+                          <PlaceIcon className={classes.iconCart} />
+                          <Typography className={classes.CartLocationText}>
+                            Lakme Salon, Plot No, I 26, “ Neha Villa” First
+                            Floor....
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+
+                    <Box className={classes.deleteContainer}>
+                      <Box>
+                        <Box className={classes.priceServeContainer}>
+                          <Box className={classes.priceServeContainerR}>
+                            <CurrencyRupeeIcon style={{ fontSize: "18px" }} />
+                            <Typography variant="h3">
+                              {item.dissPrice}
+                            </Typography>
+                          </Box>
+                          <Box className={classes.priceServeContainerRu}>
+                            <CurrencyRupeeIcon
+                              style={{
+                                fontSize: "18px",
+                                textDecoration: "line-through",
+                              }}
+                            />
+                            <Typography variant="h4">{item.price}</Typography>
+                          </Box>
+                        </Box>
+                        <Typography variant="h5" className={classes.orderId}>
+                          OD11721633
                         </Typography>
                       </Box>
-                    </Box>
-                  </Box>
-
-                  <Box className={classes.deleteContainer}>
-                    <Box>
-                    <Box className={classes.priceServeContainer}>
-                      <Box className={classes.priceServeContainerR}>
-                        <CurrencyRupeeIcon style={{ fontSize: "18px" }} />
-                        <Typography variant="h3">{item.dissPrice}</Typography>
-                      </Box>
-                      <Box className={classes.priceServeContainerRu}>
-                        <CurrencyRupeeIcon
-                          style={{
-                            fontSize: "18px",
-                            textDecoration: "line-through",
-                          }}
-                        />
-                        <Typography variant="h4">{item.price}</Typography>
+                      <Button
+                        onClick={(e) => this.onClickDelteItem(item.id)}
+                        startIcon={<DeleteIcon />}
+                        className={classes.cartDeleteBtn}
+                      >
+                        Delete
+                      </Button>
+                      <Box
+                        className={classes.deleteC}
+                        onClick={(e) => this.onClickDelteItem(item.id)}
+                      >
+                        <DeleteIcon className={classes.deleteI} />
                       </Box>
                     </Box>
-                    <Typography variant="h5" className={classes.orderId}>
-                      OD11721633
-                    </Typography>
-                    </Box>
-                    <Button 
-                    onClick={(e) => this.onClickDelteItem(item.id)}
-                      startIcon={<DeleteIcon />}
-                      className={classes.cartDeleteBtn}
-                    >
-                      Delete
-                    </Button>
-                    <Box className={classes.deleteC} onClick={(e) => this.onClickDelteItem(item.id)}>
-                    <DeleteIcon className={classes.deleteI} />
-                    </Box>
                   </Box>
-                 </Box>
                 </Card>
-                </Grid>
-              ))}
-            </Grid>
+              </Grid>
+            ))}
+          </Grid>
 
-            <Box className={classes.cartItemsAmount}>
-              <Box>
+          <Box className={classes.cartItemsAmount}>
+            <Box>
               <Box className={classes.amount}>
-              <Typography variant="h2">Total Amount </Typography>
-              <CurrencyRupeeIcon style={{ fontSize: "18px" }} />
+                <Typography variant="h2">Total Amount </Typography>
+                <CurrencyRupeeIcon style={{ fontSize: "18px" }} />
               </Box>
               <Box>
-              <Button onClick={this.onClickNavToCategories}>Continue</Button>
+                <Button onClick={this.onClickNavToCategories}>Continue</Button>
               </Box>
-              </Box>
-              </Box>
+            </Box>
+          </Box>
         </Container>
+        <DeleteModal
+          jobTitle="Delete Item"
+          deletedId="delete"
+          open={this.state.openDeleteModel}
+          onClose={this.onClose}
+          handleConfirmDelete={this.onClickOfferDelete}
+        />
       </Layout>
     );
   }

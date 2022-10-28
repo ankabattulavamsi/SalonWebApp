@@ -59,7 +59,7 @@ export const cartStyle: any = {
     display: "flex",
     alignItems: "center",
     marginTop: "20px",
-    "@media only screen and (min-width: 300px) and (max-width: 860px)": {
+    "@media only screen and (min-width: 300px) and (max-width: 600px)": {
       display: "none",
     },
   },
@@ -75,7 +75,7 @@ export const cartStyle: any = {
     height: "215px !important",
     "@media screen and (max-width: 600px)": {
       width: "157px !important",
-      height: "115px",
+      height: "115px !important",
     },
   },
   priceServeContainer: {

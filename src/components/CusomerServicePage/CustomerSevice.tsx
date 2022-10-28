@@ -18,7 +18,6 @@ interface IProps {
 }
 class CustomerSevice extends Component<IProps> {
 	handleClickOpenAddModel = () => {
-		console.log("====================================");
 		this.props.navigate("/customer/salonNearby");
 	};
 
