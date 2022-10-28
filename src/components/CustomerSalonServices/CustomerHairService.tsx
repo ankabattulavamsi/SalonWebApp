@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import {
   Box,
@@ -12,7 +11,7 @@ import {
 } from "@mui/material";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import { withStyles } from "@mui/styles";
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { Container } from "@mui/system";
 
 import { HairServiceData } from "../../utils/data/CustomerHairServiceData/CustomerHairData";
@@ -23,21 +22,24 @@ import Layout from "../Layout/Layout";
 
 import { hairStyle } from "./CustomerS.style";
 
-
-
 interface ServeProps {
   classes: any;
   navigate: any;
 }
 
 export class CustomerHairService extends Component<ServeProps> {
-
   onClickNavigateSingleServe = (item: any) => {
-    let heading = item.heading.replace(/ /g, '')
+    let heading = item.heading.replace(/ /g, "");
     this.props.navigate(`haircut-details`, {
-      state: item
-    })
-  }
+      state: item,
+    });
+  };
+
+  onClickAddToCart = (item: any) => {
+    this.props.navigate("/customer/cart-items", {
+      state: item,
+    });
+  };
 
   render() {
     const { classes } = this.props;
@@ -51,26 +53,36 @@ export class CustomerHairService extends Component<ServeProps> {
           <Grid container spacing={2} sx={{ p: { lg: 0 } }}>
             {HairServiceData.map((item: any) => (
               <Grid item xs={12} md={6} sm={6} lg={4}>
-                <Card className={classes.cardContainer} >
+                <Card className={classes.cardContainer}>
                   <CardMedia
                     component="img"
                     alt={`${item.heading}`}
                     height="215"
-                    image={item.hairServeImg}
+                    image={item.brideServeImg}
                     onClick={(e) => this.onClickNavigateSingleServe(item)}
                   />
 
-                  <CardContent sx={{m:1}} onClick={(e) => this.onClickNavigateSingleServe(item)}>
+                  <CardContent
+                    sx={{ m: 1 }}
+                    onClick={(e) => this.onClickNavigateSingleServe(item)}
+                  >
                     <Box className={classes.priceServeContainer}>
-                    <Typography className={classes.cardHeading} variant="h2">{item.heading}</Typography>
+                      <Typography className={classes.cardHeading} variant="h2">
+                        {item.heading}
+                      </Typography>
                       <Box className={classes.priceServeContainer}>
                         <Box className={classes.priceServeContainerR}>
-                          <CurrencyRupeeIcon style={{fontSize: '18px', }}  />
+                          <CurrencyRupeeIcon style={{ fontSize: "18px" }} />
                           <Typography variant="h3">{item.dissPrice}</Typography>
                         </Box>
                         <Box className={classes.priceServeContainerRu}>
                           <Box>
-                          <CurrencyRupeeIcon style={{fontSize: '18px', textDecoration: 'line-through',}}   />
+                            <CurrencyRupeeIcon
+                              style={{
+                                fontSize: "18px",
+                                textDecoration: "line-through",
+                              }}
+                            />
                           </Box>
                           <Typography variant="h4">{item.price}</Typography>
                         </Box>
@@ -78,11 +90,19 @@ export class CustomerHairService extends Component<ServeProps> {
                     </Box>
 
                     <Box>
-                      <Typography className={classes.descHair}>{item.description}</Typography>
+                      <Typography className={classes.descHair}>
+                        {item.description}
+                      </Typography>
                     </Box>
                   </CardContent>
-                  <CardActions sx={{m:1}}>
-                    <Button className={classes.cartBtn} startIcon={<ShoppingBasketIcon />}>Add To Cart</Button>
+                  <CardActions sx={{ m: 1 }}>
+                    <Button
+                      className={classes.cartBtn}
+                      startIcon={<ShoppingBasketIcon />}
+                      onClick={() => this.onClickAddToCart(item)}
+                    >
+                      Add To Cart
+                    </Button>
                   </CardActions>
                 </Card>
               </Grid>

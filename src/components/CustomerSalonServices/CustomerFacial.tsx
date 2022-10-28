@@ -38,6 +38,12 @@ class CustomerFacial extends Component<ServeProps> {
     })
   }
 
+  onClickAddToCart = (item: any) => {
+    this.props.navigate('/customer/cart-items', {
+      state: item
+    })
+  }
+
   render() {
     const { classes } = this.props;
     return (
@@ -93,6 +99,7 @@ class CustomerFacial extends Component<ServeProps> {
                     <Button
                       className={classes.cartBtn}
                       startIcon={<ShoppingBasketIcon />}
+                      onClick={() => this.onClickAddToCart(item)}
                     >
                       Add To Cart
                     </Button>

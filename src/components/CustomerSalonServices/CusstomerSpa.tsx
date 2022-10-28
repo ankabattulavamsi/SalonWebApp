@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import {
   Box,
@@ -26,17 +25,22 @@ import { hairStyle } from "./CustomerS.style";
 
 interface ServeProps {
   classes: any;
-  navigate:any
+  navigate: any;
 }
 
 class CusstomerSpa extends Component<ServeProps> {
-
   onClickNavigateSingleServe = (item: any) => {
-    let heading = item.heading.replace(/ /g, '')
+    let heading = item.heading.replace(/ /g, "");
     this.props.navigate(`spa-details`, {
-      state: item
-    })
-  }
+      state: item,
+    });
+  };
+
+  onClickAddToCart = (item: any) => {
+    this.props.navigate("/customer/cart-items", {
+      state: item,
+    });
+  };
 
   render() {
     const { classes } = this.props;
@@ -50,7 +54,7 @@ class CusstomerSpa extends Component<ServeProps> {
           <Grid container spacing={2} sx={{ p: { lg: 0 } }}>
             {SpaData.map((item: any) => (
               <Grid item xs={12} md={6} sm={6} lg={4}>
-                <Card className={classes.cardContainer} key={item.id} >
+                <Card className={classes.cardContainer} key={item.id}>
                   <CardMedia
                     component="img"
                     alt={`${item.heading}`}
@@ -59,7 +63,10 @@ class CusstomerSpa extends Component<ServeProps> {
                     onClick={(e) => this.onClickNavigateSingleServe(item)}
                   />
 
-                  <CardContent sx={{ m: 1 }} onClick={(e) => this.onClickNavigateSingleServe(item)}>
+                  <CardContent
+                    sx={{ m: 1 }}
+                    onClick={(e) => this.onClickNavigateSingleServe(item)}
+                  >
                     <Box className={classes.priceServeContainer}>
                       <Typography className={classes.cardHeading} variant="h2">
                         {item.heading}
@@ -93,6 +100,7 @@ class CusstomerSpa extends Component<ServeProps> {
                     <Button
                       className={classes.cartBtn}
                       startIcon={<ShoppingBasketIcon />}
+                      onClick={() => this.onClickAddToCart(item)}
                     >
                       Add To Cart
                     </Button>

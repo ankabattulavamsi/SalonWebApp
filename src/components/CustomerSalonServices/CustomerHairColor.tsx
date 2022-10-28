@@ -36,6 +36,13 @@ class CustomerHairColor extends Component<ServeProps> {
       state: item
     })
   }
+
+  onClickAddToCart = (item: any) => {
+    this.props.navigate('/customer/cart-items', {
+      state: item
+    })
+  }
+
   render() {
     const { classes } = this.props;
     return (
@@ -91,6 +98,7 @@ class CustomerHairColor extends Component<ServeProps> {
                     <Button
                       className={classes.cartBtn}
                       startIcon={<ShoppingBasketIcon />}
+                      onClick={() => this.onClickAddToCart(item)}
                     >
                       Add To Cart
                     </Button>

@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import {
   Box,
@@ -23,21 +22,24 @@ import { KidsHairServiceData } from "../../utils/data/CustomerHairServiceData/Cu
 
 import { hairStyle } from "./CustomerS.style";
 
-
-
 interface ServeProps {
   classes: any;
-  navigate: any
+  navigate: any;
 }
 
 class CustomerKidsHair extends Component<ServeProps> {
-
   onClickNavigateSingleServe = (item: any) => {
-    let heading = item.heading.replace(/ /g, '')
+    let heading = item.heading.replace(/ /g, "");
     this.props.navigate(`kids-haircut-details`, {
-      state: item
-    })
-  }
+      state: item,
+    });
+  };
+
+  onClickAddToCart = (item: any) => {
+    this.props.navigate("/customer/cart-items", {
+      state: item,
+    });
+  };
 
   render() {
     const { classes } = this.props;
@@ -60,7 +62,10 @@ class CustomerKidsHair extends Component<ServeProps> {
                     onClick={(e) => this.onClickNavigateSingleServe(item)}
                   />
 
-                  <CardContent sx={{ m: 1 }}  onClick={(e) => this.onClickNavigateSingleServe(item)}>
+                  <CardContent
+                    sx={{ m: 1 }}
+                    onClick={(e) => this.onClickNavigateSingleServe(item)}
+                  >
                     <Box className={classes.priceServeContainer}>
                       <Typography className={classes.cardHeading} variant="h2">
                         {item.heading}
@@ -94,6 +99,7 @@ class CustomerKidsHair extends Component<ServeProps> {
                     <Button
                       className={classes.cartBtn}
                       startIcon={<ShoppingBasketIcon />}
+                      onClick={() => this.onClickAddToCart(item)}
                     >
                       Add To Cart
                     </Button>

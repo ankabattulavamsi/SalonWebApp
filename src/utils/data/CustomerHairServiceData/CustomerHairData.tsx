@@ -56,7 +56,7 @@ import spa7 from '../../../assets/images/SpaImgs/tzoo.hd.33758.18074.spa-gift-ce
 export const HairServiceData:any = [
     {
         id: 1,
-        hairServeImg: ServeImg, 
+        brideServeImg: ServeImg, 
         heading: 'Faux Hawk',
         dissPrice: '150', 
         price: '240',
@@ -64,7 +64,7 @@ export const HairServiceData:any = [
     }, 
     {
         id: 2,
-        hairServeImg: ServeImg1, 
+        brideServeImg: ServeImg1, 
         heading: 'Quiff',
         dissPrice: '150', 
         price: '240',
@@ -72,7 +72,7 @@ export const HairServiceData:any = [
     }, 
     {
         id: 3,
-        hairServeImg: ServeImg2, 
+        brideServeImg: ServeImg2, 
         heading: 'Side Parted',
         dissPrice: '150', 
         price: '240',
@@ -80,7 +80,7 @@ export const HairServiceData:any = [
     }, 
     {
         id: 4,
-        hairServeImg: ServeImg3, 
+        brideServeImg: ServeImg3, 
         heading: 'Side Fringe',
         dissPrice: '150', 
         price: '240',
@@ -88,7 +88,7 @@ export const HairServiceData:any = [
     }, 
     {
         id: 5,
-        hairServeImg: ServeImg4, 
+        brideServeImg: ServeImg4, 
         heading: 'Undercut',
         dissPrice: '150', 
         price: '240',
@@ -96,7 +96,7 @@ export const HairServiceData:any = [
     }, 
     {
         id: 6,
-        hairServeImg: ServeImg5, 
+        brideServeImg: ServeImg5, 
         heading: 'Side Parted Short',
         dissPrice: '150', 
         price: '240',
@@ -104,7 +104,7 @@ export const HairServiceData:any = [
     }, 
     {
         id: 7,
-        hairServeImg: ServeImg6, 
+        brideServeImg: ServeImg6, 
         heading: 'Buzzcut',
         dissPrice: '150', 
         price: '240',

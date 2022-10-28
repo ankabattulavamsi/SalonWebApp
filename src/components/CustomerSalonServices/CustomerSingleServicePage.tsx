@@ -101,7 +101,7 @@ class CustomerSingleServicePage extends Component<IsSinglePageProps> {
 								{HairServiceData.map((item:any, index:any) => {
 									return (
 										<Fragment key={index}>
-											<img src={item.hairServeImg} alt='nnnn' width='100%' />
+											<img src={item.brideServeImg} alt='nnnn' width='100%' />
 										</Fragment>
 									);
 								})}
