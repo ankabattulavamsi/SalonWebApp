@@ -1,0 +1,22 @@
+import { makeStyles } from "@mui/styles";
+import theme from "../../Theme/Theme";
+
+export const useStyles = makeStyles({
+  map: {
+    width: "100%",
+    height: "430px",
+    margin: "auto",
+    borderRadius: "10px",
+    [theme.breakpoints.down(600)]: {
+      display: "none",
+    },
+  },
+  mapTooltip: {
+    "& .leaflet-popup-content-wrapper, .leaflet-popup-tip": {
+      background: "#272522",
+      color: "#fff",
+      borderRadius: " 15px 15px 15px 15px",
+      textAlign: "center",
+    },
+  },
+});

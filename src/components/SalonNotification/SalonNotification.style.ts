@@ -12,6 +12,7 @@ export const NotificationStyles: any = {
       width: "390px",
       height: "600px",
       overflowX: "hidden",
+     
       background: "#fff !important",
       boxShadow: "4px 4px 50px rgba(0, 0, 0, 0.15) !important",
       borderRadius: " 0px 0px 5px 5px",
