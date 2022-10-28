@@ -100,6 +100,21 @@
 	right: 100px;
 	top: 54px;
 }
+.traingle-sec2 {
+	position: absolute;
+	left: 65px;
+	top: 54px;
+}
+.traingle-sec3 {
+	position: absolute;
+	left: 185px;
+	top: 54px;
+}
+.traingle-sec4 {
+	position: absolute;
+	right: 55px;
+	top: 54px;
+}
 .traingle {
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
@@ -108,6 +123,9 @@
 	width: 0;
 	height: 0;
 }
+.display-none {
+	display: none;
+}
 
 .buttons {
 	width: 200px;
@@ -115,6 +133,15 @@
 	background: #f9f3ec !important;
 	color: #333 !important ;
 	border: none !important;
+}
+.buttonsPay {
+	position: relative;
+	width: 200px;
+	padding: 15px !important;
+	background: #f9f3ec !important;
+	color: #333 !important ;
+	border: none !important;
+	text-transform: capitalize !important;
 }
 .customer {
 	background-color: #000 !important;
@@ -128,6 +155,9 @@
 	.buttons {
 		width: 100% !important;
 	}
+	.buttonsPay {
+		width: 100px !important;
+	}
 }
 @media only screen and (min-width: 200px) and (max-width: 600px) {
 	.drawerSize {
@@ -136,5 +166,21 @@
 	}
 	.buttons {
 		width: 100% !important;
+	}
+	.buttonsPay {
+		width: 100% !important;
+		font-size: 11px !important;
+	}
+	.traingle-sec2 {
+		top: 49px;
+		left: 65px;
+	}
+	.traingle-sec3 {
+		left: 160px;
+		top: 49px;
+	}
+	.traingle-sec4 {
+		right: 39px;
+		top: 49px;
 	}
 }

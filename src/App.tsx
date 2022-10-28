@@ -20,10 +20,23 @@ import SalonOwnerPage from "./components/SalonOwnerProfile/SalonOwnerPage";
 import Customer from "./components/customer/Customer";
 import CustomerSevice from "./components/CusomerServicePage/CustomerSevice";
 import SalonNearByPage from "./routes/SalonNearByPage/SalonNearByPage";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
 	return (
 		<div>
 			<ThemeProvider theme={theme}>
+				<ToastContainer
+					position="top-right"
+					autoClose={3000}
+					hideProgressBar={false}
+					newestOnTop={false}
+					closeOnClick
+					rtl={false}
+					pauseOnFocusLoss
+					draggable
+					pauseOnHover
+				/>
 				<Routes>
 					{/*Guest Flow*/}
 					<Route path="/" element={<LandingPageNavigation />}>
