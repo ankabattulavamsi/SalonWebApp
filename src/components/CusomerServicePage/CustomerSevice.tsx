@@ -17,10 +17,14 @@ interface IProps {
 	navigate?: any;
 }
 class CustomerSevice extends Component<IProps> {
-	handleClickOpenAddModel = () => {
+	handleClickOpenCategories = () => {
 		console.log("====================================");
-		this.props.navigate("/customer/salonNearby");
+		this.props.navigate("/customer/category");
 	};
+
+	handleClickOtherProps = () => {
+		this.props.navigate('/customer/salonNearby')
+	}
 
 	render() {
 		return (
@@ -30,7 +34,8 @@ class CustomerSevice extends Component<IProps> {
 						image={SalonOfferImg}
 						title="Lakme Services"
 						buttonTitle="Lakme Services"
-						handleClick={this.handleClickOpenAddModel}
+						handleClick={this.handleClickOpenCategories}
+						handleClickOther={this.handleClickOtherProps}
 						oiBtnTitle="Other Information"
 					/>
 					<CustomerServeCat />
