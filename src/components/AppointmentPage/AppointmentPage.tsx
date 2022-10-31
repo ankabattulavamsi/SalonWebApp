@@ -18,7 +18,7 @@ import {
   timingDataAfternoon,
   timingDataEvening,
 } from "../../utils/data/CustomerAppointment/TimingsData";
-import { Styles } from "./CustomerAppointmentPage.Style";
+import { Styles } from "./AppointmentPage.Style";
 
 class CustomerAppointmentPage extends Component {
   state = { monthName: "", isActiveTime: "10:00 AM" };
@@ -70,7 +70,7 @@ class CustomerAppointmentPage extends Component {
             ml: 2,
             p: 4,
             backgroundColor: "#F8F8F8",
-            width: '100%',
+            width: "100%",
             borderRadius: "10px",
           }}
           className={classes.scroller}
@@ -82,54 +82,64 @@ class CustomerAppointmentPage extends Component {
           >
             Available Slot
           </Typography>
-          <Box  className={classes.AppointmentBox} sx={{ display: "flex", py: 2 }}>
-          <Typography variant="h6" className={classes.appointmentTimeTitle}>
-                Morning
-              </Typography>
+          <Box
+            className={classes.AppointmentBox}
+            sx={{ display: "flex", py: 2 }}
+          >
+            <Typography variant="h6" sx={{mr: 5}} className={classes.appointmentTimeTitle}>
+              Morning
+            </Typography>
             {timingDataMorning.map((item: any) => (
               <Button
-              sx={{
-                borderRadius: "10px !important",
-              }}
-            >
-              <Typography className={classes.appointmentTime}>
-                {item.time}
-              </Typography>
-            </Button>
-            ))}
-          </Box>
-          
-          <Box  className={classes.AppointmentBox} sx={{ display: "flex", py: 2 }}>
-          <Typography variant="h6" className={classes.appointmentTimeTitle}>
-                Morning
-              </Typography>
-            {timingDataAfternoon.map((item: any) => (
-              <Button
-              sx={{
-                borderRadius: "10px !important",
-              }}
-            >
-              <Typography className={classes.appointmentTime}>
-                {item.time}
-              </Typography>
-            </Button>
+                sx={{
+                  borderRadius: "10px !important",
+                }}
+              >
+                <Typography className={classes.appointmentTime}>
+                  {item.time}
+                </Typography>
+              </Button>
             ))}
           </Box>
 
-          <Box  className={classes.AppointmentBox} sx={{ display: "flex", py: 2 }}>
-          <Typography variant="h6" className={classes.appointmentTimeTitle}>
-                Morning
-              </Typography>
+          <Box
+            className={classes.AppointmentBox}
+            sx={{ display: "flex", py: 2 }}
+          >
+            <Typography variant="h6" sx={{mr: 3}} className={classes.appointmentTimeTitle}>
+              Afternoon
+            </Typography>
+            {timingDataAfternoon.map((item: any) => (
+              <Button
+                sx={{
+                  borderRadius: "10px !important",
+                }}
+                className={classes.dateTime}
+              >
+                <Typography className={classes.appointmentTime}>
+                  {item.time}
+                </Typography>
+              </Button>
+            ))}
+          </Box>
+
+          <Box
+            className={classes.AppointmentBox}
+            sx={{ display: "flex", py: 2 }}
+          >
+            <Typography variant="h6" sx={{mr: 6}} className={classes.appointmentTimeTitle}>
+              Evening
+            </Typography>
             {timingDataEvening.map((item: any) => (
               <Button
-              sx={{
-                borderRadius: "10px !important",
-              }}
-            >
-              <Typography className={classes.appointmentTime}>
-                {item.time}
-              </Typography>
-            </Button>
+                sx={{
+                  borderRadius: "10px !important",
+                }}
+              >
+                <Typography className={classes.appointmentTime}>
+                  {item.time}
+                </Typography>
+              </Button>
             ))}
           </Box>
         </Box>

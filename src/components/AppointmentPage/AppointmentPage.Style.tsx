@@ -42,9 +42,13 @@ export const Styles: any = (theme: any) => ({
       lineHeight: "28px !important",
       textTransform: "capitalize !important",
       color: "#88878F !important",
-      width: "100px",
+      width: "115px !important",
       height: "54px",
       backgroundColor: '#FFF',
+      '&:hover': {
+        backgroundColor: '#E7A356 !important',
+        color: '#fff !important'
+      },
       display: "flex !important",
       alignContent: "center !important",
       justifyContent: "center !important",
@@ -72,6 +76,10 @@ export const Styles: any = (theme: any) => ({
     },
     scroller: {
         overflowY: "scroll",
-    }
+    },
+    // dateTime: {
+    //   width: '115px !important',
+    //   Margin: '10px !important'
+    // }
   });
   

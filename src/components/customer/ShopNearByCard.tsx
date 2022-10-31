@@ -15,13 +15,15 @@ import StarIcons from "../common/Ratings/StarIcons";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 interface IProps {
 	data: ShopNearbyData;
+	key: number;
+	onClickNavigateServicePage: (id: any) => void
 }
 export default class ShopNearByCard extends Component<IProps> {
 	render() {
 		const { mainImage, profileImage, title, place, review } =
 			this.props.data;
 		return (
-			<Grid container>
+			<Grid container key={this.props.key} onClick={this.props.onClickNavigateServicePage}>
 				<Card className="shopnear">
 					<Grid md={5} lg={5} sm={5} xs={12} className="shopnear-img-sec">
 						<Stack className="shop-img-container">

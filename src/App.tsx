@@ -32,7 +32,9 @@ import { categoryData } from "./utils/data/customer/CustomerData";
 
 import SalonNearByPage from "./routes/SalonNearByPage/SalonNearByPage";
 import CartItemsList from "./components/CustomerCartItems/CartItemsList";
-import CustomerAppointmentPage from "./components/CustomerAppointmentPage/CustomerAppointmentPage";
+import CustomerAppointmentPage from "./components/AppointmentPage/AppointmentPage";
+import CustomerCatagory from "./components/customer/CustomerCatagory";
+import CustomerCategories from "./components/CusomerServicePage/CustomerCategories";
 function App() {
 	
 	return (
@@ -61,13 +63,14 @@ function App() {
 					{/* Salon Customer */}
 					<Route path="customer" element={<Customer />} />
 					<Route path="customer/cart-items" element={<CartItemsList />} />
-					<Route path='customer/category' element={<CustomerSevice />} />
-					<Route path='customer/category/haircut' element={ <CustomerHairService /> } />
-					<Route path='customer/category/bridal' element={ <CustomerBridalService /> } />
-					<Route path='customer/category/kids-haircut' element={ <CustomerKidsHair /> } />
-					<Route path='customer/category/hair-colors' element={ <CustomerHairColor /> } />
-					<Route path='customer/category/facial' element={ <CustomerFacial /> } />
-					<Route path='customer/category/spa' element={ <CusstomerSpa /> } />
+					<Route path='/customer/service' element={<CustomerSevice />} />
+					<Route path='/customer/category' element={<CustomerCategories/>} />
+					<Route path='/customer/category/haircut' element={ <CustomerHairService /> } />
+					<Route path='/customer/category/bridal' element={ <CustomerBridalService /> } />
+					<Route path='/customer/category/kids-haircut' element={ <CustomerKidsHair /> } />
+					<Route path='/customer/category/hair-colors' element={ <CustomerHairColor /> } />
+					<Route path='/customer/category/facial' element={ <CustomerFacial /> } />
+					<Route path='/customer/category/spa' element={ <CusstomerSpa /> } />
 					<Route path='customer/category/haircut/haircut-details' element={ <CustomerSingleServicePage /> } />
 					<Route path='customer/category/bridal/bridal-details' element={ <CustomerSingleServicePage /> } />
 					<Route path='customer/category/kids-haircut/kids-haircut-details' element={ <CustomerSingleServicePage /> } />
