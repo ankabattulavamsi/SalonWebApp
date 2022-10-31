@@ -1,15 +1,15 @@
+import React, { Component } from "react";
 import {
   Button,
   Container,
   FormControl,
-  InputLabel,
   MenuItem,
   Select,
   Typography,
 } from "@mui/material";
 import { withStyles } from "@mui/styles";
 import { Box } from "@mui/system";
-import React, { Component } from "react";
+import TimingBox from "./TimingBox";
 import { salonEmpData } from "../../utils/data/CustomerAppointment/salonEmployeeData";
 import {
   timingDataAfternoon,
@@ -17,8 +17,9 @@ import {
   timingDataMorning,
 } from "../../utils/data/CustomerAppointment/timingsData";
 import BookingsCalendarComponent from "../BookingsSection/BookingsCalendarComponent/BookingsCalendarComponent";
+
 import { Styles } from "./CustomerAppointmentPage.Styles";
-import TimingBox from "./TimingBox";
+import "./CustomerAppointment.css";
 
 class CustomerAppointmentPage extends Component {
   state = { monthName: "", isActiveTime: "10:00 AM", salonEmpSelected: 4 };
@@ -47,10 +48,9 @@ class CustomerAppointmentPage extends Component {
                 onChange={this.handleMonthChange}
                 name="monthName"
                 className={classes.monthName}
+                displayEmpty
               >
-                <MenuItem value="january" defaultChecked>
-                  January
-                </MenuItem>
+                <MenuItem value="">January</MenuItem>
                 <MenuItem value="february">February</MenuItem>
                 <MenuItem value="March">March</MenuItem>
               </Select>
@@ -116,12 +116,22 @@ class CustomerAppointmentPage extends Component {
             <Typography variant="h4" className={classes.selectYourStylish}>
               Select Your Stylish
             </Typography>
-            <Box sx={{ display: "flex", overflowY: "visible" }}>
+            <Box
+              sx={{
+                display: "flex",
+                overflowY: "scroll",
+              }}
+            >
               {salonEmpData.map((emp: any, index) => {
                 return (
                   <Button
                     onClick={() => this.salonEmpActive(index)}
                     key={index}
+                    sx={{
+                      width: "120px",
+                      height: "100px",
+                      m: 2,
+                    }}
                   >
                     <Box sx={{ m: 1 }}>
                       <img

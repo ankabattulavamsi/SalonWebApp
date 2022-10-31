@@ -19,6 +19,8 @@ export const Styles: any = (theme: any) => ({
     color: "#88878F !important",
     width: "165px",
     height: "50px",
+    outline: "none",
+    border: "none",
   },
   AppointmentHeadingContainer: {
     display: "flex",
@@ -99,5 +101,8 @@ export const Styles: any = (theme: any) => ({
     marginTop: "20px !important",
     display: "flex",
     justifyContent: "flex-end",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
   },
 });
