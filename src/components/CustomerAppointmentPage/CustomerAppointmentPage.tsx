@@ -116,7 +116,7 @@ class CustomerAppointmentPage extends Component {
             <Typography variant="h4" className={classes.selectYourStylish}>
               Select Your Stylish
             </Typography>
-            <Box sx={{ display: "flex" }}>
+            <Box sx={{ display: "flex", overflowY: "visible" }}>
               {salonEmpData.map((emp: any, index) => {
                 return (
                   <Button
@@ -134,7 +134,7 @@ class CustomerAppointmentPage extends Component {
                             index === this.state.salonEmpSelected
                               ? "4px solid #E7A356"
                               : "",
-                          borderRadius: "4px",
+                          borderRadius: "12px",
                         }}
                       />
                       <Typography
@@ -155,7 +155,13 @@ class CustomerAppointmentPage extends Component {
               })}
             </Box>
           </Box>
-          <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "flex-end",
+              minWidth: "100px",
+            }}
+          >
             <Button variant="contained" className={classes.continueButton}>
               Continue
             </Button>
