@@ -32,6 +32,7 @@ import { categoryData } from "./utils/data/customer/CustomerData";
 
 import SalonNearByPage from "./routes/SalonNearByPage/SalonNearByPage";
 import CartItemsList from "./components/CustomerCartItems/CartItemsList";
+import CustomerAppointmentPage from "./components/CustomerAppointmentPage/CustomerAppointmentPage";
 function App() {
 	
 	return (
@@ -73,11 +74,11 @@ function App() {
 					<Route path='customer/category/hair-colors/hair-color-details' element={ <CustomerSingleServicePage /> } />
 					<Route path='customer/category/facial/facial-details' element={ <CustomerSingleServicePage /> } />
 					<Route path='customer/category/spa/spa-details' element={ <CustomerSingleServicePage /> } />
-					<Route path="/customer/category" element={<CustomerSevice />} />
 					<Route
 						path="/customer/salonNearby"
 						element={<SalonNearByPage />}
 					/>
+					<Route path='customer/appointment' element={<CustomerAppointmentPage />} />
 					{/* Salon Customer */}
 				</Routes>
 			</ThemeProvider>
