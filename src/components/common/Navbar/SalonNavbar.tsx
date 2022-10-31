@@ -95,7 +95,6 @@ class SalonNavbar extends Component<salonProps, salonState> {
         this.showPosition,
         this.handleLocationError
       );
-      
     } else {
       alert("Geolocation not supported");
     }
@@ -143,7 +142,6 @@ class SalonNavbar extends Component<salonProps, salonState> {
 
   render() {
     const { menus } = this.props;
-
 
     return (
       <>
@@ -209,18 +207,27 @@ class SalonNavbar extends Component<salonProps, salonState> {
                     cursor: "pointer",
                   },
                 }}
-                onClick={() => {
-                  this.props.navigate("/salon/owner");
-                }}
               >
                 {this.state.isCustomer ? (
-                  <Avatar alt="Remy Sharp" src={CustomerProfile} />
+                  <Box sx={{ display: "flex" }}>
+                    <Avatar alt="Remy Sharp" src={CustomerProfile} />
+                    <Typography sx={{ ml: 2, mt: 1 }} variant="h3">
+                      Profile
+                    </Typography>
+                  </Box>
                 ) : (
-                  <Avatar alt="Remy Sharp" src={Profile} />
+                  <Box
+                    onClick={() => {
+                      this.props.navigate("/salon/owner");
+                    }}
+                    sx={{ display: "flex" }}
+                  >
+                    <Avatar alt="Remy Sharp" src={Profile} />
+                    <Typography sx={{ ml: 2, mt: 1 }} variant="h3">
+                      Profile
+                    </Typography>
+                  </Box>
                 )}
-                <Typography sx={{ ml: 2 }} variant="h3">
-                  Profile
-                </Typography>
               </Box>
               <Box>
                 <Badge
@@ -259,7 +266,13 @@ class SalonNavbar extends Component<salonProps, salonState> {
                 {this.state.isCustomer ? (
                   <Avatar alt="Remy Sharp" src={CustomerProfile} />
                 ) : (
-                  <Avatar alt="Remy Sharp" src={Profile} />
+                  <Box
+                    onClick={() => {
+                      this.props.navigate("/salon/owner");
+                    }}
+                  >
+                    <Avatar alt="Remy Sharp" src={Profile} />
+                  </Box>
                 )}
                 <Badge
                   variant="dot"
@@ -303,7 +316,7 @@ class SalonNavbar extends Component<salonProps, salonState> {
                     {this.state.locationData.state},{" "}
                     {this.state.locationData.country}
                   </Typography>
-                    <ExpandMoreIcon />
+                  <ExpandMoreIcon />
                 </Box>
                 <Box
                   sx={{
