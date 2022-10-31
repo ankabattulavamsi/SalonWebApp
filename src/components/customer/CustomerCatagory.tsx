@@ -14,7 +14,7 @@ interface IProps {
 }
 class CustomerCatagory extends Component<IProps> {
 	onClickNavigateOffersPage = () => {
-		this.props.navigate("/customer");
+		this.props.navigate("/customer/category");
 	};
 	render() {
 		const { classes }: any = this.props;

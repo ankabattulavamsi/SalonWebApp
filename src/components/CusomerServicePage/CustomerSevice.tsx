@@ -2,22 +2,29 @@
 
 import { Container } from "@mui/material";
 import React, { Component } from "react";
-import Layout from "../Layout/Layout";
-import SalonOfferImg from "../../assets/images/CustomerServiceImg/07efaeff174f95bd94b6e4fbeec3e38f.png";
+
 import CustomerServeCat from "./CustomerServeCat";
 import OurSpecialistCust from "./OurSpecialistCust";
 import CustomerBanner from "../common/CustomerServeBanner/CustomerBanner";
 import CustomerOffersServe from "./CustomerOffersServe";
+import Layout from "../Layout/Layout";
 import withRouter from "../../hoc/withRouter";
+
+import SalonOfferImg from "../../assets/images/CustomerServiceImg/07efaeff174f95bd94b6e4fbeec3e38f.png";
+
 
 interface IProps {
 	navigate?: any;
 }
 class CustomerSevice extends Component<IProps> {
-	handleClickOpenAddModel = () => {
+	handleClickOpenCategories = () => {
 		console.log("====================================");
-		this.props.navigate("/customer/salonNearby");
+		this.props.navigate("/customer/category");
 	};
+
+	handleClickOtherProps = () => {
+		this.props.navigate('/customer/salonNearby')
+	}
 
 	render() {
 		return (
@@ -27,7 +34,8 @@ class CustomerSevice extends Component<IProps> {
 						image={SalonOfferImg}
 						title="Lakme Services"
 						buttonTitle="Lakme Services"
-						handleClick={this.handleClickOpenAddModel}
+						handleClick={this.handleClickOpenCategories}
+						handleClickOther={this.handleClickOtherProps}
 						oiBtnTitle="Other Information"
 					/>
 					<CustomerServeCat />

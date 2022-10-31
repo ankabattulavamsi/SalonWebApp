@@ -149,10 +149,12 @@ class SalonNavbar extends Component<salonProps, salonState> {
     
    
   }
+  onClickOpenCustomerCart = () => {
+    this.props.navigate('/customer/cart-items')
+  }
 
-  render() {
-    const { menus, } = this.props;
-    
+	render() {
+		const { menus } = this.props;
 
     return (
       <>
@@ -275,7 +277,7 @@ class SalonNavbar extends Component<salonProps, salonState> {
                   />
                 </Badge>
               </Box>
-              <Box>
+              <Box onClick={this.onClickOpenCustomerCart}>
                 {this.state.isCustomer && (
                   <ShoppingBasketIcon sx={{ fontSize: "32px", mr: 3 }} />
                 )}
@@ -348,8 +350,9 @@ class SalonNavbar extends Component<salonProps, salonState> {
                     alignItems: "center",
                     mr: { xs: 1, sm: 6 },
                   }}
+                  onClick={this.onClickOpenCustomerCart}
                 >
-                  <ShoppingBasketIcon sx={{ fontSize: "32px" }} />
+                  <ShoppingBasketIcon sx={{ fontSize: "32px" }}  />
                   <Typography sx={{ pl: 1 }} variant="h6">
                     Cart
                   </Typography>
