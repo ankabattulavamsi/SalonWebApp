@@ -20,6 +20,7 @@ import BookingsCalendarComponent from "../BookingsSection/BookingsCalendarCompon
 
 import { Styles } from "./CustomerAppointmentPage.Styles";
 import "./CustomerAppointment.css";
+import Layout from "../Layout/Layout";
 
 class CustomerAppointmentPage extends Component {
   state = { monthName: "", isActiveTime: "10:00 AM", salonEmpSelected: 4 };
@@ -34,8 +35,8 @@ class CustomerAppointmentPage extends Component {
   render() {
     const { classes }: any = this.props;
     return (
-      <>
-        <Container maxWidth="lg" sx={{ py: 5 }}>
+      <Layout customer={true}>
+        <Container maxWidth="lg" sx={{ py: 5, mt: { xs: 10, md: 4 } }}>
           <Box className={classes.AppointmentHeadingContainer}>
             <Typography variant="h6" className={classes.scheduleAppointment}>
               schedule your appointment
@@ -61,6 +62,7 @@ class CustomerAppointmentPage extends Component {
               boxShadow: "2px 2px 2px 2px #F0F0F0",
               mt: 3,
               borderRadius: "10px",
+              width: "100%",
             }}
           >
             <BookingsCalendarComponent />
@@ -128,7 +130,7 @@ class CustomerAppointmentPage extends Component {
                     onClick={() => this.salonEmpActive(index)}
                     key={index}
                     sx={{
-                      width: "120px",
+                      width: { sm: "100px", md: "76px" },
                       height: "100px",
                       m: 2,
                     }}
@@ -172,12 +174,20 @@ class CustomerAppointmentPage extends Component {
               minWidth: "100px",
             }}
           >
-            <Button variant="contained" className={classes.continueButton}>
+            <Button
+              variant="contained"
+              className={classes.continueButton}
+              sx={{
+                "&.MuiButtonBase-root:hover": {
+                  bgcolor: "#E7A356",
+                },
+              }}
+            >
               Continue
             </Button>
           </Box>
         </Container>
-      </>
+      </Layout>
     );
   }
 }
