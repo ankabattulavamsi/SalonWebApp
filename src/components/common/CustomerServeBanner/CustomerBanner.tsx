@@ -13,12 +13,19 @@ interface IProps {
   oiBtnTitle: string;
   classes: any;
   handleClick?: () => void;
-  handleClickOther: () => void
+  handleClickOther: () => void;
 }
 class CustomerBanner extends Component<IProps> {
   render() {
-    const { classes, buttonTitle, oiBtnTitle, image, title, handleClick, handleClickOther } =
-      this.props;
+    const {
+      classes,
+      buttonTitle,
+      oiBtnTitle,
+      image,
+      title,
+      handleClick,
+      handleClickOther,
+    } = this.props;
     return (
       <Box sx={{ mb: 5, mt: 5 }}>
         <Box
@@ -78,14 +85,6 @@ class CustomerBanner extends Component<IProps> {
               justifyContent: "space-between",
             }}
           >
-            {/* <Buttons
-							title={buttonTitle}
-							className={classes.lakmeServeBtn}
-							handleClick={() => {
-								handleClick && handleClick();
-							}}
-						/> */}
-
             <Button
               sx={{
                 textAlign: "center",
@@ -104,14 +103,6 @@ class CustomerBanner extends Component<IProps> {
             >
               {title}
             </Button>
-
-            {/* <Buttons
-              title={oiBtnTitle}
-              className={classes.otherServeBtn}
-              handleClick={() => {
-                handleClick && handleClick();
-              }}
-            /> */}
 
             <Button
               sx={{
