@@ -34,9 +34,10 @@
   position: relative;
   color: black;
 }
-.salon-nav-menulink .active {
+.salon-nav-menulink a .active {
   color: #e7a356;
 }
+
 .active:before {
   content: "";
   position: absolute;

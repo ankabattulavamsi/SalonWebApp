@@ -1,14 +1,7 @@
 /** @format */
 
 import React, { Component, Fragment } from "react";
-import {
-	Avatar,
-	Box,
-	Drawer,
-	List,
-	ListItem,
-	Typography,
-} from "@mui/material";
+import { Avatar, Box, Drawer, List, ListItem, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import NotificationsIcon from "@mui/icons-material/Notifications";
@@ -16,7 +9,6 @@ import Badge from "@mui/material/Badge";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-
 import withRouter from "../../../hoc/withRouter";
 import Logo from "../../../assets/images/Navbarimage/logo.jpg";
 import Profile from "../../../assets/images/Navbarimage/profile-img.png";
@@ -28,9 +20,9 @@ import "./SalonNav.css";
 import { CustomerMenu } from "../../../utils/data/navbar_menus";
 
 interface salonProps {
-	customer: boolean;
-	menus: SalonMenus[];
-	navigate?: any;
+  customer: boolean;
+  menus: SalonMenus[];
+  navigate?: any;
 }
 interface salonState {
   isCustomer: boolean;
@@ -42,6 +34,7 @@ interface salonState {
   lon: any;
   data: any;
   locationData: any;
+  
 }
 
 class SalonNavbar extends Component<salonProps, salonState> {
@@ -61,103 +54,105 @@ class SalonNavbar extends Component<salonProps, salonState> {
     },
   };
 
-	handleClick = (title: string) => {
-		this.setState({
+  handleClick = (title: string) => {
+    this.setState({
       activeLink: title,
+      open: !this.state.open,
+    });
+  };
 
-			open: !this.state.open,
-		});
-	};
+  handleDialogOpen = () => {
+    this.setState({
+      dialogOpen: true,
+    });
+  };
+  handleDialogClose = () => {
+    this.setState({
+      dialogOpen: false,
+    });
+  };
 
-	handleDialogOpen = () => {
-		this.setState({
-			dialogOpen: true,
-		});
-	};
-	handleDialogClose = () => {
-		this.setState({
-			dialogOpen: false,
-		});
-	};
+  fetchdata = async () => {
+    console.log(this.state.lat, this.state.lon);
+    await fetch(
+      `https://api.opencagedata.com/geocode/v1/json?q=${this.state.lat}+${this.state.lon}&key=8518d29fbed240129135f8e8283c4c01`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("data", data);
 
-	fetchdata = async () => {
-		console.log(this.state.lat, this.state.lon);
-		await fetch(
-			`https://api.opencagedata.com/geocode/v1/json?q=${this.state.lat}+${this.state.lon}&key=8518d29fbed240129135f8e8283c4c01`
-		)
-			.then((res) => res.json())
-			.then((data) => {
-				console.log("data", data);
+        this.setState({ data: data.results[0].formatted });
+        let localData = data.results[0].components;
+        let { state_district, state, country } = localData;
+        localStorage.setItem(
+          "Current Adress",
+          JSON.stringify({ state_district, state, country })
+        );
+      })
+      .then((data) =>
+        fetch(` https://httpstat.us/200`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: data, time: new Date() }),
+        })
+      );
+  };
+  getLocation = () => {
+    if (navigator.geolocation) {
+      var data = navigator.geolocation.getCurrentPosition(
+        this.showPosition,
+        this.handleLocationError
+      );
+    } else {
+      alert("Geolocation not supported");
+    }
+  };
+  showPosition = (position: any) => {
+    this.setState(
+      {
+        lat: position.coords.latitude,
+        lon: position.coords.longitude,
+      },
+      () => this.fetchdata()
+    );
+  };
+  handleLocationError = (error: any) => {
+    switch (error) {
+      case error.PERMISSION_DENIED:
+        alert("user denied request for geolocation error");
+        break;
+      case error.POSITION_UNAVAILABLE:
+        alert("location information unavailable");
+        break;
+      case error.TIMEOUT:
+        alert("request time out");
+        break;
+      case error.UNKNOWN_ERROR:
+        alert("unknown error occured");
+        break;
+      default:
+    }
+  };
+  componentDidMount() {
+    if (localStorage.getItem("Current Adress")) {
+      const existingdata = JSON.parse(
+        localStorage.getItem("Current Adress") || ""
+      );
+      this.setState({ data: existingdata });
 
-				this.setState({ data: data.results[0].formatted });
-				let localData = data.results[0].components;
-				let { state_district, state, country } = localData;
-				localStorage.setItem(
-					"Current Adress",
-					JSON.stringify({ state_district, state, country })
-				);
-			})
-			.then((data) =>
-				fetch(` https://httpstat.us/200`, {
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify({ name: data, time: new Date() }),
-				})
-			);
-	};
-	getLocation = () => {
-		if (navigator.geolocation) {
-			var data = navigator.geolocation.getCurrentPosition(
-				this.showPosition,
-				this.handleLocationError
-			);
-		} else {
-			alert("Geolocation not supported");
-		}
-	};
-	showPosition = (position: any) => {
-		this.setState(
-			{
-				lat: position.coords.latitude,
-				lon: position.coords.longitude,
-			},
-			() => this.fetchdata()
-		);
-	};
-	handleLocationError = (error: any) => {
-		switch (error) {
-			case error.PERMISSION_DENIED:
-				alert("user denied request for geolocation error");
-				break;
-			case error.POSITION_UNAVAILABLE:
-				alert("location information unavailable");
-				break;
-			case error.TIMEOUT:
-				alert("request time out");
-				break;
-			case error.UNKNOWN_ERROR:
-				alert("unknown error occured");
-				break;
-			default:
-		}
-	};
-	componentDidMount() {
-		if (localStorage.getItem("Current Adress")) {
-			const existingdata = JSON.parse(
-				localStorage.getItem("Current Adress") || ""
-			);
-			this.setState({ data: existingdata });
+      this.setState({
+        locationData: existingdata,
+      });
+    } else {
+      this.getLocation();
+    }
+    
+   
+  }
 
-			this.setState({
-				locationData: existingdata,
-			});
-		} else {
-			this.getLocation();
-		}
-	}
-
-	render() {
-		const { menus } = this.props;
+  render() {
+    const { menus, } = this.props;
+    
 
     return (
       <>
@@ -168,7 +163,7 @@ class SalonNavbar extends Component<salonProps, salonState> {
             </Box>
 
             {this.state.isCustomer ? (
-              <Box className="nav-menulink">
+              <Box className="salon-nav-menulink">
                 {CustomerMenu.map((menu) => {
                   return (
                     <a
@@ -177,7 +172,7 @@ class SalonNavbar extends Component<salonProps, salonState> {
                       className={
                         menu.title === this.state.activeLink
                           ? "active"
-                          : "menu-link"
+                          : "salon-menu-link"
                       }
                       onClick={() => this.setState({ activeLink: menu.title })}
                     >
@@ -422,28 +417,28 @@ class SalonNavbar extends Component<salonProps, salonState> {
             </Box>
           </Drawer>
 
-					<>
-						{/* notification dialog */}
-						{!this.state.isCustomer ? (
-							<SalonNotification
-								open={this.state.dialogOpen}
-								onClose={this.handleDialogClose}
-							/>
-						) : (
-							<SalonNotification
-								open={this.state.dialogOpen}
-								onClose={this.handleDialogClose}
-							/>
-						)}
-						{/* <SalonNotification
+          <>
+            {/* notification dialog */}
+            {!this.state.isCustomer ? (
+              <SalonNotification
+                open={this.state.dialogOpen}
+                onClose={this.handleDialogClose}
+              />
+            ) : (
+              <SalonNotification
+                open={this.state.dialogOpen}
+                onClose={this.handleDialogClose}
+              />
+            )}
+            {/* <SalonNotification
               open={this.state.dialogOpen}
               onClose={this.handleDialogClose}
             /> */}
-					</>
-				</Fragment>
-			</>
-		);
-	}
+          </>
+        </Fragment>
+      </>
+    );
+  }
 }
 
 export default withRouter(SalonNavbar);

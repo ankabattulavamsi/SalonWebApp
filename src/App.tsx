@@ -45,7 +45,7 @@ function App() {
 					{/* Salon Partners */}
 
 					{/* Salon Customer */}
-					<Route path="customer" element={<Customer />} />
+					<Route path="customer" element={<Customer  />} />
 					<Route path="/customer/service" element={<CustomerSevice />} />
 					<Route
 						path="/customer/salonNearby"
