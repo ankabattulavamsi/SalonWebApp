@@ -31,14 +31,6 @@ export class CartItemsList extends Component<IsCartProps> {
     cartData: [],
   };
 
-  componentDidMount() {
-    const { cartData } = this.state;
-    const { state } = this.props.location;
-
-    const localData = localStorage.getItem("cartData");
-    console.log('cartData', localData)
-  }
-
   onClickNavToCategories = () => {
     this.props.navigate("/customer/appointment");
   };
@@ -62,14 +54,13 @@ export class CartItemsList extends Component<IsCartProps> {
   render() {
     const { cartData } = this.state;
     const { classes } = this.props;
-    const { state } = this.props.location;
 
-    let newObj = state;
-    let totalCartData = cartData.push(newObj);
+    const cartItemsData = JSON.parse(localStorage.getItem("cartData")!) || [];
+    console.log("cart-------", cartItemsData);
 
-    let amount = cartData.map((item) => parseInt(item.dissPrice));
+    let amount = cartItemsData.map((item: any) => parseInt(item.dissPrice));
 
-    let totalAmount = amount.reduce((a, b) => a + b);
+    let totalAmount = amount.reduce((a: any, b: any) => a + b);
 
     return (
       <Layout customer={true}>
@@ -80,7 +71,7 @@ export class CartItemsList extends Component<IsCartProps> {
             </Typography>
           </Box>
           <Grid container spacing={2}>
-            {cartData.map((item: any) => (
+            {cartItemsData.map((item: any) => (
               <Grid item xs={12} md={12} sm={12} lg={12} key={item.id}>
                 <Card className={classes.CartContainer}>
                   <Box className={classes.imageContainer}>

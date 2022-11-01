@@ -40,13 +40,12 @@ export class CustomerHairService extends Component<ServeProps> {
 
   onClickAddToCart = (item: any) => {
     this.props.navigate("/customer/cart-items", {
-      state: item,
+      state: this.state.newArray,
     });
     const itemInCart = this.state.newArray.find((items:any)=>items.id===item.id)
     if(itemInCart){
 
     }else{
-
       localStorage.setItem('cartData', JSON.stringify([...this.state.newArray, item]))
       this.setState({newArray: JSON.parse(localStorage.getItem('cartData')!) })
     }
