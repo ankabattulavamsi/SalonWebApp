@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import { withStyles } from "@mui/styles";
 import { Box } from "@mui/system";
-import TimingBox from "./TimingBox";
 import { salonEmpData } from "../../utils/data/CustomerAppointment/salonEmployeeData";
 import {
   timingDataAfternoon,
@@ -18,10 +17,10 @@ import {
 } from "../../utils/data/CustomerAppointment/timingsData";
 import BookingsCalendarComponent from "../BookingsSection/BookingsCalendarComponent/BookingsCalendarComponent";
 
-import { Styles } from "./CustomerAppointmentPage.Styles";
 import "./CustomerAppointment.css";
 import Layout from "../Layout/Layout";
 import AppointmentPage from "../AppointmentPage/AppointmentPage";
+import { Styles } from "../AppointmentPage/AppointmentPage.Style";
 
 class CustomerAppointmentPage extends Component {
   state = { monthName: "", isActiveTime: "10:00 AM", salonEmpSelected: 4 };
