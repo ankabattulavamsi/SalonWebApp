@@ -39,7 +39,11 @@ class Login extends Component<LoginProps, State> {
 			state,
 		}: LoginProps = this.props;
 		return (
-			<Drawer anchor="right" open={open} onClose={onClose}>
+			<Drawer
+				className="login-drawer"
+				anchor="right"
+				open={open}
+				onClose={onClose}>
 				<Box className="drawerSize" role="presentation">
 					<CloseIcon style={{ cursor: "pointer" }} onClick={onClose} />
 					<Typography className={classes.heading} variant="h2">

@@ -76,6 +76,8 @@ class BookingHistoryTable extends Component {
                     label="DD"
                     sx={{
                       width: { md: "90px", sm: "84px", xs: "70px" },
+                      backgroundColor: "#D0D0D0",
+                      color: "#A4A1A1 !important",
                     }}
                   >
                     <MenuItem value="01">01</MenuItem>
@@ -94,6 +96,8 @@ class BookingHistoryTable extends Component {
                     label="MM"
                     sx={{
                       width: { md: "90px", xs: "70px" },
+                      backgroundColor: "#D0D0D0",
+                      color: "#A4A1A1 !important",
                     }}
                   >
                     <MenuItem value="01">01</MenuItem>
@@ -112,6 +116,8 @@ class BookingHistoryTable extends Component {
                     label="YY"
                     sx={{
                       width: { sm: "90px", xs: "70px" },
+                      backgroundColor: "#D0D0D0",
+                      color: "#A4A1A1 !important",
                     }}
                   >
                     <MenuItem value="2022">2022</MenuItem>
@@ -131,6 +137,8 @@ class BookingHistoryTable extends Component {
                     name="status"
                     sx={{
                       width: { md: "124px", sm: "84px", xs: "84px" },
+                      backgroundColor: "#D0D0D0",
+                      color: "#A4A1A1 !important",
                     }}
                   >
                     <MenuItem value="done">Done</MenuItem>
@@ -153,7 +161,11 @@ class BookingHistoryTable extends Component {
                         </InputAdornment>
                       ),
                     }}
-                    sx={{ width: { xs: "19rem" } }}
+                    sx={{
+                      width: { xs: "19rem" },
+                      backgroundColor: "#D0D0D0",
+                      color: "#A4A1A1 !important",
+                    }}
                   />
                 </FormControl>
               </Grid>

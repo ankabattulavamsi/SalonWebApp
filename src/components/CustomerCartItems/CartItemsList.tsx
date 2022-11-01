@@ -14,6 +14,7 @@ import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
 import { categoryData } from "../../utils/data/customer/CustomerData";
 import DeleteModal from "../common/DeleteModal/DeleteModal";
 
+
 interface IsCartProps {
   classes: any;
   location: any;
@@ -32,9 +33,9 @@ export class CartItemsList extends Component<IsCartProps> {
   };
 
   componentDidMount() {
+    const {cartData} = this.state
     const { state } = this.props.location;
-    // console.log('cart-data', state)
-    localStorage.setItem("todos", JSON.stringify(state));
+    localStorage.setItem("cartData", JSON.stringify(state));
   }
 
   onClickNavToCategories = () => {
@@ -61,9 +62,16 @@ export class CartItemsList extends Component<IsCartProps> {
     const { cartData } = this.state;
     const { classes } = this.props;
     const { state } = this.props.location;
-    console.log("cart", this.state.cartData);
-    let totalCartData = cartData.push(state);
+   
+    let newObj = state
+    let totalCartData = [cartData.push(newObj)];
 
+    localStorage.setItem("cartData", JSON.stringify(state));
+    
+    let amount = cartData.map((item) => parseInt(item.dissPrice))
+    
+    let totalAmount = amount.reduce((a, b) => a + b)
+    
     return (
       <Layout customer={true}>
         <Container sx={{ pt: 20, pb: 10 }} maxWidth="lg">
@@ -74,7 +82,7 @@ export class CartItemsList extends Component<IsCartProps> {
           </Box>
           <Grid container spacing={2}>
             {cartData.map((item: any) => (
-              <Grid item xs={12} md={12} sm={12} lg={12}>
+              <Grid item xs={12} md={12} sm={12} lg={12} key={item.id}>
                 <Card className={classes.CartContainer}>
                   <Box className={classes.imageContainer}>
                     <img
@@ -154,6 +162,7 @@ export class CartItemsList extends Component<IsCartProps> {
               <Box className={classes.amount}>
                 <Typography variant="h2">Total Amount </Typography>
                 <CurrencyRupeeIcon style={{ fontSize: "18px" }} />
+                <span className={classes.spanAmount}>{totalAmount}</span>
               </Box>
               <Box>
                 <Button onClick={this.onClickNavToCategories}>Continue</Button>

@@ -142,15 +142,14 @@ export const cartStyle: any = {
     marginLeft: "55px",
     backgroundColor: "#F0F0F0 !important",
     borderRadius: "5px !important",
-    width: '46px',
-    height: '41px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    width: "46px",
+    height: "41px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     "@media only screen and (min-width: 600px)": {
       display: "none !important",
     },
-    
   },
   orderId: {
     color: "#88878F !important",
@@ -256,7 +255,7 @@ export const cartStyle: any = {
       display: "flex",
       justifyContent: "center",
       alignItems: "end",
-      marginTop: '40%'
+      marginTop: "40%",
     },
     "& div:nth-child(2)": {
       backgroundColor: "#E7A356",
@@ -293,8 +292,14 @@ export const cartStyle: any = {
       fontWeight: "500",
       lineHeight: "48px",
     },
-    '& svg': {
-      marginRight: '10px'
-    }
+  },
+  spanAmount: {
+    fontSize: "20px",
+    color: "#272522",
+    fontFamily: "Fira Sans",
+    fontStyle: "normal",
+    fontWeight: "500",
+    lineHeight: "48px",
+    marginRight: "10px",
   },
 };
