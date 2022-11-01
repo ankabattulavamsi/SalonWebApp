@@ -34,7 +34,6 @@ import CartItemsList from "./components/CustomerCartItems/CartItemsList";
 import AppointmentPage from "./components/AppointmentPage/AppointmentPage";
 import CustomerCatagory from "./components/customer/CustomerCatagory";
 import CustomerCategories from "./components/CusomerServicePage/CustomerCategories";
-import CustomerAppointmentPage from "./components/CustomerAppointmentPage/CustomerAppointmentPage";
 import { ToastContainer } from "react-toastify";
 function App() {
   return (
@@ -124,7 +123,7 @@ function App() {
           <Route path="/customer/salonNearby" element={<SalonNearByPage />} />
           <Route
             path="customer/appointment"
-            element={<CustomerAppointmentPage />}
+            element={<AppointmentPage />}
           />
           {/* Salon Customer */}
         </Routes>
