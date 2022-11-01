@@ -23,7 +23,7 @@ export const salonMenu:SalonMenus[] = [
 
 export const CustomerMenu:SalonMenus[] = [
     {id:1, path:'/customer', title:'Home'},
-    {id:2, path:'#category', title:'Category'},
+    {id:2, path:'/customer/category', title:'Category'},
     {id:3, path:'#nearby', title:'Salon Nearby'},
     {id:4, path:'#blog', title:'Blog'}
     // {id:3, path:'/salon/booking', title:'Booking'},

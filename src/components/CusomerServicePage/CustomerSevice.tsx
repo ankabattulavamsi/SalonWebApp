@@ -11,6 +11,7 @@ import Layout from "../Layout/Layout";
 import withRouter from "../../hoc/withRouter";
 
 import SalonOfferImg from "../../assets/images/CustomerServiceImg/07efaeff174f95bd94b6e4fbeec3e38f.png";
+import CustomerBannerCategoryPage from "./CustomerBannerCategoryPage";
 
 
 interface IProps {
@@ -37,9 +38,7 @@ class CustomerSevice extends Component<IProps> {
 						handleClickOther={this.handleClickOtherProps}
 						oiBtnTitle="Other Information"
 					/>
-					<CustomerServeCat />
-					<CustomerOffersServe />
-					<OurSpecialistCust />
+					<CustomerBannerCategoryPage />
 				</Container>
 			</Layout>
 		);

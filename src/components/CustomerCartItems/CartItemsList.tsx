@@ -67,7 +67,7 @@ export class CartItemsList extends Component<IsCartProps> {
         <Container sx={{ pt: 20, pb: 10 }} maxWidth="lg">
           <Box className={classes.cartItems}>
             <Typography variant="h2">
-              Total Cart( {cartData.length} item){" "}
+              Total Cart( {cartItemsData.length} item){" "}
             </Typography>
           </Box>
           <Grid container spacing={2}>

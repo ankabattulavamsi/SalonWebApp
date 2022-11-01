@@ -31,17 +31,17 @@ class CustomerServeCat extends Component<IProps> {
   project = () => {
     switch (this.state.activeServe) {
       case "Hair Cut":
-        return this.props.navigate("haircut");
+        return this.props.navigate("/customer/category/haircut");
       case "Bridal":
-        return this.props.navigate("bridal");
+        return this.props.navigate("/customer/category/bridal");
       case "Kids Haircut":
-        return this.props.navigate("kids-haircut");
+        return this.props.navigate("/customer/category/kids-haircut");
       case "Hair Color":
-        return this.props.navigate("hair-colors");
+        return this.props.navigate("/customer/category/hair-colors");
         case "Facial":
-				return this.props.navigate('facial');
+				return this.props.navigate('/customer/category/facial');
         case "Spa":
-				return this.props.navigate('spa');
+				return this.props.navigate('/customer/category/spa');
       default:
         return null;
     }
