@@ -1,10 +1,7 @@
 import {
   Button,
   Container,
-  Divider,
   FormControl,
-  Grid,
-  InputLabel,
   MenuItem,
   Select,
   Typography,
@@ -23,7 +20,7 @@ import Layout from "../Layout/Layout";
 import { salonEmpData } from "../../utils/data/CustomerAppointment/salonEmployeeData";
 
 class CustomerAppointmentPage extends Component {
-  state = { monthName: "", isActiveTime: "10:00 AM",salonEmpSelected: 4 };
+  state = { monthName: "", isActiveTime: "10:00 AM", salonEmpSelected: 4 };
   handleMonthChange = (event: any) => {
     this.setState({ monthName: event.target.value });
   };
@@ -32,8 +29,7 @@ class CustomerAppointmentPage extends Component {
   };
 
   onclickActive = (time: string) => {
-    // this.setState({isActiveTime:})
-    console.log(time);
+    this.setState({ isActiveTime: time });
   };
   render() {
     const { classes }: any = this.props;
@@ -104,6 +100,7 @@ class CustomerAppointmentPage extends Component {
                   sx={{
                     borderRadius: "10px !important",
                   }}
+                  onClick={() => this.onclickActive(item.time)}
                 >
                   <Typography className={classes.appointmentTime}>
                     {item.time}
@@ -130,7 +127,15 @@ class CustomerAppointmentPage extends Component {
                   }}
                   className={classes.dateTime}
                 >
-                  <Typography className={classes.appointmentTime}>
+                  <Typography
+                    className={classes.appointmentTime}
+                    sx={{
+                      backgroundColor:
+                        this.state.isActiveTime === item.time
+                          ? "#E7A356"
+                          : "#FFFFFF",
+                    }}
+                  >
                     {item.time}
                   </Typography>
                 </Button>
@@ -178,7 +183,7 @@ class CustomerAppointmentPage extends Component {
                 overflowY: "scroll",
               }}
             >
-              {salonEmpData.map((emp: any, index:number) => {
+              {salonEmpData.map((emp: any, index: number) => {
                 return (
                   <Button
                     onClick={() => this.salonEmpActive(index)}
