@@ -32,9 +32,10 @@ import { categoryData } from "./utils/data/customer/CustomerData";
 
 import SalonNearByPage from "./routes/SalonNearByPage/SalonNearByPage";
 import CartItemsList from "./components/CustomerCartItems/CartItemsList";
-import CustomerAppointmentPage from "./components/AppointmentPage/AppointmentPage";
+import AppointmentPage from "./components/AppointmentPage/AppointmentPage";
 import CustomerCatagory from "./components/customer/CustomerCatagory";
 import CustomerCategories from "./components/CusomerServicePage/CustomerCategories";
+import CustomerAppointmentPage from "./components/CustomerAppointmentPage/CustomerAppointmentPage";
 function App() {
 	
 	return (

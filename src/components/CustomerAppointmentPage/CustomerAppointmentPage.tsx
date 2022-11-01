@@ -21,6 +21,7 @@ import BookingsCalendarComponent from "../BookingsSection/BookingsCalendarCompon
 import { Styles } from "./CustomerAppointmentPage.Styles";
 import "./CustomerAppointment.css";
 import Layout from "../Layout/Layout";
+import AppointmentPage from "../AppointmentPage/AppointmentPage";
 
 class CustomerAppointmentPage extends Component {
   state = { monthName: "", isActiveTime: "10:00 AM", salonEmpSelected: 4 };
@@ -67,46 +68,7 @@ class CustomerAppointmentPage extends Component {
           >
             <BookingsCalendarComponent />
           </Box>
-          <Box
-            sx={{
-              mt: 3,
-              p: 4,
-              backgroundColor: "#F8F8F8",
-              borderRadius: "10px",
-            }}
-          >
-            <Typography
-              variant="h6"
-              className={classes.availableSlot}
-              sx={{ mx: 2 }}
-            >
-              Available Slot
-            </Typography>
-            <Box sx={{ display: "flex", py: 2 }}>
-              <Typography variant="h6" className={classes.appointmentTimeTitle}>
-                Morning
-              </Typography>
-              {timingDataMorning.map((time: string) => {
-                return <TimingBox time={time} key={time} />;
-              })}
-            </Box>
-            <Box sx={{ display: "flex", py: 2 }}>
-              <Typography variant="h6" className={classes.appointmentTimeTitle}>
-                Afternoon
-              </Typography>
-              {timingDataAfternoon.map((time: string) => {
-                return <TimingBox time={time} key={time} />;
-              })}
-            </Box>
-            <Box sx={{ display: "flex", py: 2 }}>
-              <Typography variant="h6" className={classes.appointmentTimeTitle}>
-                Evening
-              </Typography>
-              {timingDataEvening.map((time: string) => {
-                return <TimingBox time={time} key={time} />;
-              })}
-            </Box>
-          </Box>
+          <AppointmentPage />
           <Box
             sx={{
               backgroundColor: "#F8F8F8",

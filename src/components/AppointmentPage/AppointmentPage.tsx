@@ -20,7 +20,7 @@ import {
 } from "../../utils/data/CustomerAppointment/TimingsData";
 import { Styles } from "./AppointmentPage.Style";
 
-class CustomerAppointmentPage extends Component {
+class AppointmentPage extends Component {
   state = { monthName: "", isActiveTime: "10:00 AM" };
   handleMonthChange = (event: any) => {
     this.setState({ monthName: event.target.value });
@@ -33,41 +33,10 @@ class CustomerAppointmentPage extends Component {
   render() {
     const { classes }: any = this.props;
     return (
-      <Container maxWidth="lg">
-        <Box className={classes.AppointmentHeadingContainer}>
-          <Typography variant="h6" className={classes.scheduleAppointment}>
-            schedule your appointment
-          </Typography>
-          <FormControl>
-            <Select
-              labelId="monthName"
-              id="monthName"
-              value={this.state.monthName}
-              onChange={this.handleMonthChange}
-              name="monthName"
-              className={classes.monthName}
-            >
-              <MenuItem value="january" defaultChecked>
-                January
-              </MenuItem>
-              <MenuItem value="february">February</MenuItem>
-              <MenuItem value="March">March</MenuItem>
-            </Select>
-          </FormControl>
-        </Box>
-        <Box
-          sx={{
-            boxShadow: "2px 2px 2px 2px #F0F0F0",
-            mt: 3,
-            borderRadius: "10px",
-          }}
-        >
-          <BookingsCalendarComponent />
-        </Box>
-        <Box
+      <>
+      <Box
           sx={{
             mt: 3,
-            ml: 2,
             p: 4,
             backgroundColor: "#F8F8F8",
             width: "100%",
@@ -143,9 +112,9 @@ class CustomerAppointmentPage extends Component {
             ))}
           </Box>
         </Box>
-      </Container>
+      </>
     );
   }
 }
 
-export default withStyles(Styles, { withTheme: true })(CustomerAppointmentPage);
+export default withStyles(Styles, { withTheme: true })(AppointmentPage);

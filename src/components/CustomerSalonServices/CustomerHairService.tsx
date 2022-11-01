@@ -39,6 +39,7 @@ export class CustomerHairService extends Component<ServeProps> {
     this.props.navigate("/customer/cart-items", {
       state: item,
     });
+    localStorage.setItem('cartData', JSON.stringify(item))
   };
 
   render() {
