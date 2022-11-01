@@ -9,3 +9,13 @@
   margin-left: auto !important;
   margin-right: auto !important;
 }
+
+.offer-heading::after {
+  content: "";
+  width: 42px;
+  height: 6px;
+  display: block;
+  background-color: #ebb273;
+  text-align: center;
+  margin: 15px auto;
+}
