@@ -15,9 +15,11 @@ import {
   timingDataAfternoon,
   timingDataEvening,
 } from "../../utils/data/CustomerAppointment/TimingsData";
-import { Styles } from "./AppointmentPage.Style";
 import Layout from "../Layout/Layout";
 import { salonEmpData } from "../../utils/data/CustomerAppointment/salonEmployeeData";
+
+import { Styles } from "./AppointmentPage.Style";
+import "./AppointmentPage.css";
 
 class CustomerAppointmentPage extends Component {
   state = { monthName: "", isActiveTime: "01:00 PM", salonEmpSelected: 4 };
@@ -56,16 +58,17 @@ class CustomerAppointmentPage extends Component {
               </Select>
             </FormControl>
           </Box>
-          <Box
-            sx={{
+          <div
+            style={{
               boxShadow: "2px 2px 2px 2px #F0F0F0",
-              mt: 3,
+              marginTop: "30px",
               borderRadius: "10px",
               width: "100%",
             }}
+            className="appointmentpage-calender"
           >
             <BookingsCalendarComponent />
-          </Box>
+          </div>
           <Box
             sx={{
               mt: 3,
@@ -175,7 +178,7 @@ class CustomerAppointmentPage extends Component {
             <Box
               sx={{
                 display: "flex",
-                overflowY: "scroll",
+                overflowY: { sm: "scroll", md: "hidden" },
               }}
             >
               {salonEmpData.map((emp: any, index: number) => {
