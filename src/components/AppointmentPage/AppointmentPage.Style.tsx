@@ -41,8 +41,8 @@ export const Styles: any = (theme: any) => ({
     fontSize: "16px !important",
     lineHeight: "28px !important",
     textTransform: "capitalize !important",
-    color: "#88878F !important",
-    width: "115px !important",
+    color: "#88878F ",
+    width: "105px !important",
     height: "54px",
     backgroundColor: "#FFF",
     "&:hover": {

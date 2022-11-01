@@ -10,18 +10,24 @@ import {
 import { Styles } from "./AppointmentPage.Style";
 
 class AppointmentPage extends Component {
-  state = { monthName: "", isActiveTime: "10:00 AM" };
-  handleMonthChange = (event: any) => {
-    this.setState({ monthName: event.target.value });
-  };
-  salonEmpActive = (index: number) => {
-    this.setState({ salonEmpSelected: index });
+  state = {
+    isActiveIdM: '',
+    isActiveIdA: 4,
+    isActiveId: ''
   };
 
-  onclickActive = (time: string) => {
-    // this.setState({isActiveTime:})
-    console.log(time);
+  setActiveAppM = (id: any) => {
+    this.setState({ isActiveIdM: id });
   };
+
+  setActiveAppA = (id: any) => {
+    this.setState({ isActiveIdA: id });
+  };
+
+  setActiveApp = (id: any) => {
+    this.setState({ isActiveId: id });
+  };
+
   render() {
     const { classes }: any = this.props;
     return (
@@ -51,13 +57,21 @@ class AppointmentPage extends Component {
               >
                 Morning
               </Typography>
-              {timingDataMorning.map((item: any) => (
+              {timingDataMorning.map((item: any, index: any) => (
                 <Button
+                  onClick={(e) => this.setActiveAppM(index)}
                   sx={{
                     borderRadius: "10px !important",
                   }}
                 >
-                  <Typography className={classes.appointmentTime}>
+                  <Typography
+                    className={classes.appointmentTime}
+                    sx={{
+                      backgroundColor:
+                        index === this.state.isActiveIdM ? "#E7A356" : "",
+                      color: index === this.state.isActiveIdM ? "#fff" : "",
+                    }}
+                  >
                     {item.time}
                   </Typography>
                 </Button>
@@ -75,14 +89,22 @@ class AppointmentPage extends Component {
               >
                 Afternoon
               </Typography>
-              {timingDataAfternoon.map((item: any) => (
+              {timingDataAfternoon.map((item: any, index: any) => (
                 <Button
+                  onClick={(e) => this.setActiveAppA(index)}
                   sx={{
                     borderRadius: "10px !important",
                   }}
                   className={classes.dateTime}
                 >
-                  <Typography className={classes.appointmentTime}>
+                  <Typography
+                    className={classes.appointmentTime}
+                    sx={{
+                      backgroundColor:
+                        index === this.state.isActiveIdA ? "#E7A356" : "",
+                      color: index === this.state.isActiveIdA ? "#fff" : "",
+                    }}
+                  >
                     {item.time}
                   </Typography>
                 </Button>
@@ -100,13 +122,21 @@ class AppointmentPage extends Component {
               >
                 Evening
               </Typography>
-              {timingDataEvening.map((item: any) => (
+              {timingDataEvening.map((item: any, index: any) => (
                 <Button
+                  onClick={(e) => this.setActiveApp(index)}
                   sx={{
                     borderRadius: "10px !important",
                   }}
                 >
-                  <Typography className={classes.appointmentTime}>
+                  <Typography
+                    className={classes.appointmentTime}
+                    sx={{
+                      backgroundColor:
+                        index === this.state.isActiveId ? "#E7A356" : "",
+                      color: index === this.state.isActiveId ? "#fff" : "",
+                    }}
+                  >
                     {item.time}
                   </Typography>
                 </Button>
