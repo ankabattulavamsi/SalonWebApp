@@ -13,7 +13,7 @@ export const Styles: any = (theme: any) => ({
     display: "flex",
     justifyContent: "center",
     gap: "15px",
-    borderRadius: "15px",
+    borderRadius: "10px !important",
     border: "solid 1px #f0f0f0 !important",
   },
   bookingHisoryTitlle: {

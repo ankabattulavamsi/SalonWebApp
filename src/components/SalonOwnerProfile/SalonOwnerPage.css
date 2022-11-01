@@ -32,12 +32,6 @@
   padding: 0px !important;
 }
 
-.activate-class {
-  box-shadow: 3px 3px 3px 3px #88878f;
-  border: none;
-  color: "#272522";
-}
-
 .css-9iunqt-MuiButtonBase-root-MuiButton-root {
   padding: 0px !important;
 }
@@ -68,6 +62,10 @@
   line-height: 30px;
   letter-spacing: 0.01em;
   text-transform: capitalize;
+}
+
+.activate-class {
+  box-shadow: -5px 10px 15px 10px #eeeaea !important;
 }
 
 @media only screen and (max-width: 800px) {
