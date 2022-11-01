@@ -1,25 +1,26 @@
 /** @format */
 
+import React, { Component } from "react";
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { Container } from "@mui/system";
+import { Style } from "./CustomerService.style";
+import { withStyles } from "@mui/styles";
+
+import { TeamData, teamdata } from "../../utils/data/expertTeam/team";
+import withRouter from "../../hoc/withRouter";
+
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Container } from "@mui/system";
-import React, { Component } from "react";
-import { TeamData, teamdata } from "../../utils/data/expertTeam/team";
-
-import {Style} from './CustomerService.style'
-import { withStyles } from "@mui/styles";
-import withRouter from "../../hoc/withRouter";
 
 import "./CustomerServe.css";
 
 interface IsProps {
-    classes:any
+  classes: any;
 }
 
 class OurSpecialistCust extends Component<IsProps> {
   render() {
-    const {classes} = this.props
+    const { classes } = this.props;
     return (
       <Box sx={{ pt: { xs: 10, sm: 10, md: 9 }, pb: 0 }}>
         <Box className={classes.categoryTitleBox}>
@@ -120,6 +121,5 @@ const responsive = {
     slidesToSlide: 1, // optional, default to 1.
   },
 };
-
 
 export default withStyles(Style)(withRouter(OurSpecialistCust));
