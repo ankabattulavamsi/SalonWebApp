@@ -18,8 +18,7 @@ interface IProps {
 }
 class CustomerSevice extends Component<IProps> {
 	handleClickOpenCategories = () => {
-		console.log("====================================");
-		this.props.navigate("/customer/category");
+		this.props.navigate("/customer/service");
 	};
 
 	handleClickOtherProps = () => {

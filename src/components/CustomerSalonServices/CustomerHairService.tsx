@@ -28,6 +28,9 @@ interface ServeProps {
 }
 
 export class CustomerHairService extends Component<ServeProps> {
+  state = {
+    newArray : JSON.parse(localStorage.getItem('cartData')!) || []
+  }
   onClickNavigateSingleServe = (item: any) => {
     let heading = item.heading.replace(/ /g, "");
     this.props.navigate(`haircut-details`, {
@@ -39,7 +42,14 @@ export class CustomerHairService extends Component<ServeProps> {
     this.props.navigate("/customer/cart-items", {
       state: item,
     });
-    localStorage.setItem('cartData', JSON.stringify(item))
+    const itemInCart = this.state.newArray.find((items:any)=>items.id===item.id)
+    if(itemInCart){
+
+    }else{
+
+      localStorage.setItem('cartData', JSON.stringify([...this.state.newArray, item]))
+      this.setState({newArray: JSON.parse(localStorage.getItem('cartData')!) })
+    }
   };
 
   render() {

@@ -15,7 +15,7 @@ class SalonNearByPage extends Component<IsProps> {
 
 	handleClickOpenCategories = () => {
 		console.log("====================================");
-		this.props.navigate("/customer/category");
+		this.props.navigate("/customer/service");
 	};
 
 	handleClickOtherProps = () => {
