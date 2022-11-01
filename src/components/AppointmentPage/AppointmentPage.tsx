@@ -1,26 +1,13 @@
-import {
-  Button,
-  Container,
-  Divider,
-  FormControl,
-  Grid,
-  InputLabel,
-  MenuItem,
-  Select,
-  Typography,
-} from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { withStyles } from "@mui/styles";
 import { Box } from "@mui/system";
 import React, { Component } from "react";
-import BookingsCalendarComponent from "../BookingsSection/BookingsCalendarComponent/BookingsCalendarComponent";
 import {
   timingDataMorning,
   timingDataAfternoon,
   timingDataEvening,
 } from "../../utils/data/CustomerAppointment/TimingsData";
 import { Styles } from "./AppointmentPage.Style";
-import Layout from "../Layout/Layout";
-import { salonEmpData } from "../../utils/data/CustomerAppointment/salonEmployeeData";
 
 class AppointmentPage extends Component {
   state = { monthName: "", isActiveTime: "10:00 AM" };
@@ -39,7 +26,7 @@ class AppointmentPage extends Component {
     const { classes }: any = this.props;
     return (
       <>
-      <Box
+        <Box
           sx={{
             mt: 3,
             p: 4,
@@ -49,20 +36,10 @@ class AppointmentPage extends Component {
           }}
           className={classes.scroller}
         >
-          <Typography
-            variant="h6"
-            className={classes.availableSlot}
-            sx={{ mx: 2 }}
-          >
+          <Typography variant="h6" className={classes.availableSlot} sx={{}}>
             Available Slot
           </Typography>
-          <Box
-            className={classes.AppointmentBox}
-            sx={{ display: "flex", py: 2 }}
-          >
-            <Typography variant="h6" sx={{mr: 5}} className={classes.appointmentTimeTitle}>
-              Morning
-            </Typography>
+          <Box>
             <Box
               className={classes.AppointmentBox}
               sx={{ display: "flex", py: 2 }}

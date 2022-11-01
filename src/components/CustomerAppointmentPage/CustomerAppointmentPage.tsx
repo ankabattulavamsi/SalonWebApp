@@ -17,7 +17,6 @@ import {
 } from "../../utils/data/CustomerAppointment/timingsData";
 import BookingsCalendarComponent from "../BookingsSection/BookingsCalendarComponent/BookingsCalendarComponent";
 
-import "./CustomerAppointment.css";
 import Layout from "../Layout/Layout";
 import AppointmentPage from "../AppointmentPage/AppointmentPage";
 import { Styles } from "../AppointmentPage/AppointmentPage.Style";

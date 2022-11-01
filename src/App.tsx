@@ -28,11 +28,11 @@ import CusstomerSpa from "./components/CustomerSalonServices/CusstomerSpa";
 import CustomerSingleServicePage from "./components/CustomerSalonServices/CustomerSingleServicePage";
 import SalonNearByPage from "./routes/SalonNearByPage/SalonNearByPage";
 import CartItemsList from "./components/CustomerCartItems/CartItemsList";
-import CustomerCategories from "./components/CusomerServicePage/CustomerCategories";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import AppointmentPage from "./components/AppointmentPage/AppointmentPage";
-
+import CustomerCatagory from "./components/customer/CustomerCatagory";
+import CustomerCategories from "./components/CusomerServicePage/CustomerCategories";
+import CustomerAppointmentPage from "./components/CustomerAppointmentPage/CustomerAppointmentPage";
+import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <div>
@@ -119,7 +119,7 @@ function App() {
             element={<CustomerSingleServicePage />}
           />
           <Route path="/customer/salonNearby" element={<SalonNearByPage />} />
-          <Route path="customer/appointment" element={<AppointmentPage />} />
+          <Route path="customer/appointment" element={<CustomerAppointmentPage />} />
           {/* Salon Customer */}
         </Routes>
       </ThemeProvider>
