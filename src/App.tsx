@@ -26,15 +26,12 @@ import CustomerHairColor from "./components/CustomerSalonServices/CustomerHairCo
 import CustomerFacial from "./components/CustomerSalonServices/CustomerFacial";
 import CusstomerSpa from "./components/CustomerSalonServices/CusstomerSpa";
 import CustomerSingleServicePage from "./components/CustomerSalonServices/CustomerSingleServicePage";
-import { categoryData } from "./utils/data/customer/CustomerData";
-
-
 
 import SalonNearByPage from "./routes/SalonNearByPage/SalonNearByPage";
 import CartItemsList from "./components/CustomerCartItems/CartItemsList";
-import CustomerAppointmentPage from "./components/AppointmentPage/AppointmentPage";
-import CustomerCatagory from "./components/customer/CustomerCatagory";
+
 import CustomerCategories from "./components/CusomerServicePage/CustomerCategories";
+import AppointmentPage from "./components/AppointmentPage/AppointmentPage";
 function App() {
 	
 	return (
@@ -47,18 +44,18 @@ function App() {
 					</Route>
 					{/*Guest Flow*/}
 
-          {/* Salon Partners */}
-          <Route path="salon" element={<SalonPartner />} />
-          <Route path="salon/owner" element={<SalonOwnerPage />} />
+					{/* Salon Partners */}
+					<Route path="salon" element={<SalonPartner />} />
+					<Route path="salon/owner" element={<SalonOwnerPage />} />
 
-          <Route path="salon/offers" element={<OffersSalon />} />
-          <Route path="salon/gallery" element={<GallerySalon />} />
-          <Route path="salon/team" element={<SpecialistTeam />} />
-          <Route path="salon/blog" element={<SalonBlogs />} />
-          <Route path="salon/booking" element={<BookingsMainPage />} />
-          <Route path="salon/category" element={<SalonAllCategory />} />
-          <Route path="/*" element={<Nopage />} />
-          {/* Salon Partners */}
+					<Route path="salon/offers" element={<OffersSalon />} />
+					<Route path="salon/gallery" element={<GallerySalon />} />
+					<Route path="salon/team" element={<SpecialistTeam />} />
+					<Route path="salon/blog" element={<SalonBlogs />} />
+					<Route path="salon/booking" element={<BookingsMainPage />} />
+					<Route path="salon/category" element={<SalonAllCategory />} />
+					<Route path="/*" element={<Nopage />} />
+					{/* Salon Partners */}
 
 					{/* Salon Customer */}
 					<Route path="customer" element={<Customer />} />
@@ -81,7 +78,7 @@ function App() {
 						path="/customer/salonNearby"
 						element={<SalonNearByPage />}
 					/>
-					<Route path='customer/appointment' element={<CustomerAppointmentPage />} />
+					<Route path='customer/appointment' element={<AppointmentPage />} />
 					{/* Salon Customer */}
 				</Routes>
 			</ThemeProvider>
