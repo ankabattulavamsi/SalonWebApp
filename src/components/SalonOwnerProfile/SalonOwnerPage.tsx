@@ -1,3 +1,5 @@
+/** @format */
+
 import { Avatar, Button, Grid, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import React, { Component } from "react";
@@ -27,10 +29,11 @@ interface SalonEditState {
   image: string;
 }
 
-interface SalonOwnerPageProps {
-  navigate?: any;
+interface SalonProps {
+  navigate: any;
 }
-class SalonOwnerPage extends Component<SalonOwnerPageProps> {
+
+class SalonOwnerPage extends Component<SalonProps> {
   state: SalonEditState = {
     activeTab: "Booking History",
     open: false,

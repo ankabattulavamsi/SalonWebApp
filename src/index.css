@@ -20,6 +20,10 @@ body {
 input::placeholder {
   text-transform: capitalize;
 }
+.data-gr-ext-installed {
+  padding: 0px !important;
+  overflow: hidden;
+}
 
 /* to hide the scrollbar to all html elements */
 /* 

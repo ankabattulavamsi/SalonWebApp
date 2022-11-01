@@ -4,6 +4,7 @@ import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import React, { Component } from "react";
 import { CustomerData } from "../../utils/data/customer/CustomerData";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import photo from "../../assets/images/customer/girl2.png";
 interface IProps {
 	data: CustomerData;
 }
@@ -13,7 +14,7 @@ export default class BannerCard extends Component<IProps> {
 		return (
 			<Box className="main-container">
 				<Grid container>
-					<Grid item xl={8} lg={8} md={6} sm={7} xs={7}>
+					<Grid item xl={8} lg={8} md={7} sm={7} xs={7}>
 						<Box className="text-content">
 							<Typography variant="h2" className="heading-text">
 								{data.heading}
@@ -52,7 +53,9 @@ export default class BannerCard extends Component<IProps> {
 							</Stack>
 						</Box>
 					</Grid>
-					<Grid item xl={4} lg={4} md={6} sm={5} xs={5}></Grid>
+					<Grid item xl={4} lg={4} md={5} sm={5} xs={5}>
+						<img src={photo} alt="girl2" className="banner-img" />
+					</Grid>
 				</Grid>
 			</Box>
 		);

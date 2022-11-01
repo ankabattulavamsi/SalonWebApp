@@ -1,5 +1,14 @@
+/** @format */
+
 import React, { Component, Fragment } from "react";
-import { Avatar, Box, Drawer, List, ListItem, Typography } from "@mui/material";
+import {
+	Avatar,
+	Box,
+	Drawer,
+	List,
+	ListItem,
+	Typography,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import NotificationsIcon from "@mui/icons-material/Notifications";
@@ -16,14 +25,17 @@ import { SalonMenus } from "../../../utils/models/navbar_interface";
 import SalonNotification from "../../SalonNotification/SalonNotification";
 
 import "./SalonNav.css";
+import { CustomerMenu } from "../../../utils/data/navbar_menus";
 
 interface salonProps {
-  customer: boolean;
-  menus: SalonMenus[];
-  navigate?: any;
+	customer: boolean;
+	menus: SalonMenus[];
+	navigate?: any;
 }
 interface salonState {
   isCustomer: boolean;
+  activeLink: string;
+
   open: boolean;
   dialogOpen: boolean;
   lat: any;
@@ -40,6 +52,8 @@ class SalonNavbar extends Component<salonProps, salonState> {
     lat: null,
     lon: null,
     data: "",
+    activeLink: "Home",
+
     locationData: {
       state_district: "",
       state: "",
@@ -47,97 +61,103 @@ class SalonNavbar extends Component<salonProps, salonState> {
     },
   };
 
-  handleClick = (title: string) => {
-    this.setState({
-      open: !this.state.open,
-    });
-  };
+	handleClick = (title: string) => {
+		this.setState({
+      activeLink: title,
 
-  handleDialogOpen = () => {
-    this.setState({
-      dialogOpen: true,
-    });
-  };
-  handleDialogClose = () => {
-    this.setState({
-      dialogOpen: false,
-    });
-  };
+			open: !this.state.open,
+		});
+	};
 
-  fetchdata = async () => {
-    console.log(this.state.lat, this.state.lon);
-    await fetch(
-      `https://api.opencagedata.com/geocode/v1/json?q=${this.state.lat}+${this.state.lon}&key=8518d29fbed240129135f8e8283c4c01`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("data", data);
+	handleDialogOpen = () => {
+		this.setState({
+			dialogOpen: true,
+		});
+	};
+	handleDialogClose = () => {
+		this.setState({
+			dialogOpen: false,
+		});
+	};
 
-        this.setState({ data: data.results[0].formatted });
-        let localData = data.results[0].components;
-        let { state_district, state, country } = localData;
-        localStorage.setItem(
-          "Current Adress",
-          JSON.stringify({ state_district, state, country })
-        );
-      })
-      .then((data) =>
-        fetch(` https://httpstat.us/200`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name: data, time: new Date() }),
-        })
-      );
-  };
-  getLocation = () => {
-    if (navigator.geolocation) {
-      var data = navigator.geolocation.getCurrentPosition(
-        this.showPosition,
-        this.handleLocationError
-      );
-    } else {
-      alert("Geolocation not supported");
-    }
-  };
-  showPosition = (position: any) => {
-    this.setState(
-      {
-        lat: position.coords.latitude,
-        lon: position.coords.longitude,
-      },
-      () => this.fetchdata()
-    );
-  };
-  handleLocationError = (error: any) => {
-    switch (error) {
-      case error.PERMISSION_DENIED:
-        alert("user denied request for geolocation error");
-        break;
-      case error.POSITION_UNAVAILABLE:
-        alert("location information unavailable");
-        break;
-      case error.TIMEOUT:
-        alert("request time out");
-        break;
-      case error.UNKNOWN_ERROR:
-        alert("unknown error occured");
-        break;
-      default:
-    }
-  };
-  componentDidMount() {
-    if (localStorage.getItem("Current Adress")) {
-      const existingdata = JSON.parse(
-        localStorage.getItem("Current Adress") || ""
-      );
-      this.setState({ data: existingdata });
+	fetchdata = async () => {
+		console.log(this.state.lat, this.state.lon);
+		await fetch(
+			`https://api.opencagedata.com/geocode/v1/json?q=${this.state.lat}+${this.state.lon}&key=8518d29fbed240129135f8e8283c4c01`
+		)
+			.then((res) => res.json())
+			.then((data) => {
+				console.log("data", data);
 
-      this.setState({
-        locationData: existingdata,
-      });
-    } else {
-      this.getLocation();
-    }
+				this.setState({ data: data.results[0].formatted });
+				let localData = data.results[0].components;
+				let { state_district, state, country } = localData;
+				localStorage.setItem(
+					"Current Adress",
+					JSON.stringify({ state_district, state, country })
+				);
+			})
+			.then((data) =>
+				fetch(` https://httpstat.us/200`, {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ name: data, time: new Date() }),
+				})
+			);
+	};
+	getLocation = () => {
+		if (navigator.geolocation) {
+			var data = navigator.geolocation.getCurrentPosition(
+				this.showPosition,
+				this.handleLocationError
+			);
+		} else {
+			alert("Geolocation not supported");
+		}
+	};
+	showPosition = (position: any) => {
+		this.setState(
+			{
+				lat: position.coords.latitude,
+				lon: position.coords.longitude,
+			},
+			() => this.fetchdata()
+		);
+	};
+	handleLocationError = (error: any) => {
+		switch (error) {
+			case error.PERMISSION_DENIED:
+				alert("user denied request for geolocation error");
+				break;
+			case error.POSITION_UNAVAILABLE:
+				alert("location information unavailable");
+				break;
+			case error.TIMEOUT:
+				alert("request time out");
+				break;
+			case error.UNKNOWN_ERROR:
+				alert("unknown error occured");
+				break;
+			default:
+		}
+	};
+	componentDidMount() {
+		if (localStorage.getItem("Current Adress")) {
+			const existingdata = JSON.parse(
+				localStorage.getItem("Current Adress") || ""
+			);
+			this.setState({ data: existingdata });
+
+			this.setState({
+				locationData: existingdata,
+			});
+		} else {
+			this.getLocation();
+		}
+	}
+
+  onClickOpenCustomerCart = () => {
+    this.props.navigate('/customer/cart-items')
   }
 
   render() {
@@ -150,23 +170,47 @@ class SalonNavbar extends Component<salonProps, salonState> {
             <Box className="logo">
               <img src={Logo} alt="logo" width="100%" height="75px" />
             </Box>
-            <Box className="salon-nav-menulink">
-              {menus.map((menu) => {
-                return (
-                  <a
-                    key={menu.id}
-                    href={menu.path}
-                    className={
-                      window.location.pathname == menu.path
-                        ? "active"
-                        : "salon-menu-link"
-                    }
-                  >
-                    {menu.title}
-                  </a>
-                );
-              })}
-            </Box>
+
+            {this.state.isCustomer ? (
+              <Box className="nav-menulink">
+                {CustomerMenu.map((menu) => {
+                  return (
+                    <a
+                      key={menu.id}
+                      href={menu.path}
+                      className={
+                        menu.title === this.state.activeLink
+                          ? "active"
+                          : "menu-link"
+                      }
+                      onClick={() => this.setState({ activeLink: menu.title })}
+                    >
+                      {menu.title}
+                    </a>
+                  );
+                })}
+              </Box>
+            ) : (
+              <Box className="salon-nav-menulink">
+                {menus.map((menu) => {
+                  console.log("pathname", window.location.pathname);
+
+                  return (
+                    <a
+                      key={menu.id}
+                      href={menu.path}
+                      className={
+                        window.location.pathname == menu.path
+                          ? "active"
+                          : "salon-menu-link"
+                      }
+                    >
+                      {menu.title}
+                    </a>
+                  );
+                })}
+              </Box>
+            )}
             {this.state.isCustomer && (
               <Box className="salon-nav-location">
                 <Box
@@ -229,7 +273,11 @@ class SalonNavbar extends Component<salonProps, salonState> {
                   </Box>
                 )}
               </Box>
-              <Box>
+              <Box
+                sx={{
+                  paddingRight: "0px !important",
+                }}
+              >
                 <Badge
                   variant="dot"
                   sx={{ "& .MuiBadge-badge": { backgroundColor: "#E7A356" } }}
@@ -245,7 +293,7 @@ class SalonNavbar extends Component<salonProps, salonState> {
                   />
                 </Badge>
               </Box>
-              <Box>
+              <Box onClick={this.onClickOpenCustomerCart}>
                 {this.state.isCustomer && (
                   <ShoppingBasketIcon sx={{ fontSize: "32px", mr: 3 }} />
                 )}
@@ -286,7 +334,6 @@ class SalonNavbar extends Component<salonProps, salonState> {
                     sx={{
                       fontSize: "32px",
                       cursor: "pointer",
-
                       color: this.state.dialogOpen ? "#E7A356" : "",
                     }}
                   />
@@ -325,8 +372,9 @@ class SalonNavbar extends Component<salonProps, salonState> {
                     alignItems: "center",
                     mr: { xs: 1, sm: 6 },
                   }}
+                  onClick={this.onClickOpenCustomerCart}
                 >
-                  <ShoppingBasketIcon sx={{ fontSize: "32px" }} />
+                  <ShoppingBasketIcon sx={{ fontSize: "32px" }}  />
                   <Typography sx={{ pl: 1 }} variant="h6">
                     Cart
                   </Typography>
@@ -343,48 +391,79 @@ class SalonNavbar extends Component<salonProps, salonState> {
               <Box onClick={() => this.setState({ open: !this.state.open })}>
                 <CloseIcon />
               </Box>
-              <List>
-                {menus.map((menu) => {
-                  return (
-                    <ListItem
-                      key={menu.id}
-                      className="salon-mobile-menus"
-                      onClick={() => this.handleClick(menu.title)}
-                    >
-                      <a
-                        href={menu.path}
-                        className={
-                          window.location.pathname == menu.path
-                            ? "salon-moblie-active-link"
-                            : "salon-mobile-menus"
-                        }
+
+              {this.state.isCustomer ? (
+                <List>
+                  {CustomerMenu.map((menu) => {
+                    return (
+                      <ListItem
+                        key={menu.id}
+                        className="mobile-menus"
+                        onClick={() => this.handleClick(menu.title)}
                       >
-                        {menu.title}
-                      </a>
-                    </ListItem>
-                  );
-                })}
-              </List>
+                        <a
+                          href={menu.path}
+                          className={
+                            menu.title === this.state.activeLink
+                              ? "moblie-active-link"
+                              : "mobile-menus"
+                          }
+                        >
+                          {menu.title}
+                        </a>
+                      </ListItem>
+                    );
+                  })}
+                </List>
+              ) : (
+                <List>
+                  {menus.map((menu) => {
+                    return (
+                      <ListItem
+                        key={menu.id}
+                        className="salon-mobile-menus"
+                        onClick={() => this.handleClick(menu.title)}
+                      >
+                        <a
+                          href={menu.path}
+                          className={
+                            window.location.pathname == menu.path
+                              ? "salon-moblie-active-link"
+                              : "salon-mobile-menus"
+                          }
+                        >
+                          {menu.title}
+                        </a>
+                      </ListItem>
+                    );
+                  })}
+                </List>
+              )}
             </Box>
           </Drawer>
 
-          <>
-            {/* notification dialog */}
-            {!this.state.isCustomer && (
-              <SalonNotification
-                open={this.state.dialogOpen}
-                onClose={this.handleDialogClose}
-              />
-            )}
-            {/* <SalonNotification
+					<>
+						{/* notification dialog */}
+						{!this.state.isCustomer ? (
+							<SalonNotification
+								open={this.state.dialogOpen}
+								onClose={this.handleDialogClose}
+							/>
+						) : (
+							<SalonNotification
+								open={this.state.dialogOpen}
+								onClose={this.handleDialogClose}
+							/>
+						)}
+						{/* <SalonNotification
               open={this.state.dialogOpen}
               onClose={this.handleDialogClose}
             /> */}
-          </>
-        </Fragment>
-      </>
-    );
-  }
+					</>
+				</Fragment>
+			</>
+		);
+	}
 }
 
 export default withRouter(SalonNavbar);

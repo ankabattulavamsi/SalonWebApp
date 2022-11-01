@@ -1,3 +1,5 @@
+/** @format */
+
 import Buttons from "./ButtonOfDrawer/Buttons";
 import PayoutButton from "./PayoutButton/PayoutButton";
 import Drawers from "./DrawerComp/Drawers";
@@ -11,15 +13,15 @@ import GalleryCards from "./GalleryCards";
 
 import Banner from "./Banner/Banner";
 export {
-  Buttons,
-  PayoutButton,
-  Inputs,
-  Drawers,
-  OtpPass,
-  ButtonCust,
-  DropDownLogin,
-  CommonViewAllButton,
-  Snackbars,
-  GalleryCards,
-  Banner,
+	Buttons,
+	PayoutButton,
+	Inputs,
+	Drawers,
+	OtpPass,
+	ButtonCust,
+	DropDownLogin,
+	CommonViewAllButton,
+	Snackbars,
+	GalleryCards,
+	Banner,
 };

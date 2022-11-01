@@ -1,19 +1,23 @@
 /** @format */
 
 .main-container {
-	background: url(../../assets/images/customer/customerBanner.png);
-	background-repeat: round;
+	background: url(../../assets/images/customer/bg.jpg);
+	background-repeat: no-repeat;
 	background-size: cover;
 	width: 100%;
 	margin: auto;
-	height: 455px;
 	position: relative;
 	border-radius: 10px;
 	z-index: 0;
 	margin-top: 50px;
 }
+.banner-img {
+	width: 100% !important;
+	height: 100%;
+	padding-top: 40px;
+	padding-right: 50px;
+}
 .text-content {
-	width: 600px;
 	display: flex;
 	flex-direction: column;
 	justify-content: star;
@@ -75,7 +79,7 @@
 	transition: 0.6s ease-in-out;
 }
 .card-item .innerCard {
-	flex-basis: 32.3% !important;
+	flex-basis: 32.1% !important;
 	margin-bottom: 20px !important;
 }
 .card-item {
@@ -96,13 +100,13 @@
 }
 .shopnear:hover {
 	transition: 0.6s ease-in-out;
-	box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.07) !important;
+	box-shadow: 0px 4px 30px rgb(0 0 0 / 17%) !important;
 }
 .shop-img-container {
 	position: relative;
 }
 .shop-img {
-	width: 460px !important;
+	width: 100% !important;
 	height: 213px !important;
 	border-radius: 10px;
 	border-bottom-right-radius: 0px !important;
@@ -110,15 +114,16 @@
 }
 .card-content1 {
 	padding: 0 !important;
-	margin: 0 90px;
-	margin-right: 197px;
+	margin: 0 80px;
+	position: relative;
 }
 .floating-img {
 	width: 110px !important;
 	height: 110px !important;
 	position: absolute;
-	top: 53px;
-	right: 59%;
+	top: 50%;
+	left: 100%;
+	transform: translate(-50%, -50%);
 }
 .float-img {
 	width: 105px !important;
@@ -150,13 +155,19 @@
 .blogs .OurBlogs-blogHeading-45 {
 	text-align: left;
 }
+
+.mobileshow {
+	display: none !important;
+}
 /* ShopNearBy css */
-@media only screen and (min-width: 1250px) and (max-width: 1290px) {
-	.floating-img {
-		right: 52%;
+@media (min-width: 992px) and (max-width: 1900px) {
+	.banner-sec .slick-dots {
+		top: 445px;
 	}
-	.card-content1 {
-		margin-right: 87px;
+}
+@media (min-width: 1100px) and (max-width: 1200px) {
+	.text-content {
+		margin-right: 0;
 	}
 }
 @media only screen and (min-width: 950px) and (max-width: 1100px) {
@@ -164,17 +175,17 @@
 		width: 487px;
 		margin-left: 60px;
 	}
+	.banner-img {
+		padding-right: 15px;
+	}
 	.card-item .innerCard {
 		flex-basis: 31.9% !important;
 	}
-	.floating-img {
-		right: 47%;
-	}
 	.card-content1 {
-		margin-right: 80px;
+		margin-right: 40px;
 	}
 	.shop-img {
-		width: 390px !important;
+		width: 100% !important;
 	}
 }
 @media only screen and (min-width: 880px) and (max-width: 949px) {
@@ -182,29 +193,32 @@
 		width: 425px;
 		margin-left: 60px;
 	}
+	.banner-img {
+		padding-right: 15px;
+	}
 	.heading-text {
 		font-size: 35px !important;
 	}
 	.card-item .innerCard {
 		flex-basis: 31.5% !important;
 	}
-	.floating-img {
-		right: 47%;
-	}
 	.card-content1 {
-		margin-right: 60px;
+		margin-right: 30px;
 		margin-left: 70px;
 	}
 	.shop-img {
-		width: 340px !important;
+		width: 100% !important;
 	}
 }
 @media only screen and (min-width: 750px) and (max-width: 879px) {
 	.main-container {
 		margin-top: 100px;
 	}
+	.banner-img {
+		padding-right: 15px;
+	}
 	.banner-sec .slick-dots {
-		top: 490px;
+		top: 498px;
 	}
 	.text-content {
 		width: 350px;
@@ -216,41 +230,58 @@
 	.card-item .innerCard {
 		flex-basis: 48.2% !important;
 	}
-	.floating-img {
-		right: 50%;
-	}
 	.card-content1 {
-		margin-right: 60px;
+		margin-right: 30px;
 		margin-left: 70px;
 	}
 	.shop-img {
-		width: 280px !important;
+		width: 100% !important;
 	}
 }
-@media only screen and (min-width: 700px) and (max-width: 780px) {
-	.floating-img {
-		right: 50%;
+@media only screen and (min-width: 601px) and (max-width: 750px) {
+	.main-container {
+		margin-top: 100px;
+	}
+	.text-content {
+		margin: 50px 0 60px 50px;
 	}
 	.banner-sec .slick-dots {
-		top: 505px;
+		top: 472px;
+	}
+	.heading-text {
+		font-size: 26px !important;
+	}
+	.banner-img {
+		padding-right: 12px;
 	}
 	.card-content1 {
 		margin-right: 30px;
 		margin-left: 60px;
 	}
 	.shop-img {
-		width: 260px !important;
+		width: 100% !important;
+	}
+}
+@media only screen and (min-width: 601px) and (max-width: 749px) {
+	.card-content1 {
+		margin-right: 30px;
+		margin-left: 60px;
 	}
 }
 @media only screen and (min-width: 300px) and (max-width: 600px) {
 	.main-container {
-		width: 100%;
-		height: 290px;
 		margin-top: 100px;
+	}
+	.banner-img {
+		width: 100% !important;
+		height: 100%;
+		padding: 0px;
+		padding-top: 35px;
 	}
 	.text-content {
 		width: 100%;
 		margin: 50px 0 0 20px;
+		padding-bottom: 65px;
 	}
 	.description {
 		display: none;
@@ -267,9 +298,18 @@
 	.price {
 		margin: 8px 0 !important;
 	}
+	.shop-img {
+		width: 100% !important;
+		height: 213px !important;
+		border-radius: 10px;
+		border-top-right-radius: 10px !important;
+		border-top-left-radius: 10px !important;
+		border-bottom-right-radius: 0px !important;
+		border-bottom-left-radius: 0px !important;
+	}
 	.banner-sec .slick-dots {
-		top: 345px;
-		margin-left: 30px;
+		top: 320px;
+		/* margin-left: 30px; */
 	}
 	.card-item .innerCard {
 		flex-basis: 100% !important;
@@ -282,9 +322,8 @@
 		display: flex;
 		margin: 20px 0;
 	}
-	.floating-img {
-		position: static;
-		margin: 0 20px;
+	.floating-img1 {
+		margin: 20px;
 	}
 	.float-img {
 		width: 60px !important;
@@ -296,21 +335,27 @@
 		margin: 8px 0;
 	}
 	.address {
-		font-size: 14px !important;
-		margin-right: 20px;
+		font-size: 12px !important;
+		margin-right: 20px !important;
 	}
 	.star-icon {
-		font-size: 14px !important;
+		font-size: 12px !important;
 		margin-right: 20px;
 	}
-}
-@media only screen and (min-width: 200px) and (max-width: 362px) {
-	.main-container {
-		height: 290px;
+	.webshow {
+		display: none !important;
 	}
-	/* .banner-sec .slick-dots {
-		top: 290px;
-	} */
+	.mobileshow {
+		display: block !important;
+	}
+	.shopnear-img-sec {
+		width: 100% !important;
+	}
+}
+@media only screen and (min-width: 200px) and (max-width: 400px) {
+	.banner-sec .slick-dots {
+		top: 345px;
+	}
 	.address {
 		font-size: 11px !important;
 		margin-right: 20px;
@@ -318,5 +363,11 @@
 	.star-icon {
 		font-size: 11px !important;
 		margin-right: 20px;
+	}
+	.webshow {
+		display: none !important;
+	}
+	.mobileshow {
+		display: block !important;
 	}
 }
