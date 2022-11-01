@@ -20,7 +20,7 @@ import Layout from "../Layout/Layout";
 import { salonEmpData } from "../../utils/data/CustomerAppointment/salonEmployeeData";
 
 class CustomerAppointmentPage extends Component {
-  state = { monthName: "", isActiveTime: "10:00 AM", salonEmpSelected: 4 };
+  state = { monthName: "", isActiveTime: "01:00 PM", salonEmpSelected: 4 };
   handleMonthChange = (event: any) => {
     this.setState({ monthName: event.target.value });
   };
@@ -125,19 +125,14 @@ class CustomerAppointmentPage extends Component {
                   sx={{
                     borderRadius: "10px !important",
                   }}
+                  onClick={() => this.onclickActive(item.time)}
                   className={classes.dateTime}
                 >
-                  <Typography
-                    className={classes.appointmentTime}
-                    sx={{
-                      backgroundColor:
-                        this.state.isActiveTime === item.time
-                          ? "#E7A356"
-                          : "#FFFFFF",
-                    }}
-                  >
-                    {item.time}
-                  </Typography>
+                  <Box>
+                    <Typography className={classes.appointmentTime}>
+                      {item.time}
+                    </Typography>
+                  </Box>
                 </Button>
               ))}
             </Box>
