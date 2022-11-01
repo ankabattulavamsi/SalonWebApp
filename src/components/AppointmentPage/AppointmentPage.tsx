@@ -17,10 +17,12 @@ import {
 	timingDataAfternoon,
 	timingDataEvening,
 } from "../../utils/data/CustomerAppointment/salonEmployeeData";
-import { Styles } from "./AppointmentPage.Style";
 import Layout from "../Layout/Layout";
 import { salonEmpData } from "../../utils/data/CustomerAppointment/salonEmployeeData";
 import CustomerPaymentDetail from "../common/CustomerPaymentDetail/CustomerPaymentDetail";
+
+import { Styles } from "./AppointmentPage.Style";
+import "./AppointmentPage.css";
 
 class CustomerAppointmentPage extends Component {
 	state = {
