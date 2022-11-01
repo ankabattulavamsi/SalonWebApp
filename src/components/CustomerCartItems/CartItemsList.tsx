@@ -14,7 +14,6 @@ import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
 import { categoryData } from "../../utils/data/customer/CustomerData";
 import DeleteModal from "../common/DeleteModal/DeleteModal";
 
-
 interface IsCartProps {
   classes: any;
   location: any;
@@ -33,13 +32,15 @@ export class CartItemsList extends Component<IsCartProps> {
   };
 
   componentDidMount() {
-    const {cartData} = this.state
+    const { cartData } = this.state;
     const { state } = this.props.location;
-    localStorage.setItem("cartData", JSON.stringify(state));
+
+    const localData = localStorage.getItem("cartData");
+    console.log('cartData', localData)
   }
 
   onClickNavToCategories = () => {
-    this.props.navigate("/customer/category");
+    this.props.navigate("/customer/appointment");
   };
 
   onClickDelteItem = (id: any) => {
@@ -47,7 +48,7 @@ export class CartItemsList extends Component<IsCartProps> {
       (item: any) => item.id !== id
     );
     this.setState({ cartData: filterData });
-    this.setState({openDeleteModel: true})
+    this.setState({ openDeleteModel: true });
   };
 
   onClickOfferDelete = () => {
@@ -62,16 +63,14 @@ export class CartItemsList extends Component<IsCartProps> {
     const { cartData } = this.state;
     const { classes } = this.props;
     const { state } = this.props.location;
-   
-    let newObj = state
-    let totalCartData = [cartData.push(newObj)];
 
-    localStorage.setItem("cartData", JSON.stringify(state));
-    
-    let amount = cartData.map((item) => parseInt(item.dissPrice))
-    
-    let totalAmount = amount.reduce((a, b) => a + b)
-    
+    let newObj = state;
+    let totalCartData = cartData.push(newObj);
+
+    let amount = cartData.map((item) => parseInt(item.dissPrice));
+
+    let totalAmount = amount.reduce((a, b) => a + b);
+
     return (
       <Layout customer={true}>
         <Container sx={{ pt: 20, pb: 10 }} maxWidth="lg">

@@ -1,10 +1,12 @@
+/** @format */
+
 import {
-  Button,
-  Container,
-  FormControl,
-  MenuItem,
-  Select,
-  Typography,
+	Button,
+	Container,
+	FormControl,
+	MenuItem,
+	Select,
+	Typography,
 } from "@mui/material";
 import { withStyles } from "@mui/styles";
 import { Box } from "@mui/system";
@@ -17,12 +19,19 @@ import {
 } from "../../utils/data/CustomerAppointment/TimingsData";
 import Layout from "../Layout/Layout";
 import { salonEmpData } from "../../utils/data/CustomerAppointment/salonEmployeeData";
+import CustomerPaymentDetail from "../common/CustomerPaymentDetail/CustomerPaymentDetail";
 
 import { Styles } from "./AppointmentPage.Style";
 import "./AppointmentPage.css";
 
 class CustomerAppointmentPage extends Component {
-  state = { monthName: "", isActiveTime: "01:00 PM", salonEmpSelected: 4 };
+  state = {
+    monthName: "",
+    salonEmpSelected: 4,
+    isActiveId: "",
+    isActiveIdA: "",
+    isActiveIdM: "",
+  };
   handleMonthChange = (event: any) => {
     this.setState({ monthName: event.target.value });
   };
@@ -33,6 +42,20 @@ class CustomerAppointmentPage extends Component {
   onclickActive = (time: string) => {
     this.setState({ isActiveTime: time });
   };
+
+  setActiveAppM = (id: any) => {
+    this.setState({ isActiveIdM: id });
+  };
+
+
+  setActiveAppA = (id: any) => {
+    this.setState({ isActiveIdA: id });
+  };
+
+  setActiveApp = (id: any) => {
+    this.setState({ isActiveId: id });
+  };
+
   render() {
     const { classes }: any = this.props;
     return (
@@ -98,14 +121,21 @@ class CustomerAppointmentPage extends Component {
               >
                 Morning
               </Typography>
-              {timingDataMorning.map((item: any) => (
+              {timingDataMorning.map((item: any, index: any) => (
                 <Button
+                  onClick={(e) => this.setActiveAppM(index)}
                   sx={{
                     borderRadius: "10px !important",
                   }}
-                  onClick={() => this.onclickActive(item.time)}
                 >
-                  <Typography className={classes.appointmentTime}>
+                  <Typography
+                    className={classes.appointmentTime}
+                    sx={{
+                      backgroundColor:
+                        index === this.state.isActiveIdM ? "#E7A356" : "",
+                      color: index === this.state.isActiveIdM ? "#fff" : "",
+                    }}
+                  >
                     {item.time}
                   </Typography>
                 </Button>
@@ -123,16 +153,23 @@ class CustomerAppointmentPage extends Component {
               >
                 Afternoon
               </Typography>
-              {timingDataAfternoon.map((item: any) => (
+              {timingDataAfternoon.map((item: any, index: any) => (
                 <Button
+                  onClick={(e) => this.setActiveAppA(index)}
                   sx={{
                     borderRadius: "10px !important",
                   }}
-                  onClick={() => this.onclickActive(item.time)}
                   className={classes.dateTime}
                 >
                   <Box>
-                    <Typography className={classes.appointmentTime}>
+                    <Typography
+                      className={classes.appointmentTime}
+                      sx={{
+                        backgroundColor:
+                          index === this.state.isActiveIdA ? "#E7A356" : "",
+                        color: index === this.state.isActiveIdA ? "#fff" : "",
+                      }}
+                    >
                       {item.time}
                     </Typography>
                   </Box>
@@ -151,13 +188,21 @@ class CustomerAppointmentPage extends Component {
               >
                 Evening
               </Typography>
-              {timingDataEvening.map((item: any) => (
+              {timingDataEvening.map((item: any, index: any) => (
                 <Button
+                  onClick={(e) => this.setActiveApp(index)}
                   sx={{
                     borderRadius: "10px !important",
                   }}
                 >
-                  <Typography className={classes.appointmentTime}>
+                  <Typography
+                    className={classes.appointmentTime}
+                    sx={{
+                      backgroundColor:
+                        index === this.state.isActiveId ? "#E7A356" : "",
+                      color: index === this.state.isActiveId ? "#fff" : "",
+                    }}
+                  >
                     {item.time}
                   </Typography>
                 </Button>
@@ -249,4 +294,6 @@ class CustomerAppointmentPage extends Component {
   }
 }
 
-export default withStyles(Styles, { withTheme: true })(CustomerAppointmentPage);
+export default withStyles(Styles, { withTheme: true })(
+	CustomerAppointmentPage
+);

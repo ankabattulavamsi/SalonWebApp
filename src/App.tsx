@@ -19,6 +19,10 @@ import BookingsMainPage from "./components/BookingsSection/BookingsMainPage/Book
 import SalonOwnerPage from "./components/SalonOwnerProfile/SalonOwnerPage";
 import Customer from "./components/customer/Customer";
 import CustomerSevice from "./components/CusomerServicePage/CustomerSevice";
+
+import { categoryData } from "./utils/data/customer/CustomerData";
+
+import SalonNearByPage from "./routes/SalonNearByPage/SalonNearByPage";
 import CustomerHairService from "./components/CustomerSalonServices/CustomerHairService";
 import CustomerBridalService from "./components/CustomerSalonServices/CustomerBridalService";
 import CustomerKidsHair from "./components/CustomerSalonServices/CustomerKidsHair";
@@ -26,13 +30,11 @@ import CustomerHairColor from "./components/CustomerSalonServices/CustomerHairCo
 import CustomerFacial from "./components/CustomerSalonServices/CustomerFacial";
 import CusstomerSpa from "./components/CustomerSalonServices/CusstomerSpa";
 import CustomerSingleServicePage from "./components/CustomerSalonServices/CustomerSingleServicePage";
-import SalonNearByPage from "./routes/SalonNearByPage/SalonNearByPage";
 import CartItemsList from "./components/CustomerCartItems/CartItemsList";
+import AppointmentPage from "./components/AppointmentPage/AppointmentPage";
+import CustomerCatagory from "./components/customer/CustomerCatagory";
 import CustomerCategories from "./components/CusomerServicePage/CustomerCategories";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import AppointmentPage from "./components/AppointmentPage/AppointmentPage";
-
 function App() {
   return (
     <div>
@@ -119,7 +121,10 @@ function App() {
             element={<CustomerSingleServicePage />}
           />
           <Route path="/customer/salonNearby" element={<SalonNearByPage />} />
-          <Route path="customer/appointment" element={<AppointmentPage />} />
+          <Route
+            path="customer/appointment"
+            element={<AppointmentPage />}
+          />
           {/* Salon Customer */}
         </Routes>
       </ThemeProvider>
