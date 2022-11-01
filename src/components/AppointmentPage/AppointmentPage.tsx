@@ -1,24 +1,26 @@
+/** @format */
+
 import {
-  Button,
-  Container,
-  FormControl,
-  MenuItem,
-  Select,
-  Typography,
+	Button,
+	Container,
+	FormControl,
+	MenuItem,
+	Select,
+	Typography,
 } from "@mui/material";
 import { withStyles } from "@mui/styles";
 import { Box } from "@mui/system";
 import React, { Component } from "react";
 import BookingsCalendarComponent from "../BookingsSection/BookingsCalendarComponent/BookingsCalendarComponent";
 import {
-  timingDataMorning,
-  timingDataAfternoon,
-  timingDataEvening,
-} from "../../utils/data/CustomerAppointment/TimingsData";
+	timingDataMorning,
+	timingDataAfternoon,
+	timingDataEvening,
+} from "../../utils/data/CustomerAppointment/salonEmployeeData";
 import { Styles } from "./AppointmentPage.Style";
 import Layout from "../Layout/Layout";
 import { salonEmpData } from "../../utils/data/CustomerAppointment/salonEmployeeData";
-import { time } from "console";
+import CustomerPaymentDetail from "../common/CustomerPaymentDetail/CustomerPaymentDetail";
 
 class CustomerAppointmentPage extends Component {
   state = {
@@ -289,4 +291,6 @@ class CustomerAppointmentPage extends Component {
   }
 }
 
-export default withStyles(Styles, { withTheme: true })(CustomerAppointmentPage);
+export default withStyles(Styles, { withTheme: true })(
+	CustomerAppointmentPage
+);

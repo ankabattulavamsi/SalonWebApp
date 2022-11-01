@@ -21,7 +21,6 @@ import "./salonNear.css";
 import StarIcons from "../../components/common/Ratings/StarIcons";
 import { commentData } from "../../utils/data/commentData/commentData";
 import CommentBox from "./CommentBox";
-import CustomerPaymentDetail from "../../components/common/CustomerPaymentDetail/CustomerPaymentDetail";
 
 export interface CustomerPaymentState {
 	open: boolean;
@@ -30,43 +29,6 @@ export interface CustomerPaymentState {
 	creditCard: boolean;
 }
 export default class SalonServiceDetail extends Component {
-	state: CustomerPaymentState = {
-		open: false,
-		bankAccount: true,
-		upi: false,
-		creditCard: false,
-	};
-	handleClose = () => {
-		this.setState({
-			open: false,
-		});
-	};
-	handleOpenModel = () => {
-		this.setState({
-			open: true,
-		});
-	};
-	handleBankAccPayment = () => {
-		this.setState({
-			bankAccount: true,
-			upi: false,
-			creditCard: false,
-		});
-	};
-	handleUPIPayment = () => {
-		this.setState({
-			upi: true,
-			bankAccount: false,
-			creditCard: false,
-		});
-	};
-	handleCreditCardPayment = () => {
-		this.setState({
-			creditCard: true,
-			upi: false,
-			bankAccount: false,
-		});
-	};
 	render() {
 		const settings = {
 			dots: true,
@@ -339,20 +301,9 @@ export default class SalonServiceDetail extends Component {
 									pl: 2,
 								}}
 							/>
-							<Button
-								onClick={this.handleOpenModel}
-								className="comment-btn"
-								variant="contained">
+							<Button className="comment-btn" variant="contained">
 								Send Comment
 							</Button>
-							<CustomerPaymentDetail
-								// open={this.state.open}
-								onClose={this.handleClose}
-								handleBankAccPayment={this.handleBankAccPayment}
-								handleUPIPayment={this.handleUPIPayment}
-								handleCreditCardPayment={this.handleCreditCardPayment}
-								state={this.state}
-							/>
 						</Stack>
 					</Stack>
 				</Grid>
