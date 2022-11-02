@@ -44,21 +44,11 @@ class CustomerAppointmentPage extends Component {
     this.setState({ salonEmpSelected: index });
   };
 
-  onclickActive = (time: string) => {
-    this.setState({ isActiveTime: time });
-  };
-
-  setActiveAppM = (id: any) => {
+  setActiveAppTime = (id: any) => {
     this.setState({ isActiveIdM: id });
+    console.log(id);
   };
 
-  setActiveAppA = (id: any) => {
-    this.setState({ isActiveIdA: id });
-  };
-
-  setActiveApp = (id: any) => {
-    this.setState({ isActiveId: id });
-  };
   handleClose = () => {
     this.setState({
       open: false,
@@ -157,9 +147,10 @@ class CustomerAppointmentPage extends Component {
               </Typography>
               {timingDataMorning.map((item: any, index: any) => (
                 <Button
-                  onClick={(e) => this.setActiveAppM(index)}
+                  onClick={(e) => this.setActiveAppTime(item.time)}
                   sx={{
                     borderRadius: "10px !important",
+                    minWidth: "135px",
                   }}
                   disabled={item.isAvialable === false ? true : false}
                 >
@@ -168,13 +159,13 @@ class CustomerAppointmentPage extends Component {
                     sx={{
                       backgroundColor:
                         item.isAvialable === true
-                          ? index === this.state.isActiveIdM
+                          ? item.time === this.state.isActiveIdM
                             ? "#E7A356"
                             : ""
                           : "#edf0ee",
                       color:
                         item.isAvialable === true
-                          ? index === this.state.isActiveIdM
+                          ? item.time === this.state.isActiveIdM
                             ? "#fff"
                             : ""
                           : " #c4c4c0",
@@ -199,9 +190,10 @@ class CustomerAppointmentPage extends Component {
               </Typography>
               {timingDataAfternoon.map((item: any, index: any) => (
                 <Button
-                  onClick={(e) => this.setActiveAppA(index)}
+                  onClick={(e) => this.setActiveAppTime(item.time)}
                   sx={{
                     borderRadius: "10px !important",
+                    minWidth: "135px",
                   }}
                   className={classes.dateTime}
                   disabled={item.isAvialable === false ? true : false}
@@ -212,13 +204,13 @@ class CustomerAppointmentPage extends Component {
                       sx={{
                         backgroundColor:
                           item.isAvialable === true
-                            ? index === this.state.isActiveIdM
+                            ? item.time === this.state.isActiveIdM
                               ? "#E7A356"
                               : ""
                             : "#edf0ee",
                         color:
                           item.isAvialable === true
-                            ? index === this.state.isActiveIdM
+                            ? item.time === this.state.isActiveIdM
                               ? "#fff"
                               : ""
                             : " #c4c4c0",
@@ -242,11 +234,12 @@ class CustomerAppointmentPage extends Component {
               >
                 Evening
               </Typography>
-              {timingDataEvening.map((item: any, index: any) => (
+              {timingDataEvening.map((item: any) => (
                 <Button
-                  onClick={(e) => this.setActiveApp(index)}
+                  onClick={(e) => this.setActiveAppTime(item.time)}
                   sx={{
                     borderRadius: "10px !important",
+                    minWidth: "135px",
                   }}
                   disabled={item.isAvialable === false ? true : false}
                 >
@@ -255,13 +248,13 @@ class CustomerAppointmentPage extends Component {
                     sx={{
                       backgroundColor:
                         item.isAvialable === true
-                          ? index === this.state.isActiveIdM
+                          ? item.time === this.state.isActiveIdM
                             ? "#E7A356"
                             : ""
                           : "#edf0ee",
                       color:
                         item.isAvialable === true
-                          ? index === this.state.isActiveIdM
+                          ? item.time === this.state.isActiveIdM
                             ? "#fff"
                             : ""
                           : " #c4c4c0",

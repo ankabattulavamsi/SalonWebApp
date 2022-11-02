@@ -15,12 +15,12 @@ interface IProps {
 }
 class NearByShop extends Component<IProps> {
   onClickNavigateOffersPage = () => {
-    this.props.navigate("/customer");
+    this.props.navigate("/customer/nearBy");
   };
 
   onClickNavigateServicePage = () => {
-    this.props.navigate('/customer/service')
-  }
+    this.props.navigate("/customer/service");
+  };
   render() {
     const { classes }: any = this.props;
 
@@ -47,7 +47,11 @@ class NearByShop extends Component<IProps> {
               </Box>
               <CustomerMap />
               {shopNearbyData.map((data, index: number) => (
-                <ShopNearByCard data={data} key={index} onClickNavigateServicePage={this.onClickNavigateServicePage} />
+                <ShopNearByCard
+                  data={data}
+                  key={index}
+                  onClickNavigateServicePage={this.onClickNavigateServicePage}
+                />
               ))}
             </Stack>
           </Grid>

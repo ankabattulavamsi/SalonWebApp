@@ -23,7 +23,6 @@ interface salonProps {
   customer: boolean;
   menus: SalonMenus[];
   navigate?: any;
-
 }
 interface salonState {
   isCustomer: boolean;
@@ -153,7 +152,6 @@ class SalonNavbar extends Component<salonProps, salonState> {
 
     return (
       <>
-        {console.log(this.state.activeLink)}
         <Fragment>
           <Box className="salon-navbar-body">
             <Box className="logo">
@@ -168,12 +166,14 @@ class SalonNavbar extends Component<salonProps, salonState> {
                       key={menu.id}
                       href={menu.path}
                       className={
-                        window.location.pathname == menu.path
+                        window.location.pathname == menu.path 
+                        ||window.location.pathname.slice(9).includes(menu.path)
                           ? "active"
                           : "salon-menu-link"
                       }
                       onClick={() => this.setState({ activeLink: menu.title })}
                     >
+                      <>{console.log(window.location.pathname)}</>
                       {menu.title}
                     </a>
                   );
