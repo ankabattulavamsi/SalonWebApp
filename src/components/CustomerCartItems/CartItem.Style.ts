@@ -70,14 +70,18 @@ export const cartStyle: any = {
     borderTopLeftRadius: "10px",
     borderBottomLeftRadius: "10px",
     width: '350px !important',
-    height: '200px !important'
+    height: '200px !important',
+    "@media screen and (max-width: 600px)": {
+      width: "200px !important",
+      height: "115px !important",
+    },
   },
   imagCart: {
     width: "100% !important",
     height: "100% !important",
     "@media screen and (max-width: 600px)": {
-      width: "157px !important",
-      height: "115px !important",
+      width: "100% !important",
+      height: "100% !important",
     },
   },
   priceServeContainer: {
