@@ -46,16 +46,18 @@ export default class SpecialistCard extends Component<IProps, State> {
 		return (
 			<>
 				<Card className="special-team">
-					<Box>
+					<Box sx={{ position: "relative" }} className="">
+						<div className="hero"></div>
 						<CardMedia
 							component={"img"}
 							src={team.imgeUrl}
 							sx={{
-								height: "400px",
+								height: "280px",
 								display: "block",
 								objectFit: "fill !important",
 								justifyContent: "center",
 								margin: "auto",
+								width: "auto !important",
 							}}
 							alt={team.title}></CardMedia>
 					</Box>
