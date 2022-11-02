@@ -76,7 +76,7 @@ class CustomerCategories extends Component<ServeProps> {
                     lg={4}
                     xs={12}
                     item
-                    onClick={(e) => this.activateServices(data.title)}
+                    onClick={(e) =>  this.activateServices(data.title)}
                   >
                     <Box>
                       <Card className="category-card">
