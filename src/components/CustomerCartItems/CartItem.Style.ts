@@ -69,10 +69,12 @@ export const cartStyle: any = {
     marginRight: "18px",
     borderTopLeftRadius: "10px",
     borderBottomLeftRadius: "10px",
+    width: '350px !important',
+    height: '200px !important'
   },
   imagCart: {
     width: "100% !important",
-    height: "215px !important",
+    height: "100% !important",
     "@media screen and (max-width: 600px)": {
       width: "157px !important",
       height: "115px !important",
@@ -262,15 +264,15 @@ export const cartStyle: any = {
       width: "282px",
       height: "66px",
       borderRadius: "5px",
-      textAlign: "center !important",
+      display: 'flex !important', 
+      alignItems: 'center !important',
+      justifyContent: 'center !important',
       "@media only screen and (max-width: 684px)": {
         width: "94vw",
       },
     },
     "& button": {
       color: "#FFFFFF !important",
-      marginRight: "10px",
-      marginTop: "5px",
       fontFamily: "Fira Sans !important",
       fontStyle: "normal",
       fontWeight: "700 !important",
@@ -278,6 +280,7 @@ export const cartStyle: any = {
       lineHeight: "48px !important",
       textTransform: "uppercase",
       letterSpacing: "0.02em !important",
+      textAlign: "center !important",
     },
   },
   amount: {

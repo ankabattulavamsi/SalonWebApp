@@ -37,11 +37,11 @@ export default class DeleteModal extends Component<IProps> {
 						<Button
 							variant="outlined"
 							className="buttonSec confirm"
-							onClick={this.props.onClose}
-							// onClick={() => {
-							// 	this.props.handleConfirmDelete &&
-							// 		this.props.handleConfirmDelete(this.props.deletedId);
-							// }}
+							// onClick={this.props.onClose}
+							onClick={() => {
+								this.props.handleConfirmDelete &&
+									this.props.handleConfirmDelete(this.props.deletedId);
+							}}
 						>
 							Confirm
 						</Button>
