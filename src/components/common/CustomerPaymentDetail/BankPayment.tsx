@@ -50,7 +50,7 @@ class BankPayment extends Component<PaymentProps> {
 			const notify = () => toast.warn("Please Choose the bank!");
 			notify();
 		} else {
-			this.props.navigate("/");
+			this.props.navigate("/customer");
 			const notify = () => toast.success("Your payment is Successful!!");
 			notify();
 		}

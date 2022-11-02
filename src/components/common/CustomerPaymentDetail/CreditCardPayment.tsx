@@ -36,7 +36,7 @@ class CreditCardPayment extends Component<PaymentProps> {
 			const notify = () => toast.warn("Please enter 3 digits cvv number");
 			notify();
 		} else {
-			this.props.navigate("/");
+			this.props.navigate("/customer");
 			const notify = () => toast.success("Your payment is Successful!!");
 			notify();
 		}

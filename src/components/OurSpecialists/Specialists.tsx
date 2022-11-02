@@ -75,7 +75,7 @@ class Specialists extends Component<IProps> {
 										showDots
 										responsive={responsive}
 										infinite
-										autoPlay
+										// autoPlay
 										autoPlaySpeed={1000}
 										customTransition="all 0.7"
 										transitionDuration={700}
