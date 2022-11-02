@@ -30,7 +30,7 @@ class UPIPayment extends Component<PaymentProps> {
 			const notify = () => toast.warn("Please Enter valid upi number!");
 			notify();
 		} else {
-			this.props.navigate("/");
+			this.props.navigate("/customer");
 			const notify = () => toast.success("Your payment is Successful!!");
 			notify();
 		}

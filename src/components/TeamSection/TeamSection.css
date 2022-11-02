@@ -1,16 +1,36 @@
 /** @format */
-
-.export-team:hover {
+.export-team {
+	box-shadow: none !important;
+	border-radius: 10px !important;
+	margin-bottom: 32px !important;
+	overflow: visible !important;
+	align-self: center !important;
+	position: relative !important;
+	z-index: 1;
+	margin-right: 20px;
+}
+/* .export-team:hover {
 	transition: linear 0.5s;
 	background: #ebb273 !important;
-}
-.export-team:hover .expert-team-content {
+} */
+.export-team:hover .hero {
+	background-color: #ebb273;
+	height: 278px;
+	position: absolute;
+	top: 40px;
+	/* left: 0; */
+	width: 100%;
+	z-index: -1;
+	border-radius: 10px !important;
 	transition: linear 0.5s;
-
-	background-color: #272522 !important;
+}
+.export-team:hover .expert-team-content1 {
+	background: #272522 !important;
 	color: #fff !important;
 }
-
+.export-team:hover .expert-team-content1 p {
+	color: #fff !important;
+}
 .corosel-team-experts
 	.react-multiple-carousel__arrow
 	.react-multiple-carousel__.arrow--right {

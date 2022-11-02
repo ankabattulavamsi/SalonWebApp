@@ -7,6 +7,7 @@
 	overflow: visible !important;
 	align-self: center !important;
 	position: relative !important;
+	z-index: 1;
 }
 @media only screen and (min-width: 600px) and (max-width: 1024px) {
 	.special-team {
@@ -21,6 +22,15 @@
 
 	background-color: #ebb273 !important;
 	color: #fff !important;
+}
+.special-team:hover .hero {
+	background-color: #ebb273;
+	height: 278px;
+	position: absolute;
+	top: 66px;
+	/* left: 0; */
+	width: 100%;
+	z-index: -1;
 }
 .special-team:hover .special-team-content p {
 	color: #fff !important;
@@ -185,3 +195,12 @@
 		margin-bottom: 20px;
 	}
 }
+/* .hero {
+	background-color: red;
+	height: 278px;
+	position: absolute;
+	top: 66px;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+} */
