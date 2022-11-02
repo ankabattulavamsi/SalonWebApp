@@ -35,6 +35,8 @@ import AppointmentPage from "./components/AppointmentPage/AppointmentPage";
 import CustomerCatagory from "./components/customer/CustomerCatagory";
 import CustomerCategories from "./components/CusomerServicePage/CustomerCategories";
 import { ToastContainer } from "react-toastify";
+import SalonNearByMainPage from "./routes/SalonNearByPage/SalonNearByMainPage";
+import CustomerBlogMainPage from "./components/OurBlogs/CustomerBlogMainPage/CustomerBlogMainPage";
 function App() {
   return (
     <div>
@@ -121,10 +123,11 @@ function App() {
             element={<CustomerSingleServicePage />}
           />
           <Route path="/customer/salonNearby" element={<SalonNearByPage />} />
-          <Route
-            path="customer/appointment"
-            element={<AppointmentPage />}
-          />
+          <Route path="/customer/nearby" element={<SalonNearByMainPage />} />
+
+          <Route path="customer/blog" element={<CustomerBlogMainPage />} />
+          <Route path="customer/appointment" element={<AppointmentPage />} />
+
           {/* Salon Customer */}
         </Routes>
       </ThemeProvider>
