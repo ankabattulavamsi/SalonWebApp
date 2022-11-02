@@ -115,7 +115,7 @@ export const HairServiceData:any = [
 
 export const BridalServiceData:any = [
     {
-        id: 1,
+        id: 7,
         brideServeImg: brideImg, 
         heading: 'Hair Cut',
         dissPrice: '300', 
@@ -123,7 +123,7 @@ export const BridalServiceData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 2,
+        id: 8,
         brideServeImg: brideImg1, 
         heading: 'Hair Spa',
         dissPrice: '180', 
@@ -131,7 +131,7 @@ export const BridalServiceData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 3,
+        id: 9,
         brideServeImg: brideImg2, 
         heading: 'Facial',
         dissPrice: '90', 
@@ -139,7 +139,7 @@ export const BridalServiceData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 4,
+        id: 10,
         brideServeImg: brideImg3, 
         heading: 'Pedicure',
         dissPrice: '150', 
@@ -147,7 +147,7 @@ export const BridalServiceData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 5,
+        id: 11,
         brideServeImg: brideImg4, 
         heading: 'Make Up',
         dissPrice: '150', 
@@ -155,7 +155,7 @@ export const BridalServiceData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 6,
+        id: 12,
         brideServeImg: brideImg5, 
         heading: 'Hair Color',
         dissPrice: '150', 
@@ -163,7 +163,7 @@ export const BridalServiceData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 7,
+        id: 13,
         brideServeImg: brideImg6, 
         heading: 'Nails',
         dissPrice: '150', 
@@ -171,7 +171,7 @@ export const BridalServiceData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 8,
+        id: 14,
         brideServeImg: brideImg7, 
         heading: 'Eyebrow',
         dissPrice: '150', 
@@ -183,7 +183,7 @@ export const BridalServiceData:any = [
 
 export const KidsHairServiceData:any = [
     {
-        id: 1,
+        id: 15,
         brideServeImg: kidscut, 
         heading: 'Hair Cut',
         dissPrice: '300', 
@@ -191,7 +191,7 @@ export const KidsHairServiceData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 2,
+        id: 16,
         brideServeImg: kidscut1, 
         heading: 'Side Cut',
         dissPrice: '180', 
@@ -199,7 +199,7 @@ export const KidsHairServiceData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 3,
+        id: 17,
         brideServeImg: kidscut2, 
         heading: 'Quiff',
         dissPrice: '90', 
@@ -207,7 +207,7 @@ export const KidsHairServiceData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 4,
+        id: 18,
         brideServeImg: kidscut3, 
         heading: 'Spike',
         dissPrice: '150', 
@@ -215,7 +215,7 @@ export const KidsHairServiceData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 5,
+        id: 19,
         brideServeImg: kidscut4, 
         heading: 'Flower Cut',
         dissPrice: '150', 
@@ -223,7 +223,7 @@ export const KidsHairServiceData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 6,
+        id: 20,
         brideServeImg: kidscut5, 
         heading: 'Spike',
         dissPrice: '150', 
@@ -231,7 +231,7 @@ export const KidsHairServiceData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 7,
+        id: 21,
         brideServeImg: kidscut6, 
         heading: 'Design',
         dissPrice: '150', 
@@ -239,7 +239,7 @@ export const KidsHairServiceData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 8,
+        id: 22,
         brideServeImg: kidscut7, 
         heading: 'Side Cut',
         dissPrice: '150', 
@@ -250,7 +250,7 @@ export const KidsHairServiceData:any = [
 
 export const HairColors:any = [
     {
-        id: 1,
+        id: 22,
         brideServeImg: color, 
         heading: 'Light Brown',
         dissPrice: '300', 
@@ -258,7 +258,7 @@ export const HairColors:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 2,
+        id: 23,
         brideServeImg: color1, 
         heading: 'Light Green',
         dissPrice: '180', 
@@ -266,7 +266,7 @@ export const HairColors:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 3,
+        id: 24,
         brideServeImg: color2, 
         heading: 'White & Black',
         dissPrice: '90', 
@@ -274,7 +274,7 @@ export const HairColors:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 4,
+        id: 25,
         brideServeImg: color3, 
         heading: 'Pink',
         dissPrice: '150', 
@@ -282,7 +282,7 @@ export const HairColors:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 5,
+        id: 26,
         brideServeImg: color4, 
         heading: 'White',
         dissPrice: '150', 
@@ -290,7 +290,7 @@ export const HairColors:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 6,
+        id: 27,
         brideServeImg: color5, 
         heading: 'WhitePink',
         dissPrice: '150', 
@@ -298,7 +298,7 @@ export const HairColors:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 7,
+        id: 28,
         brideServeImg: color6, 
         heading: 'Yellow',
         dissPrice: '150', 
@@ -306,7 +306,7 @@ export const HairColors:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 8,
+        id: 29,
         brideServeImg: color3, 
         heading: 'Pink',
         dissPrice: '150', 
@@ -317,7 +317,7 @@ export const HairColors:any = [
 
 export const FacialData:any = [
     {
-        id: 1,
+        id: 30,
         brideServeImg: face, 
         heading: 'Galvanic Facial',
         dissPrice: '300', 
@@ -325,7 +325,7 @@ export const FacialData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 2,
+        id: 31,
         brideServeImg: face1, 
         heading: 'Hydra Facial',
         dissPrice: '180', 
@@ -333,7 +333,7 @@ export const FacialData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 3,
+        id: 32,
         brideServeImg: face2, 
         heading: 'Microneedling',
         dissPrice: '90', 
@@ -341,7 +341,7 @@ export const FacialData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 4,
+        id: 33,
         brideServeImg: face3, 
         heading: 'Gold File Facial',
         dissPrice: '150', 
@@ -349,7 +349,7 @@ export const FacialData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 5,
+        id: 34,
         brideServeImg: face5, 
         heading: 'Classic Facial',
         dissPrice: '150', 
@@ -357,7 +357,7 @@ export const FacialData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 6,
+        id: 35,
         brideServeImg: face6, 
         heading: 'Galvanic Facial',
         dissPrice: '150', 
@@ -365,7 +365,7 @@ export const FacialData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 7,
+        id: 36,
         brideServeImg: face7, 
         heading: 'Deep Cleansing',
         dissPrice: '150', 
@@ -373,7 +373,7 @@ export const FacialData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 8,
+        id: 37,
         brideServeImg: face7, 
         heading: 'Oxigen Facial',
         dissPrice: '150', 
@@ -384,7 +384,7 @@ export const FacialData:any = [
 
 export const SpaData:any = [
     {
-        id: 1,
+        id: 38,
         brideServeImg: spa, 
         heading: 'Davinci Spa',
         dissPrice: '300', 
@@ -392,7 +392,7 @@ export const SpaData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 2,
+        id: 39,
         brideServeImg: spa1, 
         heading: 'Mountain Spa',
         dissPrice: '180', 
@@ -400,7 +400,7 @@ export const SpaData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 3,
+        id: 40,
         brideServeImg: spa2, 
         heading: 'Sonder Spa',
         dissPrice: '90', 
@@ -408,7 +408,7 @@ export const SpaData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 4,
+        id: 41,
         brideServeImg: spa3, 
         heading: 'Spa Meraki ',
         dissPrice: '150', 
@@ -416,7 +416,7 @@ export const SpaData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 5,
+        id: 42,
         brideServeImg: spa4, 
         heading: 'Jayus Spa',
         dissPrice: '150', 
@@ -424,7 +424,7 @@ export const SpaData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 6,
+        id: 43,
         brideServeImg: spa5, 
         heading: 'Fernwhe Spa',
         dissPrice: '150', 
@@ -432,7 +432,7 @@ export const SpaData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 7,
+        id: 44,
         brideServeImg: spa6, 
         heading: 'Glow Spa',
         dissPrice: '150', 
@@ -440,7 +440,7 @@ export const SpaData:any = [
         description: 'it is a long established fact that a reader will be distracted by the readable content of a page when looking', 
     }, 
     {
-        id: 8,
+        id: 45,
         brideServeImg: spa7, 
         heading: 'Purpose Spa',
         dissPrice: '150', 

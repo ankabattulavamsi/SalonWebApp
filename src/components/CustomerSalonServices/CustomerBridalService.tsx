@@ -31,7 +31,10 @@ interface ServeProps {
 }
 
 class CustomerBridalService extends Component<ServeProps> {
-
+  state = {
+    newArray: JSON.parse(localStorage.getItem('cartData')!)  || []
+  }
+  
   onClickNavigateSingleServe = (item: any) => {
     let heading = item.heading.replace(/ /g, '')
     this.props.navigate(`bridal-details`, {
@@ -43,6 +46,13 @@ class CustomerBridalService extends Component<ServeProps> {
     this.props.navigate('/customer/cart-items', {
       state: item
     })
+    const itemInCart = this.state.newArray.find((items:any)=>items.id===item.id)
+    if(itemInCart){
+
+    }else{
+      localStorage.setItem('cartData', JSON.stringify([...this.state.newArray, item]))
+      this.setState({newArray: JSON.parse(localStorage.getItem('cartData')!) })
+    }
   }
   
   render() {
