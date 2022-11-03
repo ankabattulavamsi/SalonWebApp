@@ -1,10 +1,9 @@
+/** @format */
+
 import {
   Button,
   Container,
-  Divider,
   FormControl,
-  Grid,
-  InputLabel,
   MenuItem,
   Select,
   Typography,
@@ -14,13 +13,30 @@ import { Box } from "@mui/system";
 import React, { Component } from "react";
 import BookingsCalendarComponent from "../BookingsSection/BookingsCalendarComponent/BookingsCalendarComponent";
 
-import { Styles } from "./AppointmentPage.Style";
 import Layout from "../Layout/Layout";
 import { salonEmpData } from "../../utils/data/CustomerAppointment/salonEmployeeData";
-import { timingDataAfternoon, timingDataEvening, timingDataMorning } from "../../utils/data/CustomerAppointment/timingsData";
+import CustomerPaymentDetail from "../common/CustomerPaymentDetail/CustomerPaymentDetail";
+
+import { Styles } from "./AppointmentPage.Style";
+import "./AppointmentPage.css";
+import {
+  timingDataAfternoon,
+  timingDataEvening,
+  timingDataMorning,
+} from "../../utils/data/CustomerAppointment/TimingsData";
 
 class CustomerAppointmentPage extends Component {
-  state = { monthName: "", isActiveTime: "10:00 AM",salonEmpSelected: 4 };
+  state = {
+    monthName: "",
+    salonEmpSelected: 4,
+    isActiveId: "",
+    isActiveIdA: "",
+    isActiveIdM: "",
+    open: false,
+    bankAccount: true,
+    upi: false,
+    creditCard: false,
+  };
   handleMonthChange = (event: any) => {
     this.setState({ monthName: event.target.value });
   };
@@ -28,9 +44,41 @@ class CustomerAppointmentPage extends Component {
     this.setState({ salonEmpSelected: index });
   };
 
-  onclickActive = (time: string) => {
-    // this.setState({isActiveTime:})
-    console.log(time);
+  setActiveAppTime = (id: any) => {
+    this.setState({ isActiveIdM: id });
+    console.log(id);
+  };
+
+  handleClose = () => {
+    this.setState({
+      open: false,
+    });
+  };
+  handleOpenModel = () => {
+    this.setState({
+      open: true,
+    });
+  };
+  handleBankAccPayment = () => {
+    this.setState({
+      bankAccount: true,
+      upi: false,
+      creditCard: false,
+    });
+  };
+  handleUPIPayment = () => {
+    this.setState({
+      upi: true,
+      bankAccount: false,
+      creditCard: false,
+    });
+  };
+  handleCreditCardPayment = () => {
+    this.setState({
+      creditCard: true,
+      upi: false,
+      bankAccount: false,
+    });
   };
   render() {
     const { classes }: any = this.props;
@@ -57,19 +105,20 @@ class CustomerAppointmentPage extends Component {
               </Select>
             </FormControl>
           </Box>
-          <Box
-            sx={{
+          <div
+            style={{
               boxShadow: "2px 2px 2px 2px #F0F0F0",
-              mt: 3,
+              marginTop: "30px",
               borderRadius: "10px",
               width: "100%",
             }}
+            className="appointmentpage-calender"
           >
             <BookingsCalendarComponent />
-          </Box>
+          </div>
           <Box
             sx={{
-              mt: 3,
+              mt: 6,
               ml: 2,
               p: 4,
               backgroundColor: "#F8F8F8",
@@ -96,13 +145,32 @@ class CustomerAppointmentPage extends Component {
               >
                 Morning
               </Typography>
-              {timingDataMorning.map((item: any) => (
+              {timingDataMorning.map((item: any, index: any) => (
                 <Button
+                  onClick={(e) => this.setActiveAppTime(item.time)}
                   sx={{
                     borderRadius: "10px !important",
+                    minWidth: "135px",
                   }}
+                  disabled={item.isAvialable === false ? true : false}
                 >
-                  <Typography className={classes.appointmentTime}>
+                  <Typography
+                    className={classes.appointmentTime}
+                    sx={{
+                      backgroundColor:
+                        item.isAvialable === true
+                          ? item.time === this.state.isActiveIdM
+                            ? "#E7A356"
+                            : ""
+                          : "#edf0ee",
+                      color:
+                        item.isAvialable === true
+                          ? item.time === this.state.isActiveIdM
+                            ? "#fff"
+                            : ""
+                          : " #c4c4c0",
+                    }}
+                  >
                     {item.time}
                   </Typography>
                 </Button>
@@ -120,16 +188,37 @@ class CustomerAppointmentPage extends Component {
               >
                 Afternoon
               </Typography>
-              {timingDataAfternoon.map((item: any) => (
+              {timingDataAfternoon.map((item: any, index: any) => (
                 <Button
+                  onClick={(e) => this.setActiveAppTime(item.time)}
                   sx={{
                     borderRadius: "10px !important",
+                    minWidth: "135px",
                   }}
                   className={classes.dateTime}
+                  disabled={item.isAvialable === false ? true : false}
                 >
-                  <Typography className={classes.appointmentTime}>
-                    {item.time}
-                  </Typography>
+                  <Box>
+                    <Typography
+                      className={classes.appointmentTime}
+                      sx={{
+                        backgroundColor:
+                          item.isAvialable === true
+                            ? item.time === this.state.isActiveIdM
+                              ? "#E7A356"
+                              : ""
+                            : "#edf0ee",
+                        color:
+                          item.isAvialable === true
+                            ? item.time === this.state.isActiveIdM
+                              ? "#fff"
+                              : ""
+                            : " #c4c4c0",
+                      }}
+                    >
+                      {item.time}
+                    </Typography>
+                  </Box>
                 </Button>
               ))}
             </Box>
@@ -147,11 +236,30 @@ class CustomerAppointmentPage extends Component {
               </Typography>
               {timingDataEvening.map((item: any) => (
                 <Button
+                  onClick={(e) => this.setActiveAppTime(item.time)}
                   sx={{
                     borderRadius: "10px !important",
+                    minWidth: "135px",
                   }}
+                  disabled={item.isAvialable === false ? true : false}
                 >
-                  <Typography className={classes.appointmentTime}>
+                  <Typography
+                    className={classes.appointmentTime}
+                    sx={{
+                      backgroundColor:
+                        item.isAvialable === true
+                          ? item.time === this.state.isActiveIdM
+                            ? "#E7A356"
+                            : ""
+                          : "#edf0ee",
+                      color:
+                        item.isAvialable === true
+                          ? item.time === this.state.isActiveIdM
+                            ? "#fff"
+                            : ""
+                          : " #c4c4c0",
+                    }}
+                  >
                     {item.time}
                   </Typography>
                 </Button>
@@ -172,10 +280,10 @@ class CustomerAppointmentPage extends Component {
             <Box
               sx={{
                 display: "flex",
-                overflowY: "scroll",
+                overflowY: { sm: "scroll", md: "hidden" },
               }}
             >
-              {salonEmpData.map((emp: any, index:number) => {
+              {salonEmpData.map((emp: any, index: number) => {
                 return (
                   <Button
                     onClick={() => this.salonEmpActive(index)}
@@ -226,6 +334,7 @@ class CustomerAppointmentPage extends Component {
             }}
           >
             <Button
+              onClick={this.handleOpenModel}
               variant="contained"
               className={classes.continueButton}
               sx={{
@@ -237,6 +346,14 @@ class CustomerAppointmentPage extends Component {
               Continue
             </Button>
           </Box>
+          <CustomerPaymentDetail
+            // open={this.state.open}
+            onClose={this.handleClose}
+            handleBankAccPayment={this.handleBankAccPayment}
+            handleUPIPayment={this.handleUPIPayment}
+            handleCreditCardPayment={this.handleCreditCardPayment}
+            state={this.state}
+          />
         </Container>
       </Layout>
     );

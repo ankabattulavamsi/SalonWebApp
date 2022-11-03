@@ -22,10 +22,28 @@ interface IsSinglePageProps {
 }
 
 class CustomerSingleServicePage extends Component<IsSinglePageProps> {
+  state = {
+    newArray: JSON.parse(localStorage.getItem("cartData")!) || [],
+  };
+
   onClickAddToCart = (item: any) => {
     this.props.navigate("/customer/cart-items", {
       state: item,
     });
+
+    const itemInCart = this.state.newArray.find(
+      (items: any) => items.id === item.id
+    );
+    if (itemInCart) {
+    } else {
+      localStorage.setItem(
+        "cartData",
+        JSON.stringify([...this.state.newArray, item])
+      );
+      this.setState({
+        newArray: JSON.parse(localStorage.getItem("cartData")!),
+      });
+    }
   };
 
   render() {
@@ -58,10 +76,7 @@ class CustomerSingleServicePage extends Component<IsSinglePageProps> {
         >
           <ArrowBackIos
             id="arrowBtn"
-            style={{
-              color: "#FFFFFF",
-              fontSize: "25px",
-            }}
+            className={classes.prevArrow}
           />
         </Stack>
       );
@@ -83,10 +98,7 @@ class CustomerSingleServicePage extends Component<IsSinglePageProps> {
         >
           <ArrowForwardIos
             id="arrowBtn"
-            style={{
-              color: "#FFFFFF",
-              fontSize: "25px",
-            }}
+            className={classes.prevArrow}
           />
         </Stack>
       );
@@ -155,7 +167,7 @@ class CustomerSingleServicePage extends Component<IsSinglePageProps> {
                     style={{ fontSize: "26px", marginBottom: "5px" }}
                   />
                 }
-				onClick={() => this.onClickAddToCart(state)}
+                onClick={() => this.onClickAddToCart(state)}
               >
                 Add To Cart
               </Button>

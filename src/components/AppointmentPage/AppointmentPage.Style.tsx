@@ -18,12 +18,15 @@ export const Styles: any = (theme: any) => ({
     textTransform: "capitalize !important",
     color: "#88878F !important",
     width: "165px",
-    height: "66px",
+    height: "50px",
   },
   AppointmentHeadingContainer: {
     display: "flex",
     justifyContent: "space-between",
     marginTop: "30px !important",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+    },
   },
   availableSlot: {
     fontFamily: "Fira Sans !important",
@@ -41,12 +44,12 @@ export const Styles: any = (theme: any) => ({
     fontSize: "16px !important",
     lineHeight: "28px !important",
     textTransform: "capitalize !important",
-    color: "#88878F !important",
+    color: "#88878F",
     width: "115px !important",
     height: "54px",
-    backgroundColor: "#FFF",
+    backgroundColor: "#FFFFFF",
     "&:hover": {
-      backgroundColor: "#E7A356 !important",
+      backgroundColor: "#E7A356 ",
       color: "#fff !important",
     },
     display: "flex !important",

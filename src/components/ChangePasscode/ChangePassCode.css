@@ -2,11 +2,42 @@
 
 .dialog-box-change .css-12rl710-MuiPaper-root-MuiDialog-paper {
 	background-color: transparent !important;
+	border-radius: 4px;
 	box-shadow: none !important;
-	/* max-width: 150% !important; */
+	max-width: 150% !important;
 	overflow: hidden;
-	padding: 30px !important;
+	width: 65%;
+  
 }
+
+.dialog-box-change .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+	background-color: transparent !important;
+	border-radius: 4px;
+	box-shadow: none !important;
+	max-width: 150% !important;
+	overflow: hidden;
+  
+	padding: 16px 24px !important;
+  }
+  
+  @media screen and (max-width: 1200px) {
+	.dialog-box-change  .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+	  height: 60%;
+	  margin-top: 98px;
+	}
+  }
+  @media screen and (max-width: 600px) {
+	.dialog-box-change  .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+	  margin-left: 0 !important;
+	  margin-right: 0 !important;
+	  padding: 10 !important;
+	}
+  }
+  
+  .dialog-box-change  .css-1pslkut-MuiDialogContent-root {
+	padding: 25px 30px !important;
+  }
+  
 
 .inputHide {
 	opacity: 0;

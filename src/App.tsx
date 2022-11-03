@@ -22,8 +22,6 @@ import CustomerSevice from "./components/CusomerServicePage/CustomerSevice";
 
 import { categoryData } from "./utils/data/customer/CustomerData";
 
-
-
 import SalonNearByPage from "./routes/SalonNearByPage/SalonNearByPage";
 import CustomerHairService from "./components/CustomerSalonServices/CustomerHairService";
 import CustomerBridalService from "./components/CustomerSalonServices/CustomerBridalService";
@@ -33,11 +31,13 @@ import CustomerFacial from "./components/CustomerSalonServices/CustomerFacial";
 import CusstomerSpa from "./components/CustomerSalonServices/CusstomerSpa";
 import CustomerSingleServicePage from "./components/CustomerSalonServices/CustomerSingleServicePage";
 import CartItemsList from "./components/CustomerCartItems/CartItemsList";
+import AppointmentPage from "./components/AppointmentPage/AppointmentPage";
+import CustomerCatagory from "./components/customer/CustomerCatagory";
 import CustomerCategories from "./components/CusomerServicePage/CustomerCategories";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import AppointmentPage from "./components/AppointmentPage/AppointmentPage";
-
+import SalonNearByMainPage from "./routes/SalonNearByPage/SalonNearByMainPage";
+import CustomerBlogMainPage from "./components/OurBlogs/CustomerBlogMainPage/CustomerBlogMainPage";
+import SalonCustomerPage from "./components/SalonOwnerProfile/SalonCustomerPage";
 function App() {
   return (
     <div>
@@ -75,6 +75,7 @@ function App() {
 
           {/* Salon Customer */}
           <Route path="customer" element={<Customer />} />
+          <Route path="customer/profile" element={<SalonCustomerPage />} />
           <Route path="customer/cart-items" element={<CartItemsList />} />
           <Route path="/customer/service" element={<CustomerSevice />} />
           <Route path="/customer/category" element={<CustomerCategories />} />
@@ -124,7 +125,11 @@ function App() {
             element={<CustomerSingleServicePage />}
           />
           <Route path="/customer/salonNearby" element={<SalonNearByPage />} />
+          <Route path="/customer/nearby" element={<SalonNearByMainPage />} />
+
+          <Route path="customer/blog" element={<CustomerBlogMainPage />} />
           <Route path="customer/appointment" element={<AppointmentPage />} />
+
           {/* Salon Customer */}
         </Routes>
       </ThemeProvider>

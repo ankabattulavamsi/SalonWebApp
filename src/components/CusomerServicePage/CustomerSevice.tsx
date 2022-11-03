@@ -3,28 +3,24 @@
 import { Container } from "@mui/material";
 import React, { Component } from "react";
 
-import CustomerServeCat from "./CustomerServeCat";
-import OurSpecialistCust from "./OurSpecialistCust";
 import CustomerBanner from "../common/CustomerServeBanner/CustomerBanner";
-import CustomerOffersServe from "./CustomerOffersServe";
 import Layout from "../Layout/Layout";
 import withRouter from "../../hoc/withRouter";
 
 import SalonOfferImg from "../../assets/images/CustomerServiceImg/07efaeff174f95bd94b6e4fbeec3e38f.png";
-
+import CustomerBannerCategoryPage from "./CustomerBannerCategoryPage";
 
 interface IProps {
 	navigate?: any;
 }
 class CustomerSevice extends Component<IProps> {
 	handleClickOpenCategories = () => {
-		console.log("====================================");
-		this.props.navigate("/customer/category");
+		this.props.navigate("/customer/service");
 	};
 
 	handleClickOtherProps = () => {
-		this.props.navigate('/customer/salonNearby')
-	}
+		this.props.navigate("/customer/salonNearby");
+	};
 
 	render() {
 		return (
@@ -38,9 +34,7 @@ class CustomerSevice extends Component<IProps> {
 						handleClickOther={this.handleClickOtherProps}
 						oiBtnTitle="Other Information"
 					/>
-					<CustomerServeCat />
-					<CustomerOffersServe />
-					<OurSpecialistCust />
+					<CustomerBannerCategoryPage />
 				</Container>
 			</Layout>
 		);

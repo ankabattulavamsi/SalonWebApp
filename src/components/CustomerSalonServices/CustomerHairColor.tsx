@@ -22,26 +22,42 @@ import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
 
 import { hairStyle } from "./CustomerS.style";
 
-
-
 interface ServeProps {
   classes: any;
-  navigate: any
+  navigate: any;
 }
 
 class CustomerHairColor extends Component<ServeProps> {
+  state = {
+    newArray: JSON.parse(localStorage.getItem("cartData")!) || [],
+  };
+
   onClickNavigateSingleServe = (item: any) => {
-    let heading = item.heading.replace(/ /g, '')
+    let heading = item.heading.replace(/ /g, "");
     this.props.navigate(`hair-color-details`, {
-      state: item
-    })
-  }
+      state: item,
+    });
+  };
 
   onClickAddToCart = (item: any) => {
-    this.props.navigate('/customer/cart-items', {
-      state: item
-    })
-  }
+    this.props.navigate("/customer/cart-items", {
+      state: item,
+    });
+
+    const itemInCart = this.state.newArray.find(
+      (items: any) => items.id === item.id
+    );
+    if (itemInCart) {
+    } else {
+      localStorage.setItem(
+        "cartData",
+        JSON.stringify([...this.state.newArray, item])
+      );
+      this.setState({
+        newArray: JSON.parse(localStorage.getItem("cartData")!),
+      });
+    }
+  };
 
   render() {
     const { classes } = this.props;
@@ -55,16 +71,21 @@ class CustomerHairColor extends Component<ServeProps> {
           <Grid container spacing={2} sx={{ p: { lg: 0 } }}>
             {HairColors.map((item: any) => (
               <Grid item xs={12} md={6} sm={6} lg={4}>
-                <Card className={classes.cardContainer} >
+                <Card className={classes.cardContainer}>
                   <CardMedia
                     component="img"
                     alt={`${item.heading}`}
                     height="215"
                     image={item.brideServeImg}
-                    key={item.id}  onClick={(e) => this.onClickNavigateSingleServe(item)}
+                    key={item.id}
+                    onClick={(e) => this.onClickNavigateSingleServe(item)}
                   />
 
-                  <CardContent sx={{ m: 1 }} key={item.id}  onClick={(e) => this.onClickNavigateSingleServe(item)}>
+                  <CardContent
+                    sx={{ m: 1 }}
+                    key={item.id}
+                    onClick={(e) => this.onClickNavigateSingleServe(item)}
+                  >
                     <Box className={classes.priceServeContainer}>
                       <Typography className={classes.cardHeading} variant="h2">
                         {item.heading}

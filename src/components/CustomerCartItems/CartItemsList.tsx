@@ -14,7 +14,6 @@ import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
 import { categoryData } from "../../utils/data/customer/CustomerData";
 import DeleteModal from "../common/DeleteModal/DeleteModal";
 
-
 interface IsCartProps {
   classes: any;
   location: any;
@@ -22,139 +21,138 @@ interface IsCartProps {
 }
 
 interface IsCartState {
-  openDeleteModel: boolean;
+  open: boolean;
   cartData: any[];
 }
 
 export class CartItemsList extends Component<IsCartProps> {
   state: IsCartState = {
-    openDeleteModel: false,
-    cartData: [],
+    open: false,
+    cartData: JSON.parse(localStorage.getItem("cartData")!) || [],
   };
 
-  componentDidMount() {
-    const {cartData} = this.state
-    const { state } = this.props.location;
-    localStorage.setItem("cartData", JSON.stringify(state));
-  }
-
   onClickNavToCategories = () => {
-    this.props.navigate("/customer/category");
+    this.props.navigate("/customer/appointment");
   };
 
   onClickDelteItem = (id: any) => {
-    const filterData = this.state.cartData.filter(
-      (item: any) => item.id !== id
-    );
+    const { cartData } = this.state;
+    const filterData = cartData.filter((item: any) => item.id !== id);
+    const localData = localStorage.setItem('deleteData', JSON.stringify(filterData))
+    
+    localStorage.setItem('cartData', JSON.stringify(filterData))
     this.setState({ cartData: filterData });
-    this.setState({openDeleteModel: true})
-  };
-
-  onClickOfferDelete = () => {
-    this.setState({ openDeleteModel: false });
-  };
-
-  onClose = () => {
-    this.setState({ openDeleteModel: false });
   };
 
   render() {
     const { cartData } = this.state;
     const { classes } = this.props;
-    const { state } = this.props.location;
-   
-    let newObj = state
-    let totalCartData = [cartData.push(newObj)];
 
-    localStorage.setItem("cartData", JSON.stringify(state));
-    
-    let amount = cartData.map((item) => parseInt(item.dissPrice))
-    
-    let totalAmount = amount.reduce((a, b) => a + b)
-    
+    let amount = cartData.map((item: any) => parseInt(item.dissPrice));
+
+    let totalAmount = amount.reduce((a: any, b: any) => a + b);
+
     return (
       <Layout customer={true}>
-        <Container sx={{ pt: 20, pb: 10 }} maxWidth="lg">
+        <Container sx={{ pt: 20, pb: 10, position: "relative" }} maxWidth="lg">
           <Box className={classes.cartItems}>
             <Typography variant="h2">
               Total Cart( {cartData.length} item){" "}
             </Typography>
           </Box>
           <Grid container spacing={2}>
-            {cartData.map((item: any) => (
-              <Grid item xs={12} md={12} sm={12} lg={12} key={item.id}>
-                <Card className={classes.CartContainer}>
-                  <Box className={classes.imageContainer}>
-                    <img
-                      src={item.brideServeImg}
-                      alt="ss"
-                      className={classes.imagCart}
-                    />
-                  </Box>
-                  <Box className={classes.insideContainer}>
-                    <Box>
-                      <Typography variant="h2" className={classes.cartHeading}>
-                        {item.heading}
-                      </Typography>
-                      <Typography className={classes.cartDesc}>
-                        Sed ut perspiciatis unde omnis iste natus error sit
-                        voluptatem accusantium doloremque laudantium
-                      </Typography>
-                      <Box className={classes.CartLocation}>
-                        <Typography className={classes.CartSalonName}>
-                          Lakme Salon
-                        </Typography>
-                        <Box className={classes.CartLocation}>
-                          <PlaceIcon className={classes.iconCart} />
-                          <Typography className={classes.CartLocationText}>
-                            Lakme Salon, Plot No, I 26, “ Neha Villa” First
-                            Floor....
-                          </Typography>
-                        </Box>
+            {cartData.length === 0 ? (
+              <Grid item xs={12} md={12} sm={12} lg={12}>
+                <Skeleton variant="rectangular" width={210} height={118} />
+              </Grid>
+            ) : (
+              <>
+                {cartData.map((item: any) => (
+                  <Grid item xs={12} md={12} sm={12} lg={12} key={item.id}>
+                    <Card className={classes.CartContainer}>
+                      <Box className={classes.imageContainer}>
+                        <img
+                          src={item.brideServeImg}
+                          alt="ss"
+                          className={classes.imagCart}
+                        />
                       </Box>
-                    </Box>
+                      <Box className={classes.insideContainer}>
+                        <Box>
+                          <Typography
+                            variant="h2"
+                            className={classes.cartHeading}
+                          >
+                            {item.heading}
+                          </Typography>
+                          <Typography className={classes.cartDesc}>
+                            Sed ut perspiciatis unde omnis iste natus error sit
+                            voluptatem accusantium doloremque laudantium
+                          </Typography>
+                          <Box className={classes.CartLocation}>
+                            <Typography className={classes.CartSalonName}>
+                              Lakme Salon
+                            </Typography>
+                            <Box className={classes.CartLocation}>
+                              <PlaceIcon className={classes.iconCart} />
+                              <Typography className={classes.CartLocationText}>
+                                Lakme Salon, Plot No, I 26, “ Neha Villa” First
+                                Floor....
+                              </Typography>
+                            </Box>
+                          </Box>
+                        </Box>
 
-                    <Box className={classes.deleteContainer}>
-                      <Box>
-                        <Box className={classes.priceServeContainer}>
-                          <Box className={classes.priceServeContainerR}>
-                            <CurrencyRupeeIcon style={{ fontSize: "18px" }} />
-                            <Typography variant="h3">
-                              {item.dissPrice}
+                        <Box className={classes.deleteContainer}>
+                          <Box>
+                            <Box className={classes.priceServeContainer}>
+                              <Box className={classes.priceServeContainerR}>
+                                <CurrencyRupeeIcon
+                                  style={{ fontSize: "18px" }}
+                                />
+                                <Typography variant="h3">
+                                  {item.dissPrice}
+                                </Typography>
+                              </Box>
+                              <Box className={classes.priceServeContainerRu}>
+                                <CurrencyRupeeIcon
+                                  style={{
+                                    fontSize: "18px",
+                                    textDecoration: "line-through",
+                                  }}
+                                />
+                                <Typography variant="h4">
+                                  {item.price}
+                                </Typography>
+                              </Box>
+                            </Box>
+                            <Typography
+                              variant="h5"
+                              className={classes.orderId}
+                            >
+                              OD11721633
                             </Typography>
                           </Box>
-                          <Box className={classes.priceServeContainerRu}>
-                            <CurrencyRupeeIcon
-                              style={{
-                                fontSize: "18px",
-                                textDecoration: "line-through",
-                              }}
-                            />
-                            <Typography variant="h4">{item.price}</Typography>
+                          <Button
+                            onClick={(e) => this.onClickDelteItem(item.id)}
+                            startIcon={<DeleteIcon />}
+                            className={classes.cartDeleteBtn}
+                          >
+                            Delete
+                          </Button>
+                          <Box
+                            className={classes.deleteC}
+                            onClick={(e) => this.onClickDelteItem(item.id)}
+                          >
+                            <DeleteIcon className={classes.deleteI} />
                           </Box>
                         </Box>
-                        <Typography variant="h5" className={classes.orderId}>
-                          OD11721633
-                        </Typography>
                       </Box>
-                      <Button
-                        onClick={(e) => this.onClickDelteItem(item.id)}
-                        startIcon={<DeleteIcon />}
-                        className={classes.cartDeleteBtn}
-                      >
-                        Delete
-                      </Button>
-                      <Box
-                        className={classes.deleteC}
-                        onClick={(e) => this.onClickDelteItem(item.id)}
-                      >
-                        <DeleteIcon className={classes.deleteI} />
-                      </Box>
-                    </Box>
-                  </Box>
-                </Card>
-              </Grid>
-            ))}
+                    </Card>
+                  </Grid>
+                ))}
+              </>
+            )}
           </Grid>
 
           <Box className={classes.cartItemsAmount}>
@@ -170,13 +168,6 @@ export class CartItemsList extends Component<IsCartProps> {
             </Box>
           </Box>
         </Container>
-        <DeleteModal
-          jobTitle="Delete Item"
-          deletedId="delete"
-          open={this.state.openDeleteModel}
-          onClose={this.onClose}
-          handleConfirmDelete={this.onClickOfferDelete}
-        />
       </Layout>
     );
   }

@@ -1,7 +1,14 @@
 /** @format */
 
 import React, { Component, Fragment } from "react";
-import { Avatar, Box, Drawer, List, ListItem, Typography } from "@mui/material";
+import {
+	Avatar,
+	Box,
+	Drawer,
+	List,
+	ListItem,
+	Typography,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import NotificationsIcon from "@mui/icons-material/Notifications";
@@ -18,15 +25,16 @@ import SalonNotification from "../../SalonNotification/SalonNotification";
 
 import "./SalonNav.css";
 import { CustomerMenu } from "../../../utils/data/navbar_menus";
+import { Link } from "react-router-dom";
 
 interface salonProps {
-  customer: boolean;
-  menus: SalonMenus[];
-  navigate?: any;
+	customer: boolean;
+	menus: SalonMenus[];
+	navigate?: any;
 }
 interface salonState {
-  isCustomer: boolean;
-  activeLink: string;
+	isCustomer: boolean;
+	activeLink: string;
 
   open: boolean;
   dialogOpen: boolean;
@@ -37,39 +45,39 @@ interface salonState {
 }
 
 class SalonNavbar extends Component<salonProps, salonState> {
-  state = {
-    isCustomer: this.props.customer,
-    open: false,
-    dialogOpen: false,
-    lat: null,
-    lon: null,
-    data: "",
-    activeLink: "Home",
+	state = {
+		isCustomer: this.props.customer,
+		open: false,
+		dialogOpen: false,
+		lat: null,
+		lon: null,
+		data: "",
+		activeLink: "Home",
 
-    locationData: {
-      state_district: "",
-      state: "",
-      country: "",
-    },
-  };
+		locationData: {
+			state_district: "",
+			state: "",
+			country: "",
+		},
+	};
 
-  handleClick = (title: string) => {
-    this.setState({
-      activeLink: title,
-      open: !this.state.open,
-    });
-  };
+	handleClick = (title: string) => {
+		this.setState({
+			activeLink: title,
+			open: !this.state.open,
+		});
+	};
 
-  handleDialogOpen = () => {
-    this.setState({
-      dialogOpen: true,
-    });
-  };
-  handleDialogClose = () => {
-    this.setState({
-      dialogOpen: false,
-    });
-  };
+	handleDialogOpen = () => {
+		this.setState({
+			dialogOpen: true,
+		});
+	};
+	handleDialogClose = () => {
+		this.setState({
+			dialogOpen: false,
+		});
+	};
 
   fetchdata = async () => {
     console.log("curr", this.state.lat, this.state.lon);
@@ -155,103 +163,122 @@ class SalonNavbar extends Component<salonProps, salonState> {
     const { menus } = this.props;
     console.log("data", this.state.data);
 
-    return (
-      <>
-        <Fragment>
-          <Box className="salon-navbar-body">
-            <Box className="logo">
-              <img src={Logo} alt="logo" width="100%" height="75px" />
-            </Box>
+		return (
+			<>
+				<Fragment>
+					<Box className="salon-navbar-body">
+						<Box className="logo">
+							<img src={Logo} alt="logo" width="100%" height="75px" />
+						</Box>
 
-            {this.state.isCustomer ? (
-              <Box className="salon-nav-menulink">
-                {CustomerMenu.map((menu) => {
-                  return (
-                    <a
-                      key={menu.id}
-                      href={menu.path}
-                      className={
-                        menu.title === this.state.activeLink
-                          ? "active"
-                          : "salon-menu-link"
-                      }
-                      onClick={() => this.setState({ activeLink: menu.title })}
-                    >
-                      {menu.title}
-                    </a>
-                  );
-                })}
-              </Box>
-            ) : (
-              <Box className="salon-nav-menulink">
-                {menus.map((menu) => {
-                  console.log("pathname", window.location.pathname);
-
-                  return (
-                    <a
-                      key={menu.id}
-                      href={menu.path}
-                      className={
-                        window.location.pathname == menu.path
-                          ? "active"
-                          : "salon-menu-link"
-                      }
-                    >
-                      {menu.title}
-                    </a>
-                  );
-                })}
-              </Box>
-            )}
-            {this.state.isCustomer && (
-              <Box className="salon-nav-location">
+						{this.state.isCustomer ? (
+							<Box className="salon-nav-menulink">
+								{CustomerMenu.map((menu) => {
+									return (
+										<Link
+											key={menu.id}
+											to={menu.path}
+											className={
+												window.location.pathname == menu.path ||
+												window.location.pathname
+													.slice(9)
+													.includes(menu.path)
+													? "active"
+													: "salon-menu-link"
+											}
+											onClick={() =>
+												this.setState({ activeLink: menu.title })
+											}>
+											<>{console.log(window.location.pathname)}</>
+											{menu.title}
+										</Link>
+									);
+								})}
+							</Box>
+						) : (
+							<Box className="salon-nav-menulink">
+								{menus.map((menu) => {
+									return (
+										<Link
+											key={menu.id}
+											to={menu.path}
+											className={
+												window.location.pathname == menu.path
+													? "active"
+													: "salon-menu-link"
+											}>
+											{menu.title}
+										</Link>
+									);
+								})}
+							</Box>
+						)}
+						{this.state.isCustomer && (
+							<Box className="salon-nav-location">
+								<Box
+									sx={{
+										display: "flex",
+									}}>
+									<LocationOnIcon sx={{ fontSize: "30px" }} />
+									<Box>
+										<Box
+											sx={{
+												display: "flex",
+											}}>
+											<Typography variant="h6">
+												{this.state.locationData.state_district}
+											</Typography>
+											<ExpandMoreIcon />
+										</Box>
+										<Typography variant="h6" color="secondary.dark">
+											{this.state.locationData.state},&nbsp;
+											{this.state.locationData.country}
+										</Typography>
+									</Box>
+								</Box>
+							</Box>
+						)}
+						<Box className="nav-profile-section">
+              {this.state.isCustomer ? (
                 <Box
                   sx={{
                     display: "flex",
+                    alignItems: "center",
+                    color:
+                      window.location.pathname === "/customer/profile"
+                        ? "#E7A356"
+                        : "",
+                    "&:hover": {
+                      cursor: "pointer",
+                    },
                   }}
                 >
-                  <LocationOnIcon sx={{ fontSize: "30px" }} />
-                  <Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                      }}
-                    >
-                      <Typography variant="h6">
-                        {this.state.locationData.state_district}
-                      </Typography>
-                      <ExpandMoreIcon />
-                    </Box>
-                    <Typography variant="h6" color="secondary.dark">
-                      {this.state.locationData.state},&nbsp;
-                      {this.state.locationData.country}
-                    </Typography>
-                  </Box>
-                </Box>
-              </Box>
-            )}
-            <Box className="nav-profile-section">
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  color:
-                    window.location.pathname === "/salon/owner"
-                      ? "#E7A356"
-                      : "",
-                  "&:hover": {
-                    cursor: "pointer",
-                  },
-                }}
-              >
-                {this.state.isCustomer ? (
-                  <Box sx={{ display: "flex" }}>
+                  <Box
+                    onClick={() => {
+                      this.props.navigate("/customer/profile");
+                    }}
+                    sx={{ display: "flex" }}
+                  >
                     <Avatar alt="Remy Sharp" src={CustomerProfile} />
                     <Typography sx={{ ml: 2, mt: 1 }} variant="h3">
                       Profile
                     </Typography>
                   </Box>
-                ) : (
+                </Box>
+              ) : (
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    color:
+                      window.location.pathname === "/salon/owner"
+                        ? "#E7A356"
+                        : "",
+                    "&:hover": {
+                      cursor: "pointer",
+                    },
+                  }}
+                >
                   <Box
                     onClick={() => {
                       this.props.navigate("/salon/owner");
@@ -263,8 +290,8 @@ class SalonNavbar extends Component<salonProps, salonState> {
                       Profile
                     </Typography>
                   </Box>
-                )}
-              </Box>
+                </Box>
+              )}
               <Box
                 sx={{
                   paddingRight: "0px !important",
@@ -285,177 +312,179 @@ class SalonNavbar extends Component<salonProps, salonState> {
                   />
                 </Badge>
               </Box>
-              <Box onClick={this.onClickOpenCustomerCart}>
+              <Box
+                onClick={() => {
+                  this.props.navigate("/customer/cart-items");
+                }}
+                sx={{
+                  color:
+                    window.location.pathname === "/customer/cart-items"
+                      ? "#E7A356"
+                      : "",
+                  "&:hover": {
+                    cursor: "pointer",
+                  },
+                }}
+              >
                 {this.state.isCustomer && (
                   <ShoppingBasketIcon sx={{ fontSize: "32px", mr: 3 }} />
                 )}
               </Box>
             </Box>
+						{/* mobile drawer section */}
+						<Box className="salon-mobile-drawer">
+							<Box
+								sx={{
+									display: "flex",
+									alignItems: "center",
+									justifyContent: "space-between",
+									ml: { xs: 4, sm: 6 },
+									pl: { sm: 5 },
+								}}>
+								{this.state.isCustomer ? (
+									<Avatar alt="Remy Sharp" src={CustomerProfile} />
+								) : (
+									<Box
+										onClick={() => {
+											this.props.navigate("/salon/owner");
+										}}>
+										<Avatar alt="Remy Sharp" src={Profile} />
+									</Box>
+								)}
+								<Badge
+									variant="dot"
+									sx={{
+										ml: { sm: 4, xs: 2 },
+										"& .MuiBadge-badge": { backgroundColor: "#E7A356" },
+									}}>
+									<NotificationsIcon
+										onClick={this.handleDialogOpen}
+										sx={{
+											fontSize: "32px",
+											cursor: "pointer",
+											color: this.state.dialogOpen ? "#E7A356" : "",
+										}}
+									/>
+								</Badge>
+							</Box>
+							<Box>
+								<MenuIcon
+									sx={{ ml: { xs: 3, sm: 2 }, fontSize: "32px" }}
+									onClick={() => this.setState({ open: true })}
+								/>
+							</Box>
+						</Box>
+						{this.state.isCustomer && (
+							<Box className="salon-location-body" mt={9}>
+								{/* mobile drawer section */}
+								<Box
+									sx={{
+										display: "flex",
+										alignItems: "center",
+										justifyContent: "space-around",
+										ml: { sm: 4 },
+									}}>
+									<LocationOnIcon sx={{ fontSize: "32px" }} />
+									<Typography variant="h6">
+										{this.state.locationData.state_district},&nbsp;
+										{this.state.locationData.state},{" "}
+										{this.state.locationData.country}
+									</Typography>
+									<ExpandMoreIcon />
+								</Box>
+								<Box
+									sx={{
+										display: "flex",
+										justifyContent: "space-around",
+										alignItems: "center",
+										mr: { xs: 1, sm: 6 },
+									}}>
+									<ShoppingBasketIcon sx={{ fontSize: "32px" }} />
+									<Typography sx={{ pl: 1 }} variant="h6">
+										Cart
+									</Typography>
+								</Box>
+							</Box>
+						)}
+					</Box>
+					<Drawer
+						anchor="right"
+						open={this.state.open}
+						onClose={() => this.setState({ open: !this.state.open })}>
+						<Box sx={{ p: 5, widht: "70%", overflowY: "hidden" }}>
+							<Box
+								onClick={() => this.setState({ open: !this.state.open })}>
+								<CloseIcon />
+							</Box>
 
-            {/* mobile drawer section */}
-            <Box className="salon-mobile-drawer">
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  ml: { xs: 4, sm: 6 },
-                  pl: { sm: 5 },
-                }}
-              >
-                {this.state.isCustomer ? (
-                  <Avatar alt="Remy Sharp" src={CustomerProfile} />
-                ) : (
-                  <Box
-                    onClick={() => {
-                      this.props.navigate("/salon/owner");
-                    }}
-                  >
-                    <Avatar alt="Remy Sharp" src={Profile} />
-                  </Box>
-                )}
-                <Badge
-                  variant="dot"
-                  sx={{
-                    ml: { sm: 4, xs: 2 },
-                    "& .MuiBadge-badge": { backgroundColor: "#E7A356" },
-                  }}
-                >
-                  <NotificationsIcon
-                    onClick={this.handleDialogOpen}
-                    sx={{
-                      fontSize: "32px",
-                      cursor: "pointer",
-                      color: this.state.dialogOpen ? "#E7A356" : "",
-                    }}
-                  />
-                </Badge>
-              </Box>
-              <Box>
-                <MenuIcon
-                  sx={{ ml: { xs: 3, sm: 2 }, fontSize: "32px" }}
-                  onClick={() => this.setState({ open: true })}
-                />
-              </Box>
-            </Box>
-            {this.state.isCustomer && (
-              <Box className="salon-location-body" mt={9}>
-                {/* mobile drawer section */}
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-around",
-                    ml: { sm: 4 },
-                  }}
-                >
-                  <LocationOnIcon sx={{ fontSize: "32px" }} />
-                  <Typography variant="h6">
-                    {this.state.locationData.state_district},&nbsp;
-                    {this.state.locationData.state},{" "}
-                    {this.state.locationData.country}
-                  </Typography>
-                  <ExpandMoreIcon />
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-around",
-                    alignItems: "center",
-                    mr: { xs: 1, sm: 6 },
-                  }}
-                  onClick={this.onClickOpenCustomerCart}
-                >
-                  <ShoppingBasketIcon sx={{ fontSize: "32px" }} />
-                  <Typography sx={{ pl: 1 }} variant="h6">
-                    Cart
-                  </Typography>
-                </Box>
-              </Box>
-            )}
-          </Box>
-          <Drawer
-            anchor="right"
-            open={this.state.open}
-            onClose={() => this.setState({ open: !this.state.open })}
-          >
-            <Box sx={{ p: 5, widht: "70%", overflowY: "hidden" }}>
-              <Box onClick={() => this.setState({ open: !this.state.open })}>
-                <CloseIcon />
-              </Box>
+							{this.state.isCustomer ? (
+								<List>
+									{CustomerMenu.map((menu) => {
+										return (
+											<ListItem
+												key={menu.id}
+												className="mobile-menus"
+												onClick={() => this.handleClick(menu.title)}>
+												<Link
+													to={menu.path}
+													className={
+														menu.title === this.state.activeLink
+															? "moblie-active-link"
+															: "mobile-menus"
+													}>
+													{menu.title}
+												</Link>
+											</ListItem>
+										);
+									})}
+								</List>
+							) : (
+								<List>
+									{menus.map((menu) => {
+										return (
+											<ListItem
+												key={menu.id}
+												className="salon-mobile-menus"
+												onClick={() => this.handleClick(menu.title)}>
+												<Link
+													to={menu.path}
+													className={
+														window.location.pathname == menu.path
+															? "salon-moblie-active-link"
+															: "salon-mobile-menus"
+													}>
+													{menu.title}
+												</Link>
+											</ListItem>
+										);
+									})}
+								</List>
+							)}
+						</Box>
+					</Drawer>
 
-              {this.state.isCustomer ? (
-                <List>
-                  {CustomerMenu.map((menu) => {
-                    return (
-                      <ListItem
-                        key={menu.id}
-                        className="mobile-menus"
-                        onClick={() => this.handleClick(menu.title)}
-                      >
-                        <a
-                          href={menu.path}
-                          className={
-                            menu.title === this.state.activeLink
-                              ? "moblie-active-link"
-                              : "mobile-menus"
-                          }
-                        >
-                          {menu.title}
-                        </a>
-                      </ListItem>
-                    );
-                  })}
-                </List>
-              ) : (
-                <List>
-                  {menus.map((menu) => {
-                    return (
-                      <ListItem
-                        key={menu.id}
-                        className="salon-mobile-menus"
-                        onClick={() => this.handleClick(menu.title)}
-                      >
-                        <a
-                          href={menu.path}
-                          className={
-                            window.location.pathname == menu.path
-                              ? "salon-moblie-active-link"
-                              : "salon-mobile-menus"
-                          }
-                        >
-                          {menu.title}
-                        </a>
-                      </ListItem>
-                    );
-                  })}
-                </List>
-              )}
-            </Box>
-          </Drawer>
-
-          <>
-            {/* notification dialog */}
-            {!this.state.isCustomer ? (
-              <SalonNotification
-                open={this.state.dialogOpen}
-                onClose={this.handleDialogClose}
-              />
-            ) : (
-              <SalonNotification
-                open={this.state.dialogOpen}
-                onClose={this.handleDialogClose}
-              />
-            )}
-            {/* <SalonNotification
+					<>
+						{/* notification dialog */}
+						{!this.state.isCustomer ? (
+							<SalonNotification
+								open={this.state.dialogOpen}
+								onClose={this.handleDialogClose}
+							/>
+						) : (
+							<SalonNotification
+								open={this.state.dialogOpen}
+								onClose={this.handleDialogClose}
+							/>
+						)}
+						{/* <SalonNotification
               open={this.state.dialogOpen}
               onClose={this.handleDialogClose}
             /> */}
-          </>
-        </Fragment>
-      </>
-    );
-  }
+					</>
+				</Fragment>
+			</>
+		);
+	}
 }
 
 export default withRouter(SalonNavbar);

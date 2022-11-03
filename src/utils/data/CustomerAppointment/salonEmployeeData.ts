@@ -1,3 +1,5 @@
+/** @format */
+
 import salonEmp1 from "../../../assets/images/CusotmerAppointment/salonEmp1.png";
 import salonEmp2 from "../../../assets/images/CusotmerAppointment/salonEmp2.png";
 import salonEmp3 from "../../../assets/images/CusotmerAppointment/salonEmp3.png";

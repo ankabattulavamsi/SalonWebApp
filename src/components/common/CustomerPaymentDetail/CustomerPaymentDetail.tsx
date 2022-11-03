@@ -38,7 +38,7 @@ class CustomerPaymentDetail extends Component<IProps> {
 				anchor="right"
 				open={this.props.state.open}
 				onClose={onClose}>
-				<Box className="drawerSize" role="presentation">
+				<Box className="drawerSize innerDraweSize" role="presentation">
 					<CloseIcon style={{ cursor: "pointer" }} onClick={onClose} />
 					<Typography className={classes.heading} variant="h2">
 						Payment

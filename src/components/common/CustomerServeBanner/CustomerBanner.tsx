@@ -98,7 +98,7 @@ class CustomerBanner extends Component<IProps> {
                 },
               }}
               type="submit"
-              onClick={this.props.handleClick}
+              onClick={handleClick}
               className={`${classes.lakmeServeBtn}`}
             >
               {title}
