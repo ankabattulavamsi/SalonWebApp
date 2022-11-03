@@ -59,6 +59,8 @@ class SalonNavbar extends Component<salonProps, salonState> {
 			state: "",
 			country: "",
 		},
+
+    cartData: JSON.parse(localStorage.getItem("cartData")!) || [],
 	};
 
 	handleClick = (title: string) => {
@@ -401,7 +403,7 @@ class SalonNavbar extends Component<salonProps, salonState> {
 									}}>
 									<ShoppingBasketIcon sx={{ fontSize: "32px" }} />
 									<Typography sx={{ pl: 1 }} variant="h6">
-										Cart
+										Cart {this.state.cartData.length}
 									</Typography>
 								</Box>
 							</Box>

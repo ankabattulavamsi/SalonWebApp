@@ -13,6 +13,7 @@ import { HairServiceData } from "../../utils/data/CustomerHairServiceData/Custom
 import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
 import { categoryData } from "../../utils/data/customer/CustomerData";
 import DeleteModal from "../common/DeleteModal/DeleteModal";
+import { CardData } from "../../utils/data/ownerDashboard/ownerDashboard";
 
 interface IsCartProps {
   classes: any;
@@ -37,10 +38,13 @@ export class CartItemsList extends Component<IsCartProps> {
 
   onClickDelteItem = (id: any) => {
     const { cartData } = this.state;
-    const filterData = cartData.filter((item: any) => item.id !== id);
-    const localData = localStorage.setItem('deleteData', JSON.stringify(filterData))
-    
-    localStorage.setItem('cartData', JSON.stringify(filterData))
+    const filterData = cartData?.filter((item: any) => item.id !== id);
+    const localData = localStorage.setItem(
+      "deleteData",
+      JSON.stringify(filterData)
+    );
+
+    localStorage.setItem("cartData", JSON.stringify(filterData));
     this.setState({ cartData: filterData });
   };
 
@@ -48,9 +52,12 @@ export class CartItemsList extends Component<IsCartProps> {
     const { cartData } = this.state;
     const { classes } = this.props;
 
-    let amount = cartData.map((item: any) => parseInt(item.dissPrice));
+    let amount = cartData?.map((item: any) => parseInt(item.dissPrice));
 
-    let totalAmount = amount.reduce((a: any, b: any) => a + b);
+    let totalAmount =
+      amount.length > 0 ? amount?.reduce((a: any, b: any) => a + b) : null;
+
+      let disbledbtn = cartData?.length === 0
 
     return (
       <Layout customer={true}>
@@ -62,9 +69,11 @@ export class CartItemsList extends Component<IsCartProps> {
           </Box>
           <Grid container spacing={2}>
             {cartData.length === 0 ? (
-              <Grid item xs={12} md={12} sm={12} lg={12}>
-                <Skeleton variant="rectangular" width={210} height={118} />
-              </Grid>
+              <Box className={classes.SkCartContainer}>
+                <Skeleton animation="wave" className={classes.skelton} />
+                <Skeleton animation="wave" className={classes.skelton1} />
+                <Skeleton animation="wave" className={classes.skelton2} />
+              </Box>
             ) : (
               <>
                 {cartData.map((item: any) => (
@@ -163,7 +172,12 @@ export class CartItemsList extends Component<IsCartProps> {
                 <span className={classes.spanAmount}>{totalAmount}</span>
               </Box>
               <Box>
-                <Button onClick={this.onClickNavToCategories}>Continue</Button>
+                <Button
+                  disabled={disbledbtn}
+                  onClick={this.onClickNavToCategories}
+                >
+                  Continue
+                </Button>
               </Box>
             </Box>
           </Box>
