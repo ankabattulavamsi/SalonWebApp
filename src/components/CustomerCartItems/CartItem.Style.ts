@@ -18,6 +18,52 @@ export const cartStyle: any = {
       display: "none",
     },
   },
+  SkCartContainer: {
+    display: 'flex', 
+    alignItems: 'center', 
+    justifyContent: 'space-between',
+    height: '250px', 
+    width: '100%',
+    "@media screen and (max-width: 600px)": {
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      width: '100%',
+    },
+  },
+  skelton: {
+    width: '250px', 
+    height: '100% !important',
+    animation:"wave",
+    variant: 'rounded !important',
+    "@media screen and (max-width: 600px)": {
+      width: '150px', 
+    height: '70% !important',
+    marginLeft: '15px'
+    },
+  },
+
+  skelton1: {
+    width: '500px', 
+    height: '100% !important',
+    animation:"wave",
+    variant: 'rounded !important',
+    "@media screen and (max-width: 600px)": {
+      width: '150px', 
+    height: '70% !important',
+    },
+  },
+
+  skelton2: {
+    width: '220px', 
+    height: '100% !important',
+    animation:"wave",
+    variant: 'rounded !important',
+    "@media screen and (max-width: 600px)": {
+    width: '180px', 
+    height: '70% !important',
+    },
+  },
   CartContainer: {
     display: "flex",
     justifyContent: "space-around",
