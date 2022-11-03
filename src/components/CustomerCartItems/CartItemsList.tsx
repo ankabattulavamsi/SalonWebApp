@@ -57,6 +57,8 @@ export class CartItemsList extends Component<IsCartProps> {
     let totalAmount =
       amount.length > 0 ? amount?.reduce((a: any, b: any) => a + b) : null;
 
+      let disbledbtn = cartData?.length === 0
+
     return (
       <Layout customer={true}>
         <Container sx={{ pt: 20, pb: 10, position: "relative" }} maxWidth="lg">
@@ -68,9 +70,9 @@ export class CartItemsList extends Component<IsCartProps> {
           <Grid container spacing={2}>
             {cartData.length === 0 ? (
               <Box className={classes.SkCartContainer}>
-                <Skeleton animation="wave" className={classes.skelton}  />
-                <Skeleton animation="wave" className={classes.skelton1}  />
-                <Skeleton animation="wave" className={classes.skelton2}  />
+                <Skeleton animation="wave" className={classes.skelton} />
+                <Skeleton animation="wave" className={classes.skelton1} />
+                <Skeleton animation="wave" className={classes.skelton2} />
               </Box>
             ) : (
               <>
@@ -170,7 +172,12 @@ export class CartItemsList extends Component<IsCartProps> {
                 <span className={classes.spanAmount}>{totalAmount}</span>
               </Box>
               <Box>
-                <Button onClick={this.onClickNavToCategories}>Continue</Button>
+                <Button
+                  disabled={disbledbtn}
+                  onClick={this.onClickNavToCategories}
+                >
+                  Continue
+                </Button>
               </Box>
             </Box>
           </Box>
