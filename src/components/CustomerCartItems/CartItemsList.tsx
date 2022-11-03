@@ -13,6 +13,7 @@ import { HairServiceData } from "../../utils/data/CustomerHairServiceData/Custom
 import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
 import { categoryData } from "../../utils/data/customer/CustomerData";
 import DeleteModal from "../common/DeleteModal/DeleteModal";
+import { CardData } from "../../utils/data/ownerDashboard/ownerDashboard";
 
 interface IsCartProps {
   classes: any;
@@ -51,6 +52,8 @@ export class CartItemsList extends Component<IsCartProps> {
     let amount = cartData.map((item: any) => parseInt(item.dissPrice));
 
     let totalAmount = amount.reduce((a: any, b: any) => a + b);
+
+    let headLength = CardData.map((item:any) => item.heading)
 
     return (
       <Layout customer={true}>
