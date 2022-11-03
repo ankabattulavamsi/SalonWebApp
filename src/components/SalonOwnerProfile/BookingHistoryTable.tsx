@@ -37,7 +37,7 @@ class BookingHistoryTable extends Component {
     }
   };
   render() {
-    const { classes, theme }: any = this.props;
+    const { classes }: any = this.props;
     const { date, month, year } = this.state;
     return (
       <>
@@ -66,60 +66,63 @@ class BookingHistoryTable extends Component {
             <Grid container spacing={2}>
               <Grid item>
                 <FormControl>
-                  <InputLabel id="date">DD</InputLabel>
                   <Select
                     labelId="date"
                     id="date"
                     value={date}
                     onChange={this.handleChange}
                     name="date"
-                    label="DD"
                     sx={{
                       width: { md: "90px", sm: "84px", xs: "70px" },
-                      backgroundColor: "#D0D0D0",
-                      color: "#A4A1A1 !important",
+                      backgroundColor: "#F0F0F0",
+                      outline: "none !important",
                     }}
+                    displayEmpty
                   >
+                    <MenuItem value="" sx={{ color: "#A4A1A1 !important" }}>
+                      DD
+                    </MenuItem>
                     <MenuItem value="01">01</MenuItem>
                     <MenuItem value="02">02</MenuItem>
                     <MenuItem value="03">03</MenuItem>
                   </Select>
                 </FormControl>
+
+                <Select
+                  labelId="month"
+                  id="month"
+                  value={month}
+                  onChange={this.handleChange}
+                  name="month"
+                  sx={{
+                    width: { md: "90px", xs: "70px" },
+                    backgroundColor: "#F0F0F0",
+                  }}
+                  displayEmpty
+                >
+                  <MenuItem value="" sx={{ color: "#A4A1A1 !important" }}>
+                    MM
+                  </MenuItem>
+                  <MenuItem value="01">01</MenuItem>
+                  <MenuItem value="02">02</MenuItem>
+                  <MenuItem value="03">03</MenuItem>
+                </Select>
+
                 <FormControl>
-                  <InputLabel id="month">MM</InputLabel>
                   <Select
-                    labelId="month"
-                    id="month"
-                    value={month}
-                    onChange={this.handleChange}
-                    name="month"
-                    label="MM"
-                    sx={{
-                      width: { md: "90px", xs: "70px" },
-                      backgroundColor: "#D0D0D0",
-                      color: "#A4A1A1 !important",
-                    }}
-                  >
-                    <MenuItem value="01">01</MenuItem>
-                    <MenuItem value="02">02</MenuItem>
-                    <MenuItem value="03">03</MenuItem>
-                  </Select>
-                </FormControl>
-                <FormControl>
-                  <InputLabel id="year">YY</InputLabel>
-                  <Select
-                    labelId="year"
                     id="year"
                     value={year}
                     onChange={this.handleChange}
                     name="year"
-                    label="YY"
                     sx={{
                       width: { sm: "90px", xs: "70px" },
-                      backgroundColor: "#D0D0D0",
-                      color: "#A4A1A1 !important",
+                      backgroundColor: "#F0F0F0",
                     }}
+                    displayEmpty
                   >
+                    <MenuItem value="" sx={{ color: "#A4A1A1 !important" }}>
+                      YY
+                    </MenuItem>
                     <MenuItem value="2022">2022</MenuItem>
                     <MenuItem value="2021">2021</MenuItem>
                   </Select>
@@ -127,20 +130,21 @@ class BookingHistoryTable extends Component {
               </Grid>
               <Grid item>
                 <FormControl>
-                  <InputLabel id="status">Status</InputLabel>
                   <Select
                     labelId="status"
-                    label="Status"
                     id="status"
                     value={this.state.status}
                     onChange={this.handleChange}
                     name="status"
                     sx={{
                       width: { md: "124px", sm: "84px", xs: "84px" },
-                      backgroundColor: "#D0D0D0",
-                      color: "#A4A1A1 !important",
+                      backgroundColor: "#F0F0F0",
                     }}
+                    displayEmpty
                   >
+                    <MenuItem value="" sx={{ color: "#A4A1A1 !important" }}>
+                      Status
+                    </MenuItem>
                     <MenuItem value="done">Done</MenuItem>
                     <MenuItem value="pending">Pending</MenuItem>
                     <MenuItem value="canceled">Canceled</MenuItem>
@@ -163,8 +167,8 @@ class BookingHistoryTable extends Component {
                     }}
                     sx={{
                       width: { xs: "19rem" },
-                      backgroundColor: "#D0D0D0",
-                      color: "#A4A1A1 !important",
+                      backgroundColor: "#F0F0F0",
+                      label: { color: "blue !important" },
                     }}
                   />
                 </FormControl>

@@ -9,10 +9,6 @@
 	z-index: 1;
 	margin-right: 20px;
 }
-/* .export-team:hover {
-	transition: linear 0.5s;
-	background: #ebb273 !important;
-} */
 .export-team:hover .hero {
 	background-color: #ebb273;
 	height: 278px;
