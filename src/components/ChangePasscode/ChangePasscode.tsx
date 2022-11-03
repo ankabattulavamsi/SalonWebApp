@@ -229,7 +229,7 @@ class ChangePasscode extends Component<ChangeCodeProps> {
                           textTransform: "capitalize",
                         }}
                       >
-                        Conform Passcode
+                        Confirm Passcode
                       </Typography>
                       <OtpInput
                         value={this.state.confirmPassword}
