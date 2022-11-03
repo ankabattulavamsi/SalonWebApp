@@ -36,12 +36,12 @@ interface salonState {
 	isCustomer: boolean;
 	activeLink: string;
 
-	open: boolean;
-	dialogOpen: boolean;
-	lat: any;
-	lon: any;
-	data: any;
-	locationData: any;
+  open: boolean;
+  dialogOpen: boolean;
+  lat: any;
+  lon: any;
+  data: any;
+  locationData: any;
 }
 
 class SalonNavbar extends Component<salonProps, salonState> {
@@ -79,84 +79,89 @@ class SalonNavbar extends Component<salonProps, salonState> {
 		});
 	};
 
-	fetchdata = async () => {
-		console.log(this.state.lat, this.state.lon);
-		await fetch(
-			`https://api.opencagedata.com/geocode/v1/json?q=${this.state.lat}+${this.state.lon}&key=8518d29fbed240129135f8e8283c4c01`
-		)
-			.then((res) => res.json())
-			.then((data) => {
-				console.log("data", data);
+  fetchdata = async () => {
+    console.log("curr", this.state.lat, this.state.lon);
+    await fetch(
+      `https://api.opencagedata.com/geocode/v1/json?q=${this.state.lat}+${this.state.lon}&key=8518d29fbed240129135f8e8283c4c01`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("data", data);
 
-				this.setState({ data: data.results[0].formatted });
-				let localData = data.results[0].components;
-				let { state_district, state, country } = localData;
-				localStorage.setItem(
-					"Current Adress",
-					JSON.stringify({ state_district, state, country })
-				);
-			})
-			.then((data) =>
-				fetch(` https://httpstat.us/200`, {
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify({ name: data, time: new Date() }),
-				})
-			);
-	};
-	getLocation = () => {
-		if (navigator.geolocation) {
-			var data = navigator.geolocation.getCurrentPosition(
-				this.showPosition,
-				this.handleLocationError
-			);
-		} else {
-			alert("Geolocation not supported");
-		}
-	};
-	showPosition = (position: any) => {
-		this.setState(
-			{
-				lat: position.coords.latitude,
-				lon: position.coords.longitude,
-			},
-			() => this.fetchdata()
-		);
-	};
-	handleLocationError = (error: any) => {
-		switch (error) {
-			case error.PERMISSION_DENIED:
-				alert("user denied request for geolocation error");
-				break;
-			case error.POSITION_UNAVAILABLE:
-				alert("location information unavailable");
-				break;
-			case error.TIMEOUT:
-				alert("request time out");
-				break;
-			case error.UNKNOWN_ERROR:
-				alert("unknown error occured");
-				break;
-			default:
-		}
-	};
-	componentDidMount() {
-		if (localStorage.getItem("Current Adress")) {
-			const existingdata = JSON.parse(
-				localStorage.getItem("Current Adress") || ""
-			);
-			this.setState({ data: existingdata });
+        this.setState({ data: data.results[0].formatted });
+        let localData = data.results[0].components;
 
-			this.setState({
-				locationData: existingdata,
-			});
-		} else {
-			this.getLocation();
-		}
-	}
+        let { state_district, state, country } = localData;
+        localStorage.setItem(
+          "Current Adress",
+          JSON.stringify({ state_district, state, country })
+        );
+      })
+      .then((data) =>
+        fetch(` https://httpstat.us/200`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: data, time: new Date() }),
+        })
+      );
+  };
+  getLocation = () => {
+    if (navigator.geolocation) {
+      var data = navigator.geolocation.getCurrentPosition(
+        this.showPosition,
+        this.handleLocationError
+      );
+    } else {
+      alert("Geolocation not supported");
+    }
+  };
+  showPosition = (position: any) => {
+    this.setState(
+      {
+        lat: position.coords.latitude,
+        lon: position.coords.longitude,
+      },
+      () => this.fetchdata()
+    );
+  };
+  handleLocationError = (error: any) => {
+    switch (error) {
+      case error.PERMISSION_DENIED:
+        alert("user denied request for geolocation error");
+        break;
+      case error.POSITION_UNAVAILABLE:
+        alert("location information unavailable");
+        break;
+      case error.TIMEOUT:
+        alert("request time out");
+        break;
+      case error.UNKNOWN_ERROR:
+        alert("unknown error occured");
+        break;
+      default:
+    }
+  };
+  componentDidMount() {
+    if (localStorage.getItem("Current Adress")) {
+      const existingdata = JSON.parse(
+        localStorage.getItem("Current Adress") || ""
+      );
+      this.setState({ data: existingdata });
 
-	render() {
-		const { menus } = this.props;
+      this.setState({
+        locationData: existingdata,
+      });
+    } else {
+      this.getLocation();
+    }
+  }
+  onClickOpenCustomerCart = () => {
+    this.props.navigate("/customer/cart-items");
+  };
+
+  render() {
+    const { menus } = this.props;
+    console.log("data", this.state.data);
 
 		return (
 			<>

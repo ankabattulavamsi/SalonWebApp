@@ -73,11 +73,12 @@ class SalonNotification extends Component<NotiProps, State> {
 					<DialogContent
 						dividers
 						className={classes.listItemNotificationBox}>
-						{notificationData.map((notification: notify) => {
+						{notificationData.map((notification: notify,index:any) => {
 							return (
 								<List
 									sx={{ width: "320px", height: "103px" }}
-									className={classes.listItemNotification}>
+									className={classes.listItemNotification}
+									key={index}>
 									<ListItem>
 										<ListItemAvatar>
 											<Avatar
