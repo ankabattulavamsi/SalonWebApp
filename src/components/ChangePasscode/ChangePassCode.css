@@ -8,7 +8,6 @@
 	overflow: hidden;
 	width: 65%;
   
-	padding: 16px 24px !important;
 }
 
 .dialog-box-change .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
@@ -25,7 +24,6 @@
 	.dialog-box-change  .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
 	  height: 60%;
 	  margin-top: 98px;
-	  padding: 20px !important;
 	}
   }
   @media screen and (max-width: 600px) {

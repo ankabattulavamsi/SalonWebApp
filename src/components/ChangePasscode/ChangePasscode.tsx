@@ -110,14 +110,14 @@ class ChangePasscode extends Component<ChangeCodeProps> {
                   color: "#fff",
                 }}
               >
-                <CloseIcon style={{ width: "36px" }} />
+                <CloseIcon style={{ width: "35px" }} />
               </IconButton>
             </Box>
             <Divider />
             <Box
               sx={{
                 backgroundColor: "#fff",
-                p: { xs: 0, md: 5, sm: 5, lg: 5 },
+                p: {xs: 2, md: 5, sm: 5, lg: 2 },
                 // width: { xs: "110%", md: "100%", sm: "100%", lg: "100%" },
               }}
             >
