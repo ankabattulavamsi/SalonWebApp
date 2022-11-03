@@ -37,6 +37,7 @@ import CustomerCategories from "./components/CusomerServicePage/CustomerCategori
 import { ToastContainer } from "react-toastify";
 import SalonNearByMainPage from "./routes/SalonNearByPage/SalonNearByMainPage";
 import CustomerBlogMainPage from "./components/OurBlogs/CustomerBlogMainPage/CustomerBlogMainPage";
+import SalonCustomerPage from "./components/SalonOwnerProfile/SalonCustomerPage";
 function App() {
   return (
     <div>
@@ -74,6 +75,7 @@ function App() {
 
           {/* Salon Customer */}
           <Route path="customer" element={<Customer />} />
+          <Route path="customer/profile" element={<SalonCustomerPage />} />
           <Route path="customer/cart-items" element={<CartItemsList />} />
           <Route path="/customer/service" element={<CustomerSevice />} />
           <Route path="/customer/category" element={<CustomerCategories />} />

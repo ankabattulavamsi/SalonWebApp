@@ -42,6 +42,7 @@ class CustomerServeCat extends Component<IProps> {
 				return this.props.navigate('/customer/category/facial');
         case "Spa":
 				return this.props.navigate('/customer/category/spa');
+        
       default:
         return null;
     }
