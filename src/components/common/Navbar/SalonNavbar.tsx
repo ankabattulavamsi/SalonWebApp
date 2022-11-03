@@ -174,13 +174,17 @@ class SalonNavbar extends Component<salonProps, salonState> {
 											key={menu.id}
 											to={menu.path}
 											className={
-												menu.title === this.state.activeLink
+												window.location.pathname == menu.path ||
+												window.location.pathname
+													.slice(9)
+													.includes(menu.path)
 													? "active"
 													: "salon-menu-link"
 											}
 											onClick={() =>
 												this.setState({ activeLink: menu.title })
 											}>
+											<>{console.log(window.location.pathname)}</>
 											{menu.title}
 										</Link>
 									);
@@ -189,8 +193,6 @@ class SalonNavbar extends Component<salonProps, salonState> {
 						) : (
 							<Box className="salon-nav-menulink">
 								{menus.map((menu) => {
-									console.log("pathname", window.location.pathname);
-
 									return (
 										<Link
 											key={menu.id}
