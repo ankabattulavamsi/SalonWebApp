@@ -34,7 +34,6 @@ interface salonState {
   lon: any;
   data: any;
   locationData: any;
-  
 }
 
 class SalonNavbar extends Component<salonProps, salonState> {
@@ -146,8 +145,6 @@ class SalonNavbar extends Component<salonProps, salonState> {
     } else {
       this.getLocation();
     }
-    
-   
   }
 
   render() {
@@ -229,27 +226,46 @@ class SalonNavbar extends Component<salonProps, salonState> {
               </Box>
             )}
             <Box className="nav-profile-section">
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  color:
-                    window.location.pathname === "/salon/owner"
-                      ? "#E7A356"
-                      : "",
-                  "&:hover": {
-                    cursor: "pointer",
-                  },
-                }}
-              >
-                {this.state.isCustomer ? (
-                  <Box sx={{ display: "flex" }}>
+              {this.state.isCustomer ? (
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    color:
+                      window.location.pathname === "/customer/profile"
+                        ? "#E7A356"
+                        : "",
+                    "&:hover": {
+                      cursor: "pointer",
+                    },
+                  }}
+                >
+                  <Box
+                    onClick={() => {
+                      this.props.navigate("/customer/profile");
+                    }}
+                    sx={{ display: "flex" }}
+                  >
                     <Avatar alt="Remy Sharp" src={CustomerProfile} />
                     <Typography sx={{ ml: 2, mt: 1 }} variant="h3">
                       Profile
                     </Typography>
                   </Box>
-                ) : (
+                </Box>
+              ) : (
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    color:
+                      window.location.pathname === "/salon/owner"
+                        ? "#E7A356"
+                        : "",
+                    "&:hover": {
+                      cursor: "pointer",
+                    },
+                  }}
+                >
                   <Box
                     onClick={() => {
                       this.props.navigate("/salon/owner");
@@ -261,8 +277,8 @@ class SalonNavbar extends Component<salonProps, salonState> {
                       Profile
                     </Typography>
                   </Box>
-                )}
-              </Box>
+                </Box>
+              )}
               <Box
                 sx={{
                   paddingRight: "0px !important",
@@ -283,19 +299,20 @@ class SalonNavbar extends Component<salonProps, salonState> {
                   />
                 </Badge>
               </Box>
-              <Box 
-               onClick={() => {
-                this.props.navigate("/customer/cart-items");
-              }}
-              sx={{
-                color:
+              <Box
+                onClick={() => {
+                  this.props.navigate("/customer/cart-items");
+                }}
+                sx={{
+                  color:
                     window.location.pathname === "/customer/cart-items"
                       ? "#E7A356"
                       : "",
                   "&:hover": {
                     cursor: "pointer",
                   },
-              }}>
+                }}
+              >
                 {this.state.isCustomer && (
                   <ShoppingBasketIcon sx={{ fontSize: "32px", mr: 3 }} />
                 )}
@@ -375,7 +392,7 @@ class SalonNavbar extends Component<salonProps, salonState> {
                     mr: { xs: 1, sm: 6 },
                   }}
                 >
-                  <ShoppingBasketIcon sx={{ fontSize: "32px" }}  />
+                  <ShoppingBasketIcon sx={{ fontSize: "32px" }} />
                   <Typography sx={{ pl: 1 }} variant="h6">
                     Cart
                   </Typography>

@@ -76,10 +76,7 @@ class CustomerSingleServicePage extends Component<IsSinglePageProps> {
         >
           <ArrowBackIos
             id="arrowBtn"
-            style={{
-              color: "#FFFFFF",
-              fontSize: "25px",
-            }}
+            className={classes.prevArrow}
           />
         </Stack>
       );
@@ -101,10 +98,7 @@ class CustomerSingleServicePage extends Component<IsSinglePageProps> {
         >
           <ArrowForwardIos
             id="arrowBtn"
-            style={{
-              color: "#FFFFFF",
-              fontSize: "25px",
-            }}
+            className={classes.prevArrow}
           />
         </Stack>
       );

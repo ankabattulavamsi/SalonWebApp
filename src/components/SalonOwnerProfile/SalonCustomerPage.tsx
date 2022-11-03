@@ -76,7 +76,7 @@ class SalonOwnerPage extends Component<SalonProps> {
   render() {
     const { classes }: any = this.props;
     return (
-      <Layout>
+      <Layout customer={true}>
         <Container maxWidth="lg" sx={{ mt: 15, mb: 10 }}>
           <Box>
             <Box sx={{ position: "relative" }}>
@@ -94,7 +94,7 @@ class SalonOwnerPage extends Component<SalonProps> {
                   // marginRight: "20px",
                   position: "absolute",
                   top: { md: "70%", xs: "80%" },
-                  ml: { md: "8%", lg: "16%", sm: "14%" },
+                  ml: { md: "8%", lg: "8%", sm: "5%" },
                 }}
               />
             </Box>
@@ -105,9 +105,9 @@ class SalonOwnerPage extends Component<SalonProps> {
             <Grid
               item
               xs={7.5}
-              md={5}
-              sm={6.5}
-              lg={7.1}
+              md={7.4}
+              sm={5.5}
+              lg={8}
               sx={{
                 margin: "0 !important",
                 marginRight: "auto",
@@ -117,7 +117,7 @@ class SalonOwnerPage extends Component<SalonProps> {
                 variant="h6"
                 sx={{
                   fontSize: { md: "25px", xs: "22px" },
-                  mt: { sm: "30px", md: 0 },
+                  mt: { sm: "0px", md: 0 },
                 }}
                 className={classes.salonOwnerName}
               >
@@ -143,11 +143,15 @@ class SalonOwnerPage extends Component<SalonProps> {
                 Change  Passcode
               </Button>
             </Grid>
-            <Grid item>
+            <Grid item xs={11}
+              md={1.9}
+              sm={4}
+              lg={1.6}>
               <Button
                 sx={{
-                  height: { md: "57px", sm: "57px" },
-                  width: { md: "149px", xs: "133px !important" },
+                    mt: {md: '35px !important', sm: '5px !important'},
+                  height: { md: "57px", sm: "57px",  },
+                  width: { md: "149px !important", xs: "100% !important" },
                   ml: { xs: 2, sm: 0 },
                 }}
                 className={classes.ownerLogoutButton}
