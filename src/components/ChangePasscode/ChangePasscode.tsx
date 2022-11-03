@@ -117,7 +117,7 @@ class ChangePasscode extends Component<ChangeCodeProps> {
             <Box
               sx={{
                 backgroundColor: "#fff",
-                p: {xs: 2, md: 5, sm: 5, lg: 2 },
+                p: { xs: 2, md: 5, sm: 5, lg: 2 },
                 // width: { xs: "110%", md: "100%", sm: "100%", lg: "100%" },
               }}
             >
@@ -127,7 +127,12 @@ class ChangePasscode extends Component<ChangeCodeProps> {
                     fontFamily: "Fira Sans",
                     fontStyle: " normal",
                     fontWeight: 700,
-                    fontSize: { xs: "14px", md: "20px", sm: '20px', lg: "24px" },
+                    fontSize: {
+                      xs: "14px",
+                      md: "20px",
+                      sm: "20px",
+                      lg: "24px",
+                    },
                     lineHeight: "48px",
                   }}
                 >
@@ -155,7 +160,7 @@ class ChangePasscode extends Component<ChangeCodeProps> {
                             textTransform: "capitalize",
                           }}
                         >
-                          Old Password
+                          Old Passcode
                         </Typography>
                       </Box>
                       <OtpInput
@@ -190,7 +195,7 @@ class ChangePasscode extends Component<ChangeCodeProps> {
                           textTransform: "capitalize",
                         }}
                       >
-                        New Password
+                        New Passcode
                       </Typography>
                       <OtpInput
                         value={this.state.password}
@@ -224,7 +229,7 @@ class ChangePasscode extends Component<ChangeCodeProps> {
                           textTransform: "capitalize",
                         }}
                       >
-                        Conform Password
+                        Conform Passcode
                       </Typography>
                       <OtpInput
                         value={this.state.confirmPassword}

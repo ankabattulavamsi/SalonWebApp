@@ -8,6 +8,7 @@ import { ButtonData } from "../../utils/data/SalonOwnerData/ButtonData";
 import BookingHistoryTable from "./BookingHistoryTable";
 import PrivacyandPolicy from "./PrivacyandPolicy";
 import TermsandCondtions from "./TermsandCondtions";
+import PowerSettingsNewOutlinedIcon from "@mui/icons-material/PowerSettingsNewOutlined";
 
 import { Styles } from "./SalonOwnerPage.Styles";
 import "./SalonOwnerPage.css";
@@ -140,17 +141,14 @@ class SalonOwnerPage extends Component<SalonProps> {
                 className={classes.changePasscodeButton}
               >
                 <LockIcon />
-                Change  Passcode
+                Change Passcode
               </Button>
             </Grid>
-            <Grid item xs={11}
-              md={1.9}
-              sm={4}
-              lg={1.6}>
+            <Grid item xs={11} md={1.9} sm={4} lg={1.6}>
               <Button
                 sx={{
-                    mt: {md: '35px !important', sm: '5px !important'},
-                  height: { md: "57px", sm: "57px",  },
+                  mt: { md: "35px !important", sm: "5px !important" },
+                  height: { md: "57px", sm: "57px" },
                   width: { md: "149px !important", xs: "100% !important" },
                   ml: { xs: 2, sm: 0 },
                 }}
@@ -159,6 +157,7 @@ class SalonOwnerPage extends Component<SalonProps> {
                   this.props.navigate("/");
                 }}
               >
+                <PowerSettingsNewOutlinedIcon sx={{ mr: 1 }} />
                 Log Out
               </Button>
             </Grid>

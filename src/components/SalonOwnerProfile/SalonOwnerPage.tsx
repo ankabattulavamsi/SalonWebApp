@@ -8,15 +8,17 @@ import { ButtonData } from "../../utils/data/SalonOwnerData/ButtonData";
 import BookingHistoryTable from "./BookingHistoryTable";
 import PrivacyandPolicy from "./PrivacyandPolicy";
 import TermsandCondtions from "./TermsandCondtions";
-
-import { Styles } from "./SalonOwnerPage.Styles";
-import "./SalonOwnerPage.css";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import PowerSettingsNewOutlinedIcon from "@mui/icons-material/PowerSettingsNewOutlined";
 import { withStyles } from "@mui/styles";
 import Layout from "../Layout/Layout";
 import ChangePasscode from "../ChangePasscode/ChangePasscode";
 import EditBusinessProfile from "../ChangePasscode/EditBusinessProfile";
 import Eliipe from "../../assets/images/BuesnessProfile/Ellipse 9.png";
 import withRouter from "../../hoc/withRouter";
+
+import { Styles } from "./SalonOwnerPage.Styles";
+import "./SalonOwnerPage.css";
 
 interface SalonEditState {
   activeTab: string;
@@ -163,6 +165,7 @@ class SalonOwnerPage extends Component<SalonProps> {
                   my: { sm: "40px", md: 0, xs: "20px" },
                 }}
               >
+                <EditOutlinedIcon sx={{ mr: 1 }} />
                 Edit Bussness Details
               </Button>
               <Button
@@ -176,6 +179,7 @@ class SalonOwnerPage extends Component<SalonProps> {
                   this.props.navigate("/");
                 }}
               >
+                <PowerSettingsNewOutlinedIcon sx={{ mr: 1 }} />
                 Log Out
               </Button>
             </Grid>
