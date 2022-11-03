@@ -258,9 +258,9 @@ class Navbar extends Component<{}, navSate> {
 					<Box className="nav-menulink">
 						{landingMenu.map((menu) => {
 							return (
-								<Link
+								<a
 									key={menu.id}
-									to={menu.path}
+									href={menu.path}
 									className={
 										menu.title === this.state.activeLink
 											? "active"
@@ -270,7 +270,7 @@ class Navbar extends Component<{}, navSate> {
 										this.setState({ activeLink: menu.title })
 									}>
 									{menu.title}
-								</Link>
+								</a>
 							);
 						})}
 					</Box>
@@ -317,15 +317,15 @@ class Navbar extends Component<{}, navSate> {
 										key={menu.id}
 										className="mobile-menus"
 										onClick={() => this.handleClick(menu.title)}>
-										<Link
-											to={menu.path}
+										<a
+											href={menu.path}
 											className={
 												menu.title === this.state.activeLink
 													? "moblie-active-link"
 													: "mobile-menus"
 											}>
 											{menu.title}
-										</Link>
+										</a>
 									</ListItem>
 								);
 							})}

@@ -44,7 +44,7 @@ export const Styles: any = {
 		display: "flex",
 		justifyContent: "space-between !important",
 		alignItems: "center !important",
-		marginTop:"80px",
+		marginTop: "0px",
 		[theme.breakpoints.down("sm")]: {
 			flexDirection: "column !important",
 			alignItems: "start !important",

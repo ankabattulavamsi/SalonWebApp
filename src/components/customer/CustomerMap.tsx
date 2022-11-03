@@ -90,7 +90,7 @@ export default function CustomerMap() {
         center={[20.5937, 78.9629]}
         zoom={13}
         className={classes.map}
-        scrollWheelZoom={false}
+        scrollWheelZoom={true}
       >
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
