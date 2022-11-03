@@ -233,6 +233,11 @@
 	.traingle-sec4 {
 		top: 49px;
 	}
+	.css-uhb5lp {
+		margin: 0 !important;
+		overflow: hidden;
+		width: 100% !important;
+	}
 }
 @media only screen and (min-width: 450px) and (max-width: 500px) {
 	.traingle-sec3 {
@@ -326,3 +331,14 @@
 		top: 49px;
 	}
 } */
+
+/* for notifiction */
+.jss92 {
+	width: 100% !important;
+}
+.main-notification .css-ekeie0 {
+	justify-content: right !important;
+}
+.main-notification .css-919eu4 {
+	opacity: 0 !important;
+}

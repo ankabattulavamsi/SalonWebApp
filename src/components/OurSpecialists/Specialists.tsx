@@ -33,7 +33,7 @@ class Specialists extends Component<IProps> {
 
 		return (
 			<>
-				<Grid container sx={{ mt: 10 }}>
+				<Grid container>
 					<Grid item xs={1} sm={1} md={1.5} lg={1.5}></Grid>
 					<Grid item xs={10} sm={10} md={9} lg={9}>
 						<Stack className={classes.specialist}>
