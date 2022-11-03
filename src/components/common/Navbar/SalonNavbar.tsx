@@ -34,7 +34,6 @@ interface salonState {
   lon: any;
   data: any;
   locationData: any;
-  
 }
 
 class SalonNavbar extends Component<salonProps, salonState> {
@@ -73,7 +72,7 @@ class SalonNavbar extends Component<salonProps, salonState> {
   };
 
   fetchdata = async () => {
-    console.log(this.state.lat, this.state.lon);
+    console.log("curr", this.state.lat, this.state.lon);
     await fetch(
       `https://api.opencagedata.com/geocode/v1/json?q=${this.state.lat}+${this.state.lon}&key=8518d29fbed240129135f8e8283c4c01`
     )
@@ -83,6 +82,7 @@ class SalonNavbar extends Component<salonProps, salonState> {
 
         this.setState({ data: data.results[0].formatted });
         let localData = data.results[0].components;
+
         let { state_district, state, country } = localData;
         localStorage.setItem(
           "Current Adress",
@@ -146,15 +146,14 @@ class SalonNavbar extends Component<salonProps, salonState> {
     } else {
       this.getLocation();
     }
-    
-   
   }
   onClickOpenCustomerCart = () => {
-    this.props.navigate('/customer/cart-items')
-  }
+    this.props.navigate("/customer/cart-items");
+  };
 
   render() {
     const { menus } = this.props;
+    console.log("data", this.state.data);
 
     return (
       <>
@@ -367,7 +366,7 @@ class SalonNavbar extends Component<salonProps, salonState> {
                   }}
                   onClick={this.onClickOpenCustomerCart}
                 >
-                  <ShoppingBasketIcon sx={{ fontSize: "32px" }}  />
+                  <ShoppingBasketIcon sx={{ fontSize: "32px" }} />
                   <Typography sx={{ pl: 1 }} variant="h6">
                     Cart
                   </Typography>
