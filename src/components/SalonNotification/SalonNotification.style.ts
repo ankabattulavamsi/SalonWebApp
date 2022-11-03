@@ -3,7 +3,7 @@
 export const NotificationStyles: any = {
 	MainDialogBox: {
 		// width: "395px",
-		height: "700px",
+		height: "763px",
 		"& .css-yiavyu-MuiBackdrop-root-MuiDialog-backdrop": {
 			backgroundColor: "transparent",
 		},
