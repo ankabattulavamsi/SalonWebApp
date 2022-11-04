@@ -29,7 +29,7 @@ class DownloadAdvertiementSection extends Component<
 					backgroundAttachment: "fixed",
 					backgroundPosition: { xs: "19%  center", md: "center center" },
 					width: "100%",
-					mb: 25,
+					mb: 5,
 					mt: { xs: 5, md: 15 },
 				}}>
 				<Container maxWidth="lg" sx={{ mt: 8 }}>

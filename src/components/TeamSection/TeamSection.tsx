@@ -18,7 +18,7 @@ export default class TeamSection extends Component {
 	render() {
 		return (
 			<Box>
-				<Box sx={{mb: -7, pt: 15}}>
+				<Box sx={{mb: -9, pt: 15}}>
 					<Typography
 						variant="h3"
 						className="underline--our-expert-team"
