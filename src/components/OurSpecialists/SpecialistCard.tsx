@@ -120,11 +120,11 @@ class SpecialistCard extends Component<IProps, State> {
 				<EditTeam 
 					open={this.state.openEditModal}
 					onClose={this.closeEditModal}
-					editImage={this.state.imgeUrl}
-					handleOnChangeImage={this.handleOnChangeImage}
-					editId={this.state.editId}
-					onClicOfCloseBadge={this.handleCloseBage}
-onSubmitEditModel={this.onSubmitEditModel}
+// 					editImage={this.state.imgeUrl}
+// 					handleOnChangeImage={this.handleOnChangeImage}
+// 					editId={this.state.editId}
+// 					onClicOfCloseBadge={this.handleCloseBage}
+// onSubmitEditModel={this.onSubmitEditModel}
 				/>
 			</>
 		);

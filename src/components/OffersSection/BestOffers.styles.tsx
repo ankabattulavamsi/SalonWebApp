@@ -177,5 +177,12 @@ export const StylesOffers: any  = (theme: any) =>  ({
     width: '100% !important',
     height: '220px !important',
     objectFit: "cover !important"
-  }
+  },
+
+
+  /// category css
+
+ 
+
+
 });
