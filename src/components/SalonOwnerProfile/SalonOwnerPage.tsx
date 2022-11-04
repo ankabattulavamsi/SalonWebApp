@@ -8,7 +8,7 @@ import { ButtonData } from "../../utils/data/SalonOwnerData/ButtonData";
 import BookingHistoryTable from "./BookingHistoryTable";
 import PrivacyandPolicy from "./PrivacyandPolicy";
 import TermsandCondtions from "./TermsandCondtions";
-import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import EditIcon from '@mui/icons-material/Edit';
 import PowerSettingsNewOutlinedIcon from "@mui/icons-material/PowerSettingsNewOutlined";
 import { withStyles } from "@mui/styles";
 import Layout from "../Layout/Layout";
@@ -165,8 +165,8 @@ class SalonOwnerPage extends Component<SalonProps> {
                   my: { sm: "40px", md: 0, xs: "20px" },
                 }}
               >
-                <EditOutlinedIcon sx={{ mr: 1 }} />
-                Edit Bussness Details
+                <EditIcon sx={{ mr: 1 }} />
+                Edit Bussness Profile
               </Button>
               <Button
                 sx={{

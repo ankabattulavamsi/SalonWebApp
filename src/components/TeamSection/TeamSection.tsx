@@ -17,7 +17,7 @@ import { TeamData, teamdata } from "../../utils/data/expertTeam/team";
 export default class TeamSection extends Component {
 	render() {
 		return (
-			<Box sx={{ pt: { xs: 10, sm: 10, md: 9 }, pb: 0 }}>
+			<Box>
 				<Box>
 					<Typography
 						variant="h3"
@@ -55,7 +55,7 @@ export default class TeamSection extends Component {
 							dotListClass="custom-dot-list-style">
 							{teamdata.map((team: TeamData, index: number) => {
 								return (
-									<Card key={index} className="export-team">
+									<Card key={index} className="export-team export-member">
 										<Box sx={{ position: "relative" }} className="">
 											<div className="hero"></div>
 											<CardMedia
@@ -107,11 +107,16 @@ const responsive = {
 	},
 	tablet: {
 		breakpoint: { max: 1113, min: 763 },
+		items: 3,
+		slidesToSlide: 3, // optional, default to 1.
+	},
+	miniTablet: {
+		breakpoint: { max: 763, min: 501 },
 		items: 2,
 		slidesToSlide: 2, // optional, default to 1.
 	},
 	mobile: {
-		breakpoint: { max: 763, min: 0 },
+		breakpoint: { max: 500, min: 0 },
 		items: 1,
 		slidesToSlide: 1, // optional, default to 1.
 	},

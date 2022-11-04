@@ -52,19 +52,13 @@ class Specialists extends Component<IProps> {
 									}
 								/>
 							</Box>
-							<Grid className={classes.CardItems} gap={2} container>
+							<Box className={classes.CardItems}>
 								{specialistData.map((team: TeamData, index: number) => (
-									<Grid
-										key={index}
-										className="innerCard"
-										sm={4}
-										md={4}
-										lg={4}
-										item>
+									<Box key={index} className="innerCard">
 										<SpecialistCard team={team} />
-									</Grid>
+									</Box>
 								))}
-							</Grid>
+							</Box>
 						</Stack>
 						<Box className={classes.carouselSec}>
 							<Container maxWidth="lg">
