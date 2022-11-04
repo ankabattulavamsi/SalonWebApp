@@ -241,6 +241,7 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
 												<CardMedia
 													component="img"
 													image={item.editImage}
+                          className={classes.CardImageOffer}
 													alt="green iguana"
 													src={item.offerImage}
 												/>
