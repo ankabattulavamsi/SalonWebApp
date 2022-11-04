@@ -79,7 +79,7 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
 			<Drawers
 				open={open}
 				toggleDrawer={() => this.props.onCloseEditBModel()}>
-				<Box>
+				<Box sx={{ padding: "0px !important" }} className="drawerSize">
 					<Typography variant="h5" className={classes.busText}>
 						Edit Business Profile
 					</Typography>
@@ -96,7 +96,8 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
 					}}
 					validationSchema={this.businessEditSchema}
 					onSubmit={() => this.props.onCloseEditBModel()}>
-					<Form
+					<Form 
+					className={classes.formAlignProp}
 						onSubmit={(e) => {
 							e.preventDefault();
 							this.props.onCloseEditBModel();
@@ -110,6 +111,7 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
 									gap: 2,
 									width: "90%",
 									mx: "auto",
+									ml: 0.5
 								}}>
 								<Box width={"30%"}>
 									<Box
