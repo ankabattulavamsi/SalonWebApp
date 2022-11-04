@@ -24,6 +24,9 @@ export const BusinessStyles: any = (theme: Theme) => ({
       fontSize: "30px !Important",
     },
   },
+  formAlignProp: {
+    marginLeft: '-20px !important'
+  },
   profilelabelText: {
     fontFamily: "Fira Sans !Important",
     fontStyle: "normal !Important",

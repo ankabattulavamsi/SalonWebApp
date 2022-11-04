@@ -170,7 +170,7 @@ class BuisnessDetails extends Component<
 										<Inputs
 											label={"Address"}
 											id={`${3}`}
-											placeholder="Enter address"
+											placeholder="Enter Address"
 											required={true}
 											type={"textarea"}
 											handleChange={(e) => this.props.handleChange(e)}
