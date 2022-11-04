@@ -19,7 +19,12 @@ class EditCategory extends Component<IProps> {
 				onClose={this.props.onClose}>
 				<Box className="addBox">
 					<Stack sx={{ marginRight: "40px" }}>
-						<img src={member} alt="member" className="imageMember" />
+						<img
+							src={member}
+							alt="member"
+							className="imageMember"
+							style={{ height: "162px" }}
+						/>
 						{/* <TextField type="file" /> */}
 						{/* <UploadImage /> */}
 					</Stack>

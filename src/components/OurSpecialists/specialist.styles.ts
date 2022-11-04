@@ -4,13 +4,34 @@ import theme from "../../Theme/Theme";
 
 export const Styles: any = {
 	CardItems: {
+		display: "grid !important",
+		gridTemplateColumns: "repeat(3 , 1fr) !important",
 		marginTop: "50px",
-		[theme.breakpoints.only("sm")]: {
+		[theme.breakpoints.up("sm")]: {
 			display: "grid !important",
 			gridTemplateColumns: "repeat(3 , 1fr) !important",
 		},
+		"@media only screen and (min-width: 600px) and (max-width: 750px)": {
+			gridTemplateColumns: "repeat(2 , 1fr) !important",
+		},
 		[theme.breakpoints.down("sm")]: {
 			display: "none !important",
+		},
+	},
+	specialImg: {
+		height: "280px",
+		display: "block",
+		objectFit: "fill !important",
+		justifyContent: "center",
+		margin: "auto",
+		width: "auto !important",
+		[theme.breakpoints.only("md")]: {
+			width: "100% !important",
+			objectFit: "cover !important",
+		},
+		[theme.breakpoints.between("sm", "md")]: {
+			width: "100% !important",
+			objectFit: "cover !important",
 		},
 	},
 	carouselSec: {

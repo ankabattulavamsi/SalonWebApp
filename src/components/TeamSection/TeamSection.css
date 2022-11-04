@@ -8,6 +8,7 @@
 	position: relative !important;
 	z-index: 1;
 	margin-right: 20px;
+	margin-top: 2rem;
 }
 .export-team:hover .hero {
 	background-color: #ebb273;
@@ -43,9 +44,7 @@
 	margin: auto;
 	justify-content: center;
 }
-.export-team {
-	margin-top: 35% !important;
-}
+
 .corosel-team-experts .react-multiple-carousel__arrow {
 	background-color: transparent !important;
 	margin-top: 10%;

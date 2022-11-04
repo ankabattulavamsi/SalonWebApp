@@ -15,16 +15,19 @@ import { DeleteOutline } from "@mui/icons-material";
 import "./specialist.css";
 import DeleteModal from "../common/DeleteModal/DeleteModal";
 import EditTeam from "./EditTeam";
+import { Styles } from "./specialist.styles";
+import { withStyles } from "@mui/styles";
 
 interface IProps {
 	team: TeamData;
+	classes?: any;
 }
 
 interface State {
 	open: boolean;
 	openEditModal: boolean;
 }
-export default class SpecialistCard extends Component<IProps, State> {
+class SpecialistCard extends Component<IProps, State> {
 	state: State = {
 		open: false,
 		openEditModal: false,
@@ -42,7 +45,7 @@ export default class SpecialistCard extends Component<IProps, State> {
 		this.setState({ openEditModal: false });
 	};
 	render() {
-		const { team } = this.props;
+		const { team, classes } = this.props;
 		return (
 			<>
 				<Card className="special-team">
@@ -51,14 +54,7 @@ export default class SpecialistCard extends Component<IProps, State> {
 						<CardMedia
 							component={"img"}
 							src={team.imgeUrl}
-							sx={{
-								height: "280px",
-								display: "block",
-								objectFit: "fill !important",
-								justifyContent: "center",
-								margin: "auto",
-								width: "auto !important",
-							}}
+							className={classes.specialImg}
 							alt={team.title}></CardMedia>
 					</Box>
 					<CardContent
@@ -110,3 +106,4 @@ export default class SpecialistCard extends Component<IProps, State> {
 		);
 	}
 }
+export default withStyles(Styles)(SpecialistCard);

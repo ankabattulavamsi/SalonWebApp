@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { Component, Fragment } from "react";
 import { Box, Grid } from "@mui/material";
 
@@ -14,31 +16,31 @@ import SalonCategory from "../../components/Categories/SalonCategory";
 import SalonBlogSection from "../../components/OurBlogs/SalonBlogSection";
 
 class SalonPartner extends Component {
-  render() {
-    return (
-      <Fragment>
-        <SalonNavbar customer={false} menus={salonMenu} />
-        <Grid container>
-          {/* salon page sections */}
-          <OwnerDashboardCharts />
-          <Box sx={{ mx: "auto", width: "100%" }}>
-            <BookingDashboard />
-          </Box>
-            <SalonCategory />
-          <Box >
-            <SalonPatnerBestOffers />
-          </Box>
+	render() {
+		return (
+			<Fragment>
+				<SalonNavbar customer={false} menus={salonMenu} />
+				<Grid container>
+					{/* salon page sections */}
+					<OwnerDashboardCharts />
+					<Box sx={{ mx: "auto", width: "100%" }}>
+						<BookingDashboard />
+					</Box>
+					<SalonCategory />
+					<Box>
+						<SalonPatnerBestOffers />
+					</Box>
 
-          <div id="/" style={{ margin: "50px auto", width: "100%" }}>
-            <GalleryOwner />
-          </div>
-          <Specialists />
-          <SalonBlogSection />
-        </Grid>
-        <Footer salon={true} />
-      </Fragment>
-    );
-  }
+					<div id="/" style={{ margin: "50px auto", width: "100%" }}>
+						<GalleryOwner />
+					</div>
+					<Specialists />
+					<SalonBlogSection />
+				</Grid>
+				<Footer salon={true} />
+			</Fragment>
+		);
+	}
 }
 
 export default SalonPartner;

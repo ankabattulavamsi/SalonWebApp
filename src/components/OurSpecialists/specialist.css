@@ -13,6 +13,9 @@
 	.special-team {
 		margin-bottom: 0px !important;
 	}
+	.special-team-content {
+		height: 100px;
+	}
 }
 .special-team:hover {
 	cursor: pointer;
@@ -23,15 +26,7 @@
 	background-color: #ebb273 !important;
 	color: #fff !important;
 }
-.special-team:hover .hero {
-	background-color: #ebb273;
-	height: 278px;
-	position: absolute;
-	top: 66px;
-	/* left: 0; */
-	width: 100%;
-	z-index: -1;
-}
+
 .special-team:hover .special-team-content p {
 	color: #fff !important;
 }
@@ -78,6 +73,12 @@
 	display: none !important;
 }
 .innerCard {
+	margin-right: 15px;
+}
+.innerCard:last-child {
+	margin-right: 0px !important;
+}
+/* .innerCard {
 	flex-basis: 32.2% !important;
 }
 @media only screen and (min-width: 980px) and (max-width: 1050px) {
@@ -100,7 +101,7 @@
 	.special-team .special-team-content {
 		height: 100px !important;
 	}
-}
+} */
 
 .addBox {
 	display: flex;
