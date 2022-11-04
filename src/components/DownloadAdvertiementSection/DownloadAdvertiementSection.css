@@ -6,6 +6,7 @@
   background-color: #ebb273;
   text-align: left;
   margin-top: 15px;
+  padding-bottom: -55px !important;
 }
 
 .underline-download-app {
