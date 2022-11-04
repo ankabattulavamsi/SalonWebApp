@@ -26,24 +26,43 @@ interface IProps {
 interface State {
 	open: boolean;
 	openEditModal: boolean;
+	imgeUrl: string,
+	editId: string
 }
 class SpecialistCard extends Component<IProps, State> {
 	state: State = {
 		open: false,
 		openEditModal: false,
+		imgeUrl: '',
+		editId: ''
 	};
+
+	onSubmitEditModel = () => {
+		this.setState({ openEditModal: false });
+	}
+	handleOnChangeImage = (e: any) => {
+		this.setState({ imgeUrl: URL.createObjectURL(e.target.files[0]) });
+	};
+
 	onClose = () => {
 		this.setState({ open: false });
 	};
 	onClickFunc = () => {
 		this.setState({ open: true });
 	};
-	onEditFunc = () => {
+	onEditFunc = (item:any) => {
+		this.setState({ editId: item.id });
 		this.setState({ openEditModal: true });
+		this.setState({ imgeUrl: item.imgeUrl });
 	};
 	closeEditModal = () => {
 		this.setState({ openEditModal: false });
 	};
+
+	handleCloseBage = () => {
+		this.setState({imgeUrl: ''})
+	};
+
 	render() {
 		const { team, classes } = this.props;
 		return (
@@ -80,7 +99,7 @@ class SpecialistCard extends Component<IProps, State> {
 						variant="outlined"
 						aria-label="split button">
 						<Button
-							onClick={this.onEditFunc}
+							onClick={() => this.onEditFunc(team)}
 							className="buttonTogether edit"
 							startIcon={<EditIcon />}>
 							Edit
@@ -98,9 +117,14 @@ class SpecialistCard extends Component<IProps, State> {
 					open={this.state.open}
 					onClose={this.onClose}
 				/>
-				<EditTeam
+				<EditTeam 
 					open={this.state.openEditModal}
 					onClose={this.closeEditModal}
+					editImage={this.state.imgeUrl}
+					handleOnChangeImage={this.handleOnChangeImage}
+					editId={this.state.editId}
+					onClicOfCloseBadge={this.handleCloseBage}
+onSubmitEditModel={this.onSubmitEditModel}
 				/>
 			</>
 		);

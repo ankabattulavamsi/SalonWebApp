@@ -203,6 +203,7 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
 														alt="{item.title}"
 														style={{
 															objectFit: "cover",
+															backgroundSize: 'cover',
 															width: "100%",
 															height: "90%",
 														}}
@@ -213,8 +214,9 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
 														alt="{title}"
 														style={{
 															objectFit: "cover",
+															backgroundSize: 'cover',
 															width: "90%",
-															height: "90%",
+															height: "30%",
 														}}
 													/>
 												)}
@@ -230,15 +232,7 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
 													<>
 														{editImage === "" && editImage === "" ? (
 															<>
-																{/* <Box bgcolor={"#f0f0f0"} padding={"10px 9px"}>
-                              <Box p={"9px 13px "}>
-                                <Icon
-                                  sx={{ color: "#A4A1A1", fontSize: "80px" }}
-                                >
-                                  +
-                                </Icon>
-                              </Box>
-                            </Box> */}
+															
 															</>
 														) : editImage && editId !== "" ? (
 															<Badge
@@ -441,7 +435,7 @@ class SalonBestOffersModel extends Component<IsStatePassProps> {
 										<Grid item xs={6} md={6} lg={6}>
 											<Box
 												className={classes.ModelDeleteButton}
-												onClick={this.props.onSubmitEditModel}>
+												onClick={this.props.handleClose}>
 												<Button
 													startIcon={<CloseIcon />}
 													onClick={this.props.handleClose}
