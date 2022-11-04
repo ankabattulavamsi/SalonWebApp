@@ -55,7 +55,7 @@ export default class TeamSection extends Component {
 							dotListClass="custom-dot-list-style">
 							{teamdata.map((team: TeamData, index: number) => {
 								return (
-									<Card key={index} className="export-team">
+									<Card key={index} className="export-team export-member">
 										<Box sx={{ position: "relative" }} className="">
 											<div className="hero"></div>
 											<CardMedia
