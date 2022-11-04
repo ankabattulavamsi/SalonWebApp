@@ -20,6 +20,8 @@ import { salonCategoryData } from "../../utils/data/SalonCategory/SalonCategory_
 import withRouter from "../../hoc/withRouter";
 import CategoryEditModal from "./CategoryEditModal";
 import DeleteModal from "../common/DeleteModal/DeleteModal";
+import { SalonBestOffersData } from "../../utils/data/SalonPatnerBestOffers/SalonBestOffers";
+import SalonBestOffersModel from "../OffersSection/SalonBestOffersModel";
 
 interface categoryProps {
   classes: any;
@@ -87,6 +89,7 @@ class SalonCategoryCard extends Component<categoryProps> {
           open={this.state.edit}
           onClose={this.onEditClose}
         />
+        
       </>
     );
   }
