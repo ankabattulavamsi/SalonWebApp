@@ -36,7 +36,7 @@ export default class EditImage extends Component<
 						postion: "relative",
 						width: { md: "350px", xs: "100%" },
 						mx: "auto",
-						height: "270px",
+						height: "300px!important",
 					}}>
 					{this.props.editImage === "" && this.props.editImage === "" ? (
 						<>
@@ -166,13 +166,7 @@ export default class EditImage extends Component<
 							{this.props.editImage === "" &&
 							this.props.editImage === "" ? (
 								<>
-									{/* <Box bgcolor={"#f0f0f0"} padding={"10px 9px"}>
-										<Box p={"9px 13px "}>
-											<Icon sx={{ color: "#A4A1A1", fontSize: "80px" }}>
-												+
-											</Icon>
-										</Box>
-									</Box> */}
+							
 								</>
 							) : this.props.editImage && this.props.editId !== "" ? (
 								<Badge

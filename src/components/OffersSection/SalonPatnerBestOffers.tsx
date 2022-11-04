@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 
-import {
-  Button,
-  CardMedia,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Button, CardMedia, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { withStyles } from "@mui/styles";
 
@@ -20,43 +15,161 @@ import SalonBestOffersModel from "./SalonBestOffersModel";
 import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
 
 import "./SalonBestOffers.css";
+import DeleteModal from "../common/DeleteModal/DeleteModal";
 
 interface IsStateProps {
   classes: any;
   navigate?: any;
 }
-
 interface IsState {
   open: boolean;
+  openDeleteModel: boolean;
+  addNewOfferOpen: boolean;
+  SalonOffersData: any[];
+  editId: string;
+  editOfferTitle: string;
+  editPrice: string;
+  editDissPrice: string;
+  editDescription: string;
+  editImage: string;
+  deleteId: string;
 }
 
 export class SalonPatnerBestOffers extends Component<IsStateProps> {
   state: IsState = {
     open: false,
-  };
-
-  onClickOpenModel = () => {
-    this.setState({ open: true });
-  };
-
-  handleClose = () => {
-    this.setState({ open: false });
+    openDeleteModel: false,
+    addNewOfferOpen: false,
+    SalonOffersData: SalonBestOffersData || [],
+    editId: "",
+    editOfferTitle: "",
+    editPrice: "",
+    editDissPrice: "",
+    editDescription: "",
+    editImage: "",
+    deleteId: "",
   };
 
   onClickNavigateOffersPage = () => {
     this.props.navigate("/salon/offers");
   };
 
+  handleCloseAddOffer = () => {
+    this.setState({ addNewOfferOpen: false });
+  };
+
+  onClose = () => {
+    this.setState({ openDeleteModel: false });
+  };
+
+  onClickOpenModel = (item: any) => {
+    this.setState({ open: true });
+    this.setState({ editId: item.id });
+    this.setState({ editOfferTitle: item.headingOff });
+    this.setState({ editPrice: item.price });
+    this.setState({ editDissPrice: item.dissPrice });
+    this.setState({ editDescription: item.description });
+    this.setState({ editImage: item.offerImage });
+  };
+
+  handleClickOpenAddModel = () => {
+    this.setState({ addNewOfferOpen: true });
+  };
+
+  onSubmitEditModel = () => {
+    const {
+      SalonOffersData,
+      editId,
+      editOfferTitle,
+      editPrice,
+      editDissPrice,
+      editDescription,
+      editImage,
+    } = this.state;
+    const findIndex = SalonOffersData.findIndex((item) => item.id === editId);
+    SalonOffersData[findIndex].headingOff = editOfferTitle;
+    SalonOffersData[findIndex].price = editPrice;
+    SalonOffersData[findIndex].dissPrice = editDissPrice;
+    SalonOffersData[findIndex].description = editDescription;
+    SalonOffersData[findIndex].offerImage = editImage;
+    this.setState({ SalonBestOffersData: SalonBestOffersData });
+    this.setState({ open: false });
+    this.setState({ editOfferTitle: "" });
+    this.setState({ editPrice: "" });
+    this.setState({ editDissPrice: "" });
+    this.setState({ editDescription: "" });
+    this.setState({ editImage: "" });
+  };
+
+  handleCloseBage = () => {
+    this.setState({
+      editImage: "",
+      id: this.state.editId,
+    });
+  };
+
+  handleOnChangeImage = (e: any) => {
+    this.setState({ editImage: URL.createObjectURL(e.target.files[0]) });
+  };
+
+  onChangeeditOfferTitle = (e: any) => {
+    this.setState({ editOfferTitle: e.target.value });
+  };
+
+  onChangePrice = (e: any) => {
+    this.setState({ editPrice: e.target.value });
+  };
+
+  onChangeDissPrice = (e: any) => {
+    this.setState({ editDissPrice: e.target.value });
+  };
+
+  onChangeDescription = (e: any) => {
+    this.setState({ editDescription: e.target.value });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+    this.setState({ editOfferTitle: "" });
+    this.setState({ editPrice: "" });
+    this.setState({ editDissPrice: "" });
+    this.setState({ editDescription: "" });
+    this.setState({ editImage: "" });
+  };
+
+  onClickDeleteOffer = (id: any) => {
+    this.setState({ editId: id });
+    this.setState({ openDeleteModel: true });
+  };
+
+  onClickOfferDelete = (id: any) => {
+    this.setState({
+      SalonOffersData: this.state.SalonOffersData.filter(
+        (item) => item.id !== id
+      ),
+    });
+    this.setState({ openDeleteModel: false });
+  };
   render() {
     const { classes } = this.props;
-    const { open } = this.state;
+    const {
+      open,
+      SalonOffersData,
+      editId,
+      editOfferTitle,
+      editPrice,
+      editDissPrice,
+      editDescription,
+      addNewOfferOpen,
+      editImage,
+    } = this.state;
 
     const navigatePageButton = "View All Offers";
 
     return (
       <>
         <Box>
-          <Box sx={{pb: 11, mt: 4 }} className={classes.MainContainer}>
+          <Box sx={{ pb: 11, mt: 4 }} className={classes.MainContainer}>
             <Grid
               container
               justifyContent="center"
@@ -99,7 +212,7 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
               rowSpacing={3}
               sx={{ px: { sm: 4, xs: 2, md: 0, lg: 0 } }}
             >
-              {SalonBestOffersData.slice(0, 2).map((item:any) => {
+              {SalonBestOffersData.slice(0, 2).map((item: any, index:any) => {
                 return (
                   <Grid item lg={4.5} md={5} xs={12} sm={6} key={item.id}>
                     <Box>
@@ -109,8 +222,10 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
                       >
                         <CardMedia
                           component="img"
-                          image={item.offerImage}
+                          image={item.editImage}
                           alt="green iguana"
+                          src={item.offerImage}
+                          className={classes.CardImageOffer}
                         />
                         <Box>
                           <Box className={classes.headingCardContainer}>
@@ -152,7 +267,7 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
                             className={classes.SalonEditDeleteButonsContainer}
                           >
                             <Button
-                              onClick={this.onClickOpenModel}
+                              onClick={() => this.onClickOpenModel(item)}
                               startIcon={<ModeEditIcon />}
                               className="best-offers-edit-btn-text"
                             >
@@ -160,6 +275,9 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
                             </Button>
 
                             <Button
+                            onClick={(e) =>
+                              this.onClickDeleteOffer(index)
+                            }
                               startIcon={<DeleteIcon />}
                               className="best-offers-delete-btn-text"
                             >
@@ -174,7 +292,30 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
               })}
             </Grid>
           </Box>
-          {/* <SalonBestOffersModel open={open} handleClose={this.handleClose} /> */}
+          <SalonBestOffersModel
+            open={open}
+            handleClose={this.handleClose}
+            editOfferTitle={editOfferTitle}
+            editId={editId}
+            editPrice={editPrice}
+            editImage={editImage}
+            editDissPrice={editDissPrice}
+            editDescription={editDescription}
+            onClicOfCloseBadge={this.handleCloseBage}
+            handleOnChangeImage={this.handleOnChangeImage}
+            onChangeeditOfferTitle={this.onChangeeditOfferTitle}
+            onSubmitEditModel={this.onSubmitEditModel}
+            onChangePrice={this.onChangePrice}
+            onChangeDissPrice={this.onChangeDissPrice}
+            onChangeDescription={this.onChangeDescription}
+          />
+
+          <DeleteModal
+            jobTitle="Offer"
+            open={this.state.openDeleteModel}
+            onClose={this.onClose}
+            handleConfirmDelete={this.onClickOfferDelete}
+          />
         </Box>
       </>
     );

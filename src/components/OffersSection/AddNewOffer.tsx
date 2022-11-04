@@ -226,7 +226,7 @@ export class AddNewOffer extends Component<IsAddNewProps> {
 												<Button
 													startIcon={<ClassIcon />}
 													className={classes.ModelSaveText}>
-													Add
+													Add New Offer
 												</Button>
 											</Box>
 										</Grid>
