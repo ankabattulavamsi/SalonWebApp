@@ -2,9 +2,9 @@ import {
   FormControl,
   Grid,
   InputAdornment,
-  InputLabel,
   MenuItem,
   Pagination,
+  PaginationItem,
   Select,
   TextField,
   Typography,
@@ -187,11 +187,23 @@ class BookingHistoryTable extends Component {
             })}
           </div>
         </>
-        <Box sx={{ my: 5, display: "flex", justifyContent: "flex-end" }}>
+        <Box
+          sx={{
+            my: 5,
+            display: "flex",
+          }}
+          className={classes.profilePagination + " pagination-booking"}
+        >
           <Pagination
-            count={4}
+            count={8}
             shape="rounded"
-            sx={{ height: "20px !important" }}
+            className={classes.paginationItemText}
+            renderItem={(item) => (
+              <PaginationItem
+                {...item}
+                classes={{ selected: classes.paginationItem }}
+              />
+            )}
           />
         </Box>
       </>

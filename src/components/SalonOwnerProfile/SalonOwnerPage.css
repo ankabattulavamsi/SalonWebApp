@@ -40,34 +40,6 @@
   margin-left: 0px !important;
 }
 
-.css-1djycer-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 30px;
-  letter-spacing: 0.01em;
-  text-transform: capitalize;
-  color: #ffffff;
-  height: 66px;
-  width: 46px;
-  background-color: #272522 !important;
-}
-.css-wjh20t-MuiPagination-ul {
-  background-color: #f0f0f0 !important;
-}
-.css-1djycer-MuiButtonBase-root-MuiPaginationItem-root {
-  height: 66px;
-  width: 46px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px !important;
-  line-height: 30px;
-  letter-spacing: 0.01em;
-  text-transform: capitalize;
-}
-
 .activate-class {
   box-shadow: -5px 8px 10px 10px rgba(0, 0, 0, 0.1) !important;
   /* filter: drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.25)); */
@@ -75,20 +47,16 @@
 }
 
 @media only screen and (max-width: 800px) {
-  css-1djycer-MuiButtonBase-root-MuiPaginationItem-root {
-    font-size: 14px !important;
-    line-height: 10px;
-    height: 30px !important;
-    width: 20px !important;
-    background-color: red;
-  }
   .profile-header-image {
     height: 155px !important;
   }
-  .css-wjh20t-MuiPagination-ul {
-    background-color: #f0f0f0 !important;
-  }
 }
+
+/* @media only screen (min-width: 767px) and (max-width: 820px) {
+  .salonOwnerName {
+    margin-top: 10rem;
+  }
+} */
 
 .profile-header-image {
   height: 275px;
@@ -98,11 +66,21 @@
   display: none;
 }
 
+.pagination-booking {
+  justify-content: end;
+}
+
 @media only screen and (min-width: 300px) and (max-width: 600px) {
   .web-table {
     display: none;
   }
   .mobile-table {
     display: block;
+  }
+  .css-4obw3g-MuiButtonBase-root-MuiButton-root {
+    margin-left: 11px !important;
+  }
+  .pagination-booking {
+    display: flex;
   }
 }
