@@ -131,7 +131,7 @@ class SalonOwnerPage extends Component<SalonProps> {
                   fontSize: { md: "25px", xs: "22px" },
                   mt: { sm: "30px", md: 0 },
                 }}
-                className={classes.salonOwnerName}
+                className={classes.salonOwnerName + " salonOwnerName"}
               >
                 {this.state.owner}
               </Typography>
@@ -171,7 +171,7 @@ class SalonOwnerPage extends Component<SalonProps> {
               <Button
                 sx={{
                   height: { md: "57px", sm: "57px" },
-                  width: { md: "149px", xs: "133px !important" },
+                  width: { md: "149px", xs: "123px !important" },
                   ml: { xs: 2, sm: 0 },
                 }}
                 className={classes.ownerLogoutButton}

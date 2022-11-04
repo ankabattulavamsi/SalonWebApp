@@ -139,4 +139,41 @@ export const Styles: any = (theme: any) => ({
     },
     m: "2 !important",
   },
+
+  profilePagination: {
+    "& .MuiPagination-root": {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "#f0f0f0 !important",
+      borderRadius: "5px !important",
+    },
+  },
+
+  //  .MuiPaginationItem-root":
+  paginationItem: {
+    color: "#FFFFFF !important",
+    backgroundColor: "black !important",
+    fontFamily: '"Roboto" !important',
+    fontStyle: "normal !important",
+    fontWeight: "500 !important",
+    fontSize: "20px !important",
+    lineHeight: "30px",
+    letterSpacing: "0.01em !important",
+    textTransform: "capitalize !important",
+    height: "66px !important",
+    width: "46px !important",
+  },
+  paginationItemText: {
+    "& .MuiPaginationItem-rounded": {
+      fontFamily: "Roboto !important",
+      fontStyle: "normal !important",
+      fontWeight: "500 !important",
+      fontSize: "20px !important",
+      lineHeight: "30px !important",
+      letterSpacing: "0.01em !important",
+      textTransform: "capitalize !important",
+      color: "#A4A1A1 ",
+    },
+  },
 });

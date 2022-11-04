@@ -97,45 +97,25 @@ class ChangePasscode extends Component<ChangeCodeProps> {
             disableScrollLock={true}
             open={open}
             // maxWidth="md"
-            className="dialog-box-change"
+            className={classes.editableDialogue}
           >
-            <Box>
-              <IconButton
-                aria-label="close"
-                onClick={onCloseChangeModel}
-                sx={{
-                  position: "absolute",
-                  right: "6px",
-                  top: "-13px",
-                  color: "#fff",
-                }}
-              >
-                <CloseIcon style={{ width: "35px" }} />
-              </IconButton>
-            </Box>
-            <Divider />
-            <Box
+            <IconButton
+              aria-label="close"
+              onClick={onCloseChangeModel}
               sx={{
-                backgroundColor: "#fff",
-                p: { xs: 2, md: 5, sm: 5, lg: 2 },
-                // width: { xs: "110%", md: "100%", sm: "100%", lg: "100%" },
+                position: "absolute",
+                right: "6px",
+                top: "-13px",
+                color: "#fff",
               }}
             >
-              <Box sx={{}}>
-                <Typography
-                  sx={{
-                    fontFamily: "Fira Sans",
-                    fontStyle: " normal",
-                    fontWeight: 700,
-                    fontSize: {
-                      xs: "14px",
-                      md: "20px",
-                      sm: "20px",
-                      lg: "24px",
-                    },
-                    lineHeight: "48px",
-                  }}
-                >
+              <CloseIcon className={classes.iconButton} />
+            </IconButton>
+
+            <Divider />
+            <Box className={classes.mainBoxContainer}>
+              <Box>
+                <Typography className={classes.changePasscode}>
                   Change Your Passcode
                 </Typography>
                 <Formik
@@ -158,6 +138,7 @@ class ChangePasscode extends Component<ChangeCodeProps> {
                             color: "#272522",
                             fontSize: "17px",
                             textTransform: "capitalize",
+                            fontWeight: 500,
                           }}
                         >
                           Old Passcode
@@ -193,6 +174,7 @@ class ChangePasscode extends Component<ChangeCodeProps> {
                           color: "#272522",
                           fontSize: "17px",
                           textTransform: "capitalize",
+                          fontWeight: 500,
                         }}
                       >
                         New Passcode
@@ -227,6 +209,7 @@ class ChangePasscode extends Component<ChangeCodeProps> {
                           color: "#272522",
                           fontSize: "17px",
                           textTransform: "capitalize",
+                          fontWeight: 500,
                         }}
                       >
                         Confirm Passcode
@@ -265,7 +248,6 @@ class ChangePasscode extends Component<ChangeCodeProps> {
                         justifyContent: "center !important",
                         width: "250px",
                         height: "50px",
-                        m: 1,
                       }}
                     >
                       <Button
