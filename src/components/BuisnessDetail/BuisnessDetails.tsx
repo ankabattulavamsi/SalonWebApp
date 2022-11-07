@@ -72,7 +72,7 @@ class BuisnessDetails extends Component<
 				<Drawers
 					open={this.props.open}
 					toggleDrawer={() => this.props.handleToggleDrawer()}>
-					<Box sx={{ padding: "0px !important" }} className="drawerSize">
+					<Box>
 						<Box>
 							<Typography variant="h5" className={classes.busText}>
 								Business Details

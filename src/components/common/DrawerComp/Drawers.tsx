@@ -36,7 +36,9 @@ class Drawers extends Component<DrawersProps, {}> {
 							<CloseIcon className={classes.icon} />
 						</Button>
 					</Box>
-					<Box sx={{ px: 4 }}>{children}</Box>
+					<Box sx={{ px: 4 }} className="drawerSize">
+						{children}
+					</Box>
 				</Drawer>
 			</>
 		);
