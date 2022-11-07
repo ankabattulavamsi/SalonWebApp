@@ -49,7 +49,8 @@ class HomePage extends React.Component<HomeProps, HomeState> {
 				<div id="downloadsection">
 					<DownloadAdvertiementSection />
 				</div>
-				<div id="team">
+				<div id="team"
+				>
 					<TeamSection />
 				</div>
 				<div id="testimonial">

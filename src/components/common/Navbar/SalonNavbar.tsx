@@ -344,7 +344,16 @@ class SalonNavbar extends Component<salonProps, salonState> {
 									pl: { sm: 5 },
 								}}>
 								{this.state.isCustomer ? (
-									<Avatar alt="Remy Sharp" src={CustomerProfile} />
+									 <Box
+									 onClick={() => {
+									   this.props.navigate("/customer/profile");
+									 }}
+									 sx={{ display: "flex" }}
+								   >
+									 <Avatar alt="Remy Sharp" src={CustomerProfile} />
+									
+								   </Box>
+									
 								) : (
 									<Box
 										onClick={() => {
@@ -400,7 +409,18 @@ class SalonNavbar extends Component<salonProps, salonState> {
 										justifyContent: "space-around",
 										alignItems: "center",
 										mr: { xs: 1, sm: 6 },
-									}}>
+										color:
+										window.location.pathname === "/customer/cart-items"
+										  ? "#E7A356"
+										  : "",
+									  "&:hover": {
+										cursor: "pointer",
+									  },
+									}}
+									onClick={() => {
+										this.props.navigate("/customer/cart-items");
+									  }}
+									>
 									<ShoppingBasketIcon sx={{ fontSize: "32px" }} />
 									<Typography sx={{ pl: 1 }} variant="h6">
 										Cart {this.state.cartData.length}

@@ -64,7 +64,8 @@ class SalonNotification extends Component<NotiProps, State> {
 					open={open}
 					onClose={onClose}
 					disableScrollLock={true}
-					className={`${classes.MainDialogBox} main-notification`}>
+					className={`${classes.MainDialogBox} main-notification`}
+					>
 					<BootstrapDialogTitle
 						id="customized-dialog-title"
 						className={classes.DialogTitleBox}>
