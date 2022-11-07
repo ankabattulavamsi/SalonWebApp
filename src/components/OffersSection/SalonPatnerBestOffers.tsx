@@ -15,7 +15,6 @@ import CommonViewAllButton from "../common/CommonSalonPatnerButtons/CommonViewAl
 import { StylesOffers } from "./BestOffers.styles";
 import SalonBestOffersModel from "./SalonBestOffersModel";
 import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
-import image from "../../assets/images/Blogimages/blogimg-1.png";
 import "./SalonBestOffers.css";
 import DeleteModal from "../common/DeleteModal/DeleteModal";
 
@@ -174,13 +173,11 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
 		const { classes } = this.props;
 		const {
 			open,
-			openDeleteModel,
 			editId,
 			editOfferTitle,
 			editPrice,
 			editDissPrice,
 			editDescription,
-			addNewOfferOpen,
 			editImage,
 		} = this.state;
 
@@ -241,7 +238,7 @@ export class SalonPatnerBestOffers extends Component<IsStateProps> {
 												<CardMedia
 													component="img"
 													image={item.editImage}
-                          className={classes.CardImageOffer}
+													className={classes.CardImageOffer}
 													alt="green iguana"
 													src={item.offerImage}
 												/>

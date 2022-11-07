@@ -98,7 +98,7 @@ class RegisteredNowPage extends React.Component<
 				toggleDrawer={() =>
 					this.props.toogleDrawer(modalConstants.REGISTER_DRAWER)
 				}>
-				<Box sx={{ padding: "0px !important" }} className="drawerSize">
+				<Box>
 					<Box>
 						<Typography className={classes.heading}>
 							Registered Now
