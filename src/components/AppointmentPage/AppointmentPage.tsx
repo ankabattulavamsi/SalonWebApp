@@ -280,8 +280,9 @@ class CustomerAppointmentPage extends Component {
             <Box
               sx={{
                 display: "flex",
-                overflowY: { sm: "scroll", md: "hidden" },
+                // overflowY: { xs: "scroll", md: "hidden" },
               }}
+              className={classes.scroller}
             >
               {salonEmpData.map((emp: any, index: number) => {
                 return (

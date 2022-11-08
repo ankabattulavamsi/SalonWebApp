@@ -3,9 +3,12 @@ import { Container } from "@mui/system";
 import emptycart from "../../assets/images/EmptyCart/emptycart1.jpg";
 import { Box, Button, Typography } from "@mui/material";
 import withRouter from "../../hoc/withRouter";
+import { withStyles } from "@mui/styles";
+import { cartStyle } from "./CartItem.Style";
 
 interface EmptyCartProps {
   navigate?: any;
+  classes: any;
   onClickCategories?: () => void;
 }
 
@@ -14,6 +17,7 @@ class EmptyCart extends Component<EmptyCartProps> {
     this.props.navigate("/customer/category");
   };
   render() {
+    const { classes } = this.props;
     return (
       <Container
         maxWidth="lg"
@@ -23,7 +27,11 @@ class EmptyCart extends Component<EmptyCartProps> {
           flexDirection: "column",
         }}
       >
-        <img src={emptycart} alt="emptycart" width="40%" height="60%" />
+        <img
+          src={emptycart}
+          alt="emptycart"
+          className={classes.emptyCartImage}
+        />
         <Typography
           variant="h6"
           text-align="center"
@@ -44,6 +52,7 @@ class EmptyCart extends Component<EmptyCartProps> {
               sm: "20px",
               xs: "16px",
               fontFamily: "fira sans",
+              textAlign: "center",
             },
           }}
         >
@@ -55,8 +64,8 @@ class EmptyCart extends Component<EmptyCartProps> {
           variant="contained"
           onClick={this.onClickNavToCategories}
           sx={{
-            width: "16rem",
-            height: "3rem",
+            width: { md: "16rem", xs: "100%" },
+            height: "4rem",
             color: "#fff",
             fontSize: "18px",
             fontFamily: "Roboto",
@@ -71,4 +80,6 @@ class EmptyCart extends Component<EmptyCartProps> {
   }
 }
 
-export default withRouter(EmptyCart);
+export default withRouter(
+  withStyles(cartStyle, { withTheme: true })(EmptyCart)
+);

@@ -1,4 +1,4 @@
-import { padding } from "@mui/system";
+import theme from "../../Theme/Theme";
 
 export const cartStyle: any = {
   cartItems: {
@@ -19,49 +19,49 @@ export const cartStyle: any = {
     },
   },
   SkCartContainer: {
-    display: 'flex', 
-    alignItems: 'center', 
-    justifyContent: 'space-between',
-    height: '250px', 
-    width: '100%',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    height: "250px",
+    width: "100%",
     "@media screen and (max-width: 600px)": {
-      display: 'flex', 
-      alignItems: 'center', 
-      justifyContent: 'center',
-      width: '100%',
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: "100%",
     },
   },
   skelton: {
-    width: '250px', 
-    height: '100% !important',
-    animation:"wave",
-    variant: 'rounded !important',
+    width: "250px",
+    height: "100% !important",
+    animation: "wave",
+    variant: "rounded !important",
     "@media screen and (max-width: 600px)": {
-      width: '150px', 
-    height: '70% !important',
-    marginLeft: '15px'
+      width: "150px",
+      height: "70% !important",
+      marginLeft: "15px",
     },
   },
 
   skelton1: {
-    width: '500px', 
-    height: '100% !important',
-    animation:"wave",
-    variant: 'rounded !important',
+    width: "500px",
+    height: "100% !important",
+    animation: "wave",
+    variant: "rounded !important",
     "@media screen and (max-width: 600px)": {
-      width: '150px', 
-    height: '70% !important',
+      width: "150px",
+      height: "70% !important",
     },
   },
 
   skelton2: {
-    width: '220px', 
-    height: '100% !important',
-    animation:"wave",
-    variant: 'rounded !important',
+    width: "220px",
+    height: "100% !important",
+    animation: "wave",
+    variant: "rounded !important",
     "@media screen and (max-width: 600px)": {
-    width: '180px', 
-    height: '70% !important',
+      width: "180px",
+      height: "70% !important",
     },
   },
   CartContainer: {
@@ -115,8 +115,8 @@ export const cartStyle: any = {
     marginRight: "18px",
     borderTopLeftRadius: "10px",
     borderBottomLeftRadius: "10px",
-    width: '350px !important',
-    height: '200px !important',
+    width: "350px !important",
+    height: "200px !important",
     "@media screen and (max-width: 600px)": {
       width: "250px !important",
       height: "115px !important",
@@ -315,9 +315,9 @@ export const cartStyle: any = {
       width: "282px",
       height: "66px",
       borderRadius: "5px",
-      display: 'flex !important', 
-      alignItems: 'center !important',
-      justifyContent: 'center !important',
+      display: "flex !important",
+      alignItems: "center !important",
+      justifyContent: "center !important",
       "@media only screen and (max-width: 684px)": {
         width: "94vw",
       },
@@ -355,5 +355,13 @@ export const cartStyle: any = {
     fontWeight: "500",
     lineHeight: "48px",
     marginRight: "10px",
+  },
+  emptyCartImage: {
+    [theme.breakpoints.down("sm")]: {
+      width: "80%",
+      height: "80%",
+    },
+    height: "60%",
+    width: "40%",
   },
 };
