@@ -115,7 +115,6 @@ class DropDownLogin extends Component<DropDownLoginProps, DropDownLoginState> {
                 variant="standard"
                 placeholder="Phone Number"
                 type="tel"
-                required
                 InputProps={{
                   disableUnderline: true,
                 }}

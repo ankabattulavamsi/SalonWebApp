@@ -198,7 +198,7 @@ export const Styles: any = (theme: any) => ({
     alignSelf: "center",
     height: "80px !important",
     [theme.breakpoints.down("sm")]: {
-      width: "32px !important ",
+      width: "25px !important ",
       height: "76px !important",
     },
   },
@@ -208,12 +208,8 @@ export const Styles: any = (theme: any) => ({
     height: "80px !important",
     // marginTop: "16px",
     alignSelf: "center",
-    [theme.breakpoints.down("sm")]: {
-      width: "60% !important ",
-      height: "60% !important ",
-    },
     [theme.breakpoints.down("md")]: {
-      width: "32px !important ",
+      width: "25px !important ",
       height: "76px !important ",
     },
   },
