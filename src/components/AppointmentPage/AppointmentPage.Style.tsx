@@ -79,6 +79,9 @@ export const Styles: any = (theme: any) => ({
   },
   scroller: {
     overflowY: "scroll",
+    [theme.breakpoints.up("sm")]: {
+      overflowY: "hidden",
+    },
   },
   continueButton: {
     backGroundColor: "#E7A356 !important",
@@ -104,7 +107,5 @@ export const Styles: any = (theme: any) => ({
   //   width: '115px !important',
   //   Margin: '10px !important'
   // }
-  selectYourStylish:{
-    
-  }
+  selectYourStylish: {},
 });
