@@ -88,9 +88,9 @@ class BankPayment extends Component<PaymentProps> {
 					</Typography>
 					<TextField
 						name="accountNum"
-						type="number"
+						type="text"
 						className="text-input"
-						placeholder="1234567890987"
+						placeholder="1234 4567 7890 1111"
 						value={this.state.accountNum}
 						onChange={this.handleChange}
 					/>

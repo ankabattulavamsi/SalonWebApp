@@ -27,15 +27,34 @@ interface IsStateProps {
 
 interface IsState {
   open: boolean;
+  newArray:any;
 }
 
 export class CustomerOffersServe extends Component<IsStateProps> {
   state: IsState = {
     open: false,
+    newArray: JSON.parse(localStorage.getItem("cartData")!) || [],
+
   };
 
-  onClickOpenModel = () => {
+  onClickOpenModel = (item:any) => {
+    this.props.navigate("/customer/cart-items", {
+      state: item,
+    });
     this.setState({ open: true });
+    const itemInCart = this.state.newArray.find(
+      (items: any) => items.id === item.id
+    );
+    if (itemInCart) {
+    } else {
+      localStorage.setItem(
+        "cartData",
+        JSON.stringify([...this.state.newArray, item])
+      );
+      this.setState({
+        newArray: JSON.parse(localStorage.getItem("cartData")!),
+      });
+    }
   };
 
   handleClose = () => {
@@ -141,7 +160,7 @@ export class CustomerOffersServe extends Component<IsStateProps> {
                             className={classes.SalonEditDeleteButonsContainer}
                           >
                             <Button
-                              onClick={this.onClickOpenModel}
+                              onClick={()=>this.onClickOpenModel(item)}
                               startIcon={<ShoppingBasketIcon />}
                               className="best-offers-edit-btn-text-cust"
                             >

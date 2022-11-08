@@ -31,10 +31,12 @@
 .export-team:hover .expert-team-content1 p {
 	color: #fff !important;
 }
+
 .corosel-team-experts
 	.react-multiple-carousel__arrow
 	.react-multiple-carousel__.arrow--right {
 	background: #ebb273 !important;
+	
 }
 .corosel-team-experts .react-multiple-carousel__arrow::before {
 	background-color: #272522;

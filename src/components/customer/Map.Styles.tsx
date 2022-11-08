@@ -12,7 +12,14 @@ export const useStyles = makeStyles({
       //or 999
     },
     [theme.breakpoints.down(600)]: {
-      display: "none",
+      width: "100%",
+      height: "250px",
+      margin: "auto",
+      borderRadius: "10px",
+      "& .leaflet-top, .leaflet-bottom": {
+        zIndex:0, 
+        //or 999
+      },
     },
   },
   mapTooltip: {

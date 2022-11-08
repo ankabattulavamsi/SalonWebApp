@@ -67,63 +67,59 @@ class BuisnessDetails extends Component<
   render() {
     const { classes, state } = this.props;
 
-    return (
-      <Box>
-        <Drawers
-          open={this.props.open}
-          toggleDrawer={() => this.props.handleToggleDrawer()}
-        >
-          <Box sx={{ padding: "0px !important" }} className="drawerSize">
-            <Box>
-              <Typography variant="h5" className={classes.busText}>
-                Business Details
-              </Typography>
-            </Box>
-            <Formik
-              enableReinitialize={true}
-              initialValues={{
-                image: state.image,
-                bname: state.bname,
-                owner: state.owner,
-                GSTIN: state.GSTIN,
-                email: state.email,
-                address: state.address,
-              }}
-              validationSchema={this.businessSchema}
-              onSubmit={() => this.props.handleClickSave()}
-            >
-              <Form>
-                <>
-                  <Box
-                    sx={{
-                      mt: 2,
-                      display: "flex",
-                      justifyContent: "flex-start",
-                      gap: 2,
-                      width: "90%",
-                      mx: "auto",
-                    }}
-                  >
-                    <Box width={"30%"}>
-                      <Box
-                        sx={{
-                          borderRadius: "50%",
-                          display: "flex",
-                          justifyContent: "flex-end",
-                          flex: 1,
-                        }}
-                      >
-                        <img
-                          className="img-profile"
-                          src={
-                            this.props.state.image
-                              ? this.props.state.image
-                              : profilesImage
-                          }
-                          alt="imag"
-                        />
-                      </Box>
-                    </Box>
+		return (
+			<Box>
+				<Drawers
+					open={this.props.open}
+					toggleDrawer={() => this.props.handleToggleDrawer()}>
+					<Box>
+						<Box>
+							<Typography variant="h5" className={classes.busText}>
+								Business Details
+							</Typography>
+						</Box>
+						<Formik
+							enableReinitialize={true}
+							initialValues={{
+								image: state.image,
+								bname: state.bname,
+								owner: state.owner,
+								GSTIN: state.GSTIN,
+								email: state.email,
+								address: state.address,
+							}}
+							validationSchema={this.businessSchema}
+							onSubmit={() => this.props.handleClickSave()}>
+							<Form>
+								<>
+									<Box
+										sx={{
+											mt: 2,
+											display: "flex",
+											justifyContent: "flex-start",
+											gap: 2,
+											width: "90%",
+											mx: "auto",
+										}}>
+										<Box width={"30%"}>
+											<Box
+												sx={{
+													borderRadius: "50%",
+													display: "flex",
+													justifyContent: "flex-end",
+													flex: 1,
+												}}>
+												<img
+													className="img-profile"
+													src={
+														this.props.state.image
+															? this.props.state.image
+															: profilesImage
+													}
+													alt="imag"
+												/>
+											</Box>
+										</Box>
 
                     <Box width={"auto"}>
                       <Box>
