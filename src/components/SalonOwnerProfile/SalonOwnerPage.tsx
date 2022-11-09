@@ -209,7 +209,7 @@ class SalonOwnerPage extends Component<SalonProps> {
                     }
                     sx={{
                       width: {
-                        xs: "18rem !important",
+                        xs:'100% !important',
                         sm: "22rem !important",
                         md: "22.5rem !important",
                       },

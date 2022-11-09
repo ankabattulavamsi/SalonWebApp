@@ -39,6 +39,6 @@ export const salonEmpData = [
   },
   {
     img: salonEmp3,
-    name: "Name3",
+    name: "Name8",
   },
 ];

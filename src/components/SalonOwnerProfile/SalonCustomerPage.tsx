@@ -78,7 +78,7 @@ class SalonOwnerPage extends Component<SalonProps> {
     const { classes }: any = this.props;
     return (
       <Layout customer={true}>
-        <Container maxWidth="lg" sx={{ mt: 15, mb: 10 }}>
+        <Container maxWidth="lg" sx={{ mt: { xs: 20, sm: 15 }, mb: 10 }}>
           <Box>
             <Box sx={{ position: "relative" }}>
               <img
@@ -187,7 +187,7 @@ class SalonOwnerPage extends Component<SalonProps> {
                     }
                     sx={{
                       width: {
-                        xs: "18rem !important",
+                        xs: "100% !important",
                         sm: "15rem !important",
                         md: "22.5rem !important",
                       },
