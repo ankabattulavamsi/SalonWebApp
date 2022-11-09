@@ -15,6 +15,11 @@ export const Styles: any = (theme: any) => ({
     gap: "15px",
     borderRadius: "10px !important",
     border: "solid 1px #f0f0f0 !important",
+    "&.MuiButton-root": {
+      [theme.breakpoints.down("sm")]: {
+        width: "100% !important",
+      },
+    },
   },
   bookingHisoryTitlle: {
     fontFamily: "Fira Sans",
