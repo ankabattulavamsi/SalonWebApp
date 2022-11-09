@@ -166,7 +166,7 @@ class SalonOwnerPage extends Component<SalonProps> {
                 }}
               >
                 <EditIcon sx={{ mr: 1 }} />
-                Edit Bussness Profile
+                Edit Business Profile
               </Button>
               <Button
                 sx={{

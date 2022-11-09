@@ -20,6 +20,7 @@ import { withStyles } from "@mui/styles";
 import ClassIcon from "@mui/icons-material/Class";
 import CloseIcon from "@mui/icons-material/Close";
 import { StylesOffers } from "../OffersSection/BestOffers.styles";
+
 interface IProps {
   open: boolean;
   onClose: any;
@@ -36,6 +37,7 @@ class EditCategory extends Component<IProps> {
           disableScrollLock={true}
           open={open}
           maxWidth="md"
+          // className={classes.EditCategoryModal}
           className="offers-dialog-box"
         >
           <Box
@@ -289,7 +291,7 @@ class EditCategory extends Component<IProps> {
                         lineHeight: "30px",
                       }}
                     >
-                      Offers Title
+                      Category Title
                     </Typography>
                     <TextField
                       fullWidth
