@@ -15,9 +15,7 @@
 .customerCard:hover .customerSubHeading {
   color: #272522 !important;
 }
-.react-horizontal-scrolling-menu--scroll-container {
-  width: auto;
-}
+
 .css-10ht2rm-MuiButtonBase-root-MuiButton-root {
   min-width: auto !important;
   padding: 0 !important;
@@ -41,8 +39,8 @@
 }
 
 .activate-class {
-  box-shadow: -5px 8px 10px 10px rgba(0, 0, 0, 0.1) !important;
-  /* filter: drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.25)); */
+  box-shadow: -5px 8px 10px 5px rgba(0, 0, 0, 0.1) !important;
+  filter: drop-shadow(0px 4px 25px rgba(0, 0, 0, 0.25));
   border: none !important;
 }
 
