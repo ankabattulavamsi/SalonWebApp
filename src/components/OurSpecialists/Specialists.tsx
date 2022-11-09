@@ -53,8 +53,8 @@ class Specialists extends Component<IProps> {
 								/>
 							</Box>
 							<Box className={classes.CardItems}>
-								{specialistData.map((team: TeamData, index: number) => (
-									<Box key={index} className="innerCard">
+								{specialistData.slice(0, 3).map((team: TeamData) => (
+									<Box key={team.id} className="innerCard">
 										<SpecialistCard team={team} />
 									</Box>
 								))}
@@ -76,7 +76,7 @@ class Specialists extends Component<IProps> {
 										containerClass="container"
 										dotListClass="custom-dot-list-style">
 										{teamdata.map((team: TeamData, index: number) => {
-											return <SpecialistCard team={team} />;
+											return <SpecialistCard team={team} key={team.id} />;
 										})}
 									</Carousel>
 								</Box>

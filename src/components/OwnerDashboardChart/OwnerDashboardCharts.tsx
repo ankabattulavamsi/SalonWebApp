@@ -59,7 +59,13 @@ class OwnerDashboardChart extends Component<chartProps> {
 								<Grid container spacing={{ xs: 2, sm: 2, md: 4, lg: 6 }}>
 									{CardData.map((cards: Cards) => {
 										return (
-											<Grid item xs={12} sm={6} md={4} lg={4} key="cards">
+											<Grid
+												item
+												xs={12}
+												sm={6}
+												md={4}
+												lg={4}
+												key={cards.id}>
 												<Card className={classes.dashboardChartCard}>
 													<CardMedia
 														className={classes.dashboardChartCardImg}
