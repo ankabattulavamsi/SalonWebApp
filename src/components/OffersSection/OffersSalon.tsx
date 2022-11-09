@@ -22,6 +22,7 @@ import Layout from "../Layout/Layout";
 import SalonBestOffersModel from "./SalonBestOffersModel";
 import DeleteModal from "../common/DeleteModal/DeleteModal";
 import AddNewOffer from "./AddNewOffer";
+import OfferSalonCard from "./OfferSalonCard";
 
 interface IsStateProps {
 	classes: any;
@@ -184,83 +185,14 @@ export class OffersSalon extends Component<IsStateProps> {
 								columnSpacing={4}
 								rowSpacing={3}
 								sx={{ px: { sm: 0, xs: 0, md: 0, lg: 0 } }}>
-								{SalonBestOffersData.map((item: any, index: number) => {
+								{SalonBestOffersData.map((item) => {
 									return (
-										<Grid item lg={6} md={6} xs={12} sm={6} key={index}>
-											<Box>
-												<Box
-													sx={{ backgroundColor: "#FDF6EE" }}
-													className="parent-container">
-													<CardMedia
-														component="img"
-														image={item.editImage}
-														className={classes.CardImageOffer}
-														alt={`${item.id}`}
-														src={item.offerImage}
-														sx={{
-															borderRadius: "4px",
-															objectFit: "cover",
-														}}
-													/>
-													<Box>
-														<Box className={classes.headingCardContainer}>
-															<Typography
-																className={classes.offersPercentageHead}
-																sx={{ fontSize: "22px" }}>
-																{item.headingOff}
-															</Typography>
-															<Box sx={{ display: "flex" }}>
-																<Box className="best-offers-discount-price">
-																	<CurrencyRupeeIcon
-																		sx={{ mt: 0.8 }}
-																		className={classes.OffersRuppeIcon}
-																	/>
-																	<Typography
-																		className={classes.OffersDissPrice}>
-																		{item.dissPrice}
-																	</Typography>
-																</Box>
-																<Box className="best-offers-original-price">
-																	<CurrencyRupeeIcon
-																		sx={{ mt: 0.8 }}
-																		className={classes.OffersRuppeIcon}
-																	/>
-																	<Typography
-																		className={classes.originalPrice}>
-																		{item.price}
-																	</Typography>
-																</Box>
-															</Box>
-														</Box>
-														<Typography
-															className={classes.offerDescription}
-															sx={{ fontSize: "18px", mt: 2 }}>
-															{item.description}
-														</Typography>
-
-														<Box
-															className={
-																classes.SalonEditDeleteButonsContainer
-															}>
-															<Button
-																onClick={() => this.onClickOpenModel(item)}
-																startIcon={<ModeEditIcon />}
-																className="best-offers-edit-btn-text">
-																Edit
-															</Button>
-
-															<Button
-																onClick={(e) =>
-																	this.onClickDeleteOffer(index)
-																}
-																startIcon={<DeleteIcon />}
-																className="best-offers-delete-btn-text">
-																Delete
-															</Button>
-														</Box>
-													</Box>
-												</Box>
-											</Box>
+										<Grid item lg={6} md={6} xs={12} sm={6} key={item.id}>
+											<OfferSalonCard
+												onClickOpenModel={this.onClickOpenModel}
+												onClickDeleteOffer={this.onClickDeleteOffer}
+												item={item}
+											/>
 										</Grid>
 									);
 								})}

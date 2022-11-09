@@ -71,9 +71,13 @@ class EmptyCart extends Component<EmptyCartProps> {
             fontFamily: "Roboto",
             fontWeight: 700,
             marginTop: "1.5rem",
+            "&:hover": {
+              backgroundColor: "#E7A356",
+            },
+            textTransform: "capitalize",
           }}
         >
-          Shop Products
+          Shop Our Products
         </Button>
       </Container>
     );

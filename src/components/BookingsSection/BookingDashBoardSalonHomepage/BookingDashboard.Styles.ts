@@ -3,9 +3,22 @@ export const Styles: any = (theme: any) => ({
     maxWidth: "555px",
     p: "50px",
     [theme.breakpoints.up("sm")]: {
-      marginTop: "20px",
+      marginTop: "20px !important",
     },
-    height: "auto",
+    [theme.breakpoints.up("md")]: {
+      padding: "20px !important",
+    },
+    [theme.breakpoints.down("sm")]: {
+      padding: "0px !important",
+    },
+    height: "auto !important",
+    paddingBottom: "0px !important",
+    mx: "auto !important",
+    boxShadow: "none !important",
+    borderRadius: "10px !important",
+    // "&.MuiCardContent-root": {
+    //   paddingBottom: "0px",
+    // },
   },
   dashboardAvatar: {
     [theme.breakpoints.down("md")]: {
@@ -206,9 +219,8 @@ export const Styles: any = (theme: any) => ({
     color: "#999999 !important",
     width: "90px",
     height: "80px !important",
-    // marginTop: "16px",
     alignSelf: "center",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("sm")]: {
       width: "25px !important ",
       height: "76px !important ",
     },
@@ -219,8 +231,13 @@ export const Styles: any = (theme: any) => ({
     display: "flex !important",
     justifyContent: "center !important",
     height: "104px",
+    "&.MuiButtonBase-root": {
+      [theme.breakpoints.down("sm")]: {
+        minWidth: "35px !important",
+      },
+    },
     [theme.breakpoints.down("sm")]: {
-      height: "76px !important ",
+      height: "76px !important",
     },
   },
 });

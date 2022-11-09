@@ -6,22 +6,15 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-.css-819f2t-MuiGrid-root > .MuiGrid-item {
+/* .css-819f2t-MuiGrid-root > .MuiGrid-item {
   padding-left: 16px !important;
-}
-@media screen and (max-width: 600px) {
-  .css-1emfm6o-MuiButtonBase-root-MuiButton-root {
-    min-width: 35px !important;
-    padding: 0px !important;
-  }
 }
 .css-mhc70k-MuiGrid-root > .MuiGrid-item {
   padding-left: 10px !important;
-}
+} */
 
-.bookings-container {
-  position: relative;
-  z-index: 0;
+.react-horizontal-scrolling-menu--scroll-container {
+  width: auto !important;
 }
 
 .customerCard:hover .customerTitleHeading,
@@ -32,13 +25,13 @@
 .customerCard:hover .customerSubHeading {
   color: #272522 !important;
 }
-.react-horizontal-scrolling-menu--scroll-container {
-  width: auto;
-}
-.css-10ht2rm-MuiButtonBase-root-MuiButton-root {
-  min-width: auto !important;
-  padding: 0 !important;
-  height: 76px !important;
+
+.css-46bh2p-MuiCardContent-root:last-child {
+  padding-bottom: 0px !important;
 }
 
-
+@media screen and (min-width: 600px) {
+  .react-horizontal-scrolling-menu--arrow-right {
+    min-width: "35px !important";
+  }
+}

@@ -36,12 +36,12 @@ interface salonState {
 	isCustomer: boolean;
 	activeLink: string;
 
-  open: boolean;
-  dialogOpen: boolean;
-  lat: any;
-  lon: any;
-  data: any;
-  locationData: any;
+	open: boolean;
+	dialogOpen: boolean;
+	lat: any;
+	lon: any;
+	data: any;
+	locationData: any;
 }
 
 class SalonNavbar extends Component<salonProps, salonState> {
@@ -60,7 +60,7 @@ class SalonNavbar extends Component<salonProps, salonState> {
 			country: "",
 		},
 
-    cartData: JSON.parse(localStorage.getItem("cartData")!) || [],
+		cartData: JSON.parse(localStorage.getItem("cartData")!) || [],
 	};
 
 	handleClick = (title: string) => {
@@ -81,89 +81,85 @@ class SalonNavbar extends Component<salonProps, salonState> {
 		});
 	};
 
-  fetchdata = async () => {
-    console.log("curr", this.state.lat, this.state.lon);
-    await fetch(
-      `https://api.opencagedata.com/geocode/v1/json?q=${this.state.lat}+${this.state.lon}&key=8518d29fbed240129135f8e8283c4c01`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("data", data);
+	fetchdata = async () => {
+		await fetch(
+			`https://api.opencagedata.com/geocode/v1/json?q=${this.state.lat}+${this.state.lon}&key=8518d29fbed240129135f8e8283c4c01`
+		)
+			.then((res) => res.json())
+			.then((data) => {
+				this.setState({ data: data.results[0].formatted });
+				let localData = data.results[0].components;
 
-        this.setState({ data: data.results[0].formatted });
-        let localData = data.results[0].components;
+				let { state_district, state, country } = localData;
+				localStorage.setItem(
+					"Current Adress",
+					JSON.stringify({ state_district, state, country })
+				);
+			})
+			.then((data) =>
+				fetch(` https://httpstat.us/200`, {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ name: data, time: new Date() }),
+				})
+			);
+	};
+	getLocation = () => {
+		if (navigator.geolocation) {
+			var data = navigator.geolocation.getCurrentPosition(
+				this.showPosition,
+				this.handleLocationError
+			);
+		} else {
+			alert("Geolocation not supported");
+		}
+	};
+	showPosition = (position: any) => {
+		this.setState(
+			{
+				lat: position.coords.latitude,
+				lon: position.coords.longitude,
+			},
+			() => this.fetchdata()
+		);
+	};
+	handleLocationError = (error: any) => {
+		switch (error) {
+			case error.PERMISSION_DENIED:
+				alert("user denied request for geolocation error");
+				break;
+			case error.POSITION_UNAVAILABLE:
+				alert("location information unavailable");
+				break;
+			case error.TIMEOUT:
+				alert("request time out");
+				break;
+			case error.UNKNOWN_ERROR:
+				alert("unknown error occured");
+				break;
+			default:
+		}
+	};
+	componentDidMount() {
+		if (localStorage.getItem("Current Adress")) {
+			const existingdata = JSON.parse(
+				localStorage.getItem("Current Adress") || ""
+			);
+			this.setState({ data: existingdata });
 
-        let { state_district, state, country } = localData;
-        localStorage.setItem(
-          "Current Adress",
-          JSON.stringify({ state_district, state, country })
-        );
-      })
-      .then((data) =>
-        fetch(` https://httpstat.us/200`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name: data, time: new Date() }),
-        })
-      );
-  };
-  getLocation = () => {
-    if (navigator.geolocation) {
-      var data = navigator.geolocation.getCurrentPosition(
-        this.showPosition,
-        this.handleLocationError
-      );
-    } else {
-      alert("Geolocation not supported");
-    }
-  };
-  showPosition = (position: any) => {
-    this.setState(
-      {
-        lat: position.coords.latitude,
-        lon: position.coords.longitude,
-      },
-      () => this.fetchdata()
-    );
-  };
-  handleLocationError = (error: any) => {
-    switch (error) {
-      case error.PERMISSION_DENIED:
-        alert("user denied request for geolocation error");
-        break;
-      case error.POSITION_UNAVAILABLE:
-        alert("location information unavailable");
-        break;
-      case error.TIMEOUT:
-        alert("request time out");
-        break;
-      case error.UNKNOWN_ERROR:
-        alert("unknown error occured");
-        break;
-      default:
-    }
-  };
-  componentDidMount() {
-    if (localStorage.getItem("Current Adress")) {
-      const existingdata = JSON.parse(
-        localStorage.getItem("Current Adress") || ""
-      );
-      this.setState({ data: existingdata });
+			this.setState({
+				locationData: existingdata,
+			});
+		} else {
+			this.getLocation();
+		}
+	}
+	onClickOpenCustomerCart = () => {
+		this.props.navigate("/customer/cart-items");
+	};
 
-      this.setState({
-        locationData: existingdata,
-      });
-    } else {
-      this.getLocation();
-    }
-  }
-  onClickOpenCustomerCart = () => {
-    this.props.navigate("/customer/cart-items");
-  };
-
-  render() {
-    const { menus } = this.props;
-    console.log("data", this.state.data);
+	render() {
+		const { menus } = this.props;
 
 		return (
 			<>
@@ -191,7 +187,6 @@ class SalonNavbar extends Component<salonProps, salonState> {
 											onClick={() =>
 												this.setState({ activeLink: menu.title })
 											}>
-											<>{console.log(window.location.pathname)}</>
 											{menu.title}
 										</Link>
 									);
@@ -241,98 +236,94 @@ class SalonNavbar extends Component<salonProps, salonState> {
 							</Box>
 						)}
 						<Box className="nav-profile-section">
-              {this.state.isCustomer ? (
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    color:
-                      window.location.pathname === "/customer/profile"
-                        ? "#E7A356"
-                        : "",
-                    "&:hover": {
-                      cursor: "pointer",
-                    },
-                  }}
-                >
-                  <Box
-                    onClick={() => {
-                      this.props.navigate("/customer/profile");
-                    }}
-                    sx={{ display: "flex" }}
-                  >
-                    <Avatar alt="Remy Sharp" src={CustomerProfile} />
-                    <Typography sx={{ ml: 2, mt: 1 }} variant="h3">
-                      Profile
-                    </Typography>
-                  </Box>
-                </Box>
-              ) : (
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    color:
-                      window.location.pathname === "/salon/owner"
-                        ? "#E7A356"
-                        : "",
-                    "&:hover": {
-                      cursor: "pointer",
-                    },
-                  }}
-                >
-                  <Box
-                    onClick={() => {
-                      this.props.navigate("/salon/owner");
-                    }}
-                    sx={{ display: "flex" }}
-                  >
-                    <Avatar alt="Remy Sharp" src={Profile} />
-                    <Typography sx={{ ml: 2, mt: 1 }} variant="h3">
-                      Profile
-                    </Typography>
-                  </Box>
-                </Box>
-              )}
-              <Box
-                sx={{
-                  paddingRight: "0px !important",
-                }}
-              >
-                <Badge
-                  variant="dot"
-                  sx={{ "& .MuiBadge-badge": { backgroundColor: "#E7A356" } }}
-                  // badgeContent="5"
-                >
-                  <NotificationsIcon
-                    onClick={this.handleDialogOpen}
-                    sx={{
-                      fontSize: "32px",
-                      cursor: "pointer",
-                      color: this.state.dialogOpen ? "#E7A356" : "",
-                    }}
-                  />
-                </Badge>
-              </Box>
-              <Box
-                onClick={() => {
-                  this.props.navigate("/customer/cart-items");
-                }}
-                sx={{
-                  color:
-                    window.location.pathname === "/customer/cart-items"
-                      ? "#E7A356"
-                      : "",
-                  "&:hover": {
-                    cursor: "pointer",
-                  },
-                }}
-              >
-                {this.state.isCustomer && (
-                  <ShoppingBasketIcon sx={{ fontSize: "32px", mr: 3 }} />
-                )}
-              </Box>
-            </Box>
+							{this.state.isCustomer ? (
+								<Box
+									sx={{
+										display: "flex",
+										alignItems: "center",
+										color:
+											window.location.pathname === "/customer/profile"
+												? "#E7A356"
+												: "",
+										"&:hover": {
+											cursor: "pointer",
+										},
+									}}>
+									<Box
+										onClick={() => {
+											this.props.navigate("/customer/profile");
+										}}
+										sx={{ display: "flex" }}>
+										<Avatar alt="Remy Sharp" src={CustomerProfile} />
+										<Typography sx={{ ml: 2, mt: 1 }} variant="h3">
+											Profile
+										</Typography>
+									</Box>
+								</Box>
+							) : (
+								<Box
+									sx={{
+										display: "flex",
+										alignItems: "center",
+										color:
+											window.location.pathname === "/salon/owner"
+												? "#E7A356"
+												: "",
+										"&:hover": {
+											cursor: "pointer",
+										},
+									}}>
+									<Box
+										onClick={() => {
+											this.props.navigate("/salon/owner");
+										}}
+										sx={{ display: "flex" }}>
+										<Avatar alt="Remy Sharp" src={Profile} />
+										<Typography sx={{ ml: 2, mt: 1 }} variant="h3">
+											Profile
+										</Typography>
+									</Box>
+								</Box>
+							)}
+							<Box
+								sx={{
+									paddingRight: "0px !important",
+								}}>
+								<Badge
+									variant="dot"
+									sx={{
+										"& .MuiBadge-badge": { backgroundColor: "#E7A356" },
+									}}
+									// badgeContent="5"
+								>
+									<NotificationsIcon
+										onClick={this.handleDialogOpen}
+										sx={{
+											fontSize: "32px",
+											cursor: "pointer",
+											color: this.state.dialogOpen ? "#E7A356" : "",
+										}}
+									/>
+								</Badge>
+							</Box>
+							<Box
+								onClick={() => {
+									this.props.navigate("/customer/cart-items");
+								}}
+								sx={{
+									color:
+										window.location.pathname === "/customer/cart-items"
+											? "#E7A356"
+											: "",
+									"&:hover": {
+										cursor: "pointer",
+									},
+								}}>
+								{this.state.isCustomer && (
+									<ShoppingBasketIcon sx={{ fontSize: "32px", mr: 3 }} />
+								)}
+							</Box>
+						</Box>
 						{/* mobile drawer section */}
 						<Box className="salon-mobile-drawer">
 							<Box
@@ -344,16 +335,13 @@ class SalonNavbar extends Component<salonProps, salonState> {
 									pl: { sm: 5 },
 								}}>
 								{this.state.isCustomer ? (
-									 <Box
-									 onClick={() => {
-									   this.props.navigate("/customer/profile");
-									 }}
-									 sx={{ display: "flex" }}
-								   >
-									 <Avatar alt="Remy Sharp" src={CustomerProfile} />
-									
-								   </Box>
-									
+									<Box
+										onClick={() => {
+											this.props.navigate("/customer/profile");
+										}}
+										sx={{ display: "flex" }}>
+										<Avatar alt="Remy Sharp" src={CustomerProfile} />
+									</Box>
 								) : (
 									<Box
 										onClick={() => {
@@ -410,21 +398,24 @@ class SalonNavbar extends Component<salonProps, salonState> {
 										alignItems: "center",
 										mr: { xs: 1, sm: 6 },
 										color:
-										window.location.pathname === "/customer/cart-items"
-										  ? "#E7A356"
-										  : "",
-									  "&:hover": {
-										cursor: "pointer",
-									  },
+											window.location.pathname === "/customer/cart-items"
+												? "#E7A356"
+												: "",
+										"&:hover": {
+											cursor: "pointer",
+										},
 									}}
 									onClick={() => {
 										this.props.navigate("/customer/cart-items");
-									  }}
-									>
+									}}>
 									<ShoppingBasketIcon sx={{ fontSize: "32px" }} />
-									<Typography sx={{ pl: 1 }} variant="h6">
-										Cart {this.state.cartData.length}
-									</Typography>
+									{/* {this.state.cartData.length === 0 ? (
+                    " "
+                  ) : (
+                    <Typography sx={{ pl: 1 }} variant="h6">
+                      Cart {this.state.cartData.length}
+                    </Typography>
+                  )} */}
 								</Box>
 							</Box>
 						)}

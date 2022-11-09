@@ -8,7 +8,7 @@ import { ButtonData } from "../../utils/data/SalonOwnerData/ButtonData";
 import BookingHistoryTable from "./BookingHistoryTable";
 import PrivacyandPolicy from "./PrivacyandPolicy";
 import TermsandCondtions from "./TermsandCondtions";
-import EditIcon from '@mui/icons-material/Edit';
+import EditIcon from "@mui/icons-material/Edit";
 import PowerSettingsNewOutlinedIcon from "@mui/icons-material/PowerSettingsNewOutlined";
 import { withStyles } from "@mui/styles";
 import Layout from "../Layout/Layout";
@@ -195,7 +195,7 @@ class SalonOwnerPage extends Component<SalonProps> {
                 <Grid
                   item
                   xs={11}
-                  sm={4}
+                  sm={6}
                   md={4}
                   lg={4}
                   key={button.name}
@@ -209,8 +209,8 @@ class SalonOwnerPage extends Component<SalonProps> {
                     }
                     sx={{
                       width: {
-                        xs: "18rem !important",
-                        sm: "15rem !important",
+                        xs:'100% !important',
+                        sm: "22rem !important",
                         md: "22.5rem !important",
                       },
                     }}
