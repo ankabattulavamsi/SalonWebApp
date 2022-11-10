@@ -138,7 +138,7 @@ export class CartItemsList extends Component<IsCartProps> {
                         </Typography>
                       </Box>
                       <Button
-                        onClick={(e) => this.onClickDelteItem(item.id)}
+                        onClick={(e:any) => this.onClickDelteItem(item.id)}
                         startIcon={<DeleteIcon />}
                         className={classes.cartDeleteBtn}
                       >
@@ -146,7 +146,7 @@ export class CartItemsList extends Component<IsCartProps> {
                       </Button>
                       <Box
                         className={classes.deleteC}
-                        onClick={(e) => this.onClickDelteItem(item.id)}
+                        onClick={(e:any) => this.onClickDelteItem(item.id)}
                       >
                         <DeleteIcon className={classes.deleteI} />
                       </Box>

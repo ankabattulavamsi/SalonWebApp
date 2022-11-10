@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import {
   Box,
@@ -39,7 +40,9 @@ export class CustomerHairService extends Component<ServeProps> {
     this.props.navigate("/customer/cart-items", {
       state: item,
     });
+    localStorage.setItem('cartData', (item))
   };
+  props: any;
 
   render() {
     const { classes } = this.props;
@@ -59,12 +62,12 @@ export class CustomerHairService extends Component<ServeProps> {
                     alt={`${item.heading}`}
                     height="215"
                     image={item.brideServeImg}
-                    onClick={(e) => this.onClickNavigateSingleServe(item)}
+                    onClick={(e:any) => this.onClickNavigateSingleServe(item)}
                   />
 
                   <CardContent
                     sx={{ m: 1 }}
-                    onClick={(e) => this.onClickNavigateSingleServe(item)}
+                    onClick={(e:any) => this.onClickNavigateSingleServe(item)}
                   >
                     <Box className={classes.priceServeContainer}>
                       <Typography className={classes.cardHeading} variant="h2">

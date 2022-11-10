@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 import { ThemeProvider } from "@mui/material";
 import theme from "./Theme/Theme";
 import { Routes, Route } from "react-router-dom";
