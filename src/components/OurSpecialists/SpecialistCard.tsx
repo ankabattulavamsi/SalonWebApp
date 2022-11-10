@@ -2,21 +2,18 @@
 import React, { Component } from "react";
 import {
 	Box,
-	Button,
-	ButtonGroup,
 	Card,
 	CardContent,
 	CardMedia,
 	Typography,
 } from "@mui/material";
 import { TeamData } from "../../utils/data/expertTeam/team";
-import EditIcon from "@mui/icons-material/Edit";
-import { DeleteOutline } from "@mui/icons-material";
 import "./specialist.css";
 import DeleteModal from "../common/DeleteModal/DeleteModal";
 import EditTeam from "./EditTeam";
 import { Styles } from "./specialist.styles";
 import { withStyles } from "@mui/styles";
+import EditDeleteCommonButton from "../common/CommonButtons/EditDeleteCommonButton";
 
 interface IProps {
 	team: TeamData;
@@ -26,20 +23,20 @@ interface IProps {
 interface State {
 	open: boolean;
 	openEditModal: boolean;
-	imgeUrl: string,
-	editId: string
+	imgeUrl: string;
+	editId: string;
 }
 class SpecialistCard extends Component<IProps, State> {
 	state: State = {
 		open: false,
 		openEditModal: false,
-		imgeUrl: '',
-		editId: ''
+		imgeUrl: "",
+		editId: "",
 	};
 
 	onSubmitEditModel = () => {
 		this.setState({ openEditModal: false });
-	}
+	};
 	handleOnChangeImage = (e: any) => {
 		this.setState({ imgeUrl: URL.createObjectURL(e.target.files[0]) });
 	};
@@ -47,10 +44,10 @@ class SpecialistCard extends Component<IProps, State> {
 	onClose = () => {
 		this.setState({ open: false });
 	};
-	onClickFunc = () => {
+	onClickDelFunc = () => {
 		this.setState({ open: true });
 	};
-	onEditFunc = (item:any) => {
+	onEditFunc = (item: any) => {
 		this.setState({ editId: item.id });
 		this.setState({ openEditModal: true });
 		this.setState({ imgeUrl: item.imgeUrl });
@@ -60,7 +57,7 @@ class SpecialistCard extends Component<IProps, State> {
 	};
 
 	handleCloseBage = () => {
-		this.setState({imgeUrl: ''})
+		this.setState({ imgeUrl: "" });
 	};
 
 	render() {
@@ -94,37 +91,24 @@ class SpecialistCard extends Component<IProps, State> {
 							{team.position}
 						</Typography>
 					</CardContent>
-					<ButtonGroup
-						className="groupButtons"
-						variant="outlined"
-						aria-label="split button">
-						<Button
-							onClick={() => this.onEditFunc(team)}
-							className="buttonTogether edit"
-							startIcon={<EditIcon />}>
-							Edit
-						</Button>
-						<Button
-							onClick={this.onClickFunc}
-							className="buttonTogether delete"
-							startIcon={<DeleteOutline />}>
-							Delete
-						</Button>
-					</ButtonGroup>
+					<EditDeleteCommonButton
+						onClickEdit={() => this.onEditFunc(team)}
+						onClickDelete={this.onClickDelFunc}
+					/>
 				</Card>
 				<DeleteModal
 					jobTitle="Specialist"
 					open={this.state.open}
 					onClose={this.onClose}
 				/>
-				<EditTeam 
+				<EditTeam
 					open={this.state.openEditModal}
 					onClose={this.closeEditModal}
-// 					editImage={this.state.imgeUrl}
-// 					handleOnChangeImage={this.handleOnChangeImage}
-// 					editId={this.state.editId}
-// 					onClicOfCloseBadge={this.handleCloseBage}
-// onSubmitEditModel={this.onSubmitEditModel}
+					// 					editImage={this.state.imgeUrl}
+					// 					handleOnChangeImage={this.handleOnChangeImage}
+					// 					editId={this.state.editId}
+					// 					onClicOfCloseBadge={this.handleCloseBage}
+					// onSubmitEditModel={this.onSubmitEditModel}
 				/>
 			</>
 		);
