@@ -16,12 +16,25 @@ interface salonBlogS {
 	cardActive: number;
 	edit: boolean;
 	delModal: boolean;
+	editId: string;
+	editImage: string;
+	editDescription: string;
 }
 class SalonBlogCard extends Component<blogProps, salonBlogS> {
-	state = {
+	state: salonBlogS = {
 		cardActive: 0,
 		edit: false,
 		delModal: false,
+		editId: "",
+		editImage: "",
+		editDescription: "",
+	};
+
+	onClickOpenEditModel = (item: any) => {
+		this.setState({ editId: item.id });
+		this.setState({ editImage: item.image });
+		this.setState({ editDescription: item.description });
+		this.setState({ edit: true });
 	};
 
 	handlecardActive = (id: number) => {

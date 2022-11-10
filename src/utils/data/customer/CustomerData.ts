@@ -74,6 +74,7 @@ export const categoryData: CategoryData[] = [
     id: 1,
     title: "Hair Cut",
     image: require("../../../assets/images/customer/haircut.jfif"),
+    
   },
   {
     id: 2,

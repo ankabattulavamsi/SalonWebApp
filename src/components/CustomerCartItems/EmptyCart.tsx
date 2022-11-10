@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container } from "@mui/system";
 import emptycart from "../../assets/images/EmptyCart/emptycart1.jpg";
-import { Box, Button, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import withRouter from "../../hoc/withRouter";
 import { withStyles } from "@mui/styles";
 import { cartStyle } from "./CartItem.Style";

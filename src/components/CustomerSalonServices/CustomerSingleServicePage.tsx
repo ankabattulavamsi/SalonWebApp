@@ -10,10 +10,10 @@ import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
 import Layout from "../Layout/Layout";
 import { hairStyle } from "./CustomerS.style";
-import { HairServiceData } from "../../utils/data/CustomerHairServiceData/CustomerHairData";
 
 import Slider from "react-slick";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { categoryAllData } from "../../utils/data/CustomerHairServiceData/CustomerServeData";
 
 interface IsSinglePageProps {
   location: any;
@@ -27,6 +27,7 @@ class CustomerSingleServicePage extends Component<IsSinglePageProps> {
   };
 
   onClickAddToCart = (item: any) => {
+    console.log('item-single', item)
     this.props.navigate("/customer/cart-items", {
       state: item,
     });
@@ -121,10 +122,10 @@ class CustomerSingleServicePage extends Component<IsSinglePageProps> {
                   prevArrow={<PreviousBtn />}
                   nextArrow={<NextBtn />}
                 >
-                  {HairServiceData.map((item: any, index: any) => {
+                  {categoryAllData.map((item: any, index: any) => {
                     return (
                       <Fragment key={index}>
-                        <img src={item.brideServeImg} alt="nnnn" width="100%" />
+                        <img src={item.image} alt="nnnn" width="100%" />
                       </Fragment>
                     );
                   })}
