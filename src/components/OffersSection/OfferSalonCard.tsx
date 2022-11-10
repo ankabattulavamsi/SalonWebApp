@@ -1,13 +1,12 @@
 /** @format */
 
 import React, { Component } from "react";
-import { Box, CardMedia, Typography, Button } from "@mui/material";
+import { Box, CardMedia, Typography } from "@mui/material";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
-import ModeEditIcon from "@mui/icons-material/ModeEdit";
-import DeleteIcon from "@mui/icons-material/Delete";
 import { SalonOfferProps } from "../../utils/data/SalonPatnerBestOffers/SalonBestOffers";
 import { StylesOffers } from "./BestOffers.styles";
 import { withStyles } from "@mui/styles";
+import EditDeleteCommonButton from "../common/CommonButtons/EditDeleteCommonButton";
 
 interface IProps {
 	classes?: any;
@@ -69,19 +68,14 @@ class OfferSalonCard extends Component<IProps> {
 						</Typography>
 
 						<Box className={classes.SalonEditDeleteButonsContainer}>
-							<Button
-								onClick={() => this.props.onClickOpenModel(item)}
-								startIcon={<ModeEditIcon />}
-								className="best-offers-edit-btn-text">
-								Edit
-							</Button>
-
-							<Button
-								onClick={(e) => this.props.onClickDeleteOffer(item.id)}
-								startIcon={<DeleteIcon />}
-								className="best-offers-delete-btn-text">
-								Delete
-							</Button>
+							<div className="offer-edit-delete">
+								<EditDeleteCommonButton
+									onClickEdit={() => this.props.onClickOpenModel(item)}
+									onClickDelete={() =>
+										this.props.onClickDeleteOffer(item.id)
+									}
+								/>
+							</div>
 						</Box>
 					</Box>
 				</Box>

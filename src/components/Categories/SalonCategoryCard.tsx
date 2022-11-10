@@ -3,29 +3,19 @@
 import React, { Component } from "react";
 import {
 	Typography,
-	Button,
-	Grid,
 	Card,
 	CardActionArea,
 	CardMedia,
 	CardActions,
 	CardContent,
 } from "@mui/material";
-
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
-
 import { withStyles } from "@mui/styles";
 import { styles } from "./SalonCategory.style";
 
-import { salonCategoryData } from "../../utils/data/SalonCategory/SalonCategory_data";
 import withRouter from "../../hoc/withRouter";
 import CategoryEditModal from "./CategoryEditModal";
 import DeleteModal from "../common/DeleteModal/DeleteModal";
-import { SalonBestOffersData } from "../../utils/data/SalonPatnerBestOffers/SalonBestOffers";
-import SalonBestOffersModel from "../OffersSection/SalonBestOffersModel";
-import EditButton from "../common/CommonButtons/EditButton";
-import DeleteButton from "../common/CommonButtons/DeleteButton";
+import EditDeleteCommonButton from "../common/CommonButtons/EditDeleteCommonButton";
 
 interface categoryProps {
 	classes: any;
@@ -55,7 +45,7 @@ class SalonCategoryCard extends Component<categoryProps> {
 		const { classes, item } = this.props;
 		return (
 			<>
-				<Card className={classes.categoryCard}>
+				<Card className={`${classes.categoryCard} category-main-card`}>
 					<CardActionArea>
 						<CardMedia
 							className={classes.categoryImage}
@@ -66,26 +56,10 @@ class SalonCategoryCard extends Component<categoryProps> {
 							<Typography>{item.title}</Typography>
 						</CardContent>
 						<CardActions className={classes.categoryButtonBox}>
-							{/* <Button onClick={this.onEditClick}>
-								<EditIcon />
-								{item.editButton}
-							</Button>
-							<Button onClick={this.onDeleteClick}>
-								<DeleteIcon />
-								{item.deleteButton}
-							</Button> */}
-              <EditButton
-              className=""
-              onClick={this.onEditClick}
-              buttonName="Edit"
-              icon={<EditIcon/>}
-              />
-              <DeleteButton
-              className=""
-              onClick={this.onDeleteClick}
-              buttonName="Delete"
-              icon={<DeleteIcon/>}
-              />
+							<EditDeleteCommonButton
+								onClickEdit={this.onEditClick}
+								onClickDelete={this.onDeleteClick}
+							/>
 						</CardActions>
 					</CardActionArea>
 				</Card>

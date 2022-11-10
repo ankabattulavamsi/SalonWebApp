@@ -25,13 +25,13 @@ class CommonModal extends React.Component<CommonModalProps, CommonModalState> {
   render() {
     const { handleClose, open, children } = this.props;
     return (
-      <Box className="common-modal ">
+      <Box>
         <>
           <BootstrapDialog
             onClose={() => handleClose()}
             open={open}
             sx={{ mt: -10, maxWidth: "xl" }}
-            className={"common-modal "}
+            className="common-modal"
           >
             <Box
               sx={{
