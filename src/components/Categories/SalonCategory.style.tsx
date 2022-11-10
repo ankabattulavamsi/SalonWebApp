@@ -74,7 +74,7 @@ export const styles:any = {
             fontSize: '20px !important',
             lineHeight: '30px',
             textTransform: 'capitalize',
-            padding: '19px 49px 21px 47px !important',
+            padding: '19px 75px 21px 47px !important',
             width: '160px',
             borderRadius: '0',
             marginLeft: '0 !important',
