@@ -10,7 +10,7 @@ export const offerArray: Offer[] = [
   {
     id: 1,
     discount: 30,
-    title: "Hair Style",
+    title: "Hair style",
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit 
   `,
 
