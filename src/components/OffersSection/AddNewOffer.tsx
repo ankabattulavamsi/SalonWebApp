@@ -85,7 +85,7 @@ export class AddNewOffer extends Component<IsAddNewProps> {
 						<Box sx={{ p: 3, backgroundColor: "#fff" }}>
 							<Grid container spacing={2}>
 								<Grid item xs={12} md={6} sm={6} lg={6}>
-									<ImageUpload />
+									<ImageUpload addImgTitle='Upload New Offers Image' />
 								</Grid>
 
 								<Grid item xs={12} md={6} sm={6} lg={6}>

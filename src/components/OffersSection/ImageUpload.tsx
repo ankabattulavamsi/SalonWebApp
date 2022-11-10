@@ -10,11 +10,13 @@ interface IsAddNewProps {
   // editId: string;
   // handleOnChangeImage: (id: any) => void;
   // onClicOfCloseBadge: (id: any) => void;
+  addImgTitle: string
 }
 
 interface IsState {
   editId?: string;
   editImage: string;
+ 
 }
 
 export default class ImageUpload extends Component<IsAddNewProps, IsState> {
@@ -118,7 +120,7 @@ export default class ImageUpload extends Component<IsAddNewProps, IsState> {
                           textAlign: "center",
                         }}
                       >
-                        Upload Team Image
+                       {this.props.addImgTitle}
                       </Typography>
                     </Box>
                     <Box>

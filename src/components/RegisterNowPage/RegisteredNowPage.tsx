@@ -153,7 +153,7 @@ class RegisteredNowPage extends React.Component<
 										/>
 										<OtpPass
 											numberInputs={6}
-											label="password"
+											label="passcode"
 											placeholder="******"
 											value={state.password}
 											handleChange={handleChangePassword}
@@ -161,7 +161,7 @@ class RegisteredNowPage extends React.Component<
 										/>
 										<OtpPass
 											numberInputs={6}
-											label="confirm password"
+											label="confirm passcode"
 											placeholder="******"
 											handleChange={confirmPassChangehandle}
 											value={state.confirmPassword}

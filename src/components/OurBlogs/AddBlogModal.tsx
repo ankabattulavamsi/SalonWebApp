@@ -74,7 +74,7 @@ class AddNewBlog extends Component<IProps> {
 					<Box sx={{ p: 3, backgroundColor: "#fff" }}>
 						<Grid container spacing={2}>
 							<Grid item xs={12} md={6} sm={6} lg={6}>
-								<ImageUpload />
+								<ImageUpload addImgTitle='Upload Blog Image' />
 							</Grid>
 
 							<Grid item xs={12} md={6} sm={6} lg={6}>
