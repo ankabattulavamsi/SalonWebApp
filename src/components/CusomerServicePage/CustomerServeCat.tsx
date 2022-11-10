@@ -18,38 +18,19 @@ import { categoryData } from "../../utils/data/customer/CustomerData";
 import "react-multi-carousel/lib/styles.css";
 import withRouter from "../../hoc/withRouter";
 import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
+import { categoryAllData } from "../../utils/data/CustomerHairServiceData/CustomerServeData";
 
 interface IProps {
   navigate: any;
 }
 
 class CustomerServeCat extends Component<IProps> {
-  state = {
-    activeServe: "Hair Cut",
-  };
+  
 
-  project = () => {
-    switch (this.state.activeServe) {
-      case "Hair Cut":
-        return this.props.navigate("/customer/category/haircut");
-      case "Bridal":
-        return this.props.navigate("/customer/category/bridal");
-      case "Kids Haircut":
-        return this.props.navigate("/customer/category/kids-haircut");
-      case "Hair Color":
-        return this.props.navigate("/customer/category/hair-colors");
-        case "Facial":
-				return this.props.navigate('/customer/category/facial');
-        case "Spa":
-				return this.props.navigate('/customer/category/spa');
-        
-      default:
-        return null;
-    }
-  };
-
-  activateServices = (title: any) => {
-    this.setState({ activeServe: title });
+  activateServices = (data: any) => {
+    this.props.navigate(`/customer/category/${data.title}`, {
+      state: data
+    })
   };
 
   render() {
@@ -69,7 +50,7 @@ class CustomerServeCat extends Component<IProps> {
                 </Stack>
               </Box>
               <Grid className="card-item" gap={2} container>
-                {categoryData.map((data, index: number) => (
+                {categoryAllData.map((data, index: number) => (
                   <Grid
                     key={index}
                     className="innerCard"
@@ -78,7 +59,7 @@ class CustomerServeCat extends Component<IProps> {
                     lg={4}
                     xs={12}
                     item
-                    onClick={(e) => this.activateServices(data.title)}
+                    onClick={(e) => this.activateServices(data)}
                   >
                     <Box>
                       <Card className="category-card">
@@ -107,7 +88,6 @@ class CustomerServeCat extends Component<IProps> {
             </Stack>
           </Grid>
         </Grid>
-        <>{this.project()}</>
       </>
     );
   }

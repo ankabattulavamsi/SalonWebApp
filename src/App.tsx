@@ -23,12 +23,7 @@ import CustomerSevice from "./components/CusomerServicePage/CustomerSevice";
 import { categoryData } from "./utils/data/customer/CustomerData";
 
 import SalonNearByPage from "./routes/SalonNearByPage/SalonNearByPage";
-import CustomerHairService from "./components/CustomerSalonServices/CustomerHairService";
-import CustomerBridalService from "./components/CustomerSalonServices/CustomerBridalService";
-import CustomerKidsHair from "./components/CustomerSalonServices/CustomerKidsHair";
-import CustomerHairColor from "./components/CustomerSalonServices/CustomerHairColor";
-import CustomerFacial from "./components/CustomerSalonServices/CustomerFacial";
-import CusstomerSpa from "./components/CustomerSalonServices/CusstomerSpa";
+import CustomerHairService from "./components/CustomerSalonServices/CustomerAllService";
 import CustomerSingleServicePage from "./components/CustomerSalonServices/CustomerSingleServicePage";
 import CartItemsList from "./components/CustomerCartItems/CartItemsList";
 import AppointmentPage from "./components/AppointmentPage/AppointmentPage";
@@ -38,6 +33,7 @@ import { ToastContainer } from "react-toastify";
 import SalonNearByMainPage from "./routes/SalonNearByPage/SalonNearByMainPage";
 import CustomerBlogMainPage from "./components/OurBlogs/CustomerBlogMainPage/CustomerBlogMainPage";
 import SalonCustomerPage from "./components/SalonOwnerProfile/SalonCustomerPage";
+import CustomerAllService from "./components/CustomerSalonServices/CustomerAllService";
 function App() {
   return (
     <div>
@@ -80,48 +76,11 @@ function App() {
           <Route path="/customer/service" element={<CustomerSevice />} />
           <Route path="/customer/category" element={<CustomerCategories />} />
           <Route
-            path="/customer/category/haircut"
-            element={<CustomerHairService />}
+            path="/customer/category/:title"
+            element={<CustomerAllService />}
           />
           <Route
-            path="/customer/category/bridal"
-            element={<CustomerBridalService />}
-          />
-          <Route
-            path="/customer/category/kids-haircut"
-            element={<CustomerKidsHair />}
-          />
-          <Route
-            path="/customer/category/hair-colors"
-            element={<CustomerHairColor />}
-          />
-          <Route
-            path="/customer/category/facial"
-            element={<CustomerFacial />}
-          />
-          <Route path="/customer/category/spa" element={<CusstomerSpa />} />
-          <Route
-            path="customer/category/haircut/haircut-details"
-            element={<CustomerSingleServicePage />}
-          />
-          <Route
-            path="customer/category/bridal/bridal-details"
-            element={<CustomerSingleServicePage />}
-          />
-          <Route
-            path="customer/category/kids-haircut/kids-haircut-details"
-            element={<CustomerSingleServicePage />}
-          />
-          <Route
-            path="customer/category/hair-colors/hair-color-details"
-            element={<CustomerSingleServicePage />}
-          />
-          <Route
-            path="customer/category/facial/facial-details"
-            element={<CustomerSingleServicePage />}
-          />
-          <Route
-            path="customer/category/spa/spa-details"
+            path="customer/category/:title/:title-details"
             element={<CustomerSingleServicePage />}
           />
           <Route path="/customer/salonNearby" element={<SalonNearByPage />} />
