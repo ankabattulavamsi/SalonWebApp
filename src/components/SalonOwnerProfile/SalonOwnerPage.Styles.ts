@@ -20,6 +20,10 @@ export const Styles: any = (theme: any) => ({
         width: "100% !important",
       },
     },
+    marginTop: "20px",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "10px",
+    },
   },
   bookingHisoryTitlle: {
     fontFamily: "Fira Sans",

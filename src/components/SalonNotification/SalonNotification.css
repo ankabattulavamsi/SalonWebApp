@@ -1,0 +1,19 @@
+.primaryText {
+  font-family: "Fira Sans" !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 17px !important;
+  line-height: 24px !important;
+  text-transform: capitalize !important;
+  color: #272522 !important;
+}
+
+.secondaryText {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 30px;
+  text-transform: uppercase;
+  color: #272522;
+}

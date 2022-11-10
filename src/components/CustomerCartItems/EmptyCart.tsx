@@ -56,7 +56,7 @@ class EmptyCart extends Component<EmptyCartProps> {
             },
           }}
         >
-          Looks like you have not added anything to your cart. Go ahed and
+          Looks like you have not added anything to your cart. Go ahead and
           explore top categories.{" "}
         </Typography>
 
