@@ -25,10 +25,10 @@ class OfferSalonCard extends Component<IProps> {
 					className="parent-container">
 					<CardMedia
 						component="img"
-						image={item.offerImage}
+						image={item.brideServeImg}
 						className={classes.CardImageOffer}
 						alt={`${item.id}`}
-						src={item.offerImage}
+						src={item.brideServeImg}
 						sx={{
 							borderRadius: "4px",
 							objectFit: "cover",
@@ -39,7 +39,7 @@ class OfferSalonCard extends Component<IProps> {
 							<Typography
 								className={classes.offersPercentageHead}
 								sx={{ fontSize: "22px" }}>
-								{item.headingOff}
+								{item.heading}
 							</Typography>
 							<Box sx={{ display: "flex" }}>
 								<Box className="best-offers-discount-price">

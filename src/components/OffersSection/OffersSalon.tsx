@@ -72,7 +72,7 @@ export class OffersSalon extends Component<IsStateProps> {
 		this.setState({ editPrice: item.price });
 		this.setState({ editDissPrice: item.dissPrice });
 		this.setState({ editDescription: item.description });
-		this.setState({ editImage: item.offerImage });
+		this.setState({ editImage: item.brideServeImg });
 	};
 
 	handleClickOpenAddModel = () => {
@@ -96,7 +96,7 @@ export class OffersSalon extends Component<IsStateProps> {
 		SalonOffersData[findIndex].price = editPrice;
 		SalonOffersData[findIndex].dissPrice = editDissPrice;
 		SalonOffersData[findIndex].description = editDescription;
-		SalonOffersData[findIndex].offerImage = editImage;
+		SalonOffersData[findIndex].brideServeImg = editImage;
 		this.setState({ SalonBestOffersData: SalonBestOffersData });
 		this.setState({ open: false });
 		this.setState({ editOfferTitle: "" });
