@@ -188,7 +188,7 @@
 }
 
 
-.offers-dialog-box .css-12rl710-MuiPaper-root-MuiDialog-paper {
+.offers-dialog-box .MuiPaper-root {
   background-color: transparent !important;
   box-shadow: none !important;
   max-width: 150% !important;
