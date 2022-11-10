@@ -50,10 +50,10 @@ class SalonBlogCard extends Component<blogProps, salonBlogS> {
 					justifyContent="center"
 					columnSpacing={4}
 					rowSpacing={3}
-					sx={{ px: { sm: 4, xs: 2, md: 0, lg: 0 } }}>
+					sx={{ px: { sm: 4, xs: 2, md: 4, lg: 4 } }}>
 					{blogsData.map((item) => {
 						return (
-							<Grid item lg={3} md={3} xs={12} sm={6} key={item.id}>
+							<Grid item lg={3} md={4} xs={12} sm={6} key={item.id}>
 								<Box
 									className={classes.salonBlogCard}
 									onMouseEnter={() => this.handlecardActive(item.id)}
