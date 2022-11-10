@@ -21,6 +21,7 @@ import SpaBanner from "../../assets/images/SalonPatnerBestOffersImg/images (2).j
 import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
 import { hairStyle } from "../CustomerSalonServices/CustomerS.style";
 import { categoryData } from "../../utils/data/customer/CustomerData";
+import { categoryAllData } from "../../utils/data/CustomerHairServiceData/CustomerServeData";
 
 
 interface ServeProps {
@@ -29,31 +30,11 @@ interface ServeProps {
 }
 
 class CustomerCategories extends Component<ServeProps> {
-    state = {
-        activeServe: "Hair Cut",
-      };
     
-      project = () => {
-        switch (this.state.activeServe) {
-          case "Hair Cut":
-            return this.props.navigate("haircut");
-          case "Bridal":
-            return this.props.navigate("bridal");
-          case "Kids Haircut":
-            return this.props.navigate("kids-haircut");
-          case "Hair Color":
-            return this.props.navigate("hair-colors");
-            case "Facial":
-                    return this.props.navigate('facial');
-            case "Spa":
-                    return this.props.navigate('spa');
-          default:
-            return null;
-        }
-      };
-    
-      activateServices = (title: any) => {
-        this.setState({ activeServe: title });
+      activateServices = (data: any) => {
+        this.props.navigate(`/customer/category/${data.title}`, {
+          state: data
+        })
       };
 
   render() {
@@ -67,7 +48,7 @@ class CustomerCategories extends Component<ServeProps> {
           </Box>
 
           <Grid className="card-item" gap={2} container>
-                {categoryData.map((data, index: number) => (
+                {categoryAllData.map((data, index: number) => (
                   <Grid
                     key={index}
                     className="innerCard"
@@ -76,7 +57,7 @@ class CustomerCategories extends Component<ServeProps> {
                     lg={4}
                     xs={12}
                     item
-                    onClick={(e) =>  this.activateServices(data.title)}
+                    onClick={(e) =>  this.activateServices(data)}
                   >
                     <Box>
                       <Card className="category-card">
@@ -104,7 +85,6 @@ class CustomerCategories extends Component<ServeProps> {
               </Grid>
         </Container>
       </Layout>
-      <>{this.project()}</>
      </>
     );
   }

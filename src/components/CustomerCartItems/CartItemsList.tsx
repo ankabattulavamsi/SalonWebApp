@@ -9,11 +9,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 import Layout from "../Layout/Layout";
 import { cartStyle } from "./CartItem.Style";
-import { HairServiceData } from "../../utils/data/CustomerHairServiceData/CustomerHairData";
 import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
-import { categoryData } from "../../utils/data/customer/CustomerData";
-import DeleteModal from "../common/DeleteModal/DeleteModal";
-import { CardData } from "../../utils/data/ownerDashboard/ownerDashboard";
 import EmptyCart from "./EmptyCart";
 
 interface IsCartProps {
