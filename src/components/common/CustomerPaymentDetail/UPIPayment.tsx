@@ -57,16 +57,7 @@ class UPIPayment extends Component<PaymentProps> {
 						value={this.state.upi}
 						onChange={this.onChangeHandle}
 						className="text-input"
-						placeholder="1234567890"
-						InputProps={{
-							endAdornment: (
-								<InputAdornment
-									position="end"
-									sx={{ marginRight: "15px" }}>
-									@ybl
-								</InputAdornment>
-							),
-						}}
+						placeholder="1234567890                                                      @ybl"
 					/>
 				</Stack>
 				<Button

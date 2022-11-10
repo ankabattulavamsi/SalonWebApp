@@ -4,62 +4,56 @@ import * as React from "react";
 import { AlertColor, Box, Checkbox, Typography } from "@mui/material";
 import { withStyles } from "@mui/styles";
 import {
-	emailImage,
-	optionsStateName,
-	userImage,
+  emailImage,
+  optionsStateName,
+  userImage,
 } from "../../utils/data/businessdetailsandPayout/Busness.data";
 import { modalConstants } from "../../utils/data/constants/loginRegistration";
-import {
-	Buttons,
-	Drawers,
-	DropDownLogin,
-	Inputs,
-	OtpPass,
-} from "../common";
+import { Buttons, Drawers, DropDownLogin, Inputs, OtpPass } from "../common";
 import { navSate } from "../common/Navbar/Navbar";
 
 import { registeredStyles } from "./RegisteredNowPage.Styles";
 import { ErrorMessage, Form, Formik } from "formik";
 import * as Yup from "yup";
 interface RegisteredNowPageProps {
-	open: boolean;
-	toogleDrawer: (type?: string) => void;
-	classes: any;
-	handleChange: (e: any) => void;
-	state: navSate;
-	handleOnClick: () => void;
-	handleChangePassword?: (e: any) => void;
-	confirmPassChangehandle?: (password: any) => void;
-	handleError: (open: boolean, type: AlertColor, message: string) => void;
+  open: boolean;
+  toogleDrawer: (type?: string) => void;
+  classes: any;
+  handleChange: (e: any) => void;
+  state: navSate;
+  handleOnClick: () => void;
+  handleChangePassword?: (e: any) => void;
+  confirmPassChangehandle?: (password: any) => void;
+  handleError: (open: boolean, type: AlertColor, message: string) => void;
 }
 
 interface RegisteredNowPageState {
-	errorEmail: string;
-	isChecked: boolean;
-	error: string;
+  errorEmail: string;
+  isChecked: boolean;
+  error: string;
 }
 
 class RegisteredNowPage extends React.Component<
-	RegisteredNowPageProps,
-	RegisteredNowPageState
+  RegisteredNowPageProps,
+  RegisteredNowPageState
 > {
-	constructor(props: RegisteredNowPageProps) {
-		super(props);
-		this.state = {
-			isChecked: false,
-			errorEmail: "",
-			error: "",
-		};
-	}
+  constructor(props: RegisteredNowPageProps) {
+    super(props);
+    this.state = {
+      isChecked: false,
+      errorEmail: "",
+      error: "",
+    };
+  }
 
-	handleNavigate = () => {
-		this.props.toogleDrawer(modalConstants.VERIFICATION_DRAWER);
-		this.setState({
-			isChecked: false,
-			errorEmail: "",
-			error: "",
-		});
-	};
+  handleNavigate = () => {
+    this.props.toogleDrawer(modalConstants.VERIFICATION_DRAWER);
+    this.setState({
+      isChecked: false,
+      errorEmail: "",
+      error: "",
+    });
+  };
 
 	registeredSchema = Yup.object().shape({
 		fname: Yup.string()
@@ -98,7 +92,7 @@ class RegisteredNowPage extends React.Component<
 				toggleDrawer={() =>
 					this.props.toogleDrawer(modalConstants.REGISTER_DRAWER)
 				}>
-				<Box sx={{ padding: "0px !important" }} className="drawerSize">
+				<Box>
 					<Box>
 						<Typography className={classes.heading}>
 							Registered Now
@@ -187,7 +181,6 @@ class RegisteredNowPage extends React.Component<
 											<Box className={classes.agreementBox}>
 												<Checkbox
 													name="isChecked"
-													required
 													color={
 														this.state.isChecked ? "success" : "default"
 													}
@@ -209,23 +202,23 @@ class RegisteredNowPage extends React.Component<
 											/>
 										</Box>
 
-										<Box>
-											<Buttons
-												type="submit"
-												disabled={false}
-												title="Register now"
-												handleClick={() => {}}
-											/>
-										</Box>
-									</Box>
-								</Form>
-							);
-						}}
-					</Formik>
-				</Box>
-			</Drawers>
-		);
-	}
+                    <Box>
+                      <Buttons
+                        type="submit"
+                        disabled={false}
+                        title="Register now"
+                        handleClick={() => {}}
+                      />
+                    </Box>
+                  </Box>
+                </Form>
+              );
+            }}
+          </Formik>
+        </Box>
+      </Drawers>
+    );
+  }
 }
 
 export default withStyles(registeredStyles)(RegisteredNowPage);

@@ -166,6 +166,7 @@ class Navbar extends Component<{}, navSate> {
 					openDrawer: false,
 					mobileDrawer: false,
 					fname: "",
+					email: "",
 					password: "",
 					confirmPassword: "",
 					mobileNumber: "",
@@ -248,7 +249,6 @@ class Navbar extends Component<{}, navSate> {
 	};
 
 	render() {
-		console.log({ navState: this.state });
 		return (
 			<Fragment>
 				<Box className="navbar-body">
