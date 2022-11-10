@@ -4,6 +4,7 @@ import {
   Button,
   Container,
   FormControl,
+  ListItem,
   MenuItem,
   Select,
   Typography,
@@ -96,12 +97,18 @@ class CustomerAppointmentPage extends Component {
                 value={this.state.monthName}
                 onChange={this.handleMonthChange}
                 name="monthName"
-                className={classes.monthName}
+                className={classes.monthNameBox}
                 displayEmpty
               >
-                <MenuItem value="">January</MenuItem>
-                <MenuItem value="february">February</MenuItem>
-                <MenuItem value="March">March</MenuItem>
+                <MenuItem value="" className={classes.monthName}>
+                  January
+                </MenuItem>
+                <MenuItem value="february" className={classes.monthName}>
+                  February
+                </MenuItem>
+                <MenuItem value="March" className={classes.monthName}>
+                  March
+                </MenuItem>
               </Select>
             </FormControl>
           </Box>

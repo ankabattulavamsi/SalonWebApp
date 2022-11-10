@@ -2,12 +2,14 @@
 
 import React, { Component } from "react";
 import {
-	Typography,
-	Card,
-	CardActionArea,
-	CardMedia,
-	CardActions,
-	CardContent,
+  Typography,
+  Button,
+  Grid,
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardActions,
+  CardContent,
 } from "@mui/material";
 import { withStyles } from "@mui/styles";
 import { styles } from "./SalonCategory.style";
@@ -18,11 +20,11 @@ import DeleteModal from "../common/DeleteModal/DeleteModal";
 import EditDeleteCommonButton from "../common/CommonButtons/EditDeleteCommonButton";
 
 interface categoryProps {
-	classes: any;
-	navigate: any;
-	edit: boolean;
-	open: boolean;
-	item: any;
+  classes: any;
+  navigate: any;
+  edit: boolean;
+  open: boolean;
+  item: any;
 }
 class SalonCategoryCard extends Component<categoryProps> {
 	state = {
@@ -64,18 +66,15 @@ class SalonCategoryCard extends Component<categoryProps> {
 					</CardActionArea>
 				</Card>
 
-				<DeleteModal
-					jobTitle="Category"
-					open={this.state.open}
-					onClose={this.onDeleteClose}
-				/>
-				<CategoryEditModal
-					open={this.state.edit}
-					onClose={this.onEditClose}
-				/>
-			</>
-		);
-	}
+        <DeleteModal
+          jobTitle="Category"
+          open={this.state.open}
+          onClose={this.onDeleteClose}
+        />
+        <CategoryEditModal open={this.state.edit} onClose={this.onEditClose} />
+      </>
+    );
+  }
 }
 
 export default withStyles(styles)(withRouter(SalonCategoryCard));
