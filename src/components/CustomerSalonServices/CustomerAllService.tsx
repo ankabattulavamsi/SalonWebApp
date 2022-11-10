@@ -9,41 +9,39 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import { Container } from "@mui/system";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
-import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { withStyles } from "@mui/styles";
+import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import { Container } from "@mui/system";
 
 import CustomerCommonBanner from "../common/CustomerCommonBanner/CustomerCommonBanner";
-import HiarColorImg from "../../assets/images/CustomerServiceImg/fashion-color-banner.jpg";
-import Layout from "../Layout/Layout";
-import { HairColors } from "../../utils/data/CustomerHairServiceData/CustomerHairData";
+import SalonHairImg from "../../assets/images/CustomerHairServiceImgs/9852e9704ebcfac8c889f491e97ef665.jpeg";
 import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
+import Layout from "../Layout/Layout";
 
 import { hairStyle } from "./CustomerS.style";
 
 interface ServeProps {
   classes: any;
   navigate: any;
+  location: any
 }
 
-class CustomerHairColor extends Component<ServeProps> {
+export class CustomerAllService extends Component<ServeProps> {
   state = {
     newArray: JSON.parse(localStorage.getItem("cartData")!) || [],
   };
-
   onClickNavigateSingleServe = (item: any) => {
     let heading = item.heading.replace(/ /g, "");
-    this.props.navigate(`hair-color-details`, {
+    this.props.navigate(`${heading}-details`, {
       state: item,
     });
   };
 
   onClickAddToCart = (item: any) => {
     this.props.navigate("/customer/cart-items", {
-      state: item,
+      state: this.state.newArray,
     });
-
     const itemInCart = this.state.newArray.find(
       (items: any) => items.id === item.id
     );
@@ -61,15 +59,16 @@ class CustomerHairColor extends Component<ServeProps> {
 
   render() {
     const { classes } = this.props;
+    const {state} = this.props.location 
     return (
       <Layout customer={true}>
         <Container maxWidth="lg" sx={{ mt: 12, mb: 10 }}>
           <Box>
-            <CustomerCommonBanner image={HiarColorImg} title="Hair Colors" />
+            <CustomerCommonBanner image={SalonHairImg} title={state.title} />
           </Box>
 
           <Grid container spacing={2} sx={{ p: { lg: 0 } }}>
-            {HairColors.map((item: any) => (
+            {state.serveData.map((item: any) => (
               <Grid item xs={12} md={6} sm={6} lg={4}>
                 <Card className={classes.cardContainer}>
                   <CardMedia
@@ -77,13 +76,11 @@ class CustomerHairColor extends Component<ServeProps> {
                     alt={`${item.heading}`}
                     height="215"
                     image={item.brideServeImg}
-                    key={item.id}
                     onClick={(e) => this.onClickNavigateSingleServe(item)}
                   />
 
                   <CardContent
                     sx={{ m: 1 }}
-                    key={item.id}
                     onClick={(e) => this.onClickNavigateSingleServe(item)}
                   >
                     <Box className={classes.priceServeContainer}>
@@ -134,4 +131,4 @@ class CustomerHairColor extends Component<ServeProps> {
   }
 }
 
-export default WithRouterHoc(withStyles(hairStyle)(CustomerHairColor));
+export default WithRouterHoc(withStyles(hairStyle)(CustomerAllService));

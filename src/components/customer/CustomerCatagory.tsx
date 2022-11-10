@@ -16,37 +16,18 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import "react-multi-carousel/lib/styles.css";
 import { CommonViewAllButton } from "../common";
 import withRouter from "../../hoc/withRouter";
-import { categoryData } from "../../utils/data/customer/CustomerData";
+import { categoryAllData } from "../../utils/data/CustomerHairServiceData/CustomerServeData";
 
 interface IProps {
   navigate: any;
 }
 class CustomerCatagory extends Component<IProps> {
-  state = {
-    activeServe: "Hair Cut",
-  };
 
-  project = () => {
-    switch (this.state.activeServe) {
-      case "Hair Cut":
-        return this.props.navigate("/customer/category/haircut");
-      case "Bridal":
-        return this.props.navigate("/customer/category/bridal");
-      case "Kids Haircut":
-        return this.props.navigate("/customer/category/kids-haircut");
-      case "Hair Color":
-        return this.props.navigate("/customer/category/hair-colors");
-      case "Facial":
-        return this.props.navigate("/customer/category/facial");
-      case "Spa":
-        return this.props.navigate("/customer/category/spa");
-      default:
-        return null;
-    }
-  };
-
-  activateServices = (title: any) => {
-    this.setState({ activeServe: title });
+  activateServices = (data: any) => {
+    let heading = data.title.replace(/ /g, "");
+    this.props.navigate(`/customer/category/${heading}`, {
+      state: data
+    })
   };
 
   onClickNavigateOffersPage = () => {
@@ -74,7 +55,7 @@ class CustomerCatagory extends Component<IProps> {
                 />
               </Box>
               <Grid className="card-item" gap={2} container>
-                {categoryData.map((data, index: number) => (
+                {categoryAllData.map((data, index: number) => (
                   <Grid
                     key={index}
                     className="innerCard"
@@ -83,7 +64,7 @@ class CustomerCatagory extends Component<IProps> {
                     lg={4}
                     xs={12}
                     item
-                    onClick={(e) => this.activateServices(data.title)}
+                    onClick={(e) => this.activateServices(data)}
                   >
                     <Box>
                       <Card className="category-card">
@@ -113,7 +94,6 @@ class CustomerCatagory extends Component<IProps> {
           </Grid>
           <Grid item xs={1} sm={1} md={1} lg={1}></Grid>
         </Grid>
-		<>{this.project()}</>
       </>
     );
   }
