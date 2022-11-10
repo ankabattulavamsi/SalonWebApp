@@ -5,8 +5,8 @@ import offerImg2 from "../../../assets/images/SalonPatnerBestOffersImg/Rectangle
 
 export interface SalonOfferProps {
 	id: number;
-	offerImage: string;
-	headingOff: string;
+	brideServeImg: string;
+	heading: string;
 	price: string;
 	dissPrice: string;
 	description: string;
@@ -14,8 +14,8 @@ export interface SalonOfferProps {
 export const SalonBestOffersData: SalonOfferProps[] = [
 	{
 		id: 1,
-		offerImage: offerImg2,
-		headingOff: "Hair Color 20% Off",
+		brideServeImg: offerImg2,
+		heading: "Hair Color 20% Off",
 		price: "240",
 		dissPrice: "150",
 		description:
@@ -23,8 +23,8 @@ export const SalonBestOffersData: SalonOfferProps[] = [
 	},
 	{
 		id: 2,
-		offerImage: offerImg1,
-		headingOff: "Hair Color 20% Off",
+		brideServeImg: offerImg1,
+		heading: "Hair Color 20% Off",
 		price: "240",
 		dissPrice: "150",
 		description:

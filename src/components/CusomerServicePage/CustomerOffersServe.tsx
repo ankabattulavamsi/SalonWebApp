@@ -37,6 +37,7 @@ export class CustomerOffersServe extends Component<IsStateProps> {
   };
 
   onClickOpenModel = (item:any) => {
+    console.log(item)
     this.props.navigate("/customer/cart-items", {
       state: item,
     });
@@ -116,7 +117,7 @@ export class CustomerOffersServe extends Component<IsStateProps> {
                       >
                         <CardMedia
                           component="img"
-                          image={item.offerImage}
+                          image={item.brideServeImg}
                           alt="green iguana"
                         />
                         <Box>
@@ -125,7 +126,7 @@ export class CustomerOffersServe extends Component<IsStateProps> {
                               className={classes.offersPercentageHead}
                               sx={{ fontSize: "22px" }}
                             >
-                              {item.headingOff}
+                              {item.heading}
                             </Typography>
                             <Box sx={{ display: "flex" }}>
                               <Box className="best-offers-discount-price">
