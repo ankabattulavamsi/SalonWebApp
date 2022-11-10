@@ -13,7 +13,6 @@ import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
 import { SalonBestOffersData } from "../../utils/data/SalonPatnerBestOffers/SalonBestOffers";
-import CommonViewAllButton from "../common/CommonSalonPatnerButtons/CommonViewAllButton";
 import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
 
 import "../OffersSection/SalonBestOffers.css";

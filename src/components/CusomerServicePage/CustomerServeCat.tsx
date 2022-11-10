@@ -13,7 +13,6 @@ import { Styles } from "../OurSpecialists/specialist.styles";
 import { withStyles } from "@mui/styles";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-import { categoryData } from "../../utils/data/customer/CustomerData";
 
 import "react-multi-carousel/lib/styles.css";
 import withRouter from "../../hoc/withRouter";
@@ -28,9 +27,10 @@ class CustomerServeCat extends Component<IProps> {
   
 
   activateServices = (data: any) => {
-    this.props.navigate(`/customer/category/${data.title}`, {
-      state: data
-    })
+    let heading = data.title.replace(/ /g, "");
+        this.props.navigate(`/customer/category/${heading}`, {
+          state: data
+        })
   };
 
   render() {

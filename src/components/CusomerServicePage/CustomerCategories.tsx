@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import {
   Box,
-  Button,
   Card,
-  CardActions,
   CardContent,
   CardMedia,
   Grid,
@@ -16,11 +14,9 @@ import { withStyles } from "@mui/styles";
 import CustomerCommonBanner from "../common/CustomerCommonBanner/CustomerCommonBanner";
 import Layout from "../Layout/Layout";
 import categoryBan from '../../assets/images/CustomerServiceImg/233382ed6c0589fe605295d089ec6eb1.png'
-import SpaBanner from "../../assets/images/SalonPatnerBestOffersImg/images (2).jpeg";
 
 import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
 import { hairStyle } from "../CustomerSalonServices/CustomerS.style";
-import { categoryData } from "../../utils/data/customer/CustomerData";
 import { categoryAllData } from "../../utils/data/CustomerHairServiceData/CustomerServeData";
 
 
@@ -32,7 +28,8 @@ interface ServeProps {
 class CustomerCategories extends Component<ServeProps> {
     
       activateServices = (data: any) => {
-        this.props.navigate(`/customer/category/${data.title}`, {
+        let heading = data.title.replace(/ /g, "");
+        this.props.navigate(`/customer/category/${heading}`, {
           state: data
         })
       };

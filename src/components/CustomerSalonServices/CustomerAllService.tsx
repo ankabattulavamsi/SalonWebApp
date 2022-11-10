@@ -60,7 +60,6 @@ export class CustomerAllService extends Component<ServeProps> {
   render() {
     const { classes } = this.props;
     const {state} = this.props.location 
-    console.log('stateeeeeee', state.title)
     return (
       <Layout customer={true}>
         <Container maxWidth="lg" sx={{ mt: 12, mb: 10 }}>

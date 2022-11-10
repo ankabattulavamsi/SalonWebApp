@@ -16,7 +16,6 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import "react-multi-carousel/lib/styles.css";
 import { CommonViewAllButton } from "../common";
 import withRouter from "../../hoc/withRouter";
-import { categoryData } from "../../utils/data/customer/CustomerData";
 import { categoryAllData } from "../../utils/data/CustomerHairServiceData/CustomerServeData";
 
 interface IProps {
@@ -25,7 +24,8 @@ interface IProps {
 class CustomerCatagory extends Component<IProps> {
 
   activateServices = (data: any) => {
-    this.props.navigate(`/customer/category/${data.title}`, {
+    let heading = data.title.replace(/ /g, "");
+    this.props.navigate(`/customer/category/${heading}`, {
       state: data
     })
   };
