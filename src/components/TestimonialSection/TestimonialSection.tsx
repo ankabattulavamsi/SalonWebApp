@@ -27,7 +27,7 @@ class TestimonialSection extends React.Component<
       <>
         <Box
           sx={{
-            pt: 10,
+            pt: 13,
           }}
         >
           <>

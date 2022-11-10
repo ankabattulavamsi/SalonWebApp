@@ -1,18 +1,20 @@
+/** @format */
+
 export interface BuesnessInputFields {
-  id: number;
-  label: string;
-  name: string;
-  icon: any;
-  type: string;
-  placeholder: string;
-  required: boolean;
-  value?: any;
+	id: number;
+	label: string;
+	name: string;
+	icon: any;
+	type: string;
+	placeholder: string;
+	required: boolean;
+	value?: any;
 }
 
 export interface optionsBanksname {
-  id: number;
-  title: string;
-  icon?: string;
+	id: number;
+	title: string;
+	icon?: string;
 }
 export const profileImage: string = require("../../../assets/images/BuesnessProfile/profile.png");
 export const storeImage: string = require("../../../assets/images/BuesnessProfile/store.png");
@@ -24,32 +26,32 @@ export const yblImage: string = require("../../../assets/images/BuesnessProfile/
 export const profilesImage: string = require("../../../assets/images/BuesnessProfile/profile.jpg");
 
 export const optionsBankName: optionsBanksname[] = [
-  {
-    id: 123456,
-    title: "State bank of India",
-    icon: require("../../../assets/images/BuesnessProfile/sbi-logo.png"),
-  },
-  {
-    id: 123457,
-    title: "HDFC",
-    icon: require("../../../assets/images/BuesnessProfile/hdfc-logo.png"),
-  },
-  {
-    id: 123458,
-    title: "axis",
-    icon: require("../../../assets/images/BuesnessProfile/axis-log.png"),
-  },
-  {
-    id: 123458,
-    title: "icic",
-    icon: require("../../../assets/images/BuesnessProfile/icic.png"),
-  },
+	{
+		id: 123456,
+		title: "State bank of India",
+		icon: require("../../../assets/images/BuesnessProfile/sbi-logo.png"),
+	},
+	{
+		id: 123457,
+		title: "HDFC",
+		icon: require("../../../assets/images/BuesnessProfile/hdfc-logo.png"),
+	},
+	{
+		id: 123458,
+		title: "axis",
+		icon: require("../../../assets/images/BuesnessProfile/axis-log.png"),
+	},
+	{
+		id: 123459,
+		title: "icic",
+		icon: require("../../../assets/images/BuesnessProfile/icic.png"),
+	},
 ];
 
 export const optionsStateName = [
-  { id: 1, title: "maharastra" },
-  { id: 2, title: "telangana" },
-  { id: 3, title: "uttar pardesh" },
+	{ id: 1, title: "maharastra" },
+	{ id: 2, title: "telangana" },
+	{ id: 3, title: "uttar pardesh" },
 ];
 
 // export interface InputFields {

@@ -10,10 +10,10 @@ import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import WithRouterHoc from "../common/CommonNavigateComp/WithRouterHoc";
 import Layout from "../Layout/Layout";
 import { hairStyle } from "./CustomerS.style";
-import { HairServiceData } from "../../utils/data/CustomerHairServiceData/CustomerHairData";
 
 import Slider from "react-slick";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { categoryAllData } from "../../utils/data/CustomerHairServiceData/CustomerServeData";
 
 interface IsSinglePageProps {
   location: any;
@@ -22,10 +22,29 @@ interface IsSinglePageProps {
 }
 
 class CustomerSingleServicePage extends Component<IsSinglePageProps> {
+  state = {
+    newArray: JSON.parse(localStorage.getItem("cartData")!) || [],
+  };
+
   onClickAddToCart = (item: any) => {
+    console.log('item-single', item)
     this.props.navigate("/customer/cart-items", {
       state: item,
     });
+
+    const itemInCart = this.state.newArray.find(
+      (items: any) => items.id === item.id
+    );
+    if (itemInCart) {
+    } else {
+      localStorage.setItem(
+        "cartData",
+        JSON.stringify([...this.state.newArray, item])
+      );
+      this.setState({
+        newArray: JSON.parse(localStorage.getItem("cartData")!),
+      });
+    }
   };
 
   render() {
@@ -58,10 +77,7 @@ class CustomerSingleServicePage extends Component<IsSinglePageProps> {
         >
           <ArrowBackIos
             id="arrowBtn"
-            style={{
-              color: "#FFFFFF",
-              fontSize: "25px",
-            }}
+            className={classes.prevArrow}
           />
         </Stack>
       );
@@ -83,10 +99,7 @@ class CustomerSingleServicePage extends Component<IsSinglePageProps> {
         >
           <ArrowForwardIos
             id="arrowBtn"
-            style={{
-              color: "#FFFFFF",
-              fontSize: "25px",
-            }}
+            className={classes.prevArrow}
           />
         </Stack>
       );
@@ -109,10 +122,10 @@ class CustomerSingleServicePage extends Component<IsSinglePageProps> {
                   prevArrow={<PreviousBtn />}
                   nextArrow={<NextBtn />}
                 >
-                  {HairServiceData.map((item: any, index: any) => {
+                  {categoryAllData.map((item: any, index: any) => {
                     return (
                       <Fragment key={index}>
-                        <img src={item.brideServeImg} alt="nnnn" width="100%" />
+                        <img src={item.image} alt="nnnn" width="100%" />
                       </Fragment>
                     );
                   })}
@@ -155,7 +168,7 @@ class CustomerSingleServicePage extends Component<IsSinglePageProps> {
                     style={{ fontSize: "26px", marginBottom: "5px" }}
                   />
                 }
-				onClick={() => this.onClickAddToCart(state)}
+                onClick={() => this.onClickAddToCart(state)}
               >
                 Add To Cart
               </Button>

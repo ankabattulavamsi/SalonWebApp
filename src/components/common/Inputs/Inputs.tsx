@@ -64,14 +64,14 @@ export default class Inputs extends Component<InputsProps, InputsState> {
                     id={id}
                     rows={3}
                     name={name}
-                    required={required}
+                    // required={required}
                     placeholder={placeholder}
                     className="input--input--1 "
                     value={value}
                     onChange={(e) => {
                       handleChange && handleChange(e);
                     }}
-                  ></textarea>
+                  />
 
                   {icon && <img src={icon} alt={id} className="input--icons" />}
                 </Box>
@@ -84,7 +84,7 @@ export default class Inputs extends Component<InputsProps, InputsState> {
                   type={type}
                   id={name}
                   name={name}
-                  required={required}
+                  // required={required}
                   placeholder={placeholder}
                   className="input--input--1 "
                   value={value}

@@ -21,6 +21,13 @@ import "./salonNear.css";
 import StarIcons from "../../components/common/Ratings/StarIcons";
 import { commentData } from "../../utils/data/commentData/commentData";
 import CommentBox from "./CommentBox";
+
+export interface CustomerPaymentState {
+	open: boolean;
+	bankAccount: boolean;
+	upi: boolean;
+	creditCard: boolean;
+}
 export default class SalonServiceDetail extends Component {
 	render() {
 		const settings = {

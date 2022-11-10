@@ -33,7 +33,7 @@ class Specialists extends Component<IProps> {
 
 		return (
 			<>
-				<Grid container sx={{ mt: 10 }}>
+				<Grid container>
 					<Grid item xs={1} sm={1} md={1.5} lg={1.5}></Grid>
 					<Grid item xs={10} sm={10} md={9} lg={9}>
 						<Stack className={classes.specialist}>
@@ -52,19 +52,13 @@ class Specialists extends Component<IProps> {
 									}
 								/>
 							</Box>
-							<Grid className={classes.CardItems} gap={2} container>
-								{specialistData.map((team: TeamData, index: number) => (
-									<Grid
-										key={index}
-										className="innerCard"
-										sm={4}
-										md={4}
-										lg={4}
-										item>
+							<Box className={classes.CardItems}>
+								{specialistData.slice(0, 3).map((team: TeamData) => (
+									<Box key={team.id} className="innerCard">
 										<SpecialistCard team={team} />
-									</Grid>
+									</Box>
 								))}
-							</Grid>
+							</Box>
 						</Stack>
 						<Box className={classes.carouselSec}>
 							<Container maxWidth="lg">
@@ -82,7 +76,7 @@ class Specialists extends Component<IProps> {
 										containerClass="container"
 										dotListClass="custom-dot-list-style">
 										{teamdata.map((team: TeamData, index: number) => {
-											return <SpecialistCard team={team} />;
+											return <SpecialistCard team={team} key={team.id} />;
 										})}
 									</Carousel>
 								</Box>

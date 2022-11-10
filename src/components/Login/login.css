@@ -1,8 +1,11 @@
 /** @format */
 
-.drawerSize {
-	width: 460px;
+/* .drawerSize {
 	padding: 30px !important;
+} */
+.drawerSize {
+	padding: 30px !important;
+	width: 460px;
 }
 
 .mobileNoChildBox1 {
@@ -92,12 +95,27 @@
 }
 .traingle-sec {
 	position: absolute;
-	left: 100px;
+	left: 25%;
 	top: 54px;
 }
 .traingle-sec1 {
 	position: absolute;
-	right: 100px;
+	right: 25%;
+	top: 54px;
+}
+.traingle-sec2 {
+	position: absolute;
+	left: 15%;
+	top: 54px;
+}
+.traingle-sec3 {
+	position: absolute;
+	left: 50%;
+	top: 54px;
+}
+.traingle-sec4 {
+	position: absolute;
+	right: 15%;
 	top: 54px;
 }
 .traingle {
@@ -108,6 +126,9 @@
 	width: 0;
 	height: 0;
 }
+.display-none {
+	display: none;
+}
 
 .buttons {
 	width: 200px;
@@ -116,16 +137,74 @@
 	color: #333 !important ;
 	border: none !important;
 }
+.buttonsPay {
+	position: relative;
+	width: 200px;
+	padding: 15px !important;
+	background: #f9f3ec !important;
+	color: #333 !important ;
+	border: none !important;
+	text-transform: capitalize !important;
+}
 .customer {
 	background-color: #000 !important;
 	color: white !important ;
 }
+.text-input {
+	background: #f0f0f0;
+	border: 0 !important;
+}
+.text-input fieldset {
+	border: 0 !important;
+}
+
+.continue-btn {
+	margin-top: 30px !important;
+	padding: 15px !important;
+	color: #fff !important;
+}
+.input-group-sec {
+	width: 100%;
+}
+
+/* for development purpose */
+@media only screen and (min-width: 1500px) and (max-width: 3100px) {
+	.buttons {
+		width: 100% !important;
+	}
+	.buttonsPay {
+		width: 100% !important;
+	}
+}
+@media only screen and (min-width: 1201px) and (max-width: 1499px) {
+	.main-drawer-pay .css-1160xiw-MuiPaper-root-MuiDrawer-paper {
+		width: 35% !important;
+	}
+}
+@media only screen and (min-width: 1050px) and (max-width: 1200px) {
+	.buttons {
+		width: 100% !important;
+	}
+	.buttonsPay {
+		width: 100% !important;
+	}
+}
+@media only screen and (min-width: 600px) and (max-width: 817px) {
+	.main-drawer-pay .css-1160xiw-MuiPaper-root-MuiDrawer-paper {
+		width: 70% !important;
+	}
+	.login-drawer .css-1160xiw-MuiPaper-root-MuiDrawer-paper {
+		width: 70% !important;
+	}
+}
 @media only screen and (min-width: 600px) and (max-width: 1050px) {
 	.drawerSize {
-		width: 100%;
 		padding: 20px;
 	}
 	.buttons {
+		width: 100% !important;
+	}
+	.buttonsPay {
 		width: 100% !important;
 	}
 }
@@ -134,7 +213,132 @@
 		width: 100%;
 		padding: 20px;
 	}
+	.main-drawer-pay .css-1ab2xsx {
+		width: 100% !important;
+	}
 	.buttons {
 		width: 100% !important;
 	}
+	.buttonsPay {
+		width: 100% !important;
+		font-size: 11px !important;
+	}
+	.traingle-sec2 {
+		top: 49px;
+	}
+
+	.traingle-sec3 {
+		top: 49px;
+	}
+	.traingle-sec4 {
+		top: 49px;
+	}
+	.css-uhb5lp {
+		margin: 0 !important;
+		overflow: hidden;
+		width: 100% !important;
+	}
+}
+@media only screen and (min-width: 450px) and (max-width: 500px) {
+	.traingle-sec3 {
+		left: 50%;
+		top: 49px;
+	}
+}
+
+/* For local view */
+/* @media only screen and (min-width: 1500px) and (max-width: 3100px) {
+	.buttons {
+		width: 100% !important;
+	}
+	.buttonsPay {
+		width: 100% !important;
+	}
+	.drawerSize {
+		width: 100%;
+	}
+}
+@media only screen and (min-width: 1201px) and (max-width: 1499px) {
+	.main-drawer-pay .css-1160xiw-MuiPaper-root-MuiDrawer-paper {
+		width: 35% !important;
+	}
+	.drawerSize {
+		width: 100%;
+	}
+}
+@media only screen and (min-width: 1050px) and (max-width: 1200px) {
+	.buttons {
+		width: 100% !important;
+	}
+	.buttonsPay {
+		width: 100% !important;
+	}
+	.drawerSize {
+		width: 100%;
+	}
+}
+@media only screen and (min-width: 600px) and (max-width: 817px) {
+	.main-drawer-pay .css-1160xiw-MuiPaper-root-MuiDrawer-paper {
+		width: 70% !important;
+	}
+	.login-drawer .css-1160xiw-MuiPaper-root-MuiDrawer-paper {
+		width: 70% !important;
+	}
+}
+@media only screen and (min-width: 600px) and (max-width: 1050px) {
+	.drawerSize {
+		padding: 20px;
+	}
+	.buttons {
+		width: 100% !important;
+	}
+	.buttonsPay {
+		width: 100% !important;
+	}
+	.drawerSize {
+		width: 100%;
+	}
+}
+@media only screen and (min-width: 200px) and (max-width: 600px) {
+	.drawerSize {
+		width: 100%;
+		padding: 20px;
+	}
+	.main-drawer-pay .css-1ab2xsx {
+		width: 100% !important;
+	}
+	.buttons {
+		width: 100% !important;
+	}
+	.buttonsPay {
+		width: 100% !important;
+		font-size: 11px !important;
+	}
+	.traingle-sec2 {
+		top: 49px;
+	}
+
+	.traingle-sec3 {
+		top: 49px;
+	}
+	.traingle-sec4 {
+		top: 49px;
+	}
+}
+@media only screen and (min-width: 450px) and (max-width: 500px) {
+	.traingle-sec3 {
+		left: 50%;
+		top: 49px;
+	}
+} */
+
+/* for notifiction */
+.jss92 {
+	width: 100% !important;
+}
+.main-notification .css-ekeie0 {
+	justify-content: right !important;
+}
+.main-notification .css-919eu4 {
+	opacity: 0 !important;
 }

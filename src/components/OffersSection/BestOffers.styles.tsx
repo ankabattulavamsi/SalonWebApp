@@ -1,6 +1,6 @@
 import { height } from "@mui/system";
 
-export const StylesOffers: any  = (theme: any) =>  ({
+export const StylesOffers: any = (theme: any) => ({
   MainContainer: {
     backgroundColor: "#FDF6EE",
   },
@@ -37,7 +37,7 @@ export const StylesOffers: any  = (theme: any) =>  ({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop: '15px'
+    marginTop: "15px",
   },
   offersPercentageHead: {
     fonFamily: "Fira Sans !important",
@@ -58,7 +58,7 @@ export const StylesOffers: any  = (theme: any) =>  ({
     fontStyle: "normal !important",
     fontWeight: "800 !important",
     fontSize: "20px !important",
-    marginRight: '3px !important'
+    marginRight: "3px !important",
   },
 
   OffersRuppeIcon: {
@@ -89,7 +89,7 @@ export const StylesOffers: any  = (theme: any) =>  ({
     fontStyle: "normal !important",
     fontSize: "18px !important",
     lineHeight: "22px !important",
-    textTransform: 'capitalize !important'
+    textTransform: "capitalize !important",
   },
   ViewAllButtonContainer: {
     backgroundColor: "#272522",
@@ -171,11 +171,17 @@ export const StylesOffers: any  = (theme: any) =>  ({
     width: "100%",
 
     opacity: "1",
-    
   },
   CardImageOffer: {
-    width: '100% !important',
-    height: '220px !important',
-    objectFit: "cover !important"
-  }
+    width: "100% !important",
+    height: "220px !important",
+    objectFit: "cover !important",
+  },
+
+  /// category css
+  EditCategoryModal: {
+    backgroundColor: "transparent !important",
+    borderRadius: "4px",
+    boxShadow: "none !important",
+  },
 });

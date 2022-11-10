@@ -2,61 +2,75 @@
 import React, { Component } from "react";
 import {
 	Box,
-	Button,
-	ButtonGroup,
 	Card,
 	CardContent,
 	CardMedia,
 	Typography,
 } from "@mui/material";
 import { TeamData } from "../../utils/data/expertTeam/team";
-import EditIcon from "@mui/icons-material/Edit";
-import { DeleteOutline } from "@mui/icons-material";
 import "./specialist.css";
 import DeleteModal from "../common/DeleteModal/DeleteModal";
 import EditTeam from "./EditTeam";
+import { Styles } from "./specialist.styles";
+import { withStyles } from "@mui/styles";
+import EditDeleteCommonButton from "../common/CommonButtons/EditDeleteCommonButton";
 
 interface IProps {
 	team: TeamData;
+	classes?: any;
 }
 
 interface State {
 	open: boolean;
 	openEditModal: boolean;
+	imgeUrl: string;
+	editId: string;
 }
-export default class SpecialistCard extends Component<IProps, State> {
+class SpecialistCard extends Component<IProps, State> {
 	state: State = {
 		open: false,
 		openEditModal: false,
+		imgeUrl: "",
+		editId: "",
 	};
+
+	onSubmitEditModel = () => {
+		this.setState({ openEditModal: false });
+	};
+	handleOnChangeImage = (e: any) => {
+		this.setState({ imgeUrl: URL.createObjectURL(e.target.files[0]) });
+	};
+
 	onClose = () => {
 		this.setState({ open: false });
 	};
-	onClickFunc = () => {
+	onClickDelFunc = () => {
 		this.setState({ open: true });
 	};
-	onEditFunc = () => {
+	onEditFunc = (item: any) => {
+		this.setState({ editId: item.id });
 		this.setState({ openEditModal: true });
+		this.setState({ imgeUrl: item.imgeUrl });
 	};
 	closeEditModal = () => {
 		this.setState({ openEditModal: false });
 	};
+
+	handleCloseBage = () => {
+		this.setState({ imgeUrl: "" });
+	};
+
 	render() {
-		const { team } = this.props;
+		const { team, classes } = this.props;
 		return (
 			<>
 				<Card className="special-team">
-					<Box>
+					<Box sx={{ position: "relative" }} className="">
+						<div className="hero"></div>
 						<CardMedia
 							component={"img"}
 							src={team.imgeUrl}
-							sx={{
-								height: "400px",
-								display: "block",
-								objectFit: "fill !important",
-								justifyContent: "center",
-								margin: "auto",
-							}}
+							className={classes.specialImg}
 							alt={team.title}></CardMedia>
 					</Box>
 					<CardContent
@@ -77,23 +91,10 @@ export default class SpecialistCard extends Component<IProps, State> {
 							{team.position}
 						</Typography>
 					</CardContent>
-					<ButtonGroup
-						className="groupButtons"
-						variant="outlined"
-						aria-label="split button">
-						<Button
-							onClick={this.onEditFunc}
-							className="buttonTogether edit"
-							startIcon={<EditIcon />}>
-							Edit
-						</Button>
-						<Button
-							onClick={this.onClickFunc}
-							className="buttonTogether delete"
-							startIcon={<DeleteOutline />}>
-							Delete
-						</Button>
-					</ButtonGroup>
+					<EditDeleteCommonButton
+						onClickEdit={() => this.onEditFunc(team)}
+						onClickDelete={this.onClickDelFunc}
+					/>
 				</Card>
 				<DeleteModal
 					jobTitle="Specialist"
@@ -103,8 +104,14 @@ export default class SpecialistCard extends Component<IProps, State> {
 				<EditTeam
 					open={this.state.openEditModal}
 					onClose={this.closeEditModal}
+					// 					editImage={this.state.imgeUrl}
+					// 					handleOnChangeImage={this.handleOnChangeImage}
+					// 					editId={this.state.editId}
+					// 					onClicOfCloseBadge={this.handleCloseBage}
+					// onSubmitEditModel={this.onSubmitEditModel}
 				/>
 			</>
 		);
 	}
 }
+export default withStyles(Styles)(SpecialistCard);

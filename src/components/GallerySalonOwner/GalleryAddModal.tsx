@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { Component } from "react";
 import { Badge, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
@@ -50,7 +52,6 @@ export default class GalleryAddModal extends Component<
       handleAdd,
       handleEdit,
     } = this.props;
-    console.log({ item });
     return (
       <CommonModal handleClose={() => handleClose()} open={openGalleryAddModal}>
         <Formik
@@ -69,7 +70,11 @@ export default class GalleryAddModal extends Component<
               <Box width={"95%"} height="100%" sx={{ postion: "relative" }}>
                 <Box sx={{ postion: "relative" }}>
                   <Box
-                    sx={{ postion: "relative", width: "95%", height: "289px" }}
+                    sx={{
+                      postion: "relative",
+                      width: "95%",
+                      height: "289px",
+                    }}
                   >
                     {item.imgUrl === "" && image === "" ? (
                       <>
@@ -204,7 +209,10 @@ export default class GalleryAddModal extends Component<
                             <Box bgcolor={"#f0f0f0"} padding={"10px 9px"}>
                               <Box p={"9px 5px "}>
                                 <Icon
-                                  sx={{ color: "#A4A1A1", fontSize: "80px" }}
+                                  sx={{
+                                    color: "#A4A1A1",
+                                    fontSize: "80px",
+                                  }}
                                 >
                                   +
                                 </Icon>

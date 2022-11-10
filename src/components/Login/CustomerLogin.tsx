@@ -108,7 +108,7 @@ class CustomerLogin extends Component<
 				</Stack>
 				<Stack className={classes.forgetPasscode}>
 					<Typography className={classes.typoPara}>
-						Forget Passcode?
+						Forgot Passcode?
 					</Typography>
 				</Stack>
 				<Stack mt={4} mb={4}>

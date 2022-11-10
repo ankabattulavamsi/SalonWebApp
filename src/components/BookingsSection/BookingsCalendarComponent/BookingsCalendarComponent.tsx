@@ -31,8 +31,9 @@ class BookingsCalendarComponent extends Component<any> {
     const { classes }: any = this.props;
     const { len } = this.state;
     return (
+      // sx={{ width: { xs: "99%", sm: "100%", md: "100%" } }}
       <Container maxWidth="lg">
-        <Box sx={{ width: "99%" }}>
+        <Box>
           <ScrollMenu
             LeftArrow={
               <Button
@@ -47,11 +48,12 @@ class BookingsCalendarComponent extends Component<any> {
                 className={classes.iconContainer}
                 onClick={this.onNextDate}
               >
-                <ArrowForwardIosIcon className={classes.nextDateIcon} />
+                <ArrowForwardIosIcon className={classes.previousDateIcon} />
               </Button>
             }
+            wrapperClassName="separatorClassName"
           >
-            {datesArray.slice(len - 4, len + 4).map((date: any) => {
+            {datesArray.slice(len - 3, len + 4).map((date: any) => {
               return (
                 <Box
                   key={date.date}
@@ -62,7 +64,7 @@ class BookingsCalendarComponent extends Component<any> {
                 >
                   <Box
                     sx={{
-                      px: { md: "2.6em", sm: "1.05em", xs: "0.26em" },
+                      px: { md: "2.6em", sm: "1.3em", xs: "0.26em" },
                       py: { md: "15px", sm: 2.3, xs: "5px" },
                       backgroundColor:
                         Number(date.date) === this.state.activeDate

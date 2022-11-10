@@ -25,10 +25,7 @@ class BookingsProfileCard extends Component<CardProps> {
   render() {
     const { classes, theme, item } = this.props;
     return (
-      <Card
-        className={classes.customerContainer + " customerCard"}
-        sx={{ mx: "auto !important", boxShadow: "none" }}
-      >
+      <Card className={classes.customerContainer + " customerCard"} sx={{}}>
         <CardHeader
           classes={{
             title: classes.customerName + " customerTitleHeading",

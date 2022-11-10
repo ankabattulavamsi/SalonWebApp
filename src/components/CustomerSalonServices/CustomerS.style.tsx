@@ -172,6 +172,14 @@ export const hairStyle: any = {
   },
   priceContianerS: {
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    "@media screen and (max-width: 600px)": {
+     marginTop: '50px'
+    },
+  },
+
+  prevArrow: {
+    color: "#FFFFFF !important",
+              fontSize: "25px",
   }
 };
