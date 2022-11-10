@@ -7,6 +7,29 @@ export const Styles: any = (theme: any) => ({
     lineHeight: "48px !important",
     textTransform: "capitalize !important",
     color: "#272522 !important",
+
+    [theme.breakpoints.down("sm")]: {
+      fontWeight: "600 !important",
+      fontSize: "26px !important",
+      marginTop: "10px !important",
+    },
+  },
+  monthNameBox: {
+    fontFamily: "Roboto !important",
+    fontStyle: "normal !important",
+    fontWeight: "500 !important",
+    fontSize: "18px !important",
+    lineHeight: "30px !important",
+    letterSpacing: "0.01em !important",
+    textTransform: "capitalize !important",
+    color: "#88878F !important",
+    backgroundColor: "#F8F8F8 !important",
+    borderRadius: "5px",
+    width: "165px",
+    height: "50px",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "10px !important",
+    },
   },
   monthName: {
     fontFamily: "Roboto !important",
@@ -17,9 +40,8 @@ export const Styles: any = (theme: any) => ({
     letterSpacing: "0.01em !important",
     textTransform: "capitalize !important",
     color: "#88878F !important",
-    width: "165px",
-    height: "50px",
   },
+
   AppointmentHeadingContainer: {
     display: "flex",
     justifyContent: "space-between",
@@ -107,5 +129,23 @@ export const Styles: any = (theme: any) => ({
   //   width: '115px !important',
   //   Margin: '10px !important'
   // }
-  selectYourStylish: {},
+  selectYourStylish: {
+    fontFamily: "Fira Sans !important",
+    fontStyle: "normal !important",
+    fontWeight: "500 !important",
+    fontSize: "20px !important",
+    lineHeight: "48px !important",
+    textTransform: "capitalize !important",
+    color: "#272522 !important",
+  },
+  employeeName: {
+    fontFamily: "Roboto !important",
+    fontStyle: "normal !important",
+    fontWeight: "600 !important",
+    fontSize: "16px !important",
+    lineHeight: "48px !important",
+    textAlign: "center !important",
+    textTransform: "capitalize !important",
+    color: "#88878F !important",
+  },
 });

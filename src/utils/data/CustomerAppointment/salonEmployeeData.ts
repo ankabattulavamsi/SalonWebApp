@@ -6,7 +6,7 @@ import salonEmp3 from "../../../assets/images/CusotmerAppointment/salonEmp3.png"
 import salonEmp4 from "../../../assets/images/CusotmerAppointment/salonEmp4.png";
 import salonEmp5 from "../../../assets/images/CusotmerAppointment/salonEmp5.png";
 import salonEmp6 from "../../../assets/images/CusotmerAppointment/salonEmp6.png";
-import salonEmp7 from "../../../assets/images/CusotmerAppointment/salonEmp6.png";
+import salonEmp7 from "../../../assets/images/CusotmerAppointment/salonEmp7.png";
 
 export const salonEmpData = [
   {
@@ -34,11 +34,11 @@ export const salonEmpData = [
     name: "Name6",
   },
   {
-    img: salonEmp7,
+    img: salonEmp5,
     name: "Name7",
   },
   {
-    img: salonEmp3,
+    img: salonEmp7,
     name: "Name8",
   },
 ];
