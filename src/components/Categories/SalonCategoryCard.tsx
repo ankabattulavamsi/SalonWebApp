@@ -55,7 +55,7 @@ class SalonCategoryCard extends Component<categoryProps> {
 						<CardContent className={classes.categoryContent}>
 							<Typography>{item.title}</Typography>
 						</CardContent>
-						<CardActions>
+						<CardActions className={classes.categoryButtonBox}>
 							<EditDeleteCommonButton
 								onClickEdit={this.onEditClick}
 								onClickDelete={this.onDeleteClick}
