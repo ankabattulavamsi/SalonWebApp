@@ -10,8 +10,7 @@ interface IsNameProps {
   buttonName: string;
   onClick: (id?: any) => void;
   icon?: React.ReactNode;
-  className:any;
-
+  className: any;
 }
 
 export class EditButton extends Component<IsNameProps> {
@@ -20,19 +19,18 @@ export class EditButton extends Component<IsNameProps> {
 
     return (
       <>
-       
-          <Button
-            className={classes.EditButton}
-            onClick={this.props.onClick}
-            startIcon={this.props.icon}
-            sx={{
-              fontSize: { xs: "16px", sm: "18px", lg: "18px" },
-            }}
-          >
-            {this.props.icon}
-            {this.props.buttonName}
-          </Button>
-      
+        <Button
+          className={classes.EditButton}
+          onClick={this.props.onClick}
+          startIcon={this.props.icon}
+          sx={{
+            fontSize: { xs: "16px", sm: "18px", lg: "18px" },
+            justifyContent: "flex-end",
+          }}
+        >
+          {this.props.icon}
+          {this.props.buttonName}
+        </Button>
       </>
     );
   }

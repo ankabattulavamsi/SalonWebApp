@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 
 import React, { Component, Fragment } from "react";
 import { withStyles } from "@mui/styles";
@@ -9,8 +9,7 @@ interface IsNameProps {
   buttonName: string;
   onClick: (id?: any) => void;
   icon?: React.ReactNode;
-  className:any
-
+  className: any;
 }
 
 export class DeleteButton extends Component<IsNameProps> {
@@ -20,11 +19,13 @@ export class DeleteButton extends Component<IsNameProps> {
     return (
       <>
         <Button
-            className={classes.DeleteButton}
+          className={classes.DeleteButton}
           onClick={this.props.onClick}
           startIcon={this.props.icon}
           sx={{
             fontSize: { xs: "16px", sm: "18px", lg: "18px" },
+            display: "flex",
+            justifyContent: "flex-end",
           }}
         >
           {this.props.icon}

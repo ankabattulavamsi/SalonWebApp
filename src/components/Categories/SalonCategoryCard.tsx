@@ -2,14 +2,14 @@
 
 import React, { Component } from "react";
 import {
-	Typography,
-	Button,
-	Grid,
-	Card,
-	CardActionArea,
-	CardMedia,
-	CardActions,
-	CardContent,
+  Typography,
+  Button,
+  Grid,
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardActions,
+  CardContent,
 } from "@mui/material";
 
 import EditIcon from "@mui/icons-material/Edit";
@@ -28,45 +28,45 @@ import EditButton from "../common/CommonButtons/EditButton";
 import DeleteButton from "../common/CommonButtons/DeleteButton";
 
 interface categoryProps {
-	classes: any;
-	navigate: any;
-	edit: boolean;
-	open: boolean;
-	item: any;
+  classes: any;
+  navigate: any;
+  edit: boolean;
+  open: boolean;
+  item: any;
 }
 class SalonCategoryCard extends Component<categoryProps> {
-	state = {
-		edit: false,
-		open: false,
-	};
-	onEditClose = () => {
-		this.setState({ edit: false });
-	};
-	onDeleteClose = () => {
-		this.setState({ open: false });
-	};
-	onDeleteClick = () => {
-		this.setState({ open: true });
-	};
-	onEditClick = () => {
-		this.setState({ edit: true });
-	};
-	render() {
-		const { classes, item } = this.props;
-		return (
-			<>
-				<Card className={classes.categoryCard}>
-					<CardActionArea>
-						<CardMedia
-							className={classes.categoryImage}
-							image={item.img}
-							title="categoryImg"
-						/>
-						<CardContent className={classes.categoryContent}>
-							<Typography>{item.title}</Typography>
-						</CardContent>
-						<CardActions className={classes.categoryButtonBox}>
-							{/* <Button onClick={this.onEditClick}>
+  state = {
+    edit: false,
+    open: false,
+  };
+  onEditClose = () => {
+    this.setState({ edit: false });
+  };
+  onDeleteClose = () => {
+    this.setState({ open: false });
+  };
+  onDeleteClick = () => {
+    this.setState({ open: true });
+  };
+  onEditClick = () => {
+    this.setState({ edit: true });
+  };
+  render() {
+    const { classes, item } = this.props;
+    return (
+      <>
+        <Card className={classes.categoryCard}>
+          <CardActionArea>
+            <CardMedia
+              className={classes.categoryImage}
+              image={item.img}
+              title="categoryImg"
+            />
+            <CardContent className={classes.categoryContent}>
+              <Typography>{item.title}</Typography>
+            </CardContent>
+            <CardActions className={classes.categoryButtonBox}>
+              {/* <Button onClick={this.onEditClick}>
 								<EditIcon />
 								{item.editButton}
 							</Button>
@@ -75,33 +75,30 @@ class SalonCategoryCard extends Component<categoryProps> {
 								{item.deleteButton}
 							</Button> */}
               <EditButton
-              className=""
-              onClick={this.onEditClick}
-              buttonName="Edit"
-              icon={<EditIcon/>}
+                className=""
+                onClick={this.onEditClick}
+                buttonName="Edit"
+                icon={<EditIcon />}
               />
               <DeleteButton
-              className=""
-              onClick={this.onDeleteClick}
-              buttonName="Delete"
-              icon={<DeleteIcon/>}
+                className=""
+                onClick={this.onDeleteClick}
+                buttonName="Delete"
+                icon={<DeleteIcon />}
               />
-						</CardActions>
-					</CardActionArea>
-				</Card>
+            </CardActions>
+          </CardActionArea>
+        </Card>
 
-				<DeleteModal
-					jobTitle="Category"
-					open={this.state.open}
-					onClose={this.onDeleteClose}
-				/>
-				<CategoryEditModal
-					open={this.state.edit}
-					onClose={this.onEditClose}
-				/>
-			</>
-		);
-	}
+        <DeleteModal
+          jobTitle="Category"
+          open={this.state.open}
+          onClose={this.onDeleteClose}
+        />
+        <CategoryEditModal open={this.state.edit} onClose={this.onEditClose} />
+      </>
+    );
+  }
 }
 
 export default withStyles(styles)(withRouter(SalonCategoryCard));

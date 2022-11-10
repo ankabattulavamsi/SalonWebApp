@@ -10,6 +10,7 @@ interface IsAddNewProps {
   // editId: string;
   // handleOnChangeImage: (id: any) => void;
   // onClicOfCloseBadge: (id: any) => void;
+  name: string;
 }
 
 interface IsState {
@@ -35,6 +36,7 @@ export default class ImageUpload extends Component<IsAddNewProps, IsState> {
   render() {
     // const { editId, editImage, handleOnChangeImage, onClicOfCloseBadge } =
     // 	this.props;
+    const { name } = this.props;
     return (
       <Box sx={{ postion: "relative" }}>
         <Box
@@ -118,7 +120,7 @@ export default class ImageUpload extends Component<IsAddNewProps, IsState> {
                           textAlign: "center",
                         }}
                       >
-                        Upload Team Image
+                        Upload {name} Image
                       </Typography>
                     </Box>
                     <Box>
