@@ -185,4 +185,32 @@ export const Styles: any = (theme: any) => ({
       color: "#A4A1A1 ",
     },
   },
+  buttonsContainer: {
+    display: 'flex !important', 
+    alignItems: 'center !important',
+    justifyContent:'center !important',
+    backgroundColor: '#FFFFFF', 
+    boxSizing:'border-box',
+    boxShadow: '0px 4px 50px rgba(0, 0, 0, 0.07)',
+    borderRadius: '10px', 
+    height: '85px'
+  }, 
+  nlContainer: {
+    display: 'flex !important', 
+    alignItems: 'center !important',
+    justifyContent:'center !important',
+    backgroundColor: '#FFFFFF', 
+    border: '2px solid #F0F0F0', 
+    borderRadius: '10px', 
+    height: '85px',
+  },
+  btnName: {
+    fontFamily: "Fira Sans",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: "1.25rem !important",
+    lineHeight: "1.625rem !important",
+    textTransform: "capitalize",
+    color: "#88878f !important",
+  },
 });
