@@ -59,7 +59,8 @@ export default class Inputs extends Component<InputsProps, InputsState> {
             {type === "textarea" ? (
               <>
                 <Box className={`input--input ${className && className}`}>
-                  <textarea
+                  <Field
+                    as="textarea"
                     autoComplete={"off"}
                     id={id}
                     rows={3}
@@ -68,7 +69,7 @@ export default class Inputs extends Component<InputsProps, InputsState> {
                     placeholder={placeholder}
                     className="input--input--1 "
                     value={value}
-                    onChange={(e) => {
+                    onChange={(e: any) => {
                       handleChange && handleChange(e);
                     }}
                   />
