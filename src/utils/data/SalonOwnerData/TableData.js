@@ -8,6 +8,7 @@ import tableImg7 from "../../../assets/images/SalonOwnerProfile/TableImages/tabl
 
 export const tableData = [
   {
+    id: 1,
     name: "James Bond",
     referId: "OD11721633 ",
     time: "3:00 PM",
@@ -16,6 +17,7 @@ export const tableData = [
     img: tableImg1,
   },
   {
+    id: 2,
     name: "Smith  Roy",
     referId: "OD11721633 ",
     time: "3:00 PM",
@@ -24,6 +26,7 @@ export const tableData = [
     img: tableImg2,
   },
   {
+    id: 3,
     name: "Elizabeth Oslen",
     referId: "OD11721633 ",
     time: "3:00 PM",
@@ -32,6 +35,7 @@ export const tableData = [
     img: tableImg3,
   },
   {
+    id: 4,
     name: "Emma Charisty",
     referId: "OD11721633 ",
     time: "3:00 PM",
@@ -40,6 +44,7 @@ export const tableData = [
     img: tableImg4,
   },
   {
+    id: 5,
     name: "Paper Towns",
     referId: "OD11721633 ",
     time: "3:00 PM",
@@ -48,6 +53,7 @@ export const tableData = [
     img: tableImg5,
   },
   {
+    id: 6,
     name: "Roy Keane",
     referId: "OD11721633 ",
     time: "3:00 PM",
@@ -56,6 +62,7 @@ export const tableData = [
     img: tableImg6,
   },
   {
+    id: 7,
     name: "Chris Hemsworth",
     referId: "OD11721633 ",
     time: "3:00 PM",

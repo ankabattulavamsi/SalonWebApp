@@ -22,7 +22,7 @@ import { Box } from "@mui/system";
 import "./SalonOwnerPage.css";
 
 class BookingHistoryTable extends Component {
-  state = { month: "", date: "", year: "", status: "" };
+  state = { month: "", date: "", year: "", status: "", newArray: [] };
 
   handleChange = (event: any) => {
     const { name, value } = event.target;
@@ -36,6 +36,28 @@ class BookingHistoryTable extends Component {
       this.setState({ status: value });
     }
   };
+
+  componentDidMount() {
+    this.setState({
+      newArray: tableData.map((item) => {
+        return { ...item, isActive: false };
+      }),
+    });
+  }
+
+  handleOnCLicktoggle = (id: number) => {
+    this.setState({
+      newArray: this.state.newArray.map((item: any) => {
+        if (item.id === id) {
+          item.isActive = !item.isActive;
+        } else {
+          item.isActive = false;
+        }
+        return item;
+      }),
+    });
+  };
+
   render() {
     const { classes }: any = this.props;
     const { date, month, year } = this.state;
@@ -182,8 +204,14 @@ class BookingHistoryTable extends Component {
           </div>
 
           <div className="mobile-table">
-            {tableData.map((person: any) => {
-              return <MobileTable person={person} key={person.name} />;
+            {this.state.newArray.map((person: any) => {
+              return (
+                <MobileTable
+                  person={person}
+                  key={person.name}
+                  onclick={() => this.handleOnCLicktoggle(person.id)}
+                />
+              );
             })}
           </div>
         </>

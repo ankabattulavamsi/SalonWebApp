@@ -3,8 +3,7 @@ import { withStyles } from "@mui/styles";
 import { useState } from "react";
 import { Styles } from "../SalonOwnerPage.Styles";
 
-const MobileTable = ({ person, classes }: any) => {
-  const [isActive, setIsActive] = useState(false);
+const MobileTable = ({ person, classes, onclick }: any) => {
 
   return (
     <Box
@@ -20,7 +19,7 @@ const MobileTable = ({ person, classes }: any) => {
           padding: "15px",
           backgroundColor: "#F8F8F8",
         }}
-        onClick={() => setIsActive(!isActive)}
+        onClick={() => onclick()}
       >
         <Box sx={{ display: "flex" }}>
           <Avatar src={person.img} sx={{ width: "58px", height: "58px" }} />
@@ -29,7 +28,7 @@ const MobileTable = ({ person, classes }: any) => {
           </Typography>
         </Box>
         <Typography>
-          {isActive ? (
+          {person.isActive ? (
             <Avatar
               src={require("../../../assets/images/SalonOwnerProfile/MobileTableIcons/activeProfileIcon1.png")}
             />
@@ -40,7 +39,7 @@ const MobileTable = ({ person, classes }: any) => {
           )}
         </Typography>
       </Box>
-      {isActive && (
+      {person.isActive && (
         <Stack sx={{ backgroundColor: "#F0F0F0 !important" }}>
           <Box className={classes.profileNameContainer}>
             <Typography
