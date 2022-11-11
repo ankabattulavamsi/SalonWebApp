@@ -50,23 +50,5 @@ export const NotificationStyles: any = {
   },
   listItemNotificationText: {
     marginLeft: "10px",
-    "& .MuiListItemText-primary": {
-      fontFamily: "Fira Sans",
-      fontStyle: "normal",
-      fontWeight: 500,
-      fontSize: "17px",
-      lineHeight: "22px",
-      textTransform: "capitalize",
-      color: " #272522",
-    },
-    "& .MuiTypography-body1": {
-      fontFamily: "Roboto",
-      fontStyle: "normal",
-      fontWeight: 500,
-      fontSize: "15px",
-      lineHeight: "30px",
-      textTransform: "uppercase ",
-      color: " #272522",
-    },
   },
 };
