@@ -99,16 +99,26 @@ class SalonNotification extends Component<NotiProps, State> {
                     </ListItemAvatar>
                     <ListItemText
                       className={classes.listItemNotificationText}
-                      primary={
-                        <Typography variant="caption" className="primaryText">
-                          {notification.text}
-                        </Typography>
-                      }
-                      secondary={
-                        <Typography variant="body1" className="secondaryText">
-                          {notification.time}
-                        </Typography>
-                      }
+                      primaryTypographyProps={{
+                        fontFamily: "Fira Sans",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        fontSize: "17px",
+                        lineHeight: "22px",
+                        textTransform: "capitalize",
+                        color: " #272522",
+                      }}
+                      secondaryTypographyProps={{
+                        fontFamily: "Roboto",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        fontSize: "15px",
+                        lineHeight: "30px",
+                        textTransform: "uppercase",
+                        color: " #272522",
+                      }}
+                      primary={notification.text}
+                      secondary={notification.time}
                     />
                   </ListItem>
                   <Divider />
