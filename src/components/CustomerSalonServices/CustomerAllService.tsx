@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import {
   Box,
@@ -56,6 +57,7 @@ export class CustomerAllService extends Component<ServeProps> {
       });
     }
   };
+  props: any;
 
   render() {
     const { classes } = this.props;
@@ -76,12 +78,12 @@ export class CustomerAllService extends Component<ServeProps> {
                     alt={`${item.heading}`}
                     height="215"
                     image={item.brideServeImg}
-                    onClick={(e) => this.onClickNavigateSingleServe(item)}
+                    onClick={(e:any) => this.onClickNavigateSingleServe(item)}
                   />
 
                   <CardContent
                     sx={{ m: 1 }}
-                    onClick={(e) => this.onClickNavigateSingleServe(item)}
+                    onClick={(e:any) => this.onClickNavigateSingleServe(item)}
                   >
                     <Box className={classes.priceServeContainer}>
                       <Typography className={classes.cardHeading} variant="h2">

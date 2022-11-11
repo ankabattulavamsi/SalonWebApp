@@ -16,6 +16,7 @@ interface IsAddNewProps {
 interface IsState {
   editId?: string;
   editImage: string;
+ 
 }
 
 export default class ImageUpload extends Component<IsAddNewProps, IsState> {

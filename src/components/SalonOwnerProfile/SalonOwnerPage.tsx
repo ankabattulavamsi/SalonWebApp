@@ -184,56 +184,29 @@ class SalonOwnerPage extends Component<SalonProps> {
               </Button>
             </Grid>
           </Grid>
-          <Grid
+          <Grid 
             container
-            spacing={2}
-            sx={{ mt: 2, mx: "auto" }}
-            className="main-button-container"
+            justifyContent="center"
+            columnSpacing={2}
+            rowSpacing={3}
+            sx={{ mt: 2,  }}
           >
-            {ButtonData.map((button: any) => {
-              return (
-                <Grid
-                  item
-                  xs={11}
-                  sm={6}
-                  md={4}
-                  lg={4}
-                  key={button.name}
-                  onClick={() => this.setState({ activeTab: button.name })}
-                >
-                  <Button
-                    className={
-                      this.state.activeTab === button.name
-                        ? classes.buttonContainer + " activate-class"
-                        : classes.buttonContainer
-                    }
-                    sx={{
-                      width: {
-                        xs: "100% !important",
-                        sm: "22rem !important",
-                        md: "22.5rem !important",
-                      },
-                    }}
-                  >
-                    <img
-                      src={button.buttonImg}
-                      alt="button"
-                      style={{ width: "52px", height: "52px" }}
-                    />
-                    <Typography
-                      variant="h6"
-                      className={classes.buttonName}
-                      sx={{
-                        color:
-                          this.state.activeTab === button.name ? "#272522" : "",
-                      }}
-                    >
-                      {button.name}
-                    </Typography>
-                  </Button>
-                </Grid>
-              );
-            })}
+            {ButtonData.map((button) => (
+              <Grid
+                item
+                lg={4}
+                md={4}
+                xs={12}
+                sm={4}
+                key={button.name}
+                onClick={() => this.setState({ activeTab: button.name })}
+              >
+                <Box className={this.state.activeTab === button.name ? classes.buttonsContainer : classes.nlContainer}>
+                <img src={button.buttonImg} alt={`${button.name}`} style={{ width: "52px", height: "52px" }} />
+                <Button className={classes.btnName}>{button.name}</Button>
+                </Box>
+              </Grid>
+            ))}
           </Grid>
           <>{this.project()}</>
         </Container>

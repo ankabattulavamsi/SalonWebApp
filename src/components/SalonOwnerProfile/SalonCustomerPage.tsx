@@ -11,7 +11,7 @@ import TermsandCondtions from "./TermsandCondtions";
 import PowerSettingsNewOutlinedIcon from "@mui/icons-material/PowerSettingsNewOutlined";
 
 import { Styles } from "./SalonOwnerPage.Styles";
-import "./SalonOwnerPage.css";
+// import "./SalonOwnerPage.css";
 import { withStyles } from "@mui/styles";
 import Layout from "../Layout/Layout";
 import ChangePasscode from "../ChangePasscode/ChangePasscode";
@@ -162,7 +162,33 @@ class SalonOwnerPage extends Component<SalonProps> {
               </Button>
             </Grid>
           </Grid>
-          <Grid
+
+          <Grid 
+            container
+            justifyContent="center"
+            columnSpacing={2}
+            rowSpacing={3}
+            sx={{ mt: 2,  }}
+          >
+            {ButtonData.map((button) => (
+              <Grid
+                item
+                lg={4}
+                md={4}
+                xs={12}
+                sm={4}
+                key={button.name}
+                onClick={() => this.setState({ activeTab: button.name })}
+              >
+                <Box className={this.state.activeTab === button.name ? classes.buttonsContainer : classes.nlContainer}>
+                <img src={button.buttonImg} alt={`${button.name}`} style={{ width: "52px", height: "52px" }} />
+                <Button className={classes.btnName}>{button.name}</Button>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+
+          {/* <Grid
             container
             spacing={2}
             sx={{ mt: 2, mx: "auto" }}
@@ -212,7 +238,7 @@ class SalonOwnerPage extends Component<SalonProps> {
                 </Grid>
               );
             })}
-          </Grid>
+          </Grid> */}
           <>{this.project()}</>
         </Container>
         <ChangePasscode
