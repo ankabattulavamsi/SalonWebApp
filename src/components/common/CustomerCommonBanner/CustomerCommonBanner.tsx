@@ -15,7 +15,7 @@ class CustomerCommonBanner extends Component<IProps> {
   render() {
     const { classes,  image, title } = this.props;
     return (
-      <Box sx={{ mb: 5, mt: 5 }}>
+      <Box sx={{ mb: 5, mt: {xs: 20, md: 5} }}>
         <Box
           sx={{
             background: `url(${image}) no-repeat`,

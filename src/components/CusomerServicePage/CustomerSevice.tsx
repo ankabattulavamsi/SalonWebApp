@@ -27,7 +27,7 @@ class CustomerSevice extends Component<IProps> {
   render() {
     return (
       <Layout customer={true}>
-        <Container maxWidth="lg" sx={{ mt: 15, mb: 10 }}>
+        <Container maxWidth="lg" sx={{ mt: {xs: 20, md: 13 }, mb: 10 }}>
           <CustomerBanner
             image={SalonOfferImg}
             title="Lakme Services"

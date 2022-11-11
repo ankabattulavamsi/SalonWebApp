@@ -22,7 +22,7 @@ class CustomerBlogMainPage extends Component {
           }}
         >
           <Container maxWidth="lg">
-            <Box sx={{ mb: 5, mt: 5 }}>
+            <Box sx={{ mb: 5, mt: {xs: 8, md: 5} }}>
               <Box
                 sx={{
                   background: `url(${blogBanner}) no-repeat`,
