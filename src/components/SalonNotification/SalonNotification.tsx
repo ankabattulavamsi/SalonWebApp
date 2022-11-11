@@ -85,7 +85,7 @@ class SalonNotification extends Component<NotiProps, State> {
                   className={classes.listItemNotification}
                   key={index}
                 >
-                  <ListItem>
+                  <ListItem sx={{ padding: 0 }}>
                     <ListItemAvatar>
                       <Avatar
                         sx={{
