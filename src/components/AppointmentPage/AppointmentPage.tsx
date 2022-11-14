@@ -131,6 +131,7 @@ class CustomerAppointmentPage extends Component {
               backgroundColor: "#F8F8F8",
               width: { xs: "95%", sm: "100%" },
               borderRadius: "10px",
+              marginLeft: "0px",
             }}
             className={classes.scroller}
           >
