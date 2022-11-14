@@ -17,16 +17,20 @@ class SalonBlogs extends Component<{}, ss> {
   state = {
     addBlog: false,
   };
-  componentDidMount() {
-    window.scrollTo(0, 0);
-  }
 
   handleClick = () => {
     this.setState({ addBlog: true });
+    if (typeof window != "undefined" && window.document) {
+      document.body.style.overflow = "hidden";
+    }
   };
   handleClose = () => {
     this.setState({ addBlog: false });
+    document.body.style.overflow = "unset";
   };
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   render() {
     return (
       <>

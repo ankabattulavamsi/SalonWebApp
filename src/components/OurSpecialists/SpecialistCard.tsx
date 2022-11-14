@@ -43,17 +43,27 @@ class SpecialistCard extends Component<IProps, State> {
 
 	onClose = () => {
 		this.setState({ open: false });
+		document.body.style.overflow = 'unset';
+
 	};
 	onClickDelFunc = () => {
 		this.setState({ open: true });
+		if (typeof window != 'undefined' && window.document) {
+            document.body.style.overflow = 'hidden';
+        }
 	};
 	onEditFunc = (item: any) => {
 		this.setState({ editId: item.id });
 		this.setState({ openEditModal: true });
 		this.setState({ imgeUrl: item.imgeUrl });
+		if (typeof window != 'undefined' && window.document) {
+            document.body.style.overflow = 'hidden';
+        }
 	};
 	closeEditModal = () => {
 		this.setState({ openEditModal: false });
+		document.body.style.overflow = 'unset';
+
 	};
 
 	handleCloseBage = () => {

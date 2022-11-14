@@ -10,6 +10,7 @@ body {
   font-family: "Fira Sans", sans-serif;
 }
 
+
 .scrollbar--hide::-webkit-scrollbar {
   display: none;
 }
@@ -26,7 +27,7 @@ input::placeholder {
 }
 
 /* to hide the scrollbar to all html elements */
-/* 
+
 *::-webkit-scrollbar {
   display: none;
-} */
+}

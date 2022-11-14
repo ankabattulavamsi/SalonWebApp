@@ -22,17 +22,19 @@ class SpecialistTeam extends Component<GallerySalonProps, GallerySalonState> {
   state = {
     open: false,
   };
-
-  componentDidMount() {
-    window.scrollTo(0, 0);
-  }
   onClose = () => {
     this.setState({ open: false });
+    document.body.style.overflow = "unset";
   };
   handleClick = () => {
     this.setState({ open: true });
+    if (typeof window != "undefined" && window.document) {
+      document.body.style.overflow = "hidden";
+    }
   };
-
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   render() {
     return (
       <Layout>

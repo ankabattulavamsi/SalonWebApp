@@ -25,9 +25,15 @@ class SalonAllCategory extends Component<IProps> {
   }
   onClose = () => {
     this.setState({ open: false });
+    document.body.style.overflow = 'unset';
+
+
   };
   handleClick = () => {
     this.setState({ open: true });
+    if (typeof window != 'undefined' && window.document) {
+      document.body.style.overflow = 'hidden';
+  }
   };
   render() {
     const { classes } = this.props;

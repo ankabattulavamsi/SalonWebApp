@@ -53,6 +53,8 @@ export class OffersSalon extends Component<IsStateProps> {
 
   handleCloseAddOffer = () => {
     this.setState({ addNewOfferOpen: false });
+	document.body.style.overflow = 'unset';
+
   };
 
   onClose = () => {
@@ -67,10 +69,16 @@ export class OffersSalon extends Component<IsStateProps> {
     this.setState({ editDissPrice: item.dissPrice });
     this.setState({ editDescription: item.description });
     this.setState({ editImage: item.brideServeImg });
+	if (typeof window != "undefined" && window.document) {
+		document.body.style.overflow = "hidden";
+	  }
   };
 
   handleClickOpenAddModel = () => {
     this.setState({ addNewOfferOpen: true });
+	if (typeof window != "undefined" && window.document) {
+		document.body.style.overflow = "hidden";
+	  }
   };
 
   onSubmitEditModel = () => {
@@ -132,11 +140,16 @@ export class OffersSalon extends Component<IsStateProps> {
     this.setState({ editDissPrice: "" });
     this.setState({ editDescription: "" });
     this.setState({ editImage: "" });
+	document.body.style.overflow = 'unset';
+
   };
 
   onClickDeleteOffer = (id: any) => {
     this.setState({ editId: id });
     this.setState({ openDeleteModel: true });
+	if (typeof window != "undefined" && window.document) {
+		document.body.style.overflow = "hidden";
+	  }
   };
 
   onClickOfferDelete = (id: any) => {
@@ -147,10 +160,6 @@ export class OffersSalon extends Component<IsStateProps> {
     });
     this.setState({ openDeleteModel: false });
   };
-
-  componentDidMount() {
-    window.scrollTo(0, 0);
-  }
 
   render() {
     const {
@@ -167,7 +176,7 @@ export class OffersSalon extends Component<IsStateProps> {
     return (
       <>
         <Layout>
-          <Box sx={{ pt: 10, pb: 5 }} className={classes.MainContainer}>
+          <Box sx={{ pt: 0, pb: 5 }} className={classes.MainContainer}>
             <Container maxWidth="lg">
               <Banner
                 image={offerImg}
