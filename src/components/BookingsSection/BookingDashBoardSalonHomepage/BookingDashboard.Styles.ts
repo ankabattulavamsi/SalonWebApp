@@ -240,4 +240,7 @@ export const Styles: any = (theme: any) => ({
       height: "76px !important",
     },
   },
+  calenderTextContainer: {
+    width: "9em !important",
+  },
 });
