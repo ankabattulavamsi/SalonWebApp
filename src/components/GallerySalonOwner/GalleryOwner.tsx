@@ -67,6 +67,8 @@ class GalleryOwner extends Component<GalleryOwnerProps, GalleryOwnerState> {
 
   handleToggleDeleteModal = () =>
     this.setState({ openDeleteModal: !this.state.openDeleteModal });
+    
+    
 
   handleOnChangeImage = (e: any) => {
     console.log(e);
@@ -122,6 +124,7 @@ class GalleryOwner extends Component<GalleryOwnerProps, GalleryOwnerState> {
     this.setState({
       ImagesData: this.state.ImagesData.filter((item) => item.id !== id),
     });
+    
 
     this.handleToggleDeleteModal();
   };

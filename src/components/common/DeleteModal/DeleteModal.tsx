@@ -18,6 +18,7 @@ export default class DeleteModal extends Component<IProps> {
 			<Dialog
 				disableScrollLock={true}
 				open={this.props.open}
+				
 				onClose={this.props.onClose}>
 				<Box className="deleteBox">
 					<DeleteOutlineOutlinedIcon className="deleteIcon" />
