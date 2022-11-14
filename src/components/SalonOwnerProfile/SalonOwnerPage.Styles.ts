@@ -156,6 +156,9 @@ export const Styles: any = (theme: any) => ({
       alignItems: "center",
       backgroundColor: "#f0f0f0 !important",
       borderRadius: "5px !important",
+      '@media only screen and (max-width: 600px) ': {
+        width: "100%",
+      }
     },
   },
 
@@ -186,23 +189,23 @@ export const Styles: any = (theme: any) => ({
     },
   },
   buttonsContainer: {
-    display: 'flex !important', 
-    alignItems: 'center !important',
-    justifyContent:'center !important',
-    backgroundColor: '#FFFFFF', 
-    boxSizing:'border-box',
-    boxShadow: '0px 4px 50px rgba(0, 0, 0, 0.07)',
-    borderRadius: '10px', 
-    height: '85px'
-  }, 
+    display: "flex !important",
+    alignItems: "center !important",
+    justifyContent: "center !important",
+    backgroundColor: "#FFFFFF",
+    boxSizing: "border-box",
+    boxShadow: "0px 4px 50px rgba(0, 0, 0, 0.07)",
+    borderRadius: "10px",
+    height: "85px",
+  },
   nlContainer: {
-    display: 'flex !important', 
-    alignItems: 'center !important',
-    justifyContent:'center !important',
-    backgroundColor: '#FFFFFF', 
-    border: '2px solid #F0F0F0', 
-    borderRadius: '10px', 
-    height: '85px',
+    display: "flex !important",
+    alignItems: "center !important",
+    justifyContent: "center !important",
+    backgroundColor: "#FFFFFF",
+    border: "2px solid #F0F0F0",
+    borderRadius: "10px",
+    height: "85px",
   },
   btnName: {
     fontFamily: "Fira Sans",
@@ -214,20 +217,20 @@ export const Styles: any = (theme: any) => ({
     color: "#88878f !important",
   },
   searchTableInput: {
-    '@media screen and (min-width: 360px)': {
-      width: '20.5rem',
+    "@media screen and (min-width: 360px)": {
+      width: "20.5rem",
+    },
+    "@media screen and (min-width: 375px)": {
+      width: "21.5rem",
+    },
+    "@media screen and (min-width: 384px)": {
+      width: "21.8rem",
+    },
+    "@media screen and (min-width: 412px)": {
+      width: "23.8rem",
+    },
+    "@media screen and (min-width: 768px)": {
+      width: "21.8rem",
+    },
   },
-  '@media screen and (min-width: 375px)': {
-    width: '21.5rem',
-},
-  '@media screen and (min-width: 384px)': {
-    width: '21.8rem',
-},
-'@media screen and (min-width: 412px)': {
-  width: '23.8rem',
-},
-'@media screen and (min-width: 768px)': {
-  width: '21.8rem',
-},
-  }
 });

@@ -371,7 +371,7 @@ class BookingHistoryTable extends Component {
           className={classes.profilePagination + " pagination-booking"}
         >
           <Pagination
-            count={7}
+            count={6}
             shape="rounded"
             className={classes.paginationItemText}
             renderItem={(item) => (

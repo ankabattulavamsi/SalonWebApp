@@ -68,6 +68,12 @@
   justify-content: end;
 }
 
+@media only screen and (max-width: 600px) {
+  .pagination-booking {
+    justify-content: center;
+  }
+}
+
 @media only screen and (min-width: 300px) and (max-width: 600px) {
   .web-table {
     display: none;
