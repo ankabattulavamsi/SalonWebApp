@@ -29,4 +29,9 @@ export const VerificationCompStyles: any = (theme: any) => ({
       fontSize: "20px !important",
     },
   },
+  drawerSizeVer: {
+    "& .MuiDrawer-paperAnchorRight": {
+      width: "40% !important",
+    },
+  },
 });
