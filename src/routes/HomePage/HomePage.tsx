@@ -14,51 +14,53 @@ import withRouter from "../../hoc/withRouter";
 import { NavigateFunction } from "react-router-dom";
 import OurBlogs from "../../components/OurBlogs/OurBlogs";
 interface HomeProps {
-  navigate: NavigateFunction;
+	navigate: NavigateFunction;
 }
 export interface HomeState {}
 class HomePage extends React.Component<HomeProps, HomeState> {
-  constructor(props: HomeProps) {
-    super(props);
-    this.state = {};
-  }
+	constructor(props: HomeProps) {
+		super(props);
+		this.state = {};
+	}
 
-  render() {
-    return (
-      <>
-        <div id="/">
-          <FeatureCarousel />
-        </div>
-        <div>
-          <OurFeature />
-        </div>
-        <div id="about">
-          <AboutUs />
-        </div>
-        <div id="offers" style={{ marginBottom: "80px" }}>
-          <Offers />
-        </div>
-        <div id="services" style={{ marginBottom: "25px", marginTop: "15px" }}>
-          <OurBestServices />
-        </div>
-        <div id="gallery" style={{ paddingTop: "60px" }}>
-          <Gallery />
-        </div>
-        <div id="downloadsection">
-          <DownloadAdvertiementSection />
-        </div>
-        <div id="team">
-          <TeamSection />
-        </div>
-        <div id="testimonial">
-          <TestimonialSection />
-        </div>
-        <div id="blog">
-          <OurBlogs />
-        </div>
-      </>
-    );
-  }
+	render() {
+		return (
+			<>
+				<div id="/">
+					<FeatureCarousel />
+				</div>
+				<div>
+					<OurFeature />
+				</div>
+				<div id="about">
+					<AboutUs />
+				</div>
+				<div id="offers" style={{ marginBottom: "80px" }}>
+					<Offers />
+				</div>
+				<div
+					id="services"
+					style={{ marginBottom: "25px", marginTop: "15px" }}>
+					<OurBestServices />
+				</div>
+				<div id="gallery">
+					<Gallery />
+				</div>
+				<div id="downloadsection">
+					<DownloadAdvertiementSection />
+				</div>
+				<div id="team">
+					<TeamSection />
+				</div>
+				<div id="testimonial">
+					<TestimonialSection />
+				</div>
+				<div id="blog">
+					<OurBlogs />
+				</div>
+			</>
+		);
+	}
 }
 
 export default withRouter(HomePage);

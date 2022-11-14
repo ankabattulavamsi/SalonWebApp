@@ -171,7 +171,7 @@ export class OffersSalon extends Component<IsStateProps> {
 		return (
 			<>
 				<Layout>
-					<Box sx={{ pt: 8, pb: 5 }} className={classes.MainContainer}>
+					<Box sx={{ pt: 0, pb: 5 }} className={classes.MainContainer}>
 						<Container maxWidth="lg">
 							<Banner
 								image={offerImg}

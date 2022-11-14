@@ -19,7 +19,7 @@ class Offers extends Component {
 		return (
 			<Box
 				sx={{
-					paddingTop: { md: 20, sm: 10, xs: 11 },
+					paddingTop: { md: 8, sm: 10, xs: 11 },
 				}}>
 				<Container maxWidth="lg">
 					<Typography
