@@ -11,6 +11,9 @@ import Layout from "../../Layout/Layout";
 import "../BookingDashboard.css";
 
 class BookingsMainPage extends Component<any> {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   render() {
     return (
       <Layout>

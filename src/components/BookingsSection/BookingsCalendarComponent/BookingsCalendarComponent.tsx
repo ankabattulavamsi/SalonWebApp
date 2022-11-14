@@ -51,7 +51,7 @@ class BookingsCalendarComponent extends Component<any> {
                 <ArrowForwardIosIcon className={classes.previousDateIcon} />
               </Button>
             }
-            wrapperClassName="separatorClassName"
+            itemClassName="calenderTextContainer"
           >
             {datesArray.slice(len - 3, len + 4).map((date: any) => {
               return (
@@ -64,7 +64,7 @@ class BookingsCalendarComponent extends Component<any> {
                 >
                   <Box
                     sx={{
-                      px: { md: "2.6em", sm: "1.3em", xs: "0.26em" },
+                      px: { md: "2.8em", sm: "1.3em", xs: "0.26em" },
                       py: { md: "15px", sm: 2.3, xs: "5px" },
                       backgroundColor:
                         Number(date.date) === this.state.activeDate
@@ -72,6 +72,7 @@ class BookingsCalendarComponent extends Component<any> {
                           : "#FFF",
                       flexDirection: "column",
                     }}
+                    className="calenderTextContainer"
                     onClick={() => this.handleActiveDate(date.date)}
                   >
                     <Typography
