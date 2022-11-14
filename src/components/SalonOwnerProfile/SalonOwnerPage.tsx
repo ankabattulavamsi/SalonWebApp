@@ -184,12 +184,12 @@ class SalonOwnerPage extends Component<SalonProps> {
               </Button>
             </Grid>
           </Grid>
-          <Grid 
+          <Grid
             container
             justifyContent="center"
             columnSpacing={2}
             rowSpacing={3}
-            sx={{ mt: 2,  }}
+            sx={{ mt: 2 }}
           >
             {ButtonData.map((button) => (
               <Grid
@@ -201,9 +201,27 @@ class SalonOwnerPage extends Component<SalonProps> {
                 key={button.name}
                 onClick={() => this.setState({ activeTab: button.name })}
               >
-                <Box className={this.state.activeTab === button.name ? classes.buttonsContainer : classes.nlContainer}>
-                <img src={button.buttonImg} alt={`${button.name}`} style={{ width: "52px", height: "52px" }} />
-                <Button className={classes.btnName}>{button.name}</Button>
+                <Box
+                  className={
+                    this.state.activeTab === button.name
+                      ? classes.buttonsContainer
+                      : classes.nlContainer
+                  }
+                >
+                  <img
+                    src={button.buttonImg}
+                    alt={`${button.name}`}
+                    style={{ width: "52px", height: "52px" }}
+                  />
+                  <Button
+                    className={
+                      this.state.activeTab === button.name
+                        ? classes.nlButtonName
+                        : classes.btnName
+                    }
+                  >
+                    {button.name}
+                  </Button>
                 </Box>
               </Grid>
             ))}
