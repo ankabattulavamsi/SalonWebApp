@@ -32,6 +32,9 @@ class SpecialistTeam extends Component<GallerySalonProps, GallerySalonState> {
       document.body.style.overflow = "hidden";
     }
   };
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   render() {
     return (
       <Layout>

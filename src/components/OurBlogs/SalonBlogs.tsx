@@ -28,6 +28,9 @@ class SalonBlogs extends Component<{}, ss> {
     this.setState({ addBlog: false });
     document.body.style.overflow = "unset";
   };
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   render() {
     return (
       <>
