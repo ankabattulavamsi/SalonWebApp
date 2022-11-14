@@ -156,6 +156,9 @@ export const Styles: any = (theme: any) => ({
       alignItems: "center",
       backgroundColor: "#f0f0f0 !important",
       borderRadius: "5px !important",
+      '@media only screen and (max-width: 600px) ': {
+        width: "100%",
+      }
     },
   },
 
@@ -213,7 +216,21 @@ export const Styles: any = (theme: any) => ({
     textTransform: "capitalize",
     color: "#88878f !important",
   },
-  salonOwnerbookinghistory: {
-    padding: "24px 0px !important",
+  searchTableInput: {
+    "@media screen and (min-width: 360px)": {
+      width: "20.5rem",
+    },
+    "@media screen and (min-width: 375px)": {
+      width: "21.5rem",
+    },
+    "@media screen and (min-width: 384px)": {
+      width: "21.8rem",
+    },
+    "@media screen and (min-width: 412px)": {
+      width: "23.8rem",
+    },
+    "@media screen and (min-width: 768px)": {
+      width: "21.8rem",
+    },
   },
 });
