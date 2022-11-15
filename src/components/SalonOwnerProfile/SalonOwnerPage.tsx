@@ -21,233 +21,223 @@ import { Styles } from "./SalonOwnerPage.Styles";
 import "./SalonOwnerPage.css";
 
 interface SalonEditState {
-  activeTab: string;
-  open: boolean;
-  openBModel: false;
-  bname: string;
-  owner: string;
-  GSTIN: string;
-  email: string;
-  image: string;
+	activeTab: string;
+	open: boolean;
+	openBModel: false;
+	bname: string;
+	owner: string;
+	GSTIN: string;
+	email: string;
+	image: string;
 }
 
 interface SalonProps {
-  navigate: any;
+	navigate: any;
 }
 
 class SalonOwnerPage extends Component<SalonProps> {
-  state: SalonEditState = {
-    activeTab: "Booking History",
-    open: false,
-    openBModel: false,
-    bname: "",
-    owner: "Steve Smith",
-    GSTIN: "",
-    email: "stevesmith@example.com",
-    image: "",
-  };
+	state: SalonEditState = {
+		activeTab: "Booking History",
+		open: false,
+		openBModel: false,
+		bname: "",
+		owner: "Steve Smith",
+		GSTIN: "",
+		email: "stevesmith@example.com",
+		image: "",
+	};
 
-  project = () => {
-    switch (this.state.activeTab) {
-      case "Booking History":
-        return <BookingHistoryTable />;
-      case "Privacy Policy":
-        return <PrivacyandPolicy />;
-      case "Terms & Conditions":
-        return <TermsandCondtions />;
-      default:
-        return null;
-    }
-  };
+	project = () => {
+		switch (this.state.activeTab) {
+			case "Booking History":
+				return <BookingHistoryTable />;
+			case "Privacy Policy":
+				return <PrivacyandPolicy />;
+			case "Terms & Conditions":
+				return <TermsandCondtions />;
+			default:
+				return null;
+		}
+	};
 
-  handleChange = (e: any) => {
-    this.setState({ ...this.state, [e.target.name]: e.target.value });
-  };
+	handleChange = (e: any) => {
+		this.setState({ ...this.state, [e.target.name]: e.target.value });
+	};
 
-  onClickOpenChangeCodeModel = () => {
-    this.setState({ open: true });
-  };
+	onClickOpenChangeCodeModel = () => {
+		this.setState({ open: true });
+	};
 
-  onCloseChangeModel = () => {
-    this.setState({ open: false });
-  };
+	onCloseChangeModel = () => {
+		this.setState({ open: false });
+	};
 
-  onClickOpenEditBModel = () => {
-    this.setState({ openBModel: true });
-  };
+	onClickOpenEditBModel = () => {
+		this.setState({ openBModel: true });
+	};
 
-  onCloseEditBModel = () => {
-    this.setState({ openBModel: false });
-  };
+	onCloseEditBModel = () => {
+		this.setState({ openBModel: false });
+	};
 
-  handleChangeImage = (e: any) => {
-    this.setState({
-      image: URL.createObjectURL(e.target.files[0]),
-    });
-  };
+	handleChangeImage = (e: any) => {
+		this.setState({
+			image: URL.createObjectURL(e.target.files[0]),
+		});
+	};
 
-  render() {
-    const { classes }: any = this.props;
-    return (
-      <Layout>
-        <Container maxWidth="lg" sx={{ mt: 15, mb: 10 }}>
-          <Box>
-            <Box sx={{ position: "relative" }}>
-              <img
-                src={require("../../assets/images/SalonOwnerProfile/HeaderImages/bg.png")}
-                alt="banner"
-                width="100%"
-                className="profile-header-image"
-              />
-              <Avatar
-                src={this.state.image === "" ? Eliipe : this.state.image}
-                sx={{
-                  width: { md: "140px", xs: "94px" },
-                  height: { md: "140px", xs: "94px" },
-                  // marginRight: "20px",
-                  position: "absolute",
-                  top: { md: "70%", xs: "80%" },
-                  ml: { md: "8%", lg: "16%", sm: "14%" },
-                }}
-              />
-            </Box>
-          </Box>
+	render() {
+		const { classes }: any = this.props;
+		return (
+			<Layout>
+				<Container maxWidth="lg" sx={{ mt: 15, mb: 10 }}>
+					<Box>
+						<Box sx={{ position: "relative" }}>
+							<img
+								src={require("../../assets/images/SalonOwnerProfile/HeaderImages/bg.png")}
+								alt="banner"
+								width="100%"
+								className="profile-header-image"
+							/>
+							<Avatar
+								src={this.state.image === "" ? Eliipe : this.state.image}
+								sx={{
+									width: { md: "140px", xs: "94px" },
+									height: { md: "140px", xs: "94px" },
+									// marginRight: "20px",
+									position: "absolute",
+									top: { md: "70%", xs: "80%" },
+									ml: { md: "8%", lg: "16%", sm: "14%" },
+								}}
+							/>
+						</Box>
+					</Box>
 
-          <Grid container sx={{ mt: 2 }}>
-            <Grid item sx={{ ml: { xs: "auto" } }}></Grid>
-            <Grid
-              item
-              xs={7}
-              md={4}
-              sm={6}
-              sx={{
-                margin: "0 !important",
-                marginRight: "auto",
-              }}
-            >
-              <Typography
-                variant="h6"
-                sx={{
-                  fontSize: { md: "25px", xs: "22px" },
-                  mt: { sm: "30px", md: 0 },
-                }}
-                className={classes.salonOwnerName + " salonOwnerName"}
-              >
-                {this.state.owner}
-              </Typography>
-              <Typography
-                variant="h6"
-                sx={{
-                  fontSize: { md: "18px", xs: "16px" },
-                }}
-                className={classes.salonOwnerEmail}
-              >
-                {this.state.email}
-              </Typography>
-              <Button
-                onClick={this.onClickOpenChangeCodeModel}
-                sx={{
-                  fontSize: { md: "18px", xs: "17px" },
-                }}
-                className={classes.changePasscodeButton}
-              >
-                <LockIcon />
-                Change Passcode
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button
-                className={classes.editBussinessDeatailsButton}
-                onClick={this.onClickOpenEditBModel}
-                sx={{
-                  width: { md: "251px", xs: "231" },
-                  mx: { xs: 0, md: 2, sm: 1 },
-                  my: { sm: "40px", md: 0, xs: "20px" },
-                }}
-              >
-                <EditIcon sx={{ mr: 1 }} />
-                Edit Business Profile
-              </Button>
-              <Button
-                sx={{
-                  height: { md: "57px", sm: "57px" },
-                  width: { md: "149px", xs: "123px !important" },
-                  ml: { xs: 2, sm: 0 },
-                }}
-                className={classes.ownerLogoutButton}
-                onClick={() => {
-                  this.props.navigate("/");
-                }}
-              >
-                <PowerSettingsNewOutlinedIcon sx={{ mr: 1 }} />
-                Log Out
-              </Button>
-            </Grid>
-          </Grid>
-          <Grid
-            container
-            justifyContent="center"
-            columnSpacing={2}
-            rowSpacing={3}
-            sx={{ mt: 2 }}
-          >
-            {ButtonData.map((button) => (
-              <Grid
-                item
-                lg={4}
-                md={4}
-                xs={12}
-                sm={4}
-                key={button.name}
-                onClick={() => this.setState({ activeTab: button.name })}
-              >
-                <Box
-                  className={
-                    this.state.activeTab === button.name
-                      ? classes.buttonsContainer
-                      : classes.nlContainer
-                  }
-                >
-                  <img
-                    src={button.buttonImg}
-                    alt={`${button.name}`}
-                    style={{ width: "52px", height: "52px" }}
-                  />
-                  <Button
-                    className={
-                      this.state.activeTab === button.name
-                        ? classes.nlButtonName
-                        : classes.btnName
-                    }
-                  >
-                    {button.name}
-                  </Button>
-                </Box>
-              </Grid>
-            ))}
-          </Grid>
-          <>{this.project()}</>
-        </Container>
-        <ChangePasscode
-          open={this.state.open}
-          onCloseChangeModel={this.onCloseChangeModel}
-        />
-        <EditBusinessProfile
-          open={this.state.openBModel}
-          onCloseEditBModel={this.onCloseEditBModel}
-          bname={this.state.bname}
-          GSTIN={this.state.GSTIN}
-          owner={this.state.owner}
-          email={this.state.email}
-          image={this.state.image}
-          handleChange={this.handleChange}
-          handleChangeImage={this.handleChangeImage}
-        />
-      </Layout>
-    );
-  }
+					<Grid container sx={{ mt: 2 }}>
+						<Grid item sx={{ ml: { xs: "auto" } }}></Grid>
+						<Grid
+							item
+							xs={7}
+							md={4}
+							sm={6}
+							sx={{
+								margin: "0 !important",
+								marginRight: "auto",
+							}}>
+							<Typography
+								variant="h6"
+								sx={{
+									fontSize: { md: "25px", xs: "22px" },
+									mt: { sm: "30px", md: 0 },
+								}}
+								className={classes.salonOwnerName + " salonOwnerName"}>
+								{this.state.owner}
+							</Typography>
+							<Typography
+								variant="h6"
+								sx={{
+									fontSize: { md: "18px", xs: "16px" },
+								}}
+								className={classes.salonOwnerEmail}>
+								{this.state.email}
+							</Typography>
+							<Button
+								onClick={this.onClickOpenChangeCodeModel}
+								sx={{
+									fontSize: { md: "18px", xs: "17px" },
+								}}
+								className={classes.changePasscodeButton}>
+								<LockIcon />
+								Change Passcode
+							</Button>
+						</Grid>
+						<Grid item>
+							<Button
+								className={classes.editBussinessDeatailsButton}
+								onClick={this.onClickOpenEditBModel}
+								sx={{
+									width: { md: "251px", xs: "231" },
+									mx: { xs: 0, md: 2, sm: 1 },
+									my: { sm: "40px", md: 0, xs: "20px" },
+								}}>
+								<EditIcon sx={{ mr: 1 }} />
+								Edit Business Profile
+							</Button>
+							<Button
+								sx={{
+									height: { md: "57px", sm: "57px" },
+									width: { md: "149px", xs: "123px !important" },
+									ml: { xs: 2, sm: 0 },
+								}}
+								className={classes.ownerLogoutButton}
+								onClick={() => {
+									this.props.navigate("/");
+								}}>
+								<PowerSettingsNewOutlinedIcon sx={{ mr: 1 }} />
+								Log Out
+							</Button>
+						</Grid>
+					</Grid>
+					<Grid
+						container
+						justifyContent="center"
+						columnSpacing={2}
+						rowSpacing={3}
+						sx={{ mt: 2 }}>
+						{ButtonData.map((button) => (
+							<Grid
+								item
+								lg={4}
+								md={4}
+								xs={12}
+								sm={4}
+								key={button.name}
+								onClick={() => this.setState({ activeTab: button.name })}>
+								<Box
+									className={
+										this.state.activeTab === button.name
+											? classes.buttonsContainer
+											: classes.nlContainer
+									}>
+									<img
+										src={button.buttonImg}
+										alt={`${button.name}`}
+										style={{ width: "52px", height: "52px" }}
+									/>
+									<Button
+										className={
+											this.state.activeTab === button.name
+												? classes.nlButtonName
+												: classes.btnName
+										}>
+										{button.name}
+									</Button>
+								</Box>
+							</Grid>
+						))}
+					</Grid>
+					<>{this.project()}</>
+				</Container>
+				<ChangePasscode
+					open={this.state.open}
+					onCloseChangeModel={this.onCloseChangeModel}
+				/>
+				<EditBusinessProfile
+					open={this.state.openBModel}
+					onCloseEditBModel={this.onCloseEditBModel}
+					bname={this.state.bname}
+					GSTIN={this.state.GSTIN}
+					owner={this.state.owner}
+					email={this.state.email}
+					image={this.state.image}
+					handleChange={this.handleChange}
+					handleChangeImage={this.handleChangeImage}
+				/>
+			</Layout>
+		);
+	}
 }
 
 export default withStyles(Styles, { withTheme: true })(
-  withRouter(SalonOwnerPage)
+	withRouter(SalonOwnerPage)
 );

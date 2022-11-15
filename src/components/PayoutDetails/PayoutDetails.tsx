@@ -29,6 +29,7 @@ interface PayoutDetailsState {
 	// errorA: string;
 	// errorB: string;
 }
+const letters = /^[a-zA-Z]{2,40}( [a-zA-Z]{2,40})+$/;
 class PayoutDetails extends Component<
 	PayoutDetailsProps,
 	PayoutDetailsState
@@ -78,9 +79,9 @@ class PayoutDetails extends Component<
 		this.props.toggleFunc(modalConstants.PAYOUT_DRAWER);
 	};
 	paymentSchema = Yup.object().shape({
-		accHoldername: Yup.string().required(
-			"This field is Required account holder name"
-		),
+		accHoldername: Yup.string()
+			.required("This field is Required account holder name")
+			.matches(letters, "Name should only contain alphabetical letters"),
 		accNumber: Yup.string()
 			.matches(/^\d{9,18}$/, "account number is not valid")
 			.required("This field is Required account number"),

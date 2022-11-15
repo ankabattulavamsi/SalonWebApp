@@ -4,61 +4,68 @@ import * as React from "react";
 import { AlertColor, Box, Checkbox, Typography } from "@mui/material";
 import { withStyles } from "@mui/styles";
 import {
-  emailImage,
-  optionsStateName,
-  userImage,
+	emailImage,
+	optionsStateName,
+	userImage,
 } from "../../utils/data/businessdetailsandPayout/Busness.data";
 import { modalConstants } from "../../utils/data/constants/loginRegistration";
-import { Buttons, Drawers, DropDownLogin, Inputs, OtpPass } from "../common";
+import {
+	Buttons,
+	Drawers,
+	DropDownLogin,
+	Inputs,
+	OtpPass,
+} from "../common";
 import { navSate } from "../common/Navbar/Navbar";
 
 import { registeredStyles } from "./RegisteredNowPage.Styles";
 import { ErrorMessage, Form, Formik } from "formik";
 import * as Yup from "yup";
 interface RegisteredNowPageProps {
-  open: boolean;
-  toogleDrawer: (type?: string) => void;
-  classes: any;
-  handleChange: (e: any) => void;
-  state: navSate;
-  handleOnClick: () => void;
-  handleChangePassword?: (e: any) => void;
-  confirmPassChangehandle?: (password: any) => void;
-  handleError: (open: boolean, type: AlertColor, message: string) => void;
+	open: boolean;
+	toogleDrawer: (type?: string) => void;
+	classes: any;
+	handleChange: (e: any) => void;
+	state: navSate;
+	handleOnClick: () => void;
+	handleChangePassword?: (e: any) => void;
+	confirmPassChangehandle?: (password: any) => void;
+	handleError: (open: boolean, type: AlertColor, message: string) => void;
 }
 
 interface RegisteredNowPageState {
-  errorEmail: string;
-  isChecked: boolean;
-  error: string;
+	errorEmail: string;
+	isChecked: boolean;
+	error: string;
 }
-
+const letters = /^[a-zA-Z]{2,40}( [a-zA-Z]{2,40})+$/;
 class RegisteredNowPage extends React.Component<
-  RegisteredNowPageProps,
-  RegisteredNowPageState
+	RegisteredNowPageProps,
+	RegisteredNowPageState
 > {
-  constructor(props: RegisteredNowPageProps) {
-    super(props);
-    this.state = {
-      isChecked: false,
-      errorEmail: "",
-      error: "",
-    };
-  }
+	constructor(props: RegisteredNowPageProps) {
+		super(props);
+		this.state = {
+			isChecked: false,
+			errorEmail: "",
+			error: "",
+		};
+	}
 
-  handleNavigate = () => {
-    this.props.toogleDrawer(modalConstants.VERIFICATION_DRAWER);
-    this.setState({
-      isChecked: false,
-      errorEmail: "",
-      error: "",
-    });
-  };
+	handleNavigate = () => {
+		this.props.toogleDrawer(modalConstants.VERIFICATION_DRAWER);
+		this.setState({
+			isChecked: false,
+			errorEmail: "",
+			error: "",
+		});
+	};
 
 	registeredSchema = Yup.object().shape({
 		fname: Yup.string()
+			.matches(letters, "Name should only contain alphabetical letters")
 			.min(2, "Too Short!")
-			.max(50, "Too Long!")
+			.max(64, "Too Long!")
 			.required("Please fill this field full name"),
 		mobileNumber: Yup.string()
 			.matches(/^[7-9][0-9]{9}$/, "Phone number is not valid")
@@ -202,23 +209,23 @@ class RegisteredNowPage extends React.Component<
 											/>
 										</Box>
 
-                    <Box>
-                      <Buttons
-                        type="submit"
-                        disabled={false}
-                        title="Register now"
-                        handleClick={() => {}}
-                      />
-                    </Box>
-                  </Box>
-                </Form>
-              );
-            }}
-          </Formik>
-        </Box>
-      </Drawers>
-    );
-  }
+										<Box>
+											<Buttons
+												type="submit"
+												disabled={false}
+												title="Register now"
+												handleClick={() => {}}
+											/>
+										</Box>
+									</Box>
+								</Form>
+							);
+						}}
+					</Formik>
+				</Box>
+			</Drawers>
+		);
+	}
 }
 
 export default withStyles(registeredStyles)(RegisteredNowPage);

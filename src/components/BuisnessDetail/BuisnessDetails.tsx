@@ -32,6 +32,7 @@ interface BuisnessDetailsProps {
 }
 interface BuisnessDetailsState {}
 
+const letters = /^[a-zA-Z]{2,40}( [a-zA-Z]{2,40})+$/;
 class BuisnessDetails extends Component<
 	BuisnessDetailsProps,
 	BuisnessDetailsState
@@ -45,12 +46,13 @@ class BuisnessDetails extends Component<
 		// image: Yup.string().required("image is "),
 		bname: Yup.string()
 			.required("buseness name should not be empty")
-			.min(2, "busness name is too short")
-			.max(50, "too long"),
+			.min(8, "busness name is too short")
+			.max(64, "too long"),
 		owner: Yup.string()
 			.required("owner name should not be empty")
+			.matches(letters, "Name should only contain alphabetical letters")
 			.min(2, "owner name is too short")
-			.max(50, "too long"),
+			.max(64, "too long"),
 		GSTIN: Yup.string()
 			.required("GSTIN number should not be empty")
 			.min(5, "GSTIN number is too short")

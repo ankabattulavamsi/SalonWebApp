@@ -8,6 +8,7 @@ import withRouter from "../../../hoc/withRouter";
 interface PaymentProps {
 	navigate: any;
 }
+const letters = /^[a-zA-Z]{2,40}( [a-zA-Z]{2,40})+$/;
 class CreditCardPayment extends Component<PaymentProps> {
 	state = {
 		cardNumber: "",
@@ -28,6 +29,10 @@ class CreditCardPayment extends Component<PaymentProps> {
 		} else if (!this.state.cardName) {
 			const notify = () =>
 				toast.warn("Please Enter proper name of card holder!");
+			notify();
+		} else if (!this.state.cardName.match(letters)) {
+			const notify = () =>
+				toast.warn("Name should only contain albhabetical letters!");
 			notify();
 		} else if (!this.state.date) {
 			const notify = () => toast.warn("Please select the date");

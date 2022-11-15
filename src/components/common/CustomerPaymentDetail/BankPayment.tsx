@@ -21,7 +21,7 @@ import {
 interface PaymentProps {
 	navigate: any;
 }
-
+const letters = /^[a-zA-Z]{2,40}( [a-zA-Z]{2,40})+$/;
 class BankPayment extends Component<PaymentProps> {
 	state = {
 		chooseBank: "Select bank",
@@ -39,6 +39,10 @@ class BankPayment extends Component<PaymentProps> {
 		if (this.state.nameOfBankHolder === "") {
 			const notify = () =>
 				toast.warn("Please Enter the name of Bank holder!");
+			notify();
+		} else if (!this.state.nameOfBankHolder.match(letters)) {
+			const notify = () =>
+				toast.warn("Name should only contain albhabetical letters!");
 			notify();
 		} else if (!this.state.accountNum) {
 			const notify = () => toast.warn("Please Enter Account Number!");
