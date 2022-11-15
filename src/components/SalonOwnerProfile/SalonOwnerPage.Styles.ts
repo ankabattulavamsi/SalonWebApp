@@ -8,6 +8,15 @@ export const Styles: any = (theme: any) => ({
     textTransform: "capitalize",
     color: "#88878f",
   },
+  nlButtonName: {
+    fontFamily: "Fira Sans",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: "1.25rem !important",
+    lineHeight: "1.625rem !important",
+    textTransform: "capitalize",
+    color: "#272522 !important",
+  },
   buttonContainer: {
     height: "6rem !important",
     display: "flex",
@@ -156,9 +165,9 @@ export const Styles: any = (theme: any) => ({
       alignItems: "center",
       backgroundColor: "#f0f0f0 !important",
       borderRadius: "5px !important",
-      '@media only screen and (max-width: 600px) ': {
+      "@media only screen and (max-width: 600px) ": {
         width: "100%",
-      }
+      },
     },
   },
 

@@ -67,11 +67,15 @@ class SalonNavbar extends Component<salonProps, salonState> {
     this.setState({
       dialogOpen: true,
     });
+    // if (typeof window != "undefined" && window.document) {
+    //   document.body.style.overflow = "hidden";
+    // }
   };
   handleDialogClose = () => {
     this.setState({
       dialogOpen: false,
     });
+    // document.body.style.overflow = "unset";
   };
 
   fetchdata = async () => {
@@ -147,6 +151,10 @@ class SalonNavbar extends Component<salonProps, salonState> {
       this.getLocation();
     }
   }
+  componentWillUnmount() {
+    document.body.style.overflow = "unset";
+  }
+
   onClickOpenCustomerCart = () => {
     this.props.navigate("/customer/cart-items");
   };

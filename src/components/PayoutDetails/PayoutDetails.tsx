@@ -252,7 +252,7 @@ class PayoutDetails extends Component<
 												name="upiAddress"
 												value={this.props.state.upiAddress}
 												label="UPI"
-												placeholder="Enter Upi address                               @ybl"
+												placeholder="Enter Upi address                           @ybl"
 												// icon={yblImage}
 												handleChange={(e) => {
 													this.props.handleChange(e);

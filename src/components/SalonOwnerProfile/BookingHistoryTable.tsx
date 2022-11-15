@@ -72,6 +72,7 @@ class BookingHistoryTable extends Component {
             mt: 5,
             p: { xs: 0 },
           }}
+          className={classes.salonOwnerbookinghistory}
         >
           {/* <Grid item sx={{ mt: "16px", mb: { xs: "25px !important" } }}>
             <Typography

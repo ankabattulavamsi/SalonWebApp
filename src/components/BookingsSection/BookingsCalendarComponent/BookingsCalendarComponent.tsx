@@ -64,13 +64,14 @@ class BookingsCalendarComponent extends Component<any> {
                 >
                   <Box
                     sx={{
-                      px: { md: "2.8em", sm: "1.3em", xs: "0.26em" },
+                      px: { md: "2.6em", sm: "1.3em", xs: "0.26em" },
                       py: { md: "15px", sm: 2.3, xs: "5px" },
                       backgroundColor:
                         Number(date.date) === this.state.activeDate
                           ? "#E7A356"
                           : "#FFF",
                       flexDirection: "column",
+                      width: { md: "9em" },
                     }}
                     className="calenderTextContainer"
                     onClick={() => this.handleActiveDate(date.date)}
