@@ -110,7 +110,7 @@ class PayoutDetails extends Component<
 				<Drawers
 					open={this.props.open}
 					toggleDrawer={() => toggleFunc(modalConstants.PAYOUT_DRAWER)}>
-					<Box sx={{ padding: "0px !important" }} className="drawerSize">
+					<Box>
 						<Box>
 							<Typography className={classes.heading}>
 								Payout Details
@@ -118,7 +118,7 @@ class PayoutDetails extends Component<
 						</Box>
 						<Box
 							sx={{
-								width: "90%",
+								width: "100%",
 								mx: "auto",
 								display: "flex",
 								justifyContent: "center",
@@ -168,7 +168,7 @@ class PayoutDetails extends Component<
 									}}>
 									<Form>
 										<Box
-											sx={{ mt: 2, width: "90%", mx: "auto" }}
+											sx={{ mt: 2, width: "100%", mx: "auto" }}
 											className="scrollbar--hide">
 											<Inputs
 												handleChange={this.props.handleChange}
@@ -220,7 +220,7 @@ class PayoutDetails extends Component<
 												display: "flex",
 												flexDirection: "column",
 												justifyContent: "flex-end",
-												width: "90%",
+												width: "100%",
 												ml: 0.5,
 												mb: 2,
 												mx: "auto",
@@ -246,14 +246,14 @@ class PayoutDetails extends Component<
 										this.handleNavigate();
 									}}>
 									<Form>
-										<Box sx={{ mt: 2, width: "90%", mx: "auto" }}>
+										<Box sx={{ mt: 2, width: "100%", mx: "auto" }}>
 											<Inputs
 												type="text"
 												name="upiAddress"
 												value={this.props.state.upiAddress}
 												label="UPI"
-												placeholder="Enter Upi address"
-												icon={yblImage}
+												placeholder="Enter Upi address                               @ybl"
+												// icon={yblImage}
 												handleChange={(e) => {
 													this.props.handleChange(e);
 												}}
@@ -265,8 +265,9 @@ class PayoutDetails extends Component<
 												display: "flex",
 												flexDirection: "column",
 												justifyContent: "flex-end",
-												width: "90%",
+												width: "100%",
 												ml: 0.5,
+												mt: 2,
 												mb: 2,
 												mx: "auto",
 											}}>

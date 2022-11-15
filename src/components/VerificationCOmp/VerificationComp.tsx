@@ -65,7 +65,7 @@ class VerificationComp extends Component<
 				toggleDrawer={() =>
 					this.props.handleToggle(modalConstants.VERIFICATION_DRAWER)
 				}>
-				<Box sx={{ padding: "0px !important" }} className="drawerSize">
+				<Box>
 					<Box>
 						<Typography className={classes.heading}>
 							Verification

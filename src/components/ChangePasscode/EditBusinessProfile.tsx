@@ -79,7 +79,7 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
 			<Drawers
 				open={open}
 				toggleDrawer={() => this.props.onCloseEditBModel()}>
-				<Box sx={{ padding: "0px !important" }} className="drawerSize">
+				<Box>
 					<Typography variant="h5" className={classes.busText}>
 						Edit Business Profile
 					</Typography>
@@ -96,8 +96,8 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
 					}}
 					validationSchema={this.businessEditSchema}
 					onSubmit={() => this.props.onCloseEditBModel()}>
-					<Form 
-					className={classes.formAlignProp}
+					<Form
+						className={classes.formAlignProp}
 						onSubmit={(e) => {
 							e.preventDefault();
 							this.props.onCloseEditBModel();
@@ -109,9 +109,9 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
 									display: "flex",
 									justifyContent: "flex-start",
 									gap: 2,
-									width: "90%",
+									width: "100%",
 									mx: "auto",
-									ml: 0.5
+									ml: 0.5,
 								}}>
 								<Box width={"30%"}>
 									<Box
@@ -154,7 +154,7 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
 									</Box>
 								</Box>
 							</Box>
-							<Box sx={{ mt: 1, width: "90%", mx: "auto" }}>
+							<Box sx={{ mt: 1, width: "100%", mx: "auto" }}>
 								<Inputs
 									label={"Business name"}
 									id={`${1}`}
@@ -211,7 +211,7 @@ export class EditBusinessProfile extends Component<EditProfileProps> {
 									ml: 0.5,
 									mb: 2,
 									mt: 1,
-									width: "90%",
+									width: "100%",
 									mx: "auto",
 								}}>
 								<Buttons
