@@ -16,7 +16,7 @@ export class Gallery extends Component {
 		const { classes }: any = this.props;
 		return (
 			<Box>
-				<Container maxWidth="lg">
+				<Container maxWidth="lg" sx={{ padding: "0px !important" }}>
 					<Box className={classes.titlebox}>
 						<Box>
 							<Typography

@@ -121,7 +121,6 @@ export const BlogStyles: any = {
 	},
 	salonBlogCard: {
 		marginTop: "5% !important",
-		paddingBottom: "40px !important",
 		"&:hover": {
 			boxShadow: "-2px 10px 20px 10px #efefef",
 			borderRadius: "10px !important",

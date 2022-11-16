@@ -32,7 +32,7 @@ class DownloadAdvertiementSection extends Component<
 					mb: 5,
 					mt: { xs: 5, md: 15 },
 				}}>
-				<Container maxWidth="lg" sx={{ mt: 8 }}>
+				<Container maxWidth="lg" sx={{ mt: 8, padding: "0px !important" }}>
 					<Grid container columnSpacing={2}>
 						<Grid item md={6} sm={12} xs={11}>
 							<>

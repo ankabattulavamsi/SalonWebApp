@@ -36,7 +36,6 @@
 	.react-multiple-carousel__arrow
 	.react-multiple-carousel__.arrow--right {
 	background: #ebb273 !important;
-	
 }
 .corosel-team-experts .react-multiple-carousel__arrow::before {
 	background-color: #272522;
@@ -52,17 +51,22 @@
 
 .corosel-team-experts .react-multiple-carousel__arrow {
 	background-color: transparent !important;
-	margin-top: 10%;
 }
 
 .corosel-team-experts .react-multiple-carousel__arrow--right::before {
 	border-top-left-radius: 20px !important;
 	border-bottom-left-radius: 20px !important;
 }
+.corosel-team-experts .react-multiple-carousel__arrow--right {
+	margin-right: 10px !important;
+}
 
 .corosel-team-experts .react-multiple-carousel__arrow--left::before {
 	border-top-right-radius: 10px !important;
 	border-bottom-right-radius: 10px !important;
+}
+.corosel-team-experts .react-multiple-carousel__arrow--left {
+	margin-left: -12px !important;
 }
 .underline--our-expert-team::after {
 	content: "";
