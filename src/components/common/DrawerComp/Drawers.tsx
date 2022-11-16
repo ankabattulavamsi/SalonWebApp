@@ -20,7 +20,6 @@ class Drawers extends Component<DrawersProps, {}> {
 		return (
 			<>
 				<Drawer
-					disableScrollLock={true}
 					anchor={anchor ? anchor : "right"}
 					open={open}
 					onClose={() => toggleDrawer()}>

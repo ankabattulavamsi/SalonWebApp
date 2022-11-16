@@ -5,7 +5,6 @@ import {
 	Container,
 	Dialog,
 	Divider,
-	Grid,
 	IconButton,
 	Typography,
 } from "@mui/material";
@@ -94,9 +93,7 @@ class ChangePasscode extends Component<ChangeCodeProps> {
 				<Container>
 					<Dialog
 						onClose={onCloseChangeModel}
-						disableScrollLock={true}
 						open={open}
-						// maxWidth="md"
 						className={classes.editableDialogue}>
 						<IconButton
 							aria-label="close"

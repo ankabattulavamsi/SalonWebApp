@@ -63,9 +63,13 @@ class RegisteredNowPage extends React.Component<
 
 	registeredSchema = Yup.object().shape({
 		fname: Yup.string()
-			.matches(letters, "Name should only contain alphabetical letters")
+
 			.min(2, "Too Short!")
 			.max(64, "Too Long!")
+			.matches(
+				letters,
+				"Name should only contain alphabetical letters with name and title"
+			)
 			.required("Please fill this field full name"),
 		mobileNumber: Yup.string()
 			.matches(/^[7-9][0-9]{9}$/, "Phone number is not valid")
